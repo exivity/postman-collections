@@ -5792,7 +5792,26 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/workflows/{{workflow_id}}/run",
+                "url": {
+                  "raw": "{{base_url}}/v1/workflows/{{workflow_id}}/run?date",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflows",
+                    "{{workflow_id}}",
+                    "run"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "",
+                      "equals": false,
+                      "description": "The date to manually run the workflow for (in `YYYY-MM-DD` format). Defaults to the current date."
+                    }
+                  ]
+                },
                 "description": "Test description"
               },
               "response": []
@@ -8941,7 +8960,7 @@
   ],
   "variable": [
     {
-      "id": "91c584fe-b99b-4307-a090-70dc2cdbe339",
+      "id": "39ef6d31-b045-44d8-87dd-a0a1aad2a3d3",
       "key": "component",
       "value": "use",
       "type": "string",
