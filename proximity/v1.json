@@ -481,36 +481,22 @@
                 "auth": {
                   "type": "noauth"
                 },
-                "method": "GET",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
                     "value": "application/json"
                   }
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": ""
+                  "raw": "{\n    \"email_address\": \"{{email_address}}\"\n}"
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/auth/resetpassword?email_address=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "auth",
-                    "resetpassword"
-                  ],
-                  "query": [
-                    {
-                      "key": "email_address",
-                      "value": "",
-                      "equals": true,
-                      "description": "E-mail address of the user to request a password reset for."
-                    }
-                  ]
-                }
+                "url": "{{base_url}}/v1/auth/resetpassword"
               },
               "response": []
             },
@@ -1426,7 +1412,7 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "872d8b1f-e5e8-43b5-8646-33fa85db617e",
+                    "id": "dec78d38-7f57-4c77-857c-3fede934e468",
                     "type": "text/javascript",
                     "exec": [
                       "pm.environment.set(\"date\", \"20170101\");",
@@ -1445,7 +1431,7 @@
                 ],
                 "body": {},
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{start}}&start_date=&end_date=&preview&limit&break_at",
+                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{date}}&start_date=&end_date=&preview&limit&break_at",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1458,7 +1444,7 @@
                   "query": [
                     {
                       "key": "date",
-                      "value": "{{start}}",
+                      "value": "{{date}}",
                       "equals": true,
                       "description": "Date to run the fransformer for (in `YYYY-MM-DD` format)."
                     },
@@ -1531,9 +1517,10 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "cb1b0047-a879-4077-b2d8-a7602d58d4c8",
+                    "id": "4696ad6a-4660-4dda-a0f2-9e21805b1261",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.environment.set(\"date\", \"20170101\");",
                       ""
                     ]
                   }
@@ -1549,7 +1536,7 @@
                 ],
                 "body": {},
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{start}}&start_date=&end_date=&preview&limit&break_at",
+                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{date}}&start_date=&end_date=&preview&limit&break_at",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1562,7 +1549,7 @@
                   "query": [
                     {
                       "key": "date",
-                      "value": "{{start}}",
+                      "value": "{{date}}",
                       "equals": true,
                       "description": "Date to run the fransformer for (in `YYYY-MM-DD` format)."
                     },
@@ -8961,7 +8948,7 @@
   ],
   "variable": [
     {
-      "id": "9c4a277e-90eb-46e4-bade-a9e94f8e0ec0",
+      "id": "8a0503af-df67-4713-b691-0abc98797fce",
       "key": "component",
       "value": "use",
       "type": "string",
