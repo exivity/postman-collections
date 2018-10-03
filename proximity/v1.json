@@ -532,7 +532,7 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/x-www-form-urlencoded"
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
@@ -541,45 +541,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": ""
+                  "raw": "{\n\t\"token\": \"{{reset_token}}\",\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\",\n\t\"password_confirmation\": \"{{password_confirmation}}\"\n}"
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/auth/resetpassword?token=&username=&password=&password_confirmation=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "auth",
-                    "resetpassword"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "",
-                      "equals": true,
-                      "description": "The password reset token obtained from the password reset e-mail."
-                    },
-                    {
-                      "key": "username",
-                      "value": "",
-                      "equals": true,
-                      "description": "The username to reset the password for."
-                    },
-                    {
-                      "key": "password",
-                      "value": "",
-                      "equals": true,
-                      "description": "The new password."
-                    },
-                    {
-                      "key": "password_confirmation",
-                      "value": "",
-                      "equals": true,
-                      "description": "The new password."
-                    }
-                  ]
-                },
+                "url": "{{base_url}}/v1/auth/resetpassword",
                 "description": "Using token sent in email"
               },
               "response": []
@@ -8948,7 +8912,7 @@
   ],
   "variable": [
     {
-      "id": "8a0503af-df67-4713-b691-0abc98797fce",
+      "id": "5df6d4f5-94b0-44f1-b6eb-f227b5ddd094",
       "key": "component",
       "value": "use",
       "type": "string",
