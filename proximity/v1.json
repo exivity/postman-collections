@@ -1426,9 +1426,10 @@
                 {
                   "listen": "prerequest",
                   "script": {
-                    "id": "cb1b0047-a879-4077-b2d8-a7602d58d4c8",
+                    "id": "872d8b1f-e5e8-43b5-8646-33fa85db617e",
                     "type": "text/javascript",
                     "exec": [
+                      "pm.environment.set(\"date\", \"20170101\");",
                       ""
                     ]
                   }
@@ -8960,7 +8961,7 @@
   ],
   "variable": [
     {
-      "id": "39ef6d31-b045-44d8-87dd-a0a1aad2a3d3",
+      "id": "9c4a277e-90eb-46e4-bade-a9e94f8e0ec0",
       "key": "component",
       "value": "use",
       "type": "string",
