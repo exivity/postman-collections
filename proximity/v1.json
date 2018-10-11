@@ -1618,7 +1618,8 @@
                       "description": "An integer (positive or negative) that will be used to add/subtract from the date the scheduler runs to determine the end of the date range."
                     }
                   ]
-                }
+                },
+                "description": "**@deprecated** This method will be removed in a future version of the API"
               },
               "response": []
             },
@@ -8914,7 +8915,7 @@
   ],
   "variable": [
     {
-      "id": "8858beda-1005-4ee1-a374-1c7a7383cbc3",
+      "id": "71888338-508d-4fae-a406-43e3eb2b85cb",
       "key": "component",
       "value": "use",
       "type": "string",
