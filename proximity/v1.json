@@ -1656,7 +1656,8 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/transformers/{{transformer_name}}/schedule"
+                "url": "{{base_url}}/v1/transformers/{{transformer_name}}/schedule",
+                "description": "**@deprecated** This method will be removed in a future version of the API"
               },
               "response": []
             },
@@ -8915,7 +8916,7 @@
   ],
   "variable": [
     {
-      "id": "71888338-508d-4fae-a406-43e3eb2b85cb",
+      "id": "b7f23b7f-f08e-40b5-a450-f1856302e07c",
       "key": "component",
       "value": "use",
       "type": "string",
