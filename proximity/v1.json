@@ -1041,7 +1041,8 @@
                       "description": "Extractor arguments"
                     }
                   ]
-                }
+                },
+                "description": "**@deprecated** This method will be removed in a future version of the API"
               },
               "response": []
             },
@@ -1078,7 +1079,8 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/extractors/{{extractor_name}}/schedule"
+                "url": "{{base_url}}/v1/extractors/{{extractor_name}}/schedule",
+                "description": "**@deprecated** This method will be removed in a future version of the API"
               },
               "response": []
             },
@@ -8912,7 +8914,7 @@
   ],
   "variable": [
     {
-      "id": "50a6c6ba-949e-4941-9546-447909269418",
+      "id": "8858beda-1005-4ee1-a374-1c7a7383cbc3",
       "key": "component",
       "value": "use",
       "type": "string",
