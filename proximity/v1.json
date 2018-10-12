@@ -1731,6 +1731,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "f59b0f92-c0c9-4738-97ce-2f6f9e5881d9",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -1745,7 +1746,6 @@
                       "// Hardcode dset_id, because we can't insert one manually",
                       "pm.environment.set(\"dset_id\", \"allauto.usage\");"
                     ],
-                    "id": "f59b0f92-c0c9-4738-97ce-2f6f9e5881d9",
                     "type": "text/javascript"
                   }
                 }
@@ -1771,6 +1771,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "780a3220-8642-4e24-8168-eb8fac4de9a8",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -1797,7 +1798,6 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
                     ],
-                    "id": "780a3220-8642-4e24-8168-eb8fac4de9a8",
                     "type": "text/javascript"
                   }
                 }
@@ -1811,7 +1811,23 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/dsets/{{dset_id}}",
+                "url": {
+                  "raw": "{{base_url}}/v1/dsets/:name",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "dsets",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "key": "name",
+                      "value": "{{dset_id}}"
+                    }
+                  ]
+                },
                 "description": "Test description"
               },
               "response": []
@@ -2251,7 +2267,8 @@
                   "mode": "raw",
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\"\r\n    }\r\n  }\r\n}"
                 },
-                "url": "{{base_url}}/v1/accounts/{{account_id}}"
+                "url": "{{base_url}}/v1/accounts/{{account_id}}",
+                "description": "This endpoints is currently in development but not yet available in the stable versions of Exivity."
               },
               "response": []
             },
@@ -4485,7 +4502,8 @@
                       "description": "An integer (positive or negative) that will be used to add/subtract from the date the scheduler runs to determine the end of the date range."
                     }
                   ]
-                }
+                },
+                "description": "**@deprecated** This method will be removed in a future version of the API"
               },
               "response": []
             },
@@ -4522,7 +4540,8 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/reports/{{report_id}}/schedule"
+                "url": "{{base_url}}/v1/reports/{{report_id}}/schedule",
+                "description": "**@deprecated** This method will be removed in a future version of the API"
               },
               "response": []
             },
@@ -8916,7 +8935,7 @@
   ],
   "variable": [
     {
-      "id": "b7f23b7f-f08e-40b5-a450-f1856302e07c",
+      "id": "d446ae3b-1297-4773-aff5-659ca635a95a",
       "key": "component",
       "value": "use",
       "type": "string",
