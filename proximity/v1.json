@@ -8112,7 +8112,6 @@
                   "listen": "test",
                   "script": {
                     "id": "691603e3-ca06-4b11-bd78-11b28338be01",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -8127,11 +8126,15 @@
                       "        \"flags\"",
                       "    ]);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "request": {
+                "auth": {
+                  "type": "noauth"
+                },
                 "method": "GET",
                 "header": [
                   {
@@ -8614,7 +8617,7 @@
   ],
   "variable": [
     {
-      "id": "f41caead-b6b0-438a-8864-9bcd512f47a1",
+      "id": "4915b445-a279-41a0-97f7-09cf0616b4ed",
       "key": "component",
       "value": "use",
       "type": "string",
