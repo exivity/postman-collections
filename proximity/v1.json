@@ -8133,7 +8133,10 @@
               ],
               "request": {
                 "auth": {
-                  "type": "noauth"
+                  "type": "bearer",
+                  "bearer": {
+                    "token": ""
+                  }
                 },
                 "method": "GET",
                 "header": [
@@ -8617,7 +8620,7 @@
   ],
   "variable": [
     {
-      "id": "4915b445-a279-41a0-97f7-09cf0616b4ed",
+      "id": "1c381ccb-0d94-469e-9d83-dbc803b4c43f",
       "key": "component",
       "value": "use",
       "type": "string",
