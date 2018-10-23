@@ -8566,7 +8566,7 @@
             },
             {
               "_postman_id": "cc108f7f-37c8-40cc-aa37-e998230391c8",
-              "name": "Get available flags Copy",
+              "name": "Get available flags (unauthenticated)",
               "event": [
                 {
                   "listen": "test",
@@ -8849,7 +8849,7 @@
   ],
   "variable": [
     {
-      "id": "3abb1e27-b21c-40fc-8f87-6b0bfbf26156",
+      "id": "9950600e-366e-4dbb-a8bf-01c3629386d3",
       "key": "component",
       "value": "use",
       "type": "string",
