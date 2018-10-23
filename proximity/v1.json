@@ -8578,7 +8578,6 @@
                   "listen": "test",
                   "script": {
                     "id": "55029f4a-693b-4da8-b618-a952a72267e3",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -8596,11 +8595,18 @@
                       "        \"glass\",",
                       "    ]);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": ""
+                  }
+                },
                 "method": "GET",
                 "header": [
                   {
@@ -8744,7 +8750,7 @@
   ],
   "variable": [
     {
-      "id": "fa2e2aa4-32be-4d7c-85d1-5a31a95a82d1",
+      "id": "b4f6ab93-bc2b-4101-9c6d-98b5c38cea51",
       "key": "component",
       "value": "use",
       "type": "string",
