@@ -8337,13 +8337,12 @@
             },
             {
               "_postman_id": "4ccda334-ed65-4f58-8825-ba2960cf275f",
-              "name": "Get version information Copy",
+              "name": "Get version information (unauthenticated)",
               "event": [
                 {
                   "listen": "test",
                   "script": {
                     "id": "96461090-a046-41de-94fd-d53e1d9c35fe",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -8358,11 +8357,18 @@
                       "        \"components\"",
                       "    ]);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": ""
+                  }
+                },
                 "method": "GET",
                 "header": [
                   {
@@ -8732,7 +8738,7 @@
   ],
   "variable": [
     {
-      "id": "16e8d09b-48c5-4d2a-a4ef-3ce33de854be",
+      "id": "6e7b268e-446b-4a60-89a0-91027ec4851d",
       "key": "component",
       "value": "use",
       "type": "string",
