@@ -8461,7 +8461,6 @@
                   "listen": "test",
                   "script": {
                     "id": "94267270-91b7-4466-bddd-2b7802150c07",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -8475,11 +8474,18 @@
                       "        \"SUPPORTS_PDF_EXPORT\",",
                       "    ]);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
               "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": ""
+                  }
+                },
                 "method": "GET",
                 "header": [
                   {
@@ -8738,7 +8744,7 @@
   ],
   "variable": [
     {
-      "id": "5d4019b7-7248-4dc6-a950-7a6516dd6a56",
+      "id": "fa2e2aa4-32be-4d7c-85d1-5a31a95a82d1",
       "key": "component",
       "value": "use",
       "type": "string",
