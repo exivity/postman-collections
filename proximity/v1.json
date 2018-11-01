@@ -2234,45 +2234,6 @@
               "response": []
             },
             {
-              "_postman_id": "479862ca-2881-4b34-b004-4e23d800f906",
-              "name": "Accounts - Run multiple operations",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "exec": [
-                      "// Currently, accounts are read-only",
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
-                      "});"
-                    ],
-                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\"\r\n    }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/accounts/{{account_id}}",
-                "description": "This endpoints is currently in development but not yet available in the stable versions of Exivity."
-              },
-              "response": []
-            },
-            {
               "_postman_id": "76943791-af40-9226-7984-d5199885e579",
               "name": "Delete an account",
               "event": [
@@ -2873,6 +2834,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
                       "// Currently, accounts are read-only",
                       "pm.test(\"Status code is 400\", function () {",
@@ -2882,7 +2844,6 @@
                       "// Hardcode account_id for now, se we have something to work with",
                       "pm.environment.set(\"account_id\", 1);"
                     ],
-                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "type": "text/javascript"
                   }
                 }
@@ -2901,7 +2862,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test\",\r\n\t\t\t\"servicecategory_id\": \"1\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/services",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
@@ -4305,7 +4266,6 @@
                   "listen": "test",
                   "script": {
                     "id": "266d70e3-6dbb-4251-a499-0fc67042cc61",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -4327,7 +4287,8 @@
                       "    pm.expect(response.report[0].error).to.eql(false);",
                       "    pm.expect(response.report[0].data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4355,7 +4316,7 @@
                   ]
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&consolidated=&progress=",
+                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&invoice_options&csv_delimiter=&csv_decimal_separator",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -4370,13 +4331,13 @@
                       "key": "start",
                       "value": "{{start}}",
                       "equals": true,
-                      "description": "The start of the date range (inclusive) you want to run the report for in `YYYYMMDD` format. Defaults to the current date."
+                      "description": "The start of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
                     },
                     {
                       "key": "end",
                       "value": "{{end}}",
                       "equals": true,
-                      "description": "The end of the date range (inclusive) you want to run the report for in `YYYYMMDD` format. Defaults to the current date."
+                      "description": "The end of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
                     },
                     {
                       "key": "dimension",
@@ -4418,19 +4379,31 @@
                       "key": "precision",
                       "value": "",
                       "equals": true,
-                      "description": "Specify `highest` to get raw precision, use configuration otherwise."
-                    },
-                    {
-                      "key": "consolidated",
-                      "value": "",
-                      "equals": true,
-                      "description": "When set to `1` and format is `pdf/invoice`, show all accounts on a single invoice. Defaults to `0`."
+                      "description": "Specify `highest` to get raw precision, use configuration otherwise. Defaults to `configuration`."
                     },
                     {
                       "key": "progress",
                       "value": "",
                       "equals": true,
                       "description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/\u00ednvoice` is never streamed. Defaults to `1`."
+                    },
+                    {
+                      "key": "invoice_options",
+                      "value": "",
+                      "equals": false,
+                      "description": "List of options for the pdf/invoice format, in a comma seperated list. Possible options: `consolidated`, `summary`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
+                    },
+                    {
+                      "key": "csv_delimiter",
+                      "value": "",
+                      "equals": true,
+                      "description": "The CSV delimiter to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `;`, `:`, `\\t`, `|`. Leave blank to use configuration."
+                    },
+                    {
+                      "key": "csv_decimal_separator",
+                      "value": "",
+                      "equals": false,
+                      "description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration."
                     }
                   ]
                 },
@@ -8750,7 +8723,7 @@
   ],
   "variable": [
     {
-      "id": "b4f6ab93-bc2b-4101-9c6d-98b5c38cea51",
+      "id": "9fd0d2af-8329-4e78-a84c-19cbc7d6c599",
       "key": "component",
       "value": "use",
       "type": "string",
