@@ -2956,8 +2956,7 @@
                   "script": {
                     "id": "cf358c40-8f8f-4990-b238-e79c1376240c",
                     "exec": [
-                      "// Hardcode account_id for now, se we have something to work with",
-                      "pm.environment.set(\"service_id\", 1);"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -3083,12 +3082,12 @@
                   "listen": "test",
                   "script": {
                     "id": "a9b33957-8d7c-45d2-a6c7-19a5150adb1b",
-                    "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8792,7 +8791,7 @@
   ],
   "variable": [
     {
-      "id": "59b66e71-9bce-4ec6-918e-d908ac86352d",
+      "id": "9b68907f-5844-4ed7-a3f6-c34d47e7a479",
       "key": "component",
       "value": "use",
       "type": "string",
