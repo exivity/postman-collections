@@ -3069,7 +3069,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"key\": \"key\",\n            \"description\": \"Virtual Network\",\n            \"unit_label\": \"Hours\",\n            \"type\": \"service_name_in_data\",\n            \"usage_col\": \"meter_id\",\n            \"consumption_col\": \"quantity\",\n            \"instance_col\": \"resourceUri\",\n            \"interval\": \"individually\",\n            \"charge_type\": \"automatic_per_unit\",\n            \"cogs_type\": \"none\",\n            \"proration_type\": \"none\"\n        }\n    }\n}"
+                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\"\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/services/{{service_id}}"
               },
@@ -8792,7 +8792,7 @@
   ],
   "variable": [
     {
-      "id": "d344b703-29bd-4cac-9a0d-6ef3694e56c4",
+      "id": "59b66e71-9bce-4ec6-918e-d908ac86352d",
       "key": "component",
       "value": "use",
       "type": "string",
