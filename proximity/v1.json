@@ -2757,7 +2757,6 @@
                   "listen": "test",
                   "script": {
                     "id": "b6d898f6-a5c3-44d2-a63f-8e6dcf40f387",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -2768,7 +2767,8 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -2836,13 +2836,44 @@
                   "script": {
                     "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
-                      "// Currently, accounts are read-only",
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
                       "});",
                       "",
-                      "// Hardcode account_id for now, se we have something to work with",
-                      "pm.environment.set(\"account_id\", 1);"
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"key\",",
+                      "        \"description\",",
+                      "        \"unit_label\",",
+                      "        \"dset\",",
+                      "        \"type\",",
+                      "        \"usage_col\",",
+                      "        \"consumption_col\",",
+                      "        \"instance_col\",",
+                      "        \"interval\",",
+                      "        \"charge_type\",",
+                      "        \"cogs_type\",",
+                      "        \"proration_type\",",
+                      "        \"created_at\",",
+                      "        \"updated_at\",",
+                      "        \"seen_at\"",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"service_id\", response.data.id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -2864,23 +2895,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/services?include=servicecategory",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "services"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "servicecategory",
-                      "type": "text"
-                    }
-                  ]
-                },
+                "url": "{{base_url}}/v1/services",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
               },
               "response": []
@@ -2893,7 +2908,6 @@
                   "listen": "test",
                   "script": {
                     "id": "fb5d5306-9599-42e7-80f6-d64e25137899",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -2924,25 +2938,27 @@
                       "        \"proration_type\",",
                       "        \"created_at\",",
                       "        \"updated_at\",",
-                      "        \"seen_at\"",
+                      "        \"seen_at\",",
+                      "        \"orphan\"",
                       "\t]);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "prerequest",
                   "script": {
                     "id": "cf358c40-8f8f-4990-b238-e79c1376240c",
-                    "type": "text/javascript",
                     "exec": [
                       "// Hardcode account_id for now, se we have something to work with",
                       "pm.environment.set(\"service_id\", 1);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8739,7 +8755,7 @@
   ],
   "variable": [
     {
-      "id": "5ac44bad-c1e4-4b41-97c0-e71e098e8f2f",
+      "id": "f6d0e5a0-0599-454f-8536-d5e02e02130e",
       "key": "component",
       "value": "use",
       "type": "string",
