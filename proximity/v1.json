@@ -3002,20 +3002,56 @@
                   "listen": "test",
                   "script": {
                     "id": "116e5453-c202-4a11-b1e6-668e872131bf",
-                    "type": "text/javascript",
                     "exec": [
-                      ""
-                    ]
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"key\",",
+                      "        \"description\",",
+                      "        \"unit_label\",",
+                      "        \"dset\",",
+                      "        \"type\",",
+                      "        \"usage_col\",",
+                      "        \"consumption_col\",",
+                      "        \"instance_col\",",
+                      "        \"interval\",",
+                      "        \"charge_type\",",
+                      "        \"cogs_type\",",
+                      "        \"proration_type\",",
+                      "        \"created_at\",",
+                      "        \"updated_at\",",
+                      "        \"seen_at\",",
+                      "        \"orphan\"",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "prerequest",
                   "script": {
                     "id": "e0c64cda-dd5d-4682-987e-d5d961ad0ec4",
-                    "type": "text/javascript",
                     "exec": [
                       ""
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -3033,7 +3069,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"key\": \"key\",\n            \"description\": \"Virtual Network\",\n            \"unit_label\": \"Hours\",\n            \"dset\": \"csp.usage\",\n            \"type\": \"service_name_in_data\",\n            \"usage_col\": \"meter_id\",\n            \"consumption_col\": \"quantity\",\n            \"instance_col\": \"resourceUri\",\n            \"interval\": \"individually\",\n            \"charge_type\": \"automatic_per_unit\",\n            \"cogs_type\": \"none\",\n            \"proration_type\": \"none\"\n        }\n    }\n}"
+                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"key\": \"key\",\n            \"description\": \"Virtual Network\",\n            \"unit_label\": \"Hours\",\n            \"type\": \"service_name_in_data\",\n            \"usage_col\": \"meter_id\",\n            \"consumption_col\": \"quantity\",\n            \"instance_col\": \"resourceUri\",\n            \"interval\": \"individually\",\n            \"charge_type\": \"automatic_per_unit\",\n            \"cogs_type\": \"none\",\n            \"proration_type\": \"none\"\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/services/{{service_id}}"
               },
@@ -8756,7 +8792,7 @@
   ],
   "variable": [
     {
-      "id": "d8e559df-0722-4068-a476-edd484537d24",
+      "id": "d344b703-29bd-4cac-9a0d-6ef3694e56c4",
       "key": "component",
       "value": "use",
       "type": "string",
