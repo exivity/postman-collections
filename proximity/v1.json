@@ -2865,7 +2865,8 @@
                       "        \"proration_type\",",
                       "        \"created_at\",",
                       "        \"updated_at\",",
-                      "        \"seen_at\"",
+                      "        \"seen_at\",",
+                      "        \"orphan\"",
                       "\t]);",
                       "});",
                       "",
@@ -8755,7 +8756,7 @@
   ],
   "variable": [
     {
-      "id": "f6d0e5a0-0599-454f-8536-d5e02e02130e",
+      "id": "d8e559df-0722-4068-a476-edd484537d24",
       "key": "component",
       "value": "use",
       "type": "string",
