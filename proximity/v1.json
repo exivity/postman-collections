@@ -7348,12 +7348,12 @@
                   "listen": "test",
                   "script": {
                     "id": "4ef46d69-e7d3-4168-a7c9-e20b4535b27b",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7362,7 +7362,8 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "text/csv"
+                    "value": "text/csv",
+                    "description": "Specify either text/csv or application/json."
                   }
                 ],
                 "body": {
@@ -8791,7 +8792,7 @@
   ],
   "variable": [
     {
-      "id": "af7090b3-2a0d-4e36-9f09-4ac47ea153fb",
+      "id": "984fbf53-9900-4d33-b6bf-f1d28de4da1c",
       "key": "component",
       "value": "use",
       "type": "string",
