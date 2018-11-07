@@ -2860,7 +2860,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"key1\": \"value1\",\r\n\t\t\t\t\"key2\": \"value2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"definition\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"metadatadefinition\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/metadata",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
@@ -9084,7 +9084,7 @@
   ],
   "variable": [
     {
-      "id": "297fa1f5-50ba-4a36-858f-53ce94238772",
+      "id": "13bffed5-edf4-4d20-8e88-be5c64cbd012",
       "key": "component",
       "value": "use",
       "type": "string",
