@@ -2860,7 +2860,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"fields\": {\r\n\t\t\t\t\"key1\": \"value1\",\r\n\t\t\t\t\"key2\": \"value2\"\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": {\r\n\t\t\t\t\"key1\": \"value1\",\r\n\t\t\t\t\"key2\": \"value2\"\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/metadatadefinitions",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
@@ -9370,7 +9370,7 @@
   ],
   "variable": [
     {
-      "id": "4ceb46df-c173-428f-be46-5f3a63e4805b",
+      "id": "c4041bd4-9367-4546-8b31-c7bd03427242",
       "key": "component",
       "value": "use",
       "type": "string",
