@@ -2860,9 +2860,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"key1\": \"value1\",\r\n\t\t\t\t\"key2\": \"value2\"\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"fields\": {\r\n\t\t\t\t\"key1\": \"value1\",\r\n\t\t\t\t\"key2\": \"value2\"\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/metadata",
+                "url": "{{base_url}}/v1/metadatadefinitions",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
               },
               "response": []
@@ -9370,7 +9370,7 @@
   ],
   "variable": [
     {
-      "id": "231a9f9b-a7c6-4c8b-8f82-7278f86f8c8b",
+      "id": "4ceb46df-c173-428f-be46-5f3a63e4805b",
       "key": "component",
       "value": "use",
       "type": "string",
