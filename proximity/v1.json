@@ -3320,7 +3320,7 @@
             },
             {
               "_postman_id": "754ffb3f-a8b7-46b3-8d13-8c37a625f4a6",
-              "name": "Delete a metadata definition",
+              "name": "Delete metadata",
               "event": [
                 {
                   "listen": "test",
@@ -9431,7 +9431,7 @@
   ],
   "variable": [
     {
-      "id": "3df22995-0b85-4722-8b55-a3debabb8a12",
+      "id": "4eeb883d-3d03-47f8-8e34-ee457ad20b6b",
       "key": "component",
       "value": "use",
       "type": "string",
