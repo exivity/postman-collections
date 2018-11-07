@@ -2877,8 +2877,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/metadatadefinitions",
-                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+                "url": "{{base_url}}/v1/metadatadefinitions"
               },
               "response": []
             },
@@ -9431,7 +9430,7 @@
   ],
   "variable": [
     {
-      "id": "4eeb883d-3d03-47f8-8e34-ee457ad20b6b",
+      "id": "842f6d17-71b1-4407-a57e-60c30445bb31",
       "key": "component",
       "value": "use",
       "type": "string",
