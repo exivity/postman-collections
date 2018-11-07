@@ -2756,6 +2756,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "0fe73c41-f52e-40fe-b9ca-b44fa9df95f3",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -2767,7 +2768,6 @@
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
                     ],
-                    "id": "0fe73c41-f52e-40fe-b9ca-b44fa9df95f3",
                     "type": "text/javascript"
                   }
                 }
@@ -2782,13 +2782,13 @@
                 ],
                 "body": {},
                 "url": {
-                  "raw": "{{base_url}}/v1/accounts?page[limit]&page[offset]&sort&filter[name]=&include=",
+                  "raw": "{{base_url}}/v1/metadata?page[limit]&page[offset]&sort&filter[name]=&include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "accounts"
+                    "metadata"
                   ],
                   "query": [
                     {
@@ -2822,8 +2822,7 @@
                       "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `budgets`, `users`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -9086,7 +9085,7 @@
   ],
   "variable": [
     {
-      "id": "56c9c43c-12f9-4af3-b8ec-5697b06c8498",
+      "id": "49e4d9ca-14c1-4308-910d-5053706b4843",
       "key": "component",
       "value": "use",
       "type": "string",
