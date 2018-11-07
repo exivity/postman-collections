@@ -3031,8 +3031,7 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}",
-                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+                "url": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}"
               },
               "response": []
             }
@@ -3194,8 +3193,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"country\": \"The Netherlands\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"definition\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"metadatadefinition\",\r\n\t\t\t\t\t\"id\": \"{{metadatadefinition_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/metadata",
-                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+                "url": "{{base_url}}/v1/metadata"
               },
               "response": []
             },
@@ -9430,7 +9428,7 @@
   ],
   "variable": [
     {
-      "id": "842f6d17-71b1-4407-a57e-60c30445bb31",
+      "id": "e465fedd-394d-41ce-ba8c-570da37f7f11",
       "key": "component",
       "value": "use",
       "type": "string",
