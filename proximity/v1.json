@@ -3202,7 +3202,7 @@
             },
             {
               "_postman_id": "9f872757-3764-4088-99dd-15a20493418f",
-              "name": "Retrieve a metadata definition",
+              "name": "Retrieve metadata",
               "event": [
                 {
                   "listen": "test",
@@ -9433,7 +9433,7 @@
   ],
   "variable": [
     {
-      "id": "39e0b2d8-b391-41b0-9e03-bc54c86ccb3d",
+      "id": "e04ecfdf-9a52-4e9d-aa51-b99c65b67bdd",
       "key": "component",
       "value": "use",
       "type": "string",
