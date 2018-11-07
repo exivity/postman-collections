@@ -2976,7 +2976,9 @@
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Retrieve a list of metadata\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -3013,7 +3015,9 @@
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Retrieve a list of services\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -3096,13 +3100,13 @@
                 ],
                 "body": {},
                 "url": {
-                  "raw": "{{base_url}}/v1/metadatadefinitions?page[limit]&page[offset]&sort&filter[name]=&include=",
+                  "raw": "{{base_url}}/v1/metadata?page[limit]&page[offset]&sort&filter[name]=&include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "metadatadefinitions"
+                    "metadata"
                   ],
                   "query": [
                     {
@@ -3133,7 +3137,7 @@
                       "key": "include",
                       "value": "",
                       "equals": true,
-                      "description": "Include additional related resources. Possible values: `metadata`."
+                      "description": "Include additional related resources. Possible values: `definition`, `accounts`."
                     }
                   ]
                 }
@@ -3142,7 +3146,7 @@
             },
             {
               "_postman_id": "346834f6-1a83-4b67-af11-eda964cf277e",
-              "name": "Add a new metadata definition",
+              "name": "Add new metadata",
               "event": [
                 {
                   "listen": "test",
@@ -3157,12 +3161,11 @@
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
+                      "    pm.expect(response.data.type).to.eql('metadata');",
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"name\",",
-                      "        \"fields\"",
+                      "\t\t\"values\"",
                       "\t]);",
                       "});",
                       "",
@@ -3170,7 +3173,7 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"metadatadefinition_id\", response.data.id);"
+                      "pm.environment.set(\"metadata_id\", response.data.id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -3190,9 +3193,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"country\": \"The Netherlands\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"definition\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"metadatadefinition\",\r\n\t\t\t\t\t\"id\": \"{{metadatadefinition_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/metadatadefinitions",
+                "url": "{{base_url}}/v1/metadata",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
               },
               "response": []
@@ -3328,7 +3331,9 @@
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "postman.setNextRequest(\"Delete a metadata definition\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -9428,7 +9433,7 @@
   ],
   "variable": [
     {
-      "id": "808827fe-1bec-45c8-8276-a7aaab1af680",
+      "id": "39e0b2d8-b391-41b0-9e03-bc54c86ccb3d",
       "key": "component",
       "value": "use",
       "type": "string",
