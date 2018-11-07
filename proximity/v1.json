@@ -2081,8 +2081,7 @@
                       "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `budgets`, `users`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -2819,7 +2818,7 @@
                       "key": "include",
                       "value": "",
                       "equals": true,
-                      "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `budgets`, `users`."
+                      "description": "Include additional related resources. Possible values: `definition`, `account`."
                     }
                   ]
                 }
@@ -2828,7 +2827,7 @@
             },
             {
               "_postman_id": "d0c9c66c-cc54-481b-b04a-c8c627fabecf",
-              "name": "Add a new account",
+              "name": "Add new metadata",
               "event": [
                 {
                   "listen": "test",
@@ -9085,7 +9084,7 @@
   ],
   "variable": [
     {
-      "id": "49e4d9ca-14c1-4308-910d-5053706b4843",
+      "id": "5f0565bd-d8e2-4c98-8800-162b10675807",
       "key": "component",
       "value": "use",
       "type": "string",
