@@ -2884,7 +2884,7 @@
             },
             {
               "_postman_id": "9da3b238-8a0d-4b2f-a042-29548e2ebcb0",
-              "name": "Retrieve an account",
+              "name": "Retrieve a metadata definition",
               "event": [
                 {
                   "listen": "test",
@@ -9385,7 +9385,7 @@
   ],
   "variable": [
     {
-      "id": "2f6433e0-22c7-4765-909a-e3546f7c97fd",
+      "id": "3bd472ea-04c9-43b4-b939-4b3ab5818b25",
       "key": "component",
       "value": "use",
       "type": "string",
