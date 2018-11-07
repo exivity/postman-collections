@@ -2781,13 +2781,13 @@
                 ],
                 "body": {},
                 "url": {
-                  "raw": "{{base_url}}/v1/metadatadefinition?page[limit]&page[offset]&sort&filter[name]=&include=",
+                  "raw": "{{base_url}}/v1/metadatadefinitions?page[limit]&page[offset]&sort&filter[name]=&include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "metadatadefinition"
+                    "metadatadefinitions"
                   ],
                   "query": [
                     {
@@ -2818,7 +2818,7 @@
                       "key": "include",
                       "value": "",
                       "equals": true,
-                      "description": "Include additional related resources. Possible values: `metadata`, `reports`."
+                      "description": "Include additional related resources. Possible values: `metadata`."
                     }
                   ]
                 }
@@ -9370,7 +9370,7 @@
   ],
   "variable": [
     {
-      "id": "af15469a-fc65-44a8-a90d-2494ebf45267",
+      "id": "b3870814-0453-4587-b04c-5b9a28a6b144",
       "key": "component",
       "value": "use",
       "type": "string",
