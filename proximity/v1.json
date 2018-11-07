@@ -2832,6 +2832,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
                       "// Currently, accounts are read-only",
                       "pm.test(\"Status code is 400\", function () {",
@@ -2841,7 +2842,6 @@
                       "// Hardcode account_id for now, se we have something to work with",
                       "pm.environment.set(\"account_id\", 1);"
                     ],
-                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "type": "text/javascript"
                   }
                 }
@@ -2860,9 +2860,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\"\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/accounts",
+                "url": "{{base_url}}/v1/metadata",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
               },
               "response": []
@@ -9084,7 +9084,7 @@
   ],
   "variable": [
     {
-      "id": "5f0565bd-d8e2-4c98-8800-162b10675807",
+      "id": "297fa1f5-50ba-4a36-858f-53ce94238772",
       "key": "component",
       "value": "use",
       "type": "string",
