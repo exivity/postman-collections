@@ -2751,7 +2751,7 @@
           "item": [
             {
               "_postman_id": "3e2d6297-30ae-4456-9734-dafbfeac37f2",
-              "name": "Retrieve a list of accounts",
+              "name": "Retrieve a list of metadata",
               "event": [
                 {
                   "listen": "test",
@@ -9086,7 +9086,7 @@
   ],
   "variable": [
     {
-      "id": "ec7e1cda-86a3-456f-84d5-82c2ac7009be",
+      "id": "56c9c43c-12f9-4af3-b8ec-5697b06c8498",
       "key": "component",
       "value": "use",
       "type": "string",
