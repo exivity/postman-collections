@@ -3057,6 +3057,321 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "3ad3fac9-009b-4377-92d1-71d4b55ede7f",
+          "name": "/metadatadefinition Copy",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "2c263738-df4c-40c2-af30-f6bd5dc18ca5",
+              "name": "Retrieve a list of metadata definitions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0fe73c41-f52e-40fe-b9ca-b44fa9df95f3",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {},
+                "url": {
+                  "raw": "{{base_url}}/v1/metadatadefinitions?page[limit]&page[offset]&sort&filter[name]=&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "metadatadefinitions"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": "",
+                      "equals": false,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "",
+                      "equals": false,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "equals": false,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "",
+                      "equals": true,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "equals": true,
+                      "description": "Include additional related resources. Possible values: `metadata`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "346834f6-1a83-4b67-af11-eda964cf277e",
+              "name": "Add a new metadata definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "        \"fields\"",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"metadatadefinition_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/metadatadefinitions",
+                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9f872757-3764-4088-99dd-15a20493418f",
+              "name": "Retrieve a metadata definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7778e902-8e93-4f8c-9f0b-fe62a0dbf6c7",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"metadatadefinition_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "        \"fields\"",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {},
+                "url": {
+                  "raw": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}/?include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "metadatadefinitions",
+                    "{{metadatadefinition_id}}",
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "equals": false,
+                      "description": "Include additional related resources."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "91f68337-d759-40bc-9951-84ff231886b9",
+              "name": "Update a metadata definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"metadatadefinition_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "        \"fields\"",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"city\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "754ffb3f-a8b7-46b3-8d13-8c37a625f4a6",
+              "name": "Delete a metadata definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}",
+                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "caf2ab7a-dd0d-4548-96e4-67dbfc493a83",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "c177daf4-85d6-4d3a-a699-4784c5a221ec",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
         }
       ]
     },
@@ -9113,7 +9428,7 @@
   ],
   "variable": [
     {
-      "id": "7b4d0792-c616-4b8d-a1c3-e68ad0396dc9",
+      "id": "a8b8fc4b-3572-4dda-b1b4-804767cf8dd1",
       "key": "component",
       "value": "use",
       "type": "string",
