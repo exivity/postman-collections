@@ -2746,7 +2746,7 @@
       "item": [
         {
           "_postman_id": "c2e05cde-638a-4228-a0b8-64bc93a68a3d",
-          "name": "/accounts Copy",
+          "name": "/metadata",
           "description": "",
           "item": [
             {
@@ -3005,6 +3005,28 @@
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
               },
               "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "caf2ab7a-dd0d-4548-96e4-67dbfc493a83",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "c177daf4-85d6-4d3a-a699-4784c5a221ec",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
             }
           ],
           "_postman_isSubFolder": true
@@ -9064,7 +9086,7 @@
   ],
   "variable": [
     {
-      "id": "bb85db4e-5609-4ebc-8d13-68511929a028",
+      "id": "ec7e1cda-86a3-456f-84d5-82c2ac7009be",
       "key": "component",
       "value": "use",
       "type": "string",
