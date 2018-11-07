@@ -3244,21 +3244,21 @@
                 ],
                 "body": {},
                 "url": {
-                  "raw": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}/?include",
+                  "raw": "{{base_url}}/v1/metadata/{{metadata_id}}/?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "metadatadefinitions",
-                    "{{metadatadefinition_id}}",
+                    "metadata",
+                    "{{metadata_id}}",
                     ""
                   ],
                   "query": [
                     {
                       "key": "include",
                       "value": "",
-                      "equals": false,
+                      "equals": true,
                       "description": "Include additional related resources."
                     }
                   ]
@@ -9433,7 +9433,7 @@
   ],
   "variable": [
     {
-      "id": "e04ecfdf-9a52-4e9d-aa51-b99c65b67bdd",
+      "id": "dd6f50e7-e36d-4c99-bba6-0f30c84e45e1",
       "key": "component",
       "value": "use",
       "type": "string",
