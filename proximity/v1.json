@@ -2889,6 +2889,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "7778e902-8e93-4f8c-9f0b-fe62a0dbf6c7",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -2912,7 +2913,6 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
                     ],
-                    "id": "7778e902-8e93-4f8c-9f0b-fe62a0dbf6c7",
                     "type": "text/javascript"
                   }
                 }
@@ -2927,14 +2927,14 @@
                 ],
                 "body": {},
                 "url": {
-                  "raw": "{{base_url}}/v1/accounts/{{account_id}}/?include",
+                  "raw": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}/?include",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "accounts",
-                    "{{account_id}}",
+                    "metadatadefinitions",
+                    "{{metadatadefinition_id}}",
                     ""
                   ],
                   "query": [
@@ -9385,7 +9385,7 @@
   ],
   "variable": [
     {
-      "id": "3bd472ea-04c9-43b4-b939-4b3ab5818b25",
+      "id": "a2c1e983-bf70-4a57-a5a1-ea5a9c716211",
       "key": "component",
       "value": "use",
       "type": "string",
