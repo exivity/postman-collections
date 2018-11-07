@@ -2956,13 +2956,13 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
                     "exec": [
                       "// Currently, accounts are read-only",
                       "pm.test(\"Status code is 400\", function () {",
                       "    pm.response.to.have.status(400);",
                       "});"
                     ],
-                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
                     "type": "text/javascript"
                   }
                 }
@@ -2981,9 +2981,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"id\": \"{{account_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified_test\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"city\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/accounts/{{account_id}}"
+                "url": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}"
               },
               "response": []
             },
@@ -9385,7 +9385,7 @@
   ],
   "variable": [
     {
-      "id": "5e9ac12a-c1e0-4426-a209-37aa591d3128",
+      "id": "c58dbbb1-8604-488e-b37d-4b88f8fb73d0",
       "key": "component",
       "value": "use",
       "type": "string",
