@@ -2834,13 +2834,31 @@
                   "script": {
                     "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
-                      "// Currently, accounts are read-only",
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
                       "});",
                       "",
-                      "// Hardcode account_id for now, se we have something to work with",
-                      "pm.environment.set(\"account_id\", 1);"
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflow');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "\t\t\"name\": \"test\",",
+                      "        \"description\": \"This is test task\",",
+                      "        \"locked\": false,",
+                      "\t});",
+                      "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"metadatadefinition_id\", response.data.id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -9370,7 +9388,7 @@
   ],
   "variable": [
     {
-      "id": "dc797f1b-c5e6-4764-92e7-44e970fc401f",
+      "id": "049844a7-74f4-4fc9-a874-c2c879bab01f",
       "key": "component",
       "value": "use",
       "type": "string",
