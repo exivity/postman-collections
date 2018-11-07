@@ -2827,7 +2827,7 @@
             },
             {
               "_postman_id": "3b3d6ede-cc81-45de-91dc-b8b44febe9fe",
-              "name": "Add new metadata",
+              "name": "Add a new metadata definition",
               "event": [
                 {
                   "listen": "test",
@@ -2860,7 +2860,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"key1\": \"value1\",\r\n\t\t\t\t\"key2\": \"value2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"definition\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"metadatadefinition\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"key1\": \"value1\",\r\n\t\t\t\t\"key2\": \"value2\"\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/metadata",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
@@ -9370,7 +9370,7 @@
   ],
   "variable": [
     {
-      "id": "b3870814-0453-4587-b04c-5b9a28a6b144",
+      "id": "231a9f9b-a7c6-4c8b-8f82-7278f86f8c8b",
       "key": "component",
       "value": "use",
       "type": "string",
