@@ -2842,7 +2842,7 @@
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflow');",
+                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
@@ -9388,7 +9388,7 @@
   ],
   "variable": [
     {
-      "id": "049844a7-74f4-4fc9-a874-c2c879bab01f",
+      "id": "b5ac9cde-373a-4b7b-871a-da6f51fb9b2e",
       "key": "component",
       "value": "use",
       "type": "string",
