@@ -8760,6 +8760,12 @@
           "_postman_isSubFolder": true
         }
       ]
+    },
+    {
+      "_postman_id": "5026bae3-a682-4069-a1a7-969f8eb0016b",
+      "name": "Metadata",
+      "description": "",
+      "item": []
     }
   ],
   "auth": {
@@ -8792,7 +8798,7 @@
   ],
   "variable": [
     {
-      "id": "984fbf53-9900-4d33-b6bf-f1d28de4da1c",
+      "id": "b9494b19-7f77-42a9-9662-d3371ed6bd40",
       "key": "component",
       "value": "use",
       "type": "string",
