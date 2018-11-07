@@ -3060,12 +3060,12 @@
         },
         {
           "_postman_id": "3ad3fac9-009b-4377-92d1-71d4b55ede7f",
-          "name": "/metadatadefinition Copy",
+          "name": "/metadata",
           "description": "",
           "item": [
             {
               "_postman_id": "2c263738-df4c-40c2-af30-f6bd5dc18ca5",
-              "name": "Retrieve a list of metadata definitions",
+              "name": "Retrieve a list of metadata",
               "event": [
                 {
                   "listen": "test",
@@ -9428,7 +9428,7 @@
   ],
   "variable": [
     {
-      "id": "a8b8fc4b-3572-4dda-b1b4-804767cf8dd1",
+      "id": "808827fe-1bec-45c8-8276-a7aaab1af680",
       "key": "component",
       "value": "use",
       "type": "string",
