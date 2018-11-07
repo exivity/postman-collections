@@ -2951,7 +2951,7 @@
             },
             {
               "_postman_id": "97b59b2f-8e87-432e-b29c-d41eba7ccc27",
-              "name": "Update an account",
+              "name": "Update a metadata definition",
               "event": [
                 {
                   "listen": "test",
@@ -9385,7 +9385,7 @@
   ],
   "variable": [
     {
-      "id": "529c5eba-3e5f-4b56-bc9b-6a030e4f3265",
+      "id": "5e9ac12a-c1e0-4426-a209-37aa591d3128",
       "key": "component",
       "value": "use",
       "type": "string",
