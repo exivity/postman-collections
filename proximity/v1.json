@@ -2092,6 +2092,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
                       "// Currently, accounts are read-only",
                       "pm.test(\"Status code is 400\", function () {",
@@ -2101,7 +2102,6 @@
                       "// Hardcode account_id for now, se we have something to work with",
                       "pm.environment.set(\"account_id\", 1);"
                     ],
-                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "type": "text/javascript"
                   }
                 }
@@ -2120,7 +2120,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/accounts",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
@@ -2741,7 +2741,7 @@
     {
       "_postman_id": "5026bae3-a682-4069-a1a7-969f8eb0016b",
       "name": "Metadata",
-      "description": "",
+      "description": "_Added in v2.2.0_",
       "item": [
         {
           "_postman_id": "97340f18-983c-411e-8daa-196dfb35ad5f",
@@ -3343,8 +3343,7 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/metadata/{{metadata_id}}",
-                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+                "url": "{{base_url}}/v1/metadata/{{metadata_id}}"
               },
               "response": []
             }
@@ -3372,6 +3371,28 @@
             }
           ],
           "_postman_isSubFolder": true
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "aee7b2c7-3efa-42a3-9e8e-31537526edba",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "738ac20a-6b7b-48a8-814a-5c2d1791fa6c",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
         }
       ]
     },
@@ -9428,7 +9449,7 @@
   ],
   "variable": [
     {
-      "id": "e465fedd-394d-41ce-ba8c-570da37f7f11",
+      "id": "7a673f9f-10f9-4254-82e2-dac9eceb250f",
       "key": "component",
       "value": "use",
       "type": "string",
