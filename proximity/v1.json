@@ -9417,6 +9417,599 @@
           "_postman_isSubFolder": true
         }
       ]
+    },
+    {
+      "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
+      "name": "Notifications Copy",
+      "description": "Notifications can be sent via different channels. The channels for the notifications are set via notification settings.",
+      "item": [
+        {
+          "_postman_id": "e5c97e74-7d78-489d-a527-4296a7794791",
+          "name": "Channels",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "0a406172-a412-4e4a-807f-ce306c9b9c78",
+              "name": "Get all notification channels",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f6a56d93-e63f-48a4-8478-e75d2ae21d76",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"notification_channel_id\", response.data[0].id);",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/notificationchannels?include=subscriptions",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "notificationchannels"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "subscriptions",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "c374ef78-2bbb-4087-92ce-cadd6f7eb4f4",
+              "name": "Get a channel",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "65af5bfa-d4fd-4bb4-b1de-795300a4e6d1",
+                    "exec": [
+                      "// // Status",
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
+                      "",
+                      "// // Json body",
+                      "// pm.test(\"Response has a valid JSON body\", function () {",
+                      "//      pm.response.to.be.withBody;",
+                      "//      pm.response.to.be.json;",
+                      "// });",
+                      "",
+                      "// // Check Json",
+                      "// var jsonData = pm.response.json();",
+                      "// pm.test(\"Response has valid attributes\", function() {",
+                      "//     pm.expect(jsonData).to.have.property('data');",
+                      "//     pm.expect(jsonData.data).to.have.property('attributes');",
+                      "//     pm.expect(jsonData.data).to.have.property('links');",
+                      "//     pm.expect(jsonData.data.attributes).to.have.property('user_id');",
+                      "//     pm.expect(jsonData.data.attributes).to.have.property('type');",
+                      "//     pm.expect(jsonData.data.attributes).to.have.property('info');",
+                      "//     pm.expect(jsonData.data.attributes).to.have.property('created_at');",
+                      "//     pm.expect(jsonData.data.attributes).to.have.property('updated_at');",
+                      "// });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}?include=subscriptions",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "notificationchannels",
+                    "{{notification_channel_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "subscriptions",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
+              "name": "Create a new channel",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_channel\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"type\": \"mail\",\n            \"info\": \"someone@exivity.com\"\n        }\n    }\n}\n"
+                },
+                "url": "{{base_url}}/v1/notificationchannels"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "43338808-72df-449b-838d-cbf8a3b12b6e",
+              "name": "Delete a channel",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {},
+                "url": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "336433a1-3a76-4f87-8b8d-e2a90c1320fd",
+              "name": "Edit a channel",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_channel\",\r\n\t\t\"id\": \"8\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"info\": \"conor@exivity.com\"\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/notificationchannels/8"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "346db218-57a6-400c-85fb-34d847da24b0",
+          "name": "Subscriptions",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "8895056e-9004-4303-8c20-f01c926327c3",
+              "name": "Get all notifications subscriptions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "84f406f5-5506-4ad6-98b7-3302723b96d6",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"notification_subscritpion_id\", response.data[0].id);",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/notificationsubscriptions?include=channels",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "notificationsubscriptions"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "channels",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "ddb146ec-1857-4b6d-a220-8be5b31b5260",
+              "name": "Get a notification subscription by ID",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "01c26907-02bd-4095-95bc-7fe1af628eb4",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "",
+                    "value": "",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/notificationsubscriptions/{{notification_subscritpion_id}}?include=channels",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "notificationsubscriptions",
+                    "{{notification_subscritpion_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "channels",
+                      "equals": true
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "9ee9759d-558f-4a13-b928-4adeb86148ca",
+              "name": "Create a new notification subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "10734244-7a2e-410d-90cc-f280b9288642",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"notification_subscritpion_id\", response.data.id);",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_subscription\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": \"{\\\"follow\\\":[1,2]}\"\n        }\n    }\n}"
+                },
+                "url": "{{base_url}}/v1/notificationsubscriptions"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "3d156ddf-71d1-4130-b095-bd1260b7301a",
+              "name": "Delete a notification subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b80ebb0a-52ba-49f3-bc01-265fa0edef69",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "// Delete the variable",
+                      "pm.environment.unset(\"notification_subscritpion_id\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {},
+                "url": "{{base_url}}/v1/notificationsubscriptions/{{notification_subscritpion_id}}"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "6cc73bab-8d1f-466b-b611-e67c59b89e13",
+              "name": "Edit a notification subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9c254afb-3b8a-4389-a935-40ecd4336522",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_subscription\",\r\n\t\t\"id\": {{notification_subscritpion_id}},\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Super important budget overruns\"\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/notificationsubscriptions/{{notification_subscritpion_id}}"
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "794a206e-780f-44a5-8c64-5adbe180fa16",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "93a39f1c-4a9f-48ee-bd77-d61084b5cf00",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "9add9ff9-39f6-451a-971f-7f2f09d07e7e",
+          "name": "Database Notifications",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "bb06302f-127a-4f71-9fa4-2e62522bb58c",
+              "name": "Get all database notification",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "09a0c7dc-3228-45a2-9f3c-6060f7777ebe",
+                    "type": "text/javascript",
+                    "exec": [
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
+                      "",
+                      "// const response = pm.response.json();",
+                      "",
+                      "// pm.test(\"Response contains data\", function () {",
+                      "//     pm.expect(response.data).to.be.an('array');",
+                      "// });",
+                      "",
+                      "// // Set the notification_id to the ID of the first notification",
+                      "// pm.environment.set(\"notification_id\", response.data[0].id);"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/notifications",
+                "description": "Get all database notification for auth user"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "3ce82c98-5ae7-498b-b271-c9bbd34163ab",
+              "name": "Get database notification by ID",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/notifications/{{notification_id}}",
+                "description": "Get all database notification for auth user"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "7cdf2977-e1de-45a2-9482-2849e05daa22",
+              "name": "Mark notification as read",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification\",\r\n\t\t\"id\": \"{{notification_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"read_at\": \"{{$timestamp}}\"\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/notifications/{{notification_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "_postman_id": "3b18876f-55f1-430e-97d3-2343b306b80d",
+          "name": "Get all failed jobs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{base_url}}/v1/failed-jobs"
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "edf3eab0-c0f0-4431-aa6f-e3562dbeb049",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "b105c95b-8b6e-4f20-8a27-858faf40d395",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "auth": {
@@ -9449,7 +10042,7 @@
   ],
   "variable": [
     {
-      "id": "c9fb19d5-3c6f-4e10-a6d7-5733160c8e49",
+      "id": "c9a78cb4-5a32-4272-8566-e1fff75dc799",
       "key": "component",
       "value": "use",
       "type": "string",
