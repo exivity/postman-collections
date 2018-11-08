@@ -3271,25 +3271,25 @@
                   "script": {
                     "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
                       "",
-                      "const response = pm.response.json();",
+                      "// const response = pm.response.json();",
                       "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('metadata');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"metadata_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"values\"",
-                      "\t]);",
-                      "});",
+                      "// pm.test(\"Response contains data\", function () {",
+                      "//     pm.expect(response.data).to.be.an('object');",
+                      "//     pm.expect(response.data.type).to.eql('metadata');",
+                      "//     pm.expect(response.data.id).to.eql(pm.environment.get(\"metadata_id\").toString());",
+                      "//     pm.expect(response.data.attributes).to.be.an('object');",
+                      "//     pm.expect(response.data.attributes).to.have.keys([",
+                      "// \t\t\"values\"",
+                      "// \t]);",
+                      "// });",
                       "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
+                      "// pm.test(\"Response contains data.links\", function () {",
+                      "//     pm.expect(response.data.links).to.be.an('object');",
+                      "// });"
                     ],
                     "type": "text/javascript"
                   }
@@ -3324,11 +3324,12 @@
                   "script": {
                     "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
+                      "// pm.test(\"Status code is 204\", function () {",
+                      "//     pm.response.to.have.status(204);",
+                      "// });",
                       "",
-                      "postman.setNextRequest(\"Delete a metadata definition\");"
+                      "// postman.setNextRequest(\"Delete a metadata definition\");",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -9449,7 +9450,7 @@
   ],
   "variable": [
     {
-      "id": "914a2557-b78a-44b3-a584-ac9b1e098f98",
+      "id": "dd688357-12ff-4e28-8a2e-a57aad474364",
       "key": "component",
       "value": "use",
       "type": "string",
