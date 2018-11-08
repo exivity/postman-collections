@@ -3074,15 +3074,15 @@
                   "script": {
                     "id": "0fe73c41-f52e-40fe-b9ca-b44fa9df95f3",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
                       "",
-                      "const response = pm.response.json();",
+                      "// const response = pm.response.json();",
                       "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
+                      "// pm.test(\"Response contains data\", function () {",
+                      "//     pm.expect(response.data).to.be.an('array');",
+                      "// });"
                     ],
                     "type": "text/javascript"
                   }
@@ -9449,7 +9449,7 @@
   ],
   "variable": [
     {
-      "id": "3170950e-687b-48d3-a0b2-37889de7ea2e",
+      "id": "77cb1028-86e0-4b53-bcff-5e2493740880",
       "key": "component",
       "value": "use",
       "type": "string",
