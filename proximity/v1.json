@@ -7507,7 +7507,7 @@
     {
       "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
       "name": "Notifications",
-      "description": "Notifications can be sent via different channels. The channels for the notifications are set via notification settings.",
+      "description": "_Added in v2.2.0_",
       "item": [
         {
           "_postman_id": "e5c97e74-7d78-489d-a527-4296a7794791",
@@ -10086,7 +10086,7 @@
   ],
   "variable": [
     {
-      "id": "6c8d29c2-d448-411d-aba4-2d9d8504146f",
+      "id": "d989a413-b8a4-4c3a-82ae-334b45c73d77",
       "key": "component",
       "value": "use",
       "type": "string",
