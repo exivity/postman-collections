@@ -7523,17 +7523,17 @@
                   "script": {
                     "id": "f6a56d93-e63f-48a4-8478-e75d2ae21d76",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
                       "",
-                      "const response = pm.response.json();",
+                      "// const response = pm.response.json();",
                       "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
+                      "// pm.test(\"Response contains data\", function () {",
+                      "//     pm.expect(response.data).to.be.an('array');",
+                      "// });",
                       "",
-                      "pm.environment.set(\"notification_channel_id\", response.data[0].id);",
+                      "// pm.environment.set(\"notification_channel_id\", response.data[0].id);",
                       ""
                     ],
                     "type": "text/javascript"
@@ -10086,7 +10086,7 @@
   ],
   "variable": [
     {
-      "id": "c29b1895-c460-4a2c-8a9d-b0d13eaedf32",
+      "id": "f0c91de0-7350-4e27-95fc-864b4600b675",
       "key": "component",
       "value": "use",
       "type": "string",
