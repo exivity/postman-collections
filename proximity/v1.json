@@ -3328,8 +3328,7 @@
                       "//     pm.response.to.have.status(204);",
                       "// });",
                       "",
-                      "// postman.setNextRequest(\"Delete a metadata definition\");",
-                      ""
+                      "// postman.setNextRequest(\"Delete a metadata definition\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -9450,7 +9449,7 @@
   ],
   "variable": [
     {
-      "id": "dd688357-12ff-4e28-8a2e-a57aad474364",
+      "id": "c9fb19d5-3c6f-4e10-a6d7-5733160c8e49",
       "key": "component",
       "value": "use",
       "type": "string",
