@@ -3151,27 +3151,27 @@
                   "script": {
                     "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
+                      "// pm.test(\"Status code is 201\", function () {",
+                      "//     pm.response.to.have.status(201);",
+                      "// });",
                       "",
-                      "const response = pm.response.json();",
+                      "// const response = pm.response.json();",
                       "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('metadata');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"values\"",
-                      "\t]);",
-                      "});",
+                      "// pm.test(\"Response contains correct data\", function () {",
+                      "//     pm.expect(response.data).to.be.an('object');",
+                      "//     pm.expect(response.data.type).to.eql('metadata');",
+                      "//     pm.expect(response.data.id).to.not.be.undefined;",
+                      "//     pm.expect(response.data.attributes).to.be.an('object');",
+                      "//     pm.expect(response.data.attributes).to.have.keys([",
+                      "// \t\t\"values\"",
+                      "// \t]);",
+                      "// });",
                       "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
+                      "// pm.test(\"Response contains data.links\", function () {",
+                      "//     pm.expect(response.data.links).to.be.an('object');",
+                      "// });",
                       "",
-                      "pm.environment.set(\"metadata_id\", response.data.id);"
+                      "// pm.environment.set(\"metadata_id\", response.data.id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -9449,7 +9449,7 @@
   ],
   "variable": [
     {
-      "id": "77cb1028-86e0-4b53-bcff-5e2493740880",
+      "id": "30eb3145-393c-448d-87d9-a1fe0f47d6e2",
       "key": "component",
       "value": "use",
       "type": "string",
