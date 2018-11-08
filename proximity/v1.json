@@ -7506,12 +7506,12 @@
     },
     {
       "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
-      "name": "Notifications Copy",
+      "name": "Notifications",
       "description": "Notifications can be sent via different channels. The channels for the notifications are set via notification settings.",
       "item": [
         {
           "_postman_id": "e5c97e74-7d78-489d-a527-4296a7794791",
-          "name": "Channels",
+          "name": "/notificationchannels",
           "description": "",
           "item": [
             {
@@ -7697,11 +7697,33 @@
               "response": []
             }
           ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "3cf6d562-ac72-44d1-89cf-6258820941ab",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "3926a2c1-7159-4d3a-a8d3-f70b9de6276e",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
           "_postman_id": "346db218-57a6-400c-85fb-34d847da24b0",
-          "name": "Subscriptions",
+          "name": "/notificationsubscription",
           "description": "",
           "item": [
             {
@@ -10042,7 +10064,7 @@
   ],
   "variable": [
     {
-      "id": "9cd47a52-67d4-470e-8f88-41e1584f9205",
+      "id": "aae1f202-1133-4d4b-b279-04cb79c1eb9d",
       "key": "component",
       "value": "use",
       "type": "string",
