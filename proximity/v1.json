@@ -5026,19 +5026,8 @@
                   }
                 ],
                 "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "key": "username",
-                      "type": "text",
-                      "value": "admin"
-                    },
-                    {
-                      "key": "password",
-                      "type": "text",
-                      "value": "admin"
-                    }
-                  ]
+                  "mode": "raw",
+                  "raw": ""
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&invoice_options&csv_delimiter=&csv_decimal_separator",
@@ -10086,7 +10075,7 @@
   ],
   "variable": [
     {
-      "id": "fa2f5b5c-5e0f-4fae-b3b0-97c01b17696d",
+      "id": "6707856e-3c75-46b9-b399-a465d46feb27",
       "key": "component",
       "value": "use",
       "type": "string",
