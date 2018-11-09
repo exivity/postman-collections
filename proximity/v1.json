@@ -7723,7 +7723,7 @@
         },
         {
           "_postman_id": "346db218-57a6-400c-85fb-34d847da24b0",
-          "name": "/notificationsubscription",
+          "name": "/notificationsubscriptions",
           "description": "",
           "item": [
             {
@@ -7882,7 +7882,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_subscription\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": \"{\\\"follow\\\":[1,2]}\"\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_subscription\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [1, 2]\n            }\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/notificationsubscriptions"
               },
@@ -10086,7 +10086,7 @@
   ],
   "variable": [
     {
-      "id": "f0c91de0-7350-4e27-95fc-864b4600b675",
+      "id": "fa2f5b5c-5e0f-4fae-b3b0-97c01b17696d",
       "key": "component",
       "value": "use",
       "type": "string",
