@@ -6651,7 +6651,6 @@
                   "listen": "test",
                   "script": {
                     "id": "27e0be1c-a070-4db9-86ac-4b55394f9884",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
@@ -6684,7 +6683,26 @@
                       "});",
                       "",
                       "pm.environment.set(\"workflowstep_id\", response.data.id);"
-                    ]
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
+                    "exec": [
+                      "pm.sendRequest({\r",
+                      "    url: pm.environment.get(\"base_url\") + '/v1/extractors'),\r",
+                      "    method: 'POST',\r",
+                      "    header: 'headername1:value1',\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({ key: \"this is json\" })\r",
+                      "    }\r",
+                      ")"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -10354,7 +10372,7 @@
   ],
   "variable": [
     {
-      "id": "fa192ab5-ccb8-46fa-ad82-19b34fe9963c",
+      "id": "b07d9e89-0c1a-4a49-bb20-ffd1a88b9db4",
       "key": "component",
       "value": "use",
       "type": "string",
