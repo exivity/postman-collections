@@ -3456,6 +3456,113 @@
       "description": "",
       "item": [
         {
+          "_postman_id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
+          "name": "/servicecategories",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "5b64bfe6-3f11-d1dc-8ce0-99e9381fba23",
+              "name": "Retrieve a list of service categories",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {},
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": "",
+                      "equals": false,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "",
+                      "equals": false,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "equals": false,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": "",
+                      "equals": false,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "equals": true,
+                      "description": "Include additional related resources. Possible values: `services`, `adjustments`, `budgets`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c63ff40-2109-4a78-ae78-ac7b456f4d3e",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "0ba3c502-d4f8-4997-b663-d2ac772d4777",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "_postman_id": "f43592d6-0e71-4de1-824c-5eb7803f2de1",
           "name": "/services",
           "description": "A service has the following attributes:\n\nattribute        | type        | editable | description\n-----------------|-------------|----------|-------------\nkey              | *string*    | \u274c       | Unique identifier, [read more](https://docs.exivity.com/transform/language/service/#key)\ndescription      | *string*    | \u2714\ufe0f       | Friendly name, [read more](https://docs.exivity.com/transform/language/service/#description)\nunit_label       | *string*    | \u274c       | Unit of consumption, [read more](https://docs.exivity.com/transform/language/service/#unit_label)\ndset             | *string*    | \u274c       | Dset this service is linked to\ntype             | *enum*      | \u274c       | One of `service_name_in_header` or `service_name_in_data`, [read more](https://docs.exivity.com/transform/language/services/#service_type)\nusage_col        | *string*    | \u274c       | Dset column containing keys, [read more](https://docs.exivity.com/transform/language/services/#usages_col)\nconsumption_col  | *string*    | \u274c       | Dset column containing consumption amount, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)\ninstance_col     | *string*    | \u274c       | Dset column containing unique instance id's, [read more](https://docs.exivity.com/transform/language/services/#instance_col)\ninterval         | *enum*      | \u274c       | One of `never`, `individually`, `second`, `minute`, `hour`, `day`, `week`, `month` or `year`. Currently, only `individually`, `day` and `month` are implemented, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)  \ncharge_type      | *enum*      | \u274c       | One of `none`, `manual`, `manual_per_unit`, `manual_per_interval`, `automatic`, `automatic_per_unit`, `automatic_per_interval` or `other`, read more below\ncogs_type        | *enum*      | \u274c       | One of `none`, `manual_per_unit`, `manual_per_interval`, `automatic_per_unit` or `automatic_per_interval`, read more below\nproration_type   | *enum*      | \u274c       | One of `none` or `full`, [read more](https://docs.exivity.com/transform/language/services/#model)\ncreated_at       | *timestamp* | \u274c       | Unix timestamp the service was first created\nupdated_at       | *timestamp* | \u274c       | Unix timestamp the service was last updated\nseen_at          | *date*      | \u274c       | ISO-8601 date the service was last seen in a dset\n\n### Charge and cogs type\nThe attributes `charge_type` and `cogs_type` define how the rate is used when calculating charge and cogs metrics using consumption of the service.\n\n- The first part denotes whether the rate is dynamically derived from the usage data itself (`automatic`) or specified explicitly in rate entities (`manual`).\n- The second part denotes whether an amount per unit of consumption (`per_unit`) and/or per interval (`per_interval`) should be applied.\n\nWhen the second part is omitted, both `per_unit` and `per_interval` are used. If no rate should be applied at all, `none` can be used. A value of `other` means a configuration is used not currently supported by the API.",
@@ -3832,113 +3939,6 @@
               "listen": "test",
               "script": {
                 "id": "861a8252-f532-4bc0-bd68-a5f30d04fcf1",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "_postman_id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
-          "name": "/servicecategories",
-          "description": "",
-          "item": [
-            {
-              "_postman_id": "5b64bfe6-3f11-d1dc-8ce0-99e9381fba23",
-              "name": "Retrieve a list of service categories",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "{{base_url}}/v1/servicecategories?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicecategories"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "",
-                      "equals": false,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "equals": true,
-                      "description": "Include additional related resources. Possible values: `services`, `adjustments`, `budgets`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "5c63ff40-2109-4a78-ae78-ac7b456f4d3e",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "0ba3c502-d4f8-4997-b663-d2ac772d4777",
                 "type": "text/javascript",
                 "exec": [
                   ""
@@ -10361,7 +10361,7 @@
   ],
   "variable": [
     {
-      "id": "d34d290f-9039-452e-b422-0259ea7f6d7a",
+      "id": "0b62ec58-5487-40b6-8e56-935924905c5d",
       "key": "component",
       "value": "use",
       "type": "string",
