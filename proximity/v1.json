@@ -6693,7 +6693,7 @@
                     "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
                     "exec": [
                       "pm.sendRequest({\r",
-                      "    url: pm.environment.get(\"base_url\") + '/v1/extractors'),\r",
+                      "    url: pm.environment.get(\"base_url\") + '/v1/extractors',\r",
                       "    method: 'POST',\r",
                       "    header: 'headername1:value1',\r",
                       "    body: {\r",
@@ -10372,7 +10372,7 @@
   ],
   "variable": [
     {
-      "id": "b07d9e89-0c1a-4a49-bb20-ffd1a88b9db4",
+      "id": "977c625f-7087-46a3-8db6-3f97ecb9eb68",
       "key": "component",
       "value": "use",
       "type": "string",
