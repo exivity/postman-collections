@@ -5323,72 +5323,6 @@
                 "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
               "response": []
-            },
-            {
-              "_postman_id": "927830cf-4207-427d-8625-f3f09d749d4c",
-              "name": "Add a new report definition Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('report');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"name\": \"test\",",
-                      "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"col1_name\": \"Reseller\",",
-                      "        \"col2_name\": \"Customer\",",
-                      "        \"col3_name\": \"\",",
-                      "        \"col4_name\": \"\",",
-                      "        \"col5_name\": \"\",",
-                      "        \"depth\": 2,",
-                      "        \"schedule\": false",
-                      "\t});",
-                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.data_status).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"report_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"col1_name\": \"Reseller\",\r\n\t\t\t\"col2_name\": \"Customer\"\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/reports"
-              },
-              "response": []
             }
           ],
           "event": [
@@ -10435,7 +10369,7 @@
   ],
   "variable": [
     {
-      "id": "fee02ce2-a61e-436a-a458-a34e15d152c2",
+      "id": "befbd17a-5893-43a2-b84c-c16c0f10e4d6",
       "key": "component",
       "value": "use",
       "type": "string",
