@@ -4933,7 +4933,6 @@
                   "listen": "test",
                   "script": {
                     "id": "89393b2c-382c-46e2-ae4f-daa9135865f2",
-                    "type": "text/javascript",
                     "exec": [
                       "// pm.test(\"Status code is 200\", function () {",
                       "//     pm.response.to.have.status(200);",
@@ -4965,7 +4964,8 @@
                       "// pm.test(\"Response contains data.links\", function () {",
                       "//     pm.expect(response.data.links).to.be.an('object');",
                       "// });"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4983,7 +4983,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified_test\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
@@ -10471,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "4d9a327a-b992-47aa-b2a3-fd0b346aa6e6",
+      "id": "5416cccb-458d-4b11-9cd0-bd3a24e28fa9",
       "key": "component",
       "value": "use",
       "type": "string",
