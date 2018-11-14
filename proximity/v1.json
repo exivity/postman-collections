@@ -3897,39 +3897,6 @@
               "response": []
             },
             {
-              "_postman_id": "036e8d8f-585c-41d0-9c1d-5e74fe34a3bd",
-              "name": "Prepare affected reports",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{base_url}}/v1/services/{{service_id}}/prepareAffectedReports"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "a4bcd022-a6df-4ae6-9bf3-06f0bedde601",
               "name": "Delete a service",
               "event": [
@@ -3957,6 +3924,39 @@
                 "body": {},
                 "url": "{{base_url}}/v1/services/{{service_id}}",
                 "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "036e8d8f-585c-41d0-9c1d-5e74fe34a3bd",
+              "name": "Prepare affected reports Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/services/{{service_id}}/prepareAffectedReports"
               },
               "response": []
             }
@@ -10471,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "a92767c6-f619-4db5-b034-6f8b270fbfb6",
+      "id": "736a0773-e18c-42fd-95a9-027ea23812f3",
       "key": "component",
       "value": "use",
       "type": "string",
