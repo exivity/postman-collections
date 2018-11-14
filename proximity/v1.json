@@ -6761,7 +6761,7 @@
                       "\t});",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
                       "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"name\": \"test\",",
+                      "\t\t\"name\": \"Transformer_test\",",
                       "        \"from_date\": -2,",
                       "\t\t\"to_date\": 2",
                       "\t});",
@@ -6830,7 +6830,6 @@
                   "listen": "test",
                   "script": {
                     "id": "f0488ee7-7d48-4115-9ca6-2d04163a7bca",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
@@ -6862,7 +6861,40 @@
                       "});",
                       "",
                       "pm.environment.set(\"workflowstep_id\", response.data.id);"
-                    ]
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3127f109-f7fe-4208-8354-2605fbea88fb",
+                    "exec": [
+                      "pm.sendRequest({\r",
+                      "    url: pm.environment.get(\"base_url\") + '/v1/reports',\r",
+                      "    method: 'POST',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/vnd.api+json',\r",
+                      "        'Content-Type': 'application/vnd.api+json',\r",
+                      "        'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
+                      "    },\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({\r",
+                      "        \t\"data\": {\r",
+                      "        \t\t\"type\": \"report\",\r",
+                      "        \t\t\"attributes\": {\r",
+                      "        \t\t\t\"name\": \"Test report\",\r",
+                      "        \t\t\t\"dset\": \"{{dset_id}}\",\r",
+                      "        \t\t\t\"col1_name\": \"Reseller\",\r",
+                      "        \t\t\t\"col2_name\": \"Customer\"\r",
+                      "        \t\t}\r",
+                      "        \t}\r",
+                      "        })\r",
+                      "    }\r",
+                      "})"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -10404,7 +10436,7 @@
   ],
   "variable": [
     {
-      "id": "c6720d3d-4de1-436d-9615-c6bcb1a40d8f",
+      "id": "555b68ab-67e6-4829-9094-1df067a3e99f",
       "key": "component",
       "value": "use",
       "type": "string",
