@@ -6850,7 +6850,7 @@
                       "\t});",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
                       "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"report_id\": \"1\",",
+                      "\t\t\"report_id\": pm.environment.get(\"report_id\"),",
                       "        \"from_date\": 1,",
                       "        \"to_date\": 2",
                       "\t});",
@@ -10438,7 +10438,7 @@
   ],
   "variable": [
     {
-      "id": "b9f3bcb4-5860-4ded-8152-b8567370586b",
+      "id": "3b38d5e0-4769-4819-befb-6b37c0996925",
       "key": "component",
       "value": "use",
       "type": "string",
