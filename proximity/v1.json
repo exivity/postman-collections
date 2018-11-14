@@ -3897,6 +3897,39 @@
               "response": []
             },
             {
+              "_postman_id": "036e8d8f-585c-41d0-9c1d-5e74fe34a3bd",
+              "name": "Prepare affected reports Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/services/{{service_id}}/prepareAffectedReports"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "a4bcd022-a6df-4ae6-9bf3-06f0bedde601",
               "name": "Delete a service",
               "event": [
@@ -10438,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "3b38d5e0-4769-4819-befb-6b37c0996925",
+      "id": "3d4da56d-fb47-478b-acbf-37b463b85b36",
       "key": "component",
       "value": "use",
       "type": "string",
