@@ -1838,6 +1838,53 @@
             {
               "_postman_id": "4d4f2e89-e499-46ce-afca-ec88b7692b8b",
               "name": "Delete a dataset",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "933d27cd-4f59-41b1-a818-17dcbd784ba5",
+                    "exec": [
+                      "// Prevent actually deleting all of the data",
+                      "pm.environment.set(\"start\", \"2017-08-25\");",
+                      "pm.environment.set(\"end\", \"2017-08-25\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2ed69b0f-8cf1-4010-b29f-1e5f50c9cc81",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('dset');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"dset_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.earliest_rdf).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.latest_rdf).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.ref_count).to.be.a('number');",
+                      "    pm.expect(response.data.attributes.rdf_detail).to.be.an('array');",
+                      "    pm.expect(response.data.attributes.columns).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "request": {
                 "method": "DELETE",
                 "header": [],
@@ -10310,7 +10357,7 @@
   ],
   "variable": [
     {
-      "id": "bc86b967-0bff-49f9-a2ce-b0aa323ca700",
+      "id": "d10dadc3-87dc-42c7-88fe-d1e31d2a6f23",
       "key": "component",
       "value": "use",
       "type": "string",
