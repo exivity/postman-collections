@@ -1874,6 +1874,7 @@
                       "    pm.expect(response.data.attributes.latest_rdf).to.be.a('string');",
                       "    pm.expect(response.data.attributes.ref_count).to.be.a('number');",
                       "    pm.expect(response.data.attributes.rdf_detail).to.be.an('array');",
+                      "    pm.expect(response.data.attributes.rdf_detail).to.be.of.length(2);",
                       "    pm.expect(response.data.attributes.columns).to.be.an('array');",
                       "});",
                       "",
@@ -10357,7 +10358,7 @@
   ],
   "variable": [
     {
-      "id": "d10dadc3-87dc-42c7-88fe-d1e31d2a6f23",
+      "id": "6ee01afa-66e0-4130-99a7-f8a688e582ed",
       "key": "component",
       "value": "use",
       "type": "string",
