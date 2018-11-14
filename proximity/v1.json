@@ -6727,7 +6727,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"test\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Extractor test\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -10379,7 +10379,7 @@
   ],
   "variable": [
     {
-      "id": "86bcaee6-02cc-481a-a21e-64d9087fdbf5",
+      "id": "f5ed0fe7-d5cc-455a-8404-300c47b3ee0c",
       "key": "component",
       "value": "use",
       "type": "string",
