@@ -1744,7 +1744,7 @@
                       "});",
                       "",
                       "// Hardcode dset_id, because we can't insert one manually",
-                      "pm.environment.set(\"dset_id\", \"allauto.usage\");"
+                      "pm.environment.set(\"dset_id\", response.data[0].id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -1758,7 +1758,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/dsets",
                 "description": "Test description"
               },
@@ -8142,7 +8145,7 @@
           "item": [
             {
               "_postman_id": "7c87c061-7f07-44d1-b8b0-bd2545a02eaf",
-              "name": "/environment Copy",
+              "name": "/environment",
               "description": "",
               "item": [
                 {
@@ -10307,7 +10310,7 @@
   ],
   "variable": [
     {
-      "id": "6e0657ea-4628-44f6-9fba-627ca793ce39",
+      "id": "1dc9106c-ee21-43e9-8676-d8917014e202",
       "key": "component",
       "value": "use",
       "type": "string",
