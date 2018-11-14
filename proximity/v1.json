@@ -4771,7 +4771,7 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"test\",",
-                      "        \"dset\": \"allauto.usage\",",
+                      "        \"dset\": pm.environment.get(\"dset_id\"),",
                       "        \"col1_name\": \"Reseller\",",
                       "        \"col2_name\": \"Customer\",",
                       "        \"col3_name\": \"\",",
@@ -10369,7 +10369,7 @@
   ],
   "variable": [
     {
-      "id": "20e82087-0013-4985-82e8-952af016843c",
+      "id": "20f820bd-ca79-4289-a388-5721da77bcc8",
       "key": "component",
       "value": "use",
       "type": "string",
