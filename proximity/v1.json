@@ -3479,7 +3479,7 @@
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
                       "",
-                      "pm.environment.set(\"servicecategory\", response.data[0].id);"
+                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -10366,7 +10366,7 @@
   ],
   "variable": [
     {
-      "id": "83f6cf7d-7bf9-4bfd-956f-0f92e943d7b2",
+      "id": "aee8edf4-a8e1-4178-ac27-ef908bca7829",
       "key": "component",
       "value": "use",
       "type": "string",
