@@ -1813,7 +1813,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/dsets/:name",
                   "host": [
@@ -10358,7 +10361,7 @@
   ],
   "variable": [
     {
-      "id": "6ee01afa-66e0-4130-99a7-f8a688e582ed",
+      "id": "d34d290f-9039-452e-b422-0259ea7f6d7a",
       "key": "component",
       "value": "use",
       "type": "string",
