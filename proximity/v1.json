@@ -6703,7 +6703,7 @@
                       "    body: {\r",
                       "        mode: 'raw',\r",
                       "        raw: JSON.stringify({\r",
-                      "            \"name\": \"Extractor test\",\r",
+                      "            \"name\": \"test\",\r",
                       "            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
                       "        })\r",
                       "    }\r",
@@ -10379,7 +10379,7 @@
   ],
   "variable": [
     {
-      "id": "4e4ce084-cb4b-40b4-94ee-8b2ea16807f5",
+      "id": "15da487e-71fb-47ad-925d-acdfe15d2797",
       "key": "component",
       "value": "use",
       "type": "string",
