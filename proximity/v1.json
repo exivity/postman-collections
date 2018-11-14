@@ -6695,7 +6695,11 @@
                       "pm.sendRequest({\r",
                       "    url: pm.environment.get(\"base_url\") + '/v1/extractors',\r",
                       "    method: 'POST',\r",
-                      "    header: 'headername1:value1',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/json',\r",
+                      "        'Content-Type': 'application/json',\r",
+                      "        'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
+                      "    },\r",
                       "    body: {\r",
                       "        mode: 'raw',\r",
                       "        raw: JSON.stringify({\r",
@@ -10375,7 +10379,7 @@
   ],
   "variable": [
     {
-      "id": "ba25de3d-d8a9-456d-9eb0-ea7a619a1d78",
+      "id": "4e4ce084-cb4b-40b4-94ee-8b2ea16807f5",
       "key": "component",
       "value": "use",
       "type": "string",
