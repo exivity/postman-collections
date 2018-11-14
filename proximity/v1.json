@@ -4837,7 +4837,7 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"test\",",
-                      "        \"dset\": \"{{dset_id}}\",",
+                      "        \"dset\": pm.environment.get(\"dset_id\"),",
                       "        \"col1_name\": \"Reseller\",",
                       "        \"col2_name\": \"Customer\",",
                       "        \"col3_name\": \"\",",
@@ -4965,7 +4965,6 @@
                   "listen": "test",
                   "script": {
                     "id": "8dab42c7-d268-4337-869f-b528743b4a56",
-                    "type": "text/javascript",
                     "exec": [
                       "var response = {};",
                       "",
@@ -4977,19 +4976,20 @@
                       "",
                       "tests[\"Response contains sync_accounts array\"] = typeof response.sync_accounts === 'object';",
                       "tests[\"Response contains prepare_report array\"] = typeof response.prepare_report === 'object';"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "prerequest",
                   "script": {
                     "id": "574ea6a1-88b7-4a94-9408-fb37e90a7a90",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.environment.set(\"start\", \"20170825\");",
                       "pm.environment.set(\"end\", \"20170827\");",
                       ""
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -5001,21 +5001,7 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "key": "username",
-                      "type": "text",
-                      "value": "admin"
-                    },
-                    {
-                      "key": "password",
-                      "type": "text",
-                      "value": "admin"
-                    }
-                  ]
-                },
+                "body": {},
                 "url": {
                   "raw": "{{base_url}}/v1/reports/{{report_id}}/prepare?start={{start}}&end={{end}}",
                   "host": [
@@ -10369,7 +10355,7 @@
   ],
   "variable": [
     {
-      "id": "befbd17a-5893-43a2-b84c-c16c0f10e4d6",
+      "id": "fbbb3abc-9798-4baa-a8b6-4c3020cc1731",
       "key": "component",
       "value": "use",
       "type": "string",
