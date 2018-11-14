@@ -4757,7 +4757,6 @@
                   "listen": "test",
                   "script": {
                     "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
@@ -4791,7 +4790,8 @@
                       "});",
                       "",
                       "pm.environment.set(\"report_id\", response.data.id);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4809,7 +4809,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"dset\": \"allauto.usage\",\r\n\t\t\t\"col1_name\": \"Reseller\",\r\n\t\t\t\"col2_name\": \"Customer\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"col1_name\": \"Reseller\",\r\n\t\t\t\"col2_name\": \"Customer\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/reports"
               },
@@ -10366,7 +10366,7 @@
   ],
   "variable": [
     {
-      "id": "aee8edf4-a8e1-4178-ac27-ef908bca7829",
+      "id": "1844bcc0-bc24-45db-bdcf-354328f586ac",
       "key": "component",
       "value": "use",
       "type": "string",
