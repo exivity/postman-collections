@@ -4823,7 +4823,6 @@
                   "listen": "test",
                   "script": {
                     "id": "9d48f26b-8402-4ae8-a9ee-520241e459df",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -4838,7 +4837,7 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"test\",",
-                      "        \"dset\": \"allauto.usage\",",
+                      "        \"dset\": \"{{dset_id}}\",",
                       "        \"col1_name\": \"Reseller\",",
                       "        \"col2_name\": \"Customer\",",
                       "        \"col3_name\": \"\",",
@@ -4855,7 +4854,8 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4867,7 +4867,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/reports/{{report_id}}?include",
                   "host": [
@@ -10366,7 +10369,7 @@
   ],
   "variable": [
     {
-      "id": "1844bcc0-bc24-45db-bdcf-354328f586ac",
+      "id": "20e82087-0013-4985-82e8-952af016843c",
       "key": "component",
       "value": "use",
       "type": "string",
