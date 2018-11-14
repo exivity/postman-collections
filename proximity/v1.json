@@ -4868,7 +4868,7 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"name\": \"test\",",
+                      "\t\t\"name\": \"Test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
                       "        \"col1_name\": \"Reseller\",",
                       "        \"col2_name\": \"Customer\",",
@@ -10471,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "79407e17-00fb-47b0-a94e-c71b5c3d1dfc",
+      "id": "4d9a327a-b992-47aa-b2a3-fd0b346aa6e6",
       "key": "component",
       "value": "use",
       "type": "string",
