@@ -1743,7 +1743,6 @@
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
                       "",
-                      "// Hardcode dset_id, because we can't insert one manually",
                       "pm.environment.set(\"dset_id\", response.data[0].id);"
                     ],
                     "type": "text/javascript"
@@ -4809,7 +4808,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"col1_name\": \"Reseller\",\r\n\t\t\t\"col2_name\": \"Customer\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"col1_name\": \"Reseller\",\r\n\t\t\t\"col2_name\": \"Customer\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/reports"
               },
@@ -10355,7 +10354,7 @@
   ],
   "variable": [
     {
-      "id": "fbbb3abc-9798-4baa-a8b6-4c3020cc1731",
+      "id": "fa192ab5-ccb8-46fa-ad82-19b34fe9963c",
       "key": "component",
       "value": "use",
       "type": "string",
