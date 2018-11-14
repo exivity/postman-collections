@@ -6885,13 +6885,15 @@
                       "        \t\t\"type\": \"report\",\r",
                       "        \t\t\"attributes\": {\r",
                       "        \t\t\t\"name\": \"Test report\",\r",
-                      "        \t\t\t\"dset\": \"{{dset_id}}\",\r",
+                      "        \t\t\t\"dset\": pm.environment.get(\"dset_id\"),\r",
                       "        \t\t\t\"col1_name\": \"Reseller\",\r",
                       "        \t\t\t\"col2_name\": \"Customer\"\r",
                       "        \t\t}\r",
                       "        \t}\r",
                       "        })\r",
                       "    }\r",
+                      "}, function (err, res) {\r",
+                      "    pm.environment.set(\"report_id\", res.json().data.id);\r",
                       "})"
                     ],
                     "type": "text/javascript"
@@ -6912,7 +6914,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"1\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -10436,7 +10438,7 @@
   ],
   "variable": [
     {
-      "id": "555b68ab-67e6-4829-9094-1df067a3e99f",
+      "id": "b9f3bcb4-5860-4ded-8152-b8567370586b",
       "key": "component",
       "value": "use",
       "type": "string",
