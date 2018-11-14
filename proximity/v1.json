@@ -6698,9 +6698,12 @@
                       "    header: 'headername1:value1',\r",
                       "    body: {\r",
                       "        mode: 'raw',\r",
-                      "        raw: JSON.stringify({ key: \"this is json\" })\r",
+                      "        raw: JSON.stringify({\r",
+                      "            \"name\": \"Extractor test\",\r",
+                      "            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
+                      "        })\r",
                       "    }\r",
-                      ")"
+                      "})"
                     ],
                     "type": "text/javascript"
                   }
@@ -10372,7 +10375,7 @@
   ],
   "variable": [
     {
-      "id": "977c625f-7087-46a3-8db6-3f97ecb9eb68",
+      "id": "ba25de3d-d8a9-456d-9eb0-ea7a619a1d78",
       "key": "component",
       "value": "use",
       "type": "string",
