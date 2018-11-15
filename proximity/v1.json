@@ -6704,7 +6704,7 @@
                       "\t});",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
                       "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"name\": \"Extractor_test\",",
+                      "\t\t\"name\": \"Workflow_extractor\",",
                       "\t\t\"from_date\": -2,",
                       "\t\t\"to_date\": 2,",
                       "\t\t\"arguments\": \"test1 test2\"",
@@ -10471,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "2cc7e628-f3d5-49ef-931f-97aec9a1bd49",
+      "id": "388dc573-df16-4c86-8270-db35717571c6",
       "key": "component",
       "value": "use",
       "type": "string",
