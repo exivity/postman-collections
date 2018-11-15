@@ -6794,7 +6794,7 @@
                       "\t});",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
                       "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"name\": \"Transformer_test\",",
+                      "\t\t\"name\": \"Workflow_transformer\",",
                       "        \"from_date\": -2,",
                       "\t\t\"to_date\": 2",
                       "\t});",
@@ -10471,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "55b077a1-3b48-4458-a359-85916eaff05e",
+      "id": "1e620b7d-efe2-49c7-8863-3181a8743256",
       "key": "component",
       "value": "use",
       "type": "string",
