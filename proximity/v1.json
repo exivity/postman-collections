@@ -6736,7 +6736,7 @@
                       "    body: {\r",
                       "        mode: 'raw',\r",
                       "        raw: JSON.stringify({\r",
-                      "            \"name\": \"Extractor test\",\r",
+                      "            \"name\": \"Workflow extractor\",\r",
                       "            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
                       "        })\r",
                       "    }\r",
@@ -6904,7 +6904,7 @@
                     "id": "3127f109-f7fe-4208-8354-2605fbea88fb",
                     "exec": [
                       "pm.sendRequest({\r",
-                      "    url: pm.environment.get(\"base_url\") + '/v1/reports',\r",
+                      "    url: pm.globals.get(\"base_url\") + '/v1/reports',\r",
                       "    method: 'POST',\r",
                       "    header: {\r",
                       "        'Accept': 'application/vnd.api+json',\r",
@@ -10471,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "8f6fb15a-9eb5-4bf2-a924-eadfec9aef80",
+      "id": "54b3c652-069b-40bb-a9ce-99fece79f0b7",
       "key": "component",
       "value": "use",
       "type": "string",
