@@ -6825,7 +6825,7 @@
                       "    body: {\r",
                       "        mode: 'raw',\r",
                       "        raw: JSON.stringify({\r",
-                      "\t        \"name\": \"Transformer test\",\r",
+                      "\t        \"name\": \"Workflow transformer\",\r",
                       "\t        \"contents\": \"# script here\"\r",
                       "        })\r",
                       "    }\r",
@@ -10471,7 +10471,7 @@
   ],
   "variable": [
     {
-      "id": "388dc573-df16-4c86-8270-db35717571c6",
+      "id": "d6126791-5883-4f5d-a647-61fe95f4c300",
       "key": "component",
       "value": "use",
       "type": "string",
