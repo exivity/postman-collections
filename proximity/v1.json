@@ -5167,7 +5167,7 @@
                       "key": "format",
                       "value": "",
                       "equals": true,
-                      "description": "One of `json`, `csv` or `pdf/invoice`. Default to `json`."
+                      "description": "One of `json`, `csv` or `pdf/summary`. Default to `json`.\n`pdf/invoice` will be deprecated in version 3. Please use `pdf/summary` instead."
                     },
                     {
                       "key": "precision",
@@ -5196,8 +5196,8 @@
                     {
                       "key": "summany_options",
                       "value": "",
-                      "description": "List of options for the pdf/summanry format, in a comma seperated list. Possible options: `consolidated`, `summary`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`.",
-                      "type": "text"
+                      "equals": false,
+                      "description": "List of options for the pdf/summanry format, in a comma seperated list. Possible options: `consolidated`, `summary`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
                     },
                     {
                       "key": "invoice_options",
@@ -7819,7 +7819,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_channel\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"type\": \"mail\",\n            \"info\": \"someone@exivity.com\"\n        }\n    }\n}\n"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_channel\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"type\": \"mail\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        }\n    }\n}\n"
                 },
                 "url": "{{base_url}}/v1/notificationchannels"
               },
@@ -10477,7 +10477,7 @@
   ],
   "variable": [
     {
-      "id": "af54d41b-934e-4dd8-81fc-700a4f5e6a3a",
+      "id": "9fd60ee3-7e20-4722-9142-94892d7ad4f5",
       "key": "component",
       "value": "use",
       "type": "string",
