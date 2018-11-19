@@ -5110,7 +5110,7 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&invoice_options&csv_delimiter=&csv_decimal_separator",
+                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summany_options&invoice_options",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -5182,12 +5182,6 @@
                       "description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/\u00ednvoice` is never streamed. Defaults to `1`."
                     },
                     {
-                      "key": "invoice_options",
-                      "value": "",
-                      "equals": false,
-                      "description": "List of options for the pdf/invoice format, in a comma seperated list. Possible options: `consolidated`, `summary`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
-                    },
-                    {
                       "key": "csv_delimiter",
                       "value": "",
                       "equals": true,
@@ -5198,6 +5192,18 @@
                       "value": "",
                       "equals": false,
                       "description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration."
+                    },
+                    {
+                      "key": "summany_options",
+                      "value": "",
+                      "description": "List of options for the pdf/summanry format, in a comma seperated list. Possible options: `consolidated`, `summary`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`.",
+                      "type": "text"
+                    },
+                    {
+                      "key": "invoice_options",
+                      "value": "",
+                      "equals": false,
+                      "description": "Will be deprecated in version 3. Please use summany_options instead."
                     }
                   ]
                 },
@@ -6917,7 +6923,7 @@
                       "        \t\"data\": {\r",
                       "        \t\t\"type\": \"report\",\r",
                       "        \t\t\"attributes\": {\r",
-                      "        \t\t\t\"name\": \"Test report\",\r",
+                      "        \t\t\t\"name\": \"Workflow report\",\r",
                       "        \t\t\t\"dset\": pm.environment.get(\"dset_id\"),\r",
                       "        \t\t\t\"col1_name\": \"Reseller\",\r",
                       "        \t\t\t\"col2_name\": \"Customer\"\r",
@@ -10471,7 +10477,7 @@
   ],
   "variable": [
     {
-      "id": "1e620b7d-efe2-49c7-8863-3181a8743256",
+      "id": "af54d41b-934e-4dd8-81fc-700a4f5e6a3a",
       "key": "component",
       "value": "use",
       "type": "string",
