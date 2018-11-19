@@ -7819,7 +7819,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_channel\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"type\": \"mail\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        }\n    }\n}\n"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_channel\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        }\n    }\n}\n"
                 },
                 "url": "{{base_url}}/v1/notificationchannels"
               },
@@ -10477,7 +10477,7 @@
   ],
   "variable": [
     {
-      "id": "9fd60ee3-7e20-4722-9142-94892d7ad4f5",
+      "id": "77f9467f-7c3d-458c-a4a4-380010148d20",
       "key": "component",
       "value": "use",
       "type": "string",
