@@ -4711,7 +4711,6 @@
                   "listen": "test",
                   "script": {
                     "id": "73508453-93c1-4470-b6a4-d9615e7362f1",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -4722,7 +4721,8 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -4735,48 +4735,7 @@
                   }
                 ],
                 "body": {},
-                "url": {
-                  "raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "reports"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "",
-                      "equals": false,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "equals": false,
-                      "description": "Include additional related resources"
-                    }
-                  ]
-                },
+                "url": "{{base_url}}/v1/reports/summaries",
                 "description": "Test description"
               },
               "response": []
@@ -10477,7 +10436,7 @@
   ],
   "variable": [
     {
-      "id": "33d1a462-c813-4d78-a1d4-5f98cc3f000c",
+      "id": "2aaec9d0-0f7e-4b1d-9498-3d7fe4141abd",
       "key": "component",
       "value": "use",
       "type": "string",
