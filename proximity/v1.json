@@ -2020,7 +2020,8 @@
                     }
                   ]
                 },
-                "url": "{{base_url}}/v1/file"
+                "url": "{{base_url}}/v1/file",
+                "description": "Uploaded files are stored in `%EXIVITY_HOME_PATH%/import/[group]/[yyyy]/[mm]/[dd]_uploaded_[sequence].csv`, where _sequence_ is a 3 characters long numberic string with padded zeros (e.g. `001` or `026`)."
               },
               "response": []
             }
@@ -10436,7 +10437,7 @@
   ],
   "variable": [
     {
-      "id": "2aaec9d0-0f7e-4b1d-9498-3d7fe4141abd",
+      "id": "229f6509-326b-4690-9eab-05112a9f0394",
       "key": "component",
       "value": "use",
       "type": "string",
