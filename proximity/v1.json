@@ -7675,7 +7675,7 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/notificationchannels?include=subscriptions",
+                  "raw": "{{base_url}}/v1/notificationchannels?include=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -7686,8 +7686,9 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "subscriptions",
-                      "equals": true
+                      "value": "",
+                      "equals": true,
+                      "description": "Possible values: `subscriptions`, `user`."
                     }
                   ]
                 }
@@ -10440,7 +10441,7 @@
   ],
   "variable": [
     {
-      "id": "a7dd73e6-0668-42c6-8c62-4bf882d12796",
+      "id": "47610dad-96e5-4637-876f-ba3268b90f9c",
       "key": "component",
       "value": "use",
       "type": "string",
