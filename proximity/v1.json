@@ -8004,7 +8004,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_subscription\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_subscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/notificationsubscriptions"
               },
@@ -10440,7 +10440,7 @@
   ],
   "variable": [
     {
-      "id": "705dc5ae-aedf-4184-ace1-4b745cadaa7f",
+      "id": "a7dd73e6-0668-42c6-8c62-4bf882d12796",
       "key": "component",
       "value": "use",
       "type": "string",
