@@ -7782,7 +7782,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_channel\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        }\n    }\n}\n"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_channel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
                 },
                 "url": "{{base_url}}/v1/notificationchannels"
               },
@@ -8004,7 +8004,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_subscription\",\n        \"attributes\": {\n            \"user_id\": \"{{user_id}}\",\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notification_subscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/notificationsubscriptions"
               },
@@ -10440,7 +10440,7 @@
   ],
   "variable": [
     {
-      "id": "ccdfac75-2eb0-462b-9e54-85992afa4116",
+      "id": "eac649c4-43b0-4cc6-99b0-85cd0530d95e",
       "key": "component",
       "value": "use",
       "type": "string",
