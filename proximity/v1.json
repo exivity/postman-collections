@@ -9652,7 +9652,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{  \r\n   \"configuration\":{  \r\n      \"SAML_ENTITY_ID\": \"https://test\"\r\n   }\r\n}"
+                      "raw": "{  \r\n   \"configuration\":{  \r\n      \"SAML_ENTITY_ID\": \"https://test\",\r\n      \"SAML_X509_CERTIFICATE\": \"...\"\r\n   }\r\n}"
                     },
                     "url": "{{base_url}}/v1/system/saml"
                   },
@@ -10441,7 +10441,7 @@
   ],
   "variable": [
     {
-      "id": "14ba5dcc-3035-4ed5-aae8-39b10f7704c4",
+      "id": "6296b88c-27b8-4d65-beee-0c3c99e78408",
       "key": "component",
       "value": "use",
       "type": "string",
