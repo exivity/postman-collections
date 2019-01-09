@@ -4804,7 +4804,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"col1_name\": \"Reseller\",\r\n\t\t\t\"col2_name\": \"Customer\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"col2_name\": \"Customer\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/reports"
               },
@@ -5073,7 +5073,7 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summany_options&invoice_options",
+                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options&invoice_options",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -5157,10 +5157,10 @@
                       "description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration."
                     },
                     {
-                      "key": "summany_options",
+                      "key": "summary_options",
                       "value": "",
                       "equals": false,
-                      "description": "List of options for the pdf/summanry format, in a comma seperated list. Possible options: `consolidated`, `summary`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
+                      "description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
                     },
                     {
                       "key": "invoice_options",
@@ -10441,7 +10441,7 @@
   ],
   "variable": [
     {
-      "id": "6296b88c-27b8-4d65-beee-0c3c99e78408",
+      "id": "a2e6a262-ef1e-4d3e-8109-982ad0107c13",
       "key": "component",
       "value": "use",
       "type": "string",
