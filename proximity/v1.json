@@ -2069,6 +2069,7 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "0fe73c41-f52e-40fe-b9ca-b44fa9df95f3",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -2078,9 +2079,10 @@
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
-                      "});"
+                      "});",
+                      "",
+                      "pm.environment.set(\"account_id\", response.data[0].id);"
                     ],
-                    "id": "0fe73c41-f52e-40fe-b9ca-b44fa9df95f3",
                     "type": "text/javascript"
                   }
                 }
@@ -2093,7 +2095,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/accounts?page[limit]&page[offset]&sort&filter[name]=&include=",
                   "host": [
@@ -10444,7 +10449,7 @@
   ],
   "variable": [
     {
-      "id": "5bce975f-5ae8-43ed-857a-8063730d19a1",
+      "id": "1b1b617c-902a-474b-afe9-52de90815fcd",
       "key": "component",
       "value": "use",
       "type": "string",
