@@ -637,7 +637,6 @@
                   "listen": "test",
                   "script": {
                     "id": "478869de-e2a0-4ff4-9064-da42c8880fdf",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -679,7 +678,8 @@
                       "});",
                       "",
                       "pm.environment.set(\"extractor_name\", response.name);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -697,7 +697,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"name\": \"Extractor test\",\r\n\t\"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r\n}"
+                  "raw": "{\r\n  \"name\": \"Extractor test - {{$randomInt}}\",\r\n  \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r\n}"
                 },
                 "url": "{{base_url}}/v1/extractors"
               },
@@ -10449,7 +10449,7 @@
   ],
   "variable": [
     {
-      "id": "1b1b617c-902a-474b-afe9-52de90815fcd",
+      "id": "50bab174-0c02-4968-8a18-9efb8510afdd",
       "key": "component",
       "value": "use",
       "type": "string",
