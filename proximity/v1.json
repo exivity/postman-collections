@@ -8299,7 +8299,6 @@
                   "listen": "test",
                   "script": {
                     "id": "0500390f-a1a9-475f-8bf7-48d7ad8252cf",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -8318,14 +8317,13 @@
                       "    pm.expect(response.configuration.THOUSANDS_SYMBOL).to.be.a('string');",
                       "    pm.expect(response.configuration.RATE_PRECISION).to.be.a('number');",
                       "    pm.expect(response.configuration.REPORT_PRECISION).to.be.a('number');",
-                      "    pm.expect(response.configuration.INVOICE_PRECISION).to.be.a('number');",
+                      "    pm.expect(response.configuration.SUMMARY_PRECISION).to.be.a('number');",
                       "    pm.expect(response.configuration.QUANTITY_PRECISION).to.be.a('number');",
                       "    pm.expect(response.configuration.DATE_FORMAT).to.be.a('string');",
-                      "    pm.expect(response.configuration.INVOICE_ADDRESS).to.be.a('string');",
-                      "    pm.expect(response.configuration.INVOICE_IMAGE).to.be.a('string');",
-                      "    pm.expect(response.configuration.INVOICE_TITLE).to.be.a('string');",
-                      "    pm.expect(response.configuration.INVOICE_EXTRA).to.be.a('string');",
-                      "    pm.expect(response.configuration.GRAPH_MAX_SERIES).to.be.a('number');",
+                      "    pm.expect(response.configuration.SUMMARY_ADDRESS).to.be.a('string');",
+                      "    pm.expect(response.configuration.SUMMARY_IMAGE).to.be.a('string');",
+                      "    pm.expect(response.configuration.SUMMARY_TITLE).to.be.a('string');",
+                      "    pm.expect(response.configuration.SUMMARY_EXTRA).to.be.a('string');",
                       "    pm.expect(response.configuration.REPORT_START_MONTH).to.be.a('number');",
                       "    pm.expect(response.configuration.APP_DEBUG).to.be.a('boolean');",
                       "    pm.expect(response.configuration.APP_NAME).to.be.a('string');",
@@ -8333,13 +8331,14 @@
                       "    pm.expect(response.configuration.APP_ICON).to.be.a('string');",
                       "    pm.expect(response.configuration.APP_FAVICON).to.be.a('string');",
                       "    pm.expect(response.configuration.APP_COLOUR).to.be.a('string');",
-                      "    pm.expect(response.configuration.APP_CSS).to.be.a('string');",
+                      "    // pm.expect(response.configuration.APP_CSS).to.be.a('string');",
                       "    pm.expect(response.configuration.APP_DOCUMENTATION).to.be.a('boolean');",
                       "    pm.expect(response.configuration.USE_LOCAL_STORAGE).to.be.a('boolean');",
                       "    pm.expect(response.configuration.ANALYTICS).to.be.a('boolean');",
                       "    pm.expect(response.configuration.ERROR_TRACKING).to.be.a('boolean');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8352,19 +8351,8 @@
                   }
                 ],
                 "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "key": "username",
-                      "value": "admin",
-                      "type": "text"
-                    },
-                    {
-                      "key": "password",
-                      "value": "admin",
-                      "type": "text"
-                    }
-                  ]
+                  "mode": "raw",
+                  "raw": ""
                 },
                 "url": "{{base_url}}/v1/configuration"
               },
@@ -8378,7 +8366,6 @@
                   "listen": "test",
                   "script": {
                     "id": "51d8e577-7a4a-4146-a1a6-a479f9f177e4",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -8397,7 +8384,7 @@
                       "    pm.expect(response.configuration.APP_ICON).to.be.a('string');",
                       "    pm.expect(response.configuration.APP_FAVICON).to.be.a('string');",
                       "    pm.expect(response.configuration.APP_COLOUR).to.be.a('string');",
-                      "    pm.expect(response.configuration.APP_CSS).to.be.a('string');",
+                      "    // pm.expect(response.configuration.APP_CSS).to.be.a('string');",
                       "    pm.expect(response.configuration.APP_DOCUMENTATION).to.be.a('boolean');",
                       "    pm.expect(response.configuration.USE_LOCAL_STORAGE).to.be.a('boolean');",
                       "    pm.expect(response.configuration.ANALYTICS).to.be.a('boolean');",
@@ -8421,7 +8408,8 @@
                       "    pm.expect(response.configuration.GRAPH_MAX_SERIES).to.be.undefined;",
                       "    pm.expect(response.configuration.REPORT_START_MONTH).to.be.undefined;",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8440,19 +8428,8 @@
                   }
                 ],
                 "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "key": "username",
-                      "type": "text",
-                      "value": "admin"
-                    },
-                    {
-                      "key": "password",
-                      "type": "text",
-                      "value": "admin"
-                    }
-                  ]
+                  "mode": "raw",
+                  "raw": ""
                 },
                 "url": "{{base_url}}/v1/configuration"
               },
@@ -9701,6 +9678,269 @@
               "_postman_isSubFolder": true
             },
             {
+              "_postman_id": "bbec12de-2991-44c4-9fff-e2693460e821",
+              "name": "/services",
+              "description": "",
+              "item": [
+                {
+                  "_postman_id": "6e8e4836-3f44-4594-aa75-ca63d6f99110",
+                  "name": "Get system environment config",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "691603e3-ca06-4b11-bd78-11b28338be01",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "",
+                          "pm.test(\"Response contains data\", function () {",
+                          "    pm.expect(response).to.be.an('object');",
+                          "    pm.expect(response).to.have.keys([",
+                          "        \"version\",",
+                          "        \"flags\"",
+                          "    ]);",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": "{{base_url}}/v1/system/environment/"
+                  },
+                  "response": [
+                    {
+                      "id": "d0520e98-6211-4f09-8ff5-2c048579bd26",
+                      "name": "Get version information",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": ""
+                        },
+                        "url": "{{base_url}}/v1/system/version"
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Transfer-Encoding",
+                          "value": "chunked",
+                          "name": "Transfer-Encoding",
+                          "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                        },
+                        {
+                          "key": "cache-control",
+                          "value": "no-cache, private",
+                          "name": "cache-control",
+                          "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                        },
+                        {
+                          "key": "connection",
+                          "value": "close",
+                          "name": "connection",
+                          "description": "Options that are desired for the connection"
+                        },
+                        {
+                          "key": "content-type",
+                          "value": "application/json",
+                          "name": "content-type",
+                          "description": "The mime type of this content"
+                        },
+                        {
+                          "key": "date",
+                          "value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
+                          "name": "date",
+                          "description": "The date and time that the message was sent"
+                        },
+                        {
+                          "key": "host",
+                          "value": "localhost:8002",
+                          "name": "host",
+                          "description": "Custom header"
+                        },
+                        {
+                          "key": "phpdebugbar-id",
+                          "value": "761895ecc35993dc557ff3149dc64d58",
+                          "name": "phpdebugbar-id",
+                          "description": "Custom header"
+                        },
+                        {
+                          "key": "x-powered-by",
+                          "value": "PHP/7.1.4",
+                          "name": "x-powered-by",
+                          "description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
+                    }
+                  ]
+                },
+                {
+                  "_postman_id": "c6fe76a2-f9d5-4198-bebb-c4e03cbc2e06",
+                  "name": "Update system environment config",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "691603e3-ca06-4b11-bd78-11b28338be01",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "",
+                          "pm.test(\"Response contains data\", function () {",
+                          "    pm.expect(response).to.be.an('object');",
+                          "    pm.expect(response).to.have.keys([",
+                          "        \"version\",",
+                          "        \"flags\"",
+                          "    ]);",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {},
+                    "url": "{{base_url}}/v1/system/environment/"
+                  },
+                  "response": [
+                    {
+                      "id": "84bac958-d266-4b2c-aa17-645e666f3259",
+                      "name": "Get version information",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": ""
+                        },
+                        "url": "{{base_url}}/v1/system/version"
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Transfer-Encoding",
+                          "value": "chunked",
+                          "name": "Transfer-Encoding",
+                          "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                        },
+                        {
+                          "key": "cache-control",
+                          "value": "no-cache, private",
+                          "name": "cache-control",
+                          "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                        },
+                        {
+                          "key": "connection",
+                          "value": "close",
+                          "name": "connection",
+                          "description": "Options that are desired for the connection"
+                        },
+                        {
+                          "key": "content-type",
+                          "value": "application/json",
+                          "name": "content-type",
+                          "description": "The mime type of this content"
+                        },
+                        {
+                          "key": "date",
+                          "value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
+                          "name": "date",
+                          "description": "The date and time that the message was sent"
+                        },
+                        {
+                          "key": "host",
+                          "value": "localhost:8002",
+                          "name": "host",
+                          "description": "Custom header"
+                        },
+                        {
+                          "key": "phpdebugbar-id",
+                          "value": "761895ecc35993dc557ff3149dc64d58",
+                          "name": "phpdebugbar-id",
+                          "description": "Custom header"
+                        },
+                        {
+                          "key": "x-powered-by",
+                          "value": "PHP/7.1.4",
+                          "name": "x-powered-by",
+                          "description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
+                    }
+                  ]
+                }
+              ],
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "ac40bcea-4bda-46c2-94bd-faf0006a77c4",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1a3cf116-323e-4587-ac2e-0c741b67bad2",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
               "_postman_id": "bd9b8d9c-2dde-4714-a83c-3faa7b16022d",
               "name": "Get system overview",
               "event": [
@@ -10458,7 +10698,7 @@
   ],
   "variable": [
     {
-      "id": "9a9cece2-9361-415d-a46e-daf5f20c7aa2",
+      "id": "7d5480cd-cc75-48c4-a4a2-87596cd42d51",
       "key": "component",
       "value": "use",
       "type": "string",
