@@ -8861,6 +8861,238 @@
           "_postman_isSubFolder": true
         },
         {
+          "_postman_id": "7c87c061-7f07-44d1-b8b0-bd2545a02eaf",
+          "name": "/environment",
+          "description": "",
+          "item": [
+            {
+              "_postman_id": "fc8967b9-0ad0-4178-acc8-451e53d71092",
+              "name": "Get system environment config",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "691603e3-ca06-4b11-bd78-11b28338be01",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response).to.be.an('object');",
+                      "    pm.expect(response).to.have.keys([",
+                      "        \"version\",",
+                      "        \"flags\"",
+                      "    ]);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "{{base_url}}/v1/system/environment/"
+              },
+              "response": [
+                {
+                  "id": "3a282820-726b-4525-9b93-09f61d68cf55",
+                  "name": "Get version information",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {},
+                    "url": "{{base_url}}/v1/system/version"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked",
+                      "name": "Transfer-Encoding",
+                      "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                    },
+                    {
+                      "key": "cache-control",
+                      "value": "no-cache, private",
+                      "name": "cache-control",
+                      "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "close",
+                      "name": "connection",
+                      "description": "Options that are desired for the connection"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json",
+                      "name": "content-type",
+                      "description": "The mime type of this content"
+                    },
+                    {
+                      "key": "date",
+                      "value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
+                      "name": "date",
+                      "description": "The date and time that the message was sent"
+                    },
+                    {
+                      "key": "host",
+                      "value": "localhost:8002",
+                      "name": "host",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "phpdebugbar-id",
+                      "value": "761895ecc35993dc557ff3149dc64d58",
+                      "name": "phpdebugbar-id",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "x-powered-by",
+                      "value": "PHP/7.1.4",
+                      "name": "x-powered-by",
+                      "description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
+                }
+              ]
+            },
+            {
+              "_postman_id": "59a1aa20-1ad4-4791-aec9-282ecee1a7cd",
+              "name": "Update system environment config",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "691603e3-ca06-4b11-bd78-11b28338be01",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response).to.be.an('object');",
+                      "    pm.expect(response).to.have.keys([",
+                      "        \"version\",",
+                      "        \"flags\"",
+                      "    ]);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {},
+                "url": "{{base_url}}/v1/system/environment/"
+              },
+              "response": [
+                {
+                  "id": "07af762f-3ddc-4475-a12c-31cad36895f8",
+                  "name": "Get version information",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {},
+                    "url": "{{base_url}}/v1/system/version"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked",
+                      "name": "Transfer-Encoding",
+                      "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                    },
+                    {
+                      "key": "cache-control",
+                      "value": "no-cache, private",
+                      "name": "cache-control",
+                      "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                    },
+                    {
+                      "key": "connection",
+                      "value": "close",
+                      "name": "connection",
+                      "description": "Options that are desired for the connection"
+                    },
+                    {
+                      "key": "content-type",
+                      "value": "application/json",
+                      "name": "content-type",
+                      "description": "The mime type of this content"
+                    },
+                    {
+                      "key": "date",
+                      "value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
+                      "name": "date",
+                      "description": "The date and time that the message was sent"
+                    },
+                    {
+                      "key": "host",
+                      "value": "localhost:8002",
+                      "name": "host",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "phpdebugbar-id",
+                      "value": "761895ecc35993dc557ff3149dc64d58",
+                      "name": "phpdebugbar-id",
+                      "description": "Custom header"
+                    },
+                    {
+                      "key": "x-powered-by",
+                      "value": "PHP/7.1.4",
+                      "name": "x-powered-by",
+                      "description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
+                }
+              ]
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "_postman_id": "35038ec5-f72e-b671-fce9-e9a126fba8b6",
           "name": "/system",
           "description": "",
@@ -10192,238 +10424,6 @@
             }
           ],
           "_postman_isSubFolder": true
-        },
-        {
-          "_postman_id": "7c87c061-7f07-44d1-b8b0-bd2545a02eaf",
-          "name": "/environment",
-          "description": "",
-          "item": [
-            {
-              "_postman_id": "fc8967b9-0ad0-4178-acc8-451e53d71092",
-              "name": "Get system environment config",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "691603e3-ca06-4b11-bd78-11b28338be01",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response).to.be.an('object');",
-                      "    pm.expect(response).to.have.keys([",
-                      "        \"version\",",
-                      "        \"flags\"",
-                      "    ]);",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {},
-                "url": "{{base_url}}/v1/system/environment/"
-              },
-              "response": [
-                {
-                  "id": "3a282820-726b-4525-9b93-09f61d68cf55",
-                  "name": "Get version information",
-                  "originalRequest": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {},
-                    "url": "{{base_url}}/v1/system/version"
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "_postman_previewlanguage": "json",
-                  "header": [
-                    {
-                      "key": "Transfer-Encoding",
-                      "value": "chunked",
-                      "name": "Transfer-Encoding",
-                      "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                    },
-                    {
-                      "key": "cache-control",
-                      "value": "no-cache, private",
-                      "name": "cache-control",
-                      "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                    },
-                    {
-                      "key": "connection",
-                      "value": "close",
-                      "name": "connection",
-                      "description": "Options that are desired for the connection"
-                    },
-                    {
-                      "key": "content-type",
-                      "value": "application/json",
-                      "name": "content-type",
-                      "description": "The mime type of this content"
-                    },
-                    {
-                      "key": "date",
-                      "value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
-                      "name": "date",
-                      "description": "The date and time that the message was sent"
-                    },
-                    {
-                      "key": "host",
-                      "value": "localhost:8002",
-                      "name": "host",
-                      "description": "Custom header"
-                    },
-                    {
-                      "key": "phpdebugbar-id",
-                      "value": "761895ecc35993dc557ff3149dc64d58",
-                      "name": "phpdebugbar-id",
-                      "description": "Custom header"
-                    },
-                    {
-                      "key": "x-powered-by",
-                      "value": "PHP/7.1.4",
-                      "name": "x-powered-by",
-                      "description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-                    }
-                  ],
-                  "cookie": [],
-                  "responseTime": null,
-                  "body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
-                }
-              ]
-            },
-            {
-              "_postman_id": "59a1aa20-1ad4-4791-aec9-282ecee1a7cd",
-              "name": "Update system environment config",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "691603e3-ca06-4b11-bd78-11b28338be01",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response).to.be.an('object');",
-                      "    pm.expect(response).to.have.keys([",
-                      "        \"version\",",
-                      "        \"flags\"",
-                      "    ]);",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {},
-                "url": "{{base_url}}/v1/system/environment/"
-              },
-              "response": [
-                {
-                  "id": "07af762f-3ddc-4475-a12c-31cad36895f8",
-                  "name": "Get version information",
-                  "originalRequest": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {},
-                    "url": "{{base_url}}/v1/system/version"
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "_postman_previewlanguage": "json",
-                  "header": [
-                    {
-                      "key": "Transfer-Encoding",
-                      "value": "chunked",
-                      "name": "Transfer-Encoding",
-                      "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-                    },
-                    {
-                      "key": "cache-control",
-                      "value": "no-cache, private",
-                      "name": "cache-control",
-                      "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-                    },
-                    {
-                      "key": "connection",
-                      "value": "close",
-                      "name": "connection",
-                      "description": "Options that are desired for the connection"
-                    },
-                    {
-                      "key": "content-type",
-                      "value": "application/json",
-                      "name": "content-type",
-                      "description": "The mime type of this content"
-                    },
-                    {
-                      "key": "date",
-                      "value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
-                      "name": "date",
-                      "description": "The date and time that the message was sent"
-                    },
-                    {
-                      "key": "host",
-                      "value": "localhost:8002",
-                      "name": "host",
-                      "description": "Custom header"
-                    },
-                    {
-                      "key": "phpdebugbar-id",
-                      "value": "761895ecc35993dc557ff3149dc64d58",
-                      "name": "phpdebugbar-id",
-                      "description": "Custom header"
-                    },
-                    {
-                      "key": "x-powered-by",
-                      "value": "PHP/7.1.4",
-                      "name": "x-powered-by",
-                      "description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-                    }
-                  ],
-                  "cookie": [],
-                  "responseTime": null,
-                  "body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
-                }
-              ]
-            }
-          ],
-          "_postman_isSubFolder": true
         }
       ]
     }
@@ -10458,7 +10458,7 @@
   ],
   "variable": [
     {
-      "id": "e6ee173c-b68d-4ef6-9f5b-cb9f4589a013",
+      "id": "4fff178f-3717-4de4-9f26-e44b41b0d50a",
       "key": "component",
       "value": "use",
       "type": "string",
