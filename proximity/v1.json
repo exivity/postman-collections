@@ -9719,7 +9719,7 @@
                           "        \"NEXMO_KEY\",",
                           "        \"NEXMO_SECRET\",",
                           "        \"NEXMO_FROM_NUMBER\"",
-                          "    ]))",
+                          "    ])",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -9835,9 +9835,12 @@
                           "pm.test(\"Response contains data\", function () {",
                           "    pm.expect(response).to.be.an('object');",
                           "    pm.expect(response).to.have.keys([",
-                          "        \"version\",",
-                          "        \"flags\"",
+                          "        \"code\",",
+                          "        \"message\",",
+                          "        \"configuration\"",
                           "    ]);",
+                          "    pm.expect(response.configuration).to.be.an('object');",
+                          "    pm.expect(response.configuration.MAIL_FROM_NAME).to.equal(\"Updated from Postman Test\")",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -9850,9 +9853,17 @@
                       {
                         "key": "Accept",
                         "value": "application/json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
                       }
                     ],
-                    "body": {},
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_NAME\": \"Updated from Postman Test\"\r\n   }\r\n}"
+                    },
                     "url": "{{base_url}}/v1/system/services/"
                   },
                   "response": [
@@ -10318,8 +10329,7 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data).to.have.keys([",
-                      "        \"version\",",
-                      "        \"components\"",
+                      "        \"version\"",
                       "    ]);",
                       "});"
                     ],
@@ -10341,7 +10351,10 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/system/version"
               },
               "response": [
@@ -10715,7 +10728,7 @@
   ],
   "variable": [
     {
-      "id": "544b1f39-2072-458e-a32e-e93edf42e7df",
+      "id": "1bdc4684-debc-487b-8d03-b1acb364bc42",
       "key": "component",
       "value": "use",
       "type": "string",
