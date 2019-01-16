@@ -4839,14 +4839,14 @@
                       "    pm.expect(response.data.type).to.eql('report');",
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.include('Test report');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"name\": \"Test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"col1_name\": \"Reseller\",",
-                      "        \"col2_name\": \"Customer\",",
-                      "        \"col3_name\": \"\",",
-                      "        \"col4_name\": \"\",",
-                      "        \"col5_name\": \"\",",
+                      "        \"lvl1_key_col\": \"Country\",",
+                      "        \"lvl2_key_col\": \"Reseller\",",
+                      "        \"lvl3_key_col\": \"\",",
+                      "        \"lvl4_key_col\": \"\",",
+                      "        \"lvl5_key_col\": \"\",",
                       "        \"depth\": 2,",
                       "        \"schedule\": false",
                       "\t});",
@@ -4920,11 +4920,6 @@
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"Modified test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"col1_name\": \"Reseller\",",
-                      "        \"col2_name\": \"Customer\",",
-                      "        \"col3_name\": \"\",",
-                      "        \"col4_name\": \"\",",
-                      "        \"col5_name\": \"\",",
                       "        \"depth\": 2,",
                       "        \"schedule\": false",
                       "\t});",
@@ -4946,7 +4941,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -10450,7 +10447,7 @@
   ],
   "variable": [
     {
-      "id": "348e99ba-1275-48cb-a6a7-40c6c6363140",
+      "id": "576bceb7-8107-4960-a76d-6b5079571957",
       "key": "component",
       "value": "use",
       "type": "string",
