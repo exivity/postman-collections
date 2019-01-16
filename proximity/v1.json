@@ -8443,7 +8443,6 @@
                   "listen": "test",
                   "script": {
                     "id": "cf7a605f-9e7f-409b-bfde-40ddb19099b2",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -8456,10 +8455,11 @@
                       "});",
                       "",
                       "pm.test(\"Response contains new keys\", function () {",
-                      "    pm.expect(response.configuration.INVOICE_EXTRA).to.be.eql(\"Updated from Postman Test\");",
+                      "    pm.expect(response.configuration.SUMMARY_EXTRA).to.be.eql(\"Updated from Postman Test\");",
                       "    ",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -10698,7 +10698,7 @@
   ],
   "variable": [
     {
-      "id": "7d5480cd-cc75-48c4-a4a2-87596cd42d51",
+      "id": "f0f26a53-c7ac-4050-9fef-9b8f4a6d2285",
       "key": "component",
       "value": "use",
       "type": "string",
