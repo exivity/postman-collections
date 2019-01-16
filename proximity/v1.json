@@ -4761,7 +4761,7 @@
                   "script": {
                     "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
                     "exec": [
-                      "/**pm.test(\"Status code is 201\", function () {",
+                      "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
@@ -4775,11 +4775,9 @@
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"Test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"col1_name\": \"Reseller\",",
-                      "        \"col2_name\": \"Customer\",",
-                      "        \"col3_name\": \"\",",
-                      "        \"col4_name\": \"\",",
-                      "        \"col5_name\": \"\",",
+                      "        \"lvl1_key_col\": \"Country\",",
+                      "        \"lvl1_name_col\": \"Country\",",
+                      "        \"lvl1_label\": \"Country\",",
                       "        \"depth\": 2,",
                       "        \"schedule\": false",
                       "\t});",
@@ -4793,7 +4791,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"report_id\", response.data.id);",
-                      "*/"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -4815,7 +4813,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"lvl1_key_col\": \"Country\",\r\n            \"lvl1_name_col\": \"Country\",\r\n            \"lvl1_label\": \"Country\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report - {{$randomInt}}\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"lvl1_key_col\": \"Country\",\r\n            \"lvl1_name_col\": \"Country\",\r\n            \"lvl1_label\": \"Country\",\r\n            \"lvl2_key_col\": \"Reseller\",\r\n            \"lvl2_name_col\": \"Reseller\",\r\n            \"lvl3_label\": \"Reseller\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/reports"
               },
@@ -10452,7 +10450,7 @@
   ],
   "variable": [
     {
-      "id": "0e477cd6-3c88-46af-90d2-93e63158d24b",
+      "id": "348e99ba-1275-48cb-a6a7-40c6c6363140",
       "key": "component",
       "value": "use",
       "type": "string",
