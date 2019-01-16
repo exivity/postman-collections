@@ -4875,25 +4875,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}?include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "reports",
-                    "{{report_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "equals": false,
-                      "description": "Include additional related resources"
-                    }
-                  ]
-                }
+                "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
               "response": []
             },
@@ -10736,7 +10718,7 @@
   ],
   "variable": [
     {
-      "id": "c2f56baa-18de-4d93-b438-782847b76d29",
+      "id": "fd481b55-4e2f-45ff-8336-e214f3d1d99b",
       "key": "component",
       "value": "use",
       "type": "string",
