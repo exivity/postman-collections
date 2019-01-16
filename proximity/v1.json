@@ -4772,8 +4772,8 @@
                       "    pm.expect(response.data.type).to.eql('report');",
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.include('Test report');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"name\": \"Test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
                       "        \"lvl1_key_col\": \"Country\",",
                       "        \"lvl1_name_col\": \"Country\",",
@@ -10447,7 +10447,7 @@
   ],
   "variable": [
     {
-      "id": "b94b6ba7-9282-48fd-8f07-3be164443d19",
+      "id": "4021c97c-4831-4d90-82a9-46d5a10ff6f0",
       "key": "component",
       "value": "use",
       "type": "string",
