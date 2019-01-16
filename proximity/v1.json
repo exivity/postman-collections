@@ -9583,6 +9583,8 @@
                           "pm.test(\"Response contains data\", function () {",
                           "    pm.expect(response).to.be.an('object');",
                           "    pm.expect(response).to.have.keys([",
+                          "        \"code\",",
+                          "        \"message\",",
                           "        \"configuration\"",
                           "    ]);",
                           "    pm.expect(response.configuration).to.be.an('array');",
@@ -9687,7 +9689,7 @@
               "item": [
                 {
                   "_postman_id": "6e8e4836-3f44-4594-aa75-ca63d6f99110",
-                  "name": "Get system environment config",
+                  "name": "Get system services config",
                   "event": [
                     {
                       "listen": "test",
@@ -10701,7 +10703,7 @@
   ],
   "variable": [
     {
-      "id": "438b06d1-cbac-47f1-80b3-a20ea8d260f4",
+      "id": "c1b014c9-4cde-4254-9c37-1832d6cc3e40",
       "key": "component",
       "value": "use",
       "type": "string",
