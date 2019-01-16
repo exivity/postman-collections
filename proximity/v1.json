@@ -851,7 +851,6 @@
                   "listen": "test",
                   "script": {
                     "id": "489687ff-4c2b-44a1-b3b4-0c6f0444f938",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -871,7 +870,7 @@
                       "    pm.expect(response.last_modified).to.be.a('string');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
-                      "    pm.expect(response.name).to.eql('Extractor_test');",
+                      "    pm.expect(response.name).to.include('Extractor_test');",
                       "    pm.expect(response.contents.trim()).to.eql(\"print Hello world\\nvar key1 = value1\\npublic var key2 = \\\"value2\\\"\\npublic var key3 = \\\"value3\\\"\");",
                       "    pm.expect(response.variables).to.eql([",
                       "        {",
@@ -891,7 +890,8 @@
                       "    ]);",
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -10452,7 +10452,7 @@
   ],
   "variable": [
     {
-      "id": "ba36b8aa-6f7d-40c1-bb27-7ba10f557d89",
+      "id": "0e477cd6-3c88-46af-90d2-93e63158d24b",
       "key": "component",
       "value": "use",
       "type": "string",
