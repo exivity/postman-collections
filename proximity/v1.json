@@ -6907,7 +6907,9 @@
                       "        })\r",
                       "    }\r",
                       "}, function (err, res) {\r",
-                      "    pm.environment.set(\"report_id\", res.json().data.id);\r",
+                      "    console.log(res.json());\r",
+                      "    //pm.environment.set(\"report_id\", res.json().data.id);\r",
+                      "    //pm.environment.set(\"report_id\", res.json().data[0].id);\r",
                       "})"
                     ],
                     "type": "text/javascript"
@@ -10455,7 +10457,7 @@
   ],
   "variable": [
     {
-      "id": "87118051-26d6-4d75-acba-caa731de0e89",
+      "id": "07e9fcfa-2d84-4ebe-9fa2-6bdee5557ef5",
       "key": "component",
       "value": "use",
       "type": "string",
