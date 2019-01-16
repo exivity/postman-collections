@@ -6211,7 +6211,6 @@
                   "listen": "test",
                   "script": {
                     "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -6221,8 +6220,11 @@
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ]
+                      "});",
+                      "",
+                      "pm.environment.set(\"notification_channel_id\", response.data[0].id);"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6234,7 +6236,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/workflows?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
@@ -10449,7 +10454,7 @@
   ],
   "variable": [
     {
-      "id": "46f925e5-e460-49eb-a1c5-33125ff6f01e",
+      "id": "03d14896-3cc1-47f5-b769-5b02884275e4",
       "key": "component",
       "value": "use",
       "type": "string",
