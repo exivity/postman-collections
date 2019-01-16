@@ -8477,7 +8477,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{  \r\n   \"configuration\":{  \r\n      \"INVOICE_EXTRA\": \"Updated from Postman Test\"\r\n   }\r\n}"
+                  "raw": "{  \r\n   \"configuration\":{  \r\n      \"SUMMARY_EXTRA\": \"Updated from Postman Test\"\r\n   }\r\n}"
                 },
                 "url": "{{base_url}}/v1/configuration"
               },
@@ -9468,9 +9468,9 @@
                           "pm.test(\"Response contains data\", function () {",
                           "    pm.expect(response).to.be.an('object');",
                           "    pm.expect(response).to.have.keys([",
-                          "        \"version\",",
-                          "        \"flags\"",
+                          "        \"configuration\"",
                           "    ]);",
+                          "    pm.expect(response.configuration).to.be.an('array');",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -9485,7 +9485,10 @@
                         "value": "application/json"
                       }
                     ],
-                    "body": {},
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
                     "url": "{{base_url}}/v1/system/environment/"
                   },
                   "response": [
@@ -9580,9 +9583,9 @@
                           "pm.test(\"Response contains data\", function () {",
                           "    pm.expect(response).to.be.an('object');",
                           "    pm.expect(response).to.have.keys([",
-                          "        \"version\",",
-                          "        \"flags\"",
+                          "        \"configuration\"",
                           "    ]);",
+                          "    pm.expect(response.configuration).to.be.an('array');",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -10698,7 +10701,7 @@
   ],
   "variable": [
     {
-      "id": "f0f26a53-c7ac-4050-9fef-9b8f4a6d2285",
+      "id": "438b06d1-cbac-47f1-80b3-a20ea8d260f4",
       "key": "component",
       "value": "use",
       "type": "string",
