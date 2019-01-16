@@ -9702,12 +9702,24 @@
                           "",
                           "const response = pm.response.json();",
                           "",
-                          "pm.test(\"Response contains data\", function () {",
-                          "    pm.expect(response).to.be.an('object');",
-                          "    pm.expect(response).to.have.keys([",
-                          "        \"version\",",
-                          "        \"flags\"",
-                          "    ]);",
+                          "pm.test(\"Response contains configuration data\", function () {",
+                          "    pm.expect(response.configuration).to.be.an('object');",
+                          "});",
+                          "",
+                          "pm.test(\"Response contains all keys\", function () {",
+                          "    pm.expect(response.configuration).to.have.keys([",
+                          "        \"MAIL_HOST\",",
+                          "        \"MAIL_PORT\",",
+                          "        \"MAIL_USERNAME\",",
+                          "        \"MAIL_PASSWORD\",",
+                          "        \"MAIL_FROM_ADDRESS\",",
+                          "        \"MAIL_FROM_NAME\",",
+                          "        \"MAIL_DRIVER\",",
+                          "        \"MAIL_ENCRYPTION\",",
+                          "        \"NEXMO_KEY\",",
+                          "        \"NEXMO_SECRET\",",
+                          "        \"NEXMO_FROM_NUMBER\"",
+                          "    ]))",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -9726,7 +9738,7 @@
                       "mode": "raw",
                       "raw": ""
                     },
-                    "url": "{{base_url}}/v1/system/environment/"
+                    "url": "{{base_url}}/v1/system/services/"
                   },
                   "response": [
                     {
@@ -10703,7 +10715,7 @@
   ],
   "variable": [
     {
-      "id": "58f634ad-d850-4ee8-ab4e-e0868a981db8",
+      "id": "544b1f39-2072-458e-a32e-e93edf42e7df",
       "key": "component",
       "value": "use",
       "type": "string",
