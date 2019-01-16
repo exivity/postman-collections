@@ -6221,8 +6221,7 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
-                      "",
-                      "pm.environment.set(\"notification_channel_id\", response.data[0].id);"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -10457,7 +10456,7 @@
   ],
   "variable": [
     {
-      "id": "07e9fcfa-2d84-4ebe-9fa2-6bdee5557ef5",
+      "id": "e0091c0f-aed2-49ad-bf26-9edf51b4d241",
       "key": "component",
       "value": "use",
       "type": "string",
