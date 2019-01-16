@@ -9702,7 +9702,7 @@
             },
             {
               "_postman_id": "bbec12de-2991-44c4-9fff-e2693460e821",
-              "name": "/environment Copy",
+              "name": "/services",
               "description": "",
               "item": [
                 {
@@ -9937,6 +9937,28 @@
                       "body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
                     }
                   ]
+                }
+              ],
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "ac40bcea-4bda-46c2-94bd-faf0006a77c4",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "1a3cf116-323e-4587-ac2e-0c741b67bad2",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
                 }
               ],
               "_postman_isSubFolder": true
@@ -10699,7 +10721,7 @@
   ],
   "variable": [
     {
-      "id": "1b38dc7f-ca37-48e9-b3d7-fcd9611e2092",
+      "id": "eacc5e1e-6d8f-434d-897b-d8537e7acd0b",
       "key": "component",
       "value": "use",
       "type": "string",
