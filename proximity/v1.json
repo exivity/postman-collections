@@ -9807,7 +9807,7 @@
                 },
                 {
                   "_postman_id": "c6fe76a2-f9d5-4198-bebb-c4e03cbc2e06",
-                  "name": "Update system environment config",
+                  "name": "Update system services config",
                   "event": [
                     {
                       "listen": "test",
@@ -9841,7 +9841,7 @@
                       }
                     ],
                     "body": {},
-                    "url": "{{base_url}}/v1/system/environment/"
+                    "url": "{{base_url}}/v1/system/services/"
                   },
                   "response": [
                     {
@@ -10703,7 +10703,7 @@
   ],
   "variable": [
     {
-      "id": "c1b014c9-4cde-4254-9c37-1832d6cc3e40",
+      "id": "58f634ad-d850-4ee8-ab4e-e0868a981db8",
       "key": "component",
       "value": "use",
       "type": "string",
