@@ -6221,7 +6221,8 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
-                      ""
+                      "",
+                      "pm.environment.set(\"workflow_id\", response.data[0].id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -10456,7 +10457,7 @@
   ],
   "variable": [
     {
-      "id": "e0091c0f-aed2-49ad-bf26-9edf51b4d241",
+      "id": "6788c93a-813c-4bef-aa68-34ce61ae4d6b",
       "key": "component",
       "value": "use",
       "type": "string",
