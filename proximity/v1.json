@@ -10450,6 +10450,7 @@
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data).to.have.keys([",
                       "        \"SUPPORTS_PDF_EXPORT\",",
+                      "        \"SUPPORTS_SENDING_MAIL\"",
                       "    ]);",
                       "});"
                     ],
@@ -10471,7 +10472,10 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/system/flags"
               },
               "response": [
@@ -10571,6 +10575,7 @@
                       "        \"edify\",",
                       "        \"proximity\",",
                       "        \"glass\",",
+                      "        \"aeon\"",
                       "    ]);",
                       "});"
                     ],
@@ -10592,7 +10597,10 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/system/disclaimer"
               },
               "response": [
@@ -10728,7 +10736,7 @@
   ],
   "variable": [
     {
-      "id": "1bdc4684-debc-487b-8d03-b1acb364bc42",
+      "id": "c2f56baa-18de-4d93-b438-782847b76d29",
       "key": "component",
       "value": "use",
       "type": "string",
