@@ -7640,6 +7640,61 @@
           "description": "",
           "item": [
             {
+              "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
+              "name": "Create a new channel",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a3761d66-2976-47e4-8dc3-f6cf4587d8a6",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "     pm.response.to.have.status(201);",
+                      " });",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('notificationchannel');",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.info.recipient).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.name).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.type).to.be.an('string');",
+                      "    pm.expect(response.data.attributes.info.recipient).to.be.a('string');",
+                      "});",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"notification_channel_id\", response.data.id);",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                },
+                "url": "{{base_url}}/v1/notificationchannels"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "0a406172-a412-4e4a-807f-ce306c9b9c78",
               "name": "Get all notification channels",
               "event": [
@@ -7693,61 +7748,6 @@
                     }
                   ]
                 }
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
-              "name": "Create a new channel",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "a3761d66-2976-47e4-8dc3-f6cf4587d8a6",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "     pm.response.to.have.status(201);",
-                      " });",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('notificationchannel');",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.info.recipient).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.name).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.type).to.be.an('string');",
-                      "    pm.expect(response.data.attributes.info.recipient).to.be.a('string');",
-                      "});",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"notification_channel_id\", response.data.id);",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
-                },
-                "url": "{{base_url}}/v1/notificationchannels"
               },
               "response": []
             },
@@ -10751,7 +10751,7 @@
   ],
   "variable": [
     {
-      "id": "bad938fb-3c40-4df2-817f-cd19e5c27368",
+      "id": "a9a759e3-573e-4f48-9e8a-7fc450ad6137",
       "key": "component",
       "value": "use",
       "type": "string",
