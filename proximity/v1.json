@@ -7648,17 +7648,15 @@
                   "script": {
                     "id": "f6a56d93-e63f-48a4-8478-e75d2ae21d76",
                     "exec": [
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "     pm.response.to.have.status(200);",
+                      " });",
                       "",
-                      "// const response = pm.response.json();",
+                      "const response = pm.response.json();",
                       "",
-                      "// pm.test(\"Response contains data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('array');",
-                      "// });",
-                      "",
-                      "// pm.environment.set(\"notification_channel_id\", response.data[0].id);",
+                      "pm.test(\"Response contains data\", function () {",
+                      "     pm.expect(response.data).to.be.an('array');",
+                      "});",
                       ""
                     ],
                     "type": "text/javascript"
@@ -7701,6 +7699,38 @@
             {
               "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
               "name": "Create a new channel",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a3761d66-2976-47e4-8dc3-f6cf4587d8a6",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "     pm.response.to.have.status(201);",
+                      " });",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('notificationchannel');",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.info.recipient).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.name).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.type).to.be.an('string');",
+                      "    pm.expect(response.data.attributes.info.recipient).to.be.a('string');",
+                      "});",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"notification_channel_id\", response.data.id);",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "request": {
                 "method": "POST",
                 "header": [
@@ -10721,7 +10751,7 @@
   ],
   "variable": [
     {
-      "id": "99b01af1-c5ce-4bc8-9d91-252f8cfd1edf",
+      "id": "bad938fb-3c40-4df2-817f-cd19e5c27368",
       "key": "component",
       "value": "use",
       "type": "string",
