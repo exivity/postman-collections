@@ -8390,10 +8390,10 @@
                       "",
                       "pm.test(\"Response contains APP_DEBUG\", function () { pm.expect(response.configuration.APP_DEBUG).to.be.a('boolean'); });",
                       "pm.test(\"Response contains APP_NAME\", function () { pm.expect(response.configuration.APP_NAME).to.be.a('string'); });",
-                      "pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.a('string'); });",
-                      "pm.test(\"Response contains APP_ICON\", function () { pm.expect(response.configuration.APP_ICON).to.be.a('string'); });",
+                      "//pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.a('string'); });",
+                      "//pm.test(\"Response contains APP_ICON\", function () { pm.expect(response.configuration.APP_ICON).to.be.a('string'); });",
                       "pm.test(\"Response contains APP_COLOUR\", function () { pm.expect(response.configuration.APP_COLOUR).to.be.a('string'); });",
-                      "pm.test(\"Response contains APP_FAVICON\", function () { pm.expect(response.configuration.APP_FAVICON).to.be.a('string'); });",
+                      "//pm.test(\"Response contains APP_FAVICON\", function () { pm.expect(response.configuration.APP_FAVICON).to.be.a('string'); });",
                       "pm.test(\"Response contains APP_DOCUMENTATION\", function () { pm.expect(response.configuration.APP_DOCUMENTATION).to.be.a('boolean'); });",
                       "pm.test(\"Response contains USE_LOCAL_STORAGE\", function () { pm.expect(response.configuration.USE_LOCAL_STORAGE).to.be.a('boolean'); });",
                       "pm.test(\"Response contains ANALYTICS\", function () { pm.expect(response.configuration.ANALYTICS).to.be.a('boolean'); });",
@@ -8415,7 +8415,6 @@
                       "    pm.expect(response.configuration.INVOICE_EXTRA).to.be.undefined;",
                       "    pm.expect(response.configuration.GRAPH_MAX_SERIES).to.be.undefined;",
                       "    pm.expect(response.configuration.REPORT_START_MONTH).to.be.undefined;",
-                      "    pm.expect(response.configuration.BANANA).to.be.undefined;",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -10744,7 +10743,7 @@
   ],
   "variable": [
     {
-      "id": "34a529a6-c4d6-4b73-9d08-ab0580a4a451",
+      "id": "fce26da8-793a-41a8-b15d-338107eff49f",
       "key": "component",
       "value": "use",
       "type": "string",
