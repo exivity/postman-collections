@@ -7127,9 +7127,8 @@
                   "listen": "test",
                   "script": {
                     "id": "558cd072-9f8d-45a3-9891-46fa0ed91693",
-                    "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
+                      "/*pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -7141,22 +7140,23 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"type\": \"proximity\",",
-                      "\t\t\"sort\": 1,",
-                      "\t\t\"timeout\": 600,",
-                      "\t\t\"last_log\": null,",
-                      "\t});",
-                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"command\": \"exivity:gc\",",
+                      "    \"type\": \"proximity\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600,",
+                      "    \"last_log\": null,",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"exivity:gc\",",
                       "        \"arguments\": \"test\"",
-                      "\t});",
+                      "  });",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ]
+                      "});*/"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7174,7 +7174,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"id\": \"{{workflowstep_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"command\": \"exivity:gc\",\r\n\t\t\t\t\"arguments\": \"test\"\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}",
                 "description": "Test description"
@@ -10718,7 +10718,7 @@
   ],
   "variable": [
     {
-      "id": "44050474-ad8a-4269-956e-75a2088f3f15",
+      "id": "20891ce7-ffce-434d-a030-1c3b86f9b770",
       "key": "component",
       "value": "use",
       "type": "string",
