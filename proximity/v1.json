@@ -7189,9 +7189,8 @@
                   "listen": "test",
                   "script": {
                     "id": "b0d76dab-9d1b-4c38-9b10-995104d99109",
-                    "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
+                      "/*pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -7199,8 +7198,9 @@
                       "",
                       "pm.test(\"Response contains logs data\", function () {",
                       "    pm.expect(response.logs).to.be.an('array');",
-                      "});"
-                    ]
+                      "});*/"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -10718,7 +10718,7 @@
   ],
   "variable": [
     {
-      "id": "20891ce7-ffce-434d-a030-1c3b86f9b770",
+      "id": "55072192-9efb-4f11-9817-0bc7b4e03c5b",
       "key": "component",
       "value": "use",
       "type": "string",
