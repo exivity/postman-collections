@@ -7081,7 +7081,8 @@
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
-                      "});*/"
+                      "});*/",
+                      "pm.globals.unset(\"variable_key\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -7698,6 +7699,29 @@
               "response": []
             },
             {
+              "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
+              "name": "Create a new channel",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                },
+                "url": "{{base_url}}/v1/notificationchannels"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "c374ef78-2bbb-4087-92ce-cadd6f7eb4f4",
               "name": "Get a channel",
               "event": [
@@ -7765,29 +7789,6 @@
                     }
                   ]
                 }
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
-              "name": "Create a new channel",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
-                },
-                "url": "{{base_url}}/v1/notificationchannels"
               },
               "response": []
             },
@@ -9455,7 +9456,6 @@
                           "    pm.expect(response).to.have.keys([",
                           "        \"configuration\"",
                           "    ]);",
-                          "    pm.expect(response.configuration).to.be.an('array');",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -10721,7 +10721,7 @@
   ],
   "variable": [
     {
-      "id": "0c756d40-5a97-4c93-ac0d-1edce52d76c5",
+      "id": "99b01af1-c5ce-4bc8-9d91-252f8cfd1edf",
       "key": "component",
       "value": "use",
       "type": "string",
