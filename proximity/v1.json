@@ -6929,9 +6929,8 @@
                   "listen": "test",
                   "script": {
                     "id": "8e3a714e-103b-42dd-b8da-8f4e1d00e7e9",
-                    "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
+                      "/*pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
@@ -6943,23 +6942,24 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"type\": \"execute\",",
-                      "\t\t\"sort\": 1,",
-                      "\t\t\"timeout\": 600,",
-                      "\t\t\"last_log\": null,",
-                      "\t});",
-                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"command\": \"echo \\\"testing\\\"\"",
-                      "\t});",
+                      "    \"type\": \"execute\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600,",
+                      "    \"last_log\": null,",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"echo \\\"testing\\\"\"",
+                      "  });",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);"
-                    ]
+                      "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6977,7 +6977,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"execute\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"command\": \"echo \\\"testing\\\"\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -6991,9 +6991,8 @@
                   "listen": "test",
                   "script": {
                     "id": "9d636ea9-fad0-4f85-91c3-fb5abd25cf98",
-                    "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
+                      "/*pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
@@ -7005,24 +7004,25 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"type\": \"proximity\",",
-                      "\t\t\"sort\": 1,",
-                      "\t\t\"timeout\": 600,",
-                      "\t\t\"last_log\": null,",
-                      "\t});",
-                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"command\": \"exivity:gc\",",
+                      "    \"type\": \"proximity\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600,",
+                      "    \"last_log\": null,",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"exivity:gc\",",
                       "        \"arguments\": \"\"",
-                      "\t});",
+                      "  });",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);"
-                    ]
+                      "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7040,7 +7040,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"proximity\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"command\": \"exivity:gc\",\r\n\t\t\t\t\"arguments\": \"\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -7228,12 +7228,12 @@
                   "listen": "test",
                   "script": {
                     "id": "164386e5-18a5-496c-bd28-2def05ec2c13",
-                    "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
+                      "/*pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
-                    ]
+                      "});*/"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -10718,7 +10718,7 @@
   ],
   "variable": [
     {
-      "id": "19ab5ad8-e8ba-410a-a03e-d43546a934b4",
+      "id": "44050474-ad8a-4269-956e-75a2088f3f15",
       "key": "component",
       "value": "use",
       "type": "string",
