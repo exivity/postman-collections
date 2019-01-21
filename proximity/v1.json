@@ -7054,9 +7054,8 @@
                   "listen": "test",
                   "script": {
                     "id": "93a95324-aef9-4b25-9653-91d6f5c40d08",
-                    "type": "text/javascript",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
+                      "/*pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -7068,22 +7067,23 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"type\": \"proximity\",",
-                      "\t\t\"sort\": 1,",
-                      "\t\t\"timeout\": 600,",
-                      "\t\t\"last_log\": null,",
-                      "\t});",
-                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"command\": \"exivity:gc\",",
+                      "    \"type\": \"proximity\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600,",
+                      "    \"last_log\": null,",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"exivity:gc\",",
                       "        \"arguments\": \"\"",
-                      "\t});",
+                      "  });",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ]
+                      "});*/"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7095,7 +7095,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}?include=",
                   "host": [
@@ -10718,7 +10721,7 @@
   ],
   "variable": [
     {
-      "id": "55072192-9efb-4f11-9817-0bc7b4e03c5b",
+      "id": "0c756d40-5a97-4c93-ac0d-1edce52d76c5",
       "key": "component",
       "value": "use",
       "type": "string",
