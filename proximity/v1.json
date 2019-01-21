@@ -8415,6 +8415,7 @@
                       "    pm.expect(response.configuration.INVOICE_EXTRA).to.be.undefined;",
                       "    pm.expect(response.configuration.GRAPH_MAX_SERIES).to.be.undefined;",
                       "    pm.expect(response.configuration.REPORT_START_MONTH).to.be.undefined;",
+                      "    pm.expect(response.configuration.BANANA).to.be.undefined;",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -10743,7 +10744,7 @@
   ],
   "variable": [
     {
-      "id": "87bd1d26-149f-41fd-9690-9b44c7e3abb3",
+      "id": "ef8d7830-603f-4588-bac1-caa904bf7f3f",
       "key": "component",
       "value": "use",
       "type": "string",
