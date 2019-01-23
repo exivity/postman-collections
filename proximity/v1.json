@@ -2457,7 +2457,7 @@
         {
           "_postman_id": "7202aa90-9a1b-42e2-b970-a9428b092a39",
           "name": "/budgets",
-          "description": "## These endpoints are currently in alpha. Please don't use it yet as the parameters might change at any time.",
+          "description": "_These endpoints are currently in beta. Please don't use it yet as the parameters might change at any time._",
           "item": [
             {
               "_postman_id": "833e9b0e-eb40-4265-b0df-e9399c4fc0c0",
@@ -2819,7 +2819,7 @@
         {
           "_postman_id": "539d4232-b070-43c5-9742-dbdf2e080c70",
           "name": "/budgetstatuses",
-          "description": "## These endpoints are currently in alpha. Please don't use it yet as the parameters might change at any time.",
+          "description": "_These endpoints are currently in beta. Please don't use it yet as the parameters might change at any time._",
           "item": [
             {
               "_postman_id": "2fdce720-2ba6-4dfb-99a6-89cb96d83613",
@@ -10868,7 +10868,7 @@
   ],
   "variable": [
     {
-      "id": "5978e1b8-0251-4ed0-aed1-274701efce98",
+      "id": "ab150586-75cf-464c-b07f-7a71f1bf2dc9",
       "key": "component",
       "value": "use",
       "type": "string",
