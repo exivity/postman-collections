@@ -2075,7 +2075,7 @@
                     "src": null
                   }
                 },
-                "url": "{{base_url}}/v1/file/a/b/c.txt",
+                "url": "{{base_url}}/v1/file/folder/file.txt",
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -2152,6 +2152,47 @@
                   "raw": ""
                 },
                 "url": "{{base_url}}/v1/file/a/b/c.txt",
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "7aba0a55-55ff-4593-885e-a9880b586d4d",
+              "name": "List files in folder Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
+                    "exec": [
+                      "// Only test Unprocessable Entity for now, as we're not actually uploading a file",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/file/",
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -10871,7 +10912,7 @@
   ],
   "variable": [
     {
-      "id": "06ec3cc6-2503-4e3a-a2ec-c64d8dd61afb",
+      "id": "d882ad80-c6b9-4997-877c-1de5e8f43186",
       "key": "component",
       "value": "use",
       "type": "string",
