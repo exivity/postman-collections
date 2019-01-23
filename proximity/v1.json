@@ -2120,40 +2120,6 @@
               "response": []
             },
             {
-              "_postman_id": "400853c4-f528-458b-bc7e-f5a5cb264587",
-              "name": "[BETA] Delete a file",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{base_url}}/v1/file/a/b/c.txt"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "eb748502-a481-47c1-b89c-a13fec84637c",
               "name": "[BETA] List files in folder Copy",
               "event": [
@@ -2190,6 +2156,40 @@
                   "raw": ""
                 },
                 "url": "{{base_url}}/v1/file/"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "400853c4-f528-458b-bc7e-f5a5cb264587",
+              "name": "[BETA] Delete a file",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/file/a/b/c.txt"
               },
               "response": []
             }
@@ -10908,7 +10908,7 @@
   ],
   "variable": [
     {
-      "id": "480b6d73-0779-4887-a7b1-7114b9523e45",
+      "id": "4d272bb8-d7ad-4615-9d6b-8aba5a3867d4",
       "key": "component",
       "value": "use",
       "type": "string",
