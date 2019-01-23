@@ -2080,6 +2080,57 @@
               "response": []
             },
             {
+              "_postman_id": "ad6e2592-4e0c-4c9b-9907-241fb5d597d5",
+              "name": "[BETA] Upload a file into a folder Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
+                    "exec": [
+                      "// Only test Unprocessable Entity for now, as we're not actually uploading a file",
+                      "pm.test(\"Status code is 422\", function () {",
+                      "    pm.response.to.have.status(422);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains error\", function () {",
+                      "    pm.expect(response.errors).to.be.an('array');",
+                      "    pm.expect(response.errors[0]).to.be.an('object');",
+                      "    pm.expect(response.errors[0].detail).to.be.a('string');",
+                      "    pm.expect(response.errors[0].detail).to.eql('The file field is required.');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/x-www-form-urlencoded",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "file",
+                  "file": {
+                    "src": null
+                  }
+                },
+                "url": "{{base_url}}/v1/file/a/b/c.txt"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "3e829aa7-388a-4913-8b68-41e7b73c6433",
               "name": "[BETA] List files in folder",
               "event": [
@@ -10868,7 +10919,7 @@
   ],
   "variable": [
     {
-      "id": "7a5f877b-e3d6-428b-b655-750a366f2d10",
+      "id": "6901a614-df3b-469b-b6cc-f2b1dfd3eeb2",
       "key": "component",
       "value": "use",
       "type": "string",
