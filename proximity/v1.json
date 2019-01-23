@@ -2130,10 +2130,10 @@
                   "script": {
                     "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
                     "exec": [
-                      "// // Only test Unprocessable Entity for now, as we're not actually uploading a file",
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "// Only test Unprocessable Entity for now, as we're not actually uploading a file",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "",
                       "// const response = pm.response.json();",
                       "",
@@ -10912,7 +10912,7 @@
   ],
   "variable": [
     {
-      "id": "61ed3b48-fd44-4ba9-adbc-94704a1b04f9",
+      "id": "dc402f5f-6a3b-4a80-b007-1288def28c9c",
       "key": "component",
       "value": "use",
       "type": "string",
