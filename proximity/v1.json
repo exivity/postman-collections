@@ -2030,7 +2030,7 @@
             },
             {
               "_postman_id": "2cd6e6c4-afdc-4947-b7c5-9cab472682c9",
-              "name": "[BETA] Upload a file into a folder",
+              "name": "Upload a file into a folder",
               "event": [
                 {
                   "listen": "test",
@@ -2075,13 +2075,14 @@
                     "src": null
                   }
                 },
-                "url": "{{base_url}}/v1/file/a/b/c.txt"
+                "url": "{{base_url}}/v1/file/a/b/c.txt",
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
             },
             {
               "_postman_id": "3e829aa7-388a-4913-8b68-41e7b73c6433",
-              "name": "[BETA] List files in folder",
+              "name": "List files in folder",
               "event": [
                 {
                   "listen": "test",
@@ -2115,13 +2116,14 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/file/"
+                "url": "{{base_url}}/v1/file/",
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
             },
             {
               "_postman_id": "400853c4-f528-458b-bc7e-f5a5cb264587",
-              "name": "[BETA] Delete a file",
+              "name": "Delete a file",
               "event": [
                 {
                   "listen": "test",
@@ -2149,7 +2151,8 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/file/a/b/c.txt"
+                "url": "{{base_url}}/v1/file/a/b/c.txt",
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
             }
@@ -2447,7 +2450,7 @@
                 ],
                 "body": {},
                 "url": "{{base_url}}/v1/accounts/{{account_id}}",
-                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
             }
@@ -10868,7 +10871,7 @@
   ],
   "variable": [
     {
-      "id": "1196ee19-c629-47c8-8dea-93d81fa009d4",
+      "id": "ccdc254f-520f-4ed1-a582-727d3ba590ac",
       "key": "component",
       "value": "use",
       "type": "string",
