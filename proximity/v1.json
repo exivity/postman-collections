@@ -2310,7 +2310,7 @@
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"ref_count\": 0,\r\n\t\t\t\"level\": 1\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/accounts",
-                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
             },
@@ -4090,7 +4090,7 @@
                 ],
                 "body": {},
                 "url": "{{base_url}}/v1/services/{{service_id}}",
-                "description": "## This endpoint is currently in alpha. Please don't use it yet as the parameters might change at any time."
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
             }
@@ -10868,7 +10868,7 @@
   ],
   "variable": [
     {
-      "id": "064a0cfa-f66b-43f8-8f84-cf793c4d0516",
+      "id": "1196ee19-c629-47c8-8dea-93d81fa009d4",
       "key": "component",
       "value": "use",
       "type": "string",
