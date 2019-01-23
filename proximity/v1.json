@@ -2152,40 +2152,6 @@
                 "url": "{{base_url}}/v1/file/a/b/c.txt"
               },
               "response": []
-            },
-            {
-              "_postman_id": "0bc72ec8-9a5d-4a11-89c0-a2218f2d7dfc",
-              "name": "[BETA] Delete a file Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{base_url}}/v1/file/a/b/c.txt"
-              },
-              "response": []
             }
           ],
           "event": [
@@ -10902,7 +10868,7 @@
   ],
   "variable": [
     {
-      "id": "e35fa4ab-7a30-458e-ae88-57b6b8b363d3",
+      "id": "5978e1b8-0251-4ed0-aed1-274701efce98",
       "key": "component",
       "value": "use",
       "type": "string",
