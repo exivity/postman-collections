@@ -2152,6 +2152,46 @@
                 "url": "{{base_url}}/v1/file/a/b/c.txt"
               },
               "response": []
+            },
+            {
+              "_postman_id": "eb748502-a481-47c1-b89c-a13fec84637c",
+              "name": "[BETA] List files in folder Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
+                    "exec": [
+                      "// Only test Unprocessable Entity for now, as we're not actually uploading a file",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/file/"
+              },
+              "response": []
             }
           ],
           "event": [
@@ -10868,7 +10908,7 @@
   ],
   "variable": [
     {
-      "id": "835b84bb-1034-4000-960a-5d736baf3302",
+      "id": "480b6d73-0779-4887-a7b1-7114b9523e45",
       "key": "component",
       "value": "use",
       "type": "string",
