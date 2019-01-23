@@ -2121,7 +2121,7 @@
             },
             {
               "_postman_id": "400853c4-f528-458b-bc7e-f5a5cb264587",
-              "name": "Delete a file",
+              "name": "[BETA] Delete a file",
               "event": [
                 {
                   "listen": "test",
@@ -10868,7 +10868,7 @@
   ],
   "variable": [
     {
-      "id": "b8479045-cef4-4987-9acf-e6549dbb8481",
+      "id": "7a5f877b-e3d6-428b-b655-750a366f2d10",
       "key": "component",
       "value": "use",
       "type": "string",
