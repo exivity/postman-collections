@@ -2024,7 +2024,7 @@
                   ]
                 },
                 "url": "{{base_url}}/v1/file",
-                "description": "Only the following file types are accepted:\n\n- csv\n- txt\n- json\n- xml\n\nUploaded files are stored as `%EXIVITY_HOME_PATH%/import/[group]/[yyyy]/[mm]/[dd]_uploaded_[sequence].[extension]`, where _sequence_ is a 3 characters long numberic string with padded zeros (e.g. `001` or `026`)."
+                "description": "Only the following file types are accepted:\n\n- csv\n- txt\n- json\n- xml\n\nUploaded files are stored as `%EXIVITY_HOME_PATH%/import/[group]/[yyyy]/[mm]/[dd]_uploaded_[sequence].[extension]`, where _sequence_ is a 3 characters long numberic string with padded zeros (e.g. `001` or `026`).\n\n_Note: starting with Exivity v3.0.0, this endpoint will no longer include the `/import/` prefix in the returned JSON response._"
               },
               "response": []
             },
@@ -7760,7 +7760,7 @@
     {
       "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
       "name": "Notifications",
-      "description": "_Added in v2.2.0_",
+      "description": "_Added in v2.2.0_\n\n_These endpoints are currently in beta. Please don't use it yet as the parameters might change at any time._",
       "item": [
         {
           "_postman_id": "e5c97e74-7d78-489d-a527-4296a7794791",
@@ -10871,7 +10871,7 @@
   ],
   "variable": [
     {
-      "id": "71012365-e645-4844-8d49-81e38ad4c5e2",
+      "id": "06ec3cc6-2503-4e3a-a2ec-c64d8dd61afb",
       "key": "component",
       "value": "use",
       "type": "string",
