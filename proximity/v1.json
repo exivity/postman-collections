@@ -2075,7 +2075,28 @@
                     "src": null
                   }
                 },
-                "url": "{{base_url}}/v1/file/folder/file.txt",
+                "url": {
+                  "raw": "{{base_url}}/v1/file/:folder/:filename",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "file",
+                    ":folder",
+                    ":filename"
+                  ],
+                  "variable": [
+                    {
+                      "key": "folder",
+                      "value": ""
+                    },
+                    {
+                      "key": "filename",
+                      "value": ""
+                    }
+                  ]
+                },
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -2116,7 +2137,23 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/file/",
+                "url": {
+                  "raw": "{{base_url}}/v1/file/:folder",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "file",
+                    ":folder"
+                  ],
+                  "variable": [
+                    {
+                      "key": "folder",
+                      "value": ""
+                    }
+                  ]
+                },
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -10933,7 +10970,7 @@
   ],
   "variable": [
     {
-      "id": "5144fe8a-aa92-473f-beeb-4df3b03c7876",
+      "id": "ddb0bb85-09c7-46d9-8b4e-cb769350e110",
       "key": "component",
       "value": "use",
       "type": "string",
