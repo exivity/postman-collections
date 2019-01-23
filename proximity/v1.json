@@ -2130,16 +2130,16 @@
                   "script": {
                     "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
                     "exec": [
-                      "// Only test Unprocessable Entity for now, as we're not actually uploading a file",
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
+                      "// // Only test Unprocessable Entity for now, as we're not actually uploading a file",
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
                       "",
-                      "const response = pm.response.json();",
+                      "// const response = pm.response.json();",
                       "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
+                      "// pm.test(\"Response contains data\", function () {",
+                      "//     pm.expect(response.data).to.be.an('array');",
+                      "// });"
                     ],
                     "type": "text/javascript"
                   }
@@ -2157,7 +2157,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/file/",
+                "url": "{{base_url}}/v1/file/folder/file.txt",
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -10912,7 +10912,7 @@
   ],
   "variable": [
     {
-      "id": "967c1a5b-375f-4779-a7f1-8472d4d9c4e8",
+      "id": "61ed3b48-fd44-4ba9-adbc-94704a1b04f9",
       "key": "component",
       "value": "use",
       "type": "string",
