@@ -2122,43 +2122,8 @@
               "response": []
             },
             {
-              "_postman_id": "400853c4-f528-458b-bc7e-f5a5cb264587",
-              "name": "Delete a file",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{base_url}}/v1/file/a/b/c.txt",
-                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "7aba0a55-55ff-4593-885e-a9880b586d4d",
-              "name": "List files in folder Copy",
+              "name": "Retrieve file",
               "event": [
                 {
                   "listen": "test",
@@ -2193,6 +2158,41 @@
                   "raw": ""
                 },
                 "url": "{{base_url}}/v1/file/",
+                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "400853c4-f528-458b-bc7e-f5a5cb264587",
+              "name": "Delete a file",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b781198a-08aa-44a6-8421-e2ffe7e2b12d",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/file/a/b/c.txt",
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -10912,7 +10912,7 @@
   ],
   "variable": [
     {
-      "id": "d882ad80-c6b9-4997-877c-1de5e8f43186",
+      "id": "967c1a5b-375f-4779-a7f1-8472d4d9c4e8",
       "key": "component",
       "value": "use",
       "type": "string",
