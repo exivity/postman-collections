@@ -2250,7 +2250,28 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/file/a/b/c.txt",
+                "url": {
+                  "raw": "{{base_url}}/v1/file/:folder/:filename",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "file",
+                    ":folder",
+                    ":filename"
+                  ],
+                  "variable": [
+                    {
+                      "key": "folder",
+                      "value": ""
+                    },
+                    {
+                      "key": "filename",
+                      "value": ""
+                    }
+                  ]
+                },
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -3838,7 +3859,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/services?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
@@ -3877,7 +3901,7 @@
                       "key": "include",
                       "value": "",
                       "equals": true,
-                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates`, `adjustments`, `budgets`."
+                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates`, `adjustments`, `budgets`, 'dset'."
                     }
                   ]
                 },
@@ -10970,7 +10994,7 @@
   ],
   "variable": [
     {
-      "id": "ddb0bb85-09c7-46d9-8b4e-cb769350e110",
+      "id": "b87b3a4f-b51c-4fda-9901-2ba203dafcd0",
       "key": "component",
       "value": "use",
       "type": "string",
