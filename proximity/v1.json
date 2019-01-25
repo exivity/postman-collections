@@ -4999,7 +4999,7 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -5011,31 +5011,31 @@
                     {
                       "key": "page[limit]",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Limit the amount of results returned"
                     },
                     {
                       "key": "page[offset]",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Return this page of the results"
                     },
                     {
                       "key": "sort",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Sort results by this attribute"
                     },
                     {
                       "key": "filter[attribute]",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Filter results by this attribute"
                     },
                     {
                       "key": "include",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
                     }
                   ]
@@ -11035,7 +11035,7 @@
   ],
   "variable": [
     {
-      "id": "74e4300e-1fcd-46d9-aa50-95015df30d53",
+      "id": "7382e88f-d518-4ce3-bb58-a07a5365c1cb",
       "key": "component",
       "value": "use",
       "type": "string",
