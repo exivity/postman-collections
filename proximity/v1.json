@@ -4998,7 +4998,48 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/reports",
+                "url": {
+                  "raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "reports"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": "",
+                      "type": "text",
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "",
+                      "type": "text",
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "type": "text",
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": "",
+                      "type": "text",
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "type": "text",
+                      "description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
+                    }
+                  ]
+                },
                 "description": "Test description"
               },
               "response": []
@@ -10994,7 +11035,7 @@
   ],
   "variable": [
     {
-      "id": "7cb28370-5fab-4b8e-8dc7-1e3546b8250b",
+      "id": "74e4300e-1fcd-46d9-aa50-95015df30d53",
       "key": "component",
       "value": "use",
       "type": "string",
