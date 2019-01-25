@@ -1764,7 +1764,48 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/dsets",
+                "url": {
+                  "raw": "{{base_url}}/v1/dsets?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "dsets"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": "",
+                      "type": "text",
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "",
+                      "type": "text",
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "type": "text",
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": "",
+                      "type": "text",
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "type": "text",
+                      "description": "Include additional related resources. Possible values: `services`, `reports`."
+                    }
+                  ]
+                },
                 "description": "Test description"
               },
               "response": []
@@ -11035,7 +11076,7 @@
   ],
   "variable": [
     {
-      "id": "7382e88f-d518-4ce3-bb58-a07a5365c1cb",
+      "id": "218f30ff-51ec-49cc-b656-37a225f19b8d",
       "key": "component",
       "value": "use",
       "type": "string",
