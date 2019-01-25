@@ -1765,7 +1765,7 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/dsets?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "raw": "{{base_url}}/v1/dsets?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1777,31 +1777,31 @@
                     {
                       "key": "page[limit]",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Limit the amount of results returned"
                     },
                     {
                       "key": "page[offset]",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Return this page of the results"
                     },
                     {
                       "key": "sort",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Sort results by this attribute"
                     },
                     {
                       "key": "filter[attribute]",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Filter results by this attribute"
                     },
                     {
                       "key": "include",
                       "value": "",
-                      "type": "text",
+                      "equals": false,
                       "description": "Include additional related resources. Possible values: `services`, `reports`."
                     }
                   ]
@@ -11076,7 +11076,7 @@
   ],
   "variable": [
     {
-      "id": "218f30ff-51ec-49cc-b656-37a225f19b8d",
+      "id": "35001a41-3462-43f2-894d-e7a56ccd56ea",
       "key": "component",
       "value": "use",
       "type": "string",
