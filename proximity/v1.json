@@ -3240,26 +3240,26 @@
                   "script": {
                     "id": "7778e902-8e93-4f8c-9f0b-fe62a0dbf6c7",
                     "exec": [
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "",
-                      "// const response = pm.response.json();",
+                      "const response = pm.response.json();",
                       "",
-                      "// pm.test(\"Response contains data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('object');",
-                      "//     pm.expect(response.data.type).to.eql('metadatadefinition');",
-                      "//     pm.expect(response.data.id).to.eql(pm.environment.get(\"metadatadefinition_id\").toString());",
-                      "//     pm.expect(response.data.attributes).to.be.an('object');",
-                      "//     pm.expect(response.data.attributes).to.have.keys([",
-                      "// \t\t\"name\",",
-                      "//         \"fields\"",
-                      "// \t]);",
-                      "// });",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"metadatadefinition_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "        \"fields\"",
+                      "\t]);",
+                      "});",
                       "",
-                      "// pm.test(\"Response contains data.links\", function () {",
-                      "//     pm.expect(response.data.links).to.be.an('object');",
-                      "// });"
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
                     ],
                     "type": "text/javascript"
                   }
@@ -3273,7 +3273,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/metadatadefinitions/{{metadatadefinition_id}}/?include",
                   "host": [
@@ -3362,11 +3365,11 @@
                   "script": {
                     "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "exec": [
-                      "// pm.test(\"Status code is 204\", function () {",
-                      "//     pm.response.to.have.status(204);",
-                      "// });",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
                       "",
-                      "// postman.setNextRequest(\"Retrieve a list of services\");"
+                      "postman.setNextRequest(\"Retrieve a list of services\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -11112,7 +11115,7 @@
   ],
   "variable": [
     {
-      "id": "f4995314-5004-46b6-8f1a-2c2249e58356",
+      "id": "f8983d98-def7-48d8-b292-50104f4461cf",
       "key": "component",
       "value": "use",
       "type": "string",
