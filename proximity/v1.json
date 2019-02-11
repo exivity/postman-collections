@@ -5096,6 +5096,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -11083,7 +11084,7 @@
   ],
   "variable": [
     {
-      "id": "16201305-fb1c-4d12-9730-787d1bb34bfd",
+      "id": "41acc4c2-8747-4d75-8a1b-a3e798b3e327",
       "key": "component",
       "value": "use",
       "type": "string",
