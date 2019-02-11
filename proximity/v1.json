@@ -5090,7 +5090,7 @@
                   "script": {
                     "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
                     "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
+                      "/*pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
@@ -5119,7 +5119,17 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"report_id\", response.data.id);",
+                      "pm.environment.set(\"report_id\", response.data.id);*/",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "fc4c0988-2101-4c83-9ee5-f7cadd2d5c59",
+                    "exec": [
                       ""
                     ],
                     "type": "text/javascript"
@@ -11072,7 +11082,7 @@
   ],
   "variable": [
     {
-      "id": "658d8e33-62bf-4986-ba99-3d5aad892ac0",
+      "id": "957c97c7-bd1b-4718-8684-b714a005d7fa",
       "key": "component",
       "value": "use",
       "type": "string",
