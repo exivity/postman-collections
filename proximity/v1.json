@@ -5090,6 +5090,7 @@
                   "script": {
                     "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
                     "exec": [
+                      "console.log('Green eggs and ham');",
                       "/*pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
@@ -11082,7 +11083,7 @@
   ],
   "variable": [
     {
-      "id": "957c97c7-bd1b-4718-8684-b714a005d7fa",
+      "id": "fc6e0870-8276-4a82-b702-127bf3f561ec",
       "key": "component",
       "value": "use",
       "type": "string",
