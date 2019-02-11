@@ -9731,6 +9731,29 @@
                 {
                   "_postman_id": "83e7d42d-f78e-4404-8bac-2ecaba2806fc",
                   "name": "Get SAML configuration",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "1409e45a-7dc6-4d4d-9e5e-b2c6850102b3",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "",
+                          "pm.test(\"Response contains data\", function () {",
+                          "    pm.expect(response).to.be.an('object');",
+                          "    pm.expect(response).to.have.keys([",
+                          "        \"configuration\"",
+                          "    ]);",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
                   "request": {
                     "method": "GET",
                     "header": [
@@ -9739,7 +9762,10 @@
                         "value": "application/json"
                       }
                     ],
-                    "body": {},
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
                     "url": "{{base_url}}/v1/system/saml"
                   },
                   "response": []
@@ -11082,7 +11108,7 @@
   ],
   "variable": [
     {
-      "id": "0d31d145-cec7-4cc6-9b70-5d872a280df9",
+      "id": "8ea63a91-188c-4698-aac6-990c6df96f0c",
       "key": "component",
       "value": "use",
       "type": "string",
