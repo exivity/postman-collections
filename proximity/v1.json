@@ -2087,11 +2087,12 @@
                       "",
                       "pm.test(\"Response contains error\", function () {",
                       "    pm.expect(response.errors).to.be.an('array');",
-                      "    pm.expect(response.errors[0].title).to.be.eql('InvalidRequestException');",
-                      "    pm.expect(response.errors[0].datail).to.be.eql('No content provided');",
                       "});",
                       "",
-                      "{\"errors\":[{\"status\":400,\"title\":\"InvalidRequestException\",\"detail\":\"No content provided\"}]}",
+                      "pm.test(\"Error has title and detail\", function () {",
+                      "    pm.expect(response.errors[0].title).to.be.eql('InvalidRequestException');",
+                      "    pm.expect(response.errors[0].detail).to.be.eql('No content provided');",
+                      "});",
                       ""
                     ],
                     "type": "text/javascript"
@@ -11058,7 +11059,7 @@
   ],
   "variable": [
     {
-      "id": "26ab2ff0-bb58-4cc7-ad7a-b64400611322",
+      "id": "99191211-28da-475b-8822-1940190907b7",
       "key": "component",
       "value": "use",
       "type": "string",
