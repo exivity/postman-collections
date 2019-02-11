@@ -5090,7 +5090,6 @@
                   "script": {
                     "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
                     "exec": [
-                      "console.log(pm.response);",
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
@@ -11073,7 +11072,7 @@
   ],
   "variable": [
     {
-      "id": "d9467ae9-8191-4b83-b602-a4da8aaf7ac3",
+      "id": "658d8e33-62bf-4986-ba99-3d5aad892ac0",
       "key": "component",
       "value": "use",
       "type": "string",
