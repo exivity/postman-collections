@@ -5090,6 +5090,36 @@
                   "script": {
                     "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
                     "exec": [
+                      "/*pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('report');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.include('Test report');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"dset\": pm.environment.get(\"dset_id\"),",
+                      "        \"lvl1_key_col\": \"Country\",",
+                      "        \"lvl1_name_col\": \"Country\",",
+                      "        \"lvl1_label\": \"Country\",",
+                      "        \"depth\": 2,",
+                      "        \"schedule\": false",
+                      "\t});",
+                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.data_status).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"report_id\", response.data.id);*/",
                       ""
                     ],
                     "type": "text/javascript"
@@ -6475,6 +6505,730 @@
       ]
     },
     {
+      "_postman_id": "a707417f-b452-80b1-a499-51c17c2d70bd",
+      "name": "/workflowsteps",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "1768d179-ccc8-75ab-12ce-f9528a4917de",
+          "name": "Retrieve a list of steps",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "",
+                  "pm.test(\"Response contains data\", function () {",
+                  "    pm.expect(response.data).to.be.an('array');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": {
+              "raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "workflowsteps"
+              ],
+              "query": [
+                {
+                  "key": "page[limit]",
+                  "value": "",
+                  "equals": false,
+                  "description": "Limit the amount of results returned"
+                },
+                {
+                  "key": "page[offset]",
+                  "value": "",
+                  "equals": false,
+                  "description": "Return this page of the results"
+                },
+                {
+                  "key": "sort",
+                  "value": "",
+                  "equals": true,
+                  "description": "Sort results by this attribute"
+                },
+                {
+                  "key": "filter[attribute]",
+                  "value": "",
+                  "equals": false,
+                  "description": "Filter results by this attribute"
+                },
+                {
+                  "key": "include",
+                  "value": "",
+                  "equals": true,
+                  "description": "Include additional related resources. Possible values: `workflow`."
+                }
+              ]
+            },
+            "description": "Test description"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "6d5701cb-fb97-638c-50a8-a3ea6d99f2a5",
+          "name": "Add a new use step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "27e0be1c-a070-4db9-86ac-4b55394f9884",
+                "exec": [
+                  "// pm.test(\"Status code is 201\", function () {",
+                  "//     pm.response.to.have.status(201);",
+                  "// });",
+                  "",
+                  "// const response = pm.response.json();",
+                  "",
+                  "// pm.test(\"Response contains correct data\", function () {",
+                  "//     pm.expect(response.data).to.be.an('object');",
+                  "//     pm.expect(response.data.type).to.eql('workflowstep');",
+                  "//     pm.expect(response.data.id).to.not.be.undefined;",
+                  "//     pm.expect(response.data.attributes).to.be.an('object');",
+                  "//     pm.expect(response.data.attributes).to.include({",
+                  "// \t\t\"type\": \"use\",",
+                  "// \t\t\"sort\": 1,",
+                  "// \t\t\"timeout\": 600,",
+                  "// \t\t\"last_log\": null,",
+                  "// \t});",
+                  "// \tpm.expect(response.data.attributes.options).to.be.an('object');",
+                  "// \tpm.expect(response.data.attributes.options.name).to.include('Workflow_extractor');",
+                  "// \tpm.expect(response.data.attributes.options).to.include({",
+                  "// \t\t\"from_date\": -2,",
+                  "// \t\t\"to_date\": 2,",
+                  "// \t\t\"arguments\": \"test1 test2\"",
+                  "// \t});",
+                  "// });",
+                  "",
+                  "// pm.test(\"Response contains data.links\", function () {",
+                  "//     pm.expect(response.data.links).to.be.an('object');",
+                  "// });",
+                  "",
+                  "// pm.environment.set(\"workflowstep_id\", response.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
+                "exec": [
+                  "// pm.sendRequest({\r",
+                  "//     url: pm.globals.get(\"base_url\") + '/v1/extractors',\r",
+                  "//     method: 'POST',\r",
+                  "//     header: {\r",
+                  "//         'Accept': 'application/json',\r",
+                  "//         'Content-Type': 'application/json',\r",
+                  "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
+                  "//     },\r",
+                  "//     body: {\r",
+                  "//         mode: 'raw',\r",
+                  "//         raw: JSON.stringify({\r",
+                  "//             \"name\": \"Workflow extractor\",\r",
+                  "//             \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
+                  "//         })\r",
+                  "//     }\r",
+                  "// })"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/vnd.api+json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflowsteps"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "a5d76142-8d09-7b11-34df-eaa499e39035",
+          "name": "Add a new transcript step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3caedf07-43b6-4a38-a571-0bdec0a762f5",
+                "exec": [
+                  "// pm.test(\"Status code is 201\", function () {",
+                  "//     pm.response.to.have.status(201);",
+                  "// });",
+                  "",
+                  "// const response = pm.response.json();",
+                  "",
+                  "// pm.test(\"Response contains correct data\", function () {",
+                  "//     pm.expect(response.data).to.be.an('object');",
+                  "//     pm.expect(response.data.type).to.eql('workflowstep');",
+                  "//     pm.expect(response.data.id).to.not.be.undefined;",
+                  "//     pm.expect(response.data.attributes).to.be.an('object');",
+                  "//     pm.expect(response.data.attributes).to.include({",
+                  "// \t\t\"type\": \"transcript\",",
+                  "// \t\t\"sort\": 1,",
+                  "// \t\t\"timeout\": 600,",
+                  "// \t\t\"last_log\": null,",
+                  "// \t});",
+                  "// \tpm.expect(response.data.attributes.options).to.be.an('object');",
+                  "// \tpm.expect(response.data.attributes.options).to.include({",
+                  "// \t\t\"name\": \"Workflow_transformer\",",
+                  "//         \"from_date\": -2,",
+                  "// \t\t\"to_date\": 2",
+                  "// \t});",
+                  "// });",
+                  "",
+                  "// pm.test(\"Response contains data.links\", function () {",
+                  "//     pm.expect(response.data.links).to.be.an('object');",
+                  "// });",
+                  "",
+                  "// pm.environment.set(\"workflowstep_id\", response.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "104d0722-d6ef-48c2-aed0-ba7310844cd3",
+                "exec": [
+                  "// pm.sendRequest({\r",
+                  "//     url: pm.globals.get(\"base_url\") + '/v1/transformers',\r",
+                  "//     method: 'POST',\r",
+                  "//     header: {\r",
+                  "//         'Accept': 'application/json',\r",
+                  "//         'Content-Type': 'application/json',\r",
+                  "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
+                  "//     },\r",
+                  "//     body: {\r",
+                  "//         mode: 'raw',\r",
+                  "//         raw: JSON.stringify({\r",
+                  "// \t        \"name\": \"Workflow transformer\",\r",
+                  "// \t        \"contents\": \"# script here\"\r",
+                  "//         })\r",
+                  "//     }\r",
+                  "// })"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflowsteps"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "a5ec7953-c977-0320-499e-e38868494dbf",
+          "name": "Add a new edify step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f0488ee7-7d48-4115-9ca6-2d04163a7bca",
+                "exec": [
+                  "// pm.test(\"Status code is 201\", function () {\r",
+                  "//     pm.response.to.have.status(201);\r",
+                  "// });\r",
+                  "\r",
+                  "// const response = pm.response.json();\r",
+                  "\r",
+                  "// pm.test(\"Response contains correct data\", function () {\r",
+                  "//     pm.expect(response.data).to.be.an('object');\r",
+                  "//     pm.expect(response.data.type).to.eql('workflowstep');\r",
+                  "//     pm.expect(response.data.id).to.not.be.undefined;\r",
+                  "//     pm.expect(response.data.attributes).to.be.an('object');\r",
+                  "//     pm.expect(response.data.attributes).to.include({\r",
+                  "// \t\t\"type\": \"edify\",\r",
+                  "// \t\t\"sort\": 1,\r",
+                  "// \t\t\"timeout\": 600,\r",
+                  "// \t\t\"last_log\": null,\r",
+                  "// \t});\r",
+                  "// \tpm.expect(response.data.attributes.options).to.be.an('object');\r",
+                  "// \tpm.expect(response.data.attributes.options).to.include({\r",
+                  "// \t\t\"report_id\": \"1\",\r",
+                  "//         \"from_date\": 1,\r",
+                  "//         \"to_date\": 2\r",
+                  "// \t});\r",
+                  "// });\r",
+                  "\r",
+                  "// pm.test(\"Response contains data.links\", function () {\r",
+                  "//     pm.expect(response.data.links).to.be.an('object');\r",
+                  "// });\r",
+                  "\r",
+                  "// pm.environment.set(\"workflowstep_id\", response.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "3127f109-f7fe-4208-8354-2605fbea88fb",
+                "exec": [
+                  "// pm.sendRequest({\r",
+                  "//     url: pm.globals.get(\"base_url\") + '/v1/reports',\r",
+                  "//     method: 'POST',\r",
+                  "//     header: {\r",
+                  "//         'Accept': 'application/vnd.api+json',\r",
+                  "//         'Content-Type': 'application/vnd.api+json',\r",
+                  "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
+                  "//     },\r",
+                  "//     body: {\r",
+                  "//         mode: 'raw',\r",
+                  "//         raw: JSON.stringify({\r",
+                  "//         \t\"data\": {\r",
+                  "//         \t\t\"type\": \"report\",\r",
+                  "//         \t\t\"attributes\": {\r",
+                  "//         \t\t\t\"name\": \"Workflow report\",\r",
+                  "//         \t\t\t\"dset\": pm.environment.get(\"dset_id\"),\r",
+                  "//         \t\t\t\"lvl1_key_col\": \"Country\",\r",
+                  "//                     \"lvl1_name_col\": \"Country\",\r",
+                  "//                     \"lvl1_label\": \"Country\"\r",
+                  "//         \t\t}\r",
+                  "//         \t}\r",
+                  "//         })\r",
+                  "//     }\r",
+                  "// }, function (err, res) {\r",
+                  "//     console.log(res.json());\r",
+                  "//     //pm.environment.set(\"report_id\", res.json().data.id);\r",
+                  "//     //pm.environment.set(\"report_id\", res.json().data[0].id);\r",
+                  "// })"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"1\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflowsteps"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ac87a4c2-f6ab-e612-0e5f-149ae977b46c",
+          "name": "Add a new execute step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "8e3a714e-103b-42dd-b8da-8f4e1d00e7e9",
+                "exec": [
+                  "/*pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflowstep');",
+                  "    pm.expect(response.data.id).to.not.be.undefined;",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.include({",
+                  "    \"type\": \"execute\",",
+                  "    \"sort\": 1,",
+                  "    \"timeout\": 600,",
+                  "    \"last_log\": null,",
+                  "  });",
+                  "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                  "  pm.expect(response.data.attributes.options).to.include({",
+                  "    \"command\": \"echo \\\"testing\\\"\"",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});",
+                  "",
+                  "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflowsteps"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "cd4e2f6e-766f-7606-4256-ec3ea0a1bb6f",
+          "name": "Add a new proximity step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9d636ea9-fad0-4f85-91c3-fb5abd25cf98",
+                "exec": [
+                  "/*pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflowstep');",
+                  "    pm.expect(response.data.id).to.not.be.undefined;",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.include({",
+                  "    \"type\": \"proximity\",",
+                  "    \"sort\": 1,",
+                  "    \"timeout\": 600,",
+                  "    \"last_log\": null,",
+                  "  });",
+                  "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                  "  pm.expect(response.data.attributes.options).to.include({",
+                  "    \"command\": \"exivity:gc\",",
+                  "        \"arguments\": \"\"",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});",
+                  "",
+                  "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflowsteps"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ec6d4e8a-9ba1-832a-b1b5-2ee7a50dc94d",
+          "name": "Retrieve a step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "93a95324-aef9-4b25-9653-91d6f5c40d08",
+                "exec": [
+                  "/*pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflowstep');",
+                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.include({",
+                  "    \"type\": \"proximity\",",
+                  "    \"sort\": 1,",
+                  "    \"timeout\": 600,",
+                  "    \"last_log\": null,",
+                  "  });",
+                  "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                  "  pm.expect(response.data.attributes.options).to.include({",
+                  "    \"command\": \"exivity:gc\",",
+                  "        \"arguments\": \"\"",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});*/",
+                  "pm.globals.unset(\"variable_key\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}?include=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "workflowsteps",
+                "{{workflowstep_id}}"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "",
+                  "equals": true,
+                  "description": "Include additional related resources"
+                }
+              ]
+            },
+            "description": "Test description"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "966d31a2-e8b1-4015-c000-7e0c379eb1d0",
+          "name": "Update a step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "558cd072-9f8d-45a3-9891-46fa0ed91693",
+                "exec": [
+                  "/*pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflowstep');",
+                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.include({",
+                  "    \"type\": \"proximity\",",
+                  "    \"sort\": 1,",
+                  "    \"timeout\": 600,",
+                  "    \"last_log\": null,",
+                  "  });",
+                  "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                  "  pm.expect(response.data.attributes.options).to.include({",
+                  "    \"command\": \"exivity:gc\",",
+                  "        \"arguments\": \"test\"",
+                  "  });",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});*/"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}",
+            "description": "Test description"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "c5787065-92ce-7fb2-cca9-78f55dad8479",
+          "name": "Fetch step logs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "b0d76dab-9d1b-4c38-9b10-995104d99109",
+                "exec": [
+                  "/*pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "",
+                  "pm.test(\"Response contains logs data\", function () {",
+                  "    pm.expect(response.logs).to.be.an('array');",
+                  "});*/"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"schedulertask\",\r\n\t\t\"id\": \"{{scheduler_task_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified test\"\r\n\t\t}\r\n\t}\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}/logs"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "dbf4fcd1-fe15-d770-267f-d519f0cb0d6f",
+          "name": "Delete a step",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "164386e5-18a5-496c-bd28-2def05ec2c13",
+                "exec": [
+                  "/*pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});*/"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {},
+            "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}"
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
       "_postman_id": "f4159bf3-f52b-50e2-3adf-33f9031f04f0",
       "name": "Workflows",
       "description": "",
@@ -6849,731 +7603,6 @@
                 "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
               },
               "response": []
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "_postman_id": "a707417f-b452-80b1-a499-51c17c2d70bd",
-          "name": "/workflowsteps",
-          "description": "",
-          "item": [
-            {
-              "_postman_id": "1768d179-ccc8-75ab-12ce-f9528a4917de",
-              "name": "Retrieve a list of steps",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {},
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "",
-                      "equals": true,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": "",
-                      "equals": false,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "equals": true,
-                      "description": "Include additional related resources. Possible values: `workflow`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "6d5701cb-fb97-638c-50a8-a3ea6d99f2a5",
-              "name": "Add a new use step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "27e0be1c-a070-4db9-86ac-4b55394f9884",
-                    "exec": [
-                      "// pm.test(\"Status code is 201\", function () {",
-                      "//     pm.response.to.have.status(201);",
-                      "// });",
-                      "",
-                      "// const response = pm.response.json();",
-                      "",
-                      "// pm.test(\"Response contains correct data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('object');",
-                      "//     pm.expect(response.data.type).to.eql('workflowstep');",
-                      "//     pm.expect(response.data.id).to.not.be.undefined;",
-                      "//     pm.expect(response.data.attributes).to.be.an('object');",
-                      "//     pm.expect(response.data.attributes).to.include({",
-                      "// \t\t\"type\": \"use\",",
-                      "// \t\t\"sort\": 1,",
-                      "// \t\t\"timeout\": 600,",
-                      "// \t\t\"last_log\": null,",
-                      "// \t});",
-                      "// \tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "// \tpm.expect(response.data.attributes.options.name).to.include('Workflow_extractor');",
-                      "// \tpm.expect(response.data.attributes.options).to.include({",
-                      "// \t\t\"from_date\": -2,",
-                      "// \t\t\"to_date\": 2,",
-                      "// \t\t\"arguments\": \"test1 test2\"",
-                      "// \t});",
-                      "// });",
-                      "",
-                      "// pm.test(\"Response contains data.links\", function () {",
-                      "//     pm.expect(response.data.links).to.be.an('object');",
-                      "// });",
-                      "",
-                      "// pm.environment.set(\"workflowstep_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
-                    "exec": [
-                      "// pm.sendRequest({\r",
-                      "//     url: pm.globals.get(\"base_url\") + '/v1/extractors',\r",
-                      "//     method: 'POST',\r",
-                      "//     header: {\r",
-                      "//         'Accept': 'application/json',\r",
-                      "//         'Content-Type': 'application/json',\r",
-                      "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
-                      "//     },\r",
-                      "//     body: {\r",
-                      "//         mode: 'raw',\r",
-                      "//         raw: JSON.stringify({\r",
-                      "//             \"name\": \"Workflow extractor\",\r",
-                      "//             \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
-                      "//         })\r",
-                      "//     }\r",
-                      "// })"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/vnd.api+json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "a5d76142-8d09-7b11-34df-eaa499e39035",
-              "name": "Add a new transcript step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3caedf07-43b6-4a38-a571-0bdec0a762f5",
-                    "exec": [
-                      "// pm.test(\"Status code is 201\", function () {",
-                      "//     pm.response.to.have.status(201);",
-                      "// });",
-                      "",
-                      "// const response = pm.response.json();",
-                      "",
-                      "// pm.test(\"Response contains correct data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('object');",
-                      "//     pm.expect(response.data.type).to.eql('workflowstep');",
-                      "//     pm.expect(response.data.id).to.not.be.undefined;",
-                      "//     pm.expect(response.data.attributes).to.be.an('object');",
-                      "//     pm.expect(response.data.attributes).to.include({",
-                      "// \t\t\"type\": \"transcript\",",
-                      "// \t\t\"sort\": 1,",
-                      "// \t\t\"timeout\": 600,",
-                      "// \t\t\"last_log\": null,",
-                      "// \t});",
-                      "// \tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "// \tpm.expect(response.data.attributes.options).to.include({",
-                      "// \t\t\"name\": \"Workflow_transformer\",",
-                      "//         \"from_date\": -2,",
-                      "// \t\t\"to_date\": 2",
-                      "// \t});",
-                      "// });",
-                      "",
-                      "// pm.test(\"Response contains data.links\", function () {",
-                      "//     pm.expect(response.data.links).to.be.an('object');",
-                      "// });",
-                      "",
-                      "// pm.environment.set(\"workflowstep_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "104d0722-d6ef-48c2-aed0-ba7310844cd3",
-                    "exec": [
-                      "// pm.sendRequest({\r",
-                      "//     url: pm.globals.get(\"base_url\") + '/v1/transformers',\r",
-                      "//     method: 'POST',\r",
-                      "//     header: {\r",
-                      "//         'Accept': 'application/json',\r",
-                      "//         'Content-Type': 'application/json',\r",
-                      "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
-                      "//     },\r",
-                      "//     body: {\r",
-                      "//         mode: 'raw',\r",
-                      "//         raw: JSON.stringify({\r",
-                      "// \t        \"name\": \"Workflow transformer\",\r",
-                      "// \t        \"contents\": \"# script here\"\r",
-                      "//         })\r",
-                      "//     }\r",
-                      "// })"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "a5ec7953-c977-0320-499e-e38868494dbf",
-              "name": "Add a new edify step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "f0488ee7-7d48-4115-9ca6-2d04163a7bca",
-                    "exec": [
-                      "// pm.test(\"Status code is 201\", function () {\r",
-                      "//     pm.response.to.have.status(201);\r",
-                      "// });\r",
-                      "\r",
-                      "// const response = pm.response.json();\r",
-                      "\r",
-                      "// pm.test(\"Response contains correct data\", function () {\r",
-                      "//     pm.expect(response.data).to.be.an('object');\r",
-                      "//     pm.expect(response.data.type).to.eql('workflowstep');\r",
-                      "//     pm.expect(response.data.id).to.not.be.undefined;\r",
-                      "//     pm.expect(response.data.attributes).to.be.an('object');\r",
-                      "//     pm.expect(response.data.attributes).to.include({\r",
-                      "// \t\t\"type\": \"edify\",\r",
-                      "// \t\t\"sort\": 1,\r",
-                      "// \t\t\"timeout\": 600,\r",
-                      "// \t\t\"last_log\": null,\r",
-                      "// \t});\r",
-                      "// \tpm.expect(response.data.attributes.options).to.be.an('object');\r",
-                      "// \tpm.expect(response.data.attributes.options).to.include({\r",
-                      "// \t\t\"report_id\": \"1\",\r",
-                      "//         \"from_date\": 1,\r",
-                      "//         \"to_date\": 2\r",
-                      "// \t});\r",
-                      "// });\r",
-                      "\r",
-                      "// pm.test(\"Response contains data.links\", function () {\r",
-                      "//     pm.expect(response.data.links).to.be.an('object');\r",
-                      "// });\r",
-                      "\r",
-                      "// pm.environment.set(\"workflowstep_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "3127f109-f7fe-4208-8354-2605fbea88fb",
-                    "exec": [
-                      "// pm.sendRequest({\r",
-                      "//     url: pm.globals.get(\"base_url\") + '/v1/reports',\r",
-                      "//     method: 'POST',\r",
-                      "//     header: {\r",
-                      "//         'Accept': 'application/vnd.api+json',\r",
-                      "//         'Content-Type': 'application/vnd.api+json',\r",
-                      "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
-                      "//     },\r",
-                      "//     body: {\r",
-                      "//         mode: 'raw',\r",
-                      "//         raw: JSON.stringify({\r",
-                      "//         \t\"data\": {\r",
-                      "//         \t\t\"type\": \"report\",\r",
-                      "//         \t\t\"attributes\": {\r",
-                      "//         \t\t\t\"name\": \"Workflow report\",\r",
-                      "//         \t\t\t\"dset\": pm.environment.get(\"dset_id\"),\r",
-                      "//         \t\t\t\"lvl1_key_col\": \"Country\",\r",
-                      "//                     \"lvl1_name_col\": \"Country\",\r",
-                      "//                     \"lvl1_label\": \"Country\"\r",
-                      "//         \t\t}\r",
-                      "//         \t}\r",
-                      "//         })\r",
-                      "//     }\r",
-                      "// }, function (err, res) {\r",
-                      "//     console.log(res.json());\r",
-                      "//     //pm.environment.set(\"report_id\", res.json().data.id);\r",
-                      "//     //pm.environment.set(\"report_id\", res.json().data[0].id);\r",
-                      "// })"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"1\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "ac87a4c2-f6ab-e612-0e5f-149ae977b46c",
-              "name": "Add a new execute step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8e3a714e-103b-42dd-b8da-8f4e1d00e7e9",
-                    "exec": [
-                      "/*pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"execute\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"echo \\\"testing\\\"\"",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "cd4e2f6e-766f-7606-4256-ec3ea0a1bb6f",
-              "name": "Add a new proximity step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9d636ea9-fad0-4f85-91c3-fb5abd25cf98",
-                    "exec": [
-                      "/*pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"proximity\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"exivity:gc\",",
-                      "        \"arguments\": \"\"",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "ec6d4e8a-9ba1-832a-b1b5-2ee7a50dc94d",
-              "name": "Retrieve a step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "93a95324-aef9-4b25-9653-91d6f5c40d08",
-                    "exec": [
-                      "/*pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"proximity\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"exivity:gc\",",
-                      "        \"arguments\": \"\"",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});*/",
-                      "pm.globals.unset(\"variable_key\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps",
-                    "{{workflowstep_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "equals": true,
-                      "description": "Include additional related resources"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "966d31a2-e8b1-4015-c000-7e0c379eb1d0",
-              "name": "Update a step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "558cd072-9f8d-45a3-9891-46fa0ed91693",
-                    "exec": [
-                      "/*pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"proximity\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"exivity:gc\",",
-                      "        \"arguments\": \"test\"",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});*/"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}",
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "c5787065-92ce-7fb2-cca9-78f55dad8479",
-              "name": "Fetch step logs",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b0d76dab-9d1b-4c38-9b10-995104d99109",
-                    "exec": [
-                      "/*pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains logs data\", function () {",
-                      "    pm.expect(response.logs).to.be.an('array');",
-                      "});*/"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"schedulertask\",\r\n\t\t\"id\": \"{{scheduler_task_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified test\"\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}/logs"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "dbf4fcd1-fe15-d770-267f-d519f0cb0d6f",
-              "name": "Delete a step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "164386e5-18a5-496c-bd28-2def05ec2c13",
-                    "exec": [
-                      "/*pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});*/"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {},
-                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}"
-              },
-              "response": []
-            }
-          ],
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
             }
           ],
           "_postman_isSubFolder": true
@@ -11042,7 +11071,7 @@
   ],
   "variable": [
     {
-      "id": "5bcedf69-f5e7-4cc0-83d0-d3a381fb662c",
+      "id": "7843ee40-b85c-4518-b98d-b3c35a61a6ed",
       "key": "component",
       "value": "use",
       "type": "string",
