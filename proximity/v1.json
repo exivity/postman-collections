@@ -5090,13 +5090,11 @@
                   "script": {
                     "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
                     "exec": [
-                      "console.log(pm.environment.get('dset_id'));",
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -11084,7 +11082,7 @@
   ],
   "variable": [
     {
-      "id": "48a0a8da-252e-4df3-a740-536a2ee26c09",
+      "id": "16b46bf4-a77f-4c86-b1c4-67e9bb6f9730",
       "key": "component",
       "value": "use",
       "type": "string",
