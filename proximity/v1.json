@@ -2682,18 +2682,19 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
                     ],
-                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
                     "type": "text/javascript"
                   }
                 }
@@ -2706,7 +2707,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/budgets?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
@@ -11272,7 +11276,7 @@
   ],
   "variable": [
     {
-      "id": "3e3e7d07-4708-4b30-a1d4-ed9b9e80af53",
+      "id": "68420d21-78b1-4d13-8e45-dca27047701a",
       "key": "component",
       "value": "use",
       "type": "string",
