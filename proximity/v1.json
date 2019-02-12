@@ -1118,7 +1118,9 @@
                       "});",
                       "",
                       "console.log('UNSET extractor_name');",
-                      "pm.environment.unset(\"extractor_name\");"
+                      "pm.environment.unset(\"extractor_name\");",
+                      "",
+                      "postman.clearEnvironmentVariable(\"extractor_name\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -1219,13 +1221,13 @@
                   "listen": "test",
                   "script": {
                     "id": "99565ff5-b517-4139-8df5-3694a4fa55d4",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('object');",
@@ -1244,7 +1246,8 @@
                       "});",
                       "",
                       "pm.environment.set(\"transformer_name\", response.name);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -1262,7 +1265,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"name\": \"Transformer test\",\r\n\t\"contents\": \"# script here\"\r\n}"
+                  "raw": "{\r\n  \"name\": \"Transformer test\",\r\n  \"contents\": \"# script here\"\r\n}"
                 },
                 "url": "{{base_url}}/v1/transformers"
               },
@@ -8532,12 +8535,13 @@
                   "script": {
                     "id": "b80ebb0a-52ba-49f3-bc01-265fa0edef69",
                     "exec": [
-                      "// pm.test(\"Status code is 204\", function () {",
-                      "//     pm.response.to.have.status(204);",
-                      "// });",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
                       "",
-                      "// // Delete the variable",
-                      "// pm.environment.unset(\"notification_subscritpion_id\");",
+                      "// Delete the variable",
+                      "console.log('UNSET notification_subscritpion_id');",
+                      "pm.environment.unset(\"notification_channel_id\");",
                       ""
                     ],
                     "type": "text/javascript"
@@ -9730,12 +9734,12 @@
                       "listen": "test",
                       "script": {
                         "id": "6575058c-5059-42ab-94f9-0e8d8c952d78",
-                        "type": "text/javascript",
                         "exec": [
                           "pm.test(\"Status code is 204\", function () {",
                           "    pm.response.to.have.status(204);",
                           "});"
-                        ]
+                        ],
+                        "type": "text/javascript"
                       }
                     }
                   ],
@@ -11248,7 +11252,7 @@
   ],
   "variable": [
     {
-      "id": "62375007-ec25-4834-8695-0d403ce59279",
+      "id": "acc0a1b4-02df-4f97-990f-7835f8811ec6",
       "key": "component",
       "value": "use",
       "type": "string",
