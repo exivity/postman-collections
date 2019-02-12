@@ -6306,7 +6306,7 @@
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
                       "    \"username\",",
@@ -6386,7 +6386,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -6395,7 +6397,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user\",\r\n      \"email_address\": \"someone+modified@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user\",\r\n      \"email_address\": \"someone+modified@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
@@ -7065,7 +7067,11 @@
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.output).to.be.an('array');",
                       "    pm.expect(response.status).to.eql(true);",
-                      "});"
+                      "});",
+                      "",
+                      "// Run other workflow stuff before deleteing the workflow",
+                      "postman.setNextRequest(\"/workflowssteps\");",
+                      "postman.setNextRequest(\"/workflowsschedules\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -11426,7 +11432,7 @@
   ],
   "variable": [
     {
-      "id": "a1389685-0aa9-46b8-88ae-9eb3f87fb8a4",
+      "id": "41022057-4337-4d28-8a0a-82f46fa6ab50",
       "key": "component",
       "value": "use",
       "type": "string",
