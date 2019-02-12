@@ -1309,7 +1309,7 @@
                       "    pm.expect(response.last_modified).to.be.a('string');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
-                      "    pm.expect(response.name).to.eql('Transformer_test');",
+                      "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});"
@@ -11425,7 +11425,7 @@
   ],
   "variable": [
     {
-      "id": "85f18c1f-0d30-496b-a0d8-d28d360260eb",
+      "id": "5825bdb6-eee0-4c24-a2db-90a573b9f4e0",
       "key": "component",
       "value": "use",
       "type": "string",
