@@ -3181,6 +3181,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -3197,7 +3198,9 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"metadatadefinition_id\", response.data.id);"
+                      "",
+                      "pm.environment.set(\"metadatadefinition_id\", response.data.id);",
+                      "console.log('SET metadatadefinition_id: ' + pm.environment.get(\"metadatadefinition_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -11285,7 +11288,7 @@
   ],
   "variable": [
     {
-      "id": "f6ff0465-772c-47e4-8536-573f47ca6842",
+      "id": "6277da1e-77cc-45c5-82c5-a4931a61b0f9",
       "key": "component",
       "value": "use",
       "type": "string",
