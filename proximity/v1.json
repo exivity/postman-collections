@@ -7467,8 +7467,8 @@
                       "    pm.expect(response.data.links).to.be.an('object');\r",
                       "});\r",
                       "\r",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);\r",
-                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));\r",
+                      "pm.environment.set(\"edify_workflowstep_id\", response.data.id);\r",
+                      "console.log('SET edify_workflowstep_id: ' + pm.environment.get(\"edify_workflowstep_id\"));\r",
                       ""
                     ],
                     "type": "text/javascript"
@@ -11436,7 +11436,7 @@
   ],
   "variable": [
     {
-      "id": "ba5fdbff-a8c3-4bf1-8d35-4e5446afd563",
+      "id": "a02c5b1d-b641-4471-96c3-deb69a297242",
       "key": "component",
       "value": "use",
       "type": "string",
