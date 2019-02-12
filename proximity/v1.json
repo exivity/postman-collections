@@ -936,12 +936,14 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "226697a8-125c-47b4-bfd4-0cb3404f1b09",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains output\", function () {",
                       "    pm.expect(response).to.be.an('array');",
@@ -951,7 +953,6 @@
                       "    pm.expect(response[0]).to.contains('Hello world');",
                       "});"
                     ],
-                    "id": "226697a8-125c-47b4-bfd4-0cb3404f1b09",
                     "type": "text/javascript"
                   }
                 }
@@ -11186,7 +11187,7 @@
   ],
   "variable": [
     {
-      "id": "0cc39eb0-81c5-4171-8023-2ed283a18d7c",
+      "id": "7954d1bf-3dba-4a20-8327-5a1532b0783c",
       "key": "component",
       "value": "use",
       "type": "string",
