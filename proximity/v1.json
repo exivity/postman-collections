@@ -1312,7 +1312,8 @@
                       "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
                       "    pm.expect(response.schedule).to.eql(false);",
-                      "});"
+                      "});",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -1361,7 +1362,7 @@
                       "    pm.expect(response.last_modified).to.be.a('string');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
-                      "    pm.expect(response.name).to.eql('Transformer_test');",
+                      "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
                       "    pm.expect(response.contents.trim()).to.eql('# modified script here');",
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});"
@@ -11425,7 +11426,7 @@
   ],
   "variable": [
     {
-      "id": "5825bdb6-eee0-4c24-a2db-90a573b9f4e0",
+      "id": "30215f5c-ae64-4211-bbe5-2bacbae705aa",
       "key": "component",
       "value": "use",
       "type": "string",
