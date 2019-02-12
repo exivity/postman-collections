@@ -8032,13 +8032,13 @@
                   "listen": "test",
                   "script": {
                     "id": "5ce6e84d-69cc-4b99-a6c3-8a79cbf933ae",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -8046,18 +8046,19 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"start_time\": \"10800\",",
+                      "    \"start_time\": \"10800\",",
                       "        \"timezone\": \"Europe/Amsterdam\",",
                       "        \"adjust_for_dst\": true,",
                       "        \"frequency\": \"daily\",",
                       "        \"frequency_modifier\": 2",
-                      "\t});",
+                      "  });",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8069,7 +8070,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}?include=",
                   "host": [
@@ -8101,13 +8105,13 @@
                   "listen": "test",
                   "script": {
                     "id": "f9701b1e-56dc-4ad5-8ddc-4202d0cc0af3",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -8115,18 +8119,19 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"start_time\": \"10800\",",
+                      "    \"start_time\": \"10800\",",
                       "        \"timezone\": \"Europe/London\",",
                       "        \"adjust_for_dst\": true,",
                       "        \"frequency\": \"daily\",",
                       "        \"frequency_modifier\": 2",
-                      "\t});",
+                      "  });",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8144,7 +8149,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"id\": \"{{workflowschedule_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"timezone\": \"Europe/London\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowschedule\",\r\n    \"id\": \"{{workflowschedule_id}}\",\r\n    \"attributes\": {\r\n      \"timezone\": \"Europe/London\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}",
                 "description": "Test description"
@@ -11389,7 +11394,7 @@
   ],
   "variable": [
     {
-      "id": "26b90ed5-1fb4-4718-a7bb-62e72a7f632a",
+      "id": "72a6def7-fad4-482e-860f-3c31575e5977",
       "key": "component",
       "value": "use",
       "type": "string",
