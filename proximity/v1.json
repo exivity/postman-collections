@@ -5201,6 +5201,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
@@ -5259,7 +5260,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "equals": false,
+                      "equals": true,
                       "description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
                     }
                   ]
@@ -11327,7 +11328,7 @@
   ],
   "variable": [
     {
-      "id": "beb6b029-458d-4963-943e-49cf609868c8",
+      "id": "b6da2177-be97-4509-ad0f-6f0b0f718ed8",
       "key": "component",
       "value": "use",
       "type": "string",
