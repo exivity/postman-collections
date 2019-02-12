@@ -8291,6 +8291,19 @@
             {
               "_postman_id": "43338808-72df-449b-838d-cbf8a3b12b6e",
               "name": "Delete a channel",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "23271e99-ef6e-4e0e-baac-6ef2b79085d4",
+                    "exec": [
+                      "console.log('UNSET notification_channel_id');",
+                      "pm.environment.unset(\"notification_channel_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "request": {
                 "method": "DELETE",
                 "header": [],
@@ -11235,7 +11248,7 @@
   ],
   "variable": [
     {
-      "id": "af1a828d-dc93-48f7-a14e-77741e6729d6",
+      "id": "62375007-ec25-4834-8695-0d403ce59279",
       "key": "component",
       "value": "use",
       "type": "string",
