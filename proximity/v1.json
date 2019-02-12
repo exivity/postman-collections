@@ -1279,13 +1279,13 @@
                   "listen": "test",
                   "script": {
                     "id": "66c118ec-0e0b-4070-b25a-b6eaf479eeb8",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('object');",
@@ -1302,7 +1302,8 @@
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -1314,7 +1315,10 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/transformers/{{transformer_name}}"
               },
               "response": []
@@ -11252,7 +11256,7 @@
   ],
   "variable": [
     {
-      "id": "acc0a1b4-02df-4f97-990f-7835f8811ec6",
+      "id": "d2d94b60-72ef-4a69-b54a-79f83f053422",
       "key": "component",
       "value": "use",
       "type": "string",
