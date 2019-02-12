@@ -8423,13 +8423,37 @@
                       "    pm.expect(jsonData).to.have.property('data');",
                       "    pm.expect(jsonData.data).to.have.property('attributes');",
                       "    pm.expect(jsonData.data).to.have.property('links');",
-                      "    pm.expect(jsonData.data.attributes).to.have.property('user_id');",
                       "    pm.expect(jsonData.data.attributes).to.have.property('type');",
                       "    pm.expect(jsonData.data.attributes).to.have.property('info');",
-                      "    pm.expect(jsonData.data.attributes).to.have.property('created_at');",
-                      "    pm.expect(jsonData.data.attributes).to.have.property('updated_at');",
+                      "    ",
+                      "    pm.expect(jsonData).to.have.property('data');",
+                      "    pm.expect(jsonData.data).to.have.property('relationships');",
                       "});",
-                      ""
+                      "",
+                      "pm.test(\"Response has valid relationship with subscription\", function() {",
+                      "",
+                      "    pm.expect(jsonData.data.relationships).to.have.property('subscription');",
+                      "    ",
+                      "    var subscription = jsonData.data.relationships.subscription;",
+                      "    pm.expect(subscription.data).to.have.property('id');",
+                      "    pm.expect(subscription.data).to.have.property('type');",
+                      "    pm.expect(subscription.data.type).to.be.eql('subscription');",
+                      "});",
+                      "",
+                      "pm.test(\"Response has valid relationship with user\", function() {",
+                      "    pm.expect(jsonData).to.have.property('data');",
+                      "    pm.expect(jsonData.data).to.have.property('relationships');",
+                      "    pm.expect(jsonData.data.relationships).to.have.property('user');",
+                      "    ",
+                      "    var user = jsonData.data.relationships.user;",
+                      "    pm.expect(user.data).to.have.property('id');",
+                      "    pm.expect(user.data).to.have.property('type');",
+                      "    pm.expect(user.data.type).to.be.eql('user');",
+                      "});",
+                      "",
+                      "",
+                      "    ",
+                      "    "
                     ],
                     "type": "text/javascript"
                   }
@@ -8448,7 +8472,7 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}?include=subscriptions",
+                  "raw": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}?include=subscriptions,user",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -8460,7 +8484,7 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "subscriptions",
+                      "value": "subscriptions,user",
                       "equals": true
                     }
                   ]
@@ -8471,19 +8495,61 @@
             {
               "_postman_id": "336433a1-3a76-4f87-8b8d-e2a90c1320fd",
               "name": "Edit a channel",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d1de786d-2590-4fd2-9fba-b555757831aa",
+                    "exec": [
+                      "// Status",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "// Json body",
+                      "pm.test(\"Response has a valid JSON body\", function () {",
+                      "     pm.response.to.be.withBody;",
+                      "     pm.response.to.be.json;",
+                      "});",
+                      "",
+                      "// Check Json",
+                      "var jsonData = pm.response.json();",
+                      "console.log(jsonData);",
+                      "pm.test(\"Response has valid attributes\", function() {",
+                      "    pm.expect(jsonData).to.have.property('data');",
+                      "    pm.expect(jsonData.data).to.have.property('attributes');",
+                      "    pm.expect(jsonData.data).to.have.property('links');",
+                      "    pm.expect(jsonData.data.attributes).to.have.property('type');",
+                      "    pm.expect(jsonData.data.attributes).to.have.property('info');",
+                      "    pm.expect(jsonData.data.attributes.info).to.have.property('recipient');",
+                      "});",
+                      "",
+                      "pm.test(\"Email address should have changed\", function() {",
+                      "    pm.expect(jsonData.data.attributes.info.recipient).to.be.eql('anybody@exivity.com');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "request": {
                 "method": "PATCH",
                 "header": [
                   {
                     "key": "Content-Type",
                     "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
                   }
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_channel\",\r\n\t\t\"id\": \"8\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"info\": \"conor@exivity.com\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notificationchannel\",\r\n\t\t\"id\": \"{{notification_channel_id}}\",\r\n\t\t\"attributes\": {\r\n            \"info\": {\r\n            \t\"recipient\": \"anybody@exivity.com\"\r\n        \t}\r\n        }\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/notificationchannels/8"
+                "url": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}"
               },
               "response": []
             },
@@ -11436,7 +11502,7 @@
   ],
   "variable": [
     {
-      "id": "c148af6a-ebf9-40c9-be35-e7a607961794",
+      "id": "72beb408-9f9d-4c03-9c38-014ee6d6d303",
       "key": "component",
       "value": "use",
       "type": "string",
