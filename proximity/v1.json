@@ -1072,19 +1072,20 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "88b0258a-cac5-4acd-a2b9-6b6db703f471",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains status\", function () {",
                       "    pm.expect(response.status).to.be.a('string');",
                       "    pm.expect(response.status).to.eql('unscheduled');",
                       "});"
                     ],
-                    "id": "88b0258a-cac5-4acd-a2b9-6b6db703f471",
                     "type": "text/javascript"
                   }
                 }
@@ -11188,7 +11189,7 @@
   ],
   "variable": [
     {
-      "id": "2d219571-83c8-4c91-9f00-3e8a312ce1af",
+      "id": "5f4d2a96-32c4-4a84-a036-1e0c3e35e43a",
       "key": "component",
       "value": "use",
       "type": "string",
