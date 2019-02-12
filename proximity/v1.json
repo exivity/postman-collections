@@ -2495,7 +2495,8 @@
                       "});",
                       "",
                       "// Hardcode account_id for now, se we have something to work with",
-                      "pm.environment.set(\"account_id\", 1);"
+                      "pm.environment.set(\"account_id\", 1);",
+                      "console.log('SET account_id (HARDCODED): ' + pm.environment.get(\"account_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -11267,7 +11268,7 @@
   ],
   "variable": [
     {
-      "id": "f2b438c9-d83f-42e2-b052-0450f30fa081",
+      "id": "2a6d7261-7409-4de1-9b69-46ecf524a31d",
       "key": "component",
       "value": "use",
       "type": "string",
