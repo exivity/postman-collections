@@ -731,6 +731,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('object');",
@@ -869,6 +870,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('object');",
@@ -11184,7 +11186,7 @@
   ],
   "variable": [
     {
-      "id": "76831847-b9e0-4652-95e6-c9225122410a",
+      "id": "0cc39eb0-81c5-4171-8023-2ed283a18d7c",
       "key": "component",
       "value": "use",
       "type": "string",
