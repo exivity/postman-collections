@@ -4451,19 +4451,18 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "576d1050-8826-4de8-bf97-f3c28494480b",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
                     ],
+                    "id": "576d1050-8826-4de8-bf97-f3c28494480b",
                     "type": "text/javascript"
                   }
                 }
@@ -4476,10 +4475,7 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
+                "body": {},
                 "url": {
                   "raw": "{{base_url}}/v1/rates?page[limit]&page[offset]&sort&filter[attribute]&include",
                   "host": [
@@ -4540,7 +4536,6 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -4682,13 +4677,13 @@
                   "listen": "test",
                   "script": {
                     "id": "16945c13-6e38-4f0b-b114-26105d49a4ab",
+                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -4696,26 +4691,25 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.eql({",
-                      "    \"rate\": 10,",
-                      "    \"rate_col\": \"rate_col2\",",
-                      "    \"fixed\": 20,",
-                      "    \"fixed_col\": \"fixed_col2\",",
-                      "    \"cogs_rate\": 30,",
-                      "    \"cogs_rate_col\": \"cogs_rate_col2\",",
-                      "    \"cogs_fixed\": 40,",
-                      "    \"cogs_fixed_col\": \"cogs_fixed_col2\",",
-                      "    \"effective_date\": \"2017-12-31\",",
-                      "    \"threshold\": 10,",
+                      "\t\t\"rate\": 10,",
+                      "\t\t\"rate_col\": \"rate_col2\",",
+                      "\t\t\"fixed\": 20,",
+                      "\t\t\"fixed_col\": \"fixed_col2\",",
+                      "\t\t\"cogs_rate\": 30,",
+                      "\t\t\"cogs_rate_col\": \"cogs_rate_col2\",",
+                      "\t\t\"cogs_fixed\": 40,",
+                      "\t\t\"cogs_fixed_col\": \"cogs_fixed_col2\",",
+                      "\t\t\"effective_date\": \"2017-12-31\",",
+                      "\t\t\"threshold\": 10,",
                       "        \"min_commit\": 50,",
-                      "  });",
+                      "\t});",
                       "",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ],
-                    "type": "text/javascript"
+                    ]
                   }
                 }
               ],
@@ -4733,7 +4727,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n            \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n      \"effective_date\": \"2017-12-31\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"id\": \"{{rate_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": 10,\r\n            \"min_commit\": 50,\r\n\t\t\t\"rate\": \"10.0\",\r\n\t\t\t\"rate_col\": \"rate_col2\",\r\n\t\t\t\"fixed\": \"20.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col2\",\r\n\t\t\t\"cogs_rate\": \"30.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col2\",\r\n\t\t\t\"cogs_fixed\": \"40.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n\t\t\t\"effective_date\": \"2017-12-31\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/rates/{{rate_id}}"
               },
@@ -4747,14 +4741,12 @@
                   "listen": "test",
                   "script": {
                     "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
+                      "});"
+                    ]
                   }
                 }
               ],
@@ -4844,19 +4836,18 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
                     ],
+                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
                     "type": "text/javascript"
                   }
                 }
@@ -4869,10 +4860,7 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
+                "body": {},
                 "url": {
                   "raw": "{{base_url}}/v1/adjustments?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
@@ -11320,7 +11308,7 @@
   ],
   "variable": [
     {
-      "id": "3c6b37a8-9a46-46d7-bfaa-7174de47f5b6",
+      "id": "38125468-f83c-4612-9b8c-3396e8bdea8a",
       "key": "component",
       "value": "use",
       "type": "string",
