@@ -2530,12 +2530,14 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "7778e902-8e93-4f8c-9f0b-fe62a0dbf6c7",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -2553,7 +2555,6 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
                     ],
-                    "id": "7778e902-8e93-4f8c-9f0b-fe62a0dbf6c7",
                     "type": "text/javascript"
                   }
                 }
@@ -2566,7 +2567,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/accounts/{{account_id}}/?include",
                   "host": [
@@ -11268,7 +11272,7 @@
   ],
   "variable": [
     {
-      "id": "2a6d7261-7409-4de1-9b69-46ecf524a31d",
+      "id": "3e3e7d07-4708-4b30-a1d4-ed9b9e80af53",
       "key": "component",
       "value": "use",
       "type": "string",
