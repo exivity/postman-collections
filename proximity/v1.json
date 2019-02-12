@@ -8437,6 +8437,25 @@
               "response": []
             },
             {
+              "_postman_id": "336433a1-3a76-4f87-8b8d-e2a90c1320fd",
+              "name": "Edit a channel",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_channel\",\r\n\t\t\"id\": \"8\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"info\": \"conor@exivity.com\"\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/notificationchannels/8"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "43338808-72df-449b-838d-cbf8a3b12b6e",
               "name": "Delete a channel",
               "event": [
@@ -8457,25 +8476,6 @@
                 "header": [],
                 "body": {},
                 "url": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "336433a1-3a76-4f87-8b8d-e2a90c1320fd",
-              "name": "Edit a channel",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_channel\",\r\n\t\t\"id\": \"8\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"info\": \"conor@exivity.com\"\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/notificationchannels/8"
               },
               "response": []
             }
@@ -8523,6 +8523,7 @@
                       "// });",
                       "",
                       "// const response = pm.response.json();",
+                      "// console.log(response);",
                       "",
                       "// pm.test(\"Response contains data\", function () {",
                       "//     pm.expect(response.data).to.be.an('array');",
@@ -8576,6 +8577,7 @@
                       "// });",
                       "",
                       "// const response = pm.response.json();",
+                      "// console.log(response);",
                       "",
                       "// pm.test(\"Response contains data\", function () {",
                       "//     pm.expect(response.data).to.be.an('array');",
@@ -11397,7 +11399,7 @@
   ],
   "variable": [
     {
-      "id": "65e733c3-e4f4-4182-9fd0-7187558c458a",
+      "id": "bbb39e25-c993-4491-98a9-3fbb7a6d818e",
       "key": "component",
       "value": "use",
       "type": "string",
