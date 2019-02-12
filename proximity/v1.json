@@ -6499,13 +6499,13 @@
                   "listen": "test",
                   "script": {
                     "id": "01f37b5a-a98f-4f9b-b8f5-e3286935b7ad",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -6513,11 +6513,11 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"name\",",
+                      "    \"name\",",
                       "        \"permissions\"",
-                      "\t]);",
-                      "\tpm.expect(response.data.attributes.name).to.eql('testers');",
-                      "\tpm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.name).to.eql('testers');",
+                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -6525,7 +6525,8 @@
                       "});",
                       "",
                       "pm.environment.set(\"usergroup_id\", response.data.id);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6543,7 +6544,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\r\n\t\t\t\t\"manage_users\"\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"attributes\": {\r\n      \"name\": \"testers\",\r\n      \"permissions\": [\r\n        \"manage_users\"\r\n      ]\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/usergroups"
               },
@@ -11355,7 +11356,7 @@
   ],
   "variable": [
     {
-      "id": "dcdd180a-1c2d-4d67-a55d-d984fe81f18c",
+      "id": "b6a10955-7750-4a51-a785-242308d33527",
       "key": "component",
       "value": "use",
       "type": "string",
