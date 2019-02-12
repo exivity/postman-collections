@@ -8496,6 +8496,11 @@
                   "script": {
                     "id": "23271e99-ef6e-4e0e-baac-6ef2b79085d4",
                     "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "",
                       "console.log('UNSET notification_channel_id');",
                       "pm.environment.unset(\"notification_channel_id\");"
                     ],
@@ -11431,7 +11436,7 @@
   ],
   "variable": [
     {
-      "id": "6fb1e84d-66cf-469f-aaaa-f0c8a9a4cd91",
+      "id": "c148af6a-ebf9-40c9-be35-e7a607961794",
       "key": "component",
       "value": "use",
       "type": "string",
