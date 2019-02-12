@@ -3715,9 +3715,9 @@
                   "script": {
                     "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "exec": [
-                      "// pm.test(\"Status code is 204\", function () {",
-                      "//     pm.response.to.have.status(204);",
-                      "// });",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
                       "",
                       "// postman.setNextRequest(\"Delete a metadata definition\");"
                     ],
@@ -5046,12 +5046,15 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log('UNSET adjustment_id');",
+                      "pm.environment.unset(\"adjustment_id\");"
                     ],
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "type": "text/javascript"
                   }
                 }
@@ -6553,14 +6556,17 @@
                   "listen": "test",
                   "script": {
                     "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
+                      "console.log('UNSET usergroup_id');",
+                      "pm.environment.unset(\"usergroup_id\");",
+                      "",
                       "postman.setNextRequest(\"Retrieve a list of workflows\");"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11220,7 +11226,7 @@
   ],
   "variable": [
     {
-      "id": "249c23c6-7e61-4ec6-a38e-7dc870e8d26d",
+      "id": "30992527-21a3-459e-af13-5972daf13a95",
       "key": "component",
       "value": "use",
       "type": "string",
