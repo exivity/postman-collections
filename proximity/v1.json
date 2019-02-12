@@ -19,19 +19,30 @@
               "listen": "test",
               "script": {
                 "id": "f86ddfa6-cc3e-4948-bd9a-64386600c23e",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
-                  "});"
-                ]
+                  "});",
+                  "",
+                  "console.log('hello');",
+                  "const oldJson = pm.response.json",
+                  "pm.response.json = function() {",
+                  "    const output = oldJson.call(this) ",
+                  "    console.log(output)",
+                  "    return output",
+                  "}"
+                ],
+                "type": "text/javascript"
               }
             }
           ],
           "request": {
             "method": "GET",
             "header": [],
-            "body": {},
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
             "url": "{{base_url}}",
             "description": "If all is well, this request should return a simple HTML page with a link to the API documentation."
           },
@@ -3368,8 +3379,7 @@
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});",
-                      "",
-                      "postman.setNextRequest(\"Retrieve a list of services\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -4043,7 +4053,8 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"service_id\", response.data.id);"
+                      "pm.environment.set(\"service_id\", response.data.id);",
+                      "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -11161,7 +11172,7 @@
   ],
   "variable": [
     {
-      "id": "c441be70-757c-4ad2-96b1-f5158454fdf2",
+      "id": "7229db9f-fe25-4044-b067-26b6f55a01d0",
       "key": "component",
       "value": "use",
       "type": "string",
