@@ -23,14 +23,7 @@
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
                   "});",
-                  "",
-                  "console.log('hello');",
-                  "const oldJson = pm.response.json",
-                  "pm.response.json = function() {",
-                  "    const output = oldJson.call(this) ",
-                  "    console.log(output)",
-                  "    return output",
-                  "}"
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -236,13 +229,13 @@
                   "listen": "test",
                   "script": {
                     "id": "c2941f4d-1136-48a9-8b5c-fbba812d3212",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains token\", function () {",
                       "    pm.expect(response.token).to.be.a('string');",
@@ -260,7 +253,8 @@
                       "    pm.expect(response.permissions).to.be.an('array')",
                       "    pm.expect(response.permissions).to.eql([\"*\"]);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -610,18 +604,19 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "bd9b23b6-5d3f-455c-b0a4-420cdd6229e5",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('array');",
                       "});"
                     ],
-                    "id": "bd9b23b6-5d3f-455c-b0a4-420cdd6229e5",
                     "type": "text/javascript"
                   }
                 }
@@ -634,7 +629,10 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/extractors",
                 "description": "Test description"
               },
@@ -654,6 +652,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('object');",
@@ -688,7 +687,8 @@
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});",
                       "",
-                      "pm.environment.set(\"extractor_name\", response.name);"
+                      "pm.environment.set(\"extractor_name\", response.name);",
+                      "console.log('SET extractor_name: ' + pm.environment.get(\"extractor_name\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -4097,6 +4097,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -4152,7 +4153,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/services/{{service_id}}?include",
                   "host": [
@@ -11172,7 +11176,7 @@
   ],
   "variable": [
     {
-      "id": "7229db9f-fe25-4044-b067-26b6f55a01d0",
+      "id": "aebaafca-4b1c-418d-bfad-dc8ab895039a",
       "key": "component",
       "value": "use",
       "type": "string",
