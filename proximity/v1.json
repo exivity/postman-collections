@@ -8019,14 +8019,17 @@
                   "listen": "test",
                   "script": {
                     "id": "43015ed0-58cf-40ba-aa47-950a39d34893",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
+                      "console.log('UNSET workflowschedule_id');",
+                      "pm.environment.unset(\"workflowschedule_id\");",
+                      "",
                       "postman.setNextRequest(\"Delete a workflow\");"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11232,7 +11235,7 @@
   ],
   "variable": [
     {
-      "id": "73cba11d-7789-4ff6-a20b-af7753eeea7b",
+      "id": "af1a828d-dc93-48f7-a14e-77741e6729d6",
       "key": "component",
       "value": "use",
       "type": "string",
