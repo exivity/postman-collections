@@ -2129,6 +2129,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains error\", function () {",
                       "    pm.expect(response.errors).to.be.an('array');",
@@ -11264,7 +11265,7 @@
   ],
   "variable": [
     {
-      "id": "04ca6e46-12ec-4568-a184-1a2ba5eebeca",
+      "id": "d6b81c5f-7d04-4bd5-b250-cce3e3dd0d00",
       "key": "component",
       "value": "use",
       "type": "string",
