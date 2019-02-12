@@ -5362,7 +5362,6 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -5423,7 +5422,6 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -11332,7 +11330,7 @@
   ],
   "variable": [
     {
-      "id": "4bcf3424-1a75-4833-8d33-242ddb4eef5d",
+      "id": "e6dcf9aa-19a1-48d8-803a-03eed0d5932c",
       "key": "component",
       "value": "use",
       "type": "string",
