@@ -2645,9 +2645,7 @@
                       "pm.test(\"Status code is 400\", function () {",
                       "    pm.response.to.have.status(400);",
                       "});",
-                      "",
-                      "console.log('UNSET account_id');",
-                      "pm.environment.unset(\"account_id\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11287,7 +11285,7 @@
   ],
   "variable": [
     {
-      "id": "378e7c4e-c755-4d17-b427-9cefb27284cc",
+      "id": "f6ff0465-772c-47e4-8536-573f47ca6842",
       "key": "component",
       "value": "use",
       "type": "string",
