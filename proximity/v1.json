@@ -5722,12 +5722,15 @@
                   "listen": "test",
                   "script": {
                     "id": "726795e6-603a-4c76-b26e-daa9b1104425",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
-                    ]
+                      "});",
+                      "",
+                      "console.log('UNSET report_id');",
+                      "pm.environment.unset(\"report_id\");"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11217,7 +11220,7 @@
   ],
   "variable": [
     {
-      "id": "9cc852f2-fe42-48b2-8c44-cec3919c3115",
+      "id": "249c23c6-7e61-4ec6-a38e-7dc870e8d26d",
       "key": "component",
       "value": "use",
       "type": "string",
