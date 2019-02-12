@@ -5771,19 +5771,20 @@
                   "listen": "test",
                   "script": {
                     "id": "5f72b5e6-061d-478a-831c-5a4238ed6a0a",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains status\", function () {",
                       "    pm.expect(response.status).to.be.a('string');",
                       "    pm.expect(response.status).to.eql('unscheduled');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -5884,13 +5885,13 @@
                       "listen": "test",
                       "script": {
                         "id": "78fd66fb-62f9-46c3-ae3a-380572d44554",
-                        "type": "text/javascript",
                         "exec": [
                           "pm.test(\"Status code is 200\", function () {",
                           "    pm.response.to.have.status(200);",
                           "});",
                           "",
                           "const response = pm.response.json();",
+                          "console.log(response);",
                           "",
                           "pm.test(\"Response contains correct data\", function () {",
                           "    pm.expect(response.data).to.be.an('object');",
@@ -5898,10 +5899,10 @@
                           "    pm.expect(response.data.id).to.not.be.undefined;",
                           "    pm.expect(response.data.attributes).to.be.an('object');",
                           "    pm.expect(response.data.attributes).to.have.keys([",
-                          "\t\t\"username\",",
+                          "    \"username\",",
                           "        \"email_address\",",
                           "        \"account_access_type\"",
-                          "\t]);",
+                          "  ]);",
                           "});",
                           "",
                           "pm.test(\"Response contains data.links\", function () {",
@@ -5909,7 +5910,8 @@
                           "});",
                           "",
                           "pm.environment.set(\"user_id\", response.data.id);"
-                        ]
+                        ],
+                        "type": "text/javascript"
                       }
                     }
                   ],
@@ -5921,7 +5923,10 @@
                         "value": "application/vnd.api+json"
                       }
                     ],
-                    "body": {},
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
                     "url": "{{base_url}}/v1/users/me"
                   },
                   "response": []
@@ -5934,13 +5939,13 @@
                       "listen": "test",
                       "script": {
                         "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
-                        "type": "text/javascript",
                         "exec": [
                           "pm.test(\"Status code is 200\", function () {",
                           "    pm.response.to.have.status(200);",
                           "});",
                           "",
                           "const response = pm.response.json();",
+                          "console.log(response);",
                           "",
                           "pm.test(\"Response contains correct data\", function () {",
                           "    pm.expect(response.data).to.be.an('object');",
@@ -5948,18 +5953,19 @@
                           "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
                           "    pm.expect(response.data.attributes).to.be.an('object');",
                           "    pm.expect(response.data.attributes).to.have.keys([",
-                          "\t\t\"username\",",
+                          "    \"username\",",
                           "        \"email_address\",",
                           "        \"account_access_type\"",
-                          "\t]);",
-                          "\tpm.expect(response.data.attributes.username).to.eql('admin');",
-                          "\tpm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
+                          "  ]);",
+                          "  pm.expect(response.data.attributes.username).to.eql('admin');",
+                          "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
                           "});",
                           "",
                           "pm.test(\"Response contains data.links\", function () {",
                           "    pm.expect(response.data.links).to.be.an('object');",
                           "});"
-                        ]
+                        ],
+                        "type": "text/javascript"
                       }
                     }
                   ],
@@ -5977,7 +5983,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"id\": \"{{user_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"email_address\": \"tester@exivity.com\"\r\n\t\t}\r\n\t}\r\n}"
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}"
                     },
                     "url": "{{base_url}}/v1/users/me"
                   },
@@ -5991,20 +5997,21 @@
                       "listen": "test",
                       "script": {
                         "id": "09a39f7e-ecec-43c2-99a7-b948187a1edd",
-                        "type": "text/javascript",
                         "exec": [
                           "pm.test(\"Status code is 200\", function () {",
                           "    pm.response.to.have.status(200);",
                           "});",
                           "",
                           "const response = pm.response.json();",
+                          "console.log(response);",
                           "",
                           "pm.test(\"Response contains correct state\", function () {",
                           "    pm.expect(response.state).to.be.an('object');",
                           "    pm.expect(response.state.key).to.not.be.undefined;",
                           "\tpm.expect(response.state.key).to.eql('value');",
                           "});"
-                        ]
+                        ],
+                        "type": "text/javascript"
                       }
                     }
                   ],
@@ -6131,18 +6138,19 @@
                   "listen": "test",
                   "script": {
                     "id": "ab564c7d-96b3-4ef0-80f0-b415013242ed",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6154,7 +6162,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/users?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
@@ -11333,7 +11344,7 @@
   ],
   "variable": [
     {
-      "id": "a9b4a3ac-9b8a-4962-a1ff-2a7b07e17b88",
+      "id": "7af542a3-c41b-4a26-af8b-6f0d69a6a1b0",
       "key": "component",
       "value": "use",
       "type": "string",
