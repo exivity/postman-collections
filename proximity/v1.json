@@ -3778,7 +3778,8 @@
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
                       "",
-                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);"
+                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);",
+                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -3996,6 +3997,8 @@
                   "script": {
                     "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
+                      "console.log('GET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
+                      "",
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
@@ -11158,7 +11161,7 @@
   ],
   "variable": [
     {
-      "id": "ee02d0b3-ab06-4a01-a667-1ea7d0e3800b",
+      "id": "c441be70-757c-4ad2-96b1-f5158454fdf2",
       "key": "component",
       "value": "use",
       "type": "string",
