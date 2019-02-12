@@ -1240,12 +1240,23 @@
                       "    pm.expect(response.last_modified).to.be.a('string');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
-                      "    pm.expect(response.name).to.eql('Transformer_test');",
+                      "    pm.expect(response.name).to.include('Transformer_test');",
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});",
                       "",
-                      "pm.environment.set(\"transformer_name\", response.name);"
+                      "pm.environment.set(\"transformer_name\", response.name);",
+                      "console.log('SET transformer_name: ' + pm.environment.get(\"transformer_name\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "cfa07a5f-7a4c-4269-aea7-91214ed08360",
+                    "exec": [
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -1265,7 +1276,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"name\": \"Transformer test\",\r\n  \"contents\": \"# script here\"\r\n}"
+                  "raw": "{\r\n  \"name\": \"Transformer test {{$randomInt}}\",\r\n  \"contents\": \"# script here\"\r\n}"
                 },
                 "url": "{{base_url}}/v1/transformers"
               },
@@ -8387,6 +8398,7 @@
                       "",
                       "// // Check Json",
                       "// var jsonData = pm.response.json();",
+                      "// console.log(jsonData);",
                       "// pm.test(\"Response has valid attributes\", function() {",
                       "//     pm.expect(jsonData).to.have.property('data');",
                       "//     pm.expect(jsonData.data).to.have.property('attributes');",
@@ -8640,6 +8652,7 @@
                       "// });",
                       "",
                       "// const response = pm.response.json();",
+                      "// console.log(response);",
                       "",
                       "// pm.test(\"Response contains data\", function () {",
                       "//     pm.expect(response.data).to.be.an('array');",
@@ -8674,36 +8687,6 @@
               "response": []
             },
             {
-              "_postman_id": "3d156ddf-71d1-4130-b095-bd1260b7301a",
-              "name": "Delete a notification subscription",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b80ebb0a-52ba-49f3-bc01-265fa0edef69",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "// Delete the variable",
-                      "console.log('UNSET notification_subscritpion_id');",
-                      "pm.environment.unset(\"notification_channel_id\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "DELETE",
-                "header": [],
-                "body": {},
-                "url": "{{base_url}}/v1/notificationsubscriptions/{{notification_subscritpion_id}}"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "6cc73bab-8d1f-466b-b611-e67c59b89e13",
               "name": "Edit a notification subscription",
               "event": [
@@ -8717,6 +8700,7 @@
                       "// });",
                       "",
                       "// const response = pm.response.json();",
+                      "// console.log(response);",
                       "",
                       "// pm.test(\"Response contains data\", function () {",
                       "//     pm.expect(response.data).to.be.an('array');",
@@ -8744,6 +8728,36 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_subscription\",\r\n\t\t\"id\": {{notification_subscritpion_id}},\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Super important budget overruns\"\r\n\t\t}\r\n\t}\r\n}"
                 },
+                "url": "{{base_url}}/v1/notificationsubscriptions/{{notification_subscritpion_id}}"
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "3d156ddf-71d1-4130-b095-bd1260b7301a",
+              "name": "Delete a notification subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b80ebb0a-52ba-49f3-bc01-265fa0edef69",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "// Delete the variable",
+                      "console.log('UNSET notification_subscritpion_id');",
+                      "pm.environment.unset(\"notification_channel_id\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {},
                 "url": "{{base_url}}/v1/notificationsubscriptions/{{notification_subscritpion_id}}"
               },
               "response": []
@@ -8786,13 +8800,13 @@
                   "listen": "test",
                   "script": {
                     "id": "09a0c7dc-3228-45a2-9f3c-6060f7777ebe",
-                    "type": "text/javascript",
                     "exec": [
                       "// pm.test(\"Status code is 200\", function () {",
                       "//     pm.response.to.have.status(200);",
                       "// });",
                       "",
                       "// const response = pm.response.json();",
+                      "// console.log(response);",
                       "",
                       "// pm.test(\"Response contains data\", function () {",
                       "//     pm.expect(response.data).to.be.an('array');",
@@ -8800,7 +8814,8 @@
                       "",
                       "// // Set the notification_id to the ID of the first notification",
                       "// pm.environment.set(\"notification_id\", response.data[0].id);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8951,6 +8966,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains configuration data\", function () {",
                       "    pm.expect(response.configuration).to.be.an('object');",
@@ -9013,6 +9029,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains configuration data\", function () {",
                       "    pm.expect(response.configuration).to.be.an('object');",
@@ -9087,6 +9104,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains configuration data\", function () {",
                       "    pm.expect(response.configuration).to.be.an('object');",
@@ -9493,13 +9511,13 @@
                       "listen": "test",
                       "script": {
                         "id": "fb73b126-8d44-4004-accf-9992d335fd3e",
-                        "type": "text/javascript",
                         "exec": [
                           "pm.test(\"Status code is 200\", function () {",
                           "    pm.response.to.have.status(200);",
                           "});",
                           "",
                           "const response = pm.response.json();",
+                          "console.log(response);",
                           "",
                           "pm.test(\"Response contains data\", function () {",
                           "    pm.expect(response).to.be.an('object');",
@@ -9511,7 +9529,8 @@
                           "        \"payload\",",
                           "    ]);",
                           "});"
-                        ]
+                        ],
+                        "type": "text/javascript"
                       }
                     }
                   ],
@@ -9523,7 +9542,10 @@
                         "value": "application/json"
                       }
                     ],
-                    "body": {},
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
                     "url": "{{base_url}}/v1/system/license"
                   },
                   "response": [
@@ -9609,13 +9631,13 @@
                       "listen": "test",
                       "script": {
                         "id": "7de2c829-f36f-4404-b664-9962b5f6a0d1",
-                        "type": "text/javascript",
                         "exec": [
                           "pm.test(\"Status code is 200\", function () {",
                           "    pm.response.to.have.status(200);",
                           "});",
                           "",
                           "const response = pm.response.json();",
+                          "console.log(response);",
                           "",
                           "pm.test(\"Response contains data\", function () {",
                           "    pm.expect(response).to.be.an('object');",
@@ -9627,7 +9649,8 @@
                           "        \"payload\",",
                           "    ]);",
                           "});"
-                        ]
+                        ],
+                        "type": "text/javascript"
                       }
                     }
                   ],
@@ -9645,7 +9668,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n\t\"license\": \"CZzKMBAJzUgtDzweTuxxbYymd1wtp3nxdfUJI2mBc8Yn8Kxmaj11z1/8Q+ewP0s9AkwFiIIe4PlCtk5VvkLrhUyCMSLhdj6n7SA8dooaovElCeS8H1cUEDZx96dCLiSZ7g+qgLr9XkZYBLqlNCt7vzkz7onfBxYarG+4iU9SQ4m6VXPXFeCVIjxIs85r7vGK8MexyGika5+hvltWShCvZHpyXeA+bVnrgLcwFpOPEcx0RCrvVVszG6nC92isoORU0PdRAGhO9qJ5o04qI8FKWtpnDysS49zwesBsYT+rwPW7EiBVJeZOjiK8Qb21YZrEMWpW3cECimP3IxzVFzQqG3dO8yjyhzc1hPM9fZaNASYcRsjhij3HG5ubuTm7ES7FjdsCa+6BoMZrWureYivV6pS/cebXtowz3r+KijKjN01TTY4kwdrXrs6uDUqI2utw+1u4QpUanZ+7FW/M2UZ/EOLrMHD+pbbnh4gtsfdP5gPXUJsTbL1NZRFzzwWScwoz159zRI7cv9wSJKtgwFABaAiOXtLxIIvPJOQ+HgHPyP7g9V52MMTxFoMEE/3izkNUedAAUZAAfAgjUVbVrOF28bFK8Kd7KTpkuERLsIzoFD0a+dceqQAsnHmoHdcPbMk1gGLS85/a3RxLXh/Y/w/yUyWsiJiD92t7e4tzoIhNhLA=\"\n}"
+                      "raw": "{\n  \"license\": \"CZzKMBAJzUgtDzweTuxxbYymd1wtp3nxdfUJI2mBc8Yn8Kxmaj11z1/8Q+ewP0s9AkwFiIIe4PlCtk5VvkLrhUyCMSLhdj6n7SA8dooaovElCeS8H1cUEDZx96dCLiSZ7g+qgLr9XkZYBLqlNCt7vzkz7onfBxYarG+4iU9SQ4m6VXPXFeCVIjxIs85r7vGK8MexyGika5+hvltWShCvZHpyXeA+bVnrgLcwFpOPEcx0RCrvVVszG6nC92isoORU0PdRAGhO9qJ5o04qI8FKWtpnDysS49zwesBsYT+rwPW7EiBVJeZOjiK8Qb21YZrEMWpW3cECimP3IxzVFzQqG3dO8yjyhzc1hPM9fZaNASYcRsjhij3HG5ubuTm7ES7FjdsCa+6BoMZrWureYivV6pS/cebXtowz3r+KijKjN01TTY4kwdrXrs6uDUqI2utw+1u4QpUanZ+7FW/M2UZ/EOLrMHD+pbbnh4gtsfdP5gPXUJsTbL1NZRFzzwWScwoz159zRI7cv9wSJKtgwFABaAiOXtLxIIvPJOQ+HgHPyP7g9V52MMTxFoMEE/3izkNUedAAUZAAfAgjUVbVrOF28bFK8Kd7KTpkuERLsIzoFD0a+dceqQAsnHmoHdcPbMk1gGLS85/a3RxLXh/Y/w/yUyWsiJiD92t7e4tzoIhNhLA=\"\n}"
                     },
                     "url": "{{base_url}}/v1/system/license"
                   },
@@ -9768,7 +9791,6 @@
                       "listen": "test",
                       "script": {
                         "id": "fc12b936-c455-4ec8-8b52-55ceb5060a36",
-                        "type": "text/javascript",
                         "exec": [
                           "pm.test(\"Status code is 200\", function () {",
                           "    pm.response.to.have.status(200);",
@@ -9783,7 +9805,8 @@
                           "        \"edify\",",
                           "    ]);",
                           "});"
-                        ]
+                        ],
+                        "type": "text/javascript"
                       }
                     }
                   ],
@@ -9795,7 +9818,10 @@
                         "value": "application/json"
                       }
                     ],
-                    "body": {},
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
                     "url": "{{base_url}}/v1/system/cache"
                   },
                   "response": [
@@ -11399,7 +11425,7 @@
   ],
   "variable": [
     {
-      "id": "bbb39e25-c993-4491-98a9-3fbb7a6d818e",
+      "id": "85f18c1f-0d30-496b-a0d8-d28d360260eb",
       "key": "component",
       "value": "use",
       "type": "string",
