@@ -7150,18 +7150,19 @@
                   "listen": "test",
                   "script": {
                     "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7173,7 +7174,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
                   "host": [
@@ -11372,7 +11376,7 @@
   ],
   "variable": [
     {
-      "id": "e63c895d-1506-4f95-a1b3-2f8d84d8b2dd",
+      "id": "10547695-6a1a-40c7-ba20-f65703534897",
       "key": "component",
       "value": "use",
       "type": "string",
