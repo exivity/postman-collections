@@ -8550,18 +8550,18 @@
                   "script": {
                     "id": "84f406f5-5506-4ad6-98b7-3302723b96d6",
                     "exec": [
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "",
-                      "// const response = pm.response.json();",
-                      "// console.log(response);",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
-                      "// pm.test(\"Response contains data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('array');",
-                      "// });",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
                       "",
-                      "// pm.environment.set(\"notification_subscritpion_id\", response.data[0].id);",
+                      "pm.environment.set(\"notification_subscritpion_id\", response.data[0].id);",
                       ""
                     ],
                     "type": "text/javascript"
@@ -8575,23 +8575,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/notificationsubscriptions?include=channels",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "notificationsubscriptions"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "channels",
-                      "equals": true
-                    }
-                  ]
-                }
+                "url": "{{base_url}}/v1/notificationsubscriptions"
               },
               "response": []
             },
@@ -8604,16 +8588,16 @@
                   "script": {
                     "id": "01c26907-02bd-4095-95bc-7fe1af628eb4",
                     "exec": [
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "",
-                      "// const response = pm.response.json();",
-                      "// console.log(response);",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
-                      "// pm.test(\"Response contains data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('array');",
-                      "// });",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
                       ""
                     ],
                     "type": "text/javascript"
@@ -11445,7 +11429,7 @@
   ],
   "variable": [
     {
-      "id": "885c3386-9793-488d-bf66-67697bf894f0",
+      "id": "6028ab28-95dd-4b3d-b2dd-77829e4defce",
       "key": "component",
       "value": "use",
       "type": "string",
