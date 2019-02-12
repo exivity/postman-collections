@@ -7730,6 +7730,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -7792,6 +7793,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains logs data\", function () {",
                       "    pm.expect(response.logs).to.be.an('array');",
@@ -7888,18 +7890,19 @@
                   "listen": "test",
                   "script": {
                     "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -7911,7 +7914,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
                   "host": [
@@ -11382,7 +11388,7 @@
   ],
   "variable": [
     {
-      "id": "0f4b7b47-f95b-4d05-af6a-7e238205e3a5",
+      "id": "b7ab7ade-4a00-410c-8c4d-b3899ab6e2c6",
       "key": "component",
       "value": "use",
       "type": "string",
