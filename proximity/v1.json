@@ -6348,7 +6348,7 @@
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
                       "    \"username\",",
@@ -6384,7 +6384,7 @@
                   "mode": "raw",
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user\",\r\n      \"email_address\": \"someone+modified@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}"
                 },
-                "url": "{{base_url}}/v1/users/{{user_id}}"
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
               "response": []
             },
@@ -6459,18 +6459,19 @@
                   "listen": "test",
                   "script": {
                     "id": "67b49a6a-8210-4e29-9b85-481402f67edf",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6482,7 +6483,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/usergroups"
               },
               "response": []
@@ -11351,7 +11355,7 @@
   ],
   "variable": [
     {
-      "id": "84717f44-d76a-4b77-84b5-e055abe07259",
+      "id": "dcdd180a-1c2d-4d67-a55d-d984fe81f18c",
       "key": "component",
       "value": "use",
       "type": "string",
