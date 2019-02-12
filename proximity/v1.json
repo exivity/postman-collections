@@ -1493,12 +1493,12 @@
                   "listen": "test",
                   "script": {
                     "id": "41b96714-f0b4-4db3-979e-45cb3f094095",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
+                      "console.log(pm.response);",
                       "let response = pm.response.text();",
                       "",
                       "for (let i of responseBody.split('\\n')) {",
@@ -1513,18 +1513,19 @@
                       "    pm.expect(response.start_time).to.be.a('string');",
                       "    pm.expect(response.end_time).to.be.a('string');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "prerequest",
                   "script": {
                     "id": "4696ad6a-4660-4dda-a0f2-9e21805b1261",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.environment.set(\"date\", \"20170101\");",
                       ""
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11258,7 +11259,7 @@
   ],
   "variable": [
     {
-      "id": "eb97edc4-eef0-4eef-8ae8-0334afa88a58",
+      "id": "6329c716-8820-45eb-a346-911dc01e3ff4",
       "key": "component",
       "value": "use",
       "type": "string",
