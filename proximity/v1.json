@@ -2936,13 +2936,13 @@
                   "listen": "test",
                   "script": {
                     "id": "358cbac9-b630-4f2e-8bbe-e6aab4bc14d0",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -2962,7 +2962,8 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -2980,7 +2981,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"id\": \"{{budget_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified_test\",\r\n\t\t\t\"amount\": \"500\",\r\n\t\t\t\"interval\": \"monthly\",\r\n\t\t\t\"window_type\": \"moving_interval\",\r\n\t\t\t\"allocation_type\": \"children\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"budget\",\r\n    \"id\": \"{{budget_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"amount\": \"500\",\r\n      \"interval\": \"monthly\",\r\n      \"window_type\": \"moving_interval\",\r\n      \"allocation_type\": \"children\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/budgets/{{budget_id}}",
                 "description": "Test description"
@@ -11282,7 +11283,7 @@
   ],
   "variable": [
     {
-      "id": "c9633abd-ca7f-4045-b87c-96bf7b3c0aa6",
+      "id": "b4b12eec-6f2b-410f-8365-944cec24a25c",
       "key": "component",
       "value": "use",
       "type": "string",
