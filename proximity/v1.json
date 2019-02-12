@@ -1178,18 +1178,19 @@
                   "listen": "test",
                   "script": {
                     "id": "0cee35ba-f3a3-4ac7-b3ab-58d39a92dc95",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -1201,7 +1202,10 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/transformers",
                 "description": "Test description"
               },
@@ -11192,7 +11196,7 @@
   ],
   "variable": [
     {
-      "id": "f31e43ee-52a6-4bc6-a449-2b50c2a0645a",
+      "id": "ed7942cf-719b-4177-963e-3d47ccfbaffa",
       "key": "component",
       "value": "use",
       "type": "string",
