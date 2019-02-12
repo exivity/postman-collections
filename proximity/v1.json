@@ -996,19 +996,20 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "bfe86f0e-f071-4270-af59-5f88c0fdda02",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains status\", function () {",
                       "    pm.expect(response.status).to.be.a('string');",
                       "    pm.expect(response.status).to.eql('scheduled');",
                       "});"
                     ],
-                    "id": "bfe86f0e-f071-4270-af59-5f88c0fdda02",
                     "type": "text/javascript"
                   }
                 }
@@ -11187,7 +11188,7 @@
   ],
   "variable": [
     {
-      "id": "7954d1bf-3dba-4a20-8327-5a1532b0783c",
+      "id": "2d219571-83c8-4c91-9f00-3e8a312ce1af",
       "key": "component",
       "value": "use",
       "type": "string",
