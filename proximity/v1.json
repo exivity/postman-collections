@@ -1780,6 +1780,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
@@ -1840,7 +1841,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "equals": false,
+                      "equals": true,
                       "description": "Include additional related resources. Possible values: `services`, `reports`."
                     }
                   ]
@@ -1863,6 +1864,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -2057,6 +2059,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains error\", function () {",
                       "    pm.expect(response.errors).to.be.an('array');",
@@ -11261,7 +11264,7 @@
   ],
   "variable": [
     {
-      "id": "db6aff73-9a01-4250-8752-50f82322b431",
+      "id": "04ca6e46-12ec-4568-a184-1a2ba5eebeca",
       "key": "component",
       "value": "use",
       "type": "string",
