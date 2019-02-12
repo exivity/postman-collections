@@ -4097,6 +4097,7 @@
                       "",
                       "// Check response",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "console.log(response);",
                       "pm.test(\"Response contains data\", function () {",
@@ -11303,7 +11304,7 @@
   ],
   "variable": [
     {
-      "id": "2c4030b5-44a7-45ba-85de-9d174bfdddc8",
+      "id": "7043cece-bcfc-46f5-bca9-ec131c4cff77",
       "key": "component",
       "value": "use",
       "type": "string",
