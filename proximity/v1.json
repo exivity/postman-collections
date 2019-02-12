@@ -2185,6 +2185,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
@@ -11265,7 +11266,7 @@
   ],
   "variable": [
     {
-      "id": "d6b81c5f-7d04-4bd5-b250-cce3e3dd0d00",
+      "id": "073f1941-39df-4a77-a7c9-dd589ac159e2",
       "key": "component",
       "value": "use",
       "type": "string",
