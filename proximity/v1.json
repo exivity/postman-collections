@@ -473,15 +473,25 @@
                   "listen": "test",
                   "script": {
                     "id": "bbf15994-f0c0-451f-a827-6ed83922cdc3",
-                    "type": "text/javascript",
                     "exec": [
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
                       "",
-                      "// const response = pm.response.json();",
-                      ""
-                    ]
+                      "pm.variables.unset(\"email_address\", \"tester@exivity.com\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5a1783b8-2070-4c41-b866-e58a93a42cee",
+                    "exec": [
+                      "pm.variables.set(\"email_address\", \"tester@exivity.com\");",
+                      "console.log(\"SET email_address:\" + pm.variables.get(\"email_address\"));"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11519,7 +11529,7 @@
   ],
   "variable": [
     {
-      "id": "6da2d184-cbd8-4327-89b4-ad49168cde91",
+      "id": "d421840f-4ae3-43e1-bb0f-5fffb9662391",
       "key": "component",
       "value": "use",
       "type": "string",
