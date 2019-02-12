@@ -474,11 +474,7 @@
                   "script": {
                     "id": "bbf15994-f0c0-451f-a827-6ed83922cdc3",
                     "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "pm.variables.unset(\"email_address\", \"tester@exivity.com\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -488,8 +484,7 @@
                   "script": {
                     "id": "5a1783b8-2070-4c41-b866-e58a93a42cee",
                     "exec": [
-                      "pm.variables.set(\"email_address\", \"tester@exivity.com\");",
-                      "console.log(\"SET email_address:\" + pm.variables.get(\"email_address\"));"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11529,7 +11524,7 @@
   ],
   "variable": [
     {
-      "id": "d421840f-4ae3-43e1-bb0f-5fffb9662391",
+      "id": "110f168c-85d1-4398-870c-21448eff4ca4",
       "key": "component",
       "value": "use",
       "type": "string",
