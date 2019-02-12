@@ -5362,6 +5362,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -5422,6 +5423,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -5699,19 +5701,20 @@
                   "listen": "test",
                   "script": {
                     "id": "6dee22b4-04c7-4568-bf9b-dffc55b38a07",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains status\", function () {",
                       "    pm.expect(response.status).to.be.a('string');",
                       "    pm.expect(response.status).to.eql('scheduled');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11330,7 +11333,7 @@
   ],
   "variable": [
     {
-      "id": "e6dcf9aa-19a1-48d8-803a-03eed0d5932c",
+      "id": "a9b4a3ac-9b8a-4962-a1ff-2a7b07e17b88",
       "key": "component",
       "value": "use",
       "type": "string",
