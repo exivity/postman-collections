@@ -8562,6 +8562,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"notification_subscritpion_id\", response.data[0].id);",
+                      "console.log('SET notification_subscritpion_id: ' + pm.environment.get(\"notification_subscritpion_id\"));",
                       ""
                     ],
                     "type": "text/javascript"
@@ -8651,18 +8652,19 @@
                   "script": {
                     "id": "10734244-7a2e-410d-90cc-f280b9288642",
                     "exec": [
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(201);",
-                      "// });",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
                       "",
-                      "// const response = pm.response.json();",
-                      "// console.log(response);",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
-                      "// pm.test(\"Response contains data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('array');",
-                      "// });",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
                       "",
-                      "// pm.environment.set(\"notification_subscritpion_id\", response.data.id);",
+                      "pm.environment.set(\"notification_subscritpion_id\", response.data.id);",
+                      "console.log('SET notification_subscritpion_id: ' + pm.environment.get(\"notification_subscritpion_id\"));",
                       ""
                     ],
                     "type": "text/javascript"
@@ -11429,7 +11431,7 @@
   ],
   "variable": [
     {
-      "id": "6028ab28-95dd-4b3d-b2dd-77829e4defce",
+      "id": "69e40feb-d0c7-487d-9927-6c544338c484",
       "key": "component",
       "value": "use",
       "type": "string",
