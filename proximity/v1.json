@@ -2764,18 +2764,19 @@
                   "listen": "test",
                   "script": {
                     "id": "a5e1695d-0226-47ad-8cf1-1be5fceb03c7",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -2800,13 +2801,13 @@
                   "listen": "test",
                   "script": {
                     "id": "9e25ea4e-6d12-470d-a3ee-130368c562f2",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -2828,7 +2829,8 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -2846,7 +2848,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"1000\",\r\n\t\t\t\"interval\": \"yearly\",\r\n\t\t\t\"window_type\": \"interval_start\",\r\n\t\t\t\"allocation_type\": \"self\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"budget\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"amount\": \"1000\",\r\n      \"interval\": \"yearly\",\r\n      \"window_type\": \"interval_start\",\r\n      \"allocation_type\": \"self\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/budgets"
               },
@@ -11276,7 +11278,7 @@
   ],
   "variable": [
     {
-      "id": "68420d21-78b1-4d13-8e45-dca27047701a",
+      "id": "060814a8-be69-4238-998f-1cb0434ba954",
       "key": "component",
       "value": "use",
       "type": "string",
