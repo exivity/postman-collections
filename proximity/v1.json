@@ -5063,13 +5063,13 @@
                   "listen": "test",
                   "script": {
                     "id": "c37dc956-0d32-4483-a6ba-2251968f9d9b",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -5090,7 +5090,8 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -5108,7 +5109,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"id\": \"{{adjustment_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified_test\",\r\n\t\t\t\"amount\": \"-20\",\r\n\t\t\t\"type\": \"absolute\",\r\n\t\t\t\"target\": \"quantity\",\r\n\t\t\t\"first_interval\": \"2018-01\",\r\n\t\t\t\"last_interval\": \"\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"adjustment\",\r\n    \"id\": \"{{adjustment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"amount\": \"-20\",\r\n      \"type\": \"absolute\",\r\n      \"target\": \"quantity\",\r\n      \"first_interval\": \"2018-01\",\r\n      \"last_interval\": \"\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/adjustments/{{adjustment_id}}",
                 "description": "Test description"
@@ -11325,7 +11326,7 @@
   ],
   "variable": [
     {
-      "id": "df9ae782-eb0b-42ea-9b22-bcb71491913e",
+      "id": "4131bdb8-2ba5-4563-8ade-07e32f164b8f",
       "key": "component",
       "value": "use",
       "type": "string",
