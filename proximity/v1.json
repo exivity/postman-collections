@@ -1331,13 +1331,13 @@
                   "listen": "test",
                   "script": {
                     "id": "84f21112-259f-4e4f-bc06-c4e128cc46b7",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('object');",
@@ -1354,7 +1354,8 @@
                       "    pm.expect(response.contents.trim()).to.eql('# modified script here');",
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -1372,7 +1373,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"contents\": \"# modified script here\"\r\n}"
+                  "raw": "{\r\n  \"contents\": \"# modified script here\"\r\n}"
                 },
                 "url": "{{base_url}}/v1/transformers/{{transformer_name}}"
               },
@@ -1386,12 +1387,12 @@
                   "listen": "test",
                   "script": {
                     "id": "41b96714-f0b4-4db3-979e-45cb3f094095",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
+                      "console.log(pm.response);",
                       "let response = pm.response.text();",
                       "",
                       "for (let i of responseBody.split('\\n')) {",
@@ -1406,18 +1407,19 @@
                       "    pm.expect(response.start_time).to.be.a('string');",
                       "    pm.expect(response.end_time).to.be.a('string');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "prerequest",
                   "script": {
                     "id": "dec78d38-7f57-4c77-857c-3fede934e468",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.environment.set(\"date\", \"20170101\");",
                       ""
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11256,7 +11258,7 @@
   ],
   "variable": [
     {
-      "id": "d2d94b60-72ef-4a69-b54a-79f83f053422",
+      "id": "eb97edc4-eef0-4eef-8ae8-0334afa88a58",
       "key": "component",
       "value": "use",
       "type": "string",
