@@ -6430,7 +6430,7 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/users/{{user_id}}"
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
               "response": []
             }
@@ -11426,7 +11426,7 @@
   ],
   "variable": [
     {
-      "id": "7785ae6a-e8c3-424d-b10d-08be0649eb99",
+      "id": "a1389685-0aa9-46b8-88ae-9eb3f87fb8a4",
       "key": "component",
       "value": "use",
       "type": "string",
