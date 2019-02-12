@@ -7820,7 +7820,7 @@
                   "script": {
                     "id": "b0d76dab-9d1b-4c38-9b10-995104d99109",
                     "exec": [
-                      "/*pm.test(\"Status code is 200\", function () {",
+                      "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -7829,7 +7829,7 @@
                       "",
                       "pm.test(\"Response contains logs data\", function () {",
                       "    pm.expect(response.logs).to.be.an('array');",
-                      "});*/"
+                      "});"
                     ],
                     "type": "text/javascript"
                   }
@@ -7847,7 +7847,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"schedulertask\",\r\n\t\t\"id\": \"{{scheduler_task_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified test\"\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}/logs"
+                "url": "{{base_url}}/v1/workflowsteps/{{proximity_workflowstep_id}}/logs"
               },
               "response": []
             },
@@ -11445,7 +11445,7 @@
   ],
   "variable": [
     {
-      "id": "4d94545a-4bbc-424c-810b-6e1f1bbd6468",
+      "id": "3e07a13e-e4e8-4d50-91f0-c8ac164d4316",
       "key": "component",
       "value": "use",
       "type": "string",
