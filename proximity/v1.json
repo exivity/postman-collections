@@ -2289,6 +2289,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains error\", function () {",
                       "    pm.expect(response.errors).to.be.an('array');",
@@ -2615,13 +2616,16 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "exec": [
                       "// Currently, accounts are read-only",
                       "pm.test(\"Status code is 400\", function () {",
                       "    pm.response.to.have.status(400);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log('UNSET account_id');",
+                      "pm.environment.unset(\"account_id\");"
                     ],
-                    "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "type": "text/javascript"
                   }
                 }
@@ -2957,12 +2961,15 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log('UNSET budget_id');",
+                      "pm.environment.unset(\"budget_id\");"
                     ],
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "type": "text/javascript"
                   }
                 }
@@ -3398,7 +3405,9 @@
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});",
-                      ""
+                      "",
+                      "console.log('UNSET metadatadefinition_id');",
+                      "pm.environment.unset(\"metadatadefinition_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -3706,9 +3715,9 @@
                   "script": {
                     "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "exec": [
-                      "// pm.test(\"Status code is 204\", function () {",
-                      "//     pm.response.to.have.status(204);",
-                      "// });",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
                       "",
                       "// postman.setNextRequest(\"Delete a metadata definition\");"
                     ],
@@ -4705,12 +4714,15 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "8394c1a9-b96c-4716-af0d-37271ea40f4c",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log('UNSET rate_id');",
+                      "pm.environment.unset(\"rate_id\");"
                     ],
-                    "id": "8394c1a9-b96c-4716-af0d-37271ea40f4c",
                     "type": "text/javascript"
                   }
                 }
@@ -5034,12 +5046,15 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log('UNSET adjustment_id');",
+                      "pm.environment.unset(\"adjustment_id\");"
                     ],
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "type": "text/javascript"
                   }
                 }
@@ -5710,12 +5725,15 @@
                   "listen": "test",
                   "script": {
                     "id": "726795e6-603a-4c76-b26e-daa9b1104425",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
-                    ]
+                      "});",
+                      "",
+                      "console.log('UNSET report_id');",
+                      "pm.environment.unset(\"report_id\");"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6276,12 +6294,15 @@
                   "listen": "test",
                   "script": {
                     "id": "76192ac4-5dad-4027-8f46-36932f8cf5a3",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
-                    ]
+                      "});",
+                      "",
+                      "console.log('UNSET user_id');",
+                      "pm.environment.unset(\"user_id\");"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11202,7 +11223,7 @@
   ],
   "variable": [
     {
-      "id": "4654ddbd-3b7b-4765-99ff-379f65975009",
+      "id": "5e0ed556-ca37-4ae1-be86-f31035dcb8d9",
       "key": "component",
       "value": "use",
       "type": "string",
