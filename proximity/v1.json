@@ -6989,6 +6989,9 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
+                      "console.log('UNSET workflow_id');",
+                      "pm.environment.unset(\"workflow_id\");",
+                      "",
                       "postman.setNextRequest(\"Get all notification channels\");"
                     ],
                     "type": "text/javascript"
@@ -7690,9 +7693,12 @@
                   "script": {
                     "id": "164386e5-18a5-496c-bd28-2def05ec2c13",
                     "exec": [
-                      "/*pm.test(\"Status code is 204\", function () {",
+                      "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});*/"
+                      "});",
+                      "",
+                      "console.log('UNSET workflowstep_id');",
+                      "pm.environment.unset(\"workflowstep_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -11226,7 +11232,7 @@
   ],
   "variable": [
     {
-      "id": "30992527-21a3-459e-af13-5972daf13a95",
+      "id": "73cba11d-7789-4ff6-a20b-af7753eeea7b",
       "key": "component",
       "value": "use",
       "type": "string",
