@@ -7543,7 +7543,7 @@
                   "script": {
                     "id": "8e3a714e-103b-42dd-b8da-8f4e1d00e7e9",
                     "exec": [
-                      "/*pm.test(\"Status code is 201\", function () {",
+                      "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
@@ -7571,7 +7571,9 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
+                      "pm.environment.set(\"execute_workflowstep_id\", response.data.id);",
+                      "console.log('SET execute_workflowstep_id: ' + pm.environment.get(\"execute_workflowstep_id\"));",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -7606,7 +7608,7 @@
                   "script": {
                     "id": "9d636ea9-fad0-4f85-91c3-fb5abd25cf98",
                     "exec": [
-                      "/*pm.test(\"Status code is 201\", function () {",
+                      "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
@@ -7635,7 +7637,12 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);*/"
+                      "pm.environment.set(\"proximity_workflowstep_id\", response.data.id);",
+                      "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));",
+                      "",
+                      "pm.environment.set(\"workflowstep_id\", response.data.id);",
+                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -7670,7 +7677,7 @@
                   "script": {
                     "id": "93a95324-aef9-4b25-9653-91d6f5c40d08",
                     "exec": [
-                      "/*pm.test(\"Status code is 200\", function () {",
+                      "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -7697,8 +7704,8 @@
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
-                      "});*/",
-                      "pm.globals.unset(\"variable_key\");"
+                      "});",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -7748,7 +7755,7 @@
                   "script": {
                     "id": "558cd072-9f8d-45a3-9891-46fa0ed91693",
                     "exec": [
-                      "/*pm.test(\"Status code is 200\", function () {",
+                      "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -7775,7 +7782,7 @@
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
-                      "});*/"
+                      "});"
                     ],
                     "type": "text/javascript"
                   }
@@ -7786,7 +7793,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -11436,7 +11445,7 @@
   ],
   "variable": [
     {
-      "id": "a02c5b1d-b641-4471-96c3-deb69a297242",
+      "id": "4d94545a-4bbc-424c-810b-6e1f1bbd6468",
       "key": "component",
       "value": "use",
       "type": "string",
