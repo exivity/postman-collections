@@ -8176,7 +8176,7 @@
             },
             {
               "_postman_id": "961ca391-464e-4860-82d3-349b35d8b5e6",
-              "name": "Delete a step",
+              "name": "Delete a schedule",
               "event": [
                 {
                   "listen": "test",
@@ -8189,8 +8189,7 @@
                       "",
                       "console.log('UNSET workflowschedule_id');",
                       "pm.environment.unset(\"workflowschedule_id\");",
-                      "",
-                      "postman.setNextRequest(\"Delete a workflow\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11432,7 +11431,7 @@
   ],
   "variable": [
     {
-      "id": "41022057-4337-4d28-8a0a-82f46fa6ab50",
+      "id": "7bbf3012-aa56-4b70-bdc6-feda16213154",
       "key": "component",
       "value": "use",
       "type": "string",
