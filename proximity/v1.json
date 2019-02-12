@@ -4272,7 +4272,9 @@
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log(pm.response);"
                     ],
                     "type": "text/javascript"
                   }
@@ -4305,7 +4307,10 @@
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log('UNSET service_id');",
+                      "pm.environment.unset(\"service_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -11177,7 +11182,7 @@
   ],
   "variable": [
     {
-      "id": "12d44897-bba5-4478-8ac2-554e33b80f2c",
+      "id": "70e8edc9-56fd-4bee-af7f-9ff3f80b8825",
       "key": "component",
       "value": "use",
       "type": "string",
