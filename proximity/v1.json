@@ -6220,13 +6220,13 @@
                   "listen": "test",
                   "script": {
                     "id": "4d4d1b04-d640-486e-b489-609853ae7217",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -6234,13 +6234,13 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"username\",",
+                      "    \"username\",",
                       "        \"email_address\",",
                       "        \"account_access_type\"",
-                      "\t]);",
-                      "\tpm.expect(response.data.attributes.username).to.eql('user');",
-                      "\tpm.expect(response.data.attributes.email_address).to.eql('someone@exivity.com');",
-                      "\tpm.expect(response.data.attributes.account_access_type).to.eql('custom');",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.username).to.eql('user');",
+                      "  pm.expect(response.data.attributes.email_address).to.eql('someone@exivity.com');",
+                      "  pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -6248,7 +6248,8 @@
                       "});",
                       "",
                       "pm.environment.set(\"user_id\", response.data.id);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6266,7 +6267,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"user\",\r\n\t\t\t\"email_address\": \"someone@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"attributes\": {\r\n      \"username\": \"user\",\r\n      \"email_address\": \"someone@exivity.com\",\r\n      \"password\": \"super-complex-password\",\r\n      \"account_access_type\": \"custom\"\r\n    },\r\n    \"relationships\": {\r\n      \"usergroup\": {\r\n        \"data\": {\r\n          \"type\": \"usergroup\",\r\n          \"id\": \"1\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/users"
               },
@@ -6280,13 +6281,13 @@
                   "listen": "test",
                   "script": {
                     "id": "a5de2d85-33a6-4a79-92c8-7ebd2a490fa7",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -6294,19 +6295,20 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"username\",",
+                      "    \"username\",",
                       "        \"email_address\",",
                       "        \"account_access_type\"",
-                      "\t]);",
-                      "\tpm.expect(response.data.attributes.username).to.eql('user');",
-                      "\tpm.expect(response.data.attributes.email_address).to.eql('someone@exivity.com');",
-                      "\tpm.expect(response.data.attributes.account_access_type).to.eql('custom');",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.username).to.eql('user');",
+                      "  pm.expect(response.data.attributes.email_address).to.eql('someone@exivity.com');",
+                      "  pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6318,7 +6320,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/users/{{user_id}}"
               },
               "response": []
@@ -11344,7 +11349,7 @@
   ],
   "variable": [
     {
-      "id": "7af542a3-c41b-4a26-af8b-6f0d69a6a1b0",
+      "id": "4f06adb8-1dce-4071-a0f9-7d5abc187ca9",
       "key": "component",
       "value": "use",
       "type": "string",
