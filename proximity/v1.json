@@ -1111,12 +1111,15 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "6feb0ad2-ea8e-41c8-8d7f-9c018e0d0dc3",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});"
+                      "});",
+                      "",
+                      "console.log('UNSET extractor_name');",
+                      "pm.environment.unset(\"extractor_name\");"
                     ],
-                    "id": "6feb0ad2-ea8e-41c8-8d7f-9c018e0d0dc3",
                     "type": "text/javascript"
                   }
                 }
@@ -11189,7 +11192,7 @@
   ],
   "variable": [
     {
-      "id": "5f4d2a96-32c4-4a84-a036-1e0c3e35e43a",
+      "id": "f31e43ee-52a6-4bc6-a449-2b50c2a0645a",
       "key": "component",
       "value": "use",
       "type": "string",
