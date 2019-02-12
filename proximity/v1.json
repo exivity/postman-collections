@@ -6338,7 +6338,7 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/users/{{user_id}}"
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
               "response": []
             },
@@ -11426,7 +11426,7 @@
   ],
   "variable": [
     {
-      "id": "30215f5c-ae64-4211-bbe5-2bacbae705aa",
+      "id": "7785ae6a-e8c3-424d-b10d-08be0649eb99",
       "key": "component",
       "value": "use",
       "type": "string",
