@@ -2862,13 +2862,13 @@
                   "listen": "test",
                   "script": {
                     "id": "bd868933-0a84-4845-a464-64b70a1d5e7b",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -2888,7 +2888,8 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -2900,7 +2901,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/budgets/{{budget_id}}?include",
                   "host": [
@@ -11278,7 +11282,7 @@
   ],
   "variable": [
     {
-      "id": "060814a8-be69-4238-998f-1cb0434ba954",
+      "id": "c9633abd-ca7f-4045-b87c-96bf7b3c0aa6",
       "key": "component",
       "value": "use",
       "type": "string",
