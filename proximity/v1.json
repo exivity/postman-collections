@@ -5309,6 +5309,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"report_id\", response.data.id);",
+                      "console.log('SET report_id: ' + pm.environment.get(\"report_id\"));",
                       ""
                     ],
                     "type": "text/javascript"
@@ -5361,6 +5362,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -5421,6 +5423,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -11329,7 +11332,7 @@
   ],
   "variable": [
     {
-      "id": "0d927a66-a172-444a-ab8b-7b47216efa4d",
+      "id": "4bcf3424-1a75-4833-8d33-242ddb4eef5d",
       "key": "component",
       "value": "use",
       "type": "string",
