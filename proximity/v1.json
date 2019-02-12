@@ -7847,7 +7847,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"schedulertask\",\r\n\t\t\"id\": \"{{scheduler_task_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified test\"\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/workflowsteps/{{proximity_workflowstep_id}}/logs"
+                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}/logs"
               },
               "response": []
             },
@@ -8767,7 +8767,7 @@
                       "",
                       "// Delete the variable",
                       "console.log('UNSET notification_subscritpion_id');",
-                      "pm.environment.unset(\"notification_channel_id\");",
+                      "pm.environment.unset(\"notification_subscritpion_id\");",
                       ""
                     ],
                     "type": "text/javascript"
@@ -11445,7 +11445,7 @@
   ],
   "variable": [
     {
-      "id": "3e07a13e-e4e8-4d50-91f0-c8ac164d4316",
+      "id": "885c3386-9793-488d-bf66-67697bf894f0",
       "key": "component",
       "value": "use",
       "type": "string",
