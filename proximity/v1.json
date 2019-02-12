@@ -8264,6 +8264,7 @@
                       " });",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -8279,6 +8280,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"notification_channel_id\", response.data.id);",
+                      "console.log('SET notification_channel_id: ' + pm.environment.get(\"notification_channel_id\"));",
                       ""
                     ],
                     "type": "text/javascript"
@@ -8319,6 +8321,7 @@
                       " });",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "     pm.expect(response.data).to.be.an('array');",
@@ -11394,7 +11397,7 @@
   ],
   "variable": [
     {
-      "id": "72a6def7-fad4-482e-860f-3c31575e5977",
+      "id": "65e733c3-e4f4-4182-9fd0-7187558c458a",
       "key": "component",
       "value": "use",
       "type": "string",
