@@ -6247,7 +6247,8 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"user_id\", response.data.id);"
+                      "pm.environment.set(\"new_user_id\", response.data.id);",
+                      "console.log('SET new_user_id: ' + pm.environment.get(\"new_user_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -6400,8 +6401,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "console.log('UNSET user_id');",
-                      "pm.environment.unset(\"user_id\");"
+                      "console.log('UNSET new_user_id');",
+                      "pm.environment.unset(\"new_user_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -11350,7 +11351,7 @@
   ],
   "variable": [
     {
-      "id": "5900b1d3-801f-4356-a516-0bb8230d373a",
+      "id": "84717f44-d76a-4b77-84b5-e055abe07259",
       "key": "component",
       "value": "use",
       "type": "string",
