@@ -1599,19 +1599,20 @@
                   "listen": "test",
                   "script": {
                     "id": "3afeaf99-bc5a-4c42-ae9d-201d8d475c92",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains status\", function () {",
                       "    pm.expect(response.status).to.be.a('string');",
                       "    pm.expect(response.status).to.eql('scheduled');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -1668,19 +1669,20 @@
                   "listen": "test",
                   "script": {
                     "id": "59bec4af-3c6c-4f62-99db-a9dcd37ad659",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains status\", function () {",
                       "    pm.expect(response.status).to.be.a('string');",
                       "    pm.expect(response.status).to.eql('unscheduled');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -11259,7 +11261,7 @@
   ],
   "variable": [
     {
-      "id": "6329c716-8820-45eb-a346-911dc01e3ff4",
+      "id": "db6aff73-9a01-4250-8752-50f82322b431",
       "key": "component",
       "value": "use",
       "type": "string",
