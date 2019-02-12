@@ -6248,7 +6248,8 @@
                       "});",
                       "",
                       "pm.environment.set(\"new_user_id\", response.data.id);",
-                      "console.log('SET new_user_id: ' + pm.environment.get(\"new_user_id\"));"
+                      "console.log('SET new_user_id: ' + pm.environment.get(\"new_user_id\"));",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -6558,13 +6559,13 @@
                   "listen": "test",
                   "script": {
                     "id": "e027a60e-90af-4fbe-b93d-b862f0e57e10",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -6572,17 +6573,18 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"name\",",
+                      "    \"name\",",
                       "        \"permissions\"",
-                      "\t]);",
-                      "\tpm.expect(response.data.attributes.name).to.eql('testers');",
-                      "\tpm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.name).to.eql('testers');",
+                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6594,7 +6596,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
               },
               "response": []
@@ -6607,13 +6612,13 @@
                   "listen": "test",
                   "script": {
                     "id": "08b3b90c-34f2-40b1-8b33-8512aeb58810",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -6621,17 +6626,18 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"name\",",
+                      "    \"name\",",
                       "        \"permissions\"",
-                      "\t]);",
-                      "\tpm.expect(response.data.attributes.name).to.eql('modified_testers');",
-                      "\tpm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_configuration']);",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.name).to.eql('modified_testers');",
+                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_configuration']);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6649,7 +6655,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"id\": \"{{usergroup_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified_testers\",\r\n\t\t\t\"permissions\": [\r\n\t\t\t\t\"manage_users\",\r\n\t\t\t\t\"manage_configuration\"\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_testers\",\r\n      \"permissions\": [\r\n        \"manage_users\",\r\n        \"manage_configuration\"\r\n      ]\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
               },
@@ -6763,6 +6769,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
@@ -6839,13 +6846,13 @@
                   "listen": "test",
                   "script": {
                     "id": "525f1b0f-7dce-416f-86b1-3138a5f246ce",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -6853,10 +6860,10 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"name\": \"test\",",
+                      "    \"name\": \"test\",",
                       "        \"description\": \"This is test task\",",
                       "        \"locked\": false,",
-                      "\t});",
+                      "  });",
                       "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
                       "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
                       "});",
@@ -6865,8 +6872,11 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"workflow_id\", response.data.id);"
-                    ]
+                      "pm.environment.set(\"workflow_id\", response.data.id);",
+                      "console.log('SET workflow_id: ' + pm.environment.get(\"workflow_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6884,7 +6894,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflow\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n            \"description\": \"This is test task\",\r\n            \"hidden\": false,\r\n            \"locked\": false\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n            \"description\": \"This is test task\",\r\n            \"hidden\": false,\r\n            \"locked\": false\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflows"
               },
@@ -6898,13 +6908,13 @@
                   "listen": "test",
                   "script": {
                     "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -6912,10 +6922,10 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"name\": \"test\",",
+                      "    \"name\": \"test\",",
                       "        \"description\": \"This is test task\",",
                       "        \"locked\": false,",
-                      "\t});",
+                      "  });",
                       "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
                       "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
                       "});",
@@ -6923,7 +6933,8 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -6935,7 +6946,10 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "body": {},
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
                 "url": {
                   "raw": "{{base_url}}/v1/workflows/{{workflow_id}}?include=",
                   "host": [
@@ -11356,7 +11370,7 @@
   ],
   "variable": [
     {
-      "id": "b6a10955-7750-4a51-a785-242308d33527",
+      "id": "f1c4c09c-3968-45b4-9b25-1fff44a4aad2",
       "key": "component",
       "value": "use",
       "type": "string",
