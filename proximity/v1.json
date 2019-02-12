@@ -7972,13 +7972,13 @@
                   "listen": "test",
                   "script": {
                     "id": "7cb87b26-e7f8-4b96-8ca5-4d7f9d0f5e81",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -7986,12 +7986,12 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"start_time\": \"10800\",",
+                      "    \"start_time\": \"10800\",",
                       "        \"timezone\": \"Europe/Amsterdam\",",
                       "        \"adjust_for_dst\": true,",
                       "        \"frequency\": \"daily\",",
                       "        \"frequency_modifier\": 2",
-                      "\t});",
+                      "  });",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -7999,7 +7999,8 @@
                       "});",
                       "",
                       "pm.environment.set(\"workflowschedule_id\", response.data.id);"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -8017,7 +8018,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": 10800,\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowschedule\",\r\n    \"attributes\": {\r\n      \"start_time\": 10800,\r\n      \"timezone\": \"Europe/Amsterdam\",\r\n      \"adjust_for_dst\": true,\r\n      \"frequency\": \"daily\",\r\n      \"frequency_modifier\": 2\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowschedules"
               },
@@ -11388,7 +11389,7 @@
   ],
   "variable": [
     {
-      "id": "b7ab7ade-4a00-410c-8c4d-b3899ab6e2c6",
+      "id": "26b90ed5-1fb4-4718-a7bb-62e72a7f632a",
       "key": "component",
       "value": "use",
       "type": "string",
