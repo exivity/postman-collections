@@ -5046,15 +5046,12 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET adjustment_id');",
-                      "pm.environment.unset(\"adjustment_id\");"
+                      "});"
                     ],
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "type": "text/javascript"
                   }
                 }
@@ -5725,15 +5722,12 @@
                   "listen": "test",
                   "script": {
                     "id": "726795e6-603a-4c76-b26e-daa9b1104425",
+                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET report_id');",
-                      "pm.environment.unset(\"report_id\");"
-                    ],
-                    "type": "text/javascript"
+                      "});"
+                    ]
                   }
                 }
               ],
@@ -11223,7 +11217,7 @@
   ],
   "variable": [
     {
-      "id": "daebb906-5a25-4ee2-ac0c-0bc977a0a376",
+      "id": "9cc852f2-fe42-48b2-8c44-cec3919c3115",
       "key": "component",
       "value": "use",
       "type": "string",
