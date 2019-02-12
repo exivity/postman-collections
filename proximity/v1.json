@@ -3715,9 +3715,9 @@
                   "script": {
                     "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
+                      "// pm.test(\"Status code is 204\", function () {",
+                      "//     pm.response.to.have.status(204);",
+                      "// });",
                       "",
                       "// postman.setNextRequest(\"Delete a metadata definition\");"
                     ],
@@ -11223,7 +11223,7 @@
   ],
   "variable": [
     {
-      "id": "5e0ed556-ca37-4ae1-be86-f31035dcb8d9",
+      "id": "daebb906-5a25-4ee2-ac0c-0bc977a0a376",
       "key": "component",
       "value": "use",
       "type": "string",
