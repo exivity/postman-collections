@@ -5298,9 +5298,9 @@
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
+                      "(pm.response.code !== 201 ? console.log(pm.response) : console.log(pm.response.json()));",
                       "",
                       "const response = pm.response.json();",
-                      "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -7261,6 +7261,7 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
+                      "console.log('USE: workflow_id: ' + pm.environment.get(\"workflow_id\"));",
                       "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
@@ -11524,7 +11525,7 @@
   ],
   "variable": [
     {
-      "id": "110f168c-85d1-4398-870c-21448eff4ca4",
+      "id": "72522511-548a-44b6-aee2-abc20ca28036",
       "key": "component",
       "value": "use",
       "type": "string",
