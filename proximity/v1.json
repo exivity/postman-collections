@@ -7153,7 +7153,23 @@
                   }
                 ],
                 "body": {},
-                "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/workflows/:workflowId",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowId",
+                      "value": "{{workflow_id}}"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -7261,8 +7277,8 @@
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log('USE: workflow_id: ' + pm.environment.get(\"workflow_id\"));",
-                      "console.log(response);",
+                      "console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
+                      "console.log(pm.response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
@@ -11525,7 +11541,7 @@
   ],
   "variable": [
     {
-      "id": "72522511-548a-44b6-aee2-abc20ca28036",
+      "id": "1a1bb07f-3c1b-46ba-840d-12a5c1122894",
       "key": "component",
       "value": "use",
       "type": "string",
