@@ -1995,7 +1995,18 @@
               ],
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  }
+                ],
                 "body": {},
                 "url": {
                   "raw": "{{base_url}}/v1/dsets/:name?start={{start}}&end={{end}}",
@@ -11541,7 +11552,7 @@
   ],
   "variable": [
     {
-      "id": "8ce1aa5b-b1e6-4519-8718-f1ae31a7c9eb",
+      "id": "e39698f5-1e0e-4fcf-b75d-ec19fa98490d",
       "key": "component",
       "value": "use",
       "type": "string",
