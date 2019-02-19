@@ -1964,9 +1964,9 @@
                     "id": "2ed69b0f-8cf1-4010-b29f-1e5f50c9cc81",
                     "exec": [
                       "// This test doesn't delete the whole dset, just data between given dates.",
-                      "console.log('USE dset_id(name): ' + pm.environment.get(\"dset_id\"));",
-                      "console.log('USE start: ' + pm.environment.get(\"start\"));",
-                      "console.log('USE end: ' + pm.environment.get(\"end\"));",
+                      "// console.log('USE dset_id(name): ' + pm.environment.get(\"dset_id\"));",
+                      "// console.log('USE start: ' + pm.environment.get(\"start\"));",
+                      "// console.log('USE end: ' + pm.environment.get(\"end\"));",
                       "",
                       "// pm.test(\"Status code is 200\", function () {",
                       "//     pm.response.to.have.status(200);",
@@ -2041,7 +2041,7 @@
                   "variable": [
                     {
                       "key": "name",
-                      "value": "{{dset_id}}"
+                      "value": "{{dset_id}}ertwert"
                     }
                   ]
                 }
@@ -11560,7 +11560,7 @@
   ],
   "variable": [
     {
-      "id": "48ce9470-d4b4-4122-9695-05ff596e637d",
+      "id": "7b236589-a1c2-4640-9ceb-a69c6fe2dea7",
       "key": "component",
       "value": "use",
       "type": "string",
