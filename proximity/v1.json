@@ -2041,7 +2041,7 @@
                   "variable": [
                     {
                       "key": "name",
-                      "value": "{{dset_id}}ertwert"
+                      "value": "{{dset_id}}"
                     }
                   ]
                 }
@@ -7291,12 +7291,13 @@
                   "script": {
                     "id": "27e0be1c-a070-4db9-86ac-4b55394f9884",
                     "exec": [
+                      "console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
+                      "",
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
-                      "console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
                       "console.log(pm.response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
@@ -11560,7 +11561,7 @@
   ],
   "variable": [
     {
-      "id": "7b236589-a1c2-4640-9ceb-a69c6fe2dea7",
+      "id": "8b02fb62-c4cd-4b5a-8bad-ca0c709406d0",
       "key": "component",
       "value": "use",
       "type": "string",
