@@ -2446,7 +2446,9 @@
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
                       "",
-                      "pm.environment.set(\"account_id\", response.data[0].id);"
+                      "pm.environment.set(\"account_id\", response.data[0].id);",
+                      "console.log('SET account_id: ' + pm.environment.get(\"account_id\"));",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11553,7 +11555,7 @@
   ],
   "variable": [
     {
-      "id": "cfd9c1ee-ef44-4b2d-9cb5-be5ff62404e1",
+      "id": "695928fc-de50-4fe0-89d0-eb0c47583fe3",
       "key": "component",
       "value": "use",
       "type": "string",
