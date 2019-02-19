@@ -1963,7 +1963,7 @@
                   "script": {
                     "id": "2ed69b0f-8cf1-4010-b29f-1e5f50c9cc81",
                     "exec": [
-                      "This test doesn't delete the whole dset, just data between given dates.",
+                      "// This test doesn't delete the whole dset, just data between given dates.",
                       "console.log('USE dset_id(name): ' + pm.environment.get(\"dset_id\"));",
                       "console.log('USE start: ' + pm.environment.get(\"start\"));",
                       "console.log('USE end: ' + pm.environment.get(\"end\"));",
@@ -7292,6 +7292,7 @@
                     "id": "27e0be1c-a070-4db9-86ac-4b55394f9884",
                     "exec": [
                       "console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
+                      "console.log('USE workflow_extractor_name: ' + pm.environment.get(\"workflow_extractor_name\"));",
                       "",
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
@@ -7312,7 +7313,7 @@
                       "\t\t\"last_log\": null,",
                       "\t});",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "\tpm.expect(response.data.attributes.options.name).to.include('Workflow_extractor');",
+                      "\tpm.expect(response.data.attributes.options.name).to.include(pm.environment.get(\"workflow_extractor_name\"));",
                       "\tpm.expect(response.data.attributes.options).to.include({",
                       "\t\t\"from_date\": -2,",
                       "\t\t\"to_date\": 2,",
@@ -7335,22 +7336,25 @@
                   "script": {
                     "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
                     "exec": [
-                      "// pm.sendRequest({\r",
-                      "//     url: pm.globals.get(\"base_url\") + '/v1/extractors',\r",
-                      "//     method: 'POST',\r",
-                      "//     header: {\r",
-                      "//         'Accept': 'application/json',\r",
-                      "//         'Content-Type': 'application/json',\r",
-                      "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
-                      "//     },\r",
-                      "//     body: {\r",
-                      "//         mode: 'raw',\r",
-                      "//         raw: JSON.stringify({\r",
-                      "//             \"name\": \"Workflow extractor\",\r",
-                      "//             \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
-                      "//         })\r",
-                      "//     }\r",
-                      "// })"
+                      "pm.sendRequest({\r",
+                      "    url: pm.globals.get(\"base_url\") + '/v1/extractors',\r",
+                      "    method: 'POST',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/json',\r",
+                      "        'Content-Type': 'application/json',\r",
+                      "        'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
+                      "    },\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({\r",
+                      "            \"name\": \"Workflow_extractor\",\r",
+                      "            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
+                      "        })\r",
+                      "    }\r",
+                      "})\r",
+                      "\r",
+                      "pm.environment.set(\"workflow_extractor_name\", \"Workflow_extractor\");\r",
+                      "console.log('SET workflow_extractor_name: ' + pm.environment.get(\"workflow_extractor_name\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -7372,7 +7376,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"{{workflow_extractor_name}}\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -7387,6 +7391,9 @@
                   "script": {
                     "id": "3caedf07-43b6-4a38-a571-0bdec0a762f5",
                     "exec": [
+                      "console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
+                      "console.log('USE workflow_transformer_name: ' + pm.environment.get(\"workflow_transformer_name\"));",
+                      "",
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
                       "});",
@@ -7429,22 +7436,26 @@
                   "script": {
                     "id": "104d0722-d6ef-48c2-aed0-ba7310844cd3",
                     "exec": [
-                      "// pm.sendRequest({\r",
-                      "//     url: pm.globals.get(\"base_url\") + '/v1/transformers',\r",
-                      "//     method: 'POST',\r",
-                      "//     header: {\r",
-                      "//         'Accept': 'application/json',\r",
-                      "//         'Content-Type': 'application/json',\r",
-                      "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
-                      "//     },\r",
-                      "//     body: {\r",
-                      "//         mode: 'raw',\r",
-                      "//         raw: JSON.stringify({\r",
-                      "// \t        \"name\": \"Workflow transformer\",\r",
-                      "// \t        \"contents\": \"# script here\"\r",
-                      "//         })\r",
-                      "//     }\r",
-                      "// })"
+                      "pm.sendRequest({\r",
+                      "    url: pm.globals.get(\"base_url\") + '/v1/transformers',\r",
+                      "    method: 'POST',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/json',\r",
+                      "        'Content-Type': 'application/json',\r",
+                      "        'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
+                      "    },\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({\r",
+                      "\t        \"name\": \"Workflow transformer\",\r",
+                      "\t        \"contents\": \"# script here\"\r",
+                      "        })\r",
+                      "    }\r",
+                      "})\r",
+                      "\r",
+                      "pm.environment.set(\"workflow_transformer_name\", \"Workflow transformer\");\r",
+                      "console.log('SET workflow_transformer_name: ' + pm.environment.get(\"workflow_transformer_name\"));\r",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -7455,7 +7466,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -7464,7 +7477,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"{{workflow_transformer_name}}\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -11561,7 +11574,7 @@
   ],
   "variable": [
     {
-      "id": "6049903d-c107-4422-b93f-b85dd95a6803",
+      "id": "e279be44-050c-4704-883c-f0ca2006e1bc",
       "key": "component",
       "value": "use",
       "type": "string",
