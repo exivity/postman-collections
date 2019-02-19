@@ -1803,7 +1803,8 @@
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
                       "",
-                      "pm.environment.set(\"dset_id\", response.data[0].id);"
+                      "pm.environment.set(\"dset_id\", response.data[0].id);",
+                      "console.log('SET dset_id: ' + pm.environment.get(\"dset_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -11552,7 +11553,7 @@
   ],
   "variable": [
     {
-      "id": "e39698f5-1e0e-4fcf-b75d-ec19fa98490d",
+      "id": "cfd9c1ee-ef44-4b2d-9cb5-be5ff62404e1",
       "key": "component",
       "value": "use",
       "type": "string",
