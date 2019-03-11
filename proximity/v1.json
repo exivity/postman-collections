@@ -116,7 +116,7 @@
         },
         {
           "_postman_id": "372b7e02-7ae3-4143-9ba6-43435b20c498",
-          "name": "Power-on self-test Copy",
+          "name": "Power-on self-test (2)",
           "event": [
             {
               "listen": "test",
@@ -12120,7 +12120,7 @@
   ],
   "variable": [
     {
-      "id": "7eaabb40-4c44-421a-b534-c7ed0d96c176",
+      "id": "bb86fc64-8d0c-4f9c-a7f5-05cf625a87eb",
       "key": "component",
       "value": "use",
       "type": "string",
