@@ -113,6 +113,112 @@
               "body": "<!doctype html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"icon\" type=\"image/png\" href=\"favicon.png\">\n    <title>Exivity</title>\n    <style>\n        body {\n            margin: 0;\n            padding: 2rem;\n            font-family: sans-serif;\n            font-size: 100%;\n            background-color: #ffffff;\n            color: #333;\n            text-align: center;\n        }\n\n        h1 {\n            font-size: 5rem;\n        }\n\n        pre {\n            display: inline-block;\n            text-align: center;\n        }\n\n        a {\n            color: black;\n        }\n\n        .setup {\n            position: absolute;\n            top: 0;\n            right: 0;\n            width: 100%;\n            height: 100%;\n        }\n    </style>\n</head>\n<body>\n\n<h1><img src=\"favicon.png\" style=\"height: 1em;\"/></h1>\n\n<pre>\nExivity API\n<a href=\"https://api.exivity.com\">api reference</a>\n</pre>\n\n<script>\n    var url = atob('aHR0cHM6Ly9mdGhtYi50cW4uY29tLzBNVTh1b3lNSTZac1MyWkhlYkt2YWNkQmszcz0vMTkyMHgxMDgwL2ZpbHRlcnM6ZmlsbChhdXRvLDEpL2Fib3V0L2Jpb3Mtc2V0dXAtdXRpbGl0eS01N2ZlNjNkYjNkZjc4Y2JjMjg2MDA5YzEuanBn');\n    var img = document.createElement(\"img\");\n    img.className = 'setup';\n    img.src = url;\n    document.onkeyup = function (e) {\n        e = e || window.event;\n        if (e.keyCode === 46)\n            document.body.appendChild(img);\n    };\n</script>\n\n</body>\n</html>"
             }
           ]
+        },
+        {
+          "_postman_id": "372b7e02-7ae3-4143-9ba6-43435b20c498",
+          "name": "Power-on self-test Copy",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "f86ddfa6-cc3e-4948-bd9a-64386600c23e",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "{{base_url}}",
+            "description": "If all is well, this request should return a simple HTML page with a link to the API documentation."
+          },
+          "response": [
+            {
+              "id": "2d73403d-04cc-4fec-addd-0bd61a07f0b2",
+              "name": "Power-on self-test",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}"
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "html",
+              "header": [
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private",
+                  "name": "Cache-Control",
+                  "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive",
+                  "name": "Connection",
+                  "description": "Options that are desired for the connection"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip",
+                  "name": "Content-Encoding",
+                  "description": "The type of encoding used on the data."
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/html; charset=UTF-8",
+                  "name": "Content-Type",
+                  "description": "The mime type of this content"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 05 Mar 2018 19:06:06 GMT",
+                  "name": "Date",
+                  "description": "The date and time that the message was sent"
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx/1.13.5",
+                  "name": "Server",
+                  "description": "A name for the server"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked",
+                  "name": "Transfer-Encoding",
+                  "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding",
+                  "name": "Vary",
+                  "description": "Tells downstream proxies how to match future request headers to decide whether the cached response can be used rather than requesting a fresh one from the origin server."
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/7.1.4",
+                  "name": "X-Powered-By",
+                  "description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<!doctype html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"icon\" type=\"image/png\" href=\"favicon.png\">\n    <title>Exivity</title>\n    <style>\n        body {\n            margin: 0;\n            padding: 2rem;\n            font-family: sans-serif;\n            font-size: 100%;\n            background-color: #ffffff;\n            color: #333;\n            text-align: center;\n        }\n\n        h1 {\n            font-size: 5rem;\n        }\n\n        pre {\n            display: inline-block;\n            text-align: center;\n        }\n\n        a {\n            color: black;\n        }\n\n        .setup {\n            position: absolute;\n            top: 0;\n            right: 0;\n            width: 100%;\n            height: 100%;\n        }\n    </style>\n</head>\n<body>\n\n<h1><img src=\"favicon.png\" style=\"height: 1em;\"/></h1>\n\n<pre>\nExivity API\n<a href=\"https://api.exivity.com\">api reference</a>\n</pre>\n\n<script>\n    var url = atob('aHR0cHM6Ly9mdGhtYi50cW4uY29tLzBNVTh1b3lNSTZac1MyWkhlYkt2YWNkQmszcz0vMTkyMHgxMDgwL2ZpbHRlcnM6ZmlsbChhdXRvLDEpL2Fib3V0L2Jpb3Mtc2V0dXAtdXRpbGl0eS01N2ZlNjNkYjNkZjc4Y2JjMjg2MDA5YzEuanBn');\n    var img = document.createElement(\"img\");\n    img.className = 'setup';\n    img.src = url;\n    document.onkeyup = function (e) {\n        e = e || window.event;\n        if (e.keyCode === 46)\n            document.body.appendChild(img);\n    };\n</script>\n\n</body>\n</html>"
+            }
+          ]
         }
       ]
     },
@@ -12014,7 +12120,7 @@
   ],
   "variable": [
     {
-      "id": "21e92908-0336-4043-a48d-0f670aca0ab1",
+      "id": "7492ffcf-a30d-4fa3-81ac-aa21bac6a628",
       "key": "component",
       "value": "use",
       "type": "string",
