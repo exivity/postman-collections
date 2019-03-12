@@ -10468,7 +10468,7 @@
             },
             {
               "_postman_id": "8b4969dd-dbb5-43cd-8963-acfe6767b172",
-              "name": "Add a new Use step",
+              "name": "Add a new use step",
               "event": [
                 {
                   "listen": "test",
@@ -11527,7 +11527,7 @@
   ],
   "variable": [
     {
-      "id": "52e50d22-46c1-4c2e-b362-19147d7b9caf",
+      "id": "ff5b4723-0217-4999-a2dc-0b845e8031a2",
       "key": "component",
       "value": "use",
       "type": "string",
