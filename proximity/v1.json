@@ -10718,7 +10718,7 @@
                       "        \t\"data\": {\r",
                       "        \t\t\"type\": \"report\",\r",
                       "        \t\t\"attributes\": {\r",
-                      "        \t\t\t\"name\": \"Workflow report\",\r",
+                      "        \t\t\t\"name\": \"Workflow report \" + Math.random(999),\r",
                       "        \t\t\t\"dset\": pm.variables.get(\"dset_id\"),\r",
                       "        \t\t\t\"lvl1_key_col\": \"Country\",\r",
                       "                    \"lvl1_name_col\": \"Country\",\r",
@@ -11528,7 +11528,7 @@
   ],
   "variable": [
     {
-      "id": "49915212-637d-4cc9-b037-321fe5e0d5ff",
+      "id": "2790ad32-65ab-4d8f-9855-285cbcc54c12",
       "key": "component",
       "value": "use",
       "type": "string",
