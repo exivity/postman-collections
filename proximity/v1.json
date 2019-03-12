@@ -10518,22 +10518,22 @@
                   "script": {
                     "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
                     "exec": [
-                      "// pm.sendRequest({\r",
-                      "//     url: pm.globals.get(\"base_url\") + '/v1/extractors',\r",
-                      "//     method: 'POST',\r",
-                      "//     header: {\r",
-                      "//         'Accept': 'application/json',\r",
-                      "//         'Content-Type': 'application/json',\r",
-                      "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
-                      "//     },\r",
-                      "//     body: {\r",
-                      "//         mode: 'raw',\r",
-                      "//         raw: JSON.stringify({\r",
-                      "//             \"name\": \"Workflow extractor\",\r",
-                      "//             \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
-                      "//         })\r",
-                      "//     }\r",
-                      "// })"
+                      "pm.sendRequest({\r",
+                      "    url: pm.variables.get(\"base_url\") + '/v1/extractors',\r",
+                      "    method: 'POST',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/json',\r",
+                      "        'Content-Type': 'application/json',\r",
+                      "        'Authorization': 'Bearer ' + pm.variables.get(\"token\")\r",
+                      "    },\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({\r",
+                      "            \"name\": \"Workflow extractor\",\r",
+                      "            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
+                      "        })\r",
+                      "    }\r",
+                      "})"
                     ],
                     "type": "text/javascript"
                   }
@@ -10545,8 +10545,8 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "type": "text",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
@@ -10612,22 +10612,22 @@
                   "script": {
                     "id": "104d0722-d6ef-48c2-aed0-ba7310844cd3",
                     "exec": [
-                      "// pm.sendRequest({\r",
-                      "//     url: pm.globals.get(\"base_url\") + '/v1/transformers',\r",
-                      "//     method: 'POST',\r",
-                      "//     header: {\r",
-                      "//         'Accept': 'application/json',\r",
-                      "//         'Content-Type': 'application/json',\r",
-                      "//         'Authorization': 'Bearer ' + pm.environment.get(\"token\")\r",
-                      "//     },\r",
-                      "//     body: {\r",
-                      "//         mode: 'raw',\r",
-                      "//         raw: JSON.stringify({\r",
-                      "// \t        \"name\": \"Workflow transformer\",\r",
-                      "// \t        \"contents\": \"# script here\"\r",
-                      "//         })\r",
-                      "//     }\r",
-                      "// })"
+                      "pm.sendRequest({\r",
+                      "    url: pm.variables.get(\"base_url\") + '/v1/transformers',\r",
+                      "    method: 'POST',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/json',\r",
+                      "        'Content-Type': 'application/json',\r",
+                      "        'Authorization': 'Bearer ' + pm.variables.get(\"token\")\r",
+                      "    },\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({\r",
+                      "\t        \"name\": \"Workflow transformer\",\r",
+                      "\t        \"contents\": \"# script here\"\r",
+                      "        })\r",
+                      "    }\r",
+                      "})"
                     ],
                     "type": "text/javascript"
                   }
@@ -11527,7 +11527,7 @@
   ],
   "variable": [
     {
-      "id": "ff5b4723-0217-4999-a2dc-0b845e8031a2",
+      "id": "23ca4011-0f48-442a-b0e2-76576e08e240",
       "key": "component",
       "value": "use",
       "type": "string",
