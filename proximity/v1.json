@@ -10718,7 +10718,7 @@
                       "        \t\"data\": {\r",
                       "        \t\t\"type\": \"report\",\r",
                       "        \t\t\"attributes\": {\r",
-                      "        \t\t\t\"name\": \"Workflow report \" + Math.random(999),\r",
+                      "        \t\t\t\"name\": \"Workflow report {{$randomInt}}\",\r",
                       "        \t\t\t\"dset\": pm.variables.get(\"dset_id\"),\r",
                       "        \t\t\t\"lvl1_key_col\": \"Country\",\r",
                       "                    \"lvl1_name_col\": \"Country\",\r",
@@ -10728,7 +10728,6 @@
                       "        })\r",
                       "    }\r",
                       "}, function (err, res) {\r",
-                      "    console.log(res.json());\r",
                       "    pm.environment.set(\"report_id\", res.json().data.id);\r",
                       "    console.log('SET report_id: ' + pm.environment.get(\"report_id\"));\r",
                       "\r",
@@ -10754,7 +10753,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"1\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -11528,7 +11527,7 @@
   ],
   "variable": [
     {
-      "id": "2790ad32-65ab-4d8f-9855-285cbcc54c12",
+      "id": "6a8c5ff9-3c94-4303-9733-9a66b4162a91",
       "key": "component",
       "value": "use",
       "type": "string",
