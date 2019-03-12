@@ -10729,8 +10729,9 @@
                       "    }\r",
                       "}, function (err, res) {\r",
                       "    console.log(res.json());\r",
-                      "    //pm.environment.set(\"report_id\", res.json().data.id);\r",
-                      "    //pm.environment.set(\"report_id\", res.json().data[0].id);\r",
+                      "    pm.environment.set(\"report_id\", res.json().data.id);\r",
+                      "    console.log('SET transcript_workflowstep_id: ' + pm.environment.get(\"report_id\"));\r",
+                      "\r",
                       "})"
                     ],
                     "type": "text/javascript"
@@ -11527,7 +11528,7 @@
   ],
   "variable": [
     {
-      "id": "6df19325-8613-459d-bf83-06d1f55523ce",
+      "id": "9ace62f7-aa3f-4ca9-86bf-0b9285aa4f48",
       "key": "component",
       "value": "use",
       "type": "string",
