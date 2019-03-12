@@ -10730,7 +10730,7 @@
                       "}, function (err, res) {\r",
                       "    console.log(res.json());\r",
                       "    pm.environment.set(\"report_id\", res.json().data.id);\r",
-                      "    console.log('SET transcript_workflowstep_id: ' + pm.environment.get(\"report_id\"));\r",
+                      "    console.log('SET report_id: ' + pm.environment.get(\"report_id\"));\r",
                       "\r",
                       "})"
                     ],
@@ -11528,7 +11528,7 @@
   ],
   "variable": [
     {
-      "id": "9ace62f7-aa3f-4ca9-86bf-0b9285aa4f48",
+      "id": "49915212-637d-4cc9-b037-321fe5e0d5ff",
       "key": "component",
       "value": "use",
       "type": "string",
