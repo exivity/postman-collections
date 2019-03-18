@@ -6770,7 +6770,7 @@
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('notificationsubscriptions');",
+                      "    pm.expect(response.data.type).to.eql('notificationsubscription');",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "});",
                       "",
@@ -11593,7 +11593,7 @@
   ],
   "variable": [
     {
-      "id": "8b7ab7fa-899f-4eaa-9b96-73bfa56e8fbc",
+      "id": "ef97fa9f-ee9b-401d-916c-cf2d9fa03fa1",
       "key": "component",
       "value": "use",
       "type": "string",
