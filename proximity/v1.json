@@ -6226,9 +6226,7 @@
                       "});",
                       "",
                       "console.log('UNSET usergroup_id');",
-                      "pm.environment.unset(\"usergroup_id\");",
-                      "",
-                      "postman.setNextRequest(\"Retrieve a list of workflows\");"
+                      "pm.environment.unset(\"usergroup_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -11527,7 +11525,7 @@
   ],
   "variable": [
     {
-      "id": "bfde3d32-842b-46e1-a804-7dc457b932a9",
+      "id": "2bbe15f9-7fb1-4c65-8ada-5825ef65e95a",
       "key": "component",
       "value": "use",
       "type": "string",
