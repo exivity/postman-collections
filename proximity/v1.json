@@ -6797,11 +6797,79 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/notificationsubscriptions"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "a8b3f8c4-51b2-46f6-81cc-f4491fdcfb2b",
+                  "name": "Create a new notification subscription with channel",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+                    },
+                    "url": "{{base_url}}/v1/notificationsubscriptions"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 18 Mar 2019 14:58:01 +0000"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 18 Mar 2019 14:58:01 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/7.1.21"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "https://localhost:8012/v1/notificationsubscription/7"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"7\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationsubscriptions/7\"\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "_postman_id": "6cc73bab-8d1f-466b-b611-e67c59b89e13",
@@ -11525,7 +11593,7 @@
   ],
   "variable": [
     {
-      "id": "2bbe15f9-7fb1-4c65-8ada-5825ef65e95a",
+      "id": "8b7ab7fa-899f-4eaa-9b96-73bfa56e8fbc",
       "key": "component",
       "value": "use",
       "type": "string",
