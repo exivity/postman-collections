@@ -9666,8 +9666,7 @@
                       "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": [
                 {
@@ -11591,7 +11590,7 @@
   ],
   "variable": [
     {
-      "id": "bd5a2d1a-547f-47c3-9e5b-82170352b2fe",
+      "id": "7fa2c051-42cf-46dd-b9ff-284ed113c893",
       "key": "component",
       "value": "use",
       "type": "string",
