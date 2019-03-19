@@ -9905,8 +9905,7 @@
                       "description": "Include additional related resources"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -11593,7 +11592,7 @@
   ],
   "variable": [
     {
-      "id": "ef97fa9f-ee9b-401d-916c-cf2d9fa03fa1",
+      "id": "557c7bd4-f3bb-4c3f-a97c-a17590d4a114",
       "key": "component",
       "value": "use",
       "type": "string",
