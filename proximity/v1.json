@@ -9965,8 +9965,7 @@
                   "mode": "raw",
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified test\",\r\n            \"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}"
                 },
-                "url": "{{base_url}}/v1/workflows/{{workflow_id}}",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
               },
               "response": []
             },
@@ -11592,7 +11591,7 @@
   ],
   "variable": [
     {
-      "id": "557c7bd4-f3bb-4c3f-a97c-a17590d4a114",
+      "id": "bd5a2d1a-547f-47c3-9e5b-82170352b2fe",
       "key": "component",
       "value": "use",
       "type": "string",
