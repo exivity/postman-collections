@@ -10150,7 +10150,7 @@
                     {
                       "key": "page[limit]",
                       "value": "",
-                      "equals": false,
+                      "equals": true,
                       "description": "Limit the amount of results returned"
                     },
                     {
@@ -11590,7 +11590,7 @@
   ],
   "variable": [
     {
-      "id": "7fa2c051-42cf-46dd-b9ff-284ed113c893",
+      "id": "a6bd1edf-0191-432b-8294-cef8e6c7762f",
       "key": "component",
       "value": "use",
       "type": "string",
