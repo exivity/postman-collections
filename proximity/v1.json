@@ -2509,7 +2509,7 @@
                       "key": "include",
                       "value": "",
                       "equals": true,
-                      "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`."
+                      "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`, `metadata`."
                     }
                   ]
                 }
@@ -2717,65 +2717,6 @@
           "description": "",
           "item": [
             {
-              "_postman_id": "3b3d6ede-cc81-45de-91dc-b8b44febe9fe",
-              "name": "Add a new metadata definition",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"name\",",
-                      "        \"fields\"",
-                      "\t]);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "",
-                      "pm.environment.set(\"metadatadefinition_id\", response.data.id);",
-                      "console.log('SET metadatadefinition_id: ' + pm.environment.get(\"metadatadefinition_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/metadatadefinitions"
-              },
-              "response": []
-            },
-            {
               "_postman_id": "800e131a-b629-42bf-a81c-1012edfc613a",
               "name": "Retrieve a list of metadata definitions",
               "event": [
@@ -2854,6 +2795,65 @@
                     }
                   ]
                 }
+              },
+              "response": []
+            },
+            {
+              "_postman_id": "3b3d6ede-cc81-45de-91dc-b8b44febe9fe",
+              "name": "Add a new metadata definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('metadatadefinition');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "        \"fields\"",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "",
+                      "pm.environment.set(\"metadatadefinition_id\", response.data.id);",
+                      "console.log('SET metadatadefinition_id: ' + pm.environment.get(\"metadatadefinition_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/metadatadefinitions"
               },
               "response": []
             },
@@ -11590,7 +11590,7 @@
   ],
   "variable": [
     {
-      "id": "170faecd-dfc8-41e9-8ecc-d7fa06abe856",
+      "id": "90ad04df-34a7-4f76-8715-28ffb6208ea8",
       "key": "component",
       "value": "use",
       "type": "string",
