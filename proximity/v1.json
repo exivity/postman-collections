@@ -9820,12 +9820,13 @@
                 "method": "POST",
                 "header": [
                   {
-                    "key": "Content-Type",
+                    "key": "Accept",
                     "value": "application/vnd.api+json"
                   },
                   {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   }
                 ],
                 "body": {
@@ -11590,7 +11591,7 @@
   ],
   "variable": [
     {
-      "id": "90ad04df-34a7-4f76-8715-28ffb6208ea8",
+      "id": "56326974-5324-496c-8035-353265f3ac2f",
       "key": "component",
       "value": "use",
       "type": "string",
