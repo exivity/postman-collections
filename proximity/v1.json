@@ -2637,13 +2637,13 @@
                 {
                   "listen": "test",
                   "script": {
+                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
                     "exec": [
                       "// Currently, accounts are read-only",
                       "pm.test(\"Status code is 400\", function () {",
                       "    pm.response.to.have.status(400);",
                       "});"
                     ],
-                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
                     "type": "text/javascript"
                   }
                 }
@@ -2653,7 +2653,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/javascript",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -2662,7 +2664,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"id\": \"{{account_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"modified_test\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/accounts/{{account_id}}"
               },
@@ -11609,7 +11611,7 @@
   ],
   "variable": [
     {
-      "id": "c333f695-0d05-4654-98aa-eabb0eebbd9c",
+      "id": "038d932c-cc4a-442b-aaf5-5b8f53fad218",
       "key": "component",
       "value": "use",
       "type": "string",
