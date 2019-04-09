@@ -2525,14 +2525,35 @@
                   "script": {
                     "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
                     "exec": [
-                      "// Currently, accounts are read-only",
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
                       "});",
                       "",
-                      "// Hardcode account_id for now, se we have something to work with",
-                      "pm.environment.set(\"account_id\", 1);",
-                      "console.log('SET account_id (HARDCODED): ' + pm.environment.get(\"account_id\"));"
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('account');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "\t\t\"level\",",
+                      "\t\t\"lvl1_key\",",
+                      "\t\t\"lvl2_key\",",
+                      "\t\t\"lvl3_key\",",
+                      "\t\t\"lvl4_key\",",
+                      "\t\t\"lvl5_key\",",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"account_id\", response.data.id);",
+                      "console.log('SET account_id: ' + pm.environment.get(\"account_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -2641,10 +2662,33 @@
                   "script": {
                     "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
                     "exec": [
-                      "// Currently, accounts are read-only",
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
-                      "});"
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('account');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "\t\t\"level\",",
+                      "\t\t\"lvl1_key\",",
+                      "\t\t\"lvl2_key\",",
+                      "\t\t\"lvl3_key\",",
+                      "\t\t\"lvl4_key\",",
+                      "\t\t\"lvl5_key\",",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11613,7 +11657,7 @@
   ],
   "variable": [
     {
-      "id": "479868af-c3dc-48cb-bc06-4c8957f26466",
+      "id": "01ffa262-9f68-44c3-9b0c-2225e0f37504",
       "key": "component",
       "value": "use",
       "type": "string",
