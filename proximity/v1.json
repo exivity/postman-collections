@@ -10254,6 +10254,78 @@
           "description": "",
           "item": [
             {
+              "_postman_id": "2de7f48b-9532-4194-bba1-54991681d0cc",
+              "name": "Retrieve a workflow run",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflow_run');",
+                      "    pm.expect(response.data.attributes.start).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.end).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowruns/:workflowrun_id?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowruns",
+                    ":workflowrun_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "equals": true,
+                      "description": "Include additional related resources: workflow"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowrun_id",
+                      "value": "{{workflowrun_id}}"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
               "_postman_id": "d6ec6c81-b826-4a53-aa2a-242a3e7a6a48",
               "name": "Retrieve a list of workflow runs",
               "event": [
@@ -10333,78 +10405,6 @@
                       "value": "",
                       "equals": true,
                       "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "_postman_id": "2de7f48b-9532-4194-bba1-54991681d0cc",
-              "name": "Retrieve a workflow run",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflow_run');",
-                      "    pm.expect(response.data.attributes.start).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.end).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowruns/:workflowrun_id?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowruns",
-                    ":workflowrun_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "equals": true,
-                      "description": "Include additional related resources: workflow"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowrun_id",
-                      "value": "{{workflowrun_id}}"
                     }
                   ]
                 },
@@ -11747,7 +11747,7 @@
   ],
   "variable": [
     {
-      "id": "9e2c6018-827c-4b2e-92ff-bf62ef79d26e",
+      "id": "6d4b4709-2ad6-44e3-96b8-e113754e7314",
       "key": "component",
       "value": "use",
       "type": "string",
