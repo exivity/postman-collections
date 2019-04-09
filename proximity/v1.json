@@ -6612,8 +6612,6 @@
                       "pm.test(\"Email address should have changed\", function() {",
                       "    pm.expect(jsonData.data.attributes.info.recipient).to.be.eql('anybody@exivity.com');",
                       "});",
-                      "",
-                      "postman.setNextRequest(\"notificationsubscriptions\");",
                       ""
                     ],
                     "type": "text/javascript"
@@ -11660,7 +11658,7 @@
   ],
   "variable": [
     {
-      "id": "b80984b5-316c-4dc3-b65d-eb29834d432c",
+      "id": "7dff2b9b-2b06-4058-ae3b-10464c40f537",
       "key": "component",
       "value": "use",
       "type": "string",
