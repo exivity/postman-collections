@@ -1125,7 +1125,8 @@
                       "console.log('UNSET extractor_name');",
                       "pm.environment.unset(\"extractor_name\");",
                       "",
-                      "postman.clearEnvironmentVariable(\"extractor_name\");"
+                      "postman.clearEnvironmentVariable(\"extractor_name\");",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11659,7 +11660,7 @@
   ],
   "variable": [
     {
-      "id": "0e6b76d6-b83f-40fc-b4ed-2ee6a0d938ae",
+      "id": "b80984b5-316c-4dc3-b65d-eb29834d432c",
       "key": "component",
       "value": "use",
       "type": "string",
