@@ -6662,7 +6662,17 @@
               ],
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  }
+                ],
                 "body": {},
                 "url": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}"
               },
@@ -11727,7 +11737,7 @@
   ],
   "variable": [
     {
-      "id": "ed6d2ce4-67b5-41da-b748-b028cc24304a",
+      "id": "0e28eb03-db11-469b-abb8-eb0b07869b39",
       "key": "component",
       "value": "use",
       "type": "string",
