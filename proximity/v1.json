@@ -2726,8 +2726,8 @@
                     "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
                     "exec": [
                       "// Currently, accounts are read-only",
-                      "pm.test(\"Status code is 400\", function () {",
-                      "    pm.response.to.have.status(400);",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
                       "});",
                       ""
                     ],
@@ -3943,7 +3943,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -3952,7 +3954,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\"\n        }\n    }\n}"
+                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\"\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/services/{{service_id}}"
               },
@@ -11657,7 +11659,7 @@
   ],
   "variable": [
     {
-      "id": "01ffa262-9f68-44c3-9b0c-2225e0f37504",
+      "id": "0e6b76d6-b83f-40fc-b4ed-2ee6a0d938ae",
       "key": "component",
       "value": "use",
       "type": "string",
