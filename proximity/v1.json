@@ -10209,6 +10209,8 @@
                       "",
                       "console.log('UNSET workflow_id');",
                       "pm.environment.unset(\"workflow_id\");",
+                      "console.log('UNSET workflowrun_id');",
+                      "pm.environment.unset(\"workflowrun_id\");",
                       "",
                       "postman.setNextRequest(\"Get all notification channels\");"
                     ],
@@ -10366,6 +10368,16 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "2b407300-f61d-496e-ab1e-9713fd5d8873",
+                    "exec": [
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11747,7 +11759,7 @@
   ],
   "variable": [
     {
-      "id": "b60ac29d-1d88-42d0-8161-b9744a91581c",
+      "id": "b575534e-6049-4caa-8116-6a2536243c48",
       "key": "component",
       "value": "use",
       "type": "string",
