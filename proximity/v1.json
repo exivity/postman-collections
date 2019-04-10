@@ -9871,7 +9871,7 @@
                       "key": "include",
                       "value": "",
                       "equals": true,
-                      "description": "Include additional related resources"
+                      "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
                     }
                   ]
                 }
@@ -10119,7 +10119,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified test\",\r\n            \"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n\t\t\"name\": \"modified test\",\r\n\t\t\"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
               },
@@ -10145,10 +10145,7 @@
                       "    pm.expect(response.output).to.be.an('array');",
                       "    pm.expect(response.status).to.eql(true);",
                       "});",
-                      "",
-                      "// Run other workflow stuff before deleteing the workflow",
-                      "postman.setNextRequest(\"/workflowssteps\");",
-                      "postman.setNextRequest(\"/workflowsschedules\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -10279,6 +10276,10 @@
                       "    pm.expect(response.data[0]).to.be.an('object');",
                       "    pm.expect(response.data[0].type).to.eql('workflowrun');",
                       "});",
+                      "",
+                      "// Set the workflow run ID to the first response ID",
+                      "pm.environment.set(\"workflowrun_id\", response.data[0].id);",
+                      "console.log('SET workflowrun_id: ' + pm.environment.get(\"workflowrun_id\"));",
                       ""
                     ],
                     "type": "text/javascript"
@@ -10289,7 +10290,61 @@
                   "script": {
                     "id": "070d88d0-519a-4efa-8783-d4708d57862b",
                     "exec": [
-                      "// See folder"
+                      "if (!pm.environment.get(\"workflow_id\")) {",
+                      "    console.log('No workflow ID set - create a new workflow & run it');",
+                      "",
+                      "    // Create a new workflow",
+                      "    pm.sendRequest({",
+                      "        url: pm.variables.get(\"base_url\") + '/v1/workflows',",
+                      "        method: 'POST',",
+                      "        header: {",
+                      "            'Accept': 'application/json',",
+                      "            'Content-Type': 'application/json',",
+                      "            'Authorization': 'Bearer ' + pm.variables.get(\"token\")",
+                      "        },",
+                      "        body: {",
+                      "            mode: 'raw',",
+                      "            raw: JSON.stringify({",
+                      "                \"data\": {",
+                      "                    \"type\": \"workflow\",",
+                      "                    \"attributes\": {",
+                      "                        \"name\": \"test\",",
+                      "                        \"description\": \"This is test task\",",
+                      "                        \"hidden\": false,",
+                      "                        \"locked\": false",
+                      "                    }",
+                      "                }",
+                      "            })",
+                      "        }",
+                      "    }, function(error, response) {",
+                      "        if (error) {",
+                      "            console.log(\"Error: \" + error);",
+                      "        } else {",
+                      "            pm.expect(response).to.have.property('code', 201);",
+                      "            json = response.json();",
+                      "            pm.environment.set(\"workflow_id\", json.data.id);",
+                      "            console.log('SET workflow_id: ' + pm.environment.get(\"workflow_id\"));",
+                      "            ",
+                      "            // Run the workflow",
+                      "            pm.sendRequest({",
+                      "                url: pm.variables.get(\"base_url\") + '/v1/workflows/' + pm.environment.get(\"workflow_id\") +'/run',",
+                      "                method: 'POST',",
+                      "                header: {",
+                      "                    'Accept': 'application/json',",
+                      "                    'Content-Type': 'application/json',",
+                      "                    'Authorization': 'Bearer ' + pm.variables.get(\"token\")",
+                      "                }",
+                      "            }, function(error, response) {",
+                      "                if (error) {",
+                      "                    console.log(\"Error: \" + error);",
+                      "                } else {",
+                      "                    pm.expect(response).to.have.property('code', 200);",
+                      "                    console.log('Workflow ran successfully.');",
+                      "                }",
+                      "            });",
+                      "        }",
+                      "    });",
+                      "}"
                     ],
                     "type": "text/javascript"
                   }
@@ -11792,7 +11847,7 @@
   ],
   "variable": [
     {
-      "id": "857e67b8-498c-414d-84cc-0da994bad0f7",
+      "id": "be4d4a36-c2db-483a-8f98-7139f190586f",
       "key": "component",
       "value": "use",
       "type": "string",
