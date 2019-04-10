@@ -11284,7 +11284,7 @@
                       "key": "include",
                       "value": "",
                       "equals": true,
-                      "description": "Include additional related resources"
+                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
                     }
                   ]
                 },
@@ -11848,7 +11848,7 @@
   ],
   "variable": [
     {
-      "id": "e0f2f844-348e-44e4-b895-3a71516d56ff",
+      "id": "6cf52e1a-19e9-43c2-91db-35c202b3c4d1",
       "key": "component",
       "value": "use",
       "type": "string",
