@@ -3968,7 +3968,25 @@
                   "mode": "raw",
                   "raw": ""
                 },
-                "url": "{{base_url}}/v1/services/{{service_id}}/prepareAffectedReports"
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -11772,7 +11790,7 @@
   ],
   "variable": [
     {
-      "id": "29ebb05e-fdb5-4a0b-b827-050d25afad67",
+      "id": "74541c0e-0b3e-4a1f-b6bc-38d824efb5b2",
       "key": "component",
       "value": "use",
       "type": "string"
