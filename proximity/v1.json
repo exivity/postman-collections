@@ -3806,20 +3806,27 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/services/{{service_id}}?include",
+                  "raw": "{{base_url}}/v1/services/:service_id?include",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "services",
-                    "{{service_id}}"
+                    ":service_id"
                   ],
                   "query": [
                     {
                       "key": "include",
                       "value": null,
                       "description": "Include additional related resources. Possible values: `servicecategory`, `rates` or `adjustments`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
                     }
                   ]
                 }
@@ -3906,7 +3913,24 @@
                   "mode": "raw",
                   "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\"\n        }\n    }\n}"
                 },
-                "url": "{{base_url}}/v1/services/{{service_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -3980,7 +4004,24 @@
                   "mode": "formdata",
                   "formdata": []
                 },
-                "url": "{{base_url}}/v1/services/{{service_id}}",
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
               "response": []
@@ -11731,7 +11772,7 @@
   ],
   "variable": [
     {
-      "id": "11e0e1fd-a711-4fbb-860f-02f284ae5d46",
+      "id": "29ebb05e-fdb5-4a0b-b827-050d25afad67",
       "key": "component",
       "value": "use",
       "type": "string"
