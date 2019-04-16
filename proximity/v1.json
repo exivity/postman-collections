@@ -13018,6 +13018,13 @@
           "    ",
           "    api.asyncRequest = promisify(pm.sendRequest);",
           "    ",
+          "    api.start = function () {",
+          "        wait();",
+          "        return new Promise(function (accept, reject) {",
+          "            accept();",
+          "        })",
+          "    }",
+          "    ",
           "    api.ready = function () {",
           "        finished = true;",
           "    };",
@@ -13187,7 +13194,7 @@
   ],
   "variable": [
     {
-      "id": "ed68ac98-df06-404a-b8f3-480977ac8d1b",
+      "id": "61352430-183e-494e-9f41-2f2fe7bbba16",
       "key": "component",
       "value": "use",
       "type": "string"
