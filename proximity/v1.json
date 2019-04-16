@@ -3586,7 +3586,7 @@
                       "    .then(api.requireBudget)\r",
                       "    .then(api.requireBudgetRevisionId)\r",
                       "    .then(api.ready)\r",
-                      "    .catch(console.log;\r",
+                      "    .catch(console.log);\r",
                       "    \r",
                       ""
                     ],
@@ -13182,7 +13182,7 @@
   ],
   "variable": [
     {
-      "id": "6e2eadce-f900-45bd-a43c-92b3d3d87673",
+      "id": "b8e506a6-55c6-4deb-a7f1-c2757fc6f05b",
       "key": "component",
       "value": "use",
       "type": "string"
