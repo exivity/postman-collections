@@ -13055,6 +13055,7 @@
           "",
           "        // Check if Report ID is set",
           "        if (pm.environment.get(\"report_id\") && pm.environment.get(\"report_id\") !== 'undefined') {",
+          "            console.log('GET report_id' + pm.environment.get(\"report_id\"));",
           "            return pm.environment.get(\"report_id\");",
           "        }",
           "",
@@ -13107,6 +13108,7 @@
           "",
           "        // Check if Account ID is set",
           "        if (pm.environment.get(\"account_id\") && pm.environment.get(\"account_id\") !== 'undefined') {",
+          "            console.log('GET account_id: ' + pm.environment.get(\"account_id\"));",
           "            return pm.environment.get(\"account_id\");",
           "        }",
           "",
@@ -13161,6 +13163,7 @@
           "",
           "        // Check if budget ID is set",
           "        if (pm.environment.get(\"budget_id\") && pm.environment.get(\"budget_id\") !== 'undefined') {",
+          "            console.log('SET budget_id: ' + pm.environment.get(\"budget_id\"));",
           "            return pm.environment.get(\"budget_id\");",
           "        }",
           "",
@@ -13202,6 +13205,7 @@
           "",
           "        // Check if budget ID is set",
           "        if (pm.environment.get(\"budgetrevision_id\") && pm.environment.get(\"budgetrevision_id\") !== 'undefined') {",
+          "            console.log('SET budgetrevision_id: ' + pm.environment.get(\"budgetrevision_id\"));",
           "            return pm.environment.get(\"budgetrevision_id\");",
           "        }",
           "",
@@ -13265,7 +13269,7 @@
   ],
   "variable": [
     {
-      "id": "1ffcfb09-a7aa-4c15-859f-868932084ac6",
+      "id": "695d5d58-fcd9-4670-b773-7ce15d6c5a32",
       "key": "component",
       "value": "use",
       "type": "string"
