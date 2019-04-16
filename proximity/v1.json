@@ -3153,6 +3153,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9e1ea6a7-72eb-4e09-9296-02bd1c02093e",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireBudget)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "1d2eeb07-5e1c-40d6-90b6-499d5061c915",
@@ -3581,12 +3599,11 @@
                     "exec": [
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
-                      "// Promise.resolve()\r",
-                      "//     .then(api.requireAccount)\r",
-                      "\r",
-                      "api.requireAccount()\r",
+                      "api.start()\r",
+                      "    .then(api.requireReport)\r",
+                      "    .then(api.requireAccount)\r",
                       "    .then(api.requireBudget)\r",
-                      "    .then(api.requireBudgetRevisionId)\r",
+                      "    .then(api.requireBudgetRevision)\r",
                       "    .then(api.ready)\r",
                       "    .catch(function(err) {\r",
                       "        console.log(err);\r",
@@ -13248,7 +13265,7 @@
   ],
   "variable": [
     {
-      "id": "d787980b-81f7-41d3-874e-df1e43cf4967",
+      "id": "1ffcfb09-a7aa-4c15-859f-868932084ac6",
       "key": "component",
       "value": "use",
       "type": "string"
