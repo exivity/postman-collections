@@ -2692,13 +2692,16 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "ae85860e-f9a6-48a6-8cf7-1b62c6e124b2",
+                    "id": "5e6804d5-306e-4e52-8411-de17899a576d",
                     "exec": [
                       "// Currently, accounts are read-only",
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});",
-                      ""
+                      "",
+                      "",
+                      "console.log('UNSET account_id');",
+                      "pm.environment.unset(\"account_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -13269,7 +13272,7 @@
   ],
   "variable": [
     {
-      "id": "695d5d58-fcd9-4670-b773-7ce15d6c5a32",
+      "id": "8dea357e-10a9-4384-b783-bdcf56a65cca",
       "key": "component",
       "value": "use",
       "type": "string"
