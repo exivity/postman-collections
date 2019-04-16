@@ -3581,8 +3581,10 @@
                     "exec": [
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
-                      "Promise.resolve()\r",
-                      "    .then(api.requireAccount)\r",
+                      "// Promise.resolve()\r",
+                      "//     .then(api.requireAccount)\r",
+                      "\r",
+                      "api.requireAccount()\r",
                       "    .then(api.requireBudget)\r",
                       "    .then(api.requireBudgetRevisionId)\r",
                       "    .then(api.ready)\r",
@@ -13185,7 +13187,7 @@
   ],
   "variable": [
     {
-      "id": "1b68241a-b2ee-486f-843d-db0aece18165",
+      "id": "c8efa0b9-d526-46d1-8399-011f532b9844",
       "key": "component",
       "value": "use",
       "type": "string"
