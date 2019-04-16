@@ -13037,7 +13037,7 @@
           "            throw new Error('Report ID not set - need to create Account');",
           "        }",
           "    ",
-          "        return asyncRequest({",
+          "        return api.asyncRequest({",
           "            // Create a new account",
           "            url: pm.variables.get(\"base_url\") + '/v1/accounts',",
           "            method: 'POST',",
@@ -13185,7 +13185,7 @@
   ],
   "variable": [
     {
-      "id": "0655ee4e-27f0-4d6a-b33f-f7489af25480",
+      "id": "1b68241a-b2ee-486f-843d-db0aece18165",
       "key": "component",
       "value": "use",
       "type": "string"
