@@ -13037,6 +13037,11 @@
           "        if (!pm.environment.get(\"report_id\")) {",
           "            throw new Error('Report ID not set - need to create Account');",
           "        }",
+          "        ",
+          "        ",
+          "        pm.environment.set('everything', 'awesome');",
+          "        console.log('pm.environment');",
+          "        console.log(pm.environment);",
           "    ",
           "        return api.asyncRequest({",
           "            // Create a new account",
@@ -13184,7 +13189,7 @@
   ],
   "variable": [
     {
-      "id": "a61f3663-2407-4a6f-8393-a72004e28306",
+      "id": "0c465a2a-944b-4e57-a56f-51786d71a4ab",
       "key": "component",
       "value": "use",
       "type": "string"
