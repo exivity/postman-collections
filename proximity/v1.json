@@ -13023,7 +13023,9 @@
           "    // Domain helpers",
           "    ",
           "    api.requireAccount = function () {",
-          "        console.log('account');",
+          "        console.log('pm.environment');",
+          "        console.log(pm.environment);",
+          "        ",
           "        // Check if Account ID is set",
           "        if (pm.environment.get(\"account_id\") && pm.environment.get(\"account_id\") !== 'undefined') {",
           "            return pm.environment.get(\"account_id\");",
@@ -13182,7 +13184,7 @@
   ],
   "variable": [
     {
-      "id": "b8e506a6-55c6-4deb-a7f1-c2757fc6f05b",
+      "id": "c2fcdd5b-48d9-44d4-a1ec-97f811f4a08d",
       "key": "component",
       "value": "use",
       "type": "string"
