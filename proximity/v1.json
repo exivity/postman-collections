@@ -13041,9 +13041,9 @@
           "            return pm.environment.get(\"report_id\");",
           "        }",
           "",
-          "        // Check if Dset ID is set",
-          "        if (pm.environment.get(\"dset_id\") && pm.environment.get(\"dset_id\") !== 'undefined') {",
-          "            return pm.environment.get(\"dset_id\");",
+          "        // Check Dset ID is set",
+          "        if (!pm.environment.get(\"dset_id\")) {",
+          "            throw new Error('Dset ID not set - need to create report');",
           "        }",
           "",
           "        // Not set - create report",
@@ -13248,7 +13248,7 @@
   ],
   "variable": [
     {
-      "id": "c29f566f-6f90-4d36-8bcf-5b4b27109c73",
+      "id": "d787980b-81f7-41d3-874e-df1e43cf4967",
       "key": "component",
       "value": "use",
       "type": "string"
