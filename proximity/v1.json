@@ -3644,92 +3644,6 @@
               "response": []
             },
             {
-              "name": "Add a new budget item Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "eb31a4c3-fa68-4d2b-978b-4f67b1cfdc1d",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('budgetitem');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.kind).to.eql('account');",
-                      "    pm.expect(response.data.attributes.status).to.eql('regular');",
-                      "    pm.expect(response.data.attributes.filter).to.eql('none');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"budgetitem_id\", response.data.id);",
-                      "console.log('SET budgetitem_id: ' + pm.environment.get(\"budgetitem_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "12c72a77-6f10-4f6f-8b8c-174f87fab408",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireReport)\r",
-                      "    .then(api.requireAccount)\r",
-                      "    .then(api.requireBudget)\r",
-                      "    .then(api.requireBudgetRevision)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "83770ddf-b34b-4933-8bb7-fa9774e9da4f",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": 0,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
-                },
-                "url": "{{base_url}}/v1/budgets/items"
-              },
-              "response": []
-            },
-            {
               "name": "Retrieve a list of budgets items",
               "event": [
                 {
@@ -4023,6 +3937,56 @@
                     }
                   ]
                 }
+              },
+              "response": []
+            },
+            {
+              "name": "Patch budget items (add, create, delete)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "eb31a4c3-fa68-4d2b-978b-4f67b1cfdc1d",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "12c72a77-6f10-4f6f-8b8c-174f87fab408",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "83770ddf-b34b-4933-8bb7-fa9774e9da4f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"operations\": [\n\t\t{\n\t\t\t\"op\": \"add\",\n\t\t\t\"data\": {\n\t\t        \"type\":\"budgetitem\",\n\t\t        \"attributes\": {\n\t\t            \"kind\": \"account\",\n\t\t            \"status\": \"regular\",\n\t\t            \"percent\": 0,\n\t\t            \"distribution\": \"even\",\n\t\t            \"filter\": \"none\"\n\t\t        },\n\t\t        \"relationships\": {\n\t\t        \t\"revision\": {\n\t\t        \t\t\"data\": {\n\t\t        \t\t\t\"type\": \"budgetrevision\",\n\t\t        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n\t\t        \t\t}\n\t\t        \t},\n\t\t        \t\"account\": {\n\t\t        \t\t\"data\": {\n\t\t        \t\t\t\"type\": \"account\",\n\t\t        \t\t\t\"id\": \"{{account_id}}\"\n\t\t        \t\t}\n\t\t        \t}\n\t\t        }\n\t\t    }\n\t\t},\n\t\t{\n\t\t\t\"op\": \"delete\",\n            \"data\": {\n            \t\"type\": \"budgetitem\",\n            \t\"id\": \"{{item_id}}\"\n            }\n\t\t},\n\t\t{\n\t\t\t\"op\":\"update\",\n            \"data\": {\n                \"type\": \"budgetitem\",\n                \"attributes\": {\n                    \"kind\": \"service\"\n                }\n            }\n\t\t}\n\t]\n}\n"
+                },
+                "url": "{{base_url}}/v1/budgets/items"
               },
               "response": []
             }
@@ -13358,7 +13322,7 @@
   ],
   "variable": [
     {
-      "id": "828505a8-e63a-462d-abfb-066b95fc6ec5",
+      "id": "cff12bf8-46cf-4f74-b852-10b98550ecac",
       "key": "component",
       "value": "use",
       "type": "string"
