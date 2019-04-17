@@ -3939,6 +3939,92 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Add a new budget item Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "eb31a4c3-fa68-4d2b-978b-4f67b1cfdc1d",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('budgetitem');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.kind).to.eql('account');",
+                      "    pm.expect(response.data.attributes.status).to.eql('regular');",
+                      "    pm.expect(response.data.attributes.filter).to.eql('none');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"budgetitem_id\", response.data.id);",
+                      "console.log('SET budgetitem_id: ' + pm.environment.get(\"budgetitem_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "12c72a77-6f10-4f6f-8b8c-174f87fab408",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireReport)\r",
+                      "    .then(api.requireAccount)\r",
+                      "    .then(api.requireBudget)\r",
+                      "    .then(api.requireBudgetRevision)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "83770ddf-b34b-4933-8bb7-fa9774e9da4f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": 0,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+                },
+                "url": "{{base_url}}/v1/budgets/items"
+              },
+              "response": []
             }
           ],
           "_postman_id": "bb3e09d1-33de-45c4-b0f5-48c04bc5318b",
@@ -13137,7 +13223,7 @@
           "                    \"data\": {",
           "                        \"type\": \"account\",",
           "                        \"attributes\": {",
-          "                            \"name\": \"My new budget account\",",
+          "                            \"name\": \"Test account - \" + Math.floor(Math.random() * 1000),",
           "                        },",
           "                        \"relationships\": {",
           "                            \"report\": {",
@@ -13186,7 +13272,7 @@
           "                        \"type\": \"budget\",",
           "                        \"attributes\": {",
           "                            \"interval\": \"year\",",
-          "                            \"description\": \"This is a new budget\",",
+          "                            \"description\": \"Test Budget - \" + Math.floor(Math.random() * 1000),",
           "                            \"metric\": \"prices\"",
           "                        }",
           "                    }",
@@ -13272,7 +13358,7 @@
   ],
   "variable": [
     {
-      "id": "05cfca31-74e7-4b5f-ac53-b94cbe7186fd",
+      "id": "5bb98c45-7767-418f-9299-28e256346db0",
       "key": "component",
       "value": "use",
       "type": "string"
