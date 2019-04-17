@@ -13083,7 +13083,7 @@
           "                    \"data\": {",
           "                        \"type\": \"report\",",
           "                        \"attributes\": {",
-          "                            \"name\": \"Test report - {{$randomInt}}\",",
+          "                            \"name\": \"Test report - \" + Math.floor(Math.random() * 1000),",
           "                            \"dset\": pm.variables.get(\"dset_id\"),",
           "                            \"lvl1_key_col\": \"Country\",",
           "                            \"lvl1_name_col\": \"Country\",",
@@ -13272,7 +13272,7 @@
   ],
   "variable": [
     {
-      "id": "8dea357e-10a9-4384-b783-bdcf56a65cca",
+      "id": "05cfca31-74e7-4b5f-ac53-b94cbe7186fd",
       "key": "component",
       "value": "use",
       "type": "string"
