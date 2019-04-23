@@ -12489,16 +12489,16 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`.",
-                      "type": "text"
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
                     }
                   ],
                   "variable": [
                     {
                       "key": "workflowstep_id",
                       "value": "{{workflowstep_id}}",
-                      "type": "string"
+                      "type": "string",
+                      "description": "Workflow step ID"
                     }
                   ]
                 },
@@ -13368,7 +13368,7 @@
   ],
   "variable": [
     {
-      "id": "2777dddd-65e4-4127-93d4-723db5c5113c",
+      "id": "ac6919b2-f3bc-482f-9814-90714f83e5de",
       "key": "component",
       "value": "use",
       "type": "string"
