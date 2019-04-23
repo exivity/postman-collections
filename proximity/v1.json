@@ -11918,7 +11918,10 @@
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
-                      "});"
+                      "});",
+                      "",
+                      "pm.environment.set(\"workflowstep_id\", response.data[0].id);",
+                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -12474,20 +12477,27 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}?include=",
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "workflowsteps",
-                    "{{workflowstep_id}}"
+                    ":workflowstep_id"
                   ],
                   "query": [
                     {
                       "key": "include",
                       "value": "",
                       "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{workflowstep_id}}",
+                      "type": "string"
                     }
                   ]
                 },
@@ -13322,7 +13332,7 @@
   ],
   "variable": [
     {
-      "id": "cff12bf8-46cf-4f74-b852-10b98550ecac",
+      "id": "c7041812-0379-4df9-b909-49c6c9c861e2",
       "key": "component",
       "value": "use",
       "type": "string"
