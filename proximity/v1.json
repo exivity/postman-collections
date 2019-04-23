@@ -12608,7 +12608,25 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}/logs"
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id/logs",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps",
+                    ":workflowstep_id",
+                    "logs"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{workflowstep_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -12647,7 +12665,24 @@
                   "mode": "formdata",
                   "formdata": []
                 },
-                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps",
+                    ":workflowstep_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{workflowstep_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -13332,7 +13367,7 @@
   ],
   "variable": [
     {
-      "id": "c7041812-0379-4df9-b909-49c6c9c861e2",
+      "id": "d6bd8b49-8798-4c14-8e18-890f7d89befb",
       "key": "component",
       "value": "use",
       "type": "string"
