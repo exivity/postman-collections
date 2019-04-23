@@ -10947,6 +10947,245 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "/translations",
+          "item": [
+            {
+              "name": "Overwrite translation",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0500390f-a1a9-475f-8bf7-48d7ad8252cf",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains configuration data\", function () {",
+                      "    pm.expect(response).to.be.an('object');",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains all keys\", function () {",
+                      "    pm.expect(response.data.hello).to.be.a('string');",
+                      "    pm.expect(response.data.hello).to.be.eql('Hello World');",
+                      "    pm.expect(response.data.bye).to.be.a('string');",
+                      "    pm.expect(response.data.bye).to.be.eql('Goodbye');",
+                      "    pm.expect(response.data.happy).to.be.eql(1);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "4238e088-4c00-4405-b257-3407a99bc19f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"hello\": \"Hello World\",\r\n\t\t\"bye\": \"Goodbye\",\r\n\t\t\"happy\": true\r\n\t}\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/translations/:locale/:filename",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "translations",
+                    ":locale",
+                    ":filename"
+                  ],
+                  "variable": [
+                    {
+                      "id": "070ad597-178c-4d30-b9f2-0f61ac4e8e63",
+                      "key": "locale",
+                      "value": "en",
+                      "type": "string",
+                      "description": "ISO 639-1 two letter code representation of names of language"
+                    },
+                    {
+                      "id": "57e2430c-a73e-40bb-8335-ae21982b74f1",
+                      "key": "filename",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get translation",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0500390f-a1a9-475f-8bf7-48d7ad8252cf",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains configuration data\", function () {",
+                      "    pm.expect(response).to.be.an('object');",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8ce8a5d3-cf35-4fe3-ace2-4d02041fdd56",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/translations/:locale/:filename",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "translations",
+                    ":locale",
+                    ":filename"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8078032f-7383-4efe-a56e-f2ac18aa3b2e",
+                      "key": "locale",
+                      "value": "en",
+                      "type": "string",
+                      "description": "ISO 639-1 two letter code representation of names of language"
+                    },
+                    {
+                      "id": "60ddf905-a29a-47ce-9ec4-acbbda005f0a",
+                      "key": "filename",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update translation",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0500390f-a1a9-475f-8bf7-48d7ad8252cf",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains configuration data\", function () {",
+                      "    pm.expect(response).to.be.an('object');",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains all keys\", function () {",
+                      "    pm.expect(response.data.hello).to.be.a('string');",
+                      "    pm.expect(response.data.hello).to.be.eql('Hello World');",
+                      "    pm.expect(response.data.bye).to.be.a('string');",
+                      "    pm.expect(response.data.bye).to.be.eql('Goodbye');",
+                      "    pm.expect(response.data.happy).to.be.eql(1);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "a836cb2a-8c9e-4b63-8d4c-79f36573993a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"hello\": \"Hello World\"\r\n\t}\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/translations/:locale/:filename",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "translations",
+                    ":locale",
+                    ":filename"
+                  ],
+                  "variable": [
+                    {
+                      "id": "870a9749-ddea-4d5f-84ea-9a4c10672fca",
+                      "key": "locale",
+                      "value": "en",
+                      "type": "string",
+                      "description": "ISO 639-1 two letter code representation of names of language"
+                    },
+                    {
+                      "id": "de806b74-1525-4c0f-978a-690255df4835",
+                      "key": "filename",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "8c4e1311-97c8-48de-ae38-487ecb30d0a5",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
@@ -13370,7 +13609,7 @@
   ],
   "variable": [
     {
-      "id": "f1968c24-b4ba-496b-9239-28f5edd23afb",
+      "id": "5357a409-848c-4c48-90d6-4a84a7a715fa",
       "key": "component",
       "value": "use",
       "type": "string"
