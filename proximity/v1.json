@@ -11742,7 +11742,9 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
-                      ""
+                      "",
+                      "pm.environment.set(\"workflowsteplog_id\", response.data[0].id);",
+                      "console.log('SET workflowsteplog_id: ' + pm.environment.get(\"workflowsteplog_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -13368,7 +13370,7 @@
   ],
   "variable": [
     {
-      "id": "ac6919b2-f3bc-482f-9814-90714f83e5de",
+      "id": "f1968c24-b4ba-496b-9239-28f5edd23afb",
       "key": "component",
       "value": "use",
       "type": "string"
