@@ -12477,7 +12477,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include=",
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -12485,13 +12485,6 @@
                     "v1",
                     "workflowsteps",
                     ":workflowstep_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
-                    }
                   ],
                   "variable": [
                     {
@@ -13367,7 +13360,7 @@
   ],
   "variable": [
     {
-      "id": "d6bd8b49-8798-4c14-8e18-890f7d89befb",
+      "id": "7ad16e3e-1c69-47c4-99e6-25661fcf6be0",
       "key": "component",
       "value": "use",
       "type": "string"
