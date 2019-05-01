@@ -11693,76 +11693,6 @@
                 }
               },
               "response": []
-            },
-            {
-              "name": "Retrieve a workflow Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflow');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"name\": \"test\",",
-                      "        \"description\": \"This is test task\",",
-                      "        \"locked\": false,",
-                      "  });",
-                      "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "7bb427e1-5762-4652-9ebd-6d82801c9e7c",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflows/{{workflow_id}}?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflows",
-                    "{{workflow_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
-                    }
-                  ]
-                }
-              },
-              "response": []
             }
           ],
           "_postman_id": "6adb9863-cc52-4412-9977-5f2be41f3dcf",
@@ -13679,7 +13609,7 @@
   ],
   "variable": [
     {
-      "id": "b5bfbd0e-ddfb-4c4b-bf5a-7272546a0413",
+      "id": "c3a2f452-c038-4f90-98d0-32843d9238eb",
       "key": "component",
       "value": "use",
       "type": "string"
