@@ -2750,7 +2750,7 @@
       "_postman_id": "92661722-064b-e78a-ac6d-4172cf895678"
     },
     {
-      "name": "Budgets (beta)",
+      "name": "Budgets",
       "item": [
         {
           "name": "/budgets",
@@ -13609,7 +13609,7 @@
   ],
   "variable": [
     {
-      "id": "c3a2f452-c038-4f90-98d0-32843d9238eb",
+      "id": "84984631-5479-4785-b3cd-b4337fe14f9f",
       "key": "component",
       "value": "use",
       "type": "string"
