@@ -4143,7 +4143,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -4365,6 +4367,63 @@
           "name": "/metadata",
           "item": [
             {
+              "name": "Add new metadata",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('metadata');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"values\"",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "console.log('SET metadata_id: ' + pm.environment.get(\"metadata_id\"));",
+                      "pm.environment.set(\"metadata_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "346834f6-1a83-4b67-af11-eda964cf277e",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"country\": \"The Netherlands\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"definition\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"metadatadefinition\",\r\n\t\t\t\t\t\"id\": \"{{metadatadefinition_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/metadata"
+              },
+              "response": []
+            },
+            {
               "name": "Retrieve a list of metadata",
               "event": [
                 {
@@ -4433,63 +4492,6 @@
                     }
                   ]
                 }
-              },
-              "response": []
-            },
-            {
-              "name": "Add new metadata",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('metadata');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"values\"",
-                      "\t]);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "console.log('SET metadata_id: ' + pm.environment.get(\"metadata_id\"));",
-                      "pm.environment.set(\"metadata_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "346834f6-1a83-4b67-af11-eda964cf277e",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadata\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"values\": {\r\n\t\t\t\t\"country\": \"The Netherlands\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"definition\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"metadatadefinition\",\r\n\t\t\t\t\t\"id\": \"{{metadatadefinition_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/metadata"
               },
               "response": []
             },
@@ -13609,7 +13611,7 @@
   ],
   "variable": [
     {
-      "id": "370715f8-8b52-4341-ba9f-dc2d0b8cd752",
+      "id": "af485281-59d1-4b84-99ab-a55c93a8f35f",
       "key": "component",
       "value": "use",
       "type": "string"
