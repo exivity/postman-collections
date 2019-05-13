@@ -318,17 +318,40 @@
           "item": [
             {
               "name": "Initiate SAML login request",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2c07fbb4-81b4-4775-bf67-7095cfa1d855",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(422);",
+                      "});",
+                      "",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
               "_postman_id": "a0ea510b-cd3e-400d-9bb3-55f47ebd145a",
               "request": {
                 "auth": {
                   "type": "noauth"
                 },
                 "method": "GET",
-                "header": [],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
                 "url": {
                   "raw": "{{base_url}}/v1/auth/saml/login?return_url=",
                   "host": [
@@ -344,7 +367,7 @@
                     {
                       "key": "return_url",
                       "value": "",
-                      "description": "Glass URL to return to after logging in. If not specified, inferred from Referer header."
+                      "type": "text"
                     }
                   ]
                 },
@@ -13657,7 +13680,7 @@
   ],
   "variable": [
     {
-      "id": "c34b83cf-1661-4b43-8d6e-9cf254a5d81d",
+      "id": "25008500-dc29-409d-a433-0f002a3d9aa9",
       "key": "component",
       "value": "use",
       "type": "string"
