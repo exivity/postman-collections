@@ -11603,8 +11603,7 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
-                      "",
-                      "postman.setNextRequest(\"Retrieve a list of steps\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -11720,8 +11719,7 @@
                       "pm.environment.unset(\"workflow_id\");",
                       "console.log('UNSET workflowrun_id');",
                       "pm.environment.unset(\"workflowrun_id\");",
-                      "",
-                      "postman.setNextRequest(\"Get all notification channels\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -13681,7 +13679,7 @@
   ],
   "variable": [
     {
-      "id": "55a0e007-9061-4e2b-baa8-ea9d44d3fbcb",
+      "id": "45d1b1c0-3982-47f2-9db2-760ebba59d74",
       "key": "component",
       "value": "use",
       "type": "string"
