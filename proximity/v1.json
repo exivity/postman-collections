@@ -12213,85 +12213,6 @@
           "name": "/workflowsteps",
           "item": [
             {
-              "name": "Retrieve a list of steps",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"workflowstep_id\", response.data[0].id);",
-                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "d556aca6-a7b5-4e92-843b-f524f9f24d07",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "",
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
               "name": "Add a new use step",
               "event": [
                 {
@@ -12732,6 +12653,85 @@
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a list of steps",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"workflowstep_id\", response.data[0].id);",
+                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d556aca6-a7b5-4e92-843b-f524f9f24d07",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+                    }
+                  ]
+                },
+                "description": "Test description"
               },
               "response": []
             },
@@ -13681,7 +13681,7 @@
   ],
   "variable": [
     {
-      "id": "0d25482b-37d3-452e-b69c-dafa28fc7c6a",
+      "id": "55a0e007-9061-4e2b-baa8-ea9d44d3fbcb",
       "key": "component",
       "value": "use",
       "type": "string"
