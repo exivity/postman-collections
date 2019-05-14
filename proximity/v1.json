@@ -325,7 +325,7 @@
                     "id": "2c07fbb4-81b4-4775-bf67-7095cfa1d855",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(422);",
+                      "    pm.response.to.have.status(500);",
                       "});",
                       "",
                       ""
@@ -366,8 +366,7 @@
                   "query": [
                     {
                       "key": "return_url",
-                      "value": "",
-                      "type": "text"
+                      "value": ""
                     }
                   ]
                 },
@@ -12647,7 +12646,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -13680,7 +13681,7 @@
   ],
   "variable": [
     {
-      "id": "25008500-dc29-409d-a433-0f002a3d9aa9",
+      "id": "0d25482b-37d3-452e-b69c-dafa28fc7c6a",
       "key": "component",
       "value": "use",
       "type": "string"
