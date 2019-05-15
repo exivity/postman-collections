@@ -12283,8 +12283,6 @@
                       "    .catch(function(err) {\r",
                       "        console.log(err);\r",
                       "    });\r",
-                      "    \r",
-                      "    \r",
                       "    "
                     ],
                     "type": "text/javascript"
@@ -13767,7 +13765,7 @@
   ],
   "variable": [
     {
-      "id": "a00f8cba-bd9c-4afb-80f4-ae1961a0f342",
+      "id": "8c952850-bbd2-4e75-8aab-534049d6e0e2",
       "key": "component",
       "value": "use",
       "type": "string"
