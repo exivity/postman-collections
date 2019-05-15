@@ -3466,6 +3466,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "aaf6b604-85e0-4015-992e-0e470d59210f",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireBudget)\r",
+                      "    .then(api.requireBudgetRevision)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "963b091d-840d-437a-ac81-35f46cabe412",
@@ -3503,7 +3521,6 @@
                   ],
                   "variable": [
                     {
-                      "id": "d8d33509-fb0a-4553-885c-e9f8c952931a",
                       "key": "budget_revision_id",
                       "value": "{{budgetrevision_id}}",
                       "type": "string"
@@ -13814,7 +13831,7 @@
   ],
   "variable": [
     {
-      "id": "9f9d4b28-ffdc-4361-a1a3-448ab6480aa3",
+      "id": "077bcd1d-ff6c-415c-bf4e-60d21a09794a",
       "key": "component",
       "value": "use",
       "type": "string"
