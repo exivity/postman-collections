@@ -12437,8 +12437,6 @@
                       "pm.environment.set(\"proximity_workflowstep_id\", response.data.id);",
                       "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));",
                       "",
-                      "pm.environment.set(\"workflowstep_id\", response.data.id);",
-                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));",
                       ""
                     ],
                     "type": "text/javascript"
@@ -12603,7 +12601,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include",
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -12615,14 +12613,14 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": null,
+                      "value": "",
                       "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
                     }
                   ],
                   "variable": [
                     {
                       "key": "workflowstep_id",
-                      "value": "{{workflowstep_id}}",
+                      "value": "{{proximity_workflowstep_id}}",
                       "type": "string",
                       "description": "Workflow step ID"
                     }
@@ -13769,7 +13767,7 @@
   ],
   "variable": [
     {
-      "id": "f2ed6978-2556-41c1-8301-e6bde6ee14c4",
+      "id": "a00f8cba-bd9c-4afb-80f4-ae1961a0f342",
       "key": "component",
       "value": "use",
       "type": "string"
