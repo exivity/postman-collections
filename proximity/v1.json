@@ -12663,13 +12663,13 @@
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"execute_workflowstep_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"proximity\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
+                      "        \"type\": \"execute\",",
+                      "        \"sort\": 1,",
+                      "        \"timeout\": 600,",
+                      "        \"last_log\": null,",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
                       "  pm.expect(response.data.attributes.options).to.include({",
@@ -13817,7 +13817,7 @@
   ],
   "variable": [
     {
-      "id": "2d865192-3196-4296-9389-cddc5fdbe122",
+      "id": "534d0529-56b7-48c8-9eb1-de527949d73f",
       "key": "component",
       "value": "use",
       "type": "string"
