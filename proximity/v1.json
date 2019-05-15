@@ -12684,6 +12684,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "27dea6f6-e979-447d-908f-aef5c96e908a",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.requireWorkflowExecuteStep)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "15f267b9-7dd0-4090-8065-6e0069ab013c",
@@ -13799,7 +13817,7 @@
   ],
   "variable": [
     {
-      "id": "a541ec68-bbfe-401b-a1a9-dfde7224d4fc",
+      "id": "e63204b0-cb3d-4bcd-a565-61390128b110",
       "key": "component",
       "value": "use",
       "type": "string"
