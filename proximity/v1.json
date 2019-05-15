@@ -12983,7 +12983,7 @@
                   "variable": [
                     {
                       "key": "workflow_step_log_id",
-                      "value": "1",
+                      "value": "{{workflowsteplog_id}}",
                       "type": "string"
                     }
                   ]
@@ -13769,7 +13769,7 @@
   ],
   "variable": [
     {
-      "id": "3545292f-0eae-4da0-bf2e-0cae35a18192",
+      "id": "f2ed6978-2556-41c1-8301-e6bde6ee14c4",
       "key": "component",
       "value": "use",
       "type": "string"
