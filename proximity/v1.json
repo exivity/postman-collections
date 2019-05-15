@@ -12672,10 +12672,7 @@
                       "        \"last_log\": null,",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"exivity:gc\",",
-                      "        \"arguments\": \"test\"",
-                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.include({\"command\": \"echo \\\"testing\\\"\"});",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -12724,7 +12721,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{execute_workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{execute_workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}\r\n"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
@@ -13817,7 +13814,7 @@
   ],
   "variable": [
     {
-      "id": "534d0529-56b7-48c8-9eb1-de527949d73f",
+      "id": "9f9d4b28-ffdc-4361-a1a3-448ab6480aa3",
       "key": "component",
       "value": "use",
       "type": "string"
