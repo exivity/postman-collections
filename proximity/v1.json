@@ -12579,7 +12579,7 @@
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowstep_id\").toString());",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"proximity_workflowstep_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "    \"type\": \"proximity\",",
@@ -12706,9 +12706,26 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{execute_workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}"
                 },
-                "url": "{{base_url}}/v1/workflowsteps/{{workflowstep_id}}",
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps",
+                    ":workflowstep_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{execute_workflowstep_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "description": "Test description"
               },
               "response": []
@@ -13782,7 +13799,7 @@
   ],
   "variable": [
     {
-      "id": "5abac6f6-b58d-43e6-8610-fd4820e4d348",
+      "id": "a541ec68-bbfe-401b-a1a9-dfde7224d4fc",
       "key": "component",
       "value": "use",
       "type": "string"
