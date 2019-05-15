@@ -12836,6 +12836,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "a0b63334-62bd-455f-a102-3972fc825158",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.requireWorkflowExecuteStep)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "d2642594-16e5-4cd7-81ed-dc60cfe6c15e",
@@ -12867,7 +12885,7 @@
                   "variable": [
                     {
                       "key": "workflowstep_id",
-                      "value": "{{workflowstep_id}}",
+                      "value": "{{execute_workflowstep_id}}",
                       "type": "string"
                     }
                   ]
@@ -12908,9 +12926,28 @@
               "name": "Retrieve a list of workflow step logs",
               "event": [
                 {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5437bce0-054a-4e27-a487-d89712cf7c02",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.requireWorkflowExecuteStep)\r",
+                      "    .then(api.runWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
                   "listen": "test",
                   "script": {
-                    "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
+                    "id": "08f4b1f9-abcb-4591-b091-c2ed86c30561",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -13853,7 +13890,7 @@
   ],
   "variable": [
     {
-      "id": "f83893dc-5e04-40e1-868c-6184adb11252",
+      "id": "08a40ac7-33b5-435a-8b6b-ff47f27c2172",
       "key": "component",
       "value": "use",
       "type": "string"
