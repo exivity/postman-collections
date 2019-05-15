@@ -11326,7 +11326,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n            \"description\": \"This is test task\",\r\n            \"hidden\": false,\r\n            \"locked\": false\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflow\",\r\n    \t\"attributes\": {\r\n    \t\t\"name\": \"test\",\r\n            \"description\": \"This is test task\",\r\n            \"hidden\": false,\r\n            \"locked\": false\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflows"
               },
@@ -13784,7 +13784,7 @@
   ],
   "variable": [
     {
-      "id": "437dd90c-5ba0-4f96-8195-6e083d2c23b0",
+      "id": "ab55bbed-187d-43f3-a269-8a32bd7db47b",
       "key": "component",
       "value": "use",
       "type": "string"
