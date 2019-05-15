@@ -13818,7 +13818,7 @@
           "        }",
           "",
           "        return api.asyncRequest({",
-          "            url: pm.variables.get(\"base_url\") + '/v1/workflows/' + pm.environment.get(\"workflowstep_id\") + '/run',",
+          "            url: pm.variables.get(\"base_url\") + '/v1/workflows/' + pm.environment.get(\"workflow_id\") + '/run',",
           "            method: 'POST',",
           "            header: {",
           "                'Accept': 'application/json',",
@@ -13853,7 +13853,7 @@
   ],
   "variable": [
     {
-      "id": "063a625c-b619-4b20-8213-fd0fda135d77",
+      "id": "f83893dc-5e04-40e1-868c-6184adb11252",
       "key": "component",
       "value": "use",
       "type": "string"
