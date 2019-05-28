@@ -9547,7 +9547,13 @@
                   "_postman_id": "9cac764c-f8dc-5103-f963-1169a20585cf",
                   "request": {
                     "method": "DELETE",
-                    "header": [],
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                      }
+                    ],
                     "body": {
                       "mode": "formdata",
                       "formdata": []
@@ -11750,7 +11756,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -11822,61 +11828,17 @@
                   "script": {
                     "id": "070d88d0-519a-4efa-8783-d4708d57862b",
                     "exec": [
-                      "if (!pm.environment.get(\"workflow_id\")) {",
-                      "    console.log('No workflow ID set - create a new workflow & run it');",
+                      "const api = eval(pm.globals.get('exivity'))();",
                       "",
-                      "    // Create a new workflow",
-                      "    pm.sendRequest({",
-                      "        url: pm.variables.get(\"base_url\") + '/v1/workflows',",
-                      "        method: 'POST',",
-                      "        header: {",
-                      "            'Accept': 'application/json',",
-                      "            'Content-Type': 'application/json',",
-                      "            'Authorization': 'Bearer ' + pm.variables.get(\"token\")",
-                      "        },",
-                      "        body: {",
-                      "            mode: 'raw',",
-                      "            raw: JSON.stringify({",
-                      "                \"data\": {",
-                      "                    \"type\": \"workflow\",",
-                      "                    \"attributes\": {",
-                      "                        \"name\": \"test\",",
-                      "                        \"description\": \"This is test task\",",
-                      "                        \"hidden\": false,",
-                      "                        \"locked\": false",
-                      "                    }",
-                      "                }",
-                      "            })",
-                      "        }",
-                      "    }, function(error, response) {",
-                      "        if (error) {",
-                      "            console.log(\"Error: \" + error);",
-                      "        } else {",
-                      "            pm.expect(response).to.have.property('code', 201);",
-                      "            json = response.json();",
-                      "            pm.environment.set(\"workflow_id\", json.data.id);",
-                      "            console.log('SET workflow_id: ' + pm.environment.get(\"workflow_id\"));",
-                      "            ",
-                      "            // Run the workflow",
-                      "            pm.sendRequest({",
-                      "                url: pm.variables.get(\"base_url\") + '/v1/workflows/' + pm.environment.get(\"workflow_id\") +'/run',",
-                      "                method: 'POST',",
-                      "                header: {",
-                      "                    'Accept': 'application/json',",
-                      "                    'Content-Type': 'application/json',",
-                      "                    'Authorization': 'Bearer ' + pm.variables.get(\"token\")",
-                      "                }",
-                      "            }, function(error, response) {",
-                      "                if (error) {",
-                      "                    console.log(\"Error: \" + error);",
-                      "                } else {",
-                      "                    pm.expect(response).to.have.property('code', 200);",
-                      "                    console.log('Workflow ran successfully.');",
-                      "                }",
-                      "            });",
-                      "        }",
+                      "api.start()",
+                      "    .then(api.requireWorkflow)",
+                      "    .then(api.requireWorkflowExecuteStep)",
+                      "    .then(api.runWorkflow)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
                       "    });",
-                      "}"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -13898,7 +13860,7 @@
   ],
   "variable": [
     {
-      "id": "feef6ddc-46d7-417e-a21f-b695bc59d00c",
+      "id": "c70edc79-218c-4561-bfad-00a0a3ff0887",
       "key": "component",
       "value": "use",
       "type": "string"
