@@ -3949,7 +3949,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -3969,7 +3969,6 @@
                   ],
                   "variable": [
                     {
-                      "id": "47f53713-12b7-4d12-b696-5588fcc18a1c",
                       "key": "budgetitem_id",
                       "value": "{{budgetitem_id}}",
                       "type": "string"
@@ -5776,7 +5775,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -6107,7 +6106,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -13566,7 +13565,7 @@
           "",
           "        // Check if Report ID is set",
           "        if (pm.environment.get(\"report_id\") && pm.environment.get(\"report_id\") !== 'undefined') {",
-          "            console.log('GET report_id' + pm.environment.get(\"report_id\"));",
+          "            console.log('GET report_id: ' + pm.environment.get(\"report_id\"));",
           "            return pm.environment.get(\"report_id\");",
           "        }",
           "",
@@ -13899,7 +13898,7 @@
   ],
   "variable": [
     {
-      "id": "caacf2d6-c58b-4d04-bfa4-a27fe12ead7e",
+      "id": "46098636-c36b-4847-a585-ab51e844b129",
       "key": "component",
       "value": "use",
       "type": "string"
