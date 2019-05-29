@@ -11915,8 +11915,8 @@
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data.type).to.eql('workflowrun');",
-                      "    pm.expect(response.data.attributes.start).to.be.a('string')",
-                      "    pm.expect(response.data.attributes.end).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.start_date).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.end_date).to.be.a('string');",
                       "    pm.expect(response.data.attributes.status).to.be.a('string');",
                       "",
                       "});",
@@ -13391,7 +13391,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -13860,7 +13860,7 @@
   ],
   "variable": [
     {
-      "id": "afd76a2a-fcd9-43de-b712-cc38b2580f25",
+      "id": "8946de74-706d-4e1e-8e9a-5ea98d29af79",
       "key": "component",
       "value": "use",
       "type": "string"
