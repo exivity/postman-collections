@@ -3945,14 +3945,13 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/items/:budgetitem_id",
+                  "raw": "{{base_url}}/v1/budgetitems/:budgetitem_id",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "items",
+                    "budgetitems",
                     ":budgetitem_id"
                   ],
                   "variable": [
@@ -13848,7 +13847,7 @@
   ],
   "variable": [
     {
-      "id": "57ecec7d-e99f-4a77-8cb3-5ebd1adfc14b",
+      "id": "fd5b4275-6bbb-489d-b544-5af82b5cd171",
       "key": "component",
       "value": "use",
       "type": "string"
