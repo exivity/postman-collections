@@ -3594,7 +3594,7 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "/budgets/items",
+          "name": "/budgetitems",
           "item": [
             {
               "name": "Add a new budget item",
@@ -13860,7 +13860,7 @@
   ],
   "variable": [
     {
-      "id": "ee5b6cf9-b3e7-4b89-9c27-0d23d6e02e7b",
+      "id": "c7c186c7-1fe9-462c-88b7-e93b510dcc5e",
       "key": "component",
       "value": "use",
       "type": "string"
