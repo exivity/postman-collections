@@ -3404,14 +3404,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/revisions/:revision_id/validate",
+                  "raw": "{{base_url}}/v1/budgetrevisions/:revision_id/validate",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "revisions",
+                    "budgetrevisions",
                     ":revision_id",
                     "validate"
                   ],
@@ -13857,7 +13856,7 @@
   ],
   "variable": [
     {
-      "id": "450dcfa4-9216-40b6-8768-330d3ccd558f",
+      "id": "cbde0575-cf38-4abc-bdc0-e175eabd46d8",
       "key": "component",
       "value": "use",
       "type": "string"
