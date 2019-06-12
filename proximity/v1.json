@@ -3885,19 +3885,17 @@
                   "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"id\":{{budgetitem_id}},\n        \"attributes\": {\n            \"amount\": 100\n        }\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/items/:budgetitem_id",
+                  "raw": "{{base_url}}/v1/budgetitems/:budgetitem_id",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "items",
+                    "budgetitems",
                     ":budgetitem_id"
                   ],
                   "variable": [
                     {
-                      "id": "56b994ee-c9f4-46ee-b8ed-3d13dd79b831",
                       "key": "budgetitem_id",
                       "value": "{{budgetitem_id}}",
                       "type": "string"
@@ -13852,7 +13850,7 @@
   ],
   "variable": [
     {
-      "id": "9034a243-4697-4795-8c89-0844cdc4ad96",
+      "id": "559adb6e-a41b-4a30-ba75-cb3932e98a62",
       "key": "component",
       "value": "use",
       "type": "string"
