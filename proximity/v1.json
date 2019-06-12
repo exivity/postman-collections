@@ -3711,14 +3711,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/items?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "raw": "{{base_url}}/v1/budgetitems?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "items"
+                    "budgetitems"
                   ],
                   "query": [
                     {
@@ -13853,7 +13852,7 @@
   ],
   "variable": [
     {
-      "id": "ada2cb10-ca0c-4f48-8ab1-4f81bbaeb6e1",
+      "id": "9034a243-4697-4795-8c89-0844cdc4ad96",
       "key": "component",
       "value": "use",
       "type": "string"
