@@ -3671,7 +3671,7 @@
                   "mode": "raw",
                   "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": 0,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
                 },
-                "url": "{{base_url}}/v1/budgets/items"
+                "url": "{{base_url}}/v1/budgetitems"
               },
               "response": []
             },
@@ -13853,7 +13853,7 @@
   ],
   "variable": [
     {
-      "id": "b5e0a9af-717d-4741-ab52-68b2eef77cba",
+      "id": "ada2cb10-ca0c-4f48-8ab1-4f81bbaeb6e1",
       "key": "component",
       "value": "use",
       "type": "string"
