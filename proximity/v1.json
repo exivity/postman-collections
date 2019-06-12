@@ -3346,14 +3346,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/revisions/:revision_id?include=",
+                  "raw": "{{base_url}}/v1/budgetrevisions/:revision_id?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "revisions",
+                    "budgetrevisions",
                     ":revision_id"
                   ],
                   "query": [
@@ -3365,7 +3364,6 @@
                   ],
                   "variable": [
                     {
-                      "id": "e57b0d80-10e1-46c1-874d-ac246fa05bee",
                       "key": "revision_id",
                       "value": "{{budgetrevision_id}}",
                       "type": "string"
@@ -13859,7 +13857,7 @@
   ],
   "variable": [
     {
-      "id": "056f89cd-1abc-4b75-aeb8-11bd9e29e718",
+      "id": "450dcfa4-9216-40b6-8768-330d3ccd558f",
       "key": "component",
       "value": "use",
       "type": "string"
