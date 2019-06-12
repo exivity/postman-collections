@@ -3562,19 +3562,17 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/revisions/:budget_revision_id",
+                  "raw": "{{base_url}}/v1/budgetrevisions/:budget_revision_id",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "revisions",
+                    "budgetrevisions",
                     ":budget_revision_id"
                   ],
                   "variable": [
                     {
-                      "id": "967ef230-abd9-411d-b965-7ed3d5edc77f",
                       "key": "budget_revision_id",
                       "value": "{{budgetrevision_id}}",
                       "type": "string"
@@ -13855,7 +13853,7 @@
   ],
   "variable": [
     {
-      "id": "9ca561d9-6fd8-4201-a4a6-efff107f307b",
+      "id": "b5e0a9af-717d-4741-ab52-68b2eef77cba",
       "key": "component",
       "value": "use",
       "type": "string"
