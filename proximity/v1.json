@@ -3505,14 +3505,13 @@
                   "raw": "{\n\t\"data\": {\n        \"type\":\"budgetrevision\",\n        \"id\":{{budgetrevision_id}},\n        \"attributes\": {\n            \"effective_from\": \"20190707\"\n        }\n    }\n}"
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/revisions/:budget_revision_id",
+                  "raw": "{{base_url}}/v1/budgetrevisions/:budget_revision_id",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "revisions",
+                    "budgetrevisions",
                     ":budget_revision_id"
                   ],
                   "variable": [
@@ -13856,7 +13855,7 @@
   ],
   "variable": [
     {
-      "id": "cbde0575-cf38-4abc-bdc0-e175eabd46d8",
+      "id": "9ca561d9-6fd8-4201-a4a6-efff107f307b",
       "key": "component",
       "value": "use",
       "type": "string"
