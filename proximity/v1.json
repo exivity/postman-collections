@@ -3141,7 +3141,7 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "/budgets/revisions",
+          "name": "/budgetrevisions",
           "item": [
             {
               "name": "Add a new budget revision",
@@ -13860,7 +13860,7 @@
   ],
   "variable": [
     {
-      "id": "8946de74-706d-4e1e-8e9a-5ea98d29af79",
+      "id": "ee5b6cf9-b3e7-4b89-9c27-0d23d6e02e7b",
       "key": "component",
       "value": "use",
       "type": "string"
