@@ -3797,14 +3797,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/items/:item_id?include=",
+                  "raw": "{{base_url}}/v1/budgetitems/:item_id?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "items",
+                    "budgetitems",
                     ":item_id"
                   ],
                   "query": [
@@ -3816,7 +3815,6 @@
                   ],
                   "variable": [
                     {
-                      "id": "40d9455b-2907-4613-bda5-57386469c78c",
                       "key": "item_id",
                       "value": "{{budgetitem_id}}",
                       "type": "string"
@@ -13850,7 +13848,7 @@
   ],
   "variable": [
     {
-      "id": "559adb6e-a41b-4a30-ba75-cb3932e98a62",
+      "id": "57ecec7d-e99f-4a77-8cb3-5ebd1adfc14b",
       "key": "component",
       "value": "use",
       "type": "string"
