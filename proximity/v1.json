@@ -3220,7 +3220,7 @@
                   "mode": "raw",
                   "raw": "{\n\t\"data\": {\n        \"type\":\"budgetrevision\",\n        \"attributes\": {\n            \"effective_from\": \"20190606\"\n        },\n        \"relationships\": {\n        \t\"budget\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budget\",\n        \t\t\t\"id\": \"{{budget_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
                 },
-                "url": "{{base_url}}/v1/budgets/revisions"
+                "url": "{{base_url}}/v1/budgetrevisions"
               },
               "response": []
             },
@@ -13860,7 +13860,7 @@
   ],
   "variable": [
     {
-      "id": "c7c186c7-1fe9-462c-88b7-e93b510dcc5e",
+      "id": "657e459b-07b9-43df-bb06-a96329dfe43c",
       "key": "component",
       "value": "use",
       "type": "string"
