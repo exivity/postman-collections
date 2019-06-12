@@ -3260,14 +3260,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/revisions?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "raw": "{{base_url}}/v1/budgetrevisions?page[limit]&page[offset]&sort&filter[attribute]&include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "revisions"
+                    "budgetrevisions"
                   ],
                   "query": [
                     {
@@ -13860,7 +13859,7 @@
   ],
   "variable": [
     {
-      "id": "657e459b-07b9-43df-bb06-a96329dfe43c",
+      "id": "056f89cd-1abc-4b75-aeb8-11bd9e29e718",
       "key": "component",
       "value": "use",
       "type": "string"
