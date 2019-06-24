@@ -3359,7 +3359,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `budget`"
+                      "description": "Include additional related resources. Possible values: `budget`, `items`"
                     }
                   ],
                   "variable": [
@@ -13860,7 +13860,7 @@
   ],
   "variable": [
     {
-      "id": "994c6239-e4eb-4de6-842b-5d3a7fdab780",
+      "id": "c12c4b20-3680-441d-a7ec-8cc7b93c821d",
       "key": "component",
       "value": "use",
       "type": "string"
