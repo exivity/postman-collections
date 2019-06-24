@@ -3271,28 +3271,24 @@
                   "query": [
                     {
                       "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
+                      "value": null
                     },
                     {
                       "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
+                      "value": null
                     },
                     {
                       "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
+                      "value": null
                     },
                     {
                       "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
+                      "value": null
                     },
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `accounts`, `services`, `servicecategories`, `budgetstatus`."
+                      "description": "Include additional related resources. Possible values: `budget`, `items`"
                     }
                   ]
                 }
@@ -13860,7 +13856,7 @@
   ],
   "variable": [
     {
-      "id": "c12c4b20-3680-441d-a7ec-8cc7b93c821d",
+      "id": "9af2fe62-3fac-4aaa-819f-b34d52228dd7",
       "key": "component",
       "value": "use",
       "type": "string"
