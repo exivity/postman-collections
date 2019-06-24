@@ -3806,7 +3806,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `parent`, `account`, `revision`"
+                      "description": "Include additional related resources. Possible values: `parent`, `account`, `revision`, `services`. `servicecategories`, `children`"
                     }
                   ],
                   "variable": [
@@ -13856,7 +13856,7 @@
   ],
   "variable": [
     {
-      "id": "9af2fe62-3fac-4aaa-819f-b34d52228dd7",
+      "id": "525ded57-c3b4-4879-a9e0-d372ea6997b6",
       "key": "component",
       "value": "use",
       "type": "string"
