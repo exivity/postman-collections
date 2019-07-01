@@ -24,6 +24,16 @@
                 ],
                 "type": "text/javascript"
               }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "50f910fa-778b-4bd8-ac06-b6fe023c097b",
+                "exec": [
+                  "console.log(\"Base_url: \", pm.environment.get(\"base_url\"));"
+                ],
+                "type": "text/javascript"
+              }
             }
           ],
           "_postman_id": "ee525104-747b-8c3a-4a6f-5853b45997e6",
@@ -3793,19 +3803,20 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgetitems/:item_id?include=",
+                  "raw": "{{base_url}}/v1/budgets/items/:item_id?include=servicecategories",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgetitems",
+                    "budgets",
+                    "items",
                     ":item_id"
                   ],
                   "query": [
                     {
                       "key": "include",
-                      "value": "",
+                      "value": "servicecategories",
                       "description": "Include additional related resources. Possible values: `parent`, `account`, `revision`, `services`. `servicecategories`, `children`"
                     }
                   ],
@@ -13856,7 +13867,7 @@
   ],
   "variable": [
     {
-      "id": "525ded57-c3b4-4879-a9e0-d372ea6997b6",
+      "id": "e2f4ec18-5790-4b5c-85d6-a0f8651db048",
       "key": "component",
       "value": "use",
       "type": "string"
