@@ -3803,20 +3803,19 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/items/:item_id?include=servicecategories",
+                  "raw": "{{base_url}}/v1/budgetitems/:item_id?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgets",
-                    "items",
+                    "budgetitems",
                     ":item_id"
                   ],
                   "query": [
                     {
                       "key": "include",
-                      "value": "servicecategories",
+                      "value": "",
                       "description": "Include additional related resources. Possible values: `parent`, `account`, `revision`, `services`. `servicecategories`, `children`"
                     }
                   ],
@@ -13867,7 +13866,7 @@
   ],
   "variable": [
     {
-      "id": "2b73839b-dc12-4f87-9f0b-b20472538449",
+      "id": "7d6f05bf-e9df-4ae6-9e26-29a1559aecdb",
       "key": "component",
       "value": "use",
       "type": "string"
