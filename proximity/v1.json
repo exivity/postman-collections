@@ -13690,7 +13690,7 @@
           "",
           "        return api.asyncRequest({",
           "            // Create a new budget revision",
-          "            url: pm.variables.get(\"base_url\") + '/v1/budgets/revisions',",
+          "            url: pm.variables.get(\"base_url\") + '/v1/budgetrevisions',",
           "            method: 'POST',",
           "            header: {",
           "                'Accept': 'application/json',",
@@ -13867,7 +13867,7 @@
   ],
   "variable": [
     {
-      "id": "e2f4ec18-5790-4b5c-85d6-a0f8651db048",
+      "id": "2b73839b-dc12-4f87-9f0b-b20472538449",
       "key": "component",
       "value": "use",
       "type": "string"
