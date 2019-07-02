@@ -8648,10 +8648,10 @@
                       "pm.test(\"Response contains REPORT_START_MONTH\", function () { pm.expect(response.configuration.REPORT_PRECISION).to.be.a('number'); });",
                       "pm.test(\"Response contains APP_DEBUG\", function () { pm.expect(response.configuration.APP_DEBUG).to.be.a('boolean'); });",
                       "pm.test(\"Response contains APP_NAME\", function () { pm.expect(response.configuration.APP_NAME).to.be.a('string'); });",
-                      "//pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.a('string'); });",
+                      "pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.oneOf(['string', null]); });",
                       "//pm.test(\"Response contains APP_ICON\", function () { pm.expect(response.configuration.APP_ICON).to.be.a('string'); });",
                       "//pm.test(\"Response contains APP_FAVICON\", function () { pm.expect(response.configuration.APP_FAVICON).to.be.a('string'); });",
-                      "pm.test(\"Response contains APP_COLOUR\", function () { pm.expect(response.configuration.APP_COLOUR).to.be.a('string'); });",
+                      "pm.test(\"Response contains APP_COLOUR\", function () { pm.expect(response.configuration.APP_COLOUR).to.be.oneOf(['string', null]); });",
                       "pm.test(\"Response contains APP_DOCUMENTATION\", function () { pm.expect(response.configuration.APP_DOCUMENTATION).to.be.a('boolean'); });",
                       "pm.test(\"Response contains USE_LOCAL_STORAGE\", function () { pm.expect(response.configuration.USE_LOCAL_STORAGE).to.be.a('boolean'); });",
                       "pm.test(\"Response contains ANALYTICS\", function () { pm.expect(response.configuration.ANALYTICS).to.be.a('boolean'); });",
@@ -13885,7 +13885,7 @@
   ],
   "variable": [
     {
-      "id": "c7028919-0c0b-41a3-9ba5-9a685e345f9f",
+      "id": "21b3e792-6785-4e92-b099-5bddeabc0486",
       "key": "component",
       "value": "use",
       "type": "string"
