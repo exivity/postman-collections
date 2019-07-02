@@ -8648,7 +8648,7 @@
                       "pm.test(\"Response contains REPORT_START_MONTH\", function () { pm.expect(response.configuration.REPORT_PRECISION).to.be.a('number'); });",
                       "pm.test(\"Response contains APP_DEBUG\", function () { pm.expect(response.configuration.APP_DEBUG).to.be.a('boolean'); });",
                       "pm.test(\"Response contains APP_NAME\", function () { pm.expect(response.configuration.APP_NAME).to.be.a('string'); });",
-                      "pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.oneOf(['string', null]); });",
+                      "//pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.a('string'); });",
                       "//pm.test(\"Response contains APP_ICON\", function () { pm.expect(response.configuration.APP_ICON).to.be.a('string'); });",
                       "//pm.test(\"Response contains APP_FAVICON\", function () { pm.expect(response.configuration.APP_FAVICON).to.be.a('string'); });",
                       "pm.test(\"Response contains APP_COLOUR\", function () { pm.expect(response.configuration.APP_COLOUR).to.be.oneOf(['string', null]); });",
@@ -13885,7 +13885,7 @@
   ],
   "variable": [
     {
-      "id": "21b3e792-6785-4e92-b099-5bddeabc0486",
+      "id": "e353a00a-0355-447d-9a51-c01bc0f6ca7f",
       "key": "component",
       "value": "use",
       "type": "string"
