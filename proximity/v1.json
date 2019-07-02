@@ -2824,6 +2824,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "d74cf94d-f7ec-4690-ad00-71dbc800bad3",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireReport)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "02805255-4e31-46be-b0ad-80cbcb9c6771",
@@ -2846,7 +2864,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"budget\",\r\n    \"attributes\": {\r\n      \"interval\": \"year\",\r\n      \"description\": \"This is a new budget\",\r\n      \"metric\": \"prices\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t  \"interval\": \"year\",\r\n\t\t\t  \"description\": \"This is a new budget\",\r\n\t\t\t  \"metric\": \"prices\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n                \r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/budgets"
               },
@@ -13866,7 +13884,7 @@
   ],
   "variable": [
     {
-      "id": "7d6f05bf-e9df-4ae6-9e26-29a1559aecdb",
+      "id": "e16c6ce2-e14d-4615-88c2-ad6239189f9a",
       "key": "component",
       "value": "use",
       "type": "string"
