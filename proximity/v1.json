@@ -2745,7 +2745,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": ""
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -13885,7 +13885,7 @@
   ],
   "variable": [
     {
-      "id": "475e8e11-75cd-4bd5-ba62-28967970e192",
+      "id": "c7028919-0c0b-41a3-9ba5-9a685e345f9f",
       "key": "component",
       "value": "use",
       "type": "string"
