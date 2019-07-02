@@ -8697,7 +8697,7 @@
                       "pm.test(\"Response contains APP_NAME\", function () { pm.expect(response.configuration.APP_NAME).to.be.a('string'); });",
                       "//pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.a('string'); });",
                       "//pm.test(\"Response contains APP_ICON\", function () { pm.expect(response.configuration.APP_ICON).to.be.a('string'); });",
-                      "pm.test(\"Response contains APP_COLOUR\", function () { pm.expect(response.configuration.APP_COLOUR).to.be.a('string'); });",
+                      "//pm.test(\"Response contains APP_COLOUR\", function () { pm.expect(response.configuration.APP_COLOUR).to.be.a('string'); });",
                       "//pm.test(\"Response contains APP_FAVICON\", function () { pm.expect(response.configuration.APP_FAVICON).to.be.a('string'); });",
                       "pm.test(\"Response contains APP_DOCUMENTATION\", function () { pm.expect(response.configuration.APP_DOCUMENTATION).to.be.a('boolean'); });",
                       "pm.test(\"Response contains USE_LOCAL_STORAGE\", function () { pm.expect(response.configuration.USE_LOCAL_STORAGE).to.be.a('boolean'); });",
@@ -13885,7 +13885,7 @@
   ],
   "variable": [
     {
-      "id": "e089f1ff-4872-4e68-8eed-3a062ffe391a",
+      "id": "1a42d4f6-2087-41cf-a175-4b757a6a0eb9",
       "key": "component",
       "value": "use",
       "type": "string"
