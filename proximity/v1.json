@@ -2745,7 +2745,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "application/json"
+                    "value": ""
                   }
                 ],
                 "body": {
@@ -3215,6 +3215,7 @@
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
                       "api.start()\r",
+                      "    .then(api.requireReport)\r",
                       "    .then(api.requireBudget)\r",
                       "    .then(api.ready)\r",
                       "    .catch(function(err) {\r",
@@ -6776,7 +6777,7 @@
                 "header": [
                   {
                     "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -13884,7 +13885,7 @@
   ],
   "variable": [
     {
-      "id": "e16c6ce2-e14d-4615-88c2-ad6239189f9a",
+      "id": "475e8e11-75cd-4bd5-ba62-28967970e192",
       "key": "component",
       "value": "use",
       "type": "string"
