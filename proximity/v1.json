@@ -13578,11 +13578,11 @@
           "                })",
           "            }",
           "        }).then(function (response) {",
-          "            if (!pm.expect(response).to.have.property('code', 201)) {",
+          "            if (!pm.expect(response).to.have.property('code', 200)) {",
           "                throw new Error(response);",
           "            }",
           "            json = response.json();",
-          "            console.log(response);",
+          "            console.log(response, json);",
           "            // pm.environment.set(\"token\", json.data.id);",
           "            // console.log('SET report_id: ' + pm.environment.get(\"report_id\"));",
           "            // return pm.environment.get(\"report_id\");",
@@ -13927,7 +13927,7 @@
   ],
   "variable": [
     {
-      "id": "71ab7a01-d9c4-4e6e-a573-40dc0ddd9bc3",
+      "id": "0ed21d7e-ebde-436a-91d0-4836e9953aeb",
       "key": "component",
       "value": "use",
       "type": "string"
