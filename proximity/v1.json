@@ -13582,9 +13582,8 @@
           "                throw new Error(response);",
           "            }",
           "            json = response.json();",
-          "            console.log(json.permissions);",
-          "            return false;",
-          "            pm.environment.set(\"token\", json.permissions.token);",
+          "",
+          "            pm.environment.set(\"token\", json.token);",
           "            console.log('SET token: ' + pm.environment.get(\"token\"));",
           "            pm.environment.set(\"user_id\", json.user.id);",
           "            console.log('SET user_id: ' + pm.environment.get(\"user_id\"));",
@@ -13930,7 +13929,7 @@
   ],
   "variable": [
     {
-      "id": "76874e24-e275-4617-867a-44efe842bbf6",
+      "id": "aabc456a-0af1-4a0b-b4e7-74301e4cc8f1",
       "key": "component",
       "value": "use",
       "type": "string"
