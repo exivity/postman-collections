@@ -7773,7 +7773,164 @@
                 },
                 "url": "{{base_url}}/v1/notificationchannels"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "03fa26a1-953c-46c9-a3a4-b872f0c54d0f",
+                  "name": "Create a new channel - Phone number",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"nexmo\",\n            \"name\": \"My phone number\",\n            \"info\": {\n            \t\"recipient\": \"+123456789\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                    },
+                    "url": "{{base_url}}/v1/notificationchannels"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 03 Jul 2019 08:30:32 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 03 Jul 2019 08:30:32 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/7.3.6"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "https://localhost:8012/v1/notificationchannel/5"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "Xe5f83c7faa917c5a431a80222d484915"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"My phone number\",\n            \"type\": \"nexmo\",\n            \"info\": {\n                \"recipient\": \"+31639385508\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/5\"\n        }\n    }\n}"
+                },
+                {
+                  "id": "88c87073-695d-4301-8152-51dec8ece76f",
+                  "name": "Create a new channel - Slack channel",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"slack\",\n            \"name\": \"My slack channel\",\n            \"info\": {\n            \t\"recipient\": \"https://hooks.slack.com/services/abc123def456ghi789jkl\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                    },
+                    "url": "{{base_url}}/v1/notificationchannels"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 03 Jul 2019 08:30:32 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 03 Jul 2019 08:30:32 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/7.3.6"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "https://localhost:8012/v1/notificationchannel/5"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "Xe5f83c7faa917c5a431a80222d484915"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"slack\",\n            \"name\": \"My slack channel\",\n            \"info\": {\n            \t\"recipient\": \"https://hooks.slack.com/services/abc123def456ghi789jkl\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                }
+              ]
             },
             {
               "name": "Get all notification channels",
@@ -13963,7 +14120,7 @@
   ],
   "variable": [
     {
-      "id": "c6967b76-cd23-4fdf-9cbe-79420cad045e",
+      "id": "3750656f-ae57-490c-9f85-9b1cb387a1f7",
       "key": "component",
       "value": "use",
       "type": "string"
