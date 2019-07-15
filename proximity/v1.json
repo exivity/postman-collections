@@ -10330,7 +10330,7 @@
                           "});",
                           "",
                           "pm.test(\"Response contains all keys\", function () {",
-                          "    pm.expect(response.configuration).to.have.keys([",
+                          "    var required = [",
                           "        \"MAIL_HOST\",",
                           "        \"MAIL_PORT\",",
                           "        \"MAIL_USERNAME\",",
@@ -10342,7 +10342,11 @@
                           "        \"NEXMO_KEY\",",
                           "        \"NEXMO_SECRET\",",
                           "        \"NEXMO_FROM_NUMBER\"",
-                          "    ])",
+                          "    ];",
+                          "      ",
+                          "    _.each(required, (item) => {",
+                          "        pm.expect(response.configuration).to.have.property(item);",
+                          "    });",
                           "});"
                         ],
                         "type": "text/javascript"
@@ -14232,7 +14236,7 @@
   ],
   "variable": [
     {
-      "id": "df00aede-0e4a-4799-94d9-c2d6f17bbf95",
+      "id": "be1edc75-cbc2-4084-bb04-828f577ff41c",
       "key": "component",
       "value": "use",
       "type": "string"
