@@ -7928,7 +7928,85 @@
                   ],
                   "cookie": [],
                   "responseTime": null,
-                  "body": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"slack\",\n            \"name\": \"My slack channel\",\n            \"info\": {\n            \t\"recipient\": \"https://hooks.slack.com/services/abc123def456ghi789jkl\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                  "body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"7\",\n        \"attributes\": {\n            \"name\": \"My slack channel\",\n            \"type\": \"slack\",\n            \"info\": {\n                \"recipient\": \"https://hooks.slack.com/services/abc123def456ghi789jkl\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/7\"\n        }\n    }\n}"
+                },
+                {
+                  "id": "a7ef877c-0b10-4236-bd13-bdbb0ad36603",
+                  "name": "Create a new channel - Email address",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@example.com\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                    },
+                    "url": "{{base_url}}/v1/notificationchannels"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 03 Jul 2019 08:33:12 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 03 Jul 2019 08:33:12 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/7.3.6"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "https://localhost:8012/v1/notificationchannel/6"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "X4b3994622abc5d8598b15611f3474780"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"E-mail for someone\",\n            \"type\": \"mail\",\n            \"info\": {\n                \"recipient\": \"someone@example.com\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/6\"\n        }\n    }\n}"
                 }
               ]
             },
@@ -9999,6 +10077,23 @@
                         ],
                         "type": "text/javascript"
                       }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "e1e2160b-9744-45b2-9364-f241e59e1fb5",
+                        "exec": [
+                          "const api = eval(pm.globals.get('exivity'))();\r",
+                          "\r",
+                          "api.start()\r",
+                          "    .then(api.requireToken)\r",
+                          "    .then(api.ready)\r",
+                          "    .catch(function(err) {\r",
+                          "        console.log(err);\r",
+                          "    });"
+                        ],
+                        "type": "text/javascript"
+                      }
                     }
                   ],
                   "_postman_id": "fc8967b9-0ad0-4178-acc8-451e53d71092",
@@ -10249,6 +10344,23 @@
                           "        \"NEXMO_FROM_NUMBER\"",
                           "    ])",
                           "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "b75e1807-0fe0-465d-9598-b70a8e29a95c",
+                        "exec": [
+                          "const api = eval(pm.globals.get('exivity'))();\r",
+                          "\r",
+                          "api.start()\r",
+                          "    .then(api.requireToken)\r",
+                          "    .then(api.ready)\r",
+                          "    .catch(function(err) {\r",
+                          "        console.log(err);\r",
+                          "    });"
                         ],
                         "type": "text/javascript"
                       }
@@ -14120,7 +14232,7 @@
   ],
   "variable": [
     {
-      "id": "3750656f-ae57-490c-9f85-9b1cb387a1f7",
+      "id": "df00aede-0e4a-4799-94d9-c2d6f17bbf95",
       "key": "component",
       "value": "use",
       "type": "string"
