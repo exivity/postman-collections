@@ -4862,6 +4862,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5e5fa6b0-d7ef-4011-8856-891c6610a647",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "97b56486-031d-4b4b-b6f1-7d5fc3fa7c4b",
@@ -4869,50 +4887,24 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "GET",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Accept",
                     "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   }
                 ],
-                "url": {
-                  "raw": "{{base_url}}/v1/servicecategories?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicecategories"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `services`, `adjustments`."
-                    }
-                  ]
-                }
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
+                },
+                "url": "{{base_url}}/v1/servicecategories"
               },
               "response": []
             },
@@ -14352,7 +14344,7 @@
   ],
   "variable": [
     {
-      "id": "b5169aa3-a360-4ef6-bb31-64c091aec902",
+      "id": "f660421a-80bb-4650-86a3-08ad918cb595",
       "key": "component",
       "value": "use",
       "type": "string"
