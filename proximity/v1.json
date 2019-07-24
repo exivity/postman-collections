@@ -4846,19 +4846,31 @@
                   "script": {
                     "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
                       "});",
                       "",
                       "const response = pm.response.json();",
                       "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicecategory');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
                       "});",
                       "",
-                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);",
-                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));"
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"servicecategory_id\", response.data.id);",
+                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -14342,7 +14354,7 @@
   ],
   "variable": [
     {
-      "id": "98c501fa-82c0-4a27-8a04-85c9beccb007",
+      "id": "e9d7eca8-a8f3-4040-bb26-ca6da6b417b0",
       "key": "component",
       "value": "use",
       "type": "string"
