@@ -4839,7 +4839,7 @@
           "name": "/servicecategories",
           "item": [
             {
-              "name": "Retrieve a list of service categories",
+              "name": "Add a new service category",
               "event": [
                 {
                   "listen": "test",
@@ -4864,7 +4864,10 @@
                   }
                 }
               ],
-              "_postman_id": "5b64bfe6-3f11-d1dc-8ce0-99e9381fba23",
+              "_postman_id": "97b56486-031d-4b4b-b6f1-7d5fc3fa7c4b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -4914,7 +4917,7 @@
               "response": []
             },
             {
-              "name": "Add a new service category",
+              "name": "Retrieve a list of service categories",
               "event": [
                 {
                   "listen": "test",
@@ -4939,10 +4942,7 @@
                   }
                 }
               ],
-              "_postman_id": "97b56486-031d-4b4b-b6f1-7d5fc3fa7c4b",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
+              "_postman_id": "5b64bfe6-3f11-d1dc-8ce0-99e9381fba23",
               "request": {
                 "method": "GET",
                 "header": [
@@ -14352,7 +14352,7 @@
   ],
   "variable": [
     {
-      "id": "1c34d118-f3c8-40b1-9e63-f4173afdc1ce",
+      "id": "b5169aa3-a360-4ef6-bb31-64c091aec902",
       "key": "component",
       "value": "use",
       "type": "string"
