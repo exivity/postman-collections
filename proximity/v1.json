@@ -7322,7 +7322,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"user\",\r\n\t\t\t\"email_address\": \"someone@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"user\",\r\n\t\t\t\"email_address\": \"someone@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/users"
               },
@@ -7585,7 +7585,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -7594,7 +7596,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"attributes\": {\r\n      \"name\": \"testers\",\r\n      \"permissions\": [\r\n        \"manage_users\"\r\n      ]\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/usergroups"
               },
@@ -14356,7 +14358,7 @@
   ],
   "variable": [
     {
-      "id": "a8caa1a6-0c68-4225-9adc-7e5da4b87fbb",
+      "id": "ffa1d1fd-32de-4e2f-99d4-ddeab1194277",
       "key": "component",
       "value": "use",
       "type": "string"
