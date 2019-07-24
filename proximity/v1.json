@@ -4914,7 +4914,7 @@
               "response": []
             },
             {
-              "name": "Retrieve a list of service categories Copy",
+              "name": "Add a new service category",
               "event": [
                 {
                   "listen": "test",
@@ -14352,7 +14352,7 @@
   ],
   "variable": [
     {
-      "id": "7d2bec53-eeb1-4765-892b-5d779eb93824",
+      "id": "1c34d118-f3c8-40b1-9e63-f4173afdc1ce",
       "key": "component",
       "value": "use",
       "type": "string"
