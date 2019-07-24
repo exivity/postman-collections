@@ -2867,6 +2867,7 @@
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
                       "api.start()\r",
+                      "    .then(api.requireToken)\r",
                       "    .then(api.requireReport)\r",
                       "    .then(api.ready)\r",
                       "    .catch(function(err) {\r",
@@ -2898,7 +2899,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t  \"interval\": \"year\",\r\n\t\t\t  \"description\": \"This is a new budget\",\r\n\t\t\t  \"metric\": \"prices\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n                \r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t  \"interval\": \"year\",\r\n\t\t\t  \"description\": \"This is a new budget\",\r\n\t\t\t  \"metric\": \"prices\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/budgets"
               },
@@ -14272,7 +14273,7 @@
   ],
   "variable": [
     {
-      "id": "4eb248e6-2997-403a-83e7-7453e9002131",
+      "id": "8a5b6306-2b52-40f8-88fa-1ac015f88b60",
       "key": "component",
       "value": "use",
       "type": "string"
