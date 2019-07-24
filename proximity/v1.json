@@ -4912,6 +4912,84 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Retrieve a list of service categories Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);",
+                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "97b56486-031d-4b4b-b6f1-7d5fc3fa7c4b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `services`, `adjustments`."
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ],
           "_postman_id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
@@ -14274,7 +14352,7 @@
   ],
   "variable": [
     {
-      "id": "6b08ce88-b6d9-42b0-91f8-198e36b89627",
+      "id": "db409c30-6ce9-4268-a753-450bf8427112",
       "key": "component",
       "value": "use",
       "type": "string"
