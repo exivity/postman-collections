@@ -4926,9 +4926,7 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
-                      "",
-                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);",
-                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -14344,7 +14342,7 @@
   ],
   "variable": [
     {
-      "id": "f660421a-80bb-4650-86a3-08ad918cb595",
+      "id": "98c501fa-82c0-4a27-8a04-85c9beccb007",
       "key": "component",
       "value": "use",
       "type": "string"
