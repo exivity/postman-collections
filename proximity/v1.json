@@ -4994,7 +4994,7 @@
               "response": []
             },
             {
-              "name": "Retrieve a budget item",
+              "name": "Retrieve a service category",
               "event": [
                 {
                   "listen": "test",
@@ -5040,27 +5040,19 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgetitems/:item_id?include=",
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgetitems",
-                    ":item_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `parent`, `account`, `revision`, `services`. `servicecategories`, `children`"
-                    }
+                    "servicecategories",
+                    ":servicecategory_id"
                   ],
                   "variable": [
                     {
-                      "id": "497d97cc-7052-459d-8c90-f8f7dbbe7b98",
-                      "key": "item_id",
-                      "value": "{{budgetitem_id}}",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
                       "type": "string"
                     }
                   ]
@@ -14430,7 +14422,7 @@
   ],
   "variable": [
     {
-      "id": "b30e5413-5f9a-4d30-a592-8462987782af",
+      "id": "b2f877b6-4446-4658-b5b5-2eaf69eae5c7",
       "key": "component",
       "value": "use",
       "type": "string"
