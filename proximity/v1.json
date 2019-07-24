@@ -5062,7 +5062,7 @@
               "response": []
             },
             {
-              "name": "Delete a budget item",
+              "name": "Delete a service category",
               "event": [
                 {
                   "listen": "test",
@@ -5073,12 +5073,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "console.log('UNSET budgetitem_id');",
-                      "pm.environment.unset(\"budgetitem_id\");",
-                      "",
-                      "postman.setNextRequest(\"Delete a budget\");",
-                      "postman.setNextRequest(\"Delete a budget revision\");",
-                      "postman.setNextRequest(\"Add a new metadata definition\");",
+                      "console.log('UNSET servicecategory_id');",
+                      "pm.environment.unset(\"servicecategory_id\");",
                       ""
                     ],
                     "type": "text/javascript"
@@ -5102,20 +5098,19 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/budgetitems/:budgetitem_id",
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "budgetitems",
-                    ":budgetitem_id"
+                    "servicecategories",
+                    ":servicecategory_id"
                   ],
                   "variable": [
                     {
-                      "id": "c0f2db38-ce01-427a-b8b9-bbe26335a7c8",
-                      "key": "budgetitem_id",
-                      "value": "{{budgetitem_id}}",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
                       "type": "string"
                     }
                   ]
@@ -14484,7 +14479,7 @@
   ],
   "variable": [
     {
-      "id": "50b06a4d-ac71-43ec-8bbc-6800aa787509",
+      "id": "0ed88b76-07b5-4933-a7dd-e8f47ff0b556",
       "key": "component",
       "value": "use",
       "type": "string"
