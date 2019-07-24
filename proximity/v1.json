@@ -4839,88 +4839,6 @@
           "name": "/servicecategories",
           "item": [
             {
-              "name": "Add a new service category",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('servicecategory');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"servicecategory_id\", response.data.id);",
-                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "5e5fa6b0-d7ef-4011-8856-891c6610a647",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "97b56486-031d-4b4b-b6f1-7d5fc3fa7c4b",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
-                },
-                "url": "{{base_url}}/v1/servicecategories"
-              },
-              "response": []
-            },
-            {
               "name": "Retrieve a list of service categories",
               "event": [
                 {
@@ -4987,63 +4905,6 @@
                       "key": "include",
                       "value": "",
                       "description": "Include additional related resources. Possible values: `services`, `adjustments`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a service category",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET servicecategory_id');",
-                      "pm.environment.unset(\"servicecategory_id\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "38c6e540-3171-4c09-86d8-bfdcf45c6390",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicecategories",
-                    ":servicecategory_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "servicecategory_id",
-                      "value": "{{servicecategory_id}}",
-                      "type": "string"
                     }
                   ]
                 }
@@ -14411,7 +14272,7 @@
   ],
   "variable": [
     {
-      "id": "1fc8f6a3-1985-4b7a-8dd3-e9d881b8ce8f",
+      "id": "155c389e-52dc-4052-acb3-94c41a5f1c15",
       "key": "component",
       "value": "use",
       "type": "string"
