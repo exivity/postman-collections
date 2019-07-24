@@ -2621,7 +2621,88 @@
                 "url": "{{base_url}}/v1/accounts",
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "2c3387ce-375f-4056-a6fd-37f487a00b97",
+                  "name": "Add a new account with a parent",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n\t\t\t\"parent\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"account\",\r\n\t\t\t\t\t\"id\": \"50\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                    },
+                    "url": "{{base_url}}/v1/accounts"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 24 Jul 2019 09:06:27 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Wed, 24 Jul 2019 09:06:27 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/7.3.6"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "https://localhost:8012/v1/account/51"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "Xf09c59da7e0aae44acf4a03b5c141f7f"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"account\",\n        \"id\": \"51\",\n        \"attributes\": {\n            \"name\": \"My new account\",\n            \"level\": \"2\",\n            \"lvl1_key\": \"My new account\",\n            \"lvl2_key\": \"My new account\",\n            \"lvl3_key\": \"\",\n            \"lvl4_key\": \"\",\n            \"lvl5_key\": \"\"\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/accounts/51\"\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "name": "Retrieve an account",
@@ -5980,7 +6061,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -5989,7 +6072,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"adjustment\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"amount\": \"-10\",\r\n      \"type\": \"relative\",\r\n      \"target\": \"charge\",\r\n      \"first_interval\": \"2017-01\",\r\n      \"last_interval\": \"2017-12\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"1\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/adjustments"
               },
@@ -7239,7 +7322,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"attributes\": {\r\n      \"username\": \"user\",\r\n      \"email_address\": \"someone@exivity.com\",\r\n      \"password\": \"super-complex-password\",\r\n      \"account_access_type\": \"custom\"\r\n    },\r\n    \"relationships\": {\r\n      \"usergroup\": {\r\n        \"data\": {\r\n          \"type\": \"usergroup\",\r\n          \"id\": \"1\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"user\",\r\n\t\t\t\"email_address\": \"someone@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\"data\": {\r\n\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/users"
               },
@@ -14273,7 +14356,7 @@
   ],
   "variable": [
     {
-      "id": "8a5b6306-2b52-40f8-88fa-1ac015f88b60",
+      "id": "a8caa1a6-0c68-4225-9adc-7e5da4b87fbb",
       "key": "component",
       "value": "use",
       "type": "string"
