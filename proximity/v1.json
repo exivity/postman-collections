@@ -12638,7 +12638,9 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
                   },
                   {
                     "key": "Accept",
@@ -14363,7 +14365,7 @@
   ],
   "variable": [
     {
-      "id": "f711bd63-b1c7-4823-9fbd-9147f79aa6a1",
+      "id": "09ca2a36-6d45-4c29-bcf4-7a6eec1ef4bf",
       "key": "component",
       "value": "use",
       "type": "string"
