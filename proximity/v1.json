@@ -2728,7 +2728,7 @@
                       "pm.test(\"Response contains correct attributes\", function () {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes.name).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.level).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.level).to.be.a('number');",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -3884,7 +3884,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `parent`, `account`, `revision`"
+                      "description": "Include additional related resources. Possible values: `revision`, `parent`, `children`, `account`, `services`, `servicecategories`"
                     }
                   ]
                 }
@@ -3951,7 +3951,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `parent`, `account`, `revision`, `services`. `servicecategories`, `children`"
+                      "description": "Include additional related resources. Possible values: `revision`, `parent`, `children`, `account`, `services`, `servicecategories`"
                     }
                   ],
                   "variable": [
@@ -14363,7 +14363,7 @@
   ],
   "variable": [
     {
-      "id": "7ed787c4-1658-40a2-8542-862635be3735",
+      "id": "f711bd63-b1c7-4823-9fbd-9147f79aa6a1",
       "key": "component",
       "value": "use",
       "type": "string"
