@@ -336,7 +336,6 @@
                     "exec": [
                       "pm.test(\"Status code is 422\", function () {",
                       "    pm.response.to.have.status(422);",
-                      "    ",
                       "});",
                       "",
                       ""
@@ -14402,7 +14401,7 @@
   ],
   "variable": [
     {
-      "id": "c64daa4c-0ef7-41cc-b5db-65c3278bd78a",
+      "id": "3681344c-4741-4f29-8dcf-71c079358de8",
       "key": "component",
       "value": "use",
       "type": "string"
