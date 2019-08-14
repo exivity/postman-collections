@@ -2597,6 +2597,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "03e20c9d-7ec2-4759-ba1d-3db98fbc6900",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "b0742128-2c66-996a-f6e6-ca7817c9fc7a",
@@ -3004,6 +3022,24 @@
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('array');",
                       "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "4d7daa55-b24e-410b-82ef-136f05d92ed0",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -14365,7 +14401,7 @@
   ],
   "variable": [
     {
-      "id": "09ca2a36-6d45-4c29-bcf4-7a6eec1ef4bf",
+      "id": "4805e7fd-58c7-4697-8402-d378e7d9ec7c",
       "key": "component",
       "value": "use",
       "type": "string"
