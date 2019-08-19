@@ -2746,7 +2746,7 @@
                       "pm.test(\"Response contains correct attributes\", function () {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes.name).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.level).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.level).to.be.a('number');",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -14421,7 +14421,7 @@
   ],
   "variable": [
     {
-      "id": "e2993f4d-5537-41f1-9117-eded8afb5f64",
+      "id": "81c31390-44ca-4b9f-8376-705bb64ec8ff",
       "key": "component",
       "value": "use",
       "type": "string"
