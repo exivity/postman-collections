@@ -5092,6 +5092,7 @@
                       "});",
                       "pm.test(\"Service attributes are correct\", function () {",
                       "    pm.expect(service.attributes).to.be.an('object');",
+                      "    pm.expect(service.attributes).to.have.key('key');",
                       "    pm.expect(service.attributes).to.have.keys([",
                       "\t\t\"key\",",
                       "        \"description\",",
@@ -5108,7 +5109,8 @@
                       "        \"created_at\",",
                       "        \"updated_at\",",
                       "        \"seen_at\",",
-                      "        \"orphan\"",
+                      "        \"orphan\",",
+                      "        \"charge_model\"",
                       "\t]);",
                       "});",
                       ""
@@ -14421,7 +14423,7 @@
   ],
   "variable": [
     {
-      "id": "81c31390-44ca-4b9f-8376-705bb64ec8ff",
+      "id": "acb8e14c-911c-4592-b7cf-260ddfb8723b",
       "key": "component",
       "value": "use",
       "type": "string"
