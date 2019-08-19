@@ -3234,7 +3234,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"budget\",\r\n    \"id\": \"{{budget_id}}\",\r\n    \"attributes\": {\r\n      \"description\": \"modified_test\",\r\n      \"interval\": \"month\",\r\n      \"metric\": \"cogs\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"id\": \"{{budget_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"description\": \"modified_test\",\r\n\t\t\t\"interval\": \"month\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgets/:budget_id",
@@ -3248,7 +3248,6 @@
                   ],
                   "variable": [
                     {
-                      "id": "a2e2b260-21e1-40f8-b15f-7aa3b5cb33a4",
                       "key": "budget_id",
                       "value": "{{budget_id}}",
                       "type": "string"
@@ -5234,7 +5233,8 @@
                       "        \"created_at\",",
                       "        \"updated_at\",",
                       "        \"seen_at\",",
-                      "        \"orphan\"",
+                      "        \"orphan\",",
+                      "        \"charge_moel\"",
                       "\t]);",
                       "});",
                       "",
@@ -5266,7 +5266,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/services",
                 "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
@@ -14419,7 +14419,7 @@
   ],
   "variable": [
     {
-      "id": "55e2476c-7a90-46c7-bb6b-08cdc13f2977",
+      "id": "aad2441f-5246-4faf-ac99-9227ed0966d4",
       "key": "component",
       "value": "use",
       "type": "string"
