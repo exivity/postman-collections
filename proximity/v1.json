@@ -3769,9 +3769,31 @@
               "name": "Add a new budget item",
               "event": [
                 {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "94ecad76-7f78-47e2-94cf-55e901f1c275",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireReport)\r",
+                      "    .then(api.requireAccount)\r",
+                      "    .then(api.requireBudget)\r",
+                      "    .then(api.requireBudgetRevision)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
                   "listen": "test",
                   "script": {
-                    "id": "eb31a4c3-fa68-4d2b-978b-4f67b1cfdc1d",
+                    "id": "11ad072a-2b90-4ac8-9e68-2d66d02717bb",
                     "exec": [
                       "pm.test(\"Status code is 201\", function () {",
                       "    pm.response.to.have.status(201);",
@@ -3799,27 +3821,6 @@
                       "",
                       "pm.environment.set(\"budgetitem_id\", response.data.id);",
                       "console.log('SET budgetitem_id: ' + pm.environment.get(\"budgetitem_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "12c72a77-6f10-4f6f-8b8c-174f87fab408",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireReport)\r",
-                      "    .then(api.requireAccount)\r",
-                      "    .then(api.requireBudget)\r",
-                      "    .then(api.requireBudgetRevision)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -14433,7 +14434,7 @@
   ],
   "variable": [
     {
-      "id": "e5727f95-fb38-4bc3-86fc-d0d1f9799bd7",
+      "id": "75871381-ade5-4a7f-be7e-8789330ac982",
       "key": "component",
       "value": "use",
       "type": "string"
