@@ -2998,7 +2998,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t  \"interval\": \"year\",\r\n\t\t\t  \"description\": \"This is a new budget\",\r\n\t\t\t  \"metric\": \"prices\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"description\": \"This is a new budget\",\r\n\t\t\t\"metric\": \"prices\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/budgets"
               },
@@ -3799,6 +3799,7 @@
                       "    pm.response.to.have.status(201);",
                       "});",
                       "",
+                      "",
                       "const response = pm.response.json();",
                       "console.log(response);",
                       "",
@@ -3846,7 +3847,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": 0,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": false,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/budgetitems"
               },
@@ -14434,7 +14435,7 @@
   ],
   "variable": [
     {
-      "id": "75871381-ade5-4a7f-be7e-8789330ac982",
+      "id": "4899a55f-8384-4d1a-9afe-fff040249389",
       "key": "component",
       "value": "use",
       "type": "string"
