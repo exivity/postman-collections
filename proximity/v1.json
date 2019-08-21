@@ -2998,7 +2998,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"description\": \"This is a new budget\",\r\n\t\t\t\"metric\": \"prices\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"description\": \"This is a new budget\",\r\n\t\t\t\"metric\": \"charge\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/budgets"
               },
@@ -14442,7 +14442,7 @@
   ],
   "variable": [
     {
-      "id": "00067153-940e-4b22-a96f-b6b12d03935c",
+      "id": "b1859458-322d-4078-856d-4b2856753955",
       "key": "component",
       "value": "use",
       "type": "string"
