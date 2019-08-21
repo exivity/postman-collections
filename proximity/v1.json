@@ -6461,6 +6461,14 @@
                   "script": {
                     "id": "fc4c0988-2101-4c83-9ee5-f7cadd2d5c59",
                     "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
                       ""
                     ],
                     "type": "text/javascript"
@@ -14434,7 +14442,7 @@
   ],
   "variable": [
     {
-      "id": "e5b92cd0-2c7f-4800-8dfb-7d9cdbd1ada5",
+      "id": "5658adca-ad00-4b85-81a5-de0c33bbe658",
       "key": "component",
       "value": "use",
       "type": "string"
