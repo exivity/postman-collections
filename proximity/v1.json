@@ -3366,6 +3366,7 @@
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
                       "api.start()\r",
+                      "    .then(api.requireToken)\r",
                       "    .then(api.requireReport)\r",
                       "    .then(api.requireBudget)\r",
                       "    .then(api.ready)\r",
@@ -14442,7 +14443,7 @@
   ],
   "variable": [
     {
-      "id": "b1859458-322d-4078-856d-4b2856753955",
+      "id": "7ad28413-8b00-462c-8b3e-cad2873d4995",
       "key": "component",
       "value": "use",
       "type": "string"
