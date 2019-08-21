@@ -14230,7 +14230,7 @@
           "                        \"attributes\": {",
           "                            \"interval\": \"year\",",
           "                            \"description\": \"Test Budget - \" + Math.floor(Math.random() * 1000),",
-          "                            \"metric\": \"prices\"",
+          "                            \"metric\": \"charge\"",
           "                        },",
           "                        \"relationships\": {",
           "                            \"report\": {",
@@ -14442,7 +14442,7 @@
   ],
   "variable": [
     {
-      "id": "5658adca-ad00-4b85-81a5-de0c33bbe658",
+      "id": "00067153-940e-4b22-a96f-b6b12d03935c",
       "key": "component",
       "value": "use",
       "type": "string"
