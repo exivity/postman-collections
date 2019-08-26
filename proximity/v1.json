@@ -3313,6 +3313,84 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Retrieve a budget Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "bd868933-0a84-4845-a464-64b70a1d5e7b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('budget');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.interval).to.eql('year');",
+                      "    pm.expect(response.data.attributes.description).to.eql('This is a new budget');",
+                      "    pm.expect(response.data.attributes.metric).to.eql('cogs');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "84b4c28e-e0d8-42ec-ac00-3d36796417fa",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/budgets/:budget_id?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "budgets",
+                    ":budget_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources: `revisions`"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "02b1a2fc-817f-475e-bb4b-aac7c7feda9e",
+                      "key": "budget_id",
+                      "value": "{{budget_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
             }
           ],
           "_postman_id": "4c6991a8-141f-4c17-acc8-7fea42b3cd43",
@@ -3850,7 +3928,88 @@
                 },
                 "url": "{{base_url}}/v1/budgetitems"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "1ba4138f-ab8b-4880-8046-97988c646122",
+                  "name": "Add a new budget item with a parent item",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "type": "text",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": false,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t},\n        \t\"parent\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"item\",\n        \t\t\t\"id\": \"{{budgetitem_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+                    },
+                    "url": "{{base_url}}/v1/budgetitems"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 26 Aug 2019 09:29:50 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 26 Aug 2019 09:29:50 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "X-Powered-By",
+                      "value": "PHP/7.3.6"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "https://localhost:8012/v1/budgetitem/6"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "X91ef46877eaaf096034f2a823f457554"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "Access-Control-Allow-Origin",
+                      "value": ""
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"budgetitem\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"filter\": \"none\",\n            \"amount\": null,\n            \"percent\": false,\n            \"distribution\": \"even\"\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/budgetitems/6\"\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "name": "Retrieve a list of budgets items",
@@ -14442,7 +14601,7 @@
   ],
   "variable": [
     {
-      "id": "4322a600-5153-4bb1-b953-56f3db3ece44",
+      "id": "b4d37ff1-df59-4589-a07a-4639f2cb79fe",
       "key": "component",
       "value": "use",
       "type": "string"
