@@ -3198,7 +3198,7 @@
                       "pm.test(\"Response contains correct attributes\", function () {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes.description).to.eql('modified_test');",
-                      "    pm.expect(response.data.attributes.interval).to.eql('month');",
+                      "    pm.expect(response.data.attributes.interval).to.eql('year');",
                       "    pm.expect(response.data.attributes.metric).to.eql('cogs');",
                       "});",
                       "",
@@ -3233,7 +3233,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"id\": \"{{budget_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"description\": \"modified_test\",\r\n\t\t\t\"interval\": \"month\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"id\": \"{{budget_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"description\": \"modified_test\",\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgets/:budget_id",
@@ -14442,7 +14442,7 @@
   ],
   "variable": [
     {
-      "id": "b354001f-5d80-4c81-ac64-47b09c370ba1",
+      "id": "4322a600-5153-4bb1-b953-56f3db3ece44",
       "key": "component",
       "value": "use",
       "type": "string"
