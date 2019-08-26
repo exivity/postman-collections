@@ -2945,7 +2945,7 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes.interval).to.eql('year');",
                       "    pm.expect(response.data.attributes.description).to.eql('This is a new budget');",
-                      "    pm.expect(response.data.attributes.metric).to.eql('charge');",
+                      "    pm.expect(response.data.attributes.metric).to.eql('cogs');",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -2998,7 +2998,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"description\": \"This is a new budget\",\r\n\t\t\t\"metric\": \"charge\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"description\": \"This is a new budget\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : {{report_id}}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/budgets"
               },
@@ -14443,7 +14443,7 @@
   ],
   "variable": [
     {
-      "id": "c3048746-d9e2-4bc8-bd7f-c994f28e0099",
+      "id": "28424f78-db9c-4af0-8eee-5895ab9f0855",
       "key": "component",
       "value": "use",
       "type": "string"
