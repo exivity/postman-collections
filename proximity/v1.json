@@ -11562,7 +11562,8 @@
                       "        \"edify\",",
                       "        \"proximity\",",
                       "        \"glass\",",
-                      "        \"aeon\"",
+                      "        \"aeon\",",
+                      "        \"horizon\"",
                       "    ]);",
                       "});"
                     ],
@@ -14622,7 +14623,7 @@
   ],
   "variable": [
     {
-      "id": "223db545-9488-43a2-9915-397211cda599",
+      "id": "6d018475-d1eb-4629-afda-5ca41296cf10",
       "key": "component",
       "value": "use",
       "type": "string"
