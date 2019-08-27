@@ -2632,8 +2632,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/accounts",
-                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
+                "url": "{{base_url}}/v1/accounts"
               },
               "response": [
                 {
@@ -15032,7 +15031,7 @@
   ],
   "variable": [
     {
-      "id": "b70c610c-26f6-42e8-a5e7-5486c21f8786",
+      "id": "4478659f-029a-48f6-92d4-3dfa72f38c0b",
       "key": "component",
       "value": "use",
       "type": "string"
