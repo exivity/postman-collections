@@ -9556,7 +9556,7 @@
         }
       ],
       "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
-      "description": "_Added in v2.2.0_\n\n_These endpoints are currently in beta. Please don't use it yet as the parameters might change at any time._",
+      "description": "_Added in v2.2.0_",
       "event": [
         {
           "listen": "prerequest",
@@ -15028,7 +15028,7 @@
   ],
   "variable": [
     {
-      "id": "3dfeafda-2be1-4a2d-aaec-837f8529f351",
+      "id": "8e81fbba-01fa-4152-9c00-9cd7e34e97dc",
       "key": "component",
       "value": "use",
       "type": "string"
