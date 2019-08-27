@@ -5802,8 +5802,7 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/services",
-                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
+                "url": "{{base_url}}/v1/services"
               },
               "response": []
             },
@@ -15030,7 +15029,7 @@
   ],
   "variable": [
     {
-      "id": "14c1eeb0-0d58-450d-9e35-393fb8c774c6",
+      "id": "e4b9ccc9-89e0-4b94-8376-d4d7358f40c2",
       "key": "component",
       "value": "use",
       "type": "string"
