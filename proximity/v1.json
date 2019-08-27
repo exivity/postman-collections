@@ -2350,8 +2350,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
+                }
               },
               "response": []
             },
@@ -15034,7 +15033,7 @@
   ],
   "variable": [
     {
-      "id": "afa5220c-b020-4b8b-8e2e-c5884d14a82c",
+      "id": "859dff3d-1ff1-4511-8c07-9bc12f00c765",
       "key": "component",
       "value": "use",
       "type": "string"
