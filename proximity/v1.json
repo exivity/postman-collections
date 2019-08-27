@@ -14549,6 +14549,7 @@
       "listen": "prerequest",
       "script": {
         "id": "ae7ad446-b393-4586-8f91-9ee05535d0c2",
+        "type": "text/javascript",
         "exec": [
           "const helpers = () => {",
           "",
@@ -14783,7 +14784,15 @@
           "                        \"attributes\": {",
           "                            \"interval\": \"year\",",
           "                            \"description\": \"Test Budget - \" + Math.floor(Math.random() * 1000),",
-          "                            \"metric\": \"prices\"",
+          "                            \"metric\": \"charge\"",
+          "                        },",
+          "                        \"relationships\": {",
+          "                            \"report\": {",
+          "                                \"data\": {",
+          "                                    \"type\": \"report\",",
+          "                                    \"id\": pm.variables.get(\"report_id\")",
+          "                                }",
+          "                            }",
           "                        }",
           "                    }",
           "                })",
@@ -15011,14 +15020,23 @@
           "};",
           "",
           "pm.globals.set('exivity', helpers.toString());"
-        ],
-        "type": "text/javascript"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "c23a855c-6df5-4a90-82dc-fc50925293c0",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
       }
     }
   ],
   "variable": [
     {
-      "id": "d316ba64-ec6a-4566-92c5-82d1aa36092e",
+      "id": "58a52bb4-b173-4bcf-8b6c-422b117bac7a",
       "key": "component",
       "value": "use",
       "type": "string"
