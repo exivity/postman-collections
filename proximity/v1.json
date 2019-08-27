@@ -9556,7 +9556,7 @@
         }
       ],
       "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
-      "description": "_Added in v2.2.0_ \n",
+      "description": "_Added in v2.2.0_",
       "event": [
         {
           "listen": "prerequest",
@@ -15028,7 +15028,7 @@
   ],
   "variable": [
     {
-      "id": "bcdd3c90-a2c4-409a-b318-567991061b64",
+      "id": "c23550d5-724a-442c-810f-4254aed8d081",
       "key": "component",
       "value": "use",
       "type": "string"
