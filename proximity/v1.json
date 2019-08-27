@@ -2971,8 +2971,7 @@
                       "    .then(api.ready)\r",
                       "    .catch(function(err) {\r",
                       "        console.log(err);\r",
-                      "    });\r",
-                      ""
+                      "    });\r"
                     ],
                     "type": "text/javascript"
                   }
@@ -5119,6 +5118,88 @@
           "name": "/servicecategories",
           "item": [
             {
+              "name": "Add a new service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicecategory');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"servicecategory_id\", response.data.id);",
+                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5e5fa6b0-d7ef-4011-8856-891c6610a647",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "6a682105-fc6b-400f-b2b8-3b16fe626891",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
+                },
+                "url": "{{base_url}}/v1/servicecategories"
+              },
+              "response": []
+            },
+            {
               "name": "Retrieve a list of service categories",
               "event": [
                 {
@@ -5139,6 +5220,23 @@
                       "",
                       "pm.environment.set(\"servicecategory_id\", response.data[0].id);",
                       "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9d403cd9-fe2e-435d-9927-fd81f5465766",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r"
                     ],
                     "type": "text/javascript"
                   }
@@ -5187,6 +5285,268 @@
                       "key": "include",
                       "value": "",
                       "description": "Include additional related resources. Possible values: `services`, `adjustments`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "bd868933-0a84-4845-a464-64b70a1d5e7b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicecategory');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.be.a('string')",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "7cc9234f-b5fa-4214-871c-f7d8440a46c7",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "e3687a0f-502e-4675-bdde-dd86aad7cb2b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories",
+                    ":servicecategory_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5a218be4-5489-4b53-87bf-a6f655eb4919",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "358cbac9-b630-4f2e-8bbe-e6aab4bc14d0",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicecategory');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"servicecategory_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9aec818d-4ca5-4e41-801c-5e8365767155",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "61fe337c-4892-4070-abd1-c00cd625547a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n        \"type\":\"servicecategory\",\r\n        \"id\": \"{{servicecategory_id}}\",\r\n        \"attributes\": {\r\n            \"name\": \"Test serice category - {{$randomInt}}\"\r\n        }\r\n    }\r\n}\r\n"
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories",
+                    ":servicecategory_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a8d1bdc4-fe11-458c-91e0-6b1d15e752a8",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET servicecategory_id');",
+                      "pm.environment.unset(\"servicecategory_id\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "d11a4a84-d32e-4a6a-b693-130405771e9b",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f180a2b5-ca39-46c5-9abb-9a8e13a3f410",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories",
+                    ":servicecategory_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "04a241c7-e541-45da-a792-5821bbb68dca",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
+                      "type": "string"
                     }
                   ]
                 }
@@ -5406,6 +5766,24 @@
                       "",
                       "pm.environment.set(\"service_id\", response.data.id);",
                       "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e4d73eca-3269-4f9b-a931-eb1ed52470d0",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireServiceCategory)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r"
                     ],
                     "type": "text/javascript"
                   }
@@ -14171,7 +14549,6 @@
       "listen": "prerequest",
       "script": {
         "id": "ae7ad446-b393-4586-8f91-9ee05535d0c2",
-        "type": "text/javascript",
         "exec": [
           "const helpers = () => {",
           "",
@@ -14389,11 +14766,6 @@
           "            return pm.environment.get(\"budget_id\");",
           "        }",
           "",
-          "        // Check report ID",
-          "        if (!pm.environment.get(\"report_id\")) {",
-          "            throw new Error('Report ID not set - need to create Budget');",
-          "        }",
-          "",
           "        return api.asyncRequest({",
           "            // Create a new budget",
           "            url: pm.variables.get(\"base_url\") + '/v1/budgets',",
@@ -14411,15 +14783,7 @@
           "                        \"attributes\": {",
           "                            \"interval\": \"year\",",
           "                            \"description\": \"Test Budget - \" + Math.floor(Math.random() * 1000),",
-          "                            \"metric\": \"charge\"",
-          "                        },",
-          "                        \"relationships\": {",
-          "                            \"report\": {",
-          "                                \"data\": {",
-          "                                    \"type\": \"report\",",
-          "                                    \"id\": pm.variables.get(\"report_id\")",
-          "                                }",
-          "                            }",
+          "                            \"metric\": \"prices\"",
           "                        }",
           "                    }",
           "                })",
@@ -14480,6 +14844,46 @@
           "            pm.environment.set(\"budgetrevision_id\", json.data.id);",
           "            console.log('SET budgetrevision_id: ' + pm.environment.get(\"budgetrevision_id\"));",
           "            return pm.environment.get(\"budgetrevision_id\");",
+          "        });",
+          "    };",
+          "",
+          "    api.requireServiceCategory = function () {",
+          "        console.log('requireServiceCategory()');",
+          "",
+          "        // Check if service category ID is set",
+          "        if (pm.environment.get(\"servicecategory_id\") && pm.environment.get(\"servicecategory_id\") !== 'undefined') {",
+          "            console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
+          "            return pm.environment.get(\"servicecategory_id\");",
+          "        }",
+          "",
+          "        return api.asyncRequest({",
+          "            // Create a new service category",
+          "            url: pm.variables.get(\"base_url\") + '/v1/servicecategories',",
+          "            method: 'POST',",
+          "            header: {",
+          "                'Accept': 'application/json',",
+          "                'Content-Type': 'application/json',",
+          "                'Authorization': 'Bearer ' + pm.variables.get(\"token\")",
+          "            },",
+          "            body: {",
+          "                mode: 'raw',",
+          "                raw: JSON.stringify({",
+          "                    \"data\": {",
+          "                        \"type\": \"servicecategory\",",
+          "                        \"attributes\": {",
+          "                            \"name\": \"Test Service Category - \" + Math.floor(Math.random() * 1000),",
+          "                        }",
+          "                    }",
+          "                })",
+          "            }",
+          "        }).then(function (response) {",
+          "            if (!pm.expect(response).to.have.property('code', 201)) {",
+          "                throw new Error(response);",
+          "            }",
+          "            json = response.json();",
+          "            pm.environment.set(\"servicecategory_id\", json.data.id);",
+          "            console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
+          "            return pm.environment.get(\"servicecategory_id\");",
           "        });",
           "    };",
           "",
@@ -14607,23 +15011,14 @@
           "};",
           "",
           "pm.globals.set('exivity', helpers.toString());"
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "id": "71721ab0-06ab-4b41-b8eb-62750b7ba27f",
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
+        ],
+        "type": "text/javascript"
       }
     }
   ],
   "variable": [
     {
-      "id": "6d018475-d1eb-4629-afda-5ca41296cf10",
+      "id": "d316ba64-ec6a-4566-92c5-82d1aa36092e",
       "key": "component",
       "value": "use",
       "type": "string"
