@@ -2231,8 +2231,7 @@
                   "mode": "file",
                   "file": {}
                 },
-                "url": "{{base_url}}/v1/file/a.txt",
-                "description": "_This endpoint is currently in beta. Please don't use it yet as the parameters might change at any time._"
+                "url": "{{base_url}}/v1/file/a.txt"
               },
               "response": []
             },
@@ -15036,7 +15035,7 @@
   ],
   "variable": [
     {
-      "id": "58a52bb4-b173-4bcf-8b6c-422b117bac7a",
+      "id": "0ae12ee1-5bf0-4389-972a-8895aabb4cf6",
       "key": "component",
       "value": "use",
       "type": "string"
