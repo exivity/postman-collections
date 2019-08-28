@@ -3315,29 +3315,29 @@
                   "script": {
                     "id": "bd868933-0a84-4845-a464-64b70a1d5e7b",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('budget');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.interval).to.eql('year');",
-                      "    pm.expect(response.data.attributes.description).to.eql('This is a new budget');",
-                      "    pm.expect(response.data.attributes.metric).to.eql('cogs');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "0636eb00-aa96-41f2-8e44-95e553bbec23",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireReport)\r",
+                      "    .then(api.requireAccount)\r",
+                      "    .then(api.requireBudget)\r",
+                      "    .then(api.requireBudgetRevision)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -3356,7 +3356,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgets/:budget_id/run?start=2019-05-05&end=2019-07-07",
+                  "raw": "{{base_url}}/v1/budgets/:budget_id/run?start={{start}}&end={{end}} ",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -3369,11 +3369,11 @@
                   "query": [
                     {
                       "key": "start",
-                      "value": "2019-05-05"
+                      "value": "{{start}}"
                     },
                     {
                       "key": "end",
-                      "value": "2019-07-07"
+                      "value": "{{end}} "
                     }
                   ],
                   "variable": [
@@ -15028,7 +15028,7 @@
   ],
   "variable": [
     {
-      "id": "c23550d5-724a-442c-810f-4254aed8d081",
+      "id": "171d50d6-77e5-4aac-a613-7f60ec653b09",
       "key": "component",
       "value": "use",
       "type": "string"
