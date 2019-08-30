@@ -9814,7 +9814,7 @@
                       "",
                       "// Next request",
                       "",
-                      "const components = [\"use\", \"transcript\", \"edify\", \"aeon\", \"proximity\"];",
+                      "const components = [\"use\", \"transcript\", \"edify\", \"aeon\", \"proximity\", \"pigeon\", \"horizon\"];",
                       "const previousComponent = pm.environment.get(\"component\");",
                       "const nextComponent = components[components.indexOf(previousComponent) + 1];",
                       "",
@@ -9860,7 +9860,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/log?component={{component}}&limit=&filter=&truncate=",
+                  "raw": "{{base_url}}/v1/log?component=horizon&limit=&filter=&truncate=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -9871,7 +9871,7 @@
                   "query": [
                     {
                       "key": "component",
-                      "value": "{{component}}",
+                      "value": "horizon",
                       "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `aeon`, `proximity`, `pigeon` or `horizon`."
                     },
                     {
@@ -15013,7 +15013,7 @@
   ],
   "variable": [
     {
-      "id": "2481b063-1aa2-414d-a533-ea71ce53975d",
+      "id": "0ca9054e-a3f0-45e8-b798-a747a7d9a1a7",
       "key": "component",
       "value": "use",
       "type": "string"
