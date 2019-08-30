@@ -9801,7 +9801,6 @@
                   "listen": "test",
                   "script": {
                     "id": "32f3e0ad-b589-4197-94b8-85e8e0fb3ea5",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -9826,21 +9825,22 @@
                       "} else {",
                       "    postman.setNextRequest(\"Get audit trail\");",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 },
                 {
                   "listen": "prerequest",
                   "script": {
                     "id": "e2d16e1f-efc0-4d6b-80a0-b488a0ea9d92",
-                    "type": "text/javascript",
                     "exec": [
                       "const component = pm.environment.get(\"component\");",
                       "",
                       "if (!component) {",
                       "    pm.environment.set(\"component\", \"use\");",
                       "}"
-                    ]
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -9859,21 +9859,6 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [
-                    {
-                      "key": "username",
-                      "value": "admin",
-                      "type": "text"
-                    },
-                    {
-                      "key": "password",
-                      "value": "admin",
-                      "type": "text"
-                    }
-                  ]
-                },
                 "url": {
                   "raw": "{{base_url}}/v1/log?component={{component}}&limit=&filter=&truncate=",
                   "host": [
@@ -9887,7 +9872,7 @@
                     {
                       "key": "component",
                       "value": "{{component}}",
-                      "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `aeon` or `proximity`."
+                      "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `aeon`, `proximity`, `pigeon` or `horizon`."
                     },
                     {
                       "key": "limit",
@@ -15028,7 +15013,7 @@
   ],
   "variable": [
     {
-      "id": "7e132ade-bdf1-4f25-90db-24a7cd6cd57e",
+      "id": "2481b063-1aa2-414d-a533-ea71ce53975d",
       "key": "component",
       "value": "use",
       "type": "string"
