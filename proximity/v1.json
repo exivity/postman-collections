@@ -1499,7 +1499,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{date}}&start_date=&end_date=&preview&limit&break_at",
+                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{date}}&start_date=&end_date=&limit&break_at&preview&snapshot_deset=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1526,11 +1526,6 @@
                       "description": "If the transformer should be run for a range of dates, the end date to run the fransformer for (in `YYYY-MM-DD` format)."
                     },
                     {
-                      "key": "preview",
-                      "value": null,
-                      "description": "If set to `1`, all statements which modify the system will be skipped and the default dataset will be included with the response."
-                    },
-                    {
                       "key": "limit",
                       "value": null,
                       "description": "Limit the number of records to preview, defaults to `10`."
@@ -1539,6 +1534,17 @@
                       "key": "break_at",
                       "value": null,
                       "description": "When in preview mode, stop executing the transformer before this line."
+                    },
+                    {
+                      "key": "preview",
+                      "value": null,
+                      "description": "If set to `1`, all statements which modify the system will be skipped and the default dataset will be included with the response."
+                    },
+                    {
+                      "key": "snapshot_deset",
+                      "value": "",
+                      "description": "With preview only  - name of deset to preview. If not selected, default dset will be used.",
+                      "type": "text"
                     }
                   ]
                 }
@@ -14928,7 +14934,7 @@
   ],
   "variable": [
     {
-      "id": "519aa1d0-81ef-4b5e-99f3-1cd0b193c0a7",
+      "id": "81bbad60-2e0d-49c0-8243-ba782f3b7458",
       "key": "component",
       "value": "use",
       "type": "string"
