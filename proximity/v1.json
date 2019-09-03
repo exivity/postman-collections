@@ -2962,10 +2962,12 @@
                       "api.start()\r",
                       "    .then(api.requireToken)\r",
                       "    .then(api.requireReport)\r",
+                      "    .then(api.requireAccount)\r",
                       "    .then(api.ready)\r",
                       "    .catch(function(err) {\r",
                       "        console.log(err);\r",
-                      "    });\r"
+                      "    });\r",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -3340,7 +3342,7 @@
                     "exec": [
                       "// Need valid report ID\r",
                       "pm.environment.set(\"report_id\", 1);\r",
-                      "\r",
+                      " \r",
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
                       "api.start()\r",
@@ -15029,7 +15031,7 @@
   ],
   "variable": [
     {
-      "id": "075d2335-d6ce-411a-a3b4-c29dd87cec1b",
+      "id": "cbb8a1ee-6791-4352-a3db-692c976bb7b9",
       "key": "component",
       "value": "use",
       "type": "string"
