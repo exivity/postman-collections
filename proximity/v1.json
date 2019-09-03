@@ -1546,109 +1546,6 @@
               "response": []
             },
             {
-              "name": "Run a transformer in preview mode",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "41b96714-f0b4-4db3-979e-45cb3f094095",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);",
-                      "let response = pm.response.text();",
-                      "",
-                      "for (let i of responseBody.split('\\n')) {",
-                      "    if (i[0] === '{') {",
-                      "        response = JSON.parse(i);",
-                      "    }",
-                      "}",
-                      "",
-                      "pm.test(\"Response contains output\", function () {",
-                      "    pm.expect(response).to.be.an('object');",
-                      "    pm.expect(response.status).to.be.a('string');",
-                      "    pm.expect(response.start_time).to.be.a('string');",
-                      "    pm.expect(response.end_time).to.be.a('string');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "4696ad6a-4660-4dda-a0f2-9e21805b1261",
-                    "exec": [
-                      "pm.environment.set(\"date\", \"20170101\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "319a6eb8-97c3-42bc-9482-9d9c1a5401ee",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{date}}&start_date=&end_date=&preview&limit&break_at",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "transformers",
-                    "{{transformer_name}}",
-                    "run"
-                  ],
-                  "query": [
-                    {
-                      "key": "date",
-                      "value": "{{date}}",
-                      "description": "Date to run the fransformer for (in `YYYY-MM-DD` format)."
-                    },
-                    {
-                      "key": "start_date",
-                      "value": "",
-                      "description": "If the transformer should be run for a range of dates, the start date to run the fransformer for (in `YYYY-MM-DD` format)."
-                    },
-                    {
-                      "key": "end_date",
-                      "value": "",
-                      "description": "If the transformer should be run for a range of dates, the end date to run the fransformer for (in `YYYY-MM-DD` format)."
-                    },
-                    {
-                      "key": "preview",
-                      "value": null,
-                      "description": "If set to `1`, all statements which modify the system will be skipped and the default dataset will be included with the response."
-                    },
-                    {
-                      "key": "limit",
-                      "value": null,
-                      "description": "Limit the number of records to preview, defaults to `10`."
-                    },
-                    {
-                      "key": "break_at",
-                      "value": null,
-                      "description": "When in preview mode, stop executing the transformer before this line."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Schedule a transformer",
               "event": [
                 {
@@ -15031,7 +14928,7 @@
   ],
   "variable": [
     {
-      "id": "73c6e805-af0c-4473-bf52-a90131b5b139",
+      "id": "a831b915-933c-4d5e-bb43-49c9b6655eda",
       "key": "component",
       "value": "use",
       "type": "string"
