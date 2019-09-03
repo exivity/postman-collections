@@ -3315,6 +3315,19 @@
                   "script": {
                     "id": "bd868933-0a84-4845-a464-64b70a1d5e7b",
                     "exec": [
+                      "pm.test(\"Status code is 422\", function () {",
+                      "    pm.response.to.have.status(422);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "//nsole.log(response);",
+                      "",
+                      "pm.test(\"Response contains error\", function () {",
+                      "    pm.expect(response.errors).to.be.an('array');",
+                      "    pm.expect(response.errors[0].status).to.eql(422);",
+                      "    pm.expect(response.errors[0].title).to.eql('ValidationException');",
+                      "    pm.expect(response.errors[0].detail).to.eql('Horizon error response: Cannot find revision for 2:20170101');",
+                      "});",
                       ""
                     ],
                     "type": "text/javascript"
@@ -3325,6 +3338,9 @@
                   "script": {
                     "id": "0636eb00-aa96-41f2-8e44-95e553bbec23",
                     "exec": [
+                      "// Need valid report ID\r",
+                      "pm.environment.set(\"report_id\", 1);\r",
+                      "\r",
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
                       "api.start()\r",
@@ -15013,7 +15029,7 @@
   ],
   "variable": [
     {
-      "id": "0ca9054e-a3f0-45e8-b798-a747a7d9a1a7",
+      "id": "075d2335-d6ce-411a-a3b4-c29dd87cec1b",
       "key": "component",
       "value": "use",
       "type": "string"
