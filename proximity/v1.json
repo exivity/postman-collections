@@ -15665,6 +15665,7 @@
           "                        \"type\": \"environment\",",
           "                        \"attributes\": {",
           "                            \"name\": \"Test Environment - \" + Math.floor(Math.random() * 1000),",
+          "                            \"default_flag\": false",
           "                        }",
           "                    }",
           "                })",
@@ -15701,7 +15702,7 @@
   ],
   "variable": [
     {
-      "id": "54e3ed2a-1048-4033-9600-8aae94d15e2a",
+      "id": "063b2b96-0835-4ec1-9e0a-ac15ef7b3473",
       "key": "component",
       "value": "use",
       "type": "string"
