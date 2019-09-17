@@ -1516,14 +1516,14 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/run?date={{date}}&start_date=&end_date=&limit&break_at&preview&snapshot_deset=",
+                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_deset",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "transformers",
-                    "{{transformer_name}}",
+                    ":transformer_name",
                     "run"
                   ],
                   "query": [
@@ -1554,14 +1554,20 @@
                     },
                     {
                       "key": "preview",
-                      "value": null,
+                      "value": "",
                       "description": "If set to `1`, all statements which modify the system will be skipped and the default dataset will be included with the response."
                     },
                     {
                       "key": "snapshot_deset",
-                      "value": "",
-                      "description": "With preview only  - name of deset to preview. If not selected, default dset will be used.",
-                      "type": "text"
+                      "value": null,
+                      "description": "With preview only  - name of deset to preview. If not selected, default dset will be used."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "transformer_name",
+                      "value": "{{transformer_name}}",
+                      "type": "string"
                     }
                   ]
                 }
@@ -15712,7 +15718,7 @@
   ],
   "variable": [
     {
-      "id": "40f325b2-ec6b-49ec-aaee-9410fdd65d29",
+      "id": "037066d2-e935-48b9-84b7-a9a45b4cc01d",
       "key": "component",
       "value": "use",
       "type": "string"
