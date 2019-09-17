@@ -1383,19 +1383,19 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/:transformername",
+                  "raw": "{{base_url}}/v1/transformers/:transformer_name",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "transformers",
-                    ":transformername"
+                    ":transformer_name"
                   ],
                   "variable": [
                     {
-                      "key": "transformername",
-                      "value": "{{transformer_name}}",
+                      "key": "transformer_name",
+                      "value": "",
                       "type": "string"
                     }
                   ]
@@ -15718,7 +15718,7 @@
   ],
   "variable": [
     {
-      "id": "037066d2-e935-48b9-84b7-a9a45b4cc01d",
+      "id": "99d833aa-f44c-4019-b92a-c3d9f883cfab",
       "key": "component",
       "value": "use",
       "type": "string"
