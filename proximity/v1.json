@@ -15212,8 +15212,8 @@
         "id": "ae7ad446-b393-4586-8f91-9ee05535d0c2",
         "type": "text/javascript",
         "exec": [
-          "console.log('*****************************************************');",
-          "console.log(request.name);",
+          "console.log('');",
+          "console.log('*********************request.name*********************');",
           "",
           "const helpers = () => {",
           "",
@@ -15741,7 +15741,7 @@
   ],
   "variable": [
     {
-      "id": "ad53b7bb-61ae-444a-90d9-370282dc54b0",
+      "id": "99c86a38-b116-4721-b558-a878bc032fc4",
       "key": "component",
       "value": "use",
       "type": "string"
