@@ -14723,7 +14723,7 @@
                       "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
                       "",
                       "pm.test(\"Check status code\", function () {",
-                      "    pm.expect(pm.response.code).to.be.oneOf([200,404]); ",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
                       "});",
                       "",
                       "const response = pm.response.json();",
@@ -15738,7 +15738,7 @@
   ],
   "variable": [
     {
-      "id": "eeaf9908-9649-48cf-8d16-b707ac3a3951",
+      "id": "e0731da5-4ba4-4026-9c57-d24afe27d67d",
       "key": "component",
       "value": "use",
       "type": "string"
