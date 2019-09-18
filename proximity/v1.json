@@ -1395,7 +1395,7 @@
                   "variable": [
                     {
                       "key": "transformer_name",
-                      "value": "",
+                      "value": "{{transformer_name}}",
                       "type": "string"
                     }
                   ]
@@ -14611,6 +14611,7 @@
                       "const api = eval(pm.globals.get('exivity'))();\r",
                       "\r",
                       "api.start()\r",
+                      "    .then(api.requireToken)\r",
                       "    .then(api.requireWorkflow)\r",
                       "    .then(api.requireWorkflowExecuteStep)\r",
                       "    .then(api.runWorkflow)\r",
@@ -14627,22 +14628,28 @@
                   "script": {
                     "id": "08f4b1f9-abcb-4591-b091-c2ed86c30561",
                     "exec": [
-                      "// Disable tests, since running a workflow is an async process, so we can't know",
-                      "// for sure that a workflowsteplog is available here for testing...",
+                      "// Since running a workflow is an async process, so we can't know",
+                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
                       "",
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
                       "",
-                      "// const response = pm.response.json();",
-                      "// console.log(response);",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
                       "",
-                      "// pm.test(\"Response contains data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('array');",
-                      "// });",
-                      "",
-                      "// pm.environment.set(\"workflowsteplog_id\", response.data[0].id);",
-                      "// console.log('SET workflowsteplog_id: ' + pm.environment.get(\"workflowsteplog_id\"));"
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "    if (response.data.length > 0 ) {",
+                      "        // We have some results to validate",
+                      "        pm.expect(response.data[0]).to.be.an('object');",
+                      "        pm.expect(response.data[0].type).to.eql('workflowsteplog');",
+                      "    }",
+                      "});",
+                      "pm.test(\"Response contains meta\", function () {",
+                      "    pm.expect(response.meta).to.be.an('object');",
+                      "});",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -15718,7 +15725,7 @@
   ],
   "variable": [
     {
-      "id": "99d833aa-f44c-4019-b92a-c3d9f883cfab",
+      "id": "f27d4351-b093-4d0a-b2c2-4fd52576a241",
       "key": "component",
       "value": "use",
       "type": "string"
