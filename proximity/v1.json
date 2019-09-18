@@ -14644,6 +14644,9 @@
                       "        // We have some results to validate",
                       "        pm.expect(response.data[0]).to.be.an('object');",
                       "        pm.expect(response.data[0].type).to.eql('workflowsteplog');",
+                      "        ",
+                      "        pm.environment.set(\"workflowsteplog_id\", response.data[0].id);",
+                      "        console.log('SET workflowsteplog_id: ' + pm.environment.get(\"workflowsteplog_id\"));",
                       "    }",
                       "});",
                       "pm.test(\"Response contains meta\", function () {",
@@ -14716,24 +14719,34 @@
                   "script": {
                     "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
                     "exec": [
-                      "// Disable tests, since running a workflow is an async process, so we can't know",
-                      "// for sure that a workflowsteplog is available here for testing...",
+                      "// Since running a workflow is an async process, so we can't know",
+                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
                       "",
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
+                      "pm.test(\"Check status code\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,404]); ",
+                      "});",
                       "",
-                      "// const response = pm.response.json();",
-                      "// console.log(response);",
+                      "const response = pm.response.json();",
+                      "console.log(response)",
                       "",
-                      "// pm.test(\"Response contains correct data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('object');",
-                      "//     pm.expect(response.data.type).to.eql('workflowsteplog');",
-                      "// });",
+                      "if (pm.response.code == 200) {",
+                      "    // Valid workflow step log ID",
+                      "    pm.test(\"Response contains correct data\", function () {",
+                      "        pm.expect(response.data).to.be.an('object');",
+                      "        pm.expect(response.data.type).to.eql('workflowsteplog');",
+                      "    });",
+                      "    ",
+                      "} else {",
+                      "    // Invalid ID, should get error",
+                      "     pm.test(\"Response contains correct error\", function () {",
+                      "        pm.expect(response.errors).to.be.an('array');",
+                      "        pm.expect(response.errors[0]).to.be.an('object');",
+                      "        pm.expect(response.errors[0].title).to.eql('NotFoundException');",
+                      "        pm.expect(response.errors[0].detail).to.eql('WorkflowStepLog could not be found.');",
+                      "        pm.expect(response.errors[0].status).to.eql(404);",
+                      "    });",
+                      "}",
                       "",
-                      "// pm.test(\"Response contains data.links\", function () {",
-                      "//     pm.expect(response.data.links).to.be.an('object');",
-                      "// });",
                       ""
                     ],
                     "type": "text/javascript"
@@ -14763,14 +14776,14 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/workflowsteplogs/:workflow_step_log_id?include=",
+                  "raw": "{{base_url}}/v1/workflowsteplogs/:workflowsteplog_id?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "workflowsteplogs",
-                    ":workflow_step_log_id"
+                    ":workflowsteplog_id"
                   ],
                   "query": [
                     {
@@ -14781,7 +14794,7 @@
                   ],
                   "variable": [
                     {
-                      "key": "workflow_step_log_id",
+                      "key": "workflowsteplog_id",
                       "value": "{{workflowsteplog_id}}",
                       "type": "string"
                     }
@@ -15725,7 +15738,7 @@
   ],
   "variable": [
     {
-      "id": "f27d4351-b093-4d0a-b2c2-4fd52576a241",
+      "id": "eeaf9908-9649-48cf-8d16-b707ac3a3951",
       "key": "component",
       "value": "use",
       "type": "string"
