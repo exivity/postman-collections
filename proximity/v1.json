@@ -340,7 +340,7 @@
                       "",
                       "if (!(pm.response.code === 422 || pm.response.code === 500)) {",
                       "    console.log('Invalid response: ');",
-                      "    console.log(pm.response);",
+                      "    console.log(pm.response.text());",
                       "}",
                       ""
                     ],
@@ -15745,7 +15745,7 @@
   ],
   "variable": [
     {
-      "id": "2554048e-dd42-420f-8c26-5a790623793a",
+      "id": "638eec84-4245-4ed3-aa52-16bfcacfb750",
       "key": "component",
       "value": "use",
       "type": "string"
