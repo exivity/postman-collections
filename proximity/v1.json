@@ -338,9 +338,12 @@
                       "    pm.expect(pm.response.code).to.be.oneOf([422, 500])",
                       "});",
                       "",
-                      "if (!(pm.response.code === 422 || pm.response.code === 500)) {",
-                      "    console.log('Invalid response: ');",
+                      "console.log('---- Response: ----');",
+                      "(pm.response.text())?pm.response.text():pm.response",
+                      "if (pm.response.text()) {",
                       "    console.log(pm.response.text());",
+                      "} else {",
+                      "    console.log('No response');",
                       "}",
                       ""
                     ],
@@ -15745,7 +15748,7 @@
   ],
   "variable": [
     {
-      "id": "6082a2de-fa66-4573-8605-ec234fc46c95",
+      "id": "511ae13d-1906-4634-b79e-c0208c8ee14b",
       "key": "component",
       "value": "use",
       "type": "string"
