@@ -332,12 +332,16 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "2c07fbb4-81b4-4775-bf67-7095cfa1d855",
+                    "id": "b1c4aa4b-792f-412e-8bfc-23385ba5bcf2",
                     "exec": [
                       "pm.test(\"Status code is 422 or 500\", function () {",
                       "    pm.expect(pm.response.code).to.be.oneOf([422, 500])",
                       "});",
                       "",
+                      "if (!(pm.response.code === 422 || pm.response.code === 500)) {",
+                      "    console.log('Invalid response: ');",
+                      "    console.log(pm.response);",
+                      "}",
                       ""
                     ],
                     "type": "text/javascript"
@@ -15741,7 +15745,7 @@
   ],
   "variable": [
     {
-      "id": "34d2bd18-cd22-445e-ade0-093cf0880ceb",
+      "id": "2554048e-dd42-420f-8c26-5a790623793a",
       "key": "component",
       "value": "use",
       "type": "string"
