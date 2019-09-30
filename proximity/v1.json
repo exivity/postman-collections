@@ -15219,16 +15219,6 @@
           "console.log('');",
           "console.log('********************* ' + request.name + ' *********************');",
           "",
-          "console.log('---- Response: ----');",
-          "(pm.response.text())?pm.response.text():pm.response",
-          "if (pm.response.text()) {",
-          "    console.log(pm.response.text());",
-          "} else {",
-          "    console.log('No response');",
-          "}",
-          "console.log('-------------------');",
-          "",
-          "",
           "const helpers = () => {",
           "",
           "    const api = {};",
@@ -15755,7 +15745,7 @@
   ],
   "variable": [
     {
-      "id": "5220f985-920a-47e6-8344-a9d7ee59bb1a",
+      "id": "6082a2de-fa66-4573-8605-ec234fc46c95",
       "key": "component",
       "value": "use",
       "type": "string"
