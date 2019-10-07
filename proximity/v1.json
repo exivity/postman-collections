@@ -4163,7 +4163,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"id\":{{budgetitem_id}},\n        \"attributes\": {\n            \"amount\": 100\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"id\":\"{{budgetitem_id}}\",\n        \"attributes\": {\n            \"amount\": 100\n        }\n    }\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgetitems/:budgetitem_id",
@@ -15748,7 +15748,7 @@
   ],
   "variable": [
     {
-      "id": "d4438f15-d2ae-454d-8dfe-8c90cb538b6e",
+      "id": "5a82b74f-49ab-4075-87ec-d7e14d749769",
       "key": "component",
       "value": "use",
       "type": "string"
