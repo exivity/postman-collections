@@ -8807,7 +8807,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}?include",
+                  "raw": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}?include=subscriptions,user",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -8819,9 +8819,8 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "",
-                      "description": "Possible values: `subscriptions`, `user`.",
-                      "type": "text"
+                      "value": "subscriptions,user",
+                      "description": "Possible values: `subscriptions`, `user`."
                     }
                   ]
                 }
@@ -15768,7 +15767,7 @@
   ],
   "variable": [
     {
-      "id": "326f5d44-f0d8-4bd5-8ef3-bdb741cbbfa1",
+      "id": "bc791783-9afe-4e4d-ba32-e465b5ee22d4",
       "key": "component",
       "value": "use",
       "type": "string"
