@@ -8402,6 +8402,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "da015837-4e3c-4905-b57c-e48989db0df9",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
@@ -8789,7 +8807,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}",
+                  "raw": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}?include",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -8800,8 +8818,9 @@
                   ],
                   "query": [
                     {
-                      "key": "",
+                      "key": "include",
                       "value": "",
+                      "description": "Possible values: `subscriptions`, `user`.",
                       "type": "text"
                     }
                   ]
@@ -15749,7 +15768,7 @@
   ],
   "variable": [
     {
-      "id": "e4a5362a-64fc-4068-a020-1bf030c774a0",
+      "id": "326f5d44-f0d8-4bd5-8ef3-bdb741cbbfa1",
       "key": "component",
       "value": "use",
       "type": "string"
