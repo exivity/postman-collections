@@ -1567,7 +1567,7 @@
                     {
                       "key": "snapshot_deset",
                       "value": null,
-                      "description": "With preview only  - name of deset to preview. If not selected, default dset will be used."
+                      "description": "With preview only  - name of dset to preview. If not selected, default dset will be used."
                     }
                   ],
                   "variable": [
@@ -15767,7 +15767,7 @@
   ],
   "variable": [
     {
-      "id": "bc791783-9afe-4e4d-ba32-e465b5ee22d4",
+      "id": "84f87023-d6bb-4db2-9c7a-6b9092e8e989",
       "key": "component",
       "value": "use",
       "type": "string"
