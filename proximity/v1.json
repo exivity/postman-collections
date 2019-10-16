@@ -1523,7 +1523,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_deset",
+                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_dset",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1565,7 +1565,7 @@
                       "description": "If set to `1`, all statements which modify the system will be skipped and the default dataset will be included with the response."
                     },
                     {
-                      "key": "snapshot_deset",
+                      "key": "snapshot_dset",
                       "value": null,
                       "description": "With preview only  - name of dset to preview. If not selected, default dset will be used."
                     }
@@ -2683,6 +2683,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "fb7d3b28-1771-4c2b-b7f6-39b7bc743867",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "52337c75-4fa0-9ec3-841d-2967733e293b",
@@ -2695,7 +2713,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/accounts/{{account_id}}/?include",
+                  "raw": "{{base_url}}/v1/accounts/{{account_id}}/?include=users",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -2708,7 +2726,7 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": null,
+                      "value": "users",
                       "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`."
                     }
                   ]
@@ -15785,7 +15803,7 @@
   ],
   "variable": [
     {
-      "id": "80bf79f3-ca7c-4879-a6ad-d61fe385f2d1",
+      "id": "7da90846-9f6e-4b9e-8ba0-ceff3cb45512",
       "key": "component",
       "value": "use",
       "type": "string"
