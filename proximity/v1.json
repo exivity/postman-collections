@@ -1523,7 +1523,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_dset",
+                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_deset",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1565,9 +1565,9 @@
                       "description": "If set to `1`, all statements which modify the system will be skipped and the default dataset will be included with the response."
                     },
                     {
-                      "key": "snapshot_dset",
+                      "key": "snapshot_deset",
                       "value": null,
-                      "description": "With preview only  - name of dset to preview. If not selected, default dset will be used."
+                      "description": "With preview only  - name of deset to preview. If not selected, default dset will be used."
                     }
                   ],
                   "variable": [
@@ -2683,24 +2683,6 @@
                     ],
                     "type": "text/javascript"
                   }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "fb7d3b28-1771-4c2b-b7f6-39b7bc743867",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
                 }
               ],
               "_postman_id": "52337c75-4fa0-9ec3-841d-2967733e293b",
@@ -2713,7 +2695,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/accounts/{{account_id}}/?include=users",
+                  "raw": "{{base_url}}/v1/accounts/{{account_id}}/?include",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -2726,7 +2708,7 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "users",
+                      "value": null,
                       "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`."
                     }
                   ]
@@ -4149,6 +4131,7 @@
                       "",
                       "pm.test(\"Response contains correct attributes\", function () {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.amount).to.eql(100);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -4180,7 +4163,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": ""
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"id\":\"{{budgetitem_id}}\",\n        \"attributes\": {\n            \"amount\": 100\n        }\n    }\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgetitems/:budgetitem_id",
@@ -8419,24 +8402,6 @@
                     ],
                     "type": "text/javascript"
                   }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "da015837-4e3c-4905-b57c-e48989db0df9",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
                 }
               ],
               "_postman_id": "3455887d-0bf0-410e-bc59-50682d79acca",
@@ -8836,8 +8801,7 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "subscriptions,user",
-                      "description": "Possible values: `subscriptions`, `user`."
+                      "value": "subscriptions,user"
                     }
                   ]
                 }
@@ -10389,24 +10353,6 @@
                           "        \"edify\",",
                           "    ]);",
                           "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    },
-                    {
-                      "listen": "prerequest",
-                      "script": {
-                        "id": "25ad6f46-747f-47f2-8a81-afa20cf8f4d6",
-                        "exec": [
-                          "const api = eval(pm.globals.get('exivity'))();\r",
-                          "\r",
-                          "api.start()\r",
-                          "    .then(api.requireToken)\r",
-                          "    .then(api.ready)\r",
-                          "    .catch(function(err) {\r",
-                          "        console.log(err);\r",
-                          "    });\r",
-                          ""
                         ],
                         "type": "text/javascript"
                       }
@@ -15802,7 +15748,7 @@
   ],
   "variable": [
     {
-      "id": "7cff78ec-2a0d-41f8-91ac-f3f650789750",
+      "id": "1745dad3-7917-449d-8ae7-4c9b8b9afb77",
       "key": "component",
       "value": "use",
       "type": "string"
