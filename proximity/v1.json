@@ -4149,7 +4149,6 @@
                       "",
                       "pm.test(\"Response contains correct attributes\", function () {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.amount).to.eql(100);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -4181,7 +4180,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"id\":\"{{budgetitem_id}}\",\n        \"attributes\": {\n            \"amount\": 100\n        }\n    }\n}"
+                  "raw": ""
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgetitems/:budgetitem_id",
@@ -15803,7 +15802,7 @@
   ],
   "variable": [
     {
-      "id": "7da90846-9f6e-4b9e-8ba0-ceff3cb45512",
+      "id": "7cff78ec-2a0d-41f8-91ac-f3f650789750",
       "key": "component",
       "value": "use",
       "type": "string"
