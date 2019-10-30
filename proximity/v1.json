@@ -1032,7 +1032,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/extractors/{{extractor_name}}/run?arguments",
+                  "raw": "{{base_url}}/v1/extractors/{{extractor_name}}/run?arguments&environment_id=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1047,6 +1047,11 @@
                       "key": "arguments",
                       "value": null,
                       "description": "Extractor arguments"
+                    },
+                    {
+                      "key": "environment_id",
+                      "value": "",
+                      "description": "Environment ID (optional)"
                     }
                   ]
                 }
@@ -15761,7 +15766,7 @@
   ],
   "variable": [
     {
-      "id": "a60441f4-fc67-4c07-b6c3-84699352ad56",
+      "id": "e1e6f8d6-9fbf-4af4-be3f-d8912fab6c50",
       "key": "component",
       "value": "use",
       "type": "string"
