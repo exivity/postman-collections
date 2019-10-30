@@ -1523,7 +1523,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_deset",
+                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_deset&environment_id=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1568,6 +1568,12 @@
                       "key": "snapshot_deset",
                       "value": null,
                       "description": "With preview only  - name of deset to preview. If not selected, default dset will be used."
+                    },
+                    {
+                      "key": "environment_id",
+                      "value": "",
+                      "description": "Environment ID (optional)",
+                      "type": "text"
                     }
                   ],
                   "variable": [
@@ -15755,7 +15761,7 @@
   ],
   "variable": [
     {
-      "id": "563ccee5-e0eb-4fc5-b292-b2dda43dac76",
+      "id": "a60441f4-fc67-4c07-b6c3-84699352ad56",
       "key": "component",
       "value": "use",
       "type": "string"
