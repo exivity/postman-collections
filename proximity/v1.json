@@ -13125,20 +13125,27 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/workflows/{{workflow_id}}?include=",
+                  "raw": "{{base_url}}/v1/workflows/:workflowId?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "workflows",
-                    "{{workflow_id}}"
+                    ":workflowId"
                   ],
                   "query": [
                     {
                       "key": "include",
                       "value": "",
                       "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowId",
+                      "value": "{{workflow_id}}",
+                      "type": "string"
                     }
                   ]
                 }
@@ -13823,7 +13830,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\",\r\n\t\t\t\t\"environment_id\": \"4\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -15748,7 +15755,7 @@
   ],
   "variable": [
     {
-      "id": "6bd4bdc0-d2f1-4cef-b8e5-960d97e28978",
+      "id": "563ccee5-e0eb-4fc5-b292-b2dda43dac76",
       "key": "component",
       "value": "use",
       "type": "string"
