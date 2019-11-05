@@ -1593,7 +1593,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_deset&environment_id=",
+                  "raw": "{{base_url}}/v1/transformers/:transformer_name/run?date={{date}}&start_date=&end_date=&limit&break_at&preview=&snapshot_deset&environment_id",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1641,7 +1641,7 @@
                     },
                     {
                       "key": "environment_id",
-                      "value": "",
+                      "value": null,
                       "description": "Environment ID (optional)"
                     }
                   ],
@@ -15830,7 +15830,7 @@
   ],
   "variable": [
     {
-      "id": "6aaf8772-5531-4011-9809-8e32067efe95",
+      "id": "ad36f8c4-66a3-47ed-a839-b5c10fce9fc9",
       "key": "component",
       "value": "use",
       "type": "string"
