@@ -1339,7 +1339,14 @@
                   "script": {
                     "id": "cfa07a5f-7a4c-4269-aea7-91214ed08360",
                     "exec": [
-                      ""
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
                     ],
                     "type": "text/javascript"
                   }
@@ -1397,6 +1404,23 @@
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});",
                       ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "37ea5f9d-d5bf-4d4d-8ca2-f4db66b5ae08",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
                     ],
                     "type": "text/javascript"
                   }
@@ -15783,7 +15807,7 @@
   ],
   "variable": [
     {
-      "id": "db49311a-bd10-4171-a171-c652356d2933",
+      "id": "4d9d91bc-df39-4ad5-bcac-6f48fbd3f31a",
       "key": "component",
       "value": "use",
       "type": "string"
