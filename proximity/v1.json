@@ -6355,7 +6355,7 @@
                       "    \"cogs_rate_col\": \"cogs_rate_col2\",",
                       "    \"cogs_fixed\": 40,",
                       "    \"cogs_fixed_col\": \"cogs_fixed_col2\",",
-                      "    \"effective_date\": \"2017-12-31\",",
+                      "    \"effective_date\": \"1999-12-31\",",
                       "    \"threshold\": 10,",
                       "        \"min_commit\": 50,",
                       "  });",
@@ -15766,7 +15766,7 @@
   ],
   "variable": [
     {
-      "id": "63aaafb6-c6b2-4568-afcd-bf9b89c04177",
+      "id": "6392b7b9-9d09-4f3a-8511-1270db8c463b",
       "key": "component",
       "value": "use",
       "type": "string"
