@@ -194,14 +194,14 @@
                       "description": "string",
                       "key": "username",
                       "type": "text",
-                      "value": "admin",
+                      "value": "{{username}}",
                       "warning": ""
                     },
                     {
                       "description": "string",
                       "key": "password",
                       "type": "text",
-                      "value": "exivity",
+                      "value": "{{password}}",
                       "warning": ""
                     }
                   ]
@@ -15830,7 +15830,7 @@
   ],
   "variable": [
     {
-      "id": "ad36f8c4-66a3-47ed-a839-b5c10fce9fc9",
+      "id": "8eb624ce-beed-41c9-8a4f-9599af814aa8",
       "key": "component",
       "value": "use",
       "type": "string"
