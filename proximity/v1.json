@@ -1407,23 +1407,6 @@
                     ],
                     "type": "text/javascript"
                   }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "37ea5f9d-d5bf-4d4d-8ca2-f4db66b5ae08",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
                 }
               ],
               "_postman_id": "99b2c49e-80e8-50fd-4ca8-34b2d382d44f",
@@ -1486,23 +1469,6 @@
                       "    pm.expect(response.contents.trim()).to.eql('# modified script here');",
                       "    pm.expect(response.schedule).to.eql(false);",
                       "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "e0ae400f-7e85-4183-9f8d-911979104ef4",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
                     ],
                     "type": "text/javascript"
                   }
@@ -15824,7 +15790,7 @@
   ],
   "variable": [
     {
-      "id": "d65437ae-9d01-45df-b2cc-961fa519f2a2",
+      "id": "e38714c7-0a2d-4d9a-a071-299654757854",
       "key": "component",
       "value": "use",
       "type": "string"
