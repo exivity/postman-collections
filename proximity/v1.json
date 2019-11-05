@@ -1407,6 +1407,23 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "37ea5f9d-d5bf-4d4d-8ca2-f4db66b5ae08",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "99b2c49e-80e8-50fd-4ca8-34b2d382d44f",
@@ -1472,6 +1489,23 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e0ae400f-7e85-4183-9f8d-911979104ef4",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "5574ae6f-2c2a-bb16-70e7-0c930b7533b4",
@@ -1532,7 +1566,14 @@
                     "id": "dec78d38-7f57-4c77-857c-3fede934e468",
                     "exec": [
                       "pm.environment.set(\"date\", \"20170101\");",
-                      ""
+                      "",
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });"
                     ],
                     "type": "text/javascript"
                   }
@@ -1601,8 +1642,7 @@
                     {
                       "key": "environment_id",
                       "value": "",
-                      "description": "Environment ID (optional)",
-                      "type": "text"
+                      "description": "Environment ID (optional)"
                     }
                   ],
                   "variable": [
@@ -15790,7 +15830,7 @@
   ],
   "variable": [
     {
-      "id": "e38714c7-0a2d-4d9a-a071-299654757854",
+      "id": "977836c8-2dd9-45dd-b933-49d612e6ae22",
       "key": "component",
       "value": "use",
       "type": "string"
