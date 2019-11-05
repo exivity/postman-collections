@@ -6357,7 +6357,7 @@
                       "    \"cogs_fixed_col\": \"cogs_fixed_col2\",",
                       "    \"effective_date\": \"1999-12-31\",",
                       "    \"threshold\": 10,",
-                      "        \"min_commit\": 50,",
+                      "    \"min_commit\": 50,",
                       "  });",
                       "",
                       "});",
@@ -15766,7 +15766,7 @@
   ],
   "variable": [
     {
-      "id": "6392b7b9-9d09-4f3a-8511-1270db8c463b",
+      "id": "4e2174be-3882-4bc3-9e25-73df0b2fd624",
       "key": "component",
       "value": "use",
       "type": "string"
