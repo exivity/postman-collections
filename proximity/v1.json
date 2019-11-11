@@ -7180,7 +7180,24 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "url": "{{base_url}}/v1/reports/1"
+                "url": {
+                  "raw": "{{base_url}}/v1/reports/:report_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "reports",
+                    ":report_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "report_id",
+                      "value": "{{report_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -15883,7 +15900,7 @@
   ],
   "variable": [
     {
-      "id": "b9ffc03f-42f3-4f4c-9bc0-95aed2fdd8ff",
+      "id": "b8d5ad62-8ebf-4612-acd8-ca8d12287af1",
       "key": "component",
       "value": "use",
       "type": "string"
