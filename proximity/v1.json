@@ -1959,7 +1959,7 @@
                       "    pm.expect(response.data.attributes.columns).to.be.an('array').that.is.not.empty;",
                       "});",
                       "",
-                      "pm.test(\"Attribute columns is not empty\", function () {",
+                      "pm.test(\"Attribute 'columns' is not empty\", function () {",
                       "    pm.expect(response.data.attributes.columns).to.be.an('array').that.is.not.empty;",
                       "});",
                       "",
@@ -15908,7 +15908,7 @@
   ],
   "variable": [
     {
-      "id": "2f32cde1-96b4-42f4-bd60-dd392a82d6f6",
+      "id": "7c44b911-f513-4118-bb06-bf728e420b23",
       "key": "component",
       "value": "use",
       "type": "string"
