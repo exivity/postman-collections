@@ -1959,6 +1959,10 @@
                       "    pm.expect(response.data.attributes.columns).to.be.an('array').that.is.not.empty;",
                       "});",
                       "",
+                      "pm.test(\"Columns is not empty\", function () {",
+                      "    pm.expect(response.data.attributes.columns).to.be.an('array').that.is.not.empty;",
+                      "});",
+                      "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
@@ -7142,7 +7146,11 @@
                       "\t});",
                       "    pm.expect(response.data.attributes.created).to.be.a('string');",
                       "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.data_status).to.be.an('object');",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Data status is not empty\", function () {",
+                      "    pm.expect(response.data.attributes.data_status).to.be.an('object').that.is.not.empty;",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -15900,7 +15908,7 @@
   ],
   "variable": [
     {
-      "id": "b8d5ad62-8ebf-4612-acd8-ca8d12287af1",
+      "id": "84abc583-3167-43c7-8d11-f8028134496a",
       "key": "component",
       "value": "use",
       "type": "string"
