@@ -1857,6 +1857,23 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "aadf171d-ae62-42b6-aa44-9e1489156393",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "8ff2a25a-0875-9274-dbbb-074df6f73cc3",
@@ -7116,6 +7133,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "522fbcbd-0abc-4d2f-ad88-5e3015f3dfd5",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "2659dc88-c22f-037f-a429-e8793a98d95c",
@@ -7127,7 +7162,7 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "url": "{{base_url}}/v1/reports/{{report_id}}"
+                "url": "{{base_url}}/v1/reports/1"
               },
               "response": []
             },
@@ -15830,7 +15865,7 @@
   ],
   "variable": [
     {
-      "id": "8eb624ce-beed-41c9-8a4f-9599af814aa8",
+      "id": "22823820-1051-45f5-9fad-dfdb85b4b63d",
       "key": "component",
       "value": "use",
       "type": "string"
