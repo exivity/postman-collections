@@ -1949,13 +1949,14 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"dset_id\").toString());",
                       "});",
                       "",
+                      "// Attributes",
                       "pm.test(\"Response contains correct attributes\", function () {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes.earliest_rdf).to.be.a('string');",
                       "    pm.expect(response.data.attributes.latest_rdf).to.be.a('string');",
                       "    pm.expect(response.data.attributes.ref_count).to.be.a('number');",
                       "    pm.expect(response.data.attributes.rdf_detail).to.be.an('array');",
-                      "    pm.expect(response.data.attributes.columns).to.be.an('array');",
+                      "    pm.expect(response.data.attributes.columns).to.be.an('array').that.is.not.empty;",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -15882,7 +15883,7 @@
   ],
   "variable": [
     {
-      "id": "99e2a528-4f34-4404-9687-c00c8cb11051",
+      "id": "b9ffc03f-42f3-4f4c-9bc0-95aed2fdd8ff",
       "key": "component",
       "value": "use",
       "type": "string"
