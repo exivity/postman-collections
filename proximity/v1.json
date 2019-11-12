@@ -8166,7 +8166,8 @@
                       "    pm.expect(response.data.attributes).to.have.keys([",
                       "        \"username\",",
                       "        \"email_address\",",
-                      "        \"account_access_type\"",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
                       "  ]);",
                       "  pm.expect(response.data.attributes.username).to.eql('modified_user');",
                       "  pm.expect(response.data.attributes.email_address).to.eql('someone+modified@exivity.com');",
@@ -15964,7 +15965,7 @@
   ],
   "variable": [
     {
-      "id": "4a88ec4a-2355-4282-8a7f-adce154f6623",
+      "id": "4e9760cb-620e-4c6e-9c8b-f1def5c25819",
       "key": "component",
       "value": "use",
       "type": "string"
