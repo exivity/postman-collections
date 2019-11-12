@@ -1034,6 +1034,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "ef0e2a30-2a18-4943-8e9f-c833c05df36e",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "4e59415c-aabc-23c7-9e88-446a18061e36",
@@ -1050,7 +1068,7 @@
                   "formdata": []
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/extractors/{{extractor_name}}/run?arguments&environment_id=",
+                  "raw": "{{base_url}}/v1/extractors/{{extractor_name}}/run?arguments",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1068,8 +1086,9 @@
                     },
                     {
                       "key": "environment_id",
-                      "value": "",
-                      "description": "Environment ID (optional)"
+                      "value": "1",
+                      "description": "Environment ID (optional)",
+                      "disabled": true
                     }
                   ]
                 }
@@ -15938,7 +15957,7 @@
   ],
   "variable": [
     {
-      "id": "170a0550-b081-4746-abf6-7321c1cee031",
+      "id": "1c5b7a8e-1f8c-48ad-81c8-2cfd3b73d076",
       "key": "component",
       "value": "use",
       "type": "string"
