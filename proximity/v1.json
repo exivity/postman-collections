@@ -7723,9 +7723,10 @@
                           "    pm.expect(response.data.id).to.not.be.undefined;",
                           "    pm.expect(response.data.attributes).to.be.an('object');",
                           "    pm.expect(response.data.attributes).to.have.keys([",
-                          "    \"username\",",
+                          "        \"username\",",
                           "        \"email_address\",",
-                          "        \"account_access_type\"",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
                           "  ]);",
                           "});",
                           "",
@@ -8047,7 +8048,8 @@
                       "    pm.expect(response.data.attributes).to.have.keys([",
                       "        \"username\",",
                       "        \"email_address\",",
-                      "        \"account_access_type\"",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
                       "  ]);",
                       "  pm.expect(response.data.attributes.username).to.eql('user');",
                       "  pm.expect(response.data.attributes.email_address).to.eql('someone@exivity.com');",
@@ -15961,7 +15963,7 @@
   ],
   "variable": [
     {
-      "id": "1edae8a5-42ca-4bdf-bb03-24d64c8be69a",
+      "id": "2e2a055b-f70d-4bb7-8034-2f4e28ff2cbb",
       "key": "component",
       "value": "use",
       "type": "string"
