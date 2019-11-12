@@ -829,7 +829,10 @@
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
-                      "    pm.expect(response.contents.trim()).to.eql(\"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"print Hello\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"var key1 = value1\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"public var key2 = value2\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"public encrypted var key3 =\");",
                       "    pm.expect(response.variables).to.eql([",
                       "        {",
                       "            \"name\": \"key2\",",
@@ -1086,7 +1089,7 @@
                     },
                     {
                       "key": "environment_id",
-                      "value": "1",
+                      "value": "",
                       "description": "Environment ID (optional)",
                       "disabled": true
                     }
@@ -15957,7 +15960,7 @@
   ],
   "variable": [
     {
-      "id": "1ff86660-6435-45db-938d-7dde4f2a84da",
+      "id": "de823ad9-6043-470d-b8e4-4ac3af15130d",
       "key": "component",
       "value": "use",
       "type": "string"
