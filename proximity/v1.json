@@ -829,10 +829,7 @@
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
-                      "    pm.expect(response.contents.trim()).to.include(\"print Hello\");",
-                      "    pm.expect(response.contents.trim()).to.include(\"var key1 = value1\");",
-                      "    pm.expect(response.contents.trim()).to.include(\"public var key2 = value2\");",
-                      "    pm.expect(response.contents.trim()).to.include(\"public encrypted var key3 =\");",
+                      "    pm.expect(response.contents.trim()).to.eql(\"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\");",
                       "    pm.expect(response.variables).to.eql([",
                       "        {",
                       "            \"name\": \"key2\",",
@@ -15960,7 +15957,7 @@
   ],
   "variable": [
     {
-      "id": "de823ad9-6043-470d-b8e4-4ac3af15130d",
+      "id": "48b66d2f-7046-4147-9577-b964627476dc",
       "key": "component",
       "value": "use",
       "type": "string"
