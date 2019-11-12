@@ -735,7 +735,7 @@
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
-                      "    pm.expect(response.contents.trim()).to.eql(\"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\");",
+                      "    pm.expect(response.contents.trim()).to.eql(\"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypt var key3 = 0\");",
                       "    pm.expect(response.variables).to.eql([",
                       "        {",
                       "            \"name\": \"key2\",",
@@ -795,7 +795,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"name\": \"Extractor test - {{$randomInt}}\",\r\n  \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r\n}"
+                  "raw": "{\r\n  \"name\": \"Extractor test - {{$randomInt}}\",\r\n  \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypt var key3 = 0\"\r\n}"
                 },
                 "url": "{{base_url}}/v1/extractors"
               },
@@ -15957,7 +15957,7 @@
   ],
   "variable": [
     {
-      "id": "1c5b7a8e-1f8c-48ad-81c8-2cfd3b73d076",
+      "id": "1ff86660-6435-45db-938d-7dde4f2a84da",
       "key": "component",
       "value": "use",
       "type": "string"
