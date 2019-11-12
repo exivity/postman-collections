@@ -829,7 +829,10 @@
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
-                      "    pm.expect(response.contents.trim()).to.eql(\"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"print Hello\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"var key1 = value1\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"public var key2 = value2\");",
+                      "    pm.expect(response.contents.trim()).to.include(\"public encrypted var key3 =\");",
                       "    pm.expect(response.variables).to.eql([",
                       "        {",
                       "            \"name\": \"key2\",",
@@ -7770,9 +7773,10 @@
                           "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
                           "    pm.expect(response.data.attributes).to.be.an('object');",
                           "    pm.expect(response.data.attributes).to.have.keys([",
-                          "    \"username\",",
+                          "        \"username\",",
                           "        \"email_address\",",
-                          "        \"account_access_type\"",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
                           "  ]);",
                           "  pm.expect(response.data.attributes.username).to.eql('admin');",
                           "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
@@ -15957,7 +15961,7 @@
   ],
   "variable": [
     {
-      "id": "48b66d2f-7046-4147-9577-b964627476dc",
+      "id": "1edae8a5-42ca-4bdf-bb03-24d64c8be69a",
       "key": "component",
       "value": "use",
       "type": "string"
