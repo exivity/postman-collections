@@ -13942,6 +13942,15 @@
                   "script": {
                     "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
                     "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "});\r",
+                      "\r",
                       "pm.sendRequest({\r",
                       "    url: pm.variables.get(\"base_url\") + '/v1/extractors',\r",
                       "    method: 'POST',\r",
@@ -15910,7 +15919,7 @@
   ],
   "variable": [
     {
-      "id": "b0da757a-52de-4cd3-8abf-0a039b46ca4e",
+      "id": "486e4da2-8f6f-4287-99a5-fedc568f44d0",
       "key": "component",
       "value": "use",
       "type": "string"
