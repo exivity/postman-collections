@@ -30,7 +30,8 @@
               "script": {
                 "id": "50f910fa-778b-4bd8-ac06-b6fe023c097b",
                 "exec": [
-                  "console.log(\"Base_url: \", pm.environment.get(\"base_url\"));"
+                  "console.log(\"Base_url: \", pm.environment.get(\"base_url\"));",
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -15965,7 +15966,7 @@
   ],
   "variable": [
     {
-      "id": "824b217b-d74f-4f35-973c-f70e03b51ce9",
+      "id": "b0328d2a-78ff-41c6-a1ba-b258c1581774",
       "key": "component",
       "value": "use",
       "type": "string"
