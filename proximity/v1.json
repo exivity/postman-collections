@@ -3787,9 +3787,28 @@
               "name": "Update a budget revision",
               "event": [
                 {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "153821c1-ac2c-45c8-bb3f-37597c422041",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireBudget)\r",
+                      "    .then(api.requireBudgetRevision)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      "    "
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
                   "listen": "test",
                   "script": {
-                    "id": "358cbac9-b630-4f2e-8bbe-e6aab4bc14d0",
+                    "id": "7adfed7f-2a75-4667-898f-3b2a421b7ed9",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -3815,24 +3834,6 @@
                       "",
                       "postman.setNextRequest(\"Add a new budget item\");",
                       ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "aaf6b604-85e0-4015-992e-0e470d59210f",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireBudget)\r",
-                      "    .then(api.requireBudgetRevision)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
                     ],
                     "type": "text/javascript"
                   }
@@ -15966,7 +15967,7 @@
   ],
   "variable": [
     {
-      "id": "b0328d2a-78ff-41c6-a1ba-b258c1581774",
+      "id": "48b289dc-4af0-4d79-97cb-0a7156aaef8a",
       "key": "component",
       "value": "use",
       "type": "string"
