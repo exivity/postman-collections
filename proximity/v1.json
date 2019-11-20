@@ -153,8 +153,8 @@
                       "    pm.expect(response.user).to.be.an('object');",
                       "    pm.expect(response.user.id).to.not.be.undefined;",
                       "    pm.expect(response.user.username).to.eql(\"admin\");",
-                      "    pm.expect(response.user.email_address).to.not.be.undefined;",
-                      "    pm.expect(response.user.account_access_type).to.eql(\"1\");",
+                      "    pm.expect(response.user).to.have.property('email_address');",
+                      "    pm.expect(response.user).to.have.property('account_access_type');",
                       "});",
                       "",
                       "pm.test(\"Response contains permissions\", function () {",
@@ -15965,7 +15965,7 @@
   ],
   "variable": [
     {
-      "id": "473147d8-4751-4fcf-a066-1cbd42e86bc4",
+      "id": "824b217b-d74f-4f35-973c-f70e03b51ce9",
       "key": "component",
       "value": "use",
       "type": "string"
