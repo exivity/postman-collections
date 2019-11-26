@@ -15762,7 +15762,7 @@
           "",
           "        return api.asyncRequest({",
           "            // Create a new service",
-          "            url: pm.variables.get(\"base_url\") + '/v1/service',",
+          "            url: pm.variables.get(\"base_url\") + '/v1/services',",
           "            method: 'POST',",
           "            header: {",
           "                'Accept': 'application/json',",
@@ -15805,9 +15805,9 @@
           "                throw new Error(response);",
           "            }",
           "            json = response.json();",
-          "            pm.environment.set(\"servicecategory_id\", json.data.id);",
-          "            console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
-          "            return pm.environment.get(\"servicecategory_id\");",
+          "            pm.environment.set(\"service_id\", json.data.id);",
+          "            console.log('SET service_id: ' + pm.environment.get(\"service_id\"));",
+          "            return pm.environment.get(\"service_id\");",
           "        });",
           "    };",
           "",
@@ -16032,7 +16032,7 @@
   ],
   "variable": [
     {
-      "id": "da65c3ab-4188-42d7-82f9-25539013945d",
+      "id": "b4ef659e-83e5-488e-a723-ff1f12d26ea2",
       "key": "component",
       "value": "use",
       "type": "string"
