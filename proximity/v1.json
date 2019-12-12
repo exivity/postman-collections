@@ -7431,7 +7431,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options&invoice_options",
+                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=accounts&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options&invoice_options",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -7454,7 +7454,7 @@
                     },
                     {
                       "key": "dimension",
-                      "value": "",
+                      "value": "accounts",
                       "description": "The dimension you want to include in the output. One of `accounts`, `services` or `instances` (or a combination of those as a comma separated list). Defaults to `accounts,services`. When `instances` is included, price and quantity adjustments and minimum commit are not reflected in the data."
                     },
                     {
@@ -16032,7 +16032,7 @@
   ],
   "variable": [
     {
-      "id": "b4ef659e-83e5-488e-a723-ff1f12d26ea2",
+      "id": "2b9f9d42-305e-4f77-8d27-3eff3df1b936",
       "key": "component",
       "value": "use",
       "type": "string"
