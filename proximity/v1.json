@@ -9635,7 +9635,24 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "url": "{{base_url}}/v1/notifications/{{notification_id}}",
+                "url": {
+                  "raw": "{{base_url}}/v1/notifications/:notification_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "notifications",
+                    ":notification_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "notification_id",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "description": "Get all database notification for auth user"
               },
               "response": []
@@ -16032,7 +16049,7 @@
   ],
   "variable": [
     {
-      "id": "dfdaf3ff-ffc3-46a6-b44d-b995e0cfc8e2",
+      "id": "201a31a8-7e0c-449c-8508-37b813315126",
       "key": "component",
       "value": "use",
       "type": "string"
