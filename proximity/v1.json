@@ -9620,49 +9620,6 @@
                 "description": "Get all database notification for auth user"
               },
               "response": []
-            },
-            {
-              "name": "Mark notification as read",
-              "_postman_id": "7cdf2977-e1de-45a2-9482-2849e05daa22",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification\",\r\n\t\t\"id\": \"{{notification_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"read_at\": \"{{$timestamp}}\"\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/notifications/:notification_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "notifications",
-                    ":notification_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "notification_id",
-                      "value": "",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
             }
           ],
           "_postman_id": "9add9ff9-39f6-451a-971f-7f2f09d07e7e",
@@ -16030,7 +15987,7 @@
   ],
   "variable": [
     {
-      "id": "33405df3-2a44-44e8-99d1-9cb0b40b2360",
+      "id": "86d067b7-4772-45bc-875e-9eb09487f3e6",
       "key": "component",
       "value": "use",
       "type": "string"
