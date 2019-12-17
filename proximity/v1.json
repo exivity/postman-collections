@@ -6280,13 +6280,13 @@
                   "script": {
                     "id": "27b05420-734c-4988-9e88-c3a883602d2a",
                     "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
                       "    });"
                     ],
                     "type": "text/javascript"
@@ -6398,6 +6398,8 @@
                       "",
                       "api.start()",
                       "    .then(api.requireToken)",
+                      "    .then(api.requireServiceCategory)",
+                      "    .then(api.requireService)",
                       "    .then(api.ready)",
                       "    .catch(function(err) {",
                       "        console.log(err);",
@@ -16023,7 +16025,7 @@
   ],
   "variable": [
     {
-      "id": "84be99dc-c26d-445a-a39b-71dede099ba2",
+      "id": "d7ccac46-d362-4fa2-917b-a80a3af8c5e5",
       "key": "component",
       "value": "use",
       "type": "string"
