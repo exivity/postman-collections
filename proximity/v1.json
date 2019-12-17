@@ -15431,7 +15431,6 @@
         "exec": [
           "console.log('');",
           "console.log('********************* ' + request.name + ' *********************');",
-          "console.log('********************* ' + request.name + ' *********************');",
           "",
           "const helpers = () => {",
           "",
@@ -16024,7 +16023,7 @@
   ],
   "variable": [
     {
-      "id": "51e7e54f-5753-4203-8f92-35426b1c050b",
+      "id": "84be99dc-c26d-445a-a39b-71dede099ba2",
       "key": "component",
       "value": "use",
       "type": "string"
