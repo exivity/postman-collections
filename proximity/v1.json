@@ -15429,7 +15429,7 @@
         "id": "ae7ad446-b393-4586-8f91-9ee05535d0c2",
         "type": "text/javascript",
         "exec": [
-          "console.log('');",
+          "console.log('asdf');",
           "console.log('********************* ' + request.name + ' *********************');",
           "",
           "const helpers = () => {",
@@ -16023,7 +16023,7 @@
   ],
   "variable": [
     {
-      "id": "0eb1f2d1-a71b-4480-a964-f57715c72808",
+      "id": "434d01f8-7a15-41e9-8869-24afcac99d39",
       "key": "component",
       "value": "use",
       "type": "string"
