@@ -9622,42 +9622,6 @@
               "response": []
             },
             {
-              "name": "Get database notification by ID",
-              "_postman_id": "3ce82c98-5ae7-498b-b271-c9bbd34163ab",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/notifications/:notification_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "notifications",
-                    ":notification_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "notification_id",
-                      "value": "",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Get all database notification for auth user"
-              },
-              "response": []
-            },
-            {
               "name": "Mark notification as read",
               "_postman_id": "7cdf2977-e1de-45a2-9482-2849e05daa22",
               "protocolProfileBehavior": {
@@ -16066,7 +16030,7 @@
   ],
   "variable": [
     {
-      "id": "d86165c2-6d1d-48a1-b07b-f959f66c5f95",
+      "id": "33405df3-2a44-44e8-99d1-9cb0b40b2360",
       "key": "component",
       "value": "use",
       "type": "string"
