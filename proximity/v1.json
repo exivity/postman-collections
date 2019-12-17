@@ -6182,8 +6182,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "// console.log('UNSET service_id');",
-                      "// pm.environment.unset(\"service_id\");"
+                      "console.log('UNSET service_id');",
+                      "pm.environment.unset(\"service_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -6355,7 +6355,7 @@
                       "\t\t\"cogs_rate_col\": \"cogs_rate_col\",",
                       "\t\t\"cogs_fixed\": 4,",
                       "\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
-                      "\t\t\"effective_date\": \"2018-01-01\",",
+                      "\t\t\"effective_date\": \"2019-12-12\",",
                       "\t\t\"threshold\": 0,",
                       "        \"min_commit\": 0",
                       "\t});",
@@ -6367,6 +6367,26 @@
                       "});",
                       "",
                       "pm.environment.set(\"rate_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "673acce8-137e-4260-96c6-23ac9cda4b62",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireServiceCategory)",
+                      "    .then(api.requireService)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -6389,7 +6409,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2018-01-01\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2019-12-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/rates",
                 "description": "Account specific rates can be created through this endpoint by specifying the `account` relationship in the request body, e.g.:\n\n```\n\"relationships\": {\n\t\"service\": { ... },\n\t\"account\": {\n\t\t\"data\": {\n\t\t\t\"type\": \"account\",\n\t\t\t\"id\": \"1\"\n\t\t}\n\t}\n}\n```"
@@ -15987,7 +16007,7 @@
   ],
   "variable": [
     {
-      "id": "0decc6f1-0b6e-4c03-891e-1e736b40d713",
+      "id": "5f89e659-7153-4d02-9c81-c798ca97711e",
       "key": "component",
       "value": "use",
       "type": "string"
