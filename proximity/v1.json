@@ -9679,7 +9679,24 @@
                   "mode": "raw",
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification\",\r\n\t\t\"id\": \"{{notification_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"read_at\": \"{{$timestamp}}\"\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/notifications/{{notification_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/notifications/:notification_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "notifications",
+                    ":notification_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "notification_id",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -16049,7 +16066,7 @@
   ],
   "variable": [
     {
-      "id": "23270836-b432-44c6-b376-e612701ec763",
+      "id": "d86165c2-6d1d-48a1-b07b-f959f66c5f95",
       "key": "component",
       "value": "use",
       "type": "string"
