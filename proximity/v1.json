@@ -6182,8 +6182,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "console.log('UNSET service_id');",
-                      "pm.environment.unset(\"service_id\");"
+                      "// console.log('UNSET service_id');",
+                      "// pm.environment.unset(\"service_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -16006,7 +16006,7 @@
   ],
   "variable": [
     {
-      "id": "d6784806-c12e-4609-885c-a6e0b7a18427",
+      "id": "54a06f95-6f5f-41b0-a198-668d0b524e1a",
       "key": "component",
       "value": "use",
       "type": "string"
