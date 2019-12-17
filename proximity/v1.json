@@ -6182,8 +6182,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "// console.log('UNSET service_id');",
-                      "// pm.environment.unset(\"service_id\");"
+                      "console.log('UNSET service_id');",
+                      "pm.environment.unset(\"service_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -6367,6 +6367,25 @@
                       "});",
                       "",
                       "pm.environment.set(\"rate_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "bf24da51-48ca-483c-afb0-21d12f51a12d",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireServiceCategory)\r",
+                      "    .then(api.requireService)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
                     ],
                     "type": "text/javascript"
                   }
@@ -15987,7 +16006,7 @@
   ],
   "variable": [
     {
-      "id": "86d067b7-4772-45bc-875e-9eb09487f3e6",
+      "id": "d6784806-c12e-4609-885c-a6e0b7a18427",
       "key": "component",
       "value": "use",
       "type": "string"
