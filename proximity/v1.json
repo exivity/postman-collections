@@ -6520,7 +6520,7 @@
                       "    \"cogs_rate_col\": \"cogs_rate_col2\",",
                       "    \"cogs_fixed\": 40,",
                       "    \"cogs_fixed_col\": \"cogs_fixed_col2\",",
-                      "    \"effective_date\": \"2017-08-26\",",
+                      "    \"effective_date\": \"2019-11-16\",",
                       "    \"threshold\": 10,",
                       "    \"min_commit\": 50,",
                       "  });",
@@ -6552,7 +6552,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n      \"effective_date\": \"2017-08-26\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n      \"effective_date\": \"2019-11-16\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/rates/{{rate_id}}"
               },
@@ -6601,12 +6601,12 @@
                   "script": {
                     "id": "8394c1a9-b96c-4716-af0d-37271ea40f4c",
                     "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
+                      "// pm.test(\"Status code is 204\", function () {",
+                      "//     pm.response.to.have.status(204);",
+                      "// });",
                       "",
-                      "console.log('UNSET rate_id');",
-                      "pm.environment.unset(\"rate_id\");"
+                      "// console.log('UNSET rate_id');",
+                      "// pm.environment.unset(\"rate_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -16007,7 +16007,7 @@
   ],
   "variable": [
     {
-      "id": "3ae3bb26-8e34-4c30-8915-01dad79ce845",
+      "id": "59b4b5b6-a97f-483e-8d16-7ea824ac6bcc",
       "key": "component",
       "value": "use",
       "type": "string"
