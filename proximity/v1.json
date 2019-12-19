@@ -6686,6 +6686,41 @@
               "response": []
             },
             {
+              "name": "Prepare affected reports",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "7f667470-caf0-b7bc-cdaf-46d7b7cdc345",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/rates/{{rate_id}}/prepareAffectedReports"
+              },
+              "response": []
+            },
+            {
               "name": "Update a rate",
               "event": [
                 {
@@ -6749,41 +6784,6 @@
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n      \"effective_date\": \"2019-11-16\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/rates/{{rate_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Prepare affected reports",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "7f667470-caf0-b7bc-cdaf-46d7b7cdc345",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}/prepareAffectedReports"
               },
               "response": []
             },
@@ -16201,7 +16201,7 @@
   ],
   "variable": [
     {
-      "id": "de193e3f-1967-4286-a041-4ceec9e8f721",
+      "id": "12bd989b-07bc-4ab5-8355-8a98489b4b5e",
       "key": "component",
       "value": "use",
       "type": "string"
