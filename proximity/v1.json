@@ -6639,7 +6639,7 @@
                       "    \"cogs_rate_col\": \"cogs_rate_col\",",
                       "    \"cogs_fixed\": 4,",
                       "    \"cogs_fixed_col\": \"cogs_fixed_col\",",
-                      "    \"effective_date\": \"2019-12-12\",",
+                      "    \"effective_date\": \"2017-08-27\",",
                       "    \"threshold\": 0,",
                       "        \"min_commit\": 0",
                       "  });",
@@ -6749,7 +6749,7 @@
                       "    \"cogs_rate_col\": \"cogs_rate_col2\",",
                       "    \"cogs_fixed\": 40,",
                       "    \"cogs_fixed_col\": \"cogs_fixed_col2\",",
-                      "    \"effective_date\": \"2019-11-16\",",
+                      "    \"effective_date\": \"2016-08-26\",",
                       "    \"threshold\": 10,",
                       "    \"min_commit\": 50,",
                       "  });",
@@ -6781,7 +6781,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n      \"effective_date\": \"2019-11-16\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n      \"effective_date\": \"2016-08-26\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/rates/{{rate_id}}"
               },
@@ -16201,7 +16201,7 @@
   ],
   "variable": [
     {
-      "id": "824406e4-cff2-4ba6-856f-51b77239abe3",
+      "id": "e304d571-f7a5-41bf-abb7-89fec549df8d",
       "key": "component",
       "value": "use",
       "type": "string"
