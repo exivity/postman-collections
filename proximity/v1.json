@@ -2164,6 +2164,72 @@
               "response": []
             },
             {
+              "name": "Update an dset",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('account');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "\t\t\"name\",",
+                      "\t\t\"level\",",
+                      "\t\t\"lvl1_key\",",
+                      "\t\t\"lvl2_key\",",
+                      "\t\t\"lvl3_key\",",
+                      "\t\t\"lvl4_key\",",
+                      "\t\t\"lvl5_key\",",
+                      "\t]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "4d5d8450-bcb8-4102-b8bd-bc39b96c9247",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"My new account name\"\r\n    }\r\n  }\r\n}"
+                },
+                "url": "{{base_url}}/v1/accounts/{{account_id}}"
+              },
+              "response": []
+            },
+            {
               "name": "Delete a dataset",
               "event": [
                 {
@@ -2312,72 +2378,6 @@
                 }
               ],
               "_postman_id": "69df4aba-c1c1-42c5-b671-d00c1141ceaf",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"My new account name\"\r\n    }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/accounts/{{account_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Update an dset",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "dd186fa1-8b31-4812-bb64-c6d81137dbb0",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('account');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "\t\t\"name\",",
-                      "\t\t\"level\",",
-                      "\t\t\"lvl1_key\",",
-                      "\t\t\"lvl2_key\",",
-                      "\t\t\"lvl3_key\",",
-                      "\t\t\"lvl4_key\",",
-                      "\t\t\"lvl5_key\",",
-                      "\t]);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "4d5d8450-bcb8-4102-b8bd-bc39b96c9247",
               "protocolProfileBehavior": {
                 "disableBodyPruning": true
               },
@@ -16369,7 +16369,7 @@
   ],
   "variable": [
     {
-      "id": "4b6c5605-52d5-4402-8e95-2017d2437b26",
+      "id": "1f286d50-1e2d-4248-91fc-2cf029eb379c",
       "key": "component",
       "value": "use",
       "type": "string"
