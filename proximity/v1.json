@@ -2213,8 +2213,8 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
+                    "type": "text",
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
@@ -2223,9 +2223,33 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"My new account name\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n    \"data\": {\r\n        \"type\": \"dset\",\r\n        \"id\": \"{{dset_id}}\",\r\n        \"relationships\": {\r\n            \"metadatadefinition\": {\r\n                \"data\": {\r\n                    \"type\": \"metadatadefinition\",\r\n                    \"id\": \"{{metadata_id}}\"\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
                 },
-                "url": "{{base_url}}/v1/accounts/{{account_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/dsets/:name",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "dsets",
+                    ":name"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": "",
+                      "type": "text"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "name",
+                      "value": "{{dset_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -16369,7 +16393,7 @@
   ],
   "variable": [
     {
-      "id": "3e8bc7c7-bc97-436d-9a2d-210a0c91142d",
+      "id": "4a539016-140e-47db-8c30-63c3c2fa1024",
       "key": "component",
       "value": "use",
       "type": "string"
