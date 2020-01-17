@@ -5344,7 +5344,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `definition`, `accounts`."
+                      "description": "Include additional related resources. Possible values: `definition`, `accounts`, `services`."
                     }
                   ]
                 }
@@ -16393,7 +16393,7 @@
   ],
   "variable": [
     {
-      "id": "4a539016-140e-47db-8c30-63c3c2fa1024",
+      "id": "ee040ed7-454b-48bb-874c-fda33e33f26b",
       "key": "component",
       "value": "use",
       "type": "string"
