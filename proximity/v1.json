@@ -2062,7 +2062,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `services`, `reports`."
+                      "description": "Include additional related resources. Possible values: `services`, `reports`, `metadatadefinition`."
                     }
                   ]
                 },
@@ -16393,7 +16393,7 @@
   ],
   "variable": [
     {
-      "id": "db6116e8-7f89-4bd7-9537-dabc4145e86a",
+      "id": "dfe03fe9-483f-4882-a850-7f4cefff8965",
       "key": "component",
       "value": "use",
       "type": "string"
