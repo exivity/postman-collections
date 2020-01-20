@@ -4906,7 +4906,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `metadata`."
+                      "description": "Include additional related resources. Possible values: `metadata`, `datasets`."
                     }
                   ]
                 }
@@ -16393,7 +16393,7 @@
   ],
   "variable": [
     {
-      "id": "5b44babc-85d7-48b4-a1b5-bea619aeaa6a",
+      "id": "f4b93695-5afe-4837-a627-148bff467e80",
       "key": "component",
       "value": "use",
       "type": "string"
