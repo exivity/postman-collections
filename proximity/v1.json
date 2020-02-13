@@ -8422,6 +8422,25 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "964341b9-fd31-4ea7-a3b8-f78f3cdb5d20",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireUsergroup)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "5dbf53a0-24cc-f213-6eb0-96137e5f3fef",
@@ -8441,7 +8460,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"user\",\r\n\t\t\t\"email_address\": \"someone@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"user\",\r\n\t\t\t\"email_address\": \"someone@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/users"
               },
@@ -16446,7 +16465,7 @@
   ],
   "variable": [
     {
-      "id": "b3b87c15-67f8-49ce-990f-add6cfd9a4b5",
+      "id": "cf3628a9-e830-4f2e-ac0c-a49ef0a5ab47",
       "key": "component",
       "value": "use",
       "type": "string"
