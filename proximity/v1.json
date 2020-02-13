@@ -2984,15 +2984,15 @@
                   "script": {
                     "id": "03e20c9d-7ec2-4759-ba1d-3db98fbc6900",
                     "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireReport)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });"
                     ],
                     "type": "text/javascript"
                   }
@@ -3015,7 +3015,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"{{report_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/accounts"
               },
@@ -16386,7 +16386,7 @@
   ],
   "variable": [
     {
-      "id": "1904faa1-b56e-4b5e-9441-07bd2a3b7afa",
+      "id": "5468782f-1772-46ef-a918-f18808a4dc59",
       "key": "component",
       "value": "use",
       "type": "string"
