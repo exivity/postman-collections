@@ -6902,7 +6902,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\",\r\n      \"effective_date\": \"2016-08-26\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/rates/{{rate_id}}"
               },
@@ -16386,7 +16386,7 @@
   ],
   "variable": [
     {
-      "id": "68664d97-35e2-47ba-b026-a1f8fe2e2a41",
+      "id": "ef2f7363-d574-4b6d-b3a5-df9601d0f139",
       "key": "component",
       "value": "use",
       "type": "string"
