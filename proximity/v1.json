@@ -7084,6 +7084,26 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "564ddb47-a45b-46bd-8e57-3b73386b5012",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireReport)",
+                      "    .then(api.requireAccount)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "847994e1-4890-fc49-4ed6-969e6c5cbedd",
@@ -7103,7 +7123,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/adjustments"
               },
@@ -16385,7 +16405,7 @@
   ],
   "variable": [
     {
-      "id": "afbc916b-60f0-40cc-a9d2-df2800fd093b",
+      "id": "dad34a30-ab02-4579-a09c-481cac2b06d3",
       "key": "component",
       "value": "use",
       "type": "string"
