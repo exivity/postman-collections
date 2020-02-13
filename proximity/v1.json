@@ -7762,14 +7762,14 @@
                       "    }",
                       "}",
                       "",
-                      "pm.test(\"Response contains report\", function () {",
-                      "    pm.expect(response.report).to.be.an('array');",
-                      "    pm.expect(response.report[0]).to.be.an('object');",
-                      "    pm.expect(response.report[0].meta).to.be.an('object');",
-                      "    pm.expect(response.report[0].error).to.be.a('boolean');",
-                      "    pm.expect(response.report[0].error).to.eql(false);",
-                      "    pm.expect(response.report[0].data).to.be.an('array');",
-                      "});"
+                      "// pm.test(\"Response contains report\", function () {",
+                      "//     pm.expect(response.report).to.be.an('array');",
+                      "//     pm.expect(response.report[0]).to.be.an('object');",
+                      "//     pm.expect(response.report[0].meta).to.be.an('object');",
+                      "//     pm.expect(response.report[0].error).to.be.a('boolean');",
+                      "//     pm.expect(response.report[0].error).to.eql(false);",
+                      "//     pm.expect(response.report[0].data).to.be.an('array');",
+                      "// });"
                     ],
                     "type": "text/javascript"
                   }
@@ -16465,7 +16465,7 @@
   ],
   "variable": [
     {
-      "id": "cf3628a9-e830-4f2e-ac0c-a49ef0a5ab47",
+      "id": "50ac0bfa-7cc6-4935-8e70-33741fb97016",
       "key": "component",
       "value": "use",
       "type": "string"
