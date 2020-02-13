@@ -7532,7 +7532,7 @@
                       "    pm.expect(response.data.attributes.name).to.include('Test report');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"lvl1_key_col\": \"Country\",",
+                      "        \"lvl1_key_col\": \"Customer\",",
                       "        \"lvl2_key_col\": \"Reseller\",",
                       "        \"lvl3_key_col\": \"\",",
                       "        \"lvl4_key_col\": \"\",",
@@ -16405,7 +16405,7 @@
   ],
   "variable": [
     {
-      "id": "dad34a30-ab02-4579-a09c-481cac2b06d3",
+      "id": "41ef0245-78aa-43eb-8ad3-b4c0ed26446a",
       "key": "component",
       "value": "use",
       "type": "string"
