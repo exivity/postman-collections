@@ -8574,7 +8574,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user\",\r\n      \"email_address\": \"someone+modified@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
@@ -16465,7 +16465,7 @@
   ],
   "variable": [
     {
-      "id": "3d2fd233-c5b2-40df-a6a9-1f350e520578",
+      "id": "5e2a1561-d517-4575-b301-50488a7f61f3",
       "key": "component",
       "value": "use",
       "type": "string"
