@@ -8050,6 +8050,273 @@
       "_postman_id": "d62f8c85-68fd-4fad-9596-08fb1a2cd993"
     },
     {
+      "name": "/usergroups",
+      "item": [
+        {
+          "name": "Retrieve a list of usergroups",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "67b49a6a-8210-4e29-9b85-481402f67edf",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains data\", function () {",
+                  "    pm.expect(response.data).to.be.an('array');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9cbb9dc2-2de6-12a6-0a4f-dc991f9c35d8",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "url": "{{base_url}}/v1/usergroups"
+          },
+          "response": []
+        },
+        {
+          "name": "Add a new usergroup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "01f37b5a-a98f-4f9b-b8f5-e3286935b7ad",
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('usergroup');",
+                  "    pm.expect(response.data.id).to.not.be.undefined;",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.have.keys([",
+                  "    \"name\",",
+                  "        \"permissions\"",
+                  "  ]);",
+                  "  pm.expect(response.data.attributes.name).to.eql('testers');",
+                  "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});",
+                  "",
+                  "pm.environment.set(\"usergroup_id\", response.data.id);"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "0be8c767-4ef8-fe9c-52de-d03c5bedca68",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}"
+            },
+            "url": "{{base_url}}/v1/usergroups"
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve a usergroup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "e027a60e-90af-4fbe-b93d-b862f0e57e10",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('usergroup');",
+                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.have.keys([",
+                  "    \"name\",",
+                  "        \"permissions\"",
+                  "  ]);",
+                  "  pm.expect(response.data.attributes.name).to.eql('testers');",
+                  "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "9d065b1d-c626-2825-9367-74cfdad33913",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Update a usergroup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "08b3b90c-34f2-40b1-8b33-8512aeb58810",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('usergroup');",
+                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.have.keys([",
+                  "    \"name\",",
+                  "        \"permissions\"",
+                  "  ]);",
+                  "  pm.expect(response.data.attributes.name).to.eql('modified_testers');",
+                  "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_configuration']);",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "f5b8914b-34d4-daa5-261d-ff8e218be950",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_testers\",\r\n      \"permissions\": [\r\n        \"manage_users\",\r\n        \"manage_configuration\"\r\n      ]\r\n    }\r\n  }\r\n}"
+            },
+            "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a usergroup",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  "",
+                  "console.log('UNSET usergroup_id');",
+                  "pm.environment.unset(\"usergroup_id\");"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "086ad41d-6c5c-97f9-d6b0-6e36cb971aa8",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "3f15ca20-679c-db83-23d8-65565fa41078",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "53486121-304d-4d9f-9c02-fd36ed193b01",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "f556d843-8a52-4244-acba-d3764d8bb00c",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "Users",
       "item": [
         {
@@ -15482,273 +15749,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "/usergroups",
-      "item": [
-        {
-          "name": "Retrieve a list of usergroups",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "67b49a6a-8210-4e29-9b85-481402f67edf",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains data\", function () {",
-                  "    pm.expect(response.data).to.be.an('array');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "9cbb9dc2-2de6-12a6-0a4f-dc991f9c35d8",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "url": "{{base_url}}/v1/usergroups"
-          },
-          "response": []
-        },
-        {
-          "name": "Add a new usergroup",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "01f37b5a-a98f-4f9b-b8f5-e3286935b7ad",
-                "exec": [
-                  "pm.test(\"Status code is 201\", function () {",
-                  "    pm.response.to.have.status(201);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains correct data\", function () {",
-                  "    pm.expect(response.data).to.be.an('object');",
-                  "    pm.expect(response.data.type).to.eql('usergroup');",
-                  "    pm.expect(response.data.id).to.not.be.undefined;",
-                  "    pm.expect(response.data.attributes).to.be.an('object');",
-                  "    pm.expect(response.data.attributes).to.have.keys([",
-                  "    \"name\",",
-                  "        \"permissions\"",
-                  "  ]);",
-                  "  pm.expect(response.data.attributes.name).to.eql('testers');",
-                  "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
-                  "});",
-                  "",
-                  "pm.test(\"Response contains data.links\", function () {",
-                  "    pm.expect(response.data.links).to.be.an('object');",
-                  "});",
-                  "",
-                  "pm.environment.set(\"usergroup_id\", response.data.id);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "0be8c767-4ef8-fe9c-52de-d03c5bedca68",
-          "request": {
-            "method": "POST",
-            "header": [
-              {
-                "key": "Content-Type",
-                "name": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              },
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}"
-            },
-            "url": "{{base_url}}/v1/usergroups"
-          },
-          "response": []
-        },
-        {
-          "name": "Retrieve a usergroup",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "e027a60e-90af-4fbe-b93d-b862f0e57e10",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains correct data\", function () {",
-                  "    pm.expect(response.data).to.be.an('object');",
-                  "    pm.expect(response.data.type).to.eql('usergroup');",
-                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
-                  "    pm.expect(response.data.attributes).to.be.an('object');",
-                  "    pm.expect(response.data.attributes).to.have.keys([",
-                  "    \"name\",",
-                  "        \"permissions\"",
-                  "  ]);",
-                  "  pm.expect(response.data.attributes.name).to.eql('testers');",
-                  "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
-                  "});",
-                  "",
-                  "pm.test(\"Response contains data.links\", function () {",
-                  "    pm.expect(response.data.links).to.be.an('object');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "9d065b1d-c626-2825-9367-74cfdad33913",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
-          },
-          "response": []
-        },
-        {
-          "name": "Update a usergroup",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "08b3b90c-34f2-40b1-8b33-8512aeb58810",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains correct data\", function () {",
-                  "    pm.expect(response.data).to.be.an('object');",
-                  "    pm.expect(response.data.type).to.eql('usergroup');",
-                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
-                  "    pm.expect(response.data.attributes).to.be.an('object');",
-                  "    pm.expect(response.data.attributes).to.have.keys([",
-                  "    \"name\",",
-                  "        \"permissions\"",
-                  "  ]);",
-                  "  pm.expect(response.data.attributes.name).to.eql('modified_testers');",
-                  "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_configuration']);",
-                  "});",
-                  "",
-                  "pm.test(\"Response contains data.links\", function () {",
-                  "    pm.expect(response.data.links).to.be.an('object');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "f5b8914b-34d4-daa5-261d-ff8e218be950",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/vnd.api+json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_testers\",\r\n      \"permissions\": [\r\n        \"manage_users\",\r\n        \"manage_configuration\"\r\n      ]\r\n    }\r\n  }\r\n}"
-            },
-            "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
-          },
-          "response": []
-        },
-        {
-          "name": "Delete a usergroup",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
-                "exec": [
-                  "pm.test(\"Status code is 204\", function () {",
-                  "    pm.response.to.have.status(204);",
-                  "});",
-                  "",
-                  "console.log('UNSET usergroup_id');",
-                  "pm.environment.unset(\"usergroup_id\");"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "086ad41d-6c5c-97f9-d6b0-6e36cb971aa8",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "formdata",
-              "formdata": []
-            },
-            "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "3f15ca20-679c-db83-23d8-65565fa41078",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "53486121-304d-4d9f-9c02-fd36ed193b01",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "f556d843-8a52-4244-acba-d3764d8bb00c",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
     }
   ],
   "auth": {
@@ -16404,7 +16404,7 @@
   ],
   "variable": [
     {
-      "id": "837bd075-ba2a-4091-995c-93ff3b1d7f83",
+      "id": "774d3c0f-3d7b-44e2-8419-68ccb131b264",
       "key": "component",
       "value": "use",
       "type": "string"
