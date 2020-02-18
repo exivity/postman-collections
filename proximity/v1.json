@@ -7032,43 +7032,7 @@
               "response": []
             },
             {
-              "name": "Delete an adjustment",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET adjustment_id');",
-                      "pm.environment.unset(\"adjustment_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "af8e10f8-dfa7-cfe7-3766-69d75eefa9b7",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/adjustments/{{adjustment_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Prepare affected reports Copy",
+              "name": "Prepare affected reports",
               "event": [
                 {
                   "listen": "test",
@@ -7121,6 +7085,42 @@
                     }
                   ]
                 }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete an adjustment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET adjustment_id');",
+                      "pm.environment.unset(\"adjustment_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "af8e10f8-dfa7-cfe7-3766-69d75eefa9b7",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{base_url}}/v1/adjustments/{{adjustment_id}}"
               },
               "response": []
             }
@@ -16176,7 +16176,7 @@
   ],
   "variable": [
     {
-      "id": "1b592b53-ce7e-4f8c-801c-6af71a5bb5de",
+      "id": "b89ac815-be18-4db0-ab38-4d097da5485e",
       "key": "component",
       "value": "use",
       "type": "string"
