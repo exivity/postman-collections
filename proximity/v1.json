@@ -1684,48 +1684,6 @@
               "response": []
             },
             {
-              "name": "Unschedule a transformer",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "59bec4af-3c6c-4f62-99db-a9dcd37ad659",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains status\", function () {",
-                      "    pm.expect(response.status).to.be.a('string');",
-                      "    pm.expect(response.status).to.eql('unscheduled');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "46759bff-c232-9e39-e7c3-69f652b0bbe1",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/transformers/{{transformer_name}}/schedule",
-                "description": "**@deprecated** This method will be removed in a future version of the API"
-              },
-              "response": []
-            },
-            {
               "name": "Delete a transformer",
               "event": [
                 {
@@ -16278,7 +16236,7 @@
   ],
   "variable": [
     {
-      "id": "92d2aafc-095d-4e32-8306-4f4f36a63ed7",
+      "id": "ccc3b1d1-853c-47e0-9c91-ff6f9785d37d",
       "key": "component",
       "value": "use",
       "type": "string"
