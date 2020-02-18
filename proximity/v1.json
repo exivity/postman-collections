@@ -1203,81 +1203,6 @@
               "response": []
             },
             {
-              "name": "Schedule an extractor",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "bfe86f0e-f071-4270-af59-5f88c0fdda02",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains status\", function () {",
-                      "    pm.expect(response.status).to.be.a('string');",
-                      "    pm.expect(response.status).to.eql('scheduled');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "6ffb209c-8111-7da8-c970-e44867159ae9",
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/extractors/{{extractor_name}}/schedule?time=03:00&date_from_offset&date_to_offset&arguments",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "extractors",
-                    "{{extractor_name}}",
-                    "schedule"
-                  ],
-                  "query": [
-                    {
-                      "key": "time",
-                      "value": "03:00",
-                      "description": "Time (in Europe/London timezone) to schedule the extractor to run each day (in `HH:MM` format)."
-                    },
-                    {
-                      "key": "date_from_offset",
-                      "value": null,
-                      "description": "An integer (positive or negative) that will be used to add/subtract from the date the scheduler runs to determine the start of the date range."
-                    },
-                    {
-                      "key": "date_to_offset",
-                      "value": null,
-                      "description": "An integer (positive or negative) that will be used to add/subtract from the date the scheduler runs to determine the end of the date range."
-                    },
-                    {
-                      "key": "arguments",
-                      "value": null,
-                      "description": "Extractor arguments"
-                    }
-                  ]
-                },
-                "description": "**@deprecated** This method will be removed in a future version of the API"
-              },
-              "response": []
-            },
-            {
               "name": "Unschedule an extractor",
               "event": [
                 {
@@ -16465,7 +16390,7 @@
   ],
   "variable": [
     {
-      "id": "4858eccb-10e7-4bfb-bedf-0dbf92aab764",
+      "id": "9b27a773-8a49-4091-8874-d8822cab6823",
       "key": "component",
       "value": "use",
       "type": "string"
