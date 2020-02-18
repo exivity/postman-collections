@@ -6290,6 +6290,63 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Prepare affected reports Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "6429099a-dd77-4dd7-88d1-8e31e59c4477",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d5aabdcf-717f-4a89-923c-d292e4710a1f",
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ],
           "_postman_id": "f43592d6-0e71-4de1-824c-5eb7803f2de1",
@@ -16119,7 +16176,7 @@
   ],
   "variable": [
     {
-      "id": "7d2396c8-8028-481e-9d61-b6af03b38bb9",
+      "id": "43d028fb-2342-46b9-aabe-c219a46eb2d5",
       "key": "component",
       "value": "use",
       "type": "string"
