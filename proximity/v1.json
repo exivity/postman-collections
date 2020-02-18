@@ -7644,6 +7644,48 @@
               "response": []
             },
             {
+              "name": "Unschedule a report",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5f72b5e6-061d-478a-831c-5a4238ed6a0a",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains status\", function () {",
+                      "    pm.expect(response.status).to.be.a('string');",
+                      "    pm.expect(response.status).to.eql('unscheduled');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "6c265d50-c98e-9a71-d2ed-61caef3cbfed",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{base_url}}/v1/reports/{{report_id}}/schedule",
+                "description": "**@deprecated** This method will be removed in a future version of the API"
+              },
+              "response": []
+            },
+            {
               "name": "Delete a report definition",
               "event": [
                 {
@@ -16124,7 +16166,7 @@
   ],
   "variable": [
     {
-      "id": "c631bb3c-9535-4482-94f2-be90227e8c84",
+      "id": "75bf4ae0-a849-4334-9269-07e9bc3c969f",
       "key": "component",
       "value": "use",
       "type": "string"
