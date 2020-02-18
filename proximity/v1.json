@@ -1203,48 +1203,6 @@
               "response": []
             },
             {
-              "name": "Unschedule an extractor",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "88b0258a-cac5-4acd-a2b9-6b6db703f471",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains status\", function () {",
-                      "    pm.expect(response.status).to.be.a('string');",
-                      "    pm.expect(response.status).to.eql('unscheduled');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "ac2664e2-45db-7460-11f4-aa0b9189dd1a",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/extractors/{{extractor_name}}/schedule",
-                "description": "**@deprecated** This method will be removed in a future version of the API"
-              },
-              "response": []
-            },
-            {
               "name": "Delete an extractor",
               "event": [
                 {
@@ -1722,76 +1680,6 @@
                     }
                   ]
                 }
-              },
-              "response": []
-            },
-            {
-              "name": "Schedule a transformer",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3afeaf99-bc5a-4c42-ae9d-201d8d475c92",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains status\", function () {",
-                      "    pm.expect(response.status).to.be.a('string');",
-                      "    pm.expect(response.status).to.eql('scheduled');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "e3d0e674-4fe7-e5f7-c212-2abb399e0bbe",
-              "request": {
-                "method": "PUT",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/transformers/{{transformer_name}}/schedule?time=03:00&date_from_offset&date_to_offset",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "transformers",
-                    "{{transformer_name}}",
-                    "schedule"
-                  ],
-                  "query": [
-                    {
-                      "key": "time",
-                      "value": "03:00",
-                      "description": "Time (in Europe/London timezone) to schedule the transformer to run each day (in `HH:MM` format)."
-                    },
-                    {
-                      "key": "date_from_offset",
-                      "value": null,
-                      "description": "An integer (positive or negative) that will be used to add/subtract from the date the scheduler runs to determine the start of the date range."
-                    },
-                    {
-                      "key": "date_to_offset",
-                      "value": null,
-                      "description": "An integer (positive or negative) that will be used to add/subtract from the date the scheduler runs to determine the end of the date range."
-                    }
-                  ]
-                },
-                "description": "**@deprecated** This method will be removed in a future version of the API"
               },
               "response": []
             },
@@ -16390,7 +16278,7 @@
   ],
   "variable": [
     {
-      "id": "9b27a773-8a49-4091-8874-d8822cab6823",
+      "id": "92d2aafc-095d-4e32-8306-4f4f36a63ed7",
       "key": "component",
       "value": "use",
       "type": "string"
