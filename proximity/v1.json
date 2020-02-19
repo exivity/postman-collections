@@ -6239,63 +6239,6 @@
               "response": []
             },
             {
-              "name": "Prepare affected reports Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "6429099a-dd77-4dd7-88d1-8e31e59c4477",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/services/:service_id/prepareAffectedReports",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "services",
-                    ":service_id",
-                    "prepareAffectedReports"
-                  ],
-                  "variable": [
-                    {
-                      "id": "d5aabdcf-717f-4a89-923c-d292e4710a1f",
-                      "key": "service_id",
-                      "value": "{{service_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Delete a service",
               "event": [
                 {
@@ -7006,20 +6949,27 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/adjustments/{{adjustment_id}}?include",
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id?include",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "adjustments",
-                    "{{adjustment_id}}"
+                    ":adjustment_id"
                   ],
                   "query": [
                     {
                       "key": "include",
                       "value": null,
                       "description": "Include additional related resources"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
                     }
                   ]
                 },
@@ -7083,8 +7033,82 @@
                   "mode": "raw",
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"adjustment\",\r\n    \"id\": \"{{adjustment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"amount\": \"-20\",\r\n      \"type\": \"absolute\",\r\n      \"target\": \"quantity\",\r\n      \"first_interval\": \"2018-01\",\r\n      \"last_interval\": \"\"\r\n    }\r\n  }\r\n}"
                 },
-                "url": "{{base_url}}/v1/adjustments/{{adjustment_id}}",
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
                 "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Prepare affected reports",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "6429099a-dd77-4dd7-88d1-8e31e59c4477",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d5aabdcf-717f-4a89-923c-d292e4710a1f",
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -16176,7 +16200,7 @@
   ],
   "variable": [
     {
-      "id": "cdbdc3c9-33a9-4b0c-8de0-63450192823e",
+      "id": "8b78059b-3f63-4af5-b2ad-761b778a1d00",
       "key": "component",
       "value": "use",
       "type": "string"
