@@ -7143,7 +7143,24 @@
                   "mode": "formdata",
                   "formdata": []
                 },
-                "url": "{{base_url}}/v1/adjustments/{{adjustment_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -16199,7 +16216,7 @@
   ],
   "variable": [
     {
-      "id": "8fac8de4-a0cc-48f8-b97f-5be0ea090f6a",
+      "id": "f079db24-bc57-4b97-9478-f150f1615e94",
       "key": "component",
       "value": "use",
       "type": "string"
