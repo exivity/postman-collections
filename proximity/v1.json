@@ -7090,21 +7090,20 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/services/:service_id/prepareAffectedReports",
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id/prepareAffectedReports",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "services",
-                    ":service_id",
+                    "adjustments",
+                    ":adjustment_id",
                     "prepareAffectedReports"
                   ],
                   "variable": [
                     {
-                      "id": "d5aabdcf-717f-4a89-923c-d292e4710a1f",
-                      "key": "service_id",
-                      "value": "{{service_id}}",
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
                       "type": "string"
                     }
                   ]
@@ -16200,7 +16199,7 @@
   ],
   "variable": [
     {
-      "id": "8b78059b-3f63-4af5-b2ad-761b778a1d00",
+      "id": "8fac8de4-a0cc-48f8-b97f-5be0ea090f6a",
       "key": "component",
       "value": "use",
       "type": "string"
