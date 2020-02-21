@@ -835,7 +835,7 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.variables).to.be.a('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('number');",
+                      "    pm.expect(response.last_modified).to.be.a('string');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
@@ -16216,7 +16216,7 @@
   ],
   "variable": [
     {
-      "id": "fe097b38-a349-4f2f-9af1-034b9458a19a",
+      "id": "89b17e09-b350-4ac8-b73b-531868b2de8b",
       "key": "component",
       "value": "use",
       "type": "string"
