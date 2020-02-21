@@ -835,7 +835,7 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.variables).to.be.a('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('string');",
+                      "    pm.expect(response.last_modified).to.be.a('number');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
@@ -997,7 +997,7 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.variables).to.be.a('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('string');",
+                      "    pm.expect(response.last_modified).to.be.a('number');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
@@ -1067,7 +1067,7 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.variables).to.be.an('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('string');",
+                      "    pm.expect(response.last_modified).to.be.a('number');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
@@ -16216,7 +16216,7 @@
   ],
   "variable": [
     {
-      "id": "89b17e09-b350-4ac8-b73b-531868b2de8b",
+      "id": "cb42b537-a4a6-4911-a771-319406225fe6",
       "key": "component",
       "value": "use",
       "type": "string"
