@@ -1066,7 +1066,6 @@
                       "    pm.expect(response.variables).to.be.an('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
                       "    pm.expect(response.last_modified).to.be.a('number');",
-                      "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
                       "    pm.expect(response.contents.trim()).to.eql(\"print Hello world\\nvar key1 = value1\\npublic var key2 = \\\"value2\\\"\\npublic var key3 = \\\"value3\\\"\");",
@@ -1086,7 +1085,6 @@
                       "            \"comment\": \"\"",
                       "        }",
                       "    ]);",
-                      "    pm.expect(response.schedule).to.eql(false);",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -16208,7 +16206,7 @@
   ],
   "variable": [
     {
-      "id": "8e91ac84-59fb-457c-92b4-df691019fce6",
+      "id": "748cc7d9-0462-4920-8456-4091f5bd7835",
       "key": "component",
       "value": "use",
       "type": "string"
