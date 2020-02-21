@@ -836,7 +836,6 @@
                       "    pm.expect(response.variables).to.be.a('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
                       "    pm.expect(response.last_modified).to.be.a('number');",
-                      "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
                       "    pm.expect(response.contents.trim()).to.eql(\"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypt var key3 = 0\");",
@@ -856,7 +855,6 @@
                       "            \"comment\": \"\"",
                       "        }",
                       "    ]);",
-                      "    pm.expect(response.schedule).to.eql(false);",
                       "});",
                       "",
                       "pm.environment.set(\"extractor_name\", response.name);",
@@ -16204,7 +16202,7 @@
   ],
   "variable": [
     {
-      "id": "a791d45f-522a-4c5a-9d22-2c248eca7d4f",
+      "id": "38e30e44-5d46-4b21-8a3b-e25d8e6a0820",
       "key": "component",
       "value": "use",
       "type": "string"
