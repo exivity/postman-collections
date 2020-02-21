@@ -10063,9 +10063,6 @@
                 }
               ],
               "_postman_id": "8f550f28-8abc-e09b-628a-54fa0f090db7",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
               "request": {
                 "auth": {
                   "type": "bearer",
@@ -10081,7 +10078,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/log?component=proximity&limit=&filter=&truncate=",
+                  "raw": "{{base_url}}/v1/log?component=horizon&limit=&filter=&truncate=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -10092,7 +10089,7 @@
                   "query": [
                     {
                       "key": "component",
-                      "value": "proximity",
+                      "value": "horizon",
                       "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `aeon`, `proximity`, `pigeon` or `horizon`."
                     },
                     {
@@ -16207,7 +16204,7 @@
   ],
   "variable": [
     {
-      "id": "a020e673-1213-41e3-af91-62d154b7c383",
+      "id": "e073bf79-93a5-4371-b1b7-075c17dfb3e1",
       "key": "component",
       "value": "use",
       "type": "string"
