@@ -8679,6 +8679,62 @@
           "name": "/notificationchannels",
           "item": [
             {
+              "name": "Get all notification channels",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f6a56d93-e63f-48a4-8478-e75d2ae21d76",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "     pm.response.to.have.status(200);",
+                      " });",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "     pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0a406172-a412-4e4a-807f-ce306c9b9c78",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/notificationchannels?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "notificationchannels"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Possible values: `subscriptions`, `user`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "Create a new channel",
               "event": [
                 {
@@ -8972,62 +9028,6 @@
                   "body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"E-mail for someone\",\n            \"type\": \"mail\",\n            \"info\": {\n                \"recipient\": \"someone@example.com\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/6\"\n        }\n    }\n}"
                 }
               ]
-            },
-            {
-              "name": "Get all notification channels",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "f6a56d93-e63f-48a4-8478-e75d2ae21d76",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "     pm.response.to.have.status(200);",
-                      " });",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "     pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "0a406172-a412-4e4a-807f-ce306c9b9c78",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/notificationchannels?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "notificationchannels"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Possible values: `subscriptions`, `user`."
-                    }
-                  ]
-                }
-              },
-              "response": []
             },
             {
               "name": "Get a channel",
@@ -16202,7 +16202,7 @@
   ],
   "variable": [
     {
-      "id": "2951b31b-bf02-423d-81b5-04007897bc66",
+      "id": "cfb8d934-9a26-48eb-b3d3-df635016481b",
       "key": "component",
       "value": "use",
       "type": "string"
