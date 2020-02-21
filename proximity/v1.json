@@ -1351,7 +1351,6 @@
                       "",
                       "    pm.expect(response.name).to.include('Transformer_test');",
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
-                      "    pm.expect(response.schedule).to.eql(false);",
                       "});",
                       "",
                       "pm.environment.set(\"transformer_name\", response.name);",
@@ -16215,7 +16214,7 @@
   ],
   "variable": [
     {
-      "id": "3964747e-1693-4d75-8ad5-340de249f132",
+      "id": "76740772-3d70-402a-9fe9-8e8be43823b8",
       "key": "component",
       "value": "use",
       "type": "string"
