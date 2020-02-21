@@ -9276,8 +9276,10 @@
                       "    pm.expect(response.data).to.be.an('array');",
                       "});",
                       "",
-                      "pm.environment.set(\"notification_subscritpion_id\", response.data[0].id);",
-                      "console.log('SET notification_subscritpion_id: ' + pm.environment.get(\"notification_subscritpion_id\"));",
+                      "if (response.data.length) {",
+                      "    pm.environment.set(\"notification_subscritpion_id\", response.data[0].id);",
+                      "    console.log('SET notification_subscritpion_id: ' + pm.environment.get(\"notification_subscritpion_id\"));",
+                      "}",
                       ""
                     ],
                     "type": "text/javascript"
@@ -16202,7 +16204,7 @@
   ],
   "variable": [
     {
-      "id": "cb2fc178-9e40-40b9-91b5-c91dd8141788",
+      "id": "619cdf11-add3-4143-bf31-592a93b1efb1",
       "key": "component",
       "value": "use",
       "type": "string"
