@@ -993,7 +993,7 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.variables).to.be.a('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('number');",
+                      "    pm.expect(response.last_modified).to.be.a('string');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
                       "    pm.expect(response.contents.trim()).to.eql(\"print Hello world\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\");",
@@ -16202,7 +16202,7 @@
   ],
   "variable": [
     {
-      "id": "b269de8a-525d-4ab2-a4cf-ee28151cea3b",
+      "id": "3f4b8ba0-223b-4463-9933-68c157dac5e6",
       "key": "component",
       "value": "use",
       "type": "string"
