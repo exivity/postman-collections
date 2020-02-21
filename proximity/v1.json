@@ -930,7 +930,6 @@
                       "    pm.expect(response.variables).to.be.a('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
                       "    pm.expect(response.last_modified).to.be.a('number');",
-                      "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
                       "    pm.expect(response.contents.trim()).to.include(\"print Hello\");",
@@ -953,7 +952,6 @@
                       "            \"comment\": \"\"",
                       "        }",
                       "    ]);",
-                      "    pm.expect(response.schedule).to.eql(false);",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -16206,7 +16204,7 @@
   ],
   "variable": [
     {
-      "id": "748cc7d9-0462-4920-8456-4091f5bd7835",
+      "id": "a791d45f-522a-4c5a-9d22-2c248eca7d4f",
       "key": "component",
       "value": "use",
       "type": "string"
