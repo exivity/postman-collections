@@ -1422,11 +1422,9 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.hash).to.be.a('string');",
                       "    pm.expect(response.last_modified).to.be.a('number');",
-                      "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
-                      "    pm.expect(response.schedule).to.eql(false);",
                       "});",
                       ""
                     ],
@@ -1505,11 +1503,9 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.hash).to.be.a('string');",
                       "    pm.expect(response.last_modified).to.be.a('number');",
-                      "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
                       "    pm.expect(response.contents.trim()).to.eql('# modified script here');",
-                      "    pm.expect(response.schedule).to.eql(false);",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -16214,7 +16210,7 @@
   ],
   "variable": [
     {
-      "id": "4b0bf829-c0a0-46e9-9d88-5ed89583aaa7",
+      "id": "d239eb1f-5d30-42d6-b4fd-9fc68ae5d7a8",
       "key": "component",
       "value": "use",
       "type": "string"
