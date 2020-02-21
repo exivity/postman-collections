@@ -1503,9 +1503,11 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.hash).to.be.a('string');",
                       "    pm.expect(response.last_modified).to.be.a('number');",
+                      "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
                       "    pm.expect(response.contents.trim()).to.eql('# modified script here');",
+                      "    pm.expect(response.schedule).to.eql(false);",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -16210,7 +16212,7 @@
   ],
   "variable": [
     {
-      "id": "d239eb1f-5d30-42d6-b4fd-9fc68ae5d7a8",
+      "id": "aded29e0-f900-49ee-83c5-38ab14e2e990",
       "key": "component",
       "value": "use",
       "type": "string"
