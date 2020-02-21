@@ -927,7 +927,7 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.variables).to.be.a('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('number');",
+                      "    pm.expect(response.last_modified).to.be.a('string');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
                       "    pm.expect(response.contents.trim()).to.include(\"print Hello\");",
@@ -16202,7 +16202,7 @@
   ],
   "variable": [
     {
-      "id": "e6428fb5-b0de-4dcb-81e2-79d801ce16b0",
+      "id": "fa8be0b0-49da-46b9-8a4a-3b40a333a188",
       "key": "component",
       "value": "use",
       "type": "string"
