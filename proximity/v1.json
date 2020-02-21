@@ -1506,7 +1506,7 @@
                       "    pm.expect(response.name).to.be.a('string');",
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('string');",
+                      "    pm.expect(response.last_modified).to.be.a('number');",
                       "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
@@ -16216,7 +16216,7 @@
   ],
   "variable": [
     {
-      "id": "5f257f61-5a12-45ec-998f-b210bba8ff86",
+      "id": "9070f2ef-ee28-4dd3-9e90-12768359d5a9",
       "key": "component",
       "value": "use",
       "type": "string"
