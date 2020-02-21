@@ -3746,7 +3746,7 @@
                       "",
                       "pm.test(\"Response contains correct attributes\", function () {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.effective_from).to.eql('20190606');",
+                      "    pm.expect(response.data.attributes.effective_from).to.eql('2019-06-06');",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -16216,7 +16216,7 @@
   ],
   "variable": [
     {
-      "id": "0ec48026-927a-42bd-8ad2-4b90e6bba046",
+      "id": "021b8a2e-ba4c-4a6a-bc2e-785419cf9fb7",
       "key": "component",
       "value": "use",
       "type": "string"
