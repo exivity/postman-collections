@@ -1422,9 +1422,11 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.hash).to.be.a('string');",
                       "    pm.expect(response.last_modified).to.be.a('number');",
+                      "    pm.expect(response.schedule).to.be.a('boolean');",
                       "",
                       "    pm.expect(response.name).to.eql(pm.environment.get(\"transformer_name\"));",
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
+                      "    pm.expect(response.schedule).to.eql(false);",
                       "});",
                       ""
                     ],
@@ -16212,7 +16214,7 @@
   ],
   "variable": [
     {
-      "id": "aded29e0-f900-49ee-83c5-38ab14e2e990",
+      "id": "7e4666b1-76d2-4a08-b43d-a7f9d05c16fb",
       "key": "component",
       "value": "use",
       "type": "string"
