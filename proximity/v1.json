@@ -1061,7 +1061,7 @@
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.variables).to.be.an('array');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('number');",
+                      "    pm.expect(response.last_modified).to.be.a('string');",
                       "",
                       "    pm.expect(response.name).to.include('Extractor_test');",
                       "    pm.expect(response.contents.trim()).to.eql(\"print Hello world\\nvar key1 = value1\\npublic var key2 = \\\"value2\\\"\\npublic var key3 = \\\"value3\\\"\");",
@@ -1339,7 +1339,7 @@
                       "    pm.expect(response.name).to.be.a('string');",
                       "    pm.expect(response.contents).to.be.a('string');",
                       "    pm.expect(response.hash).to.be.a('string');",
-                      "    pm.expect(response.last_modified).to.be.a('number');",
+                      "    pm.expect(response.last_modified).to.be.a('string');",
                       "",
                       "    pm.expect(response.name).to.include('Transformer_test');",
                       "    pm.expect(response.contents.trim()).to.eql('# script here');",
@@ -16202,7 +16202,7 @@
   ],
   "variable": [
     {
-      "id": "3f4b8ba0-223b-4463-9933-68c157dac5e6",
+      "id": "460918fc-a497-4553-b0c1-d6643e7a22f5",
       "key": "component",
       "value": "use",
       "type": "string"
