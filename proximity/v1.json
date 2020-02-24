@@ -14371,7 +14371,6 @@
                       "    \"type\": \"execute\",",
                       "    \"sort\": 1,",
                       "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
                       "  pm.expect(response.data.attributes.options).to.include({",
@@ -14421,7 +14420,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -14451,7 +14453,6 @@
                       "    \"type\": \"proximity\",",
                       "    \"sort\": 1,",
                       "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
                       "  pm.expect(response.data.attributes.options).to.include({",
@@ -14510,7 +14511,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -16232,7 +16236,7 @@
   ],
   "variable": [
     {
-      "id": "8e2ff78b-8f84-4dd9-9b06-c4e0303b350f",
+      "id": "eb326251-7af2-4bc4-bcd1-2e761413e955",
       "key": "component",
       "value": "use",
       "type": "string"
