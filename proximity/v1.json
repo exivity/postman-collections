@@ -14628,8 +14628,7 @@
                       "    pm.expect(response.data.attributes).to.include({",
                       "    \"type\": \"proximity\",",
                       "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "    \"last_log\": null,",
+                      "    \"timeout\": 600",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
                       "  pm.expect(response.data.attributes.options).to.include({",
@@ -16242,7 +16241,7 @@
   ],
   "variable": [
     {
-      "id": "1d04b769-8280-4383-be61-a0e44cf2adf3",
+      "id": "1cbdc7da-4b2a-43b0-a98a-c2c36c19ccb9",
       "key": "component",
       "value": "use",
       "type": "string"
