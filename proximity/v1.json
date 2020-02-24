@@ -7309,8 +7309,7 @@
                       "        \"lvl1_key_col\": \"Customer\",",
                       "        \"lvl1_name_col\": \"Customer\",",
                       "        \"lvl1_label\": \"Customer\",",
-                      "        \"depth\": 2,",
-                      "        \"schedule\": false",
+                      "        \"depth\": 2",
                       "\t});",
                       "    pm.expect(response.data.attributes.created).to.be.a('string');",
                       "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
@@ -7364,7 +7363,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report - {{$randomInt}}\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"lvl1_key_col\": \"Customer\",\r\n            \"lvl1_name_col\": \"Customer\",\r\n            \"lvl1_label\": \"Customer\",\r\n            \"lvl2_key_col\": \"Reseller\",\r\n            \"lvl2_name_col\": \"Reseller\",\r\n            \"lvl3_label\": \"Reseller\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report - {{$randomInt}}\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"lvl1_key_col\": \"Customer\",\r\n            \"lvl1_name_col\": \"Customer\",\r\n            \"lvl1_label\": \"Customer\",\r\n            \"lvl2_key_col\": \"Reseller\",\r\n            \"lvl2_name_col\": \"Reseller\",\r\n            \"lvl3_label\": \"Reseller\"\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/reports"
               },
@@ -16214,7 +16216,7 @@
   ],
   "variable": [
     {
-      "id": "e7443f7f-8edd-4366-ac0d-f968d35fc757",
+      "id": "f88390bb-2ad8-4803-b763-4421d74ce3e5",
       "key": "component",
       "value": "use",
       "type": "string"
