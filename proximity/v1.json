@@ -14075,6 +14075,7 @@
                       "\t\t\"type\": \"use\",",
                       "\t\t\"sort\": 1,",
                       "\t\t\"timeout\": 600,",
+                      "\t\t\"last_log\": null,",
                       "    });",
                       "",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
@@ -14152,10 +14153,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\",\r\n\t\t\t\t\"environment_id\": \"4\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\",\r\n\t\t\t\t\"environment_id\": \"4\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -16242,7 +16240,7 @@
   ],
   "variable": [
     {
-      "id": "b7801558-dba0-4987-a082-0f3c9322ab71",
+      "id": "514b343d-2ba8-475e-b73c-7aee6dff25be",
       "key": "component",
       "value": "use",
       "type": "string"
