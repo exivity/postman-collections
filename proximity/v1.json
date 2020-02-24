@@ -13169,8 +13169,8 @@
                       "        \"encrypted\"",
                       "  ]);",
                       "  pm.expect(response.data.attributes.name).to.eql('USERNAME');",
-                      "  pm.expect(response.data.attributes.value).to.eql('admin');",
-                      "  pm.expect(response.data.attributes.encrypted).to.eql(true);",
+                      "  pm.expect(response.data.attributes.value).to.eql('alice');",
+                      "  pm.expect(response.data.attributes.encrypted).to.eql(false);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -13202,7 +13202,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"variable\",\r\n\t    \"id\": \"{{variable_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"USERNAME\",\r\n\t\t\t\"value\": \"admin\",\r\n\t\t\t\"encrypted\": true\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"variable\",\r\n\t    \"id\": \"{{variable_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"USERNAME\",\r\n\t\t\t\"value\": \"alice\",\r\n\t\t\t\"encrypted\": false\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/variables/{{variable_id}}"
               },
@@ -16229,7 +16232,7 @@
   ],
   "variable": [
     {
-      "id": "9dccabbc-e72b-4be7-b131-ec8432253e28",
+      "id": "8e2ff78b-8f84-4dd9-9b06-c4e0303b350f",
       "key": "component",
       "value": "use",
       "type": "string"
