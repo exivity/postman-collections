@@ -7400,8 +7400,7 @@
                       "        \"lvl3_key_col\": \"\",",
                       "        \"lvl4_key_col\": \"\",",
                       "        \"lvl5_key_col\": \"\",",
-                      "        \"depth\": 2,",
-                      "        \"schedule\": false",
+                      "        \"depth\": 2",
                       "\t});",
                       "    pm.expect(response.data.attributes.created).to.be.a('string');",
                       "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
@@ -7491,8 +7490,7 @@
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"Modified test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"depth\": 2,",
-                      "        \"schedule\": false",
+                      "        \"depth\": 2",
                       "\t});",
                       "    pm.expect(response.data.attributes.created).to.be.a('string');",
                       "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
@@ -7524,7 +7522,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
@@ -16216,7 +16217,7 @@
   ],
   "variable": [
     {
-      "id": "115c2731-f638-4aa6-ae17-ecf32782ab23",
+      "id": "ca910004-e379-413b-b585-78a47da1210b",
       "key": "component",
       "value": "use",
       "type": "string"
