@@ -7490,7 +7490,8 @@
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"Modified test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"depth\": 2",
+                      "        \"depth\": 2,",
+                      "        \"schedule\": false",
                       "\t});",
                       "    pm.expect(response.data.attributes.created).to.be.a('string');",
                       "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
@@ -7522,10 +7523,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
@@ -16217,7 +16215,7 @@
   ],
   "variable": [
     {
-      "id": "ca910004-e379-413b-b585-78a47da1210b",
+      "id": "aaca1a78-043f-40a4-8028-105d393430c1",
       "key": "component",
       "value": "use",
       "type": "string"
