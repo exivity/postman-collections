@@ -7490,8 +7490,7 @@
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"name\": \"Modified test report\",",
                       "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"depth\": 2,",
-                      "        \"schedule\": false",
+                      "        \"depth\": 2",
                       "\t});",
                       "    pm.expect(response.data.attributes.created).to.be.a('string');",
                       "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
@@ -7523,7 +7522,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
@@ -7759,7 +7761,10 @@
                 ],
                 "body": {
                   "mode": "formdata",
-                  "formdata": []
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
@@ -16215,7 +16220,7 @@
   ],
   "variable": [
     {
-      "id": "aaca1a78-043f-40a4-8028-105d393430c1",
+      "id": "84c4dd2f-5f0f-4759-a3a9-f33f65b523cf",
       "key": "component",
       "value": "use",
       "type": "string"
