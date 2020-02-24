@@ -14711,8 +14711,7 @@
                       "    pm.expect(response.data.attributes).to.include({",
                       "        \"type\": \"execute\",",
                       "        \"sort\": 1,",
-                      "        \"timeout\": 600,",
-                      "        \"last_log\": null,",
+                      "        \"timeout\": 600",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
                       "  pm.expect(response.data.attributes.options).to.include({\"command\": \"echo \\\"testing\\\"\"});",
@@ -14764,7 +14763,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{execute_workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}\r\n"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{execute_workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
@@ -16241,7 +16243,7 @@
   ],
   "variable": [
     {
-      "id": "890feefa-bb76-47fe-9b58-ff968a8136d8",
+      "id": "9b7d0dc9-836f-4ba2-ba22-710421c53b4b",
       "key": "component",
       "value": "use",
       "type": "string"
