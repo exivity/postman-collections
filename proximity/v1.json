@@ -1993,7 +1993,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n    \"data\": {\r\n        \"type\": \"dset\",\r\n        \"id\": \"{{dset_id}}\",\r\n        \"relationships\": {\r\n            \"metadatadefinition\": {\r\n                \"data\": {\r\n                    \"type\": \"metadatadefinition\",\r\n                    \"id\": \"{{metadatadefinition_id}}\"\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
+                  "raw": "{\r\n    \"data\": {\r\n        \"type\": \"dset\",\r\n        \"id\": \"{{dset_id}}\",\r\n        \"relationships\": {\r\n            \"metadatadefinition\": {\r\n                \"data\": {\r\n                    \"type\": \"metadatadefinition\",\r\n                    \"id\": \"{{metadatadefinition_id}}\"\r\n                }\r\n            }\r\n        }\r\n    }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/dsets/:name",
@@ -16249,7 +16252,7 @@
   ],
   "variable": [
     {
-      "id": "c68bcf4b-18aa-47ff-a15c-95ac35c73f9f",
+      "id": "d8baec03-befc-4374-b260-1d57fdbf6503",
       "key": "component",
       "value": "use",
       "type": "string"
