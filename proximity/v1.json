@@ -9854,7 +9854,6 @@
                       "pm.test(\"Response contains RATE_PRECISION\", function () { pm.expect(response.configuration.RATE_PRECISION).to.be.a('number'); });",
                       "pm.test(\"Response contains SUMMARY_PRECISION\", function () { pm.expect(response.configuration.SUMMARY_PRECISION).to.be.a('number'); });",
                       "pm.test(\"Response contains QUANTITY_PRECISION\", function () { pm.expect(response.configuration.QUANTITY_PRECISION).to.be.a('number'); });",
-                      "",
                       "pm.test(\"Response contains DATE_FORMAT\", function () { pm.expect(response.configuration.DATE_FORMAT).to.be.a('string'); });",
                       "//pm.test(\"Response contains SUMMARY_ADDRESS\", function () { pm.expect(response.configuration.SUMMARY_ADDRESS).to.be.a('string'); });",
                       "//pm.test(\"Response contains SUMMARY_IMAGE\", function () { pm.expect(response.configuration.SUMMARY_IMAGE).to.be.a('string'); });",
@@ -16253,7 +16252,7 @@
   ],
   "variable": [
     {
-      "id": "c78e7c87-4a01-4dd8-bf5d-f457aeacd055",
+      "id": "bfe0a99d-a7dc-4437-819a-7f3905db7050",
       "key": "component",
       "value": "use",
       "type": "string"
