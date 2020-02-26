@@ -9859,7 +9859,7 @@
                       "//pm.test(\"Response contains SUMMARY_IMAGE\", function () { pm.expect(response.configuration.SUMMARY_IMAGE).to.be.a('string'); });",
                       "pm.test(\"Response contains SUMMARY_TITLE\", function () { pm.expect(response.configuration.SUMMARY_TITLE).to.be.a('string'); });",
                       "//pm.test(\"Response contains SUMMARY_EXTRA\", function () { pm.expect(response.configuration.SUMMARY_EXTRA).to.be.a('string'); });",
-                      "pm.test(\"Response contains REPORT_START_MONTH\", function () { pm.expect(response.configuration.REPORT_START_MONTH).to.be.a('string'); });",
+                      "pm.test(\"Response contains REPORT_START_MONTH\", function () { pm.expect(response.configuration.REPORT_START_MONTH).to.be.a('number'); });",
                       "pm.test(\"Response contains APP_DEBUG\", function () { pm.expect(response.configuration.APP_DEBUG).to.be.a('boolean'); });",
                       "pm.test(\"Response contains APP_NAME\", function () { pm.expect(response.configuration.APP_NAME).to.be.a('string'); });",
                       "//pm.test(\"Response contains APP_LOGO\", function () { pm.expect(response.configuration.APP_LOGO).to.be.a('string'); });",
@@ -16252,7 +16252,7 @@
   ],
   "variable": [
     {
-      "id": "b3e93cc0-281e-45c9-8c55-e7195b8b6c55",
+      "id": "82025c6f-a7e8-494f-8f25-0d63c0d57679",
       "key": "component",
       "value": "use",
       "type": "string"
