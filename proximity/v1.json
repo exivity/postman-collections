@@ -4001,6 +4001,81 @@
           "name": "/budgetitems",
           "item": [
             {
+              "name": "Retrieve a list of budgets items",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8f01c522-e080-404e-a5d7-fcf65c37db04",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/budgetitems?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "budgetitems"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `revision`, `parent`, `children`, `account`, `services`, `servicecategories`"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
               "name": "Add a new budget item",
               "event": [
                 {
@@ -4167,81 +4242,6 @@
                   "body": "{\n    \"data\": {\n        \"type\": \"budgetitem\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"filter\": \"none\",\n            \"amount\": null,\n            \"percent\": false,\n            \"distribution\": \"even\"\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/budgetitems/6\"\n        }\n    }\n}"
                 }
               ]
-            },
-            {
-              "name": "Retrieve a list of budgets items",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "8f01c522-e080-404e-a5d7-fcf65c37db04",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/budgetitems?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "budgetitems"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `revision`, `parent`, `children`, `account`, `services`, `servicecategories`"
-                    }
-                  ]
-                }
-              },
-              "response": []
             },
             {
               "name": "Retrieve a budget item",
@@ -16249,7 +16249,7 @@
   ],
   "variable": [
     {
-      "id": "beb6886a-8a4d-43f4-b5d4-7d1eb21d6310",
+      "id": "2bce5ce2-0683-449a-9da6-e2432de3f6a9",
       "key": "component",
       "value": "use",
       "type": "string"
