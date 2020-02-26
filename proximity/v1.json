@@ -9851,7 +9851,7 @@
                       "pm.test(\"Response contains CURRENCY\", function () { pm.expect(response.configuration.CURRENCY).to.be.a('string'); });",
                       "//pm.test(\"Response contains DECIMAL_SYMBOL\", function () { pm.expect(response.configuration.DECIMAL_SYMBOL).to.be.a('string'); });",
                       "//pm.test(\"Response contains THOUSANDS_SYMBOL\", function () { pm.expect(response.configuration.THOUSANDS_SYMBOL).to.be.a('string'); });",
-                      "pm.test(\"Response contains RATE_PRECISION\", function () { pm.expect(response.configuration.RATE_PRECISION).to.be.a('string'); });",
+                      "pm.test(\"Response contains RATE_PRECISION\", function () { pm.expect(response.configuration.RATE_PRECISION).to.be.a('number'); });",
                       "pm.test(\"Response contains SUMMARY_PRECISION\", function () { pm.expect(response.configuration.SUMMARY_PRECISION).to.be.a('string'); });",
                       "pm.test(\"Response contains QUANTITY_PRECISION\", function () { pm.expect(response.configuration.QUANTITY_PRECISION).to.be.a('string'); });",
                       "pm.test(\"Response contains DATE_FORMAT\", function () { pm.expect(response.configuration.DATE_FORMAT).to.be.a('string'); });",
@@ -16252,7 +16252,7 @@
   ],
   "variable": [
     {
-      "id": "d8baec03-befc-4374-b260-1d57fdbf6503",
+      "id": "7d3aaabf-7d38-4ef5-be23-24c88ffe17b8",
       "key": "component",
       "value": "use",
       "type": "string"
