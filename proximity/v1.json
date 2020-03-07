@@ -7402,7 +7402,35 @@
             }
           ],
           "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "55f271ea-b387-4858-9bb6-7faa8c7bc8f7",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
         },
+        {
+          "listen": "test",
+          "script": {
+            "id": "7b53b683-2f28-4b04-838b-330110f16618",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Metadata",
+      "item": [
         {
           "name": "/metadata",
           "item": [
@@ -7764,33 +7792,6 @@
           "_postman_isSubFolder": true
         }
       ],
-      "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "55f271ea-b387-4858-9bb6-7faa8c7bc8f7",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "7b53b683-2f28-4b04-838b-330110f16618",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "Metadata",
-      "item": [],
       "_postman_id": "5026bae3-a682-4069-a1a7-969f8eb0016b",
       "description": "_Added in v2.2.0_",
       "event": [
@@ -16266,7 +16267,7 @@
   ],
   "variable": [
     {
-      "id": "ee06d489-bf38-4926-9787-4e6ffa8b0469",
+      "id": "c192460b-ae58-41ea-bff4-2b9ff199f245",
       "key": "component",
       "value": "use",
       "type": "string"
