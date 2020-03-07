@@ -9557,6 +9557,457 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "/workflowruns",
+          "item": [
+            {
+              "name": "Retrieve a list of workflow runs",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data[0]).to.be.an('object');",
+                      "    pm.expect(response.data[0].type).to.eql('workflowrun');",
+                      "});",
+                      "",
+                      "// Set the workflow run ID to the first response ID",
+                      "pm.environment.set(\"workflowrun_id\", response.data[0].id);",
+                      "console.log('SET workflowrun_id: ' + pm.environment.get(\"workflowrun_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "070d88d0-519a-4efa-8783-d4708d57862b",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireWorkflow)",
+                      "    .then(api.requireWorkflowExecuteStep)",
+                      "    .then(api.runWorkflow)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d6ec6c81-b826-4a53-aa2a-242a3e7a6a48",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowruns?page[limit]=&page[offset]=&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowruns"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": "",
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": "",
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a workflow run",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowrun');",
+                      "    pm.expect(response.data.attributes.start_date).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.end_date).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.status).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "2b407300-f61d-496e-ab1e-9713fd5d8873",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2de7f48b-9532-4194-bba1-54991681d0cc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowruns/:workflowrun_id?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowruns",
+                    ":workflowrun_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowrun_id",
+                      "value": "{{workflowrun_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "f85bcd76-a3a7-43bc-9e3b-7fe8d5594b8a",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5e9325f4-2802-48d8-b500-e73fa131a4d5",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "a026a193-aec9-4bdc-84ab-ff5d0a27c104",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "/workflowsteplogs",
+          "item": [
+            {
+              "name": "Retrieve a list of workflow step logs",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5437bce0-054a-4e27-a487-d89712cf7c02",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.requireWorkflowExecuteStep)\r",
+                      "    .then(api.runWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "08f4b1f9-abcb-4591-b091-c2ed86c30561",
+                    "exec": [
+                      "// Since running a workflow is an async process, so we can't know",
+                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "    if (response.data.length > 0 ) {",
+                      "        // We have some results to validate",
+                      "        pm.expect(response.data[0]).to.be.an('object');",
+                      "        pm.expect(response.data[0].type).to.eql('workflowsteplog');",
+                      "        ",
+                      "        pm.environment.set(\"workflowsteplog_id\", response.data[0].id);",
+                      "        console.log('SET workflowsteplog_id: ' + pm.environment.get(\"workflowsteplog_id\"));",
+                      "    }",
+                      "});",
+                      "pm.test(\"Response contains meta\", function () {",
+                      "    pm.expect(response.meta).to.be.an('object');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f3e0a151-9201-442d-a920-ed8a72843583",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteplogs?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteplogs"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `run`, `step`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a workflow step log",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
+                    "exec": [
+                      "// Since running a workflow is an async process, so we can't know",
+                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
+                      "",
+                      "pm.test(\"Check status code\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response)",
+                      "",
+                      "if (pm.response.code == 200) {",
+                      "    // Valid workflow step log ID",
+                      "    pm.test(\"Response contains correct data\", function () {",
+                      "        pm.expect(response.data).to.be.an('object');",
+                      "        pm.expect(response.data.type).to.eql('workflowsteplog');",
+                      "    });",
+                      "    ",
+                      "} else {",
+                      "    // Invalid ID, should get error",
+                      "     pm.test(\"Response contains correct error\", function () {",
+                      "        pm.expect(response.errors).to.be.an('array');",
+                      "        pm.expect(response.errors[0]).to.be.an('object');",
+                      "        pm.expect(response.errors[0].title).to.eql('NotFoundException');",
+                      "        pm.expect(response.errors[0].detail).to.eql('WorkflowStepLog could not be found.');",
+                      "        pm.expect(response.errors[0].status).to.eql(404);",
+                      "    });",
+                      "}",
+                      "",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "03871178-f567-4067-a66f-8d26f2306652",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "14fb856a-a5a2-47aa-816f-3f73a976b131",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteplogs/:workflowsteplog_id?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteplogs",
+                    ":workflowsteplog_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `run`, `step`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowsteplog_id",
+                      "value": "{{workflowsteplog_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "f1c86299-96e1-4487-a3c3-220b24055854",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "af4a6fff-43a9-4bd5-822c-e4d2ccb980c8",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b218301-d65a-4616-9ab8-e479895e0790",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
@@ -9585,875 +10036,7 @@
     },
     {
       "name": "Users",
-      "item": [
-        {
-          "name": "/users",
-          "item": [
-            {
-              "name": "/me",
-              "item": [
-                {
-                  "name": "Retrieve the current user",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "78fd66fb-62f9-46c3-ae3a-380572d44554",
-                        "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
-                          "",
-                          "const response = pm.response.json();",
-                          "console.log(response);",
-                          "",
-                          "pm.test(\"Response contains correct data\", function () {",
-                          "    pm.expect(response.data).to.be.an('object');",
-                          "    pm.expect(response.data.type).to.eql('user');",
-                          "    pm.expect(response.data.id).to.not.be.undefined;",
-                          "    pm.expect(response.data.attributes).to.be.an('object');",
-                          "    pm.expect(response.data.attributes).to.have.keys([",
-                          "        \"username\",",
-                          "        \"email_address\",",
-                          "        \"account_access_type\",",
-                          "        \"source\"",
-                          "  ]);",
-                          "});",
-                          "",
-                          "pm.test(\"Response contains data.links\", function () {",
-                          "    pm.expect(response.data.links).to.be.an('object');",
-                          "});",
-                          "",
-                          "pm.environment.set(\"user_id\", response.data.id);"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "d80b7694-8ce8-ab7c-24a2-8f38deba8eee",
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/vnd.api+json"
-                      }
-                    ],
-                    "url": "{{base_url}}/v1/users/me"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Update the current user",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
-                        "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
-                          "",
-                          "const response = pm.response.json();",
-                          "console.log(response);",
-                          "",
-                          "pm.test(\"Response contains correct data\", function () {",
-                          "    pm.expect(response.data).to.be.an('object');",
-                          "    pm.expect(response.data.type).to.eql('user');",
-                          "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
-                          "    pm.expect(response.data.attributes).to.be.an('object');",
-                          "    pm.expect(response.data.attributes).to.have.keys([",
-                          "        \"username\",",
-                          "        \"email_address\",",
-                          "        \"account_access_type\",",
-                          "        \"source\"",
-                          "  ]);",
-                          "  pm.expect(response.data.attributes.username).to.eql('admin');",
-                          "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
-                          "});",
-                          "",
-                          "pm.test(\"Response contains data.links\", function () {",
-                          "    pm.expect(response.data.links).to.be.an('object');",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "761c676d-26cc-9a13-e3cb-8d2571bf67f3",
-                  "request": {
-                    "method": "PATCH",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "value": "application/vnd.api+json"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/vnd.api+json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}"
-                    },
-                    "url": "{{base_url}}/v1/users/me"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Update the current users app state",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "09a39f7e-ecec-43c2-99a7-b948187a1edd",
-                        "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
-                          "",
-                          "const response = pm.response.json();",
-                          "console.log(response);",
-                          "",
-                          "pm.test(\"Response contains correct state\", function () {",
-                          "    pm.expect(response.state).to.be.an('object');",
-                          "    pm.expect(response.state.key).to.not.be.undefined;",
-                          "\tpm.expect(response.state.key).to.eql('value');",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "954f38ca-d6c5-4541-9573-4bd73293cc09",
-                  "request": {
-                    "method": "PATCH",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n\t\"state\": {\r\n\t\t\"key\": \"value\"\r\n\t}\r\n}"
-                    },
-                    "url": {
-                      "raw": "{{base_url}}/v1/users/me/state?app=glass",
-                      "host": [
-                        "{{base_url}}"
-                      ],
-                      "path": [
-                        "v1",
-                        "users",
-                        "me",
-                        "state"
-                      ],
-                      "query": [
-                        {
-                          "key": "app",
-                          "value": "glass",
-                          "description": "The client to update the state for. One of `glass`, `lens`."
-                        }
-                      ]
-                    }
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Delete the current users app state",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "c6c40b6e-d813-4009-83e8-8e35a1e5dd42",
-                        "type": "text/javascript",
-                        "exec": [
-                          "pm.test(\"Status code is 204\", function () {",
-                          "    pm.response.to.have.status(204);",
-                          "});"
-                        ]
-                      }
-                    }
-                  ],
-                  "_postman_id": "88623d4f-fe3f-4b8c-99cc-1f3b2fd7cd2e",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": {
-                      "raw": "{{base_url}}/v1/users/me/state?app=glass",
-                      "host": [
-                        "{{base_url}}"
-                      ],
-                      "path": [
-                        "v1",
-                        "users",
-                        "me",
-                        "state"
-                      ],
-                      "query": [
-                        {
-                          "key": "app",
-                          "value": "glass"
-                        }
-                      ]
-                    }
-                  },
-                  "response": []
-                }
-              ],
-              "_postman_id": "84ab7421-7254-5ad6-0695-a938e8b80bd5",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "db5612f0-73cb-4793-a2cd-f99f05b2750d",
-                    "type": "text/javascript",
-                    "exec": [
-                      ""
-                    ]
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e84723e0-fdf5-4c23-a844-ab189e3911c2",
-                    "type": "text/javascript",
-                    "exec": [
-                      ""
-                    ]
-                  }
-                }
-              ],
-              "_postman_isSubFolder": true
-            },
-            {
-              "name": "Retrieve a list of users",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "ab564c7d-96b3-4ef0-80f0-b415013242ed",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "4da123dc-8305-ecc6-6534-415bbad23fdc",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/users?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "users"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `usergroup`, `accounts`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "4d4d1b04-d640-486e-b489-609853ae7217",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "    ]);",
-                      "    pm.expect(response.data.attributes.username).to.include('User');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('someone');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                      "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"new_user_id\", response.data.id);",
-                      "console.log('SET new_user_id: ' + pm.environment.get(\"new_user_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "964341b9-fd31-4ea7-a3b8-f78f3cdb5d20",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.requireUsergroup)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5dbf53a0-24cc-f213-6eb0-96137e5f3fef",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/users"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "a5de2d85-33a6-4a79-92c8-7ebd2a490fa7",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "    ]);",
-                      "    pm.expect(response.data.attributes.username).to.include('User');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('someone');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                      "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "479a55e3-3716-7311-d743-fe041ecff160",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "    ]);",
-                      "    pm.expect(response.data.attributes.username).to.include('modified_user');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('someone+modified');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                      "    pm.expect(response.data.attributes.account_access_type).to.eql('all');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "4e87d63e-9383-c548-b212-aeea5aa1270d",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "76192ac4-5dad-4027-8f46-36932f8cf5a3",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET new_user_id');",
-                      "pm.environment.unset(\"new_user_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "918cd8ca-a9d9-51ee-b51f-9241939ed239",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "8869248e-edd9-0b19-023d-cc27e4b5eba6",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "106929c9-ced0-4161-8c22-a82af897a7ce",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "e88d65b3-4ee5-455c-97e2-56b1ce35f644",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/usergroups",
-          "item": [
-            {
-              "name": "Retrieve a list of usergroups",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "67b49a6a-8210-4e29-9b85-481402f67edf",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "9cbb9dc2-2de6-12a6-0a4f-dc991f9c35d8",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": "{{base_url}}/v1/usergroups"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new usergroup",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "01f37b5a-a98f-4f9b-b8f5-e3286935b7ad",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('usergroup');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "    \"name\",",
-                      "        \"permissions\"",
-                      "  ]);",
-                      "  pm.expect(response.data.attributes.name).to.eql('testers');",
-                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"usergroup_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "0be8c767-4ef8-fe9c-52de-d03c5bedca68",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/usergroups"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a usergroup",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e027a60e-90af-4fbe-b93d-b862f0e57e10",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('usergroup');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "    \"name\",",
-                      "        \"permissions\"",
-                      "  ]);",
-                      "  pm.expect(response.data.attributes.name).to.eql('testers');",
-                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "9d065b1d-c626-2825-9367-74cfdad33913",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a usergroup",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "08b3b90c-34f2-40b1-8b33-8512aeb58810",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('usergroup');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "    \"name\",",
-                      "        \"permissions\"",
-                      "  ]);",
-                      "  pm.expect(response.data.attributes.name).to.eql('modified_testers');",
-                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_configuration']);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "f5b8914b-34d4-daa5-261d-ff8e218be950",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_testers\",\r\n      \"permissions\": [\r\n        \"manage_users\",\r\n        \"manage_configuration\"\r\n      ]\r\n    }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a usergroup",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET usergroup_id');",
-                      "pm.environment.unset(\"usergroup_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "086ad41d-6c5c-97f9-d6b0-6e36cb971aa8",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "3f15ca20-679c-db83-23d8-65565fa41078",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "53486121-304d-4d9f-9c02-fd36ed193b01",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "f556d843-8a52-4244-acba-d3764d8bb00c",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        }
-      ],
+      "item": [],
       "_postman_id": "d1662670-d8a6-dab7-591a-160bd27a1c25",
       "event": [
         {
@@ -11607,6 +11190,873 @@
     {
       "name": "Administration",
       "item": [
+        {
+          "name": "/users",
+          "item": [
+            {
+              "name": "/me",
+              "item": [
+                {
+                  "name": "Retrieve the current user",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "78fd66fb-62f9-46c3-ae3a-380572d44554",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.data).to.be.an('object');",
+                          "    pm.expect(response.data.type).to.eql('user');",
+                          "    pm.expect(response.data.id).to.not.be.undefined;",
+                          "    pm.expect(response.data.attributes).to.be.an('object');",
+                          "    pm.expect(response.data.attributes).to.have.keys([",
+                          "        \"username\",",
+                          "        \"email_address\",",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
+                          "  ]);",
+                          "});",
+                          "",
+                          "pm.test(\"Response contains data.links\", function () {",
+                          "    pm.expect(response.data.links).to.be.an('object');",
+                          "});",
+                          "",
+                          "pm.environment.set(\"user_id\", response.data.id);"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "d80b7694-8ce8-ab7c-24a2-8f38deba8eee",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "url": "{{base_url}}/v1/users/me"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update the current user",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.data).to.be.an('object');",
+                          "    pm.expect(response.data.type).to.eql('user');",
+                          "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
+                          "    pm.expect(response.data.attributes).to.be.an('object');",
+                          "    pm.expect(response.data.attributes).to.have.keys([",
+                          "        \"username\",",
+                          "        \"email_address\",",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
+                          "  ]);",
+                          "  pm.expect(response.data.attributes.username).to.eql('admin');",
+                          "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
+                          "});",
+                          "",
+                          "pm.test(\"Response contains data.links\", function () {",
+                          "    pm.expect(response.data.links).to.be.an('object');",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "761c676d-26cc-9a13-e3cb-8d2571bf67f3",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}"
+                    },
+                    "url": "{{base_url}}/v1/users/me"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update the current users app state",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "09a39f7e-ecec-43c2-99a7-b948187a1edd",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct state\", function () {",
+                          "    pm.expect(response.state).to.be.an('object');",
+                          "    pm.expect(response.state.key).to.not.be.undefined;",
+                          "\tpm.expect(response.state.key).to.eql('value');",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "954f38ca-d6c5-4541-9573-4bd73293cc09",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n\t\"state\": {\r\n\t\t\"key\": \"value\"\r\n\t}\r\n}"
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/v1/users/me/state?app=glass",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "users",
+                        "me",
+                        "state"
+                      ],
+                      "query": [
+                        {
+                          "key": "app",
+                          "value": "glass",
+                          "description": "The client to update the state for. One of `glass`, `lens`."
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Delete the current users app state",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "c6c40b6e-d813-4009-83e8-8e35a1e5dd42",
+                        "type": "text/javascript",
+                        "exec": [
+                          "pm.test(\"Status code is 204\", function () {",
+                          "    pm.response.to.have.status(204);",
+                          "});"
+                        ]
+                      }
+                    }
+                  ],
+                  "_postman_id": "88623d4f-fe3f-4b8c-99cc-1f3b2fd7cd2e",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/v1/users/me/state?app=glass",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "users",
+                        "me",
+                        "state"
+                      ],
+                      "query": [
+                        {
+                          "key": "app",
+                          "value": "glass"
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ],
+              "_postman_id": "84ab7421-7254-5ad6-0695-a938e8b80bd5",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "db5612f0-73cb-4793-a2cd-f99f05b2750d",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e84723e0-fdf5-4c23-a844-ab189e3911c2",
+                    "type": "text/javascript",
+                    "exec": [
+                      ""
+                    ]
+                  }
+                }
+              ],
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "Retrieve a list of users",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ab564c7d-96b3-4ef0-80f0-b415013242ed",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "4da123dc-8305-ecc6-6534-415bbad23fdc",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/users?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `usergroup`, `accounts`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "4d4d1b04-d640-486e-b489-609853ae7217",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "    ]);",
+                      "    pm.expect(response.data.attributes.username).to.include('User');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('someone');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                      "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"new_user_id\", response.data.id);",
+                      "console.log('SET new_user_id: ' + pm.environment.get(\"new_user_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "964341b9-fd31-4ea7-a3b8-f78f3cdb5d20",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireUsergroup)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5dbf53a0-24cc-f213-6eb0-96137e5f3fef",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/users"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a5de2d85-33a6-4a79-92c8-7ebd2a490fa7",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "    ]);",
+                      "    pm.expect(response.data.attributes.username).to.include('User');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('someone');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                      "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "479a55e3-3716-7311-d743-fe041ecff160",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "    ]);",
+                      "    pm.expect(response.data.attributes.username).to.include('modified_user');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('someone+modified');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                      "    pm.expect(response.data.attributes.account_access_type).to.eql('all');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "4e87d63e-9383-c548-b212-aeea5aa1270d",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "76192ac4-5dad-4027-8f46-36932f8cf5a3",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET new_user_id');",
+                      "pm.environment.unset(\"new_user_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "918cd8ca-a9d9-51ee-b51f-9241939ed239",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "8869248e-edd9-0b19-023d-cc27e4b5eba6",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "106929c9-ced0-4161-8c22-a82af897a7ce",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "e88d65b3-4ee5-455c-97e2-56b1ce35f644",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "/usergroups",
+          "item": [
+            {
+              "name": "Retrieve a list of usergroups",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "67b49a6a-8210-4e29-9b85-481402f67edf",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "9cbb9dc2-2de6-12a6-0a4f-dc991f9c35d8",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/usergroups"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new usergroup",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "01f37b5a-a98f-4f9b-b8f5-e3286935b7ad",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('usergroup');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "    \"name\",",
+                      "        \"permissions\"",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.name).to.eql('testers');",
+                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"usergroup_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0be8c767-4ef8-fe9c-52de-d03c5bedca68",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/usergroups"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a usergroup",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e027a60e-90af-4fbe-b93d-b862f0e57e10",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('usergroup');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "    \"name\",",
+                      "        \"permissions\"",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.name).to.eql('testers');",
+                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users']);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "9d065b1d-c626-2825-9367-74cfdad33913",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a usergroup",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "08b3b90c-34f2-40b1-8b33-8512aeb58810",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('usergroup');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"usergroup_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "    \"name\",",
+                      "        \"permissions\"",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.name).to.eql('modified_testers');",
+                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_configuration']);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f5b8914b-34d4-daa5-261d-ff8e218be950",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_testers\",\r\n      \"permissions\": [\r\n        \"manage_users\",\r\n        \"manage_configuration\"\r\n      ]\r\n    }\r\n  }\r\n}"
+                },
+                "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a usergroup",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET usergroup_id');",
+                      "pm.environment.unset(\"usergroup_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "086ad41d-6c5c-97f9-d6b0-6e36cb971aa8",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "3f15ca20-679c-db83-23d8-65565fa41078",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "53486121-304d-4d9f-9c02-fd36ed193b01",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "f556d843-8a52-4244-acba-d3764d8bb00c",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
         {
           "name": "/configuration",
           "item": [
@@ -15063,484 +15513,6 @@
         }
       ],
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
-    },
-    {
-      "name": "/workflowruns",
-      "item": [
-        {
-          "name": "Retrieve a list of workflow runs",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains data\", function () {",
-                  "    pm.expect(response.data).to.be.an('array');",
-                  "});",
-                  "",
-                  "pm.test(\"Response contains correct data\", function () {",
-                  "    pm.expect(response.data[0]).to.be.an('object');",
-                  "    pm.expect(response.data[0].type).to.eql('workflowrun');",
-                  "});",
-                  "",
-                  "// Set the workflow run ID to the first response ID",
-                  "pm.environment.set(\"workflowrun_id\", response.data[0].id);",
-                  "console.log('SET workflowrun_id: ' + pm.environment.get(\"workflowrun_id\"));",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "070d88d0-519a-4efa-8783-d4708d57862b",
-                "exec": [
-                  "const api = eval(pm.globals.get('exivity'))();",
-                  "",
-                  "api.start()",
-                  "    .then(api.requireToken)",
-                  "    .then(api.requireWorkflow)",
-                  "    .then(api.requireWorkflowExecuteStep)",
-                  "    .then(api.runWorkflow)",
-                  "    .then(api.ready)",
-                  "    .catch(function(err) {",
-                  "        console.log(err);",
-                  "    });",
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "d6ec6c81-b826-4a53-aa2a-242a3e7a6a48",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/v1/workflowruns?page[limit]=&page[offset]=&sort&filter[attribute]&include=",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "v1",
-                "workflowruns"
-              ],
-              "query": [
-                {
-                  "key": "page[limit]",
-                  "value": "",
-                  "description": "Limit the amount of results returned"
-                },
-                {
-                  "key": "page[offset]",
-                  "value": "",
-                  "description": "Return this page of the results"
-                },
-                {
-                  "key": "sort",
-                  "value": null,
-                  "description": "Sort results by this attribute"
-                },
-                {
-                  "key": "filter[attribute]",
-                  "value": null,
-                  "description": "Filter results by this attribute"
-                },
-                {
-                  "key": "include",
-                  "value": "",
-                  "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
-                }
-              ]
-            },
-            "description": "Test description"
-          },
-          "response": []
-        },
-        {
-          "name": "Retrieve a workflow run",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains correct data\", function () {",
-                  "    pm.expect(response.data).to.be.an('object');",
-                  "    pm.expect(response.data.type).to.eql('workflowrun');",
-                  "    pm.expect(response.data.attributes.start_date).to.be.a('string');",
-                  "    pm.expect(response.data.attributes.end_date).to.be.a('string');",
-                  "    pm.expect(response.data.attributes.status).to.be.a('string');",
-                  "});",
-                  "",
-                  "pm.test(\"Response contains data.links\", function () {",
-                  "    pm.expect(response.data.links).to.be.an('object');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            },
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "2b407300-f61d-496e-ab1e-9713fd5d8873",
-                "exec": [
-                  ""
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "2de7f48b-9532-4194-bba1-54991681d0cc",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "url": {
-              "raw": "{{base_url}}/v1/workflowruns/:workflowrun_id?include=",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "v1",
-                "workflowruns",
-                ":workflowrun_id"
-              ],
-              "query": [
-                {
-                  "key": "include",
-                  "value": "",
-                  "description": "Include additional related resources. Possible values: `steplogs`, `workflow`"
-                }
-              ],
-              "variable": [
-                {
-                  "key": "workflowrun_id",
-                  "value": "{{workflowrun_id}}",
-                  "type": "string"
-                }
-              ]
-            },
-            "description": "Test description"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "f85bcd76-a3a7-43bc-9e3b-7fe8d5594b8a",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "5e9325f4-2802-48d8-b500-e73fa131a4d5",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "a026a193-aec9-4bdc-84ab-ff5d0a27c104",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "Workflows",
-      "item": [
-        {
-          "name": "/workflowsteplogs",
-          "item": [
-            {
-              "name": "Retrieve a list of workflow step logs",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "5437bce0-054a-4e27-a487-d89712cf7c02",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.requireWorkflow)\r",
-                      "    .then(api.requireWorkflowExecuteStep)\r",
-                      "    .then(api.runWorkflow)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "08f4b1f9-abcb-4591-b091-c2ed86c30561",
-                    "exec": [
-                      "// Since running a workflow is an async process, so we can't know",
-                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
-                      "",
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "    if (response.data.length > 0 ) {",
-                      "        // We have some results to validate",
-                      "        pm.expect(response.data[0]).to.be.an('object');",
-                      "        pm.expect(response.data[0].type).to.eql('workflowsteplog');",
-                      "        ",
-                      "        pm.environment.set(\"workflowsteplog_id\", response.data[0].id);",
-                      "        console.log('SET workflowsteplog_id: ' + pm.environment.get(\"workflowsteplog_id\"));",
-                      "    }",
-                      "});",
-                      "pm.test(\"Response contains meta\", function () {",
-                      "    pm.expect(response.meta).to.be.an('object');",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "f3e0a151-9201-442d-a920-ed8a72843583",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteplogs?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteplogs"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `run`, `step`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a workflow step log",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "exec": [
-                      "// Since running a workflow is an async process, so we can't know",
-                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
-                      "",
-                      "pm.test(\"Check status code\", function () {",
-                      "    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response)",
-                      "",
-                      "if (pm.response.code == 200) {",
-                      "    // Valid workflow step log ID",
-                      "    pm.test(\"Response contains correct data\", function () {",
-                      "        pm.expect(response.data).to.be.an('object');",
-                      "        pm.expect(response.data.type).to.eql('workflowsteplog');",
-                      "    });",
-                      "    ",
-                      "} else {",
-                      "    // Invalid ID, should get error",
-                      "     pm.test(\"Response contains correct error\", function () {",
-                      "        pm.expect(response.errors).to.be.an('array');",
-                      "        pm.expect(response.errors[0]).to.be.an('object');",
-                      "        pm.expect(response.errors[0].title).to.eql('NotFoundException');",
-                      "        pm.expect(response.errors[0].detail).to.eql('WorkflowStepLog could not be found.');",
-                      "        pm.expect(response.errors[0].status).to.eql(404);",
-                      "    });",
-                      "}",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "03871178-f567-4067-a66f-8d26f2306652",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "14fb856a-a5a2-47aa-816f-3f73a976b131",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteplogs/:workflowsteplog_id?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteplogs",
-                    ":workflowsteplog_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `run`, `step`."
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowsteplog_id",
-                      "value": "{{workflowsteplog_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "f1c86299-96e1-4487-a3c3-220b24055854",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "af4a6fff-43a9-4bd5-822c-e4d2ccb980c8",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "7b218301-d65a-4616-9ab8-e479895e0790",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        }
-      ],
-      "_postman_id": "5400e6af-73ef-4f73-8a6a-696a71de7ecf",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "128c0c15-925a-4795-b0b6-0b2c7c5c0df8",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "2567a81d-8216-4f55-825f-b93da760390e",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
     }
   ],
   "auth": {
@@ -16237,7 +16209,7 @@
   ],
   "variable": [
     {
-      "id": "39622a64-8536-4d30-9720-936e7661b573",
+      "id": "a4a0796c-a5bc-44eb-ad4e-38ebd45a3e96",
       "key": "component",
       "value": "use",
       "type": "string"
