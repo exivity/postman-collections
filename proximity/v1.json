@@ -15230,6 +15230,12 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "Profile",
+          "item": [],
+          "_postman_id": "200943b9-5cca-443e-bdb4-27d9fff54501",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
@@ -15485,11 +15491,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "Profile",
-      "item": [],
-      "_postman_id": "200943b9-5cca-443e-bdb4-27d9fff54501"
     }
   ],
   "auth": {
@@ -16186,7 +16187,7 @@
   ],
   "variable": [
     {
-      "id": "5ed8018d-b6d7-417e-9ec6-874ec979de7b",
+      "id": "ec1a9cbb-052f-40e2-b4ec-fa8a5d2a73a1",
       "key": "component",
       "value": "use",
       "type": "string"
