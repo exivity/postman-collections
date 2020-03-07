@@ -9557,457 +9557,6 @@
             }
           ],
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "/workflowruns",
-          "item": [
-            {
-              "name": "Retrieve a list of workflow runs",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data[0]).to.be.an('object');",
-                      "    pm.expect(response.data[0].type).to.eql('workflowrun');",
-                      "});",
-                      "",
-                      "// Set the workflow run ID to the first response ID",
-                      "pm.environment.set(\"workflowrun_id\", response.data[0].id);",
-                      "console.log('SET workflowrun_id: ' + pm.environment.get(\"workflowrun_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "070d88d0-519a-4efa-8783-d4708d57862b",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.requireWorkflow)",
-                      "    .then(api.requireWorkflowExecuteStep)",
-                      "    .then(api.runWorkflow)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "d6ec6c81-b826-4a53-aa2a-242a3e7a6a48",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowruns?page[limit]=&page[offset]=&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowruns"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": "",
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": "",
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a workflow run",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowrun');",
-                      "    pm.expect(response.data.attributes.start_date).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.end_date).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.status).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "2b407300-f61d-496e-ab1e-9713fd5d8873",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "2de7f48b-9532-4194-bba1-54991681d0cc",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowruns/:workflowrun_id?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowruns",
-                    ":workflowrun_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowrun_id",
-                      "value": "{{workflowrun_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "f85bcd76-a3a7-43bc-9e3b-7fe8d5594b8a",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "5e9325f4-2802-48d8-b500-e73fa131a4d5",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "a026a193-aec9-4bdc-84ab-ff5d0a27c104",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/workflowsteplogs",
-          "item": [
-            {
-              "name": "Retrieve a list of workflow step logs",
-              "event": [
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "5437bce0-054a-4e27-a487-d89712cf7c02",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.requireWorkflow)\r",
-                      "    .then(api.requireWorkflowExecuteStep)\r",
-                      "    .then(api.runWorkflow)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "08f4b1f9-abcb-4591-b091-c2ed86c30561",
-                    "exec": [
-                      "// Since running a workflow is an async process, so we can't know",
-                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
-                      "",
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "    if (response.data.length > 0 ) {",
-                      "        // We have some results to validate",
-                      "        pm.expect(response.data[0]).to.be.an('object');",
-                      "        pm.expect(response.data[0].type).to.eql('workflowsteplog');",
-                      "        ",
-                      "        pm.environment.set(\"workflowsteplog_id\", response.data[0].id);",
-                      "        console.log('SET workflowsteplog_id: ' + pm.environment.get(\"workflowsteplog_id\"));",
-                      "    }",
-                      "});",
-                      "pm.test(\"Response contains meta\", function () {",
-                      "    pm.expect(response.meta).to.be.an('object');",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "f3e0a151-9201-442d-a920-ed8a72843583",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteplogs?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteplogs"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `run`, `step`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a workflow step log",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "exec": [
-                      "// Since running a workflow is an async process, so we can't know",
-                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
-                      "",
-                      "pm.test(\"Check status code\", function () {",
-                      "    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response)",
-                      "",
-                      "if (pm.response.code == 200) {",
-                      "    // Valid workflow step log ID",
-                      "    pm.test(\"Response contains correct data\", function () {",
-                      "        pm.expect(response.data).to.be.an('object');",
-                      "        pm.expect(response.data.type).to.eql('workflowsteplog');",
-                      "    });",
-                      "    ",
-                      "} else {",
-                      "    // Invalid ID, should get error",
-                      "     pm.test(\"Response contains correct error\", function () {",
-                      "        pm.expect(response.errors).to.be.an('array');",
-                      "        pm.expect(response.errors[0]).to.be.an('object');",
-                      "        pm.expect(response.errors[0].title).to.eql('NotFoundException');",
-                      "        pm.expect(response.errors[0].detail).to.eql('WorkflowStepLog could not be found.');",
-                      "        pm.expect(response.errors[0].status).to.eql(404);",
-                      "    });",
-                      "}",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "03871178-f567-4067-a66f-8d26f2306652",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "14fb856a-a5a2-47aa-816f-3f73a976b131",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteplogs/:workflowsteplog_id?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteplogs",
-                    ":workflowsteplog_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `run`, `step`."
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowsteplog_id",
-                      "value": "{{workflowsteplog_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "f1c86299-96e1-4487-a3c3-220b24055854",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "af4a6fff-43a9-4bd5-822c-e4d2ccb980c8",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "7b218301-d65a-4616-9ab8-e479895e0790",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
@@ -15514,6 +15063,484 @@
         }
       ],
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
+    },
+    {
+      "name": "/workflowruns",
+      "item": [
+        {
+          "name": "Retrieve a list of workflow runs",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains data\", function () {",
+                  "    pm.expect(response.data).to.be.an('array');",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data[0]).to.be.an('object');",
+                  "    pm.expect(response.data[0].type).to.eql('workflowrun');",
+                  "});",
+                  "",
+                  "// Set the workflow run ID to the first response ID",
+                  "pm.environment.set(\"workflowrun_id\", response.data[0].id);",
+                  "console.log('SET workflowrun_id: ' + pm.environment.get(\"workflowrun_id\"));",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "070d88d0-519a-4efa-8783-d4708d57862b",
+                "exec": [
+                  "const api = eval(pm.globals.get('exivity'))();",
+                  "",
+                  "api.start()",
+                  "    .then(api.requireToken)",
+                  "    .then(api.requireWorkflow)",
+                  "    .then(api.requireWorkflowExecuteStep)",
+                  "    .then(api.runWorkflow)",
+                  "    .then(api.ready)",
+                  "    .catch(function(err) {",
+                  "        console.log(err);",
+                  "    });",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d6ec6c81-b826-4a53-aa2a-242a3e7a6a48",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/workflowruns?page[limit]=&page[offset]=&sort&filter[attribute]&include=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "workflowruns"
+              ],
+              "query": [
+                {
+                  "key": "page[limit]",
+                  "value": "",
+                  "description": "Limit the amount of results returned"
+                },
+                {
+                  "key": "page[offset]",
+                  "value": "",
+                  "description": "Return this page of the results"
+                },
+                {
+                  "key": "sort",
+                  "value": null,
+                  "description": "Sort results by this attribute"
+                },
+                {
+                  "key": "filter[attribute]",
+                  "value": null,
+                  "description": "Filter results by this attribute"
+                },
+                {
+                  "key": "include",
+                  "value": "",
+                  "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+                }
+              ]
+            },
+            "description": "Test description"
+          },
+          "response": []
+        },
+        {
+          "name": "Retrieve a workflow run",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflowrun');",
+                  "    pm.expect(response.data.attributes.start_date).to.be.a('string');",
+                  "    pm.expect(response.data.attributes.end_date).to.be.a('string');",
+                  "    pm.expect(response.data.attributes.status).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "2b407300-f61d-496e-ab1e-9713fd5d8873",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "2de7f48b-9532-4194-bba1-54991681d0cc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/workflowruns/:workflowrun_id?include=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "workflowruns",
+                ":workflowrun_id"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "",
+                  "description": "Include additional related resources. Possible values: `steplogs`, `workflow`"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "workflowrun_id",
+                  "value": "{{workflowrun_id}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "description": "Test description"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "f85bcd76-a3a7-43bc-9e3b-7fe8d5594b8a",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "5e9325f4-2802-48d8-b500-e73fa131a4d5",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "a026a193-aec9-4bdc-84ab-ff5d0a27c104",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workflows",
+      "item": [
+        {
+          "name": "/workflowsteplogs",
+          "item": [
+            {
+              "name": "Retrieve a list of workflow step logs",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5437bce0-054a-4e27-a487-d89712cf7c02",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.requireWorkflowExecuteStep)\r",
+                      "    .then(api.runWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "08f4b1f9-abcb-4591-b091-c2ed86c30561",
+                    "exec": [
+                      "// Since running a workflow is an async process, so we can't know",
+                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
+                      "",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "    if (response.data.length > 0 ) {",
+                      "        // We have some results to validate",
+                      "        pm.expect(response.data[0]).to.be.an('object');",
+                      "        pm.expect(response.data[0].type).to.eql('workflowsteplog');",
+                      "        ",
+                      "        pm.environment.set(\"workflowsteplog_id\", response.data[0].id);",
+                      "        console.log('SET workflowsteplog_id: ' + pm.environment.get(\"workflowsteplog_id\"));",
+                      "    }",
+                      "});",
+                      "pm.test(\"Response contains meta\", function () {",
+                      "    pm.expect(response.meta).to.be.an('object');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f3e0a151-9201-442d-a920-ed8a72843583",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteplogs?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteplogs"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `run`, `step`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a workflow step log",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
+                    "exec": [
+                      "// Since running a workflow is an async process, so we can't know",
+                      "// for sure that a workflowsteplog has any info, so just check for a basic valid format",
+                      "",
+                      "pm.test(\"Check status code\", function () {",
+                      "    pm.expect(pm.response.code).to.be.oneOf([200,404]);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response)",
+                      "",
+                      "if (pm.response.code == 200) {",
+                      "    // Valid workflow step log ID",
+                      "    pm.test(\"Response contains correct data\", function () {",
+                      "        pm.expect(response.data).to.be.an('object');",
+                      "        pm.expect(response.data.type).to.eql('workflowsteplog');",
+                      "    });",
+                      "    ",
+                      "} else {",
+                      "    // Invalid ID, should get error",
+                      "     pm.test(\"Response contains correct error\", function () {",
+                      "        pm.expect(response.errors).to.be.an('array');",
+                      "        pm.expect(response.errors[0]).to.be.an('object');",
+                      "        pm.expect(response.errors[0].title).to.eql('NotFoundException');",
+                      "        pm.expect(response.errors[0].detail).to.eql('WorkflowStepLog could not be found.');",
+                      "        pm.expect(response.errors[0].status).to.eql(404);",
+                      "    });",
+                      "}",
+                      "",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "03871178-f567-4067-a66f-8d26f2306652",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "14fb856a-a5a2-47aa-816f-3f73a976b131",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteplogs/:workflowsteplog_id?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteplogs",
+                    ":workflowsteplog_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `run`, `step`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowsteplog_id",
+                      "value": "{{workflowsteplog_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "f1c86299-96e1-4487-a3c3-220b24055854",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "af4a6fff-43a9-4bd5-822c-e4d2ccb980c8",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "7b218301-d65a-4616-9ab8-e479895e0790",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "5400e6af-73ef-4f73-8a6a-696a71de7ecf",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "128c0c15-925a-4795-b0b6-0b2c7c5c0df8",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "2567a81d-8216-4f55-825f-b93da760390e",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     }
   ],
   "auth": {
@@ -16210,7 +16237,7 @@
   ],
   "variable": [
     {
-      "id": "cc922f00-7389-46f9-b9ac-c57a4b2bff37",
+      "id": "cd2554f1-9761-4e85-8cd8-591abf9e4c90",
       "key": "component",
       "value": "use",
       "type": "string"
