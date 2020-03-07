@@ -8308,6 +8308,1255 @@
           ],
           "_postman_id": "6adb9863-cc52-4412-9977-5f2be41f3dcf",
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "/workflowschedules",
+          "item": [
+            {
+              "name": "Retrieve a list of schedules",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "76f2c35b-05c9-41d3-9541-d0119c71c623",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowschedules"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `workflow`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cb87b26-e7f8-4b96-8ca5-4d7f9d0f5e81",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"timezone\": \"Europe/Amsterdam\",",
+                      "        \"adjust_for_dst\": true,",
+                      "        \"frequency\": \"daily\",",
+                      "        \"frequency_modifier\": 2",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"workflowschedule_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "154ce697-b1f1-4ee2-b898-c77cb3fc0750",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": 10800,\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowschedules"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5ce6e84d-69cc-4b99-a6c3-8a79cbf933ae",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"timezone\": \"Europe/Amsterdam\",",
+                      "        \"adjust_for_dst\": true,",
+                      "        \"frequency\": \"daily\",",
+                      "        \"frequency_modifier\": 2",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "1359f765-b49b-49df-8970-7b987db1e5f3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowschedules",
+                    "{{workflowschedule_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f9701b1e-56dc-4ad5-8ddc-4202d0cc0af3",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"timezone\": \"Europe/London\",",
+                      "        \"adjust_for_dst\": true,",
+                      "        \"frequency\": \"daily\",",
+                      "        \"frequency_modifier\": 2",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "18ed8fdd-f4e9-485e-a606-8470b7ce0ebf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowschedule\",\r\n    \"id\": \"{{workflowschedule_id}}\",\r\n    \"attributes\": {\r\n      \"timezone\": \"Europe/London\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}",
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "43015ed0-58cf-40ba-aa47-950a39d34893",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET workflowschedule_id');",
+                      "pm.environment.unset(\"workflowschedule_id\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "66d24aca-d359-412e-9e80-8cd4991b7293",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "7ac62937-0fe7-4780-8697-8a69fac8b820",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "/workflowsteps",
+          "item": [
+            {
+              "name": "Add a new use step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "27e0be1c-a070-4db9-86ac-4b55394f9884",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
+                      "console.log(pm.response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "\t\t\"type\": \"use\",",
+                      "\t\t\"sort\": 1,",
+                      "\t\t\"timeout\": 600,",
+                      "    });",
+                      "",
+                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
+                      "\tpm.expect(response.data.attributes.options.name).to.include('Workflow_extractor');",
+                      "\tpm.expect(response.data.attributes.options).to.include({",
+                      "\t\t\"from_date\": -2,",
+                      "\t\t\"to_date\": 2,",
+                      "\t\t\"arguments\": \"test1 test2\"",
+                      "\t});",
+                      " });",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"use_workflowstep_id\", response.data.id);",
+                      "console.log('SET use_workflowstep_id: ' + pm.environment.get(\"use_workflowstep_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "});\r",
+                      "\r",
+                      "pm.sendRequest({\r",
+                      "    url: pm.variables.get(\"base_url\") + '/v1/extractors',\r",
+                      "    method: 'POST',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/json',\r",
+                      "        'Content-Type': 'application/json',\r",
+                      "        'Authorization': 'Bearer ' + pm.variables.get(\"token\")\r",
+                      "    },\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({\r",
+                      "            \"name\": \"Workflow extractor\",\r",
+                      "            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
+                      "        })\r",
+                      "    }\r",
+                      "})"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8b4969dd-dbb5-43cd-8963-acfe6767b172",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\",\r\n\t\t\t\t\"environment_id\": \"4\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowsteps"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new transcript step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3caedf07-43b6-4a38-a571-0bdec0a762f5",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "\t\t\"type\": \"transcript\",",
+                      "\t\t\"sort\": 1,",
+                      "\t\t\"timeout\": 600,",
+                      "\t});",
+                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
+                      "\tpm.expect(response.data.attributes.options).to.include({",
+                      "\t\t\"name\": \"Workflow_transformer\",",
+                      "        \"from_date\": -2,",
+                      "\t\t\"to_date\": 2",
+                      "\t});",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"transcript_workflowstep_id\", response.data.id);",
+                      "console.log('SET transcript_workflowstep_id: ' + pm.environment.get(\"transcript_workflowstep_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "104d0722-d6ef-48c2-aed0-ba7310844cd3",
+                    "exec": [
+                      "pm.sendRequest({\r",
+                      "    url: pm.variables.get(\"base_url\") + '/v1/transformers',\r",
+                      "    method: 'POST',\r",
+                      "    header: {\r",
+                      "        'Accept': 'application/json',\r",
+                      "        'Content-Type': 'application/json',\r",
+                      "        'Authorization': 'Bearer ' + pm.variables.get(\"token\")\r",
+                      "    },\r",
+                      "    body: {\r",
+                      "        mode: 'raw',\r",
+                      "        raw: JSON.stringify({\r",
+                      "\t        \"name\": \"Workflow transformer\",\r",
+                      "\t        \"contents\": \"# script here\"\r",
+                      "        })\r",
+                      "    }\r",
+                      "})"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5834e1e9-5602-40eb-a947-0aab8ef2fe9d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowsteps"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new edify step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f0488ee7-7d48-4115-9ca6-2d04163a7bca",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {\r",
+                      "    pm.response.to.have.status(201);\r",
+                      "});\r",
+                      "\r",
+                      "const response = pm.response.json();\r",
+                      "console.log(response);\r",
+                      "\r",
+                      "pm.test(\"Response contains correct data\", function () {\r",
+                      "    pm.expect(response.data).to.be.an('object');\r",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');\r",
+                      "    pm.expect(response.data.id).to.not.be.undefined;\r",
+                      "    pm.expect(response.data.attributes).to.be.an('object');\r",
+                      "    pm.expect(response.data.attributes).to.include({\r",
+                      "\t\t\"type\": \"edify\",\r",
+                      "\t\t\"sort\": 1,\r",
+                      "\t\t\"timeout\": 600,\r",
+                      "\t});\r",
+                      "\tpm.expect(response.data.attributes.options).to.be.an('object');\r",
+                      "\tpm.expect(response.data.attributes.options).to.include({\r",
+                      "\t\t\"report_id\": pm.environment.get('report_id'),\r",
+                      "        \"from_date\": 1,\r",
+                      "        \"to_date\": 2\r",
+                      "\t});\r",
+                      "});\r",
+                      "\r",
+                      "pm.test(\"Response contains data.links\", function () {\r",
+                      "    pm.expect(response.data.links).to.be.an('object');\r",
+                      "});\r",
+                      "\r",
+                      "pm.environment.set(\"edify_workflowstep_id\", response.data.id);\r",
+                      "console.log('SET edify_workflowstep_id: ' + pm.environment.get(\"edify_workflowstep_id\"));\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "3127f109-f7fe-4208-8354-2605fbea88fb",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireReport)\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      "    "
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "1c72ec85-e387-46bf-8235-b553b7c7c3bb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowsteps"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new execute step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8e3a714e-103b-42dd-b8da-8f4e1d00e7e9",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "    \"type\": \"execute\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600,",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"echo \\\"testing\\\"\"",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"execute_workflowstep_id\", response.data.id);",
+                      "console.log('SET execute_workflowstep_id: ' + pm.environment.get(\"execute_workflowstep_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "018f77c5-8a58-43c2-a829-c43ed843f558",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "abf53e55-ca41-4f31-9993-490c2510198e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowsteps"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new proximity step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9d636ea9-fad0-4f85-91c3-fb5abd25cf98",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "    \"type\": \"proximity\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600,",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"exivity:gc\",",
+                      "        \"arguments\": \"\"",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"proximity_workflowstep_id\", response.data.id);",
+                      "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));",
+                      "",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "06d923eb-d313-4638-811c-9eb42a70a283",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "43f32505-246f-4fca-8731-c2f188d0eb96",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowsteps"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a list of steps",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"workflowstep_id\", response.data[0].id);",
+                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d556aca6-a7b5-4e92-843b-f524f9f24d07",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "93a95324-aef9-4b25-9653-91d6f5c40d08",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"proximity_workflowstep_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "    \"type\": \"proximity\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"exivity:gc\",",
+                      "        \"arguments\": \"\"",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "b7983898-a75d-4aef-8161-7145b7cc55f8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps",
+                    ":workflowstep_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{proximity_workflowstep_id}}",
+                      "type": "string",
+                      "description": "Workflow step ID"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "558cd072-9f8d-45a3-9891-46fa0ed91693",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"execute_workflowstep_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"type\": \"execute\",",
+                      "        \"sort\": 1,",
+                      "        \"timeout\": 600",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({\"command\": \"echo \\\"testing\\\"\"});",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "27dea6f6-e979-447d-908f-aef5c96e908a",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.requireWorkflowExecuteStep)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "15f267b9-7dd0-4090-8065-6e0069ab013c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{execute_workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps",
+                    ":workflowstep_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{execute_workflowstep_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Fetch step logs",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b0d76dab-9d1b-4c38-9b10-995104d99109",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains logs data\", function () {",
+                      "    pm.expect(response.logs).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0926bf5f-6c38-45fc-95c8-3e90f1a90868",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id/logs",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps",
+                    ":workflowstep_id",
+                    "logs"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{workflowstep_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a step",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "164386e5-18a5-496c-bd28-2def05ec2c13",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET workflowstep_id');",
+                      "pm.environment.unset(\"workflowstep_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "a0b63334-62bd-455f-a102-3972fc825158",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.requireWorkflowExecuteStep)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d2642594-16e5-4cd7-81ed-dc60cfe6c15e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowsteps",
+                    ":workflowstep_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowstep_id",
+                      "value": "{{execute_workflowstep_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "603b3894-1fec-4683-9089-9c4f47b84b04",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
@@ -14036,906 +15285,6 @@
       "name": "Workflows",
       "item": [
         {
-          "name": "/workflowsteps",
-          "item": [
-            {
-              "name": "Add a new use step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "27e0be1c-a070-4db9-86ac-4b55394f9884",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
-                      "console.log(pm.response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"type\": \"use\",",
-                      "\t\t\"sort\": 1,",
-                      "\t\t\"timeout\": 600,",
-                      "    });",
-                      "",
-                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "\tpm.expect(response.data.attributes.options.name).to.include('Workflow_extractor');",
-                      "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"from_date\": -2,",
-                      "\t\t\"to_date\": 2,",
-                      "\t\t\"arguments\": \"test1 test2\"",
-                      "\t});",
-                      " });",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"use_workflowstep_id\", response.data.id);",
-                      "console.log('SET use_workflowstep_id: ' + pm.environment.get(\"use_workflowstep_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.requireWorkflow)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "});\r",
-                      "\r",
-                      "pm.sendRequest({\r",
-                      "    url: pm.variables.get(\"base_url\") + '/v1/extractors',\r",
-                      "    method: 'POST',\r",
-                      "    header: {\r",
-                      "        'Accept': 'application/json',\r",
-                      "        'Content-Type': 'application/json',\r",
-                      "        'Authorization': 'Bearer ' + pm.variables.get(\"token\")\r",
-                      "    },\r",
-                      "    body: {\r",
-                      "        mode: 'raw',\r",
-                      "        raw: JSON.stringify({\r",
-                      "            \"name\": \"Workflow extractor\",\r",
-                      "            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
-                      "        })\r",
-                      "    }\r",
-                      "})"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "8b4969dd-dbb5-43cd-8963-acfe6767b172",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\",\r\n\t\t\t\t\"environment_id\": \"4\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new transcript step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3caedf07-43b6-4a38-a571-0bdec0a762f5",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"type\": \"transcript\",",
-                      "\t\t\"sort\": 1,",
-                      "\t\t\"timeout\": 600,",
-                      "\t});",
-                      "\tpm.expect(response.data.attributes.options).to.be.an('object');",
-                      "\tpm.expect(response.data.attributes.options).to.include({",
-                      "\t\t\"name\": \"Workflow_transformer\",",
-                      "        \"from_date\": -2,",
-                      "\t\t\"to_date\": 2",
-                      "\t});",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"transcript_workflowstep_id\", response.data.id);",
-                      "console.log('SET transcript_workflowstep_id: ' + pm.environment.get(\"transcript_workflowstep_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "104d0722-d6ef-48c2-aed0-ba7310844cd3",
-                    "exec": [
-                      "pm.sendRequest({\r",
-                      "    url: pm.variables.get(\"base_url\") + '/v1/transformers',\r",
-                      "    method: 'POST',\r",
-                      "    header: {\r",
-                      "        'Accept': 'application/json',\r",
-                      "        'Content-Type': 'application/json',\r",
-                      "        'Authorization': 'Bearer ' + pm.variables.get(\"token\")\r",
-                      "    },\r",
-                      "    body: {\r",
-                      "        mode: 'raw',\r",
-                      "        raw: JSON.stringify({\r",
-                      "\t        \"name\": \"Workflow transformer\",\r",
-                      "\t        \"contents\": \"# script here\"\r",
-                      "        })\r",
-                      "    }\r",
-                      "})"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5834e1e9-5602-40eb-a947-0aab8ef2fe9d",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new edify step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "f0488ee7-7d48-4115-9ca6-2d04163a7bca",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {\r",
-                      "    pm.response.to.have.status(201);\r",
-                      "});\r",
-                      "\r",
-                      "const response = pm.response.json();\r",
-                      "console.log(response);\r",
-                      "\r",
-                      "pm.test(\"Response contains correct data\", function () {\r",
-                      "    pm.expect(response.data).to.be.an('object');\r",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');\r",
-                      "    pm.expect(response.data.id).to.not.be.undefined;\r",
-                      "    pm.expect(response.data.attributes).to.be.an('object');\r",
-                      "    pm.expect(response.data.attributes).to.include({\r",
-                      "\t\t\"type\": \"edify\",\r",
-                      "\t\t\"sort\": 1,\r",
-                      "\t\t\"timeout\": 600,\r",
-                      "\t});\r",
-                      "\tpm.expect(response.data.attributes.options).to.be.an('object');\r",
-                      "\tpm.expect(response.data.attributes.options).to.include({\r",
-                      "\t\t\"report_id\": pm.environment.get('report_id'),\r",
-                      "        \"from_date\": 1,\r",
-                      "        \"to_date\": 2\r",
-                      "\t});\r",
-                      "});\r",
-                      "\r",
-                      "pm.test(\"Response contains data.links\", function () {\r",
-                      "    pm.expect(response.data.links).to.be.an('object');\r",
-                      "});\r",
-                      "\r",
-                      "pm.environment.set(\"edify_workflowstep_id\", response.data.id);\r",
-                      "console.log('SET edify_workflowstep_id: ' + pm.environment.get(\"edify_workflowstep_id\"));\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "3127f109-f7fe-4208-8354-2605fbea88fb",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireReport)\r",
-                      "    .then(api.requireWorkflow)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      "    "
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "1c72ec85-e387-46bf-8235-b553b7c7c3bb",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"sort\": 1,\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new execute step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8e3a714e-103b-42dd-b8da-8f4e1d00e7e9",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"execute\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"echo \\\"testing\\\"\"",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"execute_workflowstep_id\", response.data.id);",
-                      "console.log('SET execute_workflowstep_id: ' + pm.environment.get(\"execute_workflowstep_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "018f77c5-8a58-43c2-a829-c43ed843f558",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "abf53e55-ca41-4f31-9993-490c2510198e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new proximity step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9d636ea9-fad0-4f85-91c3-fb5abd25cf98",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"proximity\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600,",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"exivity:gc\",",
-                      "        \"arguments\": \"\"",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"proximity_workflowstep_id\", response.data.id);",
-                      "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "06d923eb-d313-4638-811c-9eb42a70a283",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireWorkflow)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "43f32505-246f-4fca-8731-c2f188d0eb96",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowsteps"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a list of steps",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"workflowstep_id\", response.data[0].id);",
-                      "console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "d556aca6-a7b5-4e92-843b-f524f9f24d07",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "",
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "93a95324-aef9-4b25-9653-91d6f5c40d08",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"proximity_workflowstep_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"type\": \"proximity\",",
-                      "    \"sort\": 1,",
-                      "    \"timeout\": 600",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({",
-                      "    \"command\": \"exivity:gc\",",
-                      "        \"arguments\": \"\"",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "b7983898-a75d-4aef-8161-7145b7cc55f8",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps",
-                    ":workflowstep_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowstep_id",
-                      "value": "{{proximity_workflowstep_id}}",
-                      "type": "string",
-                      "description": "Workflow step ID"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "558cd072-9f8d-45a3-9891-46fa0ed91693",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"execute_workflowstep_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"type\": \"execute\",",
-                      "        \"sort\": 1,",
-                      "        \"timeout\": 600",
-                      "  });",
-                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
-                      "  pm.expect(response.data.attributes.options).to.include({\"command\": \"echo \\\"testing\\\"\"});",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "27dea6f6-e979-447d-908f-aef5c96e908a",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireWorkflow)\r",
-                      "    .then(api.requireWorkflowExecuteStep)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "15f267b9-7dd0-4090-8065-6e0069ab013c",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"id\": \"{{execute_workflowstep_id}}\",\r\n    \"attributes\": {\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\",\r\n        \"arguments\": \"test\"\r\n      }\r\n    }\r\n  }\r\n}\r\n",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps",
-                    ":workflowstep_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowstep_id",
-                      "value": "{{execute_workflowstep_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Fetch step logs",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b0d76dab-9d1b-4c38-9b10-995104d99109",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains logs data\", function () {",
-                      "    pm.expect(response.logs).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "0926bf5f-6c38-45fc-95c8-3e90f1a90868",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id/logs",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps",
-                    ":workflowstep_id",
-                    "logs"
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowstep_id",
-                      "value": "{{workflowstep_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a step",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "164386e5-18a5-496c-bd28-2def05ec2c13",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET workflowstep_id');",
-                      "pm.environment.unset(\"workflowstep_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "a0b63334-62bd-455f-a102-3972fc825158",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireWorkflow)\r",
-                      "    .then(api.requireWorkflowExecuteStep)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "d2642594-16e5-4cd7-81ed-dc60cfe6c15e",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowsteps",
-                    ":workflowstep_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowstep_id",
-                      "value": "{{execute_workflowstep_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "603b3894-1fec-4683-9089-9c4f47b84b04",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
           "name": "/workflowsteplogs",
           "item": [
             {
@@ -15159,355 +15508,6 @@
               "listen": "test",
               "script": {
                 "id": "7b218301-d65a-4616-9ab8-e479895e0790",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/workflowschedules",
-          "item": [
-            {
-              "name": "Retrieve a list of schedules",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "76f2c35b-05c9-41d3-9541-d0119c71c623",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowschedules"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "",
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `workflow`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7cb87b26-e7f8-4b96-8ca5-4d7f9d0f5e81",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
-                      "        \"timezone\": \"Europe/Amsterdam\",",
-                      "        \"adjust_for_dst\": true,",
-                      "        \"frequency\": \"daily\",",
-                      "        \"frequency_modifier\": 2",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"workflowschedule_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "154ce697-b1f1-4ee2-b898-c77cb3fc0750",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": 10800,\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowschedules"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5ce6e84d-69cc-4b99-a6c3-8a79cbf933ae",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
-                      "        \"timezone\": \"Europe/Amsterdam\",",
-                      "        \"adjust_for_dst\": true,",
-                      "        \"frequency\": \"daily\",",
-                      "        \"frequency_modifier\": 2",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "1359f765-b49b-49df-8970-7b987db1e5f3",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowschedules",
-                    "{{workflowschedule_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "f9701b1e-56dc-4ad5-8ddc-4202d0cc0af3",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
-                      "        \"timezone\": \"Europe/London\",",
-                      "        \"adjust_for_dst\": true,",
-                      "        \"frequency\": \"daily\",",
-                      "        \"frequency_modifier\": 2",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "18ed8fdd-f4e9-485e-a606-8470b7ce0ebf",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowschedule\",\r\n    \"id\": \"{{workflowschedule_id}}\",\r\n    \"attributes\": {\r\n      \"timezone\": \"Europe/London\"\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}",
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "43015ed0-58cf-40ba-aa47-950a39d34893",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET workflowschedule_id');",
-                      "pm.environment.unset(\"workflowschedule_id\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "66d24aca-d359-412e-9e80-8cd4991b7293",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "7ac62937-0fe7-4780-8697-8a69fac8b820",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
                 "type": "text/javascript",
                 "exec": [
                   ""
@@ -16237,7 +16237,7 @@
   ],
   "variable": [
     {
-      "id": "64abf843-c015-4cc9-bac9-305839de2f72",
+      "id": "39622a64-8536-4d30-9720-936e7661b573",
       "key": "component",
       "value": "use",
       "type": "string"
