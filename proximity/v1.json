@@ -15235,260 +15235,262 @@
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
     },
     {
-      "name": "/me",
+      "name": "Profile",
       "item": [
         {
-          "name": "Retrieve the current user",
-          "event": [
+          "name": "/users/me",
+          "item": [
             {
-              "listen": "test",
-              "script": {
-                "id": "78fd66fb-62f9-46c3-ae3a-380572d44554",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains correct data\", function () {",
-                  "    pm.expect(response.data).to.be.an('object');",
-                  "    pm.expect(response.data.type).to.eql('user');",
-                  "    pm.expect(response.data.id).to.not.be.undefined;",
-                  "    pm.expect(response.data.attributes).to.be.an('object');",
-                  "    pm.expect(response.data.attributes).to.have.keys([",
-                  "        \"username\",",
-                  "        \"email_address\",",
-                  "        \"account_access_type\",",
-                  "        \"source\"",
-                  "  ]);",
-                  "});",
-                  "",
-                  "pm.test(\"Response contains data.links\", function () {",
-                  "    pm.expect(response.data.links).to.be.an('object');",
-                  "});",
-                  "",
-                  "pm.environment.set(\"user_id\", response.data.id);"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "d80b7694-8ce8-ab7c-24a2-8f38deba8eee",
-          "request": {
-            "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "url": "{{base_url}}/v1/users/me"
-          },
-          "response": []
-        },
-        {
-          "name": "Update the current user",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains correct data\", function () {",
-                  "    pm.expect(response.data).to.be.an('object');",
-                  "    pm.expect(response.data.type).to.eql('user');",
-                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
-                  "    pm.expect(response.data.attributes).to.be.an('object');",
-                  "    pm.expect(response.data.attributes).to.have.keys([",
-                  "        \"username\",",
-                  "        \"email_address\",",
-                  "        \"account_access_type\",",
-                  "        \"source\"",
-                  "  ]);",
-                  "  pm.expect(response.data.attributes.username).to.eql('admin');",
-                  "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
-                  "});",
-                  "",
-                  "pm.test(\"Response contains data.links\", function () {",
-                  "    pm.expect(response.data.links).to.be.an('object');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "761c676d-26cc-9a13-e3cb-8d2571bf67f3",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/vnd.api+json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/vnd.api+json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}"
-            },
-            "url": "{{base_url}}/v1/users/me"
-          },
-          "response": []
-        },
-        {
-          "name": "Update the current users app state",
-          "event": [
-            {
-              "listen": "test",
-              "script": {
-                "id": "09a39f7e-ecec-43c2-99a7-b948187a1edd",
-                "exec": [
-                  "pm.test(\"Status code is 200\", function () {",
-                  "    pm.response.to.have.status(200);",
-                  "});",
-                  "",
-                  "const response = pm.response.json();",
-                  "console.log(response);",
-                  "",
-                  "pm.test(\"Response contains correct state\", function () {",
-                  "    pm.expect(response.state).to.be.an('object');",
-                  "    pm.expect(response.state.key).to.not.be.undefined;",
-                  "\tpm.expect(response.state.key).to.eql('value');",
-                  "});"
-                ],
-                "type": "text/javascript"
-              }
-            }
-          ],
-          "_postman_id": "954f38ca-d6c5-4541-9573-4bd73293cc09",
-          "request": {
-            "method": "PATCH",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n\t\"state\": {\r\n\t\t\"key\": \"value\"\r\n\t}\r\n}"
-            },
-            "url": {
-              "raw": "{{base_url}}/v1/users/me/state?app=glass",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "v1",
-                "users",
-                "me",
-                "state"
-              ],
-              "query": [
+              "name": "Retrieve the current user",
+              "event": [
                 {
-                  "key": "app",
-                  "value": "glass",
-                  "description": "The client to update the state for. One of `glass`, `lens`."
+                  "listen": "test",
+                  "script": {
+                    "id": "78fd66fb-62f9-46c3-ae3a-380572d44554",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "  ]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"user_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
-              ]
+              ],
+              "_postman_id": "d80b7694-8ce8-ab7c-24a2-8f38deba8eee",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/users/me"
+              },
+              "response": []
+            },
+            {
+              "name": "Update the current user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.username).to.eql('admin');",
+                      "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "761c676d-26cc-9a13-e3cb-8d2571bf67f3",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}"
+                },
+                "url": "{{base_url}}/v1/users/me"
+              },
+              "response": []
+            },
+            {
+              "name": "Update the current users app state",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "09a39f7e-ecec-43c2-99a7-b948187a1edd",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct state\", function () {",
+                      "    pm.expect(response.state).to.be.an('object');",
+                      "    pm.expect(response.state.key).to.not.be.undefined;",
+                      "\tpm.expect(response.state.key).to.eql('value');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "954f38ca-d6c5-4541-9573-4bd73293cc09",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"state\": {\r\n\t\t\"key\": \"value\"\r\n\t}\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/users/me/state?app=glass",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "users",
+                    "me",
+                    "state"
+                  ],
+                  "query": [
+                    {
+                      "key": "app",
+                      "value": "glass",
+                      "description": "The client to update the state for. One of `glass`, `lens`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete the current users app state",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c6c40b6e-d813-4009-83e8-8e35a1e5dd42",
+                    "type": "text/javascript",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});"
+                    ]
+                  }
+                }
+              ],
+              "_postman_id": "88623d4f-fe3f-4b8c-99cc-1f3b2fd7cd2e",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/users/me/state?app=glass",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "users",
+                    "me",
+                    "state"
+                  ],
+                  "query": [
+                    {
+                      "key": "app",
+                      "value": "glass"
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
-          },
-          "response": []
-        },
-        {
-          "name": "Delete the current users app state",
+          ],
+          "_postman_id": "84ab7421-7254-5ad6-0695-a938e8b80bd5",
           "event": [
             {
-              "listen": "test",
+              "listen": "prerequest",
               "script": {
-                "id": "c6c40b6e-d813-4009-83e8-8e35a1e5dd42",
+                "id": "db5612f0-73cb-4793-a2cd-f99f05b2750d",
                 "type": "text/javascript",
                 "exec": [
-                  "pm.test(\"Status code is 204\", function () {",
-                  "    pm.response.to.have.status(204);",
-                  "});"
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "e84723e0-fdf5-4c23-a844-ab189e3911c2",
+                "type": "text/javascript",
+                "exec": [
+                  ""
                 ]
               }
             }
           ],
-          "_postman_id": "88623d4f-fe3f-4b8c-99cc-1f3b2fd7cd2e",
-          "request": {
-            "method": "DELETE",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": ""
-            },
-            "url": {
-              "raw": "{{base_url}}/v1/users/me/state?app=glass",
-              "host": [
-                "{{base_url}}"
-              ],
-              "path": [
-                "v1",
-                "users",
-                "me",
-                "state"
-              ],
-              "query": [
-                {
-                  "key": "app",
-                  "value": "glass"
-                }
-              ]
-            }
-          },
-          "response": []
+          "_postman_isSubFolder": true
         }
       ],
-      "_postman_id": "84ab7421-7254-5ad6-0695-a938e8b80bd5",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "db5612f0-73cb-4793-a2cd-f99f05b2750d",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "e84723e0-fdf5-4c23-a844-ab189e3911c2",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "Profile",
-      "item": [],
       "_postman_id": "200943b9-5cca-443e-bdb4-27d9fff54501"
     }
   ],
@@ -16186,7 +16188,7 @@
   ],
   "variable": [
     {
-      "id": "bc8f6c1f-ed0e-42b7-80bc-d7fca25261df",
+      "id": "4c99e6b1-b3fa-44a0-952f-b30e0051e292",
       "key": "component",
       "value": "use",
       "type": "string"
