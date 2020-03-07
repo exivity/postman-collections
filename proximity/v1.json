@@ -752,6 +752,619 @@
       "description": "Authenicate with our API by using [Javascript Web Tokens](https://jwt.io/) or JWT for short."
     },
     {
+      "name": "Reports",
+      "item": [
+        {
+          "name": "/reports",
+          "item": [
+            {
+              "name": "Retrieve a list of report definitions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "73508453-93c1-4470-b6a4-d9615e7362f1",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "aa78fa43-2539-479e-8f2e-ac345788c196",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "cf7443a1-e6f5-1861-7f3b-347b1ec199bd",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "reports"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new report definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "(pm.response.code !== 201 ? console.log(pm.response) : console.log(pm.response.json()));",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('report');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.include('Test report');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"dset\": pm.environment.get(\"dset_id\"),",
+                      "        \"lvl1_key_col\": \"Customer\",",
+                      "        \"lvl1_name_col\": \"Customer\",",
+                      "        \"lvl1_label\": \"Customer\",",
+                      "        \"depth\": 2",
+                      "\t});",
+                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.data_status).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"report_id\", response.data.id);",
+                      "console.log('SET report_id: ' + pm.environment.get(\"report_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "fc4c0988-2101-4c83-9ee5-f7cadd2d5c59",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "96761d3e-0927-cf5f-64a9-085579cda840",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report - {{$randomInt}}\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"lvl1_key_col\": \"Customer\",\r\n            \"lvl1_name_col\": \"Customer\",\r\n            \"lvl1_label\": \"Customer\",\r\n            \"lvl2_key_col\": \"Reseller\",\r\n            \"lvl2_name_col\": \"Reseller\",\r\n            \"lvl3_label\": \"Reseller\"\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/reports"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a report definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9d48f26b-8402-4ae8-a9ee-520241e459df",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('report');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.include('Test report');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"dset\": pm.environment.get(\"dset_id\"),",
+                      "        \"lvl1_key_col\": \"Customer\",",
+                      "        \"lvl2_key_col\": \"Reseller\",",
+                      "        \"lvl3_key_col\": \"\",",
+                      "        \"lvl4_key_col\": \"\",",
+                      "        \"lvl5_key_col\": \"\",",
+                      "        \"depth\": 2",
+                      "\t});",
+                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Data status is not empty\", function () {",
+                      "    pm.expect(response.data.attributes.data_status).to.be.an('object').that.is.not.empty;",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "522fbcbd-0abc-4d2f-ad88-5e3015f3dfd5",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2659dc88-c22f-037f-a429-e8793a98d95c",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/reports/:report_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "reports",
+                    ":report_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "report_id",
+                      "value": "{{report_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update a report definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "89393b2c-382c-46e2-ae4f-daa9135865f2",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('report');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "\t\t\"name\": \"Modified test report\",",
+                      "        \"dset\": pm.environment.get(\"dset_id\"),",
+                      "        \"depth\": 2",
+                      "\t});",
+                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.data_status).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "4d7a089e-b21e-791f-30aa-5e39979006ac",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/reports/{{report_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Prepare a report",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8dab42c7-d268-4337-869f-b528743b4a56",
+                    "exec": [
+                      "var response = {};",
+                      "",
+                      "for (let i of responseBody.split('\\n')) {",
+                      "    if (i[0] === '{') {",
+                      "        response = JSON.parse(i);",
+                      "    }",
+                      "}",
+                      "",
+                      "tests[\"Response contains sync_accounts array\"] = typeof response.sync_accounts === 'object';",
+                      "tests[\"Response contains prepare_report array\"] = typeof response.prepare_report === 'object';"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "574ea6a1-88b7-4a94-9408-fb37e90a7a90",
+                    "exec": [
+                      "pm.environment.set(\"start\", \"20170825\");",
+                      "pm.environment.set(\"end\", \"20170827\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "149af3f1-91d2-d51e-5ef0-6272664d21b3",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/reports/{{report_id}}/prepare?start={{start}}&end={{end}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "reports",
+                    "{{report_id}}",
+                    "prepare"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "{{start}}",
+                      "description": "The start of the date range (inclusive) you want to prepare the report for in `YYYYMMDD` format."
+                    },
+                    {
+                      "key": "end",
+                      "value": "{{end}}",
+                      "description": "The end of the date range (inclusive) you want to prepare the report for in `YYYYMMDD` format."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Run a report",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "266d70e3-6dbb-4251-a499-0fc67042cc61",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "let response = pm.response.text();",
+                      "",
+                      "for (let i of responseBody.split('\\n')) {",
+                      "    if (i[0] === '{') {",
+                      "        response = JSON.parse(i);",
+                      "    }",
+                      "}",
+                      "",
+                      "// pm.test(\"Response contains report\", function () {",
+                      "//     pm.expect(response.report).to.be.an('array');",
+                      "//     pm.expect(response.report[0]).to.be.an('object');",
+                      "//     pm.expect(response.report[0].meta).to.be.an('object');",
+                      "//     pm.expect(response.report[0].error).to.be.a('boolean');",
+                      "//     pm.expect(response.report[0].error).to.eql(false);",
+                      "//     pm.expect(response.report[0].data).to.be.an('array');",
+                      "// });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "91ce1789-2708-8c84-84f6-4691b9bbd408",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "reports",
+                    "{{report_id}}",
+                    "run"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "{{start}}",
+                      "description": "The start of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+                    },
+                    {
+                      "key": "end",
+                      "value": "{{end}}",
+                      "description": "The end of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+                    },
+                    {
+                      "key": "dimension",
+                      "value": "",
+                      "description": "The dimension you want to include in the output. One of `accounts`, `services` or `instances` (or a combination of those as a comma separated list). Defaults to `accounts,services`. When `instances` is included, price and quantity adjustments and minimum commit are not reflected in the data."
+                    },
+                    {
+                      "key": "timeline",
+                      "value": "",
+                      "description": "One of `day`, `month` or `none`. Defaults to `day`."
+                    },
+                    {
+                      "key": "depth",
+                      "value": "",
+                      "description": "The depth in the report definition you want to report on. Defaults to 1."
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date` (or a combination of those as a comma separated list)."
+                    },
+                    {
+                      "key": "filter[field]",
+                      "value": null,
+                      "description": "Optionally filter the output by the supplied field. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
+                    },
+                    {
+                      "key": "format",
+                      "value": "",
+                      "description": "One of `json`, `csv` or `pdf/summary`. Default to `json`."
+                    },
+                    {
+                      "key": "precision",
+                      "value": "",
+                      "description": "Specify `highest` to get raw precision, use configuration otherwise. Defaults to `configuration`."
+                    },
+                    {
+                      "key": "progress",
+                      "value": "",
+                      "description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/\u00ednvoice` is never streamed. Defaults to `1`."
+                    },
+                    {
+                      "key": "csv_delimiter",
+                      "value": "",
+                      "description": "The CSV delimiter to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `;`, `:`, `\\t`, `|`. Leave blank to use configuration."
+                    },
+                    {
+                      "key": "csv_decimal_separator",
+                      "value": null,
+                      "description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration."
+                    },
+                    {
+                      "key": "summary_options",
+                      "value": null,
+                      "description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
+                    }
+                  ]
+                },
+                "description": "The output format when either `json` or `csv` is selected as the `format` parameter:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nrate_id                         | *integer*   | Key for the applicable rate\nservice_id                      | *integer*   | Key for the applicable service, only when `services` is included in the `dimension` parameter\nservicecategory_id              | *integer*   | Key for the applicable service category, only when `services` is included in the `dimension` parameter\naccount_id                      | *integer*   | Key for the applicable account, only when `accounts` is included in the `dimension` parameter\ninstance_value                  | *string*    | Unique identifier for the applicable instance, only when `instances` is included in the `dimension` parameter\nday                             | *string*    | The day in `YYYYMMDD` format, only when the `timeline` parameter is set to `day`\nmonth                           | *string*    | The month in `YYYYMM` format, only when the `timeline` parameter is set to `month`\nsubtotal_quantity               | *float*     | Quantity before adjustments and mininum commit are applied\nmin_commit_delta_quantity       | *float*     | Difference in quantity based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_quantity                  | *float*     | Quantity after adjustments and mininum commit are applied\nunit_based_subtotal_charge      | *float*     | Fraction of charge based on a per unit rate, before adjustments and mininum commit are applied\ninterval_based_subtotal_charge  | *float*     | Fraction of charge based on a per interval rate, before adjustments and mininum commit are applied\navg_unit_based_rate             | *float*     | Average per unit rate\navg_interval_based_rate         | *float*     | _placeholder_\nsubtotal_charge                 | *float*     | Charge (same as `unit_based_subtotal_charge + interval_based_subtotal_charge`) before adjustments and mininum commit are applied\nmin_commit_delta_charge         | *float*     | Difference in charge based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_charge                    | *float*     | Charge after adjustments and mininum commit are applied\ntotal_cogs                      | *float*     | Cogs, only if user permissions includes `VIEW_COGS`\ntotal_net                       | *float*     | Net (same as `total_charge - total_cogs`), only if user permissions includes `VIEW_COGS`\nadjustments                     | *array*     | Adjustments data (see below), only populated when `instances` is not included in the `dimension` parameter\naccount_name                    | *string*    | Name for the applicable account, only when `accounts` is included in the `dimension` parameter and `account_name` is included in the `include` parameter\nservice_description             | *string*    | Description for the applicable service, only when `services` is included in the `dimension` parameter and `service_description` is included in the `include` parameter\nservicecategory_name            | *string*    | Name for the applicable service category, only when `services` is included in the `dimension` parameter and `servicecategory_name` is included in the `include` parameter\n\nThe output format of the embedded adjustments data:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nid            | *integer*   | Key for the applicable adjustment\ncharge        | *float*     | Difference in quantity based on applying this adjustment\nquantity      | *float*     | Difference in charge based on applying this adjustment"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a report definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "726795e6-603a-4c76-b26e-daa9b1104425",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET report_id');",
+                      "pm.environment.unset(\"report_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "361ac871-7a68-e539-eb1c-8b3bf1eeaa3e",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/reports/{{report_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "f701b5e8-5cca-8e89-5291-cb25c71de9ff",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "0ef6832d-1f68-4dbc-8221-3002e881f630",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "3e29ddfd-bfa4-44a9-bb7a-d27dd726cbc3",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "d62f8c85-68fd-4fad-9596-08fb1a2cd993"
+    },
+    {
       "name": "Data sources",
       "item": [
         {
@@ -7188,619 +7801,6 @@
         }
       ],
       "_postman_id": "71932c96-2982-4373-9c17-10d23a9d292c"
-    },
-    {
-      "name": "Reports",
-      "item": [
-        {
-          "name": "/reports",
-          "item": [
-            {
-              "name": "Retrieve a list of report definitions",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "73508453-93c1-4470-b6a4-d9615e7362f1",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "aa78fa43-2539-479e-8f2e-ac345788c196",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "cf7443a1-e6f5-1861-7f3b-347b1ec199bd",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "reports"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new report definition",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "86405bb4-4fda-4eb8-b466-4b7413b9a14f",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "(pm.response.code !== 201 ? console.log(pm.response) : console.log(pm.response.json()));",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('report');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.include('Test report');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"lvl1_key_col\": \"Customer\",",
-                      "        \"lvl1_name_col\": \"Customer\",",
-                      "        \"lvl1_label\": \"Customer\",",
-                      "        \"depth\": 2",
-                      "\t});",
-                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.data_status).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"report_id\", response.data.id);",
-                      "console.log('SET report_id: ' + pm.environment.get(\"report_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "fc4c0988-2101-4c83-9ee5-f7cadd2d5c59",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "96761d3e-0927-cf5f-64a9-085579cda840",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test report - {{$randomInt}}\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"lvl1_key_col\": \"Customer\",\r\n            \"lvl1_name_col\": \"Customer\",\r\n            \"lvl1_label\": \"Customer\",\r\n            \"lvl2_key_col\": \"Reseller\",\r\n            \"lvl2_name_col\": \"Reseller\",\r\n            \"lvl3_label\": \"Reseller\"\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/reports"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a report definition",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9d48f26b-8402-4ae8-a9ee-520241e459df",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('report');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.include('Test report');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"lvl1_key_col\": \"Customer\",",
-                      "        \"lvl2_key_col\": \"Reseller\",",
-                      "        \"lvl3_key_col\": \"\",",
-                      "        \"lvl4_key_col\": \"\",",
-                      "        \"lvl5_key_col\": \"\",",
-                      "        \"depth\": 2",
-                      "\t});",
-                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
-                      "",
-                      "});",
-                      "",
-                      "pm.test(\"Data status is not empty\", function () {",
-                      "    pm.expect(response.data.attributes.data_status).to.be.an('object').that.is.not.empty;",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "522fbcbd-0abc-4d2f-ad88-5e3015f3dfd5",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "2659dc88-c22f-037f-a429-e8793a98d95c",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/reports/:report_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "reports",
-                    ":report_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "report_id",
-                      "value": "{{report_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Update a report definition",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "89393b2c-382c-46e2-ae4f-daa9135865f2",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('report');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "\t\t\"name\": \"Modified test report\",",
-                      "        \"dset\": pm.environment.get(\"dset_id\"),",
-                      "        \"depth\": 2",
-                      "\t});",
-                      "    pm.expect(response.data.attributes.created).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.last_updated).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.data_status).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "4d7a089e-b21e-791f-30aa-5e39979006ac",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"report\",\r\n\t\t\"id\": \"{{report_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test report\"\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/reports/{{report_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Prepare a report",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8dab42c7-d268-4337-869f-b528743b4a56",
-                    "exec": [
-                      "var response = {};",
-                      "",
-                      "for (let i of responseBody.split('\\n')) {",
-                      "    if (i[0] === '{') {",
-                      "        response = JSON.parse(i);",
-                      "    }",
-                      "}",
-                      "",
-                      "tests[\"Response contains sync_accounts array\"] = typeof response.sync_accounts === 'object';",
-                      "tests[\"Response contains prepare_report array\"] = typeof response.prepare_report === 'object';"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "574ea6a1-88b7-4a94-9408-fb37e90a7a90",
-                    "exec": [
-                      "pm.environment.set(\"start\", \"20170825\");",
-                      "pm.environment.set(\"end\", \"20170827\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "149af3f1-91d2-d51e-5ef0-6272664d21b3",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/prepare?start={{start}}&end={{end}}",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "reports",
-                    "{{report_id}}",
-                    "prepare"
-                  ],
-                  "query": [
-                    {
-                      "key": "start",
-                      "value": "{{start}}",
-                      "description": "The start of the date range (inclusive) you want to prepare the report for in `YYYYMMDD` format."
-                    },
-                    {
-                      "key": "end",
-                      "value": "{{end}}",
-                      "description": "The end of the date range (inclusive) you want to prepare the report for in `YYYYMMDD` format."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Run a report",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "266d70e3-6dbb-4251-a499-0fc67042cc61",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "let response = pm.response.text();",
-                      "",
-                      "for (let i of responseBody.split('\\n')) {",
-                      "    if (i[0] === '{') {",
-                      "        response = JSON.parse(i);",
-                      "    }",
-                      "}",
-                      "",
-                      "// pm.test(\"Response contains report\", function () {",
-                      "//     pm.expect(response.report).to.be.an('array');",
-                      "//     pm.expect(response.report[0]).to.be.an('object');",
-                      "//     pm.expect(response.report[0].meta).to.be.an('object');",
-                      "//     pm.expect(response.report[0].error).to.be.a('boolean');",
-                      "//     pm.expect(response.report[0].error).to.eql(false);",
-                      "//     pm.expect(response.report[0].data).to.be.an('array');",
-                      "// });"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "91ce1789-2708-8c84-84f6-4691b9bbd408",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "reports",
-                    "{{report_id}}",
-                    "run"
-                  ],
-                  "query": [
-                    {
-                      "key": "start",
-                      "value": "{{start}}",
-                      "description": "The start of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
-                    },
-                    {
-                      "key": "end",
-                      "value": "{{end}}",
-                      "description": "The end of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
-                    },
-                    {
-                      "key": "dimension",
-                      "value": "",
-                      "description": "The dimension you want to include in the output. One of `accounts`, `services` or `instances` (or a combination of those as a comma separated list). Defaults to `accounts,services`. When `instances` is included, price and quantity adjustments and minimum commit are not reflected in the data."
-                    },
-                    {
-                      "key": "timeline",
-                      "value": "",
-                      "description": "One of `day`, `month` or `none`. Defaults to `day`."
-                    },
-                    {
-                      "key": "depth",
-                      "value": "",
-                      "description": "The depth in the report definition you want to report on. Defaults to 1."
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date` (or a combination of those as a comma separated list)."
-                    },
-                    {
-                      "key": "filter[field]",
-                      "value": null,
-                      "description": "Optionally filter the output by the supplied field. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
-                    },
-                    {
-                      "key": "format",
-                      "value": "",
-                      "description": "One of `json`, `csv` or `pdf/summary`. Default to `json`."
-                    },
-                    {
-                      "key": "precision",
-                      "value": "",
-                      "description": "Specify `highest` to get raw precision, use configuration otherwise. Defaults to `configuration`."
-                    },
-                    {
-                      "key": "progress",
-                      "value": "",
-                      "description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/\u00ednvoice` is never streamed. Defaults to `1`."
-                    },
-                    {
-                      "key": "csv_delimiter",
-                      "value": "",
-                      "description": "The CSV delimiter to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `;`, `:`, `\\t`, `|`. Leave blank to use configuration."
-                    },
-                    {
-                      "key": "csv_decimal_separator",
-                      "value": null,
-                      "description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration."
-                    },
-                    {
-                      "key": "summary_options",
-                      "value": null,
-                      "description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
-                    }
-                  ]
-                },
-                "description": "The output format when either `json` or `csv` is selected as the `format` parameter:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nrate_id                         | *integer*   | Key for the applicable rate\nservice_id                      | *integer*   | Key for the applicable service, only when `services` is included in the `dimension` parameter\nservicecategory_id              | *integer*   | Key for the applicable service category, only when `services` is included in the `dimension` parameter\naccount_id                      | *integer*   | Key for the applicable account, only when `accounts` is included in the `dimension` parameter\ninstance_value                  | *string*    | Unique identifier for the applicable instance, only when `instances` is included in the `dimension` parameter\nday                             | *string*    | The day in `YYYYMMDD` format, only when the `timeline` parameter is set to `day`\nmonth                           | *string*    | The month in `YYYYMM` format, only when the `timeline` parameter is set to `month`\nsubtotal_quantity               | *float*     | Quantity before adjustments and mininum commit are applied\nmin_commit_delta_quantity       | *float*     | Difference in quantity based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_quantity                  | *float*     | Quantity after adjustments and mininum commit are applied\nunit_based_subtotal_charge      | *float*     | Fraction of charge based on a per unit rate, before adjustments and mininum commit are applied\ninterval_based_subtotal_charge  | *float*     | Fraction of charge based on a per interval rate, before adjustments and mininum commit are applied\navg_unit_based_rate             | *float*     | Average per unit rate\navg_interval_based_rate         | *float*     | _placeholder_\nsubtotal_charge                 | *float*     | Charge (same as `unit_based_subtotal_charge + interval_based_subtotal_charge`) before adjustments and mininum commit are applied\nmin_commit_delta_charge         | *float*     | Difference in charge based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_charge                    | *float*     | Charge after adjustments and mininum commit are applied\ntotal_cogs                      | *float*     | Cogs, only if user permissions includes `VIEW_COGS`\ntotal_net                       | *float*     | Net (same as `total_charge - total_cogs`), only if user permissions includes `VIEW_COGS`\nadjustments                     | *array*     | Adjustments data (see below), only populated when `instances` is not included in the `dimension` parameter\naccount_name                    | *string*    | Name for the applicable account, only when `accounts` is included in the `dimension` parameter and `account_name` is included in the `include` parameter\nservice_description             | *string*    | Description for the applicable service, only when `services` is included in the `dimension` parameter and `service_description` is included in the `include` parameter\nservicecategory_name            | *string*    | Name for the applicable service category, only when `services` is included in the `dimension` parameter and `servicecategory_name` is included in the `include` parameter\n\nThe output format of the embedded adjustments data:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nid            | *integer*   | Key for the applicable adjustment\ncharge        | *float*     | Difference in quantity based on applying this adjustment\nquantity      | *float*     | Difference in charge based on applying this adjustment"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a report definition",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "726795e6-603a-4c76-b26e-daa9b1104425",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET report_id');",
-                      "pm.environment.unset(\"report_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "361ac871-7a68-e539-eb1c-8b3bf1eeaa3e",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [],
-                  "options": {
-                    "formdata": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/reports/{{report_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "f701b5e8-5cca-8e89-5291-cb25c71de9ff",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "0ef6832d-1f68-4dbc-8221-3002e881f630",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "3e29ddfd-bfa4-44a9-bb7a-d27dd726cbc3",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        }
-      ],
-      "_postman_id": "d62f8c85-68fd-4fad-9596-08fb1a2cd993"
     },
     {
       "name": "Users",
@@ -16252,7 +16252,7 @@
   ],
   "variable": [
     {
-      "id": "bfe0a99d-a7dc-4437-819a-7f3905db7050",
+      "id": "ce4693ad-1ae5-4e60-8d76-9ef4045bcc97",
       "key": "component",
       "value": "use",
       "type": "string"
