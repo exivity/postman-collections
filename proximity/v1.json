@@ -7402,35 +7402,7 @@
             }
           ],
           "_postman_isSubFolder": true
-        }
-      ],
-      "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "55f271ea-b387-4858-9bb6-7faa8c7bc8f7",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
         },
-        {
-          "listen": "test",
-          "script": {
-            "id": "7b53b683-2f28-4b04-838b-330110f16618",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "Metadata",
-      "item": [
         {
           "name": "/metadata",
           "item": [
@@ -7792,13 +7764,12 @@
           "_postman_isSubFolder": true
         }
       ],
-      "_postman_id": "5026bae3-a682-4069-a1a7-969f8eb0016b",
-      "description": "_Added in v2.2.0_",
+      "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
       "event": [
         {
           "listen": "prerequest",
           "script": {
-            "id": "aee7b2c7-3efa-42a3-9e8e-31537526edba",
+            "id": "55f271ea-b387-4858-9bb6-7faa8c7bc8f7",
             "type": "text/javascript",
             "exec": [
               ""
@@ -7808,7 +7779,7 @@
         {
           "listen": "test",
           "script": {
-            "id": "738ac20a-6b7b-48a8-814a-5c2d1791fa6c",
+            "id": "7b53b683-2f28-4b04-838b-330110f16618",
             "type": "text/javascript",
             "exec": [
               ""
@@ -16267,7 +16238,7 @@
   ],
   "variable": [
     {
-      "id": "c192460b-ae58-41ea-bff4-2b9ff199f245",
+      "id": "723fccbd-0fc7-4ea3-8995-b2bbff89b57d",
       "key": "component",
       "value": "use",
       "type": "string"
