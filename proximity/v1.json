@@ -10035,48 +10035,6 @@
       ]
     },
     {
-      "name": "Notifications",
-      "item": [
-        {
-          "name": "Get all failed jobs",
-          "_postman_id": "3b18876f-55f1-430e-97d3-2343b306b80d",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/v1/failed-jobs"
-          },
-          "response": []
-        }
-      ],
-      "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
-      "description": "_Added in v2.2.0_",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "edf3eab0-c0f0-4431-aa6f-e3562dbeb049",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "b105c95b-8b6e-4f20-8a27-858faf40d395",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
       "name": "Administration",
       "item": [
         {
@@ -14146,6 +14104,26 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "/failed-jobs",
+          "item": [
+            {
+              "name": "Get all failed jobs",
+              "_postman_id": "3b18876f-55f1-430e-97d3-2343b306b80d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{base_url}}/v1/failed-jobs"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "d18fd391-6b33-4905-9ed5-d75d155892bc",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
@@ -16188,7 +16166,7 @@
   ],
   "variable": [
     {
-      "id": "43f9b1ce-223f-4745-b44d-d039c3422e5f",
+      "id": "69b0c88b-f50b-4833-9f9f-a01b23f48209",
       "key": "component",
       "value": "use",
       "type": "string"
