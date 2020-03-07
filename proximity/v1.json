@@ -10036,7 +10036,93 @@
     },
     {
       "name": "Notifications",
-      "item": [],
+      "item": [
+        {
+          "name": "/notifications",
+          "item": [
+            {
+              "name": "Get all database notification",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "09a0c7dc-3228-45a2-9f3c-6060f7777ebe",
+                    "exec": [
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
+                      "",
+                      "// const response = pm.response.json();",
+                      "// console.log(response);",
+                      "",
+                      "// pm.test(\"Response contains data\", function () {",
+                      "//     pm.expect(response.data).to.be.an('array');",
+                      "// });",
+                      "",
+                      "// // Set the notification_id to the ID of the first notification",
+                      "// pm.environment.set(\"notification_id\", response.data[0].id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bb06302f-127a-4f71-9fa4-2e62522bb58c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/notifications",
+                "description": "Get all database notification for auth user"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "9add9ff9-39f6-451a-971f-7f2f09d07e7e",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "27592118-418b-46e1-b78b-220db6819f01",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "03fca8c0-d8a9-49c5-b1ca-8231b72f55d6",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "Get all failed jobs",
+          "_postman_id": "3b18876f-55f1-430e-97d3-2343b306b80d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/v1/failed-jobs"
+          },
+          "response": []
+        }
+      ],
       "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
       "description": "_Added in v2.2.0_",
       "event": [
@@ -14132,26 +14218,6 @@
             }
           ],
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "/failed-jobs",
-          "item": [
-            {
-              "name": "Get all failed jobs",
-              "_postman_id": "3b18876f-55f1-430e-97d3-2343b306b80d",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [],
-                "url": "{{base_url}}/v1/failed-jobs"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "d18fd391-6b33-4905-9ed5-d75d155892bc",
-          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
@@ -15423,78 +15489,6 @@
             }
           ],
           "_postman_isSubFolder": true
-        },
-        {
-          "name": "/notifications",
-          "item": [
-            {
-              "name": "Get all database notification",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "09a0c7dc-3228-45a2-9f3c-6060f7777ebe",
-                    "exec": [
-                      "// pm.test(\"Status code is 200\", function () {",
-                      "//     pm.response.to.have.status(200);",
-                      "// });",
-                      "",
-                      "// const response = pm.response.json();",
-                      "// console.log(response);",
-                      "",
-                      "// pm.test(\"Response contains data\", function () {",
-                      "//     pm.expect(response.data).to.be.an('array');",
-                      "// });",
-                      "",
-                      "// // Set the notification_id to the ID of the first notification",
-                      "// pm.environment.set(\"notification_id\", response.data[0].id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "bb06302f-127a-4f71-9fa4-2e62522bb58c",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": "{{base_url}}/v1/notifications",
-                "description": "Get all database notification for auth user"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "9add9ff9-39f6-451a-971f-7f2f09d07e7e",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "27592118-418b-46e1-b78b-220db6819f01",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "03fca8c0-d8a9-49c5-b1ca-8231b72f55d6",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "200943b9-5cca-443e-bdb4-27d9fff54501"
@@ -16194,7 +16188,7 @@
   ],
   "variable": [
     {
-      "id": "6878646e-8a11-4de6-b7d0-acfba5d5c3df",
+      "id": "1e45d3b3-c0d1-422e-ae98-b35bed5c1ec7",
       "key": "component",
       "value": "use",
       "type": "string"
