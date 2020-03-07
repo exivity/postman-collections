@@ -16169,7 +16169,7 @@
           "                throw new Error(response);",
           "            }",
           "            json = response.json();",
-          "            if (!pm.expect(response.data).to.not.be.empty) {",
+          "            if (!pm.expect(json.data).to.not.be.empty) {",
           "                throw new Error(response);",
           "            }",
           "            pm.environment.set(\"dset_id\", json.data[0].id);",
@@ -16199,7 +16199,7 @@
   ],
   "variable": [
     {
-      "id": "27c3ab2a-2db8-468b-bafb-3762463418d0",
+      "id": "8579d567-89f1-4679-aa2b-439507f09569",
       "key": "component",
       "value": "use",
       "type": "string"
