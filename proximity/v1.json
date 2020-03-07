@@ -1365,6 +1365,1948 @@
       "_postman_id": "d62f8c85-68fd-4fad-9596-08fb1a2cd993"
     },
     {
+      "name": "Services",
+      "item": [
+        {
+          "name": "/servicecategories",
+          "item": [
+            {
+              "name": "Retrieve a list of service categories",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);",
+                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9d403cd9-fe2e-435d-9927-fd81f5465766",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5b64bfe6-3f11-d1dc-8ce0-99e9381fba23",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `services`, `adjustments`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicecategory');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"servicecategory_id\", response.data.id);",
+                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5e5fa6b0-d7ef-4011-8856-891c6610a647",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "6a682105-fc6b-400f-b2b8-3b16fe626891",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
+                },
+                "url": "{{base_url}}/v1/servicecategories"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "bd868933-0a84-4845-a464-64b70a1d5e7b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicecategory');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.be.a('string')",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "7cc9234f-b5fa-4214-871c-f7d8440a46c7",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "e3687a0f-502e-4675-bdde-dd86aad7cb2b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories",
+                    ":servicecategory_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "5a218be4-5489-4b53-87bf-a6f655eb4919",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "358cbac9-b630-4f2e-8bbe-e6aab4bc14d0",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicecategory');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"servicecategory_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "9aec818d-4ca5-4e41-801c-5e8365767155",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "61fe337c-4892-4070-abd1-c00cd625547a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n        \"type\":\"servicecategory\",\r\n        \"id\": \"{{servicecategory_id}}\",\r\n        \"attributes\": {\r\n            \"name\": \"Test serice category - {{$randomInt}}\"\r\n        }\r\n    }\r\n}\r\n"
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories",
+                    ":servicecategory_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "a8d1bdc4-fe11-458c-91e0-6b1d15e752a8",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a service category",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET servicecategory_id');",
+                      "pm.environment.unset(\"servicecategory_id\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "d11a4a84-d32e-4a6a-b693-130405771e9b",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f180a2b5-ca39-46c5-9abb-9a8e13a3f410",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicecategories",
+                    ":servicecategory_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "04a241c7-e541-45da-a792-5821bbb68dca",
+                      "key": "servicecategory_id",
+                      "value": "{{servicecategory_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "5c63ff40-2109-4a78-ae78-ac7b456f4d3e",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "0ba3c502-d4f8-4997-b663-d2ac772d4777",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "/services",
+          "item": [
+            {
+              "name": "Retrieve a list of services",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b6d898f6-a5c3-44d2-a63f-8e6dcf40f387",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "// Check response",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.response.to.be.json;",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "// Check first service",
+                      "var service = response.data[0];",
+                      "pm.test(\"Service type is correct\", function () {",
+                      "    pm.expect(service.type).to.eql('service');",
+                      "});",
+                      "pm.test(\"Service ID is set\", function () {",
+                      "    pm.expect(service.id).to.not.be.undefined;",
+                      "});",
+                      "pm.test(\"Service attributes are correct\", function () {",
+                      "    pm.expect(service.attributes).to.be.an('object');",
+                      "    pm.expect(service.attributes).to.have.property(\"key\");",
+                      "    pm.expect(service.attributes).to.have.property(\"description\");",
+                      "    pm.expect(service.attributes).to.have.property(\"unit_label\");",
+                      "    pm.expect(service.attributes).to.have.property(\"dset\");",
+                      "    pm.expect(service.attributes).to.have.property(\"type\");",
+                      "    pm.expect(service.attributes).to.have.property(\"usage_col\");",
+                      "    pm.expect(service.attributes).to.have.property(\"consumption_col\");",
+                      "    pm.expect(service.attributes).to.have.property(\"instance_col\");",
+                      "    pm.expect(service.attributes).to.have.property(\"interval\");",
+                      "    pm.expect(service.attributes).to.have.property(\"charge_type\");",
+                      "    pm.expect(service.attributes).to.have.property(\"cogs_type\");",
+                      "    pm.expect(service.attributes).to.have.property(\"proration_type\");",
+                      "    pm.expect(service.attributes).to.have.property(\"created_at\");",
+                      "    pm.expect(service.attributes).to.have.property(\"updated_at\");",
+                      "    pm.expect(service.attributes).to.have.property(\"seen_at\");",
+                      "    pm.expect(service.attributes).to.have.property(\"orphan\");",
+                      "    pm.expect(service.attributes).to.have.property(\"charge_model\");",
+                      "",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "5184324e-8829-4ffc-b8c2-8386ced1613b",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "c78ac4f1-c9f3-ac01-c4b5-4247e5e7fc8f",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/services?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates`, `adjustments`, `dset`, `metadata`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new service",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
+                    "exec": [
+                      "console.log('GET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
+                      "",
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "// Check response",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "console.log(response);",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "});",
+                      "",
+                      "// Check service",
+                      "pm.test(\"Service type is correct\", function () {",
+                      "    pm.expect(response.data.type).to.eql('service');",
+                      "});",
+                      "pm.test(\"Service ID is set\", function () {",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "});",
+                      "pm.test(\"Service attributes are correct\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    ",
+                      "    pm.expect(response.data.attributes).to.have.property(\"key\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"description\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"unit_label\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"dset\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"type\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"usage_col\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"consumption_col\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"instance_col\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"interval\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"charge_type\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"cogs_type\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"proration_type\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"created_at\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"updated_at\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"seen_at\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"orphan\");",
+                      "    pm.expect(response.data.attributes).to.have.property(\"charge_model\");",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"service_id\", response.data.id);",
+                      "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e4d73eca-3269-4f9b-a931-eb1ed52470d0",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.requireServiceCategory)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "759bfc3e-f514-4410-aa94-806ec0a34da2",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/services"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a service",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "fb5d5306-9599-42e7-80f6-d64e25137899",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    ",
+                      "    pm.expect(response.data.attributes).to.have.property('key');",
+                      "    pm.expect(response.data.attributes).to.have.property('description');",
+                      "    pm.expect(response.data.attributes).to.have.property('unit_label');",
+                      "    pm.expect(response.data.attributes).to.have.property('dset');",
+                      "    pm.expect(response.data.attributes).to.have.property('type');",
+                      "    pm.expect(response.data.attributes).to.have.property('usage_col');",
+                      "    pm.expect(response.data.attributes).to.have.property('consumption_col');",
+                      "    pm.expect(response.data.attributes).to.have.property('instance_col');",
+                      "    pm.expect(response.data.attributes).to.have.property('interval');",
+                      "    pm.expect(response.data.attributes).to.have.property('charge_type');",
+                      "    pm.expect(response.data.attributes).to.have.property('cogs_type');",
+                      "    pm.expect(response.data.attributes).to.have.property('proration_type');",
+                      "    pm.expect(response.data.attributes).to.have.property('created_at');",
+                      "    pm.expect(response.data.attributes).to.have.property('updated_at');",
+                      "    pm.expect(response.data.attributes).to.have.property('seen_at');",
+                      "    pm.expect(response.data.attributes).to.have.property('orphan');",
+                      "    pm.expect(response.data.attributes).to.have.property('charge_model');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "cf358c40-8f8f-4990-b238-e79c1376240c",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d080ccf9-167c-3a43-bcc7-66b248b829b3",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id?include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates` or `adjustments`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update a service",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "116e5453-c202-4a11-b1e6-668e872131bf",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    ",
+                      "    pm.expect(response.data.attributes).to.have.property('key');",
+                      "    pm.expect(response.data.attributes).to.have.property('description');",
+                      "    pm.expect(response.data.attributes).to.have.property('unit_label');",
+                      "    pm.expect(response.data.attributes).to.have.property('dset');",
+                      "    pm.expect(response.data.attributes).to.have.property('type');",
+                      "    pm.expect(response.data.attributes).to.have.property('usage_col');",
+                      "    pm.expect(response.data.attributes).to.have.property('consumption_col');",
+                      "    pm.expect(response.data.attributes).to.have.property('instance_col');",
+                      "    pm.expect(response.data.attributes).to.have.property('interval');",
+                      "    pm.expect(response.data.attributes).to.have.property('charge_type');",
+                      "    pm.expect(response.data.attributes).to.have.property('cogs_type');",
+                      "    pm.expect(response.data.attributes).to.have.property('proration_type');",
+                      "    pm.expect(response.data.attributes).to.have.property('created_at');",
+                      "    pm.expect(response.data.attributes).to.have.property('updated_at');",
+                      "    pm.expect(response.data.attributes).to.have.property('seen_at');",
+                      "    pm.expect(response.data.attributes).to.have.property('orphan');",
+                      "    pm.expect(response.data.attributes).to.have.property('charge_model');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "e0c64cda-dd5d-4682-987e-d5d961ad0ec4",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8ccf107d-93b0-a925-9678-0025ce33f846",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Prepare affected reports",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "036e8d8f-585c-41d0-9c1d-5e74fe34a3bd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a service",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a9b33957-8d7c-45d2-a6c7-19a5150adb1b",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET service_id');",
+                      "pm.environment.unset(\"service_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "a4bcd022-a6df-4ae6-9bf3-06f0bedde601",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/services/:service_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "services",
+                    ":service_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_id",
+                      "value": "{{service_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "f43592d6-0e71-4de1-824c-5eb7803f2de1",
+          "description": "A service has the following attributes:\n\nattribute        | type        | editable | description\n-----------------|-------------|----------|-------------\nkey              | *string*    | \u274c       | Unique identifier, [read more](https://docs.exivity.com/transform/language/service/#key)\ndescription      | *string*    | \u2714\ufe0f       | Friendly name, [read more](https://docs.exivity.com/transform/language/service/#description)\nunit_label       | *string*    | \u274c       | Unit of consumption, [read more](https://docs.exivity.com/transform/language/service/#unit_label)\ndset             | *string*    | \u274c       | Dset this service is linked to\ntype             | *enum*      | \u274c       | One of `service_name_in_header` or `service_name_in_data`, [read more](https://docs.exivity.com/transform/language/services/#service_type)\nusage_col        | *string*    | \u274c       | Dset column containing keys, [read more](https://docs.exivity.com/transform/language/services/#usages_col)\nconsumption_col  | *string*    | \u274c       | Dset column containing consumption amount, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)\ninstance_col     | *string*    | \u274c       | Dset column containing unique instance id's, [read more](https://docs.exivity.com/transform/language/services/#instance_col)\ninterval         | *enum*      | \u274c       | One of `never`, `individually`, `second`, `minute`, `hour`, `day`, `week`, `month` or `year`. Currently, only `individually`, `day` and `month` are implemented, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)  \ncharge_type      | *enum*      | \u274c       | One of `none`, `manual`, `manual_per_unit`, `manual_per_interval`, `automatic`, `automatic_per_unit`, `automatic_per_interval` or `other`, read more below\ncogs_type        | *enum*      | \u274c       | One of `none`, `manual_per_unit`, `manual_per_interval`, `automatic_per_unit` or `automatic_per_interval`, read more below\nproration_type   | *enum*      | \u274c       | One of `none` or `full`, [read more](https://docs.exivity.com/transform/language/services/#model)\ncreated_at       | *timestamp* | \u274c       | Unix timestamp the service was first created\nupdated_at       | *timestamp* | \u274c       | Unix timestamp the service was last updated\nseen_at          | *date*      | \u274c       | ISO-8601 date the service was last seen in a dset\n\n### Charge and cogs type\nThe attributes `charge_type` and `cogs_type` define how the rate is used when calculating charge and cogs metrics using consumption of the service.\n\n- The first part denotes whether the rate is dynamically derived from the usage data itself (`automatic`) or specified explicitly in rate entities (`manual`).\n- The second part denotes whether an amount per unit of consumption (`per_unit`) and/or per interval (`per_interval`) should be applied.\n\nWhen the second part is omitted, both `per_unit` and `per_interval` are used. If no rate should be applied at all, `none` can be used. A value of `other` means a configuration is used not currently supported by the API.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "62575d24-1064-4c79-bcf1-43f5ad9f55f4",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "861a8252-f532-4bc0-bd68-a5f30d04fcf1",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "/rates",
+          "item": [
+            {
+              "name": "Retrieve a list of rates",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "576d1050-8826-4de8-bf97-f3c28494480b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "7f92fb9a-20ac-4c75-aaba-2bcc379bf1a9",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0b00a043-02da-c3b0-0a43-ceb9344f6ea8",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/rates?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "rates"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new rate",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "baabd271-5b14-44d4-89f6-8070c5ce0ce3",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.eql({",
+                      "\t\t\"rate\": 1,",
+                      "\t\t\"rate_col\": \"rate_col\",",
+                      "\t\t\"fixed\": 2,",
+                      "\t\t\"fixed_col\": \"fixed_col\",",
+                      "\t\t\"cogs_rate\": 3,",
+                      "\t\t\"cogs_rate_col\": \"cogs_rate_col\",",
+                      "\t\t\"cogs_fixed\": 4,",
+                      "\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
+                      "\t\t\"effective_date\": \"2017-08-27\",",
+                      "\t\t\"threshold\": 0,",
+                      "        \"min_commit\": 0",
+                      "\t});",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"rate_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "673acce8-137e-4260-96c6-23ac9cda4b62",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireServiceCategory)",
+                      "    .then(api.requireService)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "51ad76c6-fcc3-0def-8205-5234ddedf383",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/rates",
+                "description": "Account specific rates can be created through this endpoint by specifying the `account` relationship in the request body, e.g.:\n\n```\n\"relationships\": {\n\t\"service\": { ... },\n\t\"account\": {\n\t\t\"data\": {\n\t\t\t\"type\": \"account\",\n\t\t\t\"id\": \"1\"\n\t\t}\n\t}\n}\n```"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a rate",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "e6f690a9-c3c8-4bc6-b1cc-5729d6fb73ac",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.eql({",
+                      "    \"rate\": 1,",
+                      "    \"rate_col\": \"rate_col\",",
+                      "    \"fixed\": 2,",
+                      "    \"fixed_col\": \"fixed_col\",",
+                      "    \"cogs_rate\": 3,",
+                      "    \"cogs_rate_col\": \"cogs_rate_col\",",
+                      "    \"cogs_fixed\": 4,",
+                      "    \"cogs_fixed_col\": \"cogs_fixed_col\",",
+                      "    \"effective_date\": \"2017-08-27\",",
+                      "    \"threshold\": 0,",
+                      "        \"min_commit\": 0",
+                      "  });",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "44a13da5-4b44-b03b-2458-39fb9768e189",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/rates/{{rate_id}}?include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "rates",
+                    "{{rate_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Prepare affected reports",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "7f667470-caf0-b7bc-cdaf-46d7b7cdc345",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": "{{base_url}}/v1/rates/{{rate_id}}/prepareAffectedReports"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a rate",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "16945c13-6e38-4f0b-b114-26105d49a4ab",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"rate\": 10,",
+                      "        \"rate_col\": \"rate_col2\",",
+                      "        \"fixed\": 20,",
+                      "        \"fixed_col\": \"fixed_col2\",",
+                      "        \"cogs_rate\": 30,",
+                      "        \"cogs_rate_col\": \"cogs_rate_col2\",",
+                      "        \"cogs_fixed\": 40,",
+                      "        \"cogs_fixed_col\": \"cogs_fixed_col2\",",
+                      "        \"effective_date\": \"2017-08-27\",",
+                      "        \"threshold\": 10,",
+                      "        \"min_commit\": 50,",
+                      "    });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "cf53c428-7015-4f22-6784-88c592b13b36",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n      \r\n    }\r\n  }\r\n}"
+                },
+                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a rate",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8394c1a9-b96c-4716-af0d-37271ea40f4c",
+                    "exec": [
+                      "// pm.test(\"Status code is 204\", function () {",
+                      "//     pm.response.to.have.status(204);",
+                      "// });",
+                      "",
+                      "// console.log('UNSET rate_id');",
+                      "// pm.environment.unset(\"rate_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "8e869ba6-9971-6bdd-60a2-e4c60046b5d4",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "72f5acaa-6d7f-7e2d-f628-5e136aea014c",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "116f8c13-fa1c-4f26-9ccd-b5b0263b7c38",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "ed4260d9-890f-41a7-a1ee-fe6b1f2cf5c5",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
+          "name": "/adjustments",
+          "item": [
+            {
+              "name": "Retrieve a list of adjustments",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2dd6d417-9b01-51b4-0054-8706070923ea",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `account`, `services`, `servicecategories`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new adjustment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ac5089c4-b302-43bb-ba74-764ab47386a3",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function() {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function() {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('adjustment');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"adjustment_id\", response.data.id);",
+                      "console.log('SET adjustment_id: ' + pm.environment.get(\"adjustment_id\"));",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function() {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('test');",
+                      "    pm.expect(response.data.attributes.amount).to.eql(-10);",
+                      "    pm.expect(response.data.attributes.type).to.eql('relative');",
+                      "    pm.expect(response.data.attributes.target).to.eql('charge');",
+                      "    pm.expect(response.data.attributes.first_interval).to.eql('2017-01');",
+                      "    pm.expect(response.data.attributes.last_interval).to.eql('2017-12');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function() {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "564ddb47-a45b-46bd-8e57-3b73386b5012",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireReport)",
+                      "    .then(api.requireAccount)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "847994e1-4890-fc49-4ed6-969e6c5cbedd",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                },
+                "url": "{{base_url}}/v1/adjustments"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve an adjustment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "58a3df93-863a-45b5-9950-de83949f289d",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('adjustment');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"adjustment_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('test');",
+                      "    pm.expect(response.data.attributes.amount).to.eql(-10);",
+                      "    pm.expect(response.data.attributes.type).to.eql('relative');",
+                      "    pm.expect(response.data.attributes.target).to.eql('charge');",
+                      "    pm.expect(response.data.attributes.first_interval).to.eql('2017-01');",
+                      "    pm.expect(response.data.attributes.last_interval).to.eql('2017-12');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "26772232-c39a-d760-f3aa-1ab8ac3aa793",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id?include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update an adjustment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c37dc956-0d32-4483-a6ba-2251968f9d9b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('adjustment');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"adjustment_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('modified_test');",
+                      "    pm.expect(response.data.attributes.amount).to.eql(-20);",
+                      "    pm.expect(response.data.attributes.type).to.eql('absolute');",
+                      "    pm.expect(response.data.attributes.target).to.eql('quantity');",
+                      "    pm.expect(response.data.attributes.first_interval).to.eql('2018-01');",
+                      "    pm.expect(response.data.attributes.last_interval).to.eql(null);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "79e2e2dd-366a-798d-d39d-e785ceef8fa1",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"adjustment\",\r\n    \"id\": \"{{adjustment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"amount\": \"-20\",\r\n      \"type\": \"absolute\",\r\n      \"target\": \"quantity\",\r\n      \"first_interval\": \"2018-01\",\r\n      \"last_interval\": \"\"\r\n    }\r\n  }\r\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Prepare affected reports",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "6429099a-dd77-4dd7-88d1-8e31e59c4477",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete an adjustment",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET adjustment_id');",
+                      "pm.environment.unset(\"adjustment_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "af8e10f8-dfa7-cfe7-3766-69d75eefa9b7",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "b9bdf7ba-0cd2-495b-b74d-e8250725ff00",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "621bced5-9556-4c1d-85e6-d3ee2eb53622",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "71932c96-2982-4373-9c17-10d23a9d292c",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "7b699cdf-f049-4fdd-9bee-930cef85224d",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "92b00d36-410c-4677-9781-978d9e19f6e6",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "Data pipelines",
       "item": [
         {
@@ -5896,1948 +7838,6 @@
           "listen": "test",
           "script": {
             "id": "738ac20a-6b7b-48a8-814a-5c2d1791fa6c",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "Services",
-      "item": [
-        {
-          "name": "/servicecategories",
-          "item": [
-            {
-              "name": "Retrieve a list of service categories",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"servicecategory_id\", response.data[0].id);",
-                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "9d403cd9-fe2e-435d-9927-fd81f5465766",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5b64bfe6-3f11-d1dc-8ce0-99e9381fba23",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/servicecategories?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicecategories"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `services`, `adjustments`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new service category",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c86fdcad-2575-487e-a191-17f2664a5aac",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('servicecategory');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"servicecategory_id\", response.data.id);",
-                      "console.log('SET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "5e5fa6b0-d7ef-4011-8856-891c6610a647",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "6a682105-fc6b-400f-b2b8-3b16fe626891",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
-                },
-                "url": "{{base_url}}/v1/servicecategories"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a service category",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "bd868933-0a84-4845-a464-64b70a1d5e7b",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('servicecategory');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.be.a('string')",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "7cc9234f-b5fa-4214-871c-f7d8440a46c7",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "e3687a0f-502e-4675-bdde-dd86aad7cb2b",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicecategories",
-                    ":servicecategory_id"
-                  ],
-                  "variable": [
-                    {
-                      "id": "5a218be4-5489-4b53-87bf-a6f655eb4919",
-                      "key": "servicecategory_id",
-                      "value": "{{servicecategory_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a service category",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "358cbac9-b630-4f2e-8bbe-e6aab4bc14d0",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('servicecategory');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"servicecategory_id\").toString());",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.be.an('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "9aec818d-4ca5-4e41-801c-5e8365767155",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "61fe337c-4892-4070-abd1-c00cd625547a",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n        \"type\":\"servicecategory\",\r\n        \"id\": \"{{servicecategory_id}}\",\r\n        \"attributes\": {\r\n            \"name\": \"Test serice category - {{$randomInt}}\"\r\n        }\r\n    }\r\n}\r\n"
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicecategories",
-                    ":servicecategory_id"
-                  ],
-                  "variable": [
-                    {
-                      "id": "a8d1bdc4-fe11-458c-91e0-6b1d15e752a8",
-                      "key": "servicecategory_id",
-                      "value": "{{servicecategory_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a service category",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET servicecategory_id');",
-                      "pm.environment.unset(\"servicecategory_id\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "d11a4a84-d32e-4a6a-b693-130405771e9b",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "f180a2b5-ca39-46c5-9abb-9a8e13a3f410",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicecategories",
-                    ":servicecategory_id"
-                  ],
-                  "variable": [
-                    {
-                      "id": "04a241c7-e541-45da-a792-5821bbb68dca",
-                      "key": "servicecategory_id",
-                      "value": "{{servicecategory_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "5c63ff40-2109-4a78-ae78-ac7b456f4d3e",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "0ba3c502-d4f8-4997-b663-d2ac772d4777",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/services",
-          "item": [
-            {
-              "name": "Retrieve a list of services",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b6d898f6-a5c3-44d2-a63f-8e6dcf40f387",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "pm.test(\"Content-Type is present\", function () {",
-                      "    pm.response.to.have.header(\"Content-Type\");",
-                      "});",
-                      "",
-                      "// Check response",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.response.to.be.json;",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "// Check first service",
-                      "var service = response.data[0];",
-                      "pm.test(\"Service type is correct\", function () {",
-                      "    pm.expect(service.type).to.eql('service');",
-                      "});",
-                      "pm.test(\"Service ID is set\", function () {",
-                      "    pm.expect(service.id).to.not.be.undefined;",
-                      "});",
-                      "pm.test(\"Service attributes are correct\", function () {",
-                      "    pm.expect(service.attributes).to.be.an('object');",
-                      "    pm.expect(service.attributes).to.have.property(\"key\");",
-                      "    pm.expect(service.attributes).to.have.property(\"description\");",
-                      "    pm.expect(service.attributes).to.have.property(\"unit_label\");",
-                      "    pm.expect(service.attributes).to.have.property(\"dset\");",
-                      "    pm.expect(service.attributes).to.have.property(\"type\");",
-                      "    pm.expect(service.attributes).to.have.property(\"usage_col\");",
-                      "    pm.expect(service.attributes).to.have.property(\"consumption_col\");",
-                      "    pm.expect(service.attributes).to.have.property(\"instance_col\");",
-                      "    pm.expect(service.attributes).to.have.property(\"interval\");",
-                      "    pm.expect(service.attributes).to.have.property(\"charge_type\");",
-                      "    pm.expect(service.attributes).to.have.property(\"cogs_type\");",
-                      "    pm.expect(service.attributes).to.have.property(\"proration_type\");",
-                      "    pm.expect(service.attributes).to.have.property(\"created_at\");",
-                      "    pm.expect(service.attributes).to.have.property(\"updated_at\");",
-                      "    pm.expect(service.attributes).to.have.property(\"seen_at\");",
-                      "    pm.expect(service.attributes).to.have.property(\"orphan\");",
-                      "    pm.expect(service.attributes).to.have.property(\"charge_model\");",
-                      "",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "5184324e-8829-4ffc-b8c2-8386ced1613b",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "c78ac4f1-c9f3-ac01-c4b5-4247e5e7fc8f",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/services?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "services"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates`, `adjustments`, `dset`, `metadata`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new service",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b7f17b37-dd6f-4163-94a9-8bafae73f956",
-                    "exec": [
-                      "console.log('GET servicecategory_id: ' + pm.environment.get(\"servicecategory_id\"));",
-                      "",
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "// Check response",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "console.log(response);",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "});",
-                      "",
-                      "// Check service",
-                      "pm.test(\"Service type is correct\", function () {",
-                      "    pm.expect(response.data.type).to.eql('service');",
-                      "});",
-                      "pm.test(\"Service ID is set\", function () {",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "});",
-                      "pm.test(\"Service attributes are correct\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    ",
-                      "    pm.expect(response.data.attributes).to.have.property(\"key\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"description\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"unit_label\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"dset\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"type\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"usage_col\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"consumption_col\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"instance_col\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"interval\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"charge_type\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"cogs_type\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"proration_type\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"created_at\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"updated_at\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"seen_at\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"orphan\");",
-                      "    pm.expect(response.data.attributes).to.have.property(\"charge_model\");",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"service_id\", response.data.id);",
-                      "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "e4d73eca-3269-4f9b-a931-eb1ed52470d0",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.requireServiceCategory)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "759bfc3e-f514-4410-aa94-806ec0a34da2",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/services"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a service",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "fb5d5306-9599-42e7-80f6-d64e25137899",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('service');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_id\").toString());",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    ",
-                      "    pm.expect(response.data.attributes).to.have.property('key');",
-                      "    pm.expect(response.data.attributes).to.have.property('description');",
-                      "    pm.expect(response.data.attributes).to.have.property('unit_label');",
-                      "    pm.expect(response.data.attributes).to.have.property('dset');",
-                      "    pm.expect(response.data.attributes).to.have.property('type');",
-                      "    pm.expect(response.data.attributes).to.have.property('usage_col');",
-                      "    pm.expect(response.data.attributes).to.have.property('consumption_col');",
-                      "    pm.expect(response.data.attributes).to.have.property('instance_col');",
-                      "    pm.expect(response.data.attributes).to.have.property('interval');",
-                      "    pm.expect(response.data.attributes).to.have.property('charge_type');",
-                      "    pm.expect(response.data.attributes).to.have.property('cogs_type');",
-                      "    pm.expect(response.data.attributes).to.have.property('proration_type');",
-                      "    pm.expect(response.data.attributes).to.have.property('created_at');",
-                      "    pm.expect(response.data.attributes).to.have.property('updated_at');",
-                      "    pm.expect(response.data.attributes).to.have.property('seen_at');",
-                      "    pm.expect(response.data.attributes).to.have.property('orphan');",
-                      "    pm.expect(response.data.attributes).to.have.property('charge_model');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "cf358c40-8f8f-4990-b238-e79c1376240c",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "d080ccf9-167c-3a43-bcc7-66b248b829b3",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/services/:service_id?include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "services",
-                    ":service_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates` or `adjustments`."
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "service_id",
-                      "value": "{{service_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Update a service",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "116e5453-c202-4a11-b1e6-668e872131bf",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('service');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_id\").toString());",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    ",
-                      "    pm.expect(response.data.attributes).to.have.property('key');",
-                      "    pm.expect(response.data.attributes).to.have.property('description');",
-                      "    pm.expect(response.data.attributes).to.have.property('unit_label');",
-                      "    pm.expect(response.data.attributes).to.have.property('dset');",
-                      "    pm.expect(response.data.attributes).to.have.property('type');",
-                      "    pm.expect(response.data.attributes).to.have.property('usage_col');",
-                      "    pm.expect(response.data.attributes).to.have.property('consumption_col');",
-                      "    pm.expect(response.data.attributes).to.have.property('instance_col');",
-                      "    pm.expect(response.data.attributes).to.have.property('interval');",
-                      "    pm.expect(response.data.attributes).to.have.property('charge_type');",
-                      "    pm.expect(response.data.attributes).to.have.property('cogs_type');",
-                      "    pm.expect(response.data.attributes).to.have.property('proration_type');",
-                      "    pm.expect(response.data.attributes).to.have.property('created_at');",
-                      "    pm.expect(response.data.attributes).to.have.property('updated_at');",
-                      "    pm.expect(response.data.attributes).to.have.property('seen_at');",
-                      "    pm.expect(response.data.attributes).to.have.property('orphan');",
-                      "    pm.expect(response.data.attributes).to.have.property('charge_model');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "e0c64cda-dd5d-4682-987e-d5d961ad0ec4",
-                    "exec": [
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "8ccf107d-93b0-a925-9678-0025ce33f846",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/services/:service_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "services",
-                    ":service_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "service_id",
-                      "value": "{{service_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Prepare affected reports",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "036e8d8f-585c-41d0-9c1d-5e74fe34a3bd",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/services/:service_id/prepareAffectedReports",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "services",
-                    ":service_id",
-                    "prepareAffectedReports"
-                  ],
-                  "variable": [
-                    {
-                      "key": "service_id",
-                      "value": "{{service_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a service",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "a9b33957-8d7c-45d2-a6c7-19a5150adb1b",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET service_id');",
-                      "pm.environment.unset(\"service_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "a4bcd022-a6df-4ae6-9bf3-06f0bedde601",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/services/:service_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "services",
-                    ":service_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "service_id",
-                      "value": "{{service_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "f43592d6-0e71-4de1-824c-5eb7803f2de1",
-          "description": "A service has the following attributes:\n\nattribute        | type        | editable | description\n-----------------|-------------|----------|-------------\nkey              | *string*    | \u274c       | Unique identifier, [read more](https://docs.exivity.com/transform/language/service/#key)\ndescription      | *string*    | \u2714\ufe0f       | Friendly name, [read more](https://docs.exivity.com/transform/language/service/#description)\nunit_label       | *string*    | \u274c       | Unit of consumption, [read more](https://docs.exivity.com/transform/language/service/#unit_label)\ndset             | *string*    | \u274c       | Dset this service is linked to\ntype             | *enum*      | \u274c       | One of `service_name_in_header` or `service_name_in_data`, [read more](https://docs.exivity.com/transform/language/services/#service_type)\nusage_col        | *string*    | \u274c       | Dset column containing keys, [read more](https://docs.exivity.com/transform/language/services/#usages_col)\nconsumption_col  | *string*    | \u274c       | Dset column containing consumption amount, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)\ninstance_col     | *string*    | \u274c       | Dset column containing unique instance id's, [read more](https://docs.exivity.com/transform/language/services/#instance_col)\ninterval         | *enum*      | \u274c       | One of `never`, `individually`, `second`, `minute`, `hour`, `day`, `week`, `month` or `year`. Currently, only `individually`, `day` and `month` are implemented, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)  \ncharge_type      | *enum*      | \u274c       | One of `none`, `manual`, `manual_per_unit`, `manual_per_interval`, `automatic`, `automatic_per_unit`, `automatic_per_interval` or `other`, read more below\ncogs_type        | *enum*      | \u274c       | One of `none`, `manual_per_unit`, `manual_per_interval`, `automatic_per_unit` or `automatic_per_interval`, read more below\nproration_type   | *enum*      | \u274c       | One of `none` or `full`, [read more](https://docs.exivity.com/transform/language/services/#model)\ncreated_at       | *timestamp* | \u274c       | Unix timestamp the service was first created\nupdated_at       | *timestamp* | \u274c       | Unix timestamp the service was last updated\nseen_at          | *date*      | \u274c       | ISO-8601 date the service was last seen in a dset\n\n### Charge and cogs type\nThe attributes `charge_type` and `cogs_type` define how the rate is used when calculating charge and cogs metrics using consumption of the service.\n\n- The first part denotes whether the rate is dynamically derived from the usage data itself (`automatic`) or specified explicitly in rate entities (`manual`).\n- The second part denotes whether an amount per unit of consumption (`per_unit`) and/or per interval (`per_interval`) should be applied.\n\nWhen the second part is omitted, both `per_unit` and `per_interval` are used. If no rate should be applied at all, `none` can be used. A value of `other` means a configuration is used not currently supported by the API.",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "62575d24-1064-4c79-bcf1-43f5ad9f55f4",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "861a8252-f532-4bc0-bd68-a5f30d04fcf1",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/rates",
-          "item": [
-            {
-              "name": "Retrieve a list of rates",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "576d1050-8826-4de8-bf97-f3c28494480b",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "7f92fb9a-20ac-4c75-aaba-2bcc379bf1a9",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "0b00a043-02da-c3b0-0a43-ceb9344f6ea8",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/rates?page[limit]&page[offset]&sort&filter[attribute]&include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "rates"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `service`, `account`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new rate",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "baabd271-5b14-44d4-89f6-8070c5ce0ce3",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('rate');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.eql({",
-                      "\t\t\"rate\": 1,",
-                      "\t\t\"rate_col\": \"rate_col\",",
-                      "\t\t\"fixed\": 2,",
-                      "\t\t\"fixed_col\": \"fixed_col\",",
-                      "\t\t\"cogs_rate\": 3,",
-                      "\t\t\"cogs_rate_col\": \"cogs_rate_col\",",
-                      "\t\t\"cogs_fixed\": 4,",
-                      "\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
-                      "\t\t\"effective_date\": \"2017-08-27\",",
-                      "\t\t\"threshold\": 0,",
-                      "        \"min_commit\": 0",
-                      "\t});",
-                      "",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"rate_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "673acce8-137e-4260-96c6-23ac9cda4b62",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.requireServiceCategory)",
-                      "    .then(api.requireService)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "51ad76c6-fcc3-0def-8205-5234ddedf383",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/rates",
-                "description": "Account specific rates can be created through this endpoint by specifying the `account` relationship in the request body, e.g.:\n\n```\n\"relationships\": {\n\t\"service\": { ... },\n\t\"account\": {\n\t\t\"data\": {\n\t\t\t\"type\": \"account\",\n\t\t\t\"id\": \"1\"\n\t\t}\n\t}\n}\n```"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a rate",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "e6f690a9-c3c8-4bc6-b1cc-5729d6fb73ac",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('rate');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.eql({",
-                      "    \"rate\": 1,",
-                      "    \"rate_col\": \"rate_col\",",
-                      "    \"fixed\": 2,",
-                      "    \"fixed_col\": \"fixed_col\",",
-                      "    \"cogs_rate\": 3,",
-                      "    \"cogs_rate_col\": \"cogs_rate_col\",",
-                      "    \"cogs_fixed\": 4,",
-                      "    \"cogs_fixed_col\": \"cogs_fixed_col\",",
-                      "    \"effective_date\": \"2017-08-27\",",
-                      "    \"threshold\": 0,",
-                      "        \"min_commit\": 0",
-                      "  });",
-                      "",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "44a13da5-4b44-b03b-2458-39fb9768e189",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/rates/{{rate_id}}?include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "rates",
-                    "{{rate_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `service`, `account`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Prepare affected reports",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "7f667470-caf0-b7bc-cdaf-46d7b7cdc345",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}/prepareAffectedReports"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a rate",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "16945c13-6e38-4f0b-b114-26105d49a4ab",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('rate');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"rate\": 10,",
-                      "        \"rate_col\": \"rate_col2\",",
-                      "        \"fixed\": 20,",
-                      "        \"fixed_col\": \"fixed_col2\",",
-                      "        \"cogs_rate\": 30,",
-                      "        \"cogs_rate_col\": \"cogs_rate_col2\",",
-                      "        \"cogs_fixed\": 40,",
-                      "        \"cogs_fixed_col\": \"cogs_fixed_col2\",",
-                      "        \"effective_date\": \"2017-08-27\",",
-                      "        \"threshold\": 10,",
-                      "        \"min_commit\": 50,",
-                      "    });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "cf53c428-7015-4f22-6784-88c592b13b36",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n      \r\n    }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a rate",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8394c1a9-b96c-4716-af0d-37271ea40f4c",
-                    "exec": [
-                      "// pm.test(\"Status code is 204\", function () {",
-                      "//     pm.response.to.have.status(204);",
-                      "// });",
-                      "",
-                      "// console.log('UNSET rate_id');",
-                      "// pm.environment.unset(\"rate_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "8e869ba6-9971-6bdd-60a2-e4c60046b5d4",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "72f5acaa-6d7f-7e2d-f628-5e136aea014c",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "116f8c13-fa1c-4f26-9ccd-b5b0263b7c38",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "ed4260d9-890f-41a7-a1ee-fe6b1f2cf5c5",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/adjustments",
-          "item": [
-            {
-              "name": "Retrieve a list of adjustments",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "2dd6d417-9b01-51b4-0054-8706070923ea",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/adjustments?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "adjustments"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `account`, `services`, `servicecategories`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new adjustment",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "ac5089c4-b302-43bb-ba74-764ab47386a3",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function() {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function() {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('adjustment');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"adjustment_id\", response.data.id);",
-                      "console.log('SET adjustment_id: ' + pm.environment.get(\"adjustment_id\"));",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function() {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.eql('test');",
-                      "    pm.expect(response.data.attributes.amount).to.eql(-10);",
-                      "    pm.expect(response.data.attributes.type).to.eql('relative');",
-                      "    pm.expect(response.data.attributes.target).to.eql('charge');",
-                      "    pm.expect(response.data.attributes.first_interval).to.eql('2017-01');",
-                      "    pm.expect(response.data.attributes.last_interval).to.eql('2017-12');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function() {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "564ddb47-a45b-46bd-8e57-3b73386b5012",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.requireReport)",
-                      "    .then(api.requireAccount)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "847994e1-4890-fc49-4ed6-969e6c5cbedd",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/adjustments"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve an adjustment",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "58a3df93-863a-45b5-9950-de83949f289d",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('adjustment');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"adjustment_id\").toString());",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.eql('test');",
-                      "    pm.expect(response.data.attributes.amount).to.eql(-10);",
-                      "    pm.expect(response.data.attributes.type).to.eql('relative');",
-                      "    pm.expect(response.data.attributes.target).to.eql('charge');",
-                      "    pm.expect(response.data.attributes.first_interval).to.eql('2017-01');",
-                      "    pm.expect(response.data.attributes.last_interval).to.eql('2017-12');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "26772232-c39a-d760-f3aa-1ab8ac3aa793",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id?include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "adjustments",
-                    ":adjustment_id"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "adjustment_id",
-                      "value": "{{adjustment_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Update an adjustment",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c37dc956-0d32-4483-a6ba-2251968f9d9b",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('adjustment');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"adjustment_id\").toString());",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.eql('modified_test');",
-                      "    pm.expect(response.data.attributes.amount).to.eql(-20);",
-                      "    pm.expect(response.data.attributes.type).to.eql('absolute');",
-                      "    pm.expect(response.data.attributes.target).to.eql('quantity');",
-                      "    pm.expect(response.data.attributes.first_interval).to.eql('2018-01');",
-                      "    pm.expect(response.data.attributes.last_interval).to.eql(null);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "79e2e2dd-366a-798d-d39d-e785ceef8fa1",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"adjustment\",\r\n    \"id\": \"{{adjustment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"amount\": \"-20\",\r\n      \"type\": \"absolute\",\r\n      \"target\": \"quantity\",\r\n      \"first_interval\": \"2018-01\",\r\n      \"last_interval\": \"\"\r\n    }\r\n  }\r\n}"
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "adjustments",
-                    ":adjustment_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "adjustment_id",
-                      "value": "{{adjustment_id}}",
-                      "type": "string"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Prepare affected reports",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "6429099a-dd77-4dd7-88d1-8e31e59c4477",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id/prepareAffectedReports",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "adjustments",
-                    ":adjustment_id",
-                    "prepareAffectedReports"
-                  ],
-                  "variable": [
-                    {
-                      "key": "adjustment_id",
-                      "value": "{{adjustment_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete an adjustment",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET adjustment_id');",
-                      "pm.environment.unset(\"adjustment_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "af8e10f8-dfa7-cfe7-3766-69d75eefa9b7",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "adjustments",
-                    ":adjustment_id"
-                  ],
-                  "variable": [
-                    {
-                      "key": "adjustment_id",
-                      "value": "{{adjustment_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "b9bdf7ba-0cd2-495b-b74d-e8250725ff00",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "621bced5-9556-4c1d-85e6-d3ee2eb53622",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        }
-      ],
-      "_postman_id": "71932c96-2982-4373-9c17-10d23a9d292c",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "7b699cdf-f049-4fdd-9bee-930cef85224d",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "id": "92b00d36-410c-4677-9781-978d9e19f6e6",
             "type": "text/javascript",
             "exec": [
               ""
@@ -16296,7 +16296,7 @@
   ],
   "variable": [
     {
-      "id": "60489112-c202-4e24-898f-63ae777e6f4d",
+      "id": "b4688daf-41ed-43e9-a5c0-ac76beef68ec",
       "key": "component",
       "value": "use",
       "type": "string"
