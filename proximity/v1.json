@@ -15235,11 +15235,6 @@
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
     },
     {
-      "name": "Profile",
-      "item": [],
-      "_postman_id": "200943b9-5cca-443e-bdb4-27d9fff54501"
-    },
-    {
       "name": "/me",
       "item": [
         {
@@ -15490,6 +15485,11 @@
           }
         }
       ]
+    },
+    {
+      "name": "Profile",
+      "item": [],
+      "_postman_id": "200943b9-5cca-443e-bdb4-27d9fff54501"
     }
   ],
   "auth": {
@@ -16186,7 +16186,7 @@
   ],
   "variable": [
     {
-      "id": "d1c494a5-eeb7-497e-a627-4e54e15178c7",
+      "id": "5ed8018d-b6d7-417e-9ec6-874ec979de7b",
       "key": "component",
       "value": "use",
       "type": "string"
