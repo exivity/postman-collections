@@ -12239,6 +12239,95 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "/audit",
+          "item": [
+            {
+              "name": "Get audit trail",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "",
+                      "pm.test(\"Response contains audit data\", function () {",
+                      "    pm.expect(response.audit).to.be.an('array');",
+                      "});"
+                    ],
+                    "id": "c7f4eb4c-29a7-466a-9f97-74f1927d007b",
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5c020eb1-a7d9-8a0a-0608-a1fa08981f97",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/audit?start=&end",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "audit"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "",
+                      "description": "The start of the date range (inclusive) you want to view the audit trail for in `YYYY-MM-DD` format. Defaults to the current date."
+                    },
+                    {
+                      "key": "end",
+                      "value": null,
+                      "description": "The end of the date range (inclusive) you want to view the audit trail for in `YYYY-MM-DD` format. Defaults to the current date."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "531d4b13-3f22-c6de-c996-5b523af6cc9e",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "350aeac8-afe4-4111-bc5c-0e1ec558db46",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "3c5a15db-401b-4689-8e52-39b6b240762d",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "/log",
           "item": [
             {
@@ -12361,95 +12450,6 @@
               "listen": "test",
               "script": {
                 "id": "eb143f19-619d-4af1-832e-19773c23be90",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/audit",
-          "item": [
-            {
-              "name": "Get audit trail",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "",
-                      "pm.test(\"Response contains audit data\", function () {",
-                      "    pm.expect(response.audit).to.be.an('array');",
-                      "});"
-                    ],
-                    "id": "c7f4eb4c-29a7-466a-9f97-74f1927d007b",
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5c020eb1-a7d9-8a0a-0608-a1fa08981f97",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/audit?start=&end",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "audit"
-                  ],
-                  "query": [
-                    {
-                      "key": "start",
-                      "value": "",
-                      "description": "The start of the date range (inclusive) you want to view the audit trail for in `YYYY-MM-DD` format. Defaults to the current date."
-                    },
-                    {
-                      "key": "end",
-                      "value": null,
-                      "description": "The end of the date range (inclusive) you want to view the audit trail for in `YYYY-MM-DD` format. Defaults to the current date."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "531d4b13-3f22-c6de-c996-5b523af6cc9e",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "350aeac8-afe4-4111-bc5c-0e1ec558db46",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "3c5a15db-401b-4689-8e52-39b6b240762d",
                 "type": "text/javascript",
                 "exec": [
                   ""
@@ -16182,7 +16182,7 @@
   ],
   "variable": [
     {
-      "id": "18d66405-8884-4205-8d00-7923bda51852",
+      "id": "d705cfc9-29ea-46ba-b3a0-6edb9937c657",
       "key": "component",
       "value": "use",
       "type": "string"
