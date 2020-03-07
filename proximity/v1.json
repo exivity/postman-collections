@@ -7762,39 +7762,113 @@
             }
           ],
           "_postman_isSubFolder": true
+        }
+      ],
+      "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "55f271ea-b387-4858-9bb6-7faa8c7bc8f7",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
         },
         {
-          "name": "/workflows",
-          "item": [
+          "listen": "test",
+          "script": {
+            "id": "7b53b683-2f28-4b04-838b-330110f16618",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "/workflows",
+      "item": [
+        {
+          "name": "Retrieve a list of workflows",
+          "event": [
             {
-              "name": "Retrieve a list of workflows",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
+              "listen": "test",
+              "script": {
+                "id": "43cdd595-34ac-4daf-b9fd-c752d610b552",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains data\", function () {",
+                  "    pm.expect(response.data).to.be.an('array');",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "64b649b2-4521-44f2-979d-ef5063d6bec0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/workflows?page[limit]=&page[offset]&sort&filter[attribute]&include=",
+              "host": [
+                "{{base_url}}"
               ],
-              "_postman_id": "64b649b2-4521-44f2-979d-ef5063d6bec0",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
+              "path": [
+                "v1",
+                "workflows"
+              ],
+              "query": [
+                {
+                  "key": "page[limit]",
+                  "value": ""
+                },
+                {
+                  "key": "page[offset]",
+                  "value": null,
+                  "description": "Return this page of the results"
+                },
+                {
+                  "key": "sort",
+                  "value": null,
+                  "description": "Sort results by this attribute"
+                },
+                {
+                  "key": "filter[attribute]",
+                  "value": null,
+                  "description": "Filter results by this attribute"
+                },
+                {
+                  "key": "include",
+                  "value": "",
+                  "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "63257682-44e6-47c1-8159-450d65c1c736",
+              "name": "Retrieve a list of workflows including runs (limit of 2 per workflow)",
+              "originalRequest": {
                 "method": "GET",
                 "header": [
                   {
@@ -7803,7 +7877,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/workflows?page[limit]=&page[offset]&sort&filter[attribute]&include=",
+                  "raw": "{{base_url}}/v1/workflows?page[limit]=&page[offset]&sort&filter[attribute]&include=runs&page[runs][limit]=2",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -7833,855 +7907,431 @@
                     },
                     {
                       "key": "include",
-                      "value": "",
+                      "value": "runs",
                       "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
+                    },
+                    {
+                      "key": "page[runs][limit]",
+                      "value": "2"
                     }
                   ]
                 }
               },
-              "response": [
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
                 {
-                  "id": "63257682-44e6-47c1-8159-450d65c1c736",
-                  "name": "Retrieve a list of workflows including runs (limit of 2 per workflow)",
-                  "originalRequest": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/vnd.api+json"
-                      }
-                    ],
-                    "url": {
-                      "raw": "{{base_url}}/v1/workflows?page[limit]=&page[offset]&sort&filter[attribute]&include=runs&page[runs][limit]=2",
-                      "host": [
-                        "{{base_url}}"
-                      ],
-                      "path": [
-                        "v1",
-                        "workflows"
-                      ],
-                      "query": [
-                        {
-                          "key": "page[limit]",
-                          "value": ""
-                        },
-                        {
-                          "key": "page[offset]",
-                          "value": null,
-                          "description": "Return this page of the results"
-                        },
-                        {
-                          "key": "sort",
-                          "value": null,
-                          "description": "Sort results by this attribute"
-                        },
-                        {
-                          "key": "filter[attribute]",
-                          "value": null,
-                          "description": "Filter results by this attribute"
-                        },
-                        {
-                          "key": "include",
-                          "value": "runs",
-                          "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
-                        },
-                        {
-                          "key": "page[runs][limit]",
-                          "value": "2"
-                        }
-                      ]
-                    }
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "_postman_previewlanguage": "json",
-                  "header": [
-                    {
-                      "key": "Host",
-                      "value": "localhost:8012"
-                    },
-                    {
-                      "key": "Date",
-                      "value": "Mon, 25 Feb 2019 13:24:02 +0000"
-                    },
-                    {
-                      "key": "Date",
-                      "value": "Mon, 25 Feb 2019 13:24:02 GMT"
-                    },
-                    {
-                      "key": "Connection",
-                      "value": "close"
-                    },
-                    {
-                      "key": "X-Powered-By",
-                      "value": "PHP/7.1.21"
-                    },
-                    {
-                      "key": "Cache-Control",
-                      "value": "no-cache, private"
-                    },
-                    {
-                      "key": "Content-Type",
-                      "value": "application/vnd.api+json"
-                    },
-                    {
-                      "key": "Access-Control-Allow-Origin",
-                      "value": ""
-                    }
-                  ],
-                  "cookie": [],
-                  "responseTime": null,
-                  "body": "{\n    \"data\": [\n        {\n            \"type\": \"workflow\",\n            \"id\": \"24\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T09:35:02+00:00\",\n                \"updated_at\": \"2019-02-19T09:35:03+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/24\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/24/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/24/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"2\"\n                        },\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"3\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"25\",\n            \"attributes\": {\n                \"name\": \"test\",\n                \"description\": \"This is test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T09:35:59+00:00\",\n                \"updated_at\": \"2019-02-19T13:26:14+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/25\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/25/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/25/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"31\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T10:27:14+00:00\",\n                \"updated_at\": \"2019-02-19T10:27:15+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/31\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/31/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/31/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"37\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T10:31:07+00:00\",\n                \"updated_at\": \"2019-02-19T10:31:08+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/37\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/37/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/37/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"7\"\n                        },\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"10\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"41\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T12:12:34+00:00\",\n                \"updated_at\": \"2019-02-19T12:12:39+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/41\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/41/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/41/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"45\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T12:40:54+00:00\",\n                \"updated_at\": \"2019-02-19T12:41:00+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/45\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/45/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/45/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"1\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"46\",\n            \"attributes\": {\n                \"name\": \"test\",\n                \"description\": \"This is test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T13:49:51+00:00\",\n                \"updated_at\": \"2019-02-19T13:49:51+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/46\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/46/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/46/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"5\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"47\",\n            \"attributes\": {\n                \"name\": \"test\",\n                \"description\": \"This is test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T13:50:14+00:00\",\n                \"updated_at\": \"2019-02-19T13:50:14+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/47\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/47/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/47/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"51\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-20T16:01:21+00:00\",\n                \"updated_at\": \"2019-02-20T16:01:26+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/51\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/51/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/51/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"57\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-25T08:23:01+00:00\",\n                \"updated_at\": \"2019-02-25T08:23:06+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/57\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/57/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/57/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"61\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-25T08:26:24+00:00\",\n                \"updated_at\": \"2019-02-25T08:26:28+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/61\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/61/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/61/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"65\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-25T12:26:01+00:00\",\n                \"updated_at\": \"2019-02-25T12:26:05+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/65\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/65/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/65/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        }\n    ],\n    \"included\": [\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 3\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/2\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:35:00.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:35:00.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/3\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-20 14:33:27.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-20 14:33:27.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/7\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"10\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-20 14:33:28.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-20 14:33:28.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/10\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 3\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/1\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:35:03.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:35:03.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/5\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 12,\n            \"count\": 12,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"https://localhost:8012/v1/workflows?page%5Blimit%5D=&page%5Bruns%5D%5Blimit%5D=2&sort=&filter%5Battribute%5D=&include=runs&page%5Boffset%5D=1\",\n        \"first\": \"https://localhost:8012/v1/workflows?page%5Blimit%5D=&page%5Bruns%5D%5Blimit%5D=2&sort=&filter%5Battribute%5D=&include=runs&page%5Boffset%5D=1\",\n        \"last\": \"https://localhost:8012/v1/workflows?page%5Blimit%5D=&page%5Bruns%5D%5Blimit%5D=2&sort=&filter%5Battribute%5D=&include=runs&page%5Boffset%5D=1\"\n    }\n}"
-                }
-              ]
-            },
-            {
-              "name": "Add a new workflow",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "525f1b0f-7dce-416f-86b1-3138a5f246ce",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflow');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"name\": \"test\",",
-                      "        \"description\": \"This is test task\",",
-                      "        \"locked\": false,",
-                      "  });",
-                      "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"workflow_id\", response.data.id);",
-                      "console.log('SET workflow_id: ' + pm.environment.get(\"workflow_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
+                  "key": "Host",
+                  "value": "localhost:8012"
                 },
                 {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "1927dddd-7cfe-490a-994a-d89c59c360e9",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
+                  "key": "Date",
+                  "value": "Mon, 25 Feb 2019 13:24:02 +0000"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 25 Feb 2019 13:24:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                },
+                {
+                  "key": "X-Powered-By",
+                  "value": "PHP/7.1.21"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache, private"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/vnd.api+json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": ""
                 }
               ],
-              "_postman_id": "faa34655-6b66-4a0e-bc67-a955709f9b59",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflow\",\r\n    \t\"attributes\": {\r\n    \t\t\"name\": \"test\",\r\n            \"description\": \"This is test task\",\r\n            \"hidden\": false,\r\n            \"locked\": false\r\n    \t}\r\n\t}\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflows"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a workflow",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflow');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"name\": \"test\",",
-                      "        \"description\": \"This is test task\",",
-                      "        \"locked\": false,",
-                      "  });",
-                      "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "476db509-4c61-41f6-806b-1a0cdbdece8f",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.requireWorkflow)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "69749f3f-c727-4fa7-b7b1-cd9774696f55",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflows/:workflowId?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflows",
-                    ":workflowId"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowId",
-                      "value": "{{workflow_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Update a workflow",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3271bba7-6ac9-45cc-9841-ea09d3c0b4bc",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflow');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "    \"name\": \"modified test\",",
-                      "        \"description\": \"This is a modified test task\",",
-                      "        \"locked\": false,",
-                      "  });",
-                      "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "227f589b-e878-4b8d-bb8e-6252539d81cd",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n\t\t\"name\": \"modified test\",\r\n\t\t\"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}"
-                },
-                "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Run a workflow",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9d3f5b63-7044-43a3-9e2e-87075d94f7cb",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.output).to.be.an('array');",
-                      "    pm.expect(response.status).to.eql(true);",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "b1b4ce1f-1ee5-47c1-8077-7dc916cf1a1d",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/workflows/{{workflow_id}}/run?date",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflows",
-                    "{{workflow_id}}",
-                    "run"
-                  ],
-                  "query": [
-                    {
-                      "key": "date",
-                      "value": null,
-                      "description": "The date to manually run the workflow for (in `YYYY-MM-DD` format). Defaults to the current date."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a workflow",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "81ef51c3-9929-41be-9728-960d17f4e6a5",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET workflow_id');",
-                      "pm.environment.unset(\"workflow_id\");",
-                      "console.log('UNSET workflowrun_id');",
-                      "pm.environment.unset(\"workflowrun_id\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5a1ad9b4-df2e-47a0-8e85-57aecbb39a33",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/workflows/:workflowId",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflows",
-                    ":workflowId"
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowId",
-                      "value": "{{workflow_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"data\": [\n        {\n            \"type\": \"workflow\",\n            \"id\": \"24\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T09:35:02+00:00\",\n                \"updated_at\": \"2019-02-19T09:35:03+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/24\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/24/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/24/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"2\"\n                        },\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"3\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"25\",\n            \"attributes\": {\n                \"name\": \"test\",\n                \"description\": \"This is test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T09:35:59+00:00\",\n                \"updated_at\": \"2019-02-19T13:26:14+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/25\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/25/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/25/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"31\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T10:27:14+00:00\",\n                \"updated_at\": \"2019-02-19T10:27:15+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/31\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/31/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/31/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"37\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T10:31:07+00:00\",\n                \"updated_at\": \"2019-02-19T10:31:08+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/37\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/37/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/37/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"7\"\n                        },\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"10\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"41\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T12:12:34+00:00\",\n                \"updated_at\": \"2019-02-19T12:12:39+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/41\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/41/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/41/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"45\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T12:40:54+00:00\",\n                \"updated_at\": \"2019-02-19T12:41:00+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/45\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/45/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/45/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"1\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"46\",\n            \"attributes\": {\n                \"name\": \"test\",\n                \"description\": \"This is test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T13:49:51+00:00\",\n                \"updated_at\": \"2019-02-19T13:49:51+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/46\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/46/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/46/runs\"\n                    },\n                    \"data\": [\n                        {\n                            \"type\": \"workflowrun\",\n                            \"id\": \"5\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"47\",\n            \"attributes\": {\n                \"name\": \"test\",\n                \"description\": \"This is test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-19T13:50:14+00:00\",\n                \"updated_at\": \"2019-02-19T13:50:14+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/47\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/47/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/47/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"51\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-20T16:01:21+00:00\",\n                \"updated_at\": \"2019-02-20T16:01:26+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/51\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/51/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/51/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"57\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-25T08:23:01+00:00\",\n                \"updated_at\": \"2019-02-25T08:23:06+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/57\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/57/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/57/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"61\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-25T08:26:24+00:00\",\n                \"updated_at\": \"2019-02-25T08:26:28+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/61\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/61/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/61/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        },\n        {\n            \"type\": \"workflow\",\n            \"id\": \"65\",\n            \"attributes\": {\n                \"name\": \"modified test\",\n                \"description\": \"This is a modified test task\",\n                \"locked\": false,\n                \"created_at\": \"2019-02-25T12:26:01+00:00\",\n                \"updated_at\": \"2019-02-25T12:26:05+00:00\"\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflows/65\"\n            },\n            \"relationships\": {\n                \"runs\": {\n                    \"links\": {\n                        \"self\": \"https://localhost:8012/v1/workflows/65/relationships/runs\",\n                        \"related\": \"https://localhost:8012/v1/workflows/65/runs\"\n                    },\n                    \"data\": []\n                }\n            }\n        }\n    ],\n    \"included\": [\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 3\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/2\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:35:00.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:35:00.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/3\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-20 14:33:27.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-20 14:33:27.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/7\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"10\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-20 14:33:28.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-20 14:33:28.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/10\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:34:52.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 3\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/1\"\n            }\n        },\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"start\": {\n                    \"date\": \"2019-02-19 14:35:03.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"end\": {\n                    \"date\": \"2019-02-19 14:35:03.000000\",\n                    \"timezone_type\": 1,\n                    \"timezone\": \"+00:00\"\n                },\n                \"status\": 5\n            },\n            \"links\": {\n                \"self\": \"https://localhost:8012/v1/workflowruns/5\"\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 12,\n            \"count\": 12,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"https://localhost:8012/v1/workflows?page%5Blimit%5D=&page%5Bruns%5D%5Blimit%5D=2&sort=&filter%5Battribute%5D=&include=runs&page%5Boffset%5D=1\",\n        \"first\": \"https://localhost:8012/v1/workflows?page%5Blimit%5D=&page%5Bruns%5D%5Blimit%5D=2&sort=&filter%5Battribute%5D=&include=runs&page%5Boffset%5D=1\",\n        \"last\": \"https://localhost:8012/v1/workflows?page%5Blimit%5D=&page%5Bruns%5D%5Blimit%5D=2&sort=&filter%5Battribute%5D=&include=runs&page%5Boffset%5D=1\"\n    }\n}"
             }
-          ],
-          "_postman_id": "6adb9863-cc52-4412-9977-5f2be41f3dcf",
-          "_postman_isSubFolder": true
+          ]
         },
         {
-          "name": "/workflowschedules",
-          "item": [
-            {
-              "name": "Retrieve a list of schedules",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "76f2c35b-05c9-41d3-9541-d0119c71c623",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowschedules"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "",
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `workflow`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7cb87b26-e7f8-4b96-8ca5-4d7f9d0f5e81",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
-                      "        \"timezone\": \"Europe/Amsterdam\",",
-                      "        \"adjust_for_dst\": true,",
-                      "        \"frequency\": \"daily\",",
-                      "        \"frequency_modifier\": 2",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"workflowschedule_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "154ce697-b1f1-4ee2-b898-c77cb3fc0750",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": 10800,\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowschedules"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "5ce6e84d-69cc-4b99-a6c3-8a79cbf933ae",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
-                      "        \"timezone\": \"Europe/Amsterdam\",",
-                      "        \"adjust_for_dst\": true,",
-                      "        \"frequency\": \"daily\",",
-                      "        \"frequency_modifier\": 2",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "1359f765-b49b-49df-8970-7b987db1e5f3",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflowschedules",
-                    "{{workflowschedule_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources"
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "f9701b1e-56dc-4ad5-8ddc-4202d0cc0af3",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
-                      "        \"timezone\": \"Europe/London\",",
-                      "        \"adjust_for_dst\": true,",
-                      "        \"frequency\": \"daily\",",
-                      "        \"frequency_modifier\": 2",
-                      "  });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "18ed8fdd-f4e9-485e-a606-8470b7ce0ebf",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowschedule\",\r\n    \"id\": \"{{workflowschedule_id}}\",\r\n    \"attributes\": {\r\n      \"timezone\": \"Europe/London\"\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}",
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a schedule",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "43015ed0-58cf-40ba-aa47-950a39d34893",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET workflowschedule_id');",
-                      "pm.environment.unset(\"workflowschedule_id\");",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "66d24aca-d359-412e-9e80-8cd4991b7293",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "7ac62937-0fe7-4780-8697-8a69fac8b820",
+          "name": "Add a new workflow",
           "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
             {
               "listen": "test",
               "script": {
-                "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
-                "type": "text/javascript",
+                "id": "525f1b0f-7dce-416f-86b1-3138a5f246ce",
                 "exec": [
+                  "pm.test(\"Status code is 201\", function () {",
+                  "    pm.response.to.have.status(201);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflow');",
+                  "    pm.expect(response.data.id).to.not.be.undefined;",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.include({",
+                  "    \"name\": \"test\",",
+                  "        \"description\": \"This is test task\",",
+                  "        \"locked\": false,",
+                  "  });",
+                  "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
+                  "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});",
+                  "",
+                  "pm.environment.set(\"workflow_id\", response.data.id);",
+                  "console.log('SET workflow_id: ' + pm.environment.get(\"workflow_id\"));",
                   ""
-                ]
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "1927dddd-7cfe-490a-994a-d89c59c360e9",
+                "exec": [
+                  "const api = eval(pm.globals.get('exivity'))();\r",
+                  "\r",
+                  "api.start()\r",
+                  "    .then(api.requireToken)\r",
+                  "    .then(api.ready)\r",
+                  "    .catch(function(err) {\r",
+                  "        console.log(err);\r",
+                  "    });"
+                ],
+                "type": "text/javascript"
               }
             }
           ],
-          "_postman_isSubFolder": true
-        }
-      ],
-      "_postman_id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "id": "55f271ea-b387-4858-9bb6-7faa8c7bc8f7",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
+          "_postman_id": "faa34655-6b66-4a0e-bc67-a955709f9b59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflow\",\r\n    \t\"attributes\": {\r\n    \t\t\"name\": \"test\",\r\n            \"description\": \"This is test task\",\r\n            \"hidden\": false,\r\n            \"locked\": false\r\n    \t}\r\n\t}\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflows"
+          },
+          "response": []
         },
         {
-          "listen": "test",
-          "script": {
-            "id": "7b53b683-2f28-4b04-838b-330110f16618",
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
+          "name": "Retrieve a workflow",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflow');",
+                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.include({",
+                  "    \"name\": \"test\",",
+                  "        \"description\": \"This is test task\",",
+                  "        \"locked\": false,",
+                  "  });",
+                  "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
+                  "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "476db509-4c61-41f6-806b-1a0cdbdece8f",
+                "exec": [
+                  "const api = eval(pm.globals.get('exivity'))();",
+                  "",
+                  "api.start()",
+                  "    .then(api.requireToken)",
+                  "    .then(api.requireWorkflow)",
+                  "    .then(api.ready)",
+                  "    .catch(function(err) {",
+                  "        console.log(err);",
+                  "    });",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "69749f3f-c727-4fa7-b7b1-cd9774696f55",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/v1/workflows/:workflowId?include=",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "workflows",
+                ":workflowId"
+              ],
+              "query": [
+                {
+                  "key": "include",
+                  "value": "",
+                  "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
+                }
+              ],
+              "variable": [
+                {
+                  "key": "workflowId",
+                  "value": "{{workflow_id}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a workflow",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "3271bba7-6ac9-45cc-9841-ea09d3c0b4bc",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.data).to.be.an('object');",
+                  "    pm.expect(response.data.type).to.eql('workflow');",
+                  "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
+                  "    pm.expect(response.data.attributes).to.be.an('object');",
+                  "    pm.expect(response.data.attributes).to.include({",
+                  "    \"name\": \"modified test\",",
+                  "        \"description\": \"This is a modified test task\",",
+                  "        \"locked\": false,",
+                  "  });",
+                  "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
+                  "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
+                  "});",
+                  "",
+                  "pm.test(\"Response contains data.links\", function () {",
+                  "    pm.expect(response.data.links).to.be.an('object');",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "227f589b-e878-4b8d-bb8e-6252539d81cd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/vnd.api+json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n\t\t\"name\": \"modified test\",\r\n\t\t\"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}"
+            },
+            "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
+          },
+          "response": []
+        },
+        {
+          "name": "Run a workflow",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "9d3f5b63-7044-43a3-9e2e-87075d94f7cb",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const response = pm.response.json();",
+                  "console.log(response);",
+                  "",
+                  "pm.test(\"Response contains correct data\", function () {",
+                  "    pm.expect(response.output).to.be.an('array');",
+                  "    pm.expect(response.status).to.eql(true);",
+                  "});",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "b1b4ce1f-1ee5-47c1-8077-7dc916cf1a1d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/workflows/{{workflow_id}}/run?date",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "workflows",
+                "{{workflow_id}}",
+                "run"
+              ],
+              "query": [
+                {
+                  "key": "date",
+                  "value": null,
+                  "description": "The date to manually run the workflow for (in `YYYY-MM-DD` format). Defaults to the current date."
+                }
+              ]
+            },
+            "description": "Test description"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a workflow",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "81ef51c3-9929-41be-9728-960d17f4e6a5",
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {",
+                  "    pm.response.to.have.status(204);",
+                  "});",
+                  "",
+                  "console.log('UNSET workflow_id');",
+                  "pm.environment.unset(\"workflow_id\");",
+                  "console.log('UNSET workflowrun_id');",
+                  "pm.environment.unset(\"workflowrun_id\");",
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "5a1ad9b4-df2e-47a0-8e85-57aecbb39a33",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "{{base_url}}/v1/workflows/:workflowId",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "v1",
+                "workflows",
+                ":workflowId"
+              ],
+              "variable": [
+                {
+                  "key": "workflowId",
+                  "value": "{{workflow_id}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "response": []
         }
-      ]
+      ],
+      "_postman_id": "6adb9863-cc52-4412-9977-5f2be41f3dcf"
     },
     {
       "name": "Users",
@@ -15516,6 +15166,355 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "/workflowschedules",
+          "item": [
+            {
+              "name": "Retrieve a list of schedules",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "76f2c35b-05c9-41d3-9541-d0119c71c623",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowschedules"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "",
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `workflow`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cb87b26-e7f8-4b96-8ca5-4d7f9d0f5e81",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"timezone\": \"Europe/Amsterdam\",",
+                      "        \"adjust_for_dst\": true,",
+                      "        \"frequency\": \"daily\",",
+                      "        \"frequency_modifier\": 2",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"workflowschedule_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "154ce697-b1f1-4ee2-b898-c77cb3fc0750",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": 10800,\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowschedules"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "5ce6e84d-69cc-4b99-a6c3-8a79cbf933ae",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"timezone\": \"Europe/Amsterdam\",",
+                      "        \"adjust_for_dst\": true,",
+                      "        \"frequency\": \"daily\",",
+                      "        \"frequency_modifier\": 2",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "1359f765-b49b-49df-8970-7b987db1e5f3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflowschedules",
+                    "{{workflowschedule_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "f9701b1e-56dc-4ad5-8ddc-4202d0cc0af3",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowschedule');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"timezone\": \"Europe/London\",",
+                      "        \"adjust_for_dst\": true,",
+                      "        \"frequency\": \"daily\",",
+                      "        \"frequency_modifier\": 2",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "18ed8fdd-f4e9-485e-a606-8470b7ce0ebf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowschedule\",\r\n    \"id\": \"{{workflowschedule_id}}\",\r\n    \"attributes\": {\r\n      \"timezone\": \"Europe/London\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}",
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a schedule",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "43015ed0-58cf-40ba-aa47-950a39d34893",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET workflowschedule_id');",
+                      "pm.environment.unset(\"workflowschedule_id\");",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "66d24aca-d359-412e-9e80-8cd4991b7293",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "7ac62937-0fe7-4780-8697-8a69fac8b820",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "92db3ac8-cdda-40c2-bfd2-51a20ab98901",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "165bde10-ad84-4cf5-a05c-96f680ee117e",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "5400e6af-73ef-4f73-8a6a-696a71de7ecf",
@@ -16237,7 +16236,7 @@
   ],
   "variable": [
     {
-      "id": "c99a8b8b-e669-4537-a639-04d6baef5799",
+      "id": "3e442d36-760a-4fe9-80a8-26b7b4baa92a",
       "key": "component",
       "value": "use",
       "type": "string"
