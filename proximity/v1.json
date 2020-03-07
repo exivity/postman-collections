@@ -12355,7 +12355,7 @@
                       "if (nextComponent) {",
                       "    postman.setNextRequest(\"Retrieve logfiles\");",
                       "} else {",
-                      "    postman.setNextRequest(\"Get audit trail\");",
+                      "    postman.setNextRequest(\"Get a full data dump\");",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -16230,7 +16230,7 @@
   ],
   "variable": [
     {
-      "id": "5e4079ba-7c9e-48b8-a65e-fa110d9ebb07",
+      "id": "e9271853-37f0-407d-b6ec-be41a3a68175",
       "key": "component",
       "value": "use",
       "type": "string"
