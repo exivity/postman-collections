@@ -10036,21 +10036,7 @@
     },
     {
       "name": "Notifications",
-      "item": [
-        {
-          "name": "Get all failed jobs",
-          "_postman_id": "3b18876f-55f1-430e-97d3-2343b306b80d",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": "{{base_url}}/v1/failed-jobs"
-          },
-          "response": []
-        }
-      ],
+      "item": [],
       "_postman_id": "b8fcdf1a-93c8-4b84-907c-9fea92676118",
       "description": "_Added in v2.2.0_",
       "event": [
@@ -14146,6 +14132,26 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "/failed-jobs",
+          "item": [
+            {
+              "name": "Get all failed jobs",
+              "_postman_id": "3b18876f-55f1-430e-97d3-2343b306b80d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{base_url}}/v1/failed-jobs"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "d18fd391-6b33-4905-9ed5-d75d155892bc",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "973e5c9a-8d8b-4f08-bb2a-d554819bd23e"
@@ -16188,7 +16194,7 @@
   ],
   "variable": [
     {
-      "id": "2580160b-4388-40f2-a753-279836467e75",
+      "id": "3ba1429b-92b4-4617-8bb0-fbb465217421",
       "key": "component",
       "value": "use",
       "type": "string"
