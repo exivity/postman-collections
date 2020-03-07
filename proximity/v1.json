@@ -5883,7 +5883,7 @@
       ]
     },
     {
-      "name": "Catalogue",
+      "name": "Services",
       "item": [
         {
           "name": "/servicecategories",
@@ -7800,7 +7800,29 @@
           "_postman_isSubFolder": true
         }
       ],
-      "_postman_id": "71932c96-2982-4373-9c17-10d23a9d292c"
+      "_postman_id": "71932c96-2982-4373-9c17-10d23a9d292c",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "7b699cdf-f049-4fdd-9bee-930cef85224d",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "id": "92b00d36-410c-4677-9781-978d9e19f6e6",
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
     },
     {
       "name": "Users",
@@ -16252,7 +16274,7 @@
   ],
   "variable": [
     {
-      "id": "ce4693ad-1ae5-4e60-8d76-9ef4045bcc97",
+      "id": "d8bd1915-64fd-43a3-9753-c795a5d0bc6c",
       "key": "component",
       "value": "use",
       "type": "string"
