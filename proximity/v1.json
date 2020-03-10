@@ -3281,6 +3281,348 @@
             }
           ],
           "_postman_isSubFolder": true
+        },
+        {
+          "name": "/servicesubscriptions",
+          "item": [
+            {
+              "name": "Retrieve a list of service subscriptions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bde1f0fa-d64a-4f38-b65c-97a2e4c82399",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicesubscriptions?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicesubscriptions"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `account`, `services`, `servicecategories`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new service subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ac5089c4-b302-43bb-ba74-764ab47386a3",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function() {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function() {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service_subscription');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"service_subscription_id\", response.data.id);",
+                      "console.log('SET service_subscription_id: ' + pm.environment.get(\"service_subscription_id\"));",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function() {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('test');",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
+                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function() {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5e875264-924a-4ba9-91fc-6bf3acf626bc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"service_subscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"1\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"1\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/servicesubscriptions"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a service subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "58a3df93-863a-45b5-9950-de83949f289d",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service_subscription');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_subscription_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('test');",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
+                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "72c6f121-50e9-4e05-863d-79b3cd4ac0b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}?include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicesubscriptions",
+                    "{{service_subscription_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources"
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a service subscriptions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c37dc956-0d32-4483-a6ba-2251968f9d9b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service_subscription');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_subscription_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('modified_test');",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(20.20);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(20.20);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(20.20);",
+                      "    pm.expect(response.data.attributes.type).to.eql('one_off');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-10');",
+                      "    pm.expect(response.data.attributes.end_date).to.be.undefined;",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('month');",
+                      "    pm.expect(response.data.attributes.instance).to.eql('exivity-updated');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0a1251f3-78dc-44ec-ac8c-b54a2401db0c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"service_subscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-01-10\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}",
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a service subscriptions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET service_subscription_id');",
+                      "pm.environment.unset(\"service_subscription_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "eba3052a-f9e7-4951-95ac-6f9c41c84a26",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "7b228dfa-2391-4054-bc79-b6a924143991",
+          "_postman_isSubFolder": true
         }
       ],
       "_postman_id": "71932c96-2982-4373-9c17-10d23a9d292c",
@@ -16230,7 +16572,7 @@
   ],
   "variable": [
     {
-      "id": "e9271853-37f0-407d-b6ec-be41a3a68175",
+      "id": "e01d5e53-b839-43dc-b88a-21f54ea56cb9",
       "key": "component",
       "value": "use",
       "type": "string"
