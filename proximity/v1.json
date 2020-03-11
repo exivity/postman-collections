@@ -3568,7 +3568,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"service_subscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-01-10\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-01-10\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -16572,7 +16572,7 @@
   ],
   "variable": [
     {
-      "id": "3f1d5f64-e693-45d8-abdb-700c8f28170a",
+      "id": "88336ebb-c7d6-4737-a9fd-6061595f1a8d",
       "key": "component",
       "value": "use",
       "type": "string"
