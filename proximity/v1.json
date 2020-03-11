@@ -14734,7 +14734,8 @@
                       "        \"proximity\",",
                       "        \"glass\",",
                       "        \"aeon\",",
-                      "        \"horizon\"",
+                      "        \"horizon\",",
+                      "        \"pigeon\"",
                       "    ]);",
                       "});"
                     ],
@@ -16582,7 +16583,7 @@
   ],
   "variable": [
     {
-      "id": "bf30db95-cdfd-45c1-925a-8ecf6b401ea1",
+      "id": "737681ad-6a45-4d1b-9b4c-84391ff76b52",
       "key": "component",
       "value": "use",
       "type": "string"
