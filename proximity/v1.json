@@ -14702,7 +14702,7 @@
               ]
             },
             {
-              "name": "Disclaimer",
+              "name": "Get third party licenses",
               "event": [
                 {
                   "listen": "test",
@@ -16572,7 +16572,7 @@
   ],
   "variable": [
     {
-      "id": "09c0b026-aa5f-4620-9760-b97ba7dbe9a5",
+      "id": "1ed40ab6-a4c9-4127-bbd7-b2125520ec96",
       "key": "component",
       "value": "use",
       "type": "string"
