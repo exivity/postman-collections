@@ -3594,6 +3594,8 @@
                   "script": {
                     "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
                     "exec": [
+                      "return;",
+                      "",
                       "pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});",
@@ -16580,7 +16582,7 @@
   ],
   "variable": [
     {
-      "id": "62a18b45-b59e-40d3-bf53-335481d1f09b",
+      "id": "bf30db95-cdfd-45c1-925a-8ecf6b401ea1",
       "key": "component",
       "value": "use",
       "type": "string"
