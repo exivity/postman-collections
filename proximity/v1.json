@@ -14747,7 +14747,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/system/disclaimer"
+                "url": "{{base_url}}/v1/system/third-party-licenses"
               },
               "response": [
                 {
@@ -16572,7 +16572,7 @@
   ],
   "variable": [
     {
-      "id": "8439ea65-a583-4eaf-a1e4-66a8d50ef1d7",
+      "id": "09c0b026-aa5f-4620-9760-b97ba7dbe9a5",
       "key": "component",
       "value": "use",
       "type": "string"
