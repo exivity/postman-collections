@@ -1143,17 +1143,20 @@
                 ],
                 "body": {
                   "mode": "urlencoded",
-                  "urlencoded": []
+                  "urlencoded": [],
+                  "options": {
+                    "urlencoded": {}
+                  }
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/prepare?start={{start}}&end={{end}}",
+                  "raw": "{{base_url}}/v1/reports/:report_id/prepare?start={{start}}&end={{end}}",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "reports",
-                    "{{report_id}}",
+                    ":report_id",
                     "prepare"
                   ],
                   "query": [
@@ -1166,6 +1169,13 @@
                       "key": "end",
                       "value": "{{end}}",
                       "description": "The end of the date range (inclusive) you want to prepare the report for in `YYYYMMDD` format."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "report_id",
+                      "value": "{{report_id}}",
+                      "type": "string"
                     }
                   ]
                 }
@@ -16583,7 +16593,7 @@
   ],
   "variable": [
     {
-      "id": "737681ad-6a45-4d1b-9b4c-84391ff76b52",
+      "id": "1d799809-9af3-40f9-a9e9-4e3e5662c6fc",
       "key": "component",
       "value": "use",
       "type": "string"
