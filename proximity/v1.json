@@ -14746,6 +14746,7 @@
                       "    // Debug ",
                       "    console.log(Object.keys(response));",
                       "    ",
+                      "    // Test",
                       "    pm.expect(response).to.be.an('object');",
                       "    pm.expect(response).to.have.keys([",
                       "        \"use\",",
@@ -16604,7 +16605,7 @@
   ],
   "variable": [
     {
-      "id": "20be4300-6417-4a13-b432-c32bdd707c8f",
+      "id": "7b82fb11-a60d-4c40-9dc0-e742370893ba",
       "key": "component",
       "value": "use",
       "type": "string"
