@@ -14744,6 +14744,7 @@
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response).to.be.an('object');",
+                      "    console.log(response)",
                       "    pm.expect(response).to.have.keys([",
                       "        \"use\",",
                       "        \"transcript\",",
@@ -16601,7 +16602,7 @@
   ],
   "variable": [
     {
-      "id": "5801d065-f3ef-47ab-89c0-406656a979af",
+      "id": "fe107b0f-5511-4358-84f7-8153fa74a450",
       "key": "component",
       "value": "use",
       "type": "string"
