@@ -1225,14 +1225,14 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/{{report_id}}/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options",
+                  "raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "reports",
-                    "{{report_id}}",
+                    ":report_id",
                     "run"
                   ],
                   "query": [
@@ -1300,6 +1300,13 @@
                       "key": "summary_options",
                       "value": null,
                       "description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "report_id",
+                      "value": "{{report_id}}",
+                      "type": "string"
                     }
                   ]
                 },
@@ -14743,6 +14750,7 @@
                       "        \"edify\",",
                       "        \"proximity\",",
                       "        \"glass\",",
+                      "        \"db\",",
                       "        \"aeon\",",
                       "        \"horizon\",",
                       "        \"pigeon\"",
@@ -16593,7 +16601,7 @@
   ],
   "variable": [
     {
-      "id": "1d799809-9af3-40f9-a9e9-4e3e5662c6fc",
+      "id": "5801d065-f3ef-47ab-89c0-406656a979af",
       "key": "component",
       "value": "use",
       "type": "string"
