@@ -8782,7 +8782,7 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"start_time\": \"2020-01-01T18:00:00Z\",",
                       "        \"timezone\": \"Europe/Amsterdam\",",
                       "        \"adjust_for_dst\": true,",
                       "        \"frequency\": \"daily\",",
@@ -16606,7 +16606,7 @@
   ],
   "variable": [
     {
-      "id": "8d238126-92da-49ae-bb67-cd5a08fdb684",
+      "id": "7c6b94d5-c52b-4538-81f8-b0bf38d74c7a",
       "key": "component",
       "value": "use",
       "type": "string"
