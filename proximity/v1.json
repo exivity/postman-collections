@@ -8868,7 +8868,7 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "        \"start_time\": \"1970-01-01T03:00:00Z\",",
+                      "        \"start_time\": \"2020-01-01T18:00:00Z\",",
                       "        \"timezone\": \"Europe/Amsterdam\",",
                       "        \"adjust_for_dst\": true,",
                       "        \"frequency\": \"daily\",",
@@ -16606,7 +16606,7 @@
   ],
   "variable": [
     {
-      "id": "3b49e643-1fd0-4450-a84b-a0d9bdc143d1",
+      "id": "97621542-7b2b-4901-9297-1077f7d65056",
       "key": "component",
       "value": "use",
       "type": "string"
