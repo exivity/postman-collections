@@ -8838,7 +8838,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": 10800,\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": \"2020-01-01T18:00:00Z\",\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -16605,7 +16605,7 @@
   ],
   "variable": [
     {
-      "id": "7b82fb11-a60d-4c40-9dc0-e742370893ba",
+      "id": "3000913d-e7a1-41c2-85d7-36a7151d8172",
       "key": "component",
       "value": "use",
       "type": "string"
