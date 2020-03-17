@@ -14757,7 +14757,8 @@
                       "        \"db\",",
                       "        \"aeon\",",
                       "        \"horizon\",",
-                      "        \"pigeon\"",
+                      "        \"pigeon\",",
+                      "        \"scaffold\"",
                       "    ]);",
                       "});"
                     ],
@@ -16605,7 +16606,7 @@
   ],
   "variable": [
     {
-      "id": "3000913d-e7a1-41c2-85d7-36a7151d8172",
+      "id": "8d238126-92da-49ae-bb67-cd5a08fdb684",
       "key": "component",
       "value": "use",
       "type": "string"
