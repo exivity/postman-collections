@@ -12571,7 +12571,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{  \r\n   \"configuration\":{  \r\n      \"TOKEN_TTL\": \"1 hour\"\r\n   }\r\n}",
+                  "raw": "{  \r\n   \"configuration\":{  \r\n      \"SUMMARY_EXTRA\": \"Updated from Postman Test\"\r\n   }\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -16609,7 +16609,7 @@
   ],
   "variable": [
     {
-      "id": "f5e70ecb-b9d6-4d25-9d8c-1f5e0229531e",
+      "id": "b1e7f4e3-611f-4ab5-a9c8-e250de484d78",
       "key": "component",
       "value": "use",
       "type": "string"
