@@ -11937,7 +11937,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"fd\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -16606,7 +16606,7 @@
   ],
   "variable": [
     {
-      "id": "78a6098f-4608-456e-bc96-ad91c79c578c",
+      "id": "c757c6bd-f982-4e83-9e6e-c94f04aaa76e",
       "key": "component",
       "value": "use",
       "type": "string"
