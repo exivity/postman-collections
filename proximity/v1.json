@@ -11937,7 +11937,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"super-34ssword\",\r\n\t\t\t\"account_access_type\": \"cusftom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -12571,7 +12571,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{  \r\n   \"configuration\":{  \r\n      \"SUMMARY_EXTRA\": \"Updated from Postman Test\"\r\n   }\r\n}"
+                  "raw": "{  \r\n   \"configuration\":{  \r\n      \"TOKEN_TTL\": \"1 hour\"\r\n   }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/configuration"
               },
@@ -16606,7 +16609,7 @@
   ],
   "variable": [
     {
-      "id": "d00ea7f0-0553-4204-9552-94c9b9e98a75",
+      "id": "f5e70ecb-b9d6-4d25-9d8c-1f5e0229531e",
       "key": "component",
       "value": "use",
       "type": "string"
