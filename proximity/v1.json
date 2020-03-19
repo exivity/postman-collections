@@ -12120,7 +12120,7 @@
                   },
                   {
                     "key": "Accept",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   }
                 ],
                 "body": {
@@ -16678,7 +16678,7 @@
   ],
   "variable": [
     {
-      "id": "9f830b97-d1ad-43b8-891e-2963c672010d",
+      "id": "ef94ad3a-99cc-4937-b15f-a8809b7d0644",
       "key": "component",
       "value": "use",
       "type": "string"
