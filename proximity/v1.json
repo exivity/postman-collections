@@ -10552,7 +10552,7 @@
               "response": []
             },
             {
-              "name": "Update the current user Copy",
+              "name": "Generate a new key",
               "event": [
                 {
                   "listen": "test",
@@ -16720,7 +16720,7 @@
   ],
   "variable": [
     {
-      "id": "2b10bb10-eb67-4b01-bcdf-717816c7fad3",
+      "id": "8847596c-8d85-42de-a713-958602f6a1f0",
       "key": "component",
       "value": "use",
       "type": "string"
