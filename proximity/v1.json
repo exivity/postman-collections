@@ -12066,42 +12066,6 @@
               "response": []
             },
             {
-              "name": "Delete a user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "76192ac4-5dad-4027-8f46-36932f8cf5a3",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET new_user_id');",
-                      "pm.environment.unset(\"new_user_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "918cd8ca-a9d9-51ee-b51f-9241939ed239",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
-              },
-              "response": []
-            },
-            {
               "name": "Update a user Copy",
               "event": [
                 {
@@ -12165,6 +12129,42 @@
                   "options": {
                     "raw": {}
                   }
+                },
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "76192ac4-5dad-4027-8f46-36932f8cf5a3",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET new_user_id');",
+                      "pm.environment.unset(\"new_user_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "918cd8ca-a9d9-51ee-b51f-9241939ed239",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
                 },
                 "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
@@ -16678,7 +16678,7 @@
   ],
   "variable": [
     {
-      "id": "c2937df5-75fb-4321-870f-fe91a10f960d",
+      "id": "d8975155-1129-40b0-b3ae-994f77fbb742",
       "key": "component",
       "value": "use",
       "type": "string"
