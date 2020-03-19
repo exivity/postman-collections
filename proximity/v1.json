@@ -12110,7 +12110,7 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "PATCH",
+                "method": "POST",
                 "header": [
                   {
                     "key": "Content-Type",
@@ -12130,7 +12130,7 @@
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
+                "url": "{{base_url}}/v1/users/key"
               },
               "response": []
             },
@@ -16678,7 +16678,7 @@
   ],
   "variable": [
     {
-      "id": "a213b132-bbd0-454d-a63f-99e0ca3c8d00",
+      "id": "9f830b97-d1ad-43b8-891e-2963c672010d",
       "key": "component",
       "value": "use",
       "type": "string"
