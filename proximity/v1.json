@@ -3131,7 +3131,7 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
@@ -3140,7 +3140,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"adjustment\",\r\n    \"id\": \"{{adjustment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"amount\": \"-20\",\r\n      \"type\": \"absolute\",\r\n      \"target\": \"quantity\",\r\n      \"first_interval\": \"2018-01\",\r\n      \"last_interval\": \"\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"adjustment\",\r\n    \"id\": \"{{adjustment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"amount\": \"-20\",\r\n      \"type\": \"absolute\",\r\n      \"target\": \"quantity\",\r\n      \"first_interval\": \"2018-01\",\r\n      \"last_interval\": \"\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/adjustments/:adjustment_id",
@@ -10536,7 +10539,7 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/vnd.api+json"
+                    "value": "application/json"
                   },
                   {
                     "key": "Accept",
@@ -10545,7 +10548,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/users/me"
               },
@@ -10567,22 +10573,8 @@
                       "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "  ]);",
-                      "  pm.expect(response.data.attributes.username).to.eql('admin');",
-                      "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "    pm.expect(response.result).to.be.a('string');",
+                      "    pm.expect(response.result).to.eql('rotated');",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -16713,7 +16705,7 @@
   ],
   "variable": [
     {
-      "id": "c41ffc95-e5ce-4d4f-ba96-1d1f8fe51a0d",
+      "id": "c06bfd6d-d57f-41b3-8745-023e5f3cdd6f",
       "key": "component",
       "value": "use",
       "type": "string"
