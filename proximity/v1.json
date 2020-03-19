@@ -10567,8 +10567,22 @@
                       "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.result).to.be.a('string');",
-                      "    pm.expect(response.result).to.eql('rotated');",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.username).to.eql('admin');",
+                      "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -16699,7 +16713,7 @@
   ],
   "variable": [
     {
-      "id": "c989f937-d841-45ac-bc2a-2486b5fe2b6a",
+      "id": "c41ffc95-e5ce-4d4f-ba96-1d1f8fe51a0d",
       "key": "component",
       "value": "use",
       "type": "string"
