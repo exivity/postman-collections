@@ -10664,6 +10664,71 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Update the current user Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "  ]);",
+                      "  pm.expect(response.data.attributes.username).to.eql('admin');",
+                      "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f9ec946a-4d5b-4cfe-bff5-cfd0e320afc1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/users/me"
+              },
+              "response": []
             }
           ],
           "_postman_id": "84ab7421-7254-5ad6-0695-a938e8b80bd5",
@@ -12081,24 +12146,8 @@
                       "console.log(response);",
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "    ]);",
-                      "    pm.expect(response.data.attributes.username).to.include('modified_user');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('someone+modified');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                      "    pm.expect(response.data.attributes.account_access_type).to.eql('all');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "    pm.expect(response.result).to.be.a('string');",
+                      "    pm.expect(response.result).to.eql('rotated');",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -16671,7 +16720,7 @@
   ],
   "variable": [
     {
-      "id": "97410dd4-ecb4-4570-8763-27364b31dcd8",
+      "id": "ceba167d-2408-4717-8b91-59ce47bc8137",
       "key": "component",
       "value": "use",
       "type": "string"
