@@ -12125,7 +12125,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
+                  "raw": "",
                   "options": {
                     "raw": {}
                   }
@@ -16678,7 +16678,7 @@
   ],
   "variable": [
     {
-      "id": "ef94ad3a-99cc-4937-b15f-a8809b7d0644",
+      "id": "ae99194b-d7d9-4030-84c1-7735a2074ffd",
       "key": "component",
       "value": "use",
       "type": "string"
