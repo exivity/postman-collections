@@ -12123,14 +12123,7 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/users/key"
+                "url": "{{base_url}}/v1/users/{{new_user_id}}/key"
               },
               "response": []
             },
@@ -16678,7 +16671,7 @@
   ],
   "variable": [
     {
-      "id": "ae99194b-d7d9-4030-84c1-7735a2074ffd",
+      "id": "97410dd4-ecb4-4570-8763-27364b31dcd8",
       "key": "component",
       "value": "use",
       "type": "string"
