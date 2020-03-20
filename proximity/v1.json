@@ -440,7 +440,8 @@
                     "urlencoded": {}
                   }
                 },
-                "url": "{{base_url}}/v1/auth/token"
+                "url": "{{base_url}}/v1/auth/token",
+                "description": "Available since v3.0.0"
               },
               "response": []
             }
@@ -16771,7 +16772,7 @@
   ],
   "variable": [
     {
-      "id": "ee0a96fb-9230-4d88-8264-523826281a77",
+      "id": "2b22b630-414e-47a5-9b13-06afa1f085d7",
       "key": "component",
       "value": "use",
       "type": "string"
