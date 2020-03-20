@@ -402,7 +402,7 @@
               "response": []
             },
             {
-              "name": "Refresh token Copy",
+              "name": "Revoke token",
               "event": [
                 {
                   "listen": "test",
@@ -16781,7 +16781,7 @@
   ],
   "variable": [
     {
-      "id": "8b69462b-8ae0-4bdb-8e4e-1a8f9751230e",
+      "id": "d84737b1-f59f-48b0-851a-c0f0b57dc543",
       "key": "component",
       "value": "use",
       "type": "string"
