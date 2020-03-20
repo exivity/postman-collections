@@ -10664,7 +10664,8 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/users/me/key"
+                "url": "{{base_url}}/v1/users/me/key",
+                "description": "Available since v3.0.0"
               },
               "response": []
             },
@@ -16772,7 +16773,7 @@
   ],
   "variable": [
     {
-      "id": "2b22b630-414e-47a5-9b13-06afa1f085d7",
+      "id": "c4152cf4-02e7-48f8-8e55-6c063cedbf82",
       "key": "component",
       "value": "use",
       "type": "string"
