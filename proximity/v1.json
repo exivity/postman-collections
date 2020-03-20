@@ -409,29 +409,12 @@
                   "script": {
                     "id": "c2941f4d-1136-48a9-8b5c-fbba812d3212",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains token\", function () {",
-                      "    pm.expect(response.token).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains user\", function () {",
-                      "    pm.expect(response.user).to.be.an('object');",
-                      "    pm.expect(response.user.id).to.not.be.undefined;",
-                      "    pm.expect(response.user.username).to.eql(\"admin\");",
-                      "    pm.expect(response.user).to.have.property('email_address');",
-                      "    pm.expect(response.user).to.have.property('account_access_type');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains permissions\", function () {",
-                      "    pm.expect(response.permissions).to.be.an('array')",
-                      "    pm.expect(response.permissions).to.eql([\"*\"]);",
-                      "});"
+                      "console.log('UNSET token');",
+                      "pm.environment.unset(\"token\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -442,13 +425,8 @@
                 "disableBodyPruning": true
               },
               "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
+                "method": "DELETE",
+                "header": [],
                 "body": {
                   "mode": "urlencoded",
                   "urlencoded": [],
@@ -456,24 +434,7 @@
                     "urlencoded": {}
                   }
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/auth/token?app",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "auth",
-                    "token"
-                  ],
-                  "query": [
-                    {
-                      "key": "app",
-                      "value": null,
-                      "description": "The client to retrieve the state for. Leave empty to not retrieve state (default), or specify`glass`, `lens`."
-                    }
-                  ]
-                }
+                "url": "{{base_url}}/v1/auth/token"
               },
               "response": []
             }
@@ -16781,7 +16742,7 @@
   ],
   "variable": [
     {
-      "id": "d84737b1-f59f-48b0-851a-c0f0b57dc543",
+      "id": "3837338d-52d0-403b-830a-329e8fab8b71",
       "key": "component",
       "value": "use",
       "type": "string"
