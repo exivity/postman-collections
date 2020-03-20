@@ -400,6 +400,82 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Refresh token Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c2941f4d-1136-48a9-8b5c-fbba812d3212",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains token\", function () {",
+                      "    pm.expect(response.token).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains user\", function () {",
+                      "    pm.expect(response.user).to.be.an('object');",
+                      "    pm.expect(response.user.id).to.not.be.undefined;",
+                      "    pm.expect(response.user.username).to.eql(\"admin\");",
+                      "    pm.expect(response.user).to.have.property('email_address');",
+                      "    pm.expect(response.user).to.have.property('account_access_type');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains permissions\", function () {",
+                      "    pm.expect(response.permissions).to.be.an('array')",
+                      "    pm.expect(response.permissions).to.eql([\"*\"]);",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "e41f4517-3a0d-43b1-a20c-bf54c3640822",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [],
+                  "options": {
+                    "urlencoded": {}
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/auth/token?app",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "auth",
+                    "token"
+                  ],
+                  "query": [
+                    {
+                      "key": "app",
+                      "value": null,
+                      "description": "The client to retrieve the state for. Leave empty to not retrieve state (default), or specify`glass`, `lens`."
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ],
           "_postman_id": "9579f7a2-499c-4082-8370-f2dafb272b86",
@@ -16705,7 +16781,7 @@
   ],
   "variable": [
     {
-      "id": "c06bfd6d-d57f-41b3-8745-023e5f3cdd6f",
+      "id": "8b69462b-8ae0-4bdb-8e4e-1a8f9751230e",
       "key": "component",
       "value": "use",
       "type": "string"
