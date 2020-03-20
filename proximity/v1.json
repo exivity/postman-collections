@@ -426,7 +426,13 @@
               },
               "request": {
                 "method": "DELETE",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "urlencoded",
                   "urlencoded": [],
@@ -16742,7 +16748,7 @@
   ],
   "variable": [
     {
-      "id": "3837338d-52d0-403b-830a-329e8fab8b71",
+      "id": "37e754c5-f049-4d95-9ada-87d14df658c7",
       "key": "component",
       "value": "use",
       "type": "string"
