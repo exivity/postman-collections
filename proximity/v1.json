@@ -3695,6 +3695,29 @@
             }
           ],
           "_postman_id": "7b228dfa-2391-4054-bc79-b6a924143991",
+          "description": "Available since v3.0.0",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "0a74fe97-24a0-4ff9-8706-af1801c253ff",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "0cae8730-cc3e-4b93-b332-3fa8fd6c8d9b",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         }
       ],
@@ -16748,7 +16771,7 @@
   ],
   "variable": [
     {
-      "id": "0dac3dae-b5ac-49af-bcc6-9798a5651682",
+      "id": "ee0a96fb-9230-4d88-8264-523826281a77",
       "key": "component",
       "value": "use",
       "type": "string"
