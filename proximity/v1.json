@@ -414,7 +414,7 @@
                       "});",
                       "",
                       "console.log('UNSET token');",
-                      "// pm.environment.unset(\"token\");"
+                      "pm.environment.unset(\"token\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -16748,7 +16748,7 @@
   ],
   "variable": [
     {
-      "id": "cb70dd30-9e8d-489b-8a1b-31812fa8b6c9",
+      "id": "0dac3dae-b5ac-49af-bcc6-9798a5651682",
       "key": "component",
       "value": "use",
       "type": "string"
