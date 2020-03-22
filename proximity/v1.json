@@ -11799,7 +11799,7 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/json"
+                    "value": "application/vnd.api+json"
                   },
                   {
                     "key": "Accept",
@@ -11809,7 +11809,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_subscription\",\r\n\t\t\"id\": {{notification_subscritpion_id}},\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Super important budget overruns\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_subscription\",\r\n\t\t\"id\": {{notification_subscritpion_id}},\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Super important budget overruns\"\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/notificationsubscriptions/{{notification_subscritpion_id}}"
               },
@@ -16840,7 +16843,7 @@
   ],
   "variable": [
     {
-      "id": "0d277520-b16c-4b5a-a319-2f779b212cee",
+      "id": "333c0685-06e6-4d97-b064-5a27990ad9e8",
       "key": "component",
       "value": "use",
       "type": "string"
