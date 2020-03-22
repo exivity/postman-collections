@@ -12445,7 +12445,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -12455,7 +12455,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/usergroups"
               },
@@ -16843,7 +16846,7 @@
   ],
   "variable": [
     {
-      "id": "be608a96-c4e6-45ce-a76a-d9011202fe9e",
+      "id": "c4e8cfef-3d65-4be8-a9e1-129be78099ec",
       "key": "component",
       "value": "use",
       "type": "string"
