@@ -5418,7 +5418,7 @@
                     "key": "Content-Type",
                     "name": "Content-Type",
                     "type": "text",
-                    "value": "application/json"
+                    "value": "application/vnd.api+json"
                   },
                   {
                     "key": "Accept",
@@ -5427,7 +5427,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": false,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": false,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/budgetitems"
               },
@@ -5635,7 +5638,7 @@
                     "key": "Content-Type",
                     "name": "Content-Type",
                     "type": "text",
-                    "value": "application/json"
+                    "value": "application/vnd.api+json"
                   },
                   {
                     "key": "Accept",
@@ -5644,7 +5647,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"id\":\"{{budgetitem_id}}\",\n        \"attributes\": {\n            \"amount\": 100\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"id\":\"{{budgetitem_id}}\",\n        \"attributes\": {\n            \"amount\": 100\n        }\n    }\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgetitems/:budgetitem_id",
@@ -16807,7 +16813,7 @@
   ],
   "variable": [
     {
-      "id": "34d9ef8f-eb3b-4932-8d04-51a564e9160b",
+      "id": "34f15cd1-a1bc-4a95-9b82-36667e1f79e5",
       "key": "component",
       "value": "use",
       "type": "string"
