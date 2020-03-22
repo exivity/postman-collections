@@ -1122,7 +1122,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -1594,13 +1594,16 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   }
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/servicecategories"
               },
@@ -16786,7 +16789,7 @@
   ],
   "variable": [
     {
-      "id": "b6cf9449-72e1-4dd7-bf6b-335c31df09f0",
+      "id": "0036d323-f142-4d0b-a1da-b387eb241ab4",
       "key": "component",
       "value": "use",
       "type": "string"
