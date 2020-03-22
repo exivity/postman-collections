@@ -7670,7 +7670,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -7680,7 +7680,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/metadatadefinitions"
               },
@@ -8656,7 +8659,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -8666,7 +8669,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n\t\t\"name\": \"modified test\",\r\n\t\t\"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n\t\t\"name\": \"modified test\",\r\n\t\t\"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
               },
@@ -16825,7 +16831,7 @@
   ],
   "variable": [
     {
-      "id": "240930e5-7b6e-435f-b691-9fbb69a308f6",
+      "id": "306b43d7-e444-46e5-949b-4c6df9610bb8",
       "key": "component",
       "value": "use",
       "type": "string"
