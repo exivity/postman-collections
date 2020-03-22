@@ -4622,7 +4622,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -4632,7 +4632,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"id\": \"{{budget_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"description\": \"modified_test\",\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"id\": \"{{budget_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"description\": \"modified_test\",\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgets/:budget_id",
@@ -16801,7 +16804,7 @@
   ],
   "variable": [
     {
-      "id": "5d50c76b-876f-40e4-9140-2f364e2ef08f",
+      "id": "d5327d53-4dbf-4a12-aafa-e2516971dd21",
       "key": "component",
       "value": "use",
       "type": "string"
