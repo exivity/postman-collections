@@ -2111,7 +2111,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -2121,7 +2121,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/services"
               },
@@ -2296,7 +2299,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -16780,7 +16783,7 @@
   ],
   "variable": [
     {
-      "id": "c9aa59d0-6988-4b5b-8bb3-d9994f3909af",
+      "id": "a26da8bf-4e4b-4598-859a-3b300200592d",
       "key": "component",
       "value": "use",
       "type": "string"
