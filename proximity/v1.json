@@ -7670,7 +7670,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/vnd.api+json",
+                    "value": "application/json",
                     "type": "text"
                   },
                   {
@@ -7680,10 +7680,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/metadatadefinitions"
               },
@@ -7790,16 +7787,13 @@
                 }
               ],
               "_postman_id": "97b59b2f-8e87-432e-b29c-d41eba7ccc27",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
               "request": {
                 "method": "PATCH",
                 "header": [
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/vnd.api+json",
+                    "value": "application/json",
                     "type": "text"
                   },
                   {
@@ -7809,10 +7803,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition - {{$guid}}\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"city\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition - {{$guid}}\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"city\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/metadatadefinitions/:metadata_definition_id",
@@ -16828,7 +16819,7 @@
   ],
   "variable": [
     {
-      "id": "92247176-978e-4ec9-a578-f2678c7b7a03",
+      "id": "25893739-a9f0-4d33-ba72-e4316aeff957",
       "key": "component",
       "value": "use",
       "type": "string"
