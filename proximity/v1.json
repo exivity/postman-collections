@@ -7787,13 +7787,16 @@
                 }
               ],
               "_postman_id": "97b59b2f-8e87-432e-b29c-d41eba7ccc27",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "PATCH",
                 "header": [
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -7803,7 +7806,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition - {{$guid}}\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"city\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition - {{$guid}}\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"city\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/metadatadefinitions/:metadata_definition_id",
@@ -16819,7 +16825,7 @@
   ],
   "variable": [
     {
-      "id": "25893739-a9f0-4d33-ba72-e4316aeff957",
+      "id": "240930e5-7b6e-435f-b691-9fbb69a308f6",
       "key": "component",
       "value": "use",
       "type": "string"
