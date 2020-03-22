@@ -4477,7 +4477,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -4487,7 +4487,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"description\": \"This is a new budget\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : \"{{report_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"budget\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"interval\": \"year\",\r\n\t\t\t\"description\": \"This is a new budget\",\r\n\t\t\t\"metric\": \"cogs\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\"  : \"{{report_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/budgets"
               },
@@ -16798,7 +16801,7 @@
   ],
   "variable": [
     {
-      "id": "99567197-d38e-4f07-b981-faa529bf99a2",
+      "id": "5d50c76b-876f-40e4-9140-2f364e2ef08f",
       "key": "component",
       "value": "use",
       "type": "string"
