@@ -9473,7 +9473,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -9555,7 +9555,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -16831,7 +16831,7 @@
   ],
   "variable": [
     {
-      "id": "386914d9-5484-49a1-8c7e-d7c0edbb40fb",
+      "id": "39bd8af5-fe7e-4d64-ab39-59ec629ab8b7",
       "key": "component",
       "value": "use",
       "type": "string"
