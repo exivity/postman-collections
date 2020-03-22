@@ -4021,7 +4021,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -4031,7 +4031,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"{{report_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"{{report_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/accounts"
               },
@@ -16792,7 +16795,7 @@
   ],
   "variable": [
     {
-      "id": "a4835711-6aff-4cb0-82dd-c65232bc0155",
+      "id": "aa39b4d2-a0cc-4c42-ac5a-0b375818670e",
       "key": "component",
       "value": "use",
       "type": "string"
