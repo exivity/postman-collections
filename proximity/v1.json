@@ -5770,7 +5770,7 @@
                     "key": "Content-Type",
                     "name": "Content-Type",
                     "type": "text",
-                    "value": "application/json"
+                    "value": "application/vnd.api+json"
                   },
                   {
                     "key": "Accept",
@@ -5779,7 +5779,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"operations\": [\n\t\t{\n\t\t\t\"op\": \"add\",\n\t\t\t\"data\": {\n\t\t        \"type\":\"budgetitem\",\n\t\t        \"attributes\": {\n\t\t            \"kind\": \"account\",\n\t\t            \"status\": \"regular\",\n\t\t            \"percent\": 0,\n\t\t            \"distribution\": \"even\",\n\t\t            \"filter\": \"none\"\n\t\t        },\n\t\t        \"relationships\": {\n\t\t        \t\"revision\": {\n\t\t        \t\t\"data\": {\n\t\t        \t\t\t\"type\": \"budgetrevision\",\n\t\t        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n\t\t        \t\t}\n\t\t        \t},\n\t\t        \t\"account\": {\n\t\t        \t\t\"data\": {\n\t\t        \t\t\t\"type\": \"account\",\n\t\t        \t\t\t\"id\": \"{{account_id}}\"\n\t\t        \t\t}\n\t\t        \t}\n\t\t        }\n\t\t    }\n\t\t},\n\t\t{\n\t\t\t\"op\": \"delete\",\n            \"data\": {\n            \t\"type\": \"budgetitem\",\n            \t\"id\": \"{{item_id}}\"\n            }\n\t\t},\n\t\t{\n\t\t\t\"op\":\"update\",\n            \"data\": {\n                \"type\": \"budgetitem\",\n                \"attributes\": {\n                    \"kind\": \"service\"\n                }\n            }\n\t\t}\n\t]\n}\n"
+                  "raw": "{\n\t\"operations\": [\n\t\t{\n\t\t\t\"op\": \"add\",\n\t\t\t\"data\": {\n\t\t        \"type\":\"budgetitem\",\n\t\t        \"attributes\": {\n\t\t            \"kind\": \"account\",\n\t\t            \"status\": \"regular\",\n\t\t            \"percent\": 0,\n\t\t            \"distribution\": \"even\",\n\t\t            \"filter\": \"none\"\n\t\t        },\n\t\t        \"relationships\": {\n\t\t        \t\"revision\": {\n\t\t        \t\t\"data\": {\n\t\t        \t\t\t\"type\": \"budgetrevision\",\n\t\t        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n\t\t        \t\t}\n\t\t        \t},\n\t\t        \t\"account\": {\n\t\t        \t\t\"data\": {\n\t\t        \t\t\t\"type\": \"account\",\n\t\t        \t\t\t\"id\": \"{{account_id}}\"\n\t\t        \t\t}\n\t\t        \t}\n\t\t        }\n\t\t    }\n\t\t},\n\t\t{\n\t\t\t\"op\": \"delete\",\n            \"data\": {\n            \t\"type\": \"budgetitem\",\n            \t\"id\": \"{{item_id}}\"\n            }\n\t\t},\n\t\t{\n\t\t\t\"op\":\"update\",\n            \"data\": {\n                \"type\": \"budgetitem\",\n                \"attributes\": {\n                    \"kind\": \"service\"\n                }\n            }\n\t\t}\n\t]\n}\n",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/budgetitems"
               },
@@ -16813,7 +16816,7 @@
   ],
   "variable": [
     {
-      "id": "34f15cd1-a1bc-4a95-9b82-36667e1f79e5",
+      "id": "2dd3b50b-0bc9-4e51-85db-6e3855f7166c",
       "key": "component",
       "value": "use",
       "type": "string"
