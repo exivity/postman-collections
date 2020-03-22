@@ -4234,7 +4234,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -4244,7 +4244,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"My new account name\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"account\",\r\n    \"id\": \"{{account_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"My new account name\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/accounts/{{account_id}}"
               },
@@ -16795,7 +16798,7 @@
   ],
   "variable": [
     {
-      "id": "aa39b4d2-a0cc-4c42-ac5a-0b375818670e",
+      "id": "99567197-d38e-4f07-b981-faa529bf99a2",
       "key": "component",
       "value": "use",
       "type": "string"
