@@ -11361,7 +11361,7 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/json"
+                    "value": "application/vnd.api+json"
                   },
                   {
                     "key": "Accept",
@@ -11371,7 +11371,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notificationchannel\",\r\n\t\t\"id\": \"{{notification_channel_id}}\",\r\n\t\t\"attributes\": {\r\n            \"info\": {\r\n            \t\"recipient\": \"anybody@exivity.com\"\r\n        \t}\r\n        }\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notificationchannel\",\r\n\t\t\"id\": \"{{notification_channel_id}}\",\r\n\t\t\"attributes\": {\r\n            \"info\": {\r\n            \t\"recipient\": \"anybody@exivity.com\"\r\n        \t}\r\n        }\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/notificationchannels/{{notification_channel_id}}"
               },
@@ -16834,7 +16837,7 @@
   ],
   "variable": [
     {
-      "id": "0cee59c1-97ba-44df-823f-b290e1da1c26",
+      "id": "6085afce-6885-4034-a25a-243cc3ab671c",
       "key": "component",
       "value": "use",
       "type": "string"
