@@ -1122,7 +1122,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -1594,13 +1594,16 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   }
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/servicecategories"
               },
@@ -1757,7 +1760,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -1767,7 +1770,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n        \"type\":\"servicecategory\",\r\n        \"id\": \"{{servicecategory_id}}\",\r\n        \"attributes\": {\r\n            \"name\": \"Test serice category - {{$randomInt}}\"\r\n        }\r\n    }\r\n}\r\n"
+                  "raw": "{\r\n\t\"data\": {\r\n        \"type\":\"servicecategory\",\r\n        \"id\": \"{{servicecategory_id}}\",\r\n        \"attributes\": {\r\n            \"name\": \"Test serice category - {{$randomInt}}\"\r\n        }\r\n    }\r\n}\r\n",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/servicecategories/:servicecategory_id",
@@ -2111,7 +2117,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -2121,7 +2127,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/services"
               },
@@ -3043,7 +3052,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -3053,7 +3062,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/adjustments"
               },
@@ -16780,7 +16792,7 @@
   ],
   "variable": [
     {
-      "id": "041d3717-ea5b-4003-affe-d543b8f64f16",
+      "id": "348c089b-b677-4873-b15a-ac2b82450f94",
       "key": "component",
       "value": "use",
       "type": "string"
