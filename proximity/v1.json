@@ -2638,7 +2638,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -2648,7 +2648,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/rates",
                 "description": "Account specific rates can be created through this endpoint by specifying the `account` relationship in the request body, e.g.:\n\n```\n\"relationships\": {\n\t\"service\": { ... },\n\t\"account\": {\n\t\t\"data\": {\n\t\t\t\"type\": \"account\",\n\t\t\t\"id\": \"1\"\n\t\t}\n\t}\n}\n```"
@@ -16777,7 +16780,7 @@
   ],
   "variable": [
     {
-      "id": "1c71e54d-42f3-42e1-ace2-3a3fb57b47df",
+      "id": "c9aa59d0-6988-4b5b-8bb3-d9994f3909af",
       "key": "component",
       "value": "use",
       "type": "string"
