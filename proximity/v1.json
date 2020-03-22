@@ -2815,7 +2815,7 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/json",
+                    "value": "application/vnd.api+json",
                     "type": "text"
                   },
                   {
@@ -2825,7 +2825,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n      \r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n      \r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/rates/{{rate_id}}"
               },
@@ -16774,7 +16777,7 @@
   ],
   "variable": [
     {
-      "id": "5adc2157-1914-425a-8128-828f41e09646",
+      "id": "1c71e54d-42f3-42e1-ace2-3a3fb57b47df",
       "key": "component",
       "value": "use",
       "type": "string"
