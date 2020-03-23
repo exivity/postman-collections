@@ -766,7 +766,6 @@
               "listen": "test",
               "script": {
                 "id": "a70358e1-1354-46b3-a2c1-d38115b89779",
-                "type": "text/javascript",
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
@@ -775,7 +774,25 @@
                   "pm.test(\"Response contains pong\", function () {",
                   "    pm.expect(pm.response.text()).to.contain(\"pong\");",
                   "});"
-                ]
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "9df07bfd-541d-418f-857c-27379d24db25",
+                "exec": [
+                  "const api = eval(pm.globals.get('exivity'))();\r",
+                  "\r",
+                  "api.start()\r",
+                  "    .then(api.requireToken)\r",
+                  "    .then(api.ready)\r",
+                  "    .catch(function(err) {\r",
+                  "        console.log(err);\r",
+                  "    });"
+                ],
+                "type": "text/javascript"
               }
             }
           ],
@@ -783,10 +800,6 @@
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "formdata",
-              "formdata": []
-            },
             "url": "{{base_url}}/v1/auth/ping"
           },
           "response": []
@@ -16846,7 +16859,7 @@
   ],
   "variable": [
     {
-      "id": "36ee437b-d8cd-4f29-add8-0d195b2e6324",
+      "id": "adf36a7f-ad47-4ed0-ad80-5d9f0ed43d26",
       "key": "component",
       "value": "use",
       "type": "string"
