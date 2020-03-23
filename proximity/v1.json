@@ -15708,9 +15708,29 @@
                 ],
                 "body": {
                   "mode": "formdata",
-                  "formdata": []
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
                 },
-                "url": "{{base_url}}/v1/environments/{{environment_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/environments/:environment_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "environments",
+                    ":environment_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "environment_id",
+                      "value": "{{environment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -16859,7 +16879,7 @@
   ],
   "variable": [
     {
-      "id": "db32227f-b113-4e52-8c6c-fe7dbe5874f2",
+      "id": "ffd1b4fc-5a97-4483-972a-720b1e4ba949",
       "key": "component",
       "value": "use",
       "type": "string"
