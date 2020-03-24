@@ -11822,7 +11822,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notification_subscription\",\r\n\t\t\"id\": {{notification_subscritpion_id}},\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Super important budget overruns\"\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"notificationsubscription\",\r\n\t\t\"id\": \"{{notification_subscritpion_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Super important budget overruns\"\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -16879,7 +16879,7 @@
   ],
   "variable": [
     {
-      "id": "29a5efae-59bd-461f-92e4-1fbf03bf218b",
+      "id": "2dc96834-0958-4c6d-9892-656b5a359f70",
       "key": "component",
       "value": "use",
       "type": "string"
