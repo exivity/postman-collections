@@ -15697,7 +15697,8 @@
                       "    pm.expect(response.errors[0].title).to.eql('ValidationException');",
                       "    pm.expect(response.errors[0].detail).to.eql(\"Can't delete the default environment.\");",
                       "});",
-                      ""
+                      "",
+                      "// Save"
                     ],
                     "type": "text/javascript"
                   }
@@ -16905,7 +16906,7 @@
   ],
   "variable": [
     {
-      "id": "527eff74-eede-41ac-b23b-677caac63f94",
+      "id": "6e16ff93-c49d-42da-97a0-25236c8e96df",
       "key": "component",
       "value": "use",
       "type": "string"
