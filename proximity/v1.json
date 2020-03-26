@@ -10580,58 +10580,7 @@
       "item": [
         {
           "name": "/users/me",
-          "item": [
-            {
-              "name": "Delete the current users app state",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c6c40b6e-d813-4009-83e8-8e35a1e5dd42",
-                    "type": "text/javascript",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});"
-                    ]
-                  }
-                }
-              ],
-              "_postman_id": "88623d4f-fe3f-4b8c-99cc-1f3b2fd7cd2e",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": ""
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/users/me/state?app=glass",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "users",
-                    "me",
-                    "state"
-                  ],
-                  "query": [
-                    {
-                      "key": "app",
-                      "value": "glass"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
+          "item": [],
           "_postman_id": "84ab7421-7254-5ad6-0695-a938e8b80bd5",
           "event": [
             {
@@ -12034,6 +11983,56 @@
                           "key": "app",
                           "value": "glass",
                           "description": "The client to update the state for. One of `glass`, `lens`."
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Delete the current users app state",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "c6c40b6e-d813-4009-83e8-8e35a1e5dd42",
+                        "type": "text/javascript",
+                        "exec": [
+                          "pm.test(\"Status code is 204\", function () {",
+                          "    pm.response.to.have.status(204);",
+                          "});"
+                        ]
+                      }
+                    }
+                  ],
+                  "_postman_id": "88623d4f-fe3f-4b8c-99cc-1f3b2fd7cd2e",
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/v1/users/me/state?app=glass",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "users",
+                        "me",
+                        "state"
+                      ],
+                      "query": [
+                        {
+                          "key": "app",
+                          "value": "glass"
                         }
                       ]
                     }
@@ -16970,7 +16969,7 @@
   ],
   "variable": [
     {
-      "id": "4c92a02c-a148-428b-9ad4-5611688b5ba3",
+      "id": "6ffa1636-1621-42c2-80c0-324fe70355dd",
       "key": "component",
       "value": "use",
       "type": "string"
