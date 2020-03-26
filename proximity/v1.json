@@ -10579,77 +10579,8 @@
       "name": "Profile",
       "item": [
         {
-          "name": "/users/mee",
+          "name": "/users/me",
           "item": [
-            {
-              "name": "Retrieve the current user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "78fd66fb-62f9-46c3-ae3a-380572d44554",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "  ]);",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"user_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "c5f5ac48-fe62-4cc2-aef1-bc37ec6d9113",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "d80b7694-8ce8-ab7c-24a2-8f38deba8eee",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": "{{base_url}}/v1/users/me"
-              },
-              "response": []
-            },
             {
               "name": "Update the current user",
               "event": [
@@ -12398,6 +12329,75 @@
                   "formdata": []
                 },
                 "url": "{{base_url}}/v1/users/{{new_user_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve the current user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "78fd66fb-62f9-46c3-ae3a-380572d44554",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "  ]);",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"user_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "c5f5ac48-fe62-4cc2-aef1-bc37ec6d9113",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d80b7694-8ce8-ab7c-24a2-8f38deba8eee",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/users/me"
               },
               "response": []
             }
@@ -16963,7 +16963,7 @@
   ],
   "variable": [
     {
-      "id": "e630d6de-9e81-4823-8fea-56629fcf97d7",
+      "id": "f2192cc5-494b-4d61-bac8-acb5427a99b1",
       "key": "component",
       "value": "use",
       "type": "string"
