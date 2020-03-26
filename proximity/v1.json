@@ -12038,6 +12038,12 @@
           "name": "/users",
           "item": [
             {
+              "name": "users-me",
+              "item": [],
+              "_postman_id": "e891290d-6258-419f-9b51-ad14ae870321",
+              "_postman_isSubFolder": true
+            },
+            {
               "name": "Retrieve a list of users",
               "event": [
                 {
@@ -16963,7 +16969,7 @@
   ],
   "variable": [
     {
-      "id": "2b635edc-fb80-42d6-8c11-02a6b836b84f",
+      "id": "96bcab43-55ad-46b1-add1-74c6ad5d9466",
       "key": "component",
       "value": "use",
       "type": "string"
