@@ -16274,7 +16274,6 @@
           "            var encodedValue = encodeURIComponent(details[property]);",
           "            formBody.push(encodedKey + \"=\" + encodedValue);",
           "        }",
-          "        formBody = formBody.join(\"&\");",
           "",
           "        // Generate token",
           "        return api.asyncRequest({",
@@ -16285,14 +16284,7 @@
           "                'Accept': 'application/json',",
           "                'Content-Type': 'application/x-www-form-urlencoded'",
           "            },",
-          "            body: formBody",
-          "          ",
-          "               // mode: 'raw',",
-          "               // raw: JSON.stringify({",
-          "               //      \"username\":pm.environment.get(\"username\"),",
-          "               //      \"password\":pm.environment.get(\"password\")",
-          "              //  })",
-          "",
+          "            body: formBody.join(\"&\")",
           "        }).then(function (response) {",
           "            if (!pm.expect(response).to.have.property('code', 200)) {",
           "                throw new Error(response);",
@@ -16918,7 +16910,7 @@
   ],
   "variable": [
     {
-      "id": "cd8462ac-0b15-481b-a755-8ca0d642d930",
+      "id": "839cfcc5-0298-4018-8607-8d1905dc5210",
       "key": "component",
       "value": "use",
       "type": "string"
