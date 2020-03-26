@@ -15751,7 +15751,7 @@
                     "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
                     "exec": [
                       "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(240);",
+                      "    pm.response.to.have.status(204);",
                       "});",
                       "",
                       "console.log('UNSET environment_id');",
@@ -16968,7 +16968,7 @@
   ],
   "variable": [
     {
-      "id": "49c14425-1c1c-458f-bdae-a9b12fdf57e0",
+      "id": "73500351-573b-4ef4-8af8-51659000d092",
       "key": "component",
       "value": "use",
       "type": "string"
