@@ -10582,68 +10582,6 @@
           "name": "/users/me",
           "item": [
             {
-              "name": "Update the current user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "  ]);",
-                      "  pm.expect(response.data.attributes.username).to.eql('admin');",
-                      "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "761c676d-26cc-9a13-e3cb-8d2571bf67f3",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/users/me"
-              },
-              "response": []
-            },
-            {
               "name": "Generate a new key",
               "event": [
                 {
@@ -12036,6 +11974,68 @@
                         "value": "application/vnd.api+json"
                       }
                     ],
+                    "url": "{{base_url}}/v1/users/me"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update the current user",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.data).to.be.an('object');",
+                          "    pm.expect(response.data.type).to.eql('user');",
+                          "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
+                          "    pm.expect(response.data.attributes).to.be.an('object');",
+                          "    pm.expect(response.data.attributes).to.have.keys([",
+                          "        \"username\",",
+                          "        \"email_address\",",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
+                          "  ]);",
+                          "  pm.expect(response.data.attributes.username).to.eql('admin');",
+                          "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
+                          "});",
+                          "",
+                          "pm.test(\"Response contains data.links\", function () {",
+                          "    pm.expect(response.data.links).to.be.an('object');",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "761c676d-26cc-9a13-e3cb-8d2571bf67f3",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
                     "url": "{{base_url}}/v1/users/me"
                   },
                   "response": []
@@ -16970,7 +16970,7 @@
   ],
   "variable": [
     {
-      "id": "0dcea51a-86bd-4491-b92b-d552a4ed5e50",
+      "id": "b0755e72-7329-4ee9-a890-29863ed54181",
       "key": "component",
       "value": "use",
       "type": "string"
