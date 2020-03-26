@@ -10582,6 +10582,52 @@
           "name": "/users/me",
           "item": [
             {
+              "name": "Generate a new key",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.result).to.be.a('string');",
+                      "    pm.expect(response.result).to.eql('rotated');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "f9ec946a-4d5b-4cfe-bff5-cfd0e320afc1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/users/me/key",
+                "description": "Available since v3.0.0"
+              },
+              "response": []
+            },
+            {
               "name": "Update the current users app state",
               "event": [
                 {
@@ -11991,52 +12037,6 @@
                       }
                     },
                     "url": "{{base_url}}/v1/users/me"
-                  },
-                  "response": []
-                },
-                {
-                  "name": "Generate a new key",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "b7299b10-8228-4b15-8e1c-c440ba059ab9",
-                        "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
-                          "",
-                          "const response = pm.response.json();",
-                          "console.log(response);",
-                          "",
-                          "pm.test(\"Response contains correct data\", function () {",
-                          "    pm.expect(response.result).to.be.a('string');",
-                          "    pm.expect(response.result).to.eql('rotated');",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "f9ec946a-4d5b-4cfe-bff5-cfd0e320afc1",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json",
-                        "disabled": true
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "url": "{{base_url}}/v1/users/me/key",
-                    "description": "Available since v3.0.0"
                   },
                   "response": []
                 }
@@ -16970,7 +16970,7 @@
   ],
   "variable": [
     {
-      "id": "3218847e-6ea0-4ca9-8870-4d22391cbb6d",
+      "id": "2c9a3285-6e57-4bb0-b661-6b58ac3ccc47",
       "key": "component",
       "value": "use",
       "type": "string"
