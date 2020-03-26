@@ -16271,7 +16271,7 @@
           "            method: 'POST',",
           "            header: {",
           "                'Accept': 'application/json',",
-          "                'Content-Type': 'application/json'",
+          "                'Content-Type': 'application/x-www-form-urlencoded'",
           "            },",
           "            body: {",
           "                mode: 'raw',",
@@ -16851,7 +16851,7 @@
           "            return pm.environment.get(\"usergroup_id\");",
           "        });",
           "    };",
-          "    ",
+          "",
           "    api.requireDset = function () {",
           "        console.log('requireDset()');",
           "",
@@ -16905,7 +16905,7 @@
   ],
   "variable": [
     {
-      "id": "b1c298bb-b5fb-4ced-a92c-5360693aa098",
+      "id": "bf144822-a2e6-4603-97fd-6efbbd6c7bc2",
       "key": "component",
       "value": "use",
       "type": "string"
