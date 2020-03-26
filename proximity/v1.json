@@ -11718,7 +11718,7 @@
           "name": "/users",
           "item": [
             {
-              "name": "users-me",
+              "name": "/users/me",
               "item": [
                 {
                   "name": "Retrieve the current user",
@@ -11920,6 +11920,26 @@
                         ],
                         "type": "text/javascript"
                       }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "0b79d903-38a4-402f-9bad-87cbd4320a59",
+                        "exec": [
+                          "pm.environment.unset(\"token\");",
+                          "",
+                          "const api = eval(pm.globals.get('exivity'))();",
+                          "",
+                          "api.start()",
+                          "    .then(api.requireToken)",
+                          "    .then(api.ready)",
+                          "    .catch(function(err) {",
+                          "        console.log(err);",
+                          "    });",
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
                     }
                   ],
                   "_postman_id": "954f38ca-d6c5-4541-9573-4bd73293cc09",
@@ -11937,7 +11957,10 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n\t\"state\": {\r\n\t\t\"key\": \"value\"\r\n\t}\r\n}"
+                      "raw": "{\r\n\t\"state\": {\r\n\t\t\"key\": \"value\"\r\n\t}\r\n}",
+                      "options": {
+                        "raw": {}
+                      }
                     },
                     "url": {
                       "raw": "{{base_url}}/v1/users/me/state?app=glass",
@@ -16941,7 +16964,7 @@
   ],
   "variable": [
     {
-      "id": "930ea496-478f-49fb-920f-eca0d1163225",
+      "id": "4c10cd1e-5d9c-45d2-9a0c-2a649b30941d",
       "key": "component",
       "value": "use",
       "type": "string"
