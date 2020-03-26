@@ -11718,7 +11718,7 @@
           "name": "/users",
           "item": [
             {
-              "name": "/users/me",
+              "name": "users-me",
               "item": [
                 {
                   "name": "Retrieve the current user",
@@ -16941,7 +16941,7 @@
   ],
   "variable": [
     {
-      "id": "ea0121e7-81f0-4316-b2c6-941618068b99",
+      "id": "930ea496-478f-49fb-920f-eca0d1163225",
       "key": "component",
       "value": "use",
       "type": "string"
