@@ -15737,20 +15737,25 @@
                   "script": {
                     "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
                     "exec": [
-                      "pm.test(\"Status code is 422\", function () {",
-                      "    pm.response.to.have.status(422);",
+                      "pm.test(\"Status code is 500\", function () {",
+                      "    pm.response.to.have.status(500);",
                       "});",
+                      "",
+                      "// pm.test(\"Status code is 422\", function () {",
+                      "//     pm.response.to.have.status(422);",
+                      "// });",
                       "",
                       "const response = pm.response.json();",
                       "console.log(response);",
+                      "pm.environment.unset(\"environment_id\");",
                       "",
-                      "// Can't delete default environment",
-                      "pm.test(\"Response contains error\", function () {",
-                      "    pm.expect(response.errors).to.be.an('array');",
-                      "    pm.expect(response.errors[0].status).to.eql(422);",
-                      "    pm.expect(response.errors[0].title).to.eql('ValidationException');",
-                      "    pm.expect(response.errors[0].detail).to.eql(\"Can't delete the default environment.\");",
-                      "});",
+                      "// // Can't delete default environment",
+                      "// pm.test(\"Response contains error\", function () {",
+                      "//     pm.expect(response.errors).to.be.an('array');",
+                      "//     pm.expect(response.errors[0].status).to.eql(422);",
+                      "//     pm.expect(response.errors[0].title).to.eql('ValidationException');",
+                      "//     pm.expect(response.errors[0].detail).to.eql(\"Can't delete the default environment.\");",
+                      "// });",
                       ""
                     ],
                     "type": "text/javascript"
@@ -16964,7 +16969,7 @@
   ],
   "variable": [
     {
-      "id": "4c10cd1e-5d9c-45d2-9a0c-2a649b30941d",
+      "id": "aed938a8-1521-4112-bdfb-7df03f8ab592",
       "key": "component",
       "value": "use",
       "type": "string"
