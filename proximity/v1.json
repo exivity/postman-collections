@@ -16274,11 +16274,11 @@
           "                'Content-Type': 'application/x-www-form-urlencoded'",
           "            },",
           "            body: {",
-          "                mode: 'raw',",
-          "                raw: JSON.stringify({",
+          "               // mode: 'raw',",
+          "               // raw: JSON.stringify({",
           "                    \"username\":pm.environment.get(\"username\"),",
           "                    \"password\":pm.environment.get(\"password\")",
-          "                })",
+          "              //  })",
           "            }",
           "        }).then(function (response) {",
           "            if (!pm.expect(response).to.have.property('code', 200)) {",
@@ -16905,7 +16905,7 @@
   ],
   "variable": [
     {
-      "id": "bf144822-a2e6-4603-97fd-6efbbd6c7bc2",
+      "id": "5d6c27e4-f9f2-4c6d-9593-af9c0700864d",
       "key": "component",
       "value": "use",
       "type": "string"
