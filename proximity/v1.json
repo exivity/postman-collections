@@ -10745,7 +10745,8 @@
                 "header": [
                   {
                     "key": "Content-Type",
-                    "value": "application/json"
+                    "value": "application/json",
+                    "disabled": true
                   },
                   {
                     "key": "Accept",
@@ -16962,7 +16963,7 @@
   ],
   "variable": [
     {
-      "id": "cffbf69c-eb3a-4340-b03b-82c35e340339",
+      "id": "6e21baad-bb26-4d0b-a873-1ab5bee93cc0",
       "key": "component",
       "value": "use",
       "type": "string"
