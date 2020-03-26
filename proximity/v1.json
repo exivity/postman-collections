@@ -15750,26 +15750,12 @@
                   "script": {
                     "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
                     "exec": [
-                      "pm.test(\"Status code is 500\", function () {",
-                      "    pm.response.to.have.status(500);",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(240);",
                       "});",
                       "",
-                      "// pm.test(\"Status code is 422\", function () {",
-                      "//     pm.response.to.have.status(422);",
-                      "// });",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "pm.environment.unset(\"environment_id\");",
-                      "",
-                      "// // Can't delete default environment",
-                      "// pm.test(\"Response contains error\", function () {",
-                      "//     pm.expect(response.errors).to.be.an('array');",
-                      "//     pm.expect(response.errors[0].status).to.eql(422);",
-                      "//     pm.expect(response.errors[0].title).to.eql('ValidationException');",
-                      "//     pm.expect(response.errors[0].detail).to.eql(\"Can't delete the default environment.\");",
-                      "// });",
-                      ""
+                      "console.log('UNSET environment_id');",
+                      "pm.environment.unset(\"environment_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -16982,7 +16968,7 @@
   ],
   "variable": [
     {
-      "id": "be403529-f180-48cc-9917-8b9ee85260bf",
+      "id": "49c14425-1c1c-458f-bdae-a9b12fdf57e0",
       "key": "component",
       "value": "use",
       "type": "string"
