@@ -10579,7 +10579,7 @@
       "name": "Profile",
       "item": [
         {
-          "name": "/users/me",
+          "name": "/users/mee",
           "item": [
             {
               "name": "Retrieve the current user",
@@ -16963,7 +16963,7 @@
   ],
   "variable": [
     {
-      "id": "6e21baad-bb26-4d0b-a873-1ab5bee93cc0",
+      "id": "e630d6de-9e81-4823-8fea-56629fcf97d7",
       "key": "component",
       "value": "use",
       "type": "string"
