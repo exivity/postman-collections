@@ -15457,6 +15457,24 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "984ed2d3-35cc-4362-928a-22968dd1754e",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });\r",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "_postman_id": "a4671a36-1981-4ba5-ad14-43b5a4a77fb4",
@@ -15483,32 +15501,27 @@
                   "query": [
                     {
                       "key": "page[limit]",
-                      "value": "",
-                      "type": "text",
+                      "value": null,
                       "description": "Limit the amount of results returned"
                     },
                     {
                       "key": "page[offset]",
-                      "value": "",
-                      "type": "text",
+                      "value": null,
                       "description": "Return this page of the results"
                     },
                     {
                       "key": "sort",
-                      "value": "",
-                      "type": "text",
+                      "value": null,
                       "description": "Sort results by this attribute"
                     },
                     {
                       "key": "filter[attribute]",
-                      "value": "",
-                      "type": "text",
+                      "value": null,
                       "description": "Filter results by this attribute"
                     },
                     {
                       "key": "include",
                       "value": "",
-                      "type": "text",
                       "description": "Include additional related resources. Possible values: `variables`."
                     }
                   ]
@@ -16969,7 +16982,7 @@
   ],
   "variable": [
     {
-      "id": "aed938a8-1521-4112-bdfb-7df03f8ab592",
+      "id": "070317ad-86b2-450e-af62-a7bc0efcf6b3",
       "key": "component",
       "value": "use",
       "type": "string"
