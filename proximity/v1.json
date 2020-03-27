@@ -12755,6 +12755,11 @@
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "key": "Origin",
+                    "value": "fewfew",
+                    "type": "text"
                   }
                 ],
                 "url": "{{base_url}}/v1/configuration"
@@ -16968,7 +16973,7 @@
   ],
   "variable": [
     {
-      "id": "d20a4f8d-14bd-4916-b6c7-7d833276701e",
+      "id": "8e42a926-7680-408c-81e1-0c48f41bb0e6",
       "key": "component",
       "value": "use",
       "type": "string"
