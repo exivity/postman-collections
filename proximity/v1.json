@@ -720,7 +720,6 @@
                   "listen": "test",
                   "script": {
                     "id": "f4eee408-ebc9-439a-9e1d-aea35a6afba2",
-                    "type": "text/javascript",
                     "exec": [
                       "// pm.test(\"Status code is 200\", function () {",
                       "//     pm.response.to.have.status(200);",
@@ -732,7 +731,18 @@
                       "//     pm.expect(response.token).to.be.a('string');",
                       "// });",
                       ""
-                    ]
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "84174bab-9c5a-49a0-9ca1-da9c0913bf31",
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -754,7 +764,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"token\": \"{{reset_token}}\",\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\",\n\t\"password_confirmation\": \"{{password_confirmation}}\"\n}"
+                  "raw": "{\n\t\"token\": \"{{reset_token}}\",\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\",\n\t\"password_confirmation\": \"{{password_confirmation}}\"\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/auth/resetpassword",
                 "description": "Using token sent in email"
@@ -16977,7 +16990,7 @@
   ],
   "variable": [
     {
-      "id": "35d010c2-6859-4469-82ad-10af7af512c2",
+      "id": "36838c55-666c-40ac-8830-1370c8298687",
       "key": "component",
       "value": "use",
       "type": "string"
