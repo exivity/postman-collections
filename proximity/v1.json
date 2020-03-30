@@ -790,9 +790,14 @@
                   "    pm.response.to.have.status(200);",
                   "});",
                   "",
+                  "const response = pm.response.text();",
+                  "console.log(response);",
+                  "",
+                  "",
                   "pm.test(\"Response contains pong\", function () {",
                   "    pm.expect(pm.response.text()).to.contain(\"pong\");",
-                  "});"
+                  "});",
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -802,6 +807,9 @@
               "script": {
                 "id": "9df07bfd-541d-418f-857c-27379d24db25",
                 "exec": [
+                  "pm.environment.set(\"username\", \"admin\");\r",
+                  "pm.environment.set(\"password\", \"exivity\");\r",
+                  "\r",
                   "const api = eval(pm.globals.get('exivity'))();\r",
                   "\r",
                   "api.start()\r",
@@ -16990,7 +16998,7 @@
   ],
   "variable": [
     {
-      "id": "36838c55-666c-40ac-8830-1370c8298687",
+      "id": "6c012903-3899-487b-9e3a-d05e572f1a13",
       "key": "component",
       "value": "use",
       "type": "string"
