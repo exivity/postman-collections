@@ -205,10 +205,13 @@
                       "value": "{{password}}",
                       "warning": ""
                     }
-                  ]
+                  ],
+                  "options": {
+                    "urlencoded": {}
+                  }
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/auth/token?app=",
+                  "raw": "{{base_url}}/v1/auth/token?app=g",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -220,7 +223,7 @@
                   "query": [
                     {
                       "key": "app",
-                      "value": "",
+                      "value": "g",
                       "description": "The client to retrieve the state for. Leave empty to not retrieve state (default), or specify`glass`, `lens`."
                     }
                   ]
@@ -12755,11 +12758,6 @@
                   {
                     "key": "Accept",
                     "value": "application/json"
-                  },
-                  {
-                    "key": "Origin",
-                    "value": "fewfew",
-                    "type": "text"
                   }
                 ],
                 "url": "{{base_url}}/v1/configuration"
@@ -16973,7 +16971,7 @@
   ],
   "variable": [
     {
-      "id": "8e42a926-7680-408c-81e1-0c48f41bb0e6",
+      "id": "3058b185-479e-4dfd-9df2-29b6faa466f6",
       "key": "component",
       "value": "use",
       "type": "string"
