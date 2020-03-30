@@ -14025,9 +14025,9 @@
                       "script": {
                         "id": "691603e3-ca06-4b11-bd78-11b28338be01",
                         "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
+                          "// pm.test(\"Status code is 200\", function () {",
+                          "//     pm.response.to.have.status(200);",
+                          "// });",
                           "/*",
                           "const response = pm.response.json();",
                           "",
@@ -14056,7 +14056,10 @@
                     ],
                     "body": {
                       "mode": "formdata",
-                      "formdata": []
+                      "formdata": [],
+                      "options": {
+                        "formdata": {}
+                      }
                     },
                     "url": "{{base_url}}/v1/system/environment/"
                   },
@@ -16974,7 +16977,7 @@
   ],
   "variable": [
     {
-      "id": "dfeead33-1361-4e2d-a608-2c56357a7d67",
+      "id": "81748118-b756-40e6-9dc1-7935130b592d",
       "key": "component",
       "value": "use",
       "type": "string"
