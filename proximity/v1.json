@@ -680,7 +680,7 @@
                   "script": {
                     "id": "5a1783b8-2070-4c41-b866-e58a93a42cee",
                     "exec": [
-                      "//pm.environment.set(\"email_address\", \"tester@exivity.com\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -16974,7 +16974,7 @@
   ],
   "variable": [
     {
-      "id": "57c101c1-9ce4-4907-81e3-1cba0319a2d3",
+      "id": "dfeead33-1361-4e2d-a608-2c56357a7d67",
       "key": "component",
       "value": "use",
       "type": "string"
