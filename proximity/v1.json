@@ -211,7 +211,7 @@
                   }
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/auth/token?app=g",
+                  "raw": "{{base_url}}/v1/auth/token?app=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -223,7 +223,7 @@
                   "query": [
                     {
                       "key": "app",
-                      "value": "g",
+                      "value": "",
                       "description": "The client to retrieve the state for. Leave empty to not retrieve state (default), or specify`glass`, `lens`."
                     }
                   ]
@@ -16971,7 +16971,7 @@
   ],
   "variable": [
     {
-      "id": "3058b185-479e-4dfd-9df2-29b6faa466f6",
+      "id": "3199e587-4925-44e5-938a-e1b02771d592",
       "key": "component",
       "value": "use",
       "type": "string"
