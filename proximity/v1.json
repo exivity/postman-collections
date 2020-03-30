@@ -12376,7 +12376,10 @@
                 ],
                 "body": {
                   "mode": "formdata",
-                  "formdata": []
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
@@ -16998,7 +17001,7 @@
   ],
   "variable": [
     {
-      "id": "6c012903-3899-487b-9e3a-d05e572f1a13",
+      "id": "8199d1e4-49db-4f8e-a895-260873c1fd23",
       "key": "component",
       "value": "use",
       "type": "string"
