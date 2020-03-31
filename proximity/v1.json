@@ -12066,12 +12066,6 @@
               "_postman_isSubFolder": true
             },
             {
-              "name": "/user/other",
-              "item": [],
-              "_postman_id": "110691d4-0cc7-478f-ae85-9ef0b486bd76",
-              "_postman_isSubFolder": true
-            },
-            {
               "name": "Retrieve a list of users",
               "event": [
                 {
@@ -17007,7 +17001,7 @@
   ],
   "variable": [
     {
-      "id": "417f01fa-824c-44bc-90f2-aaa4a532cc2a",
+      "id": "76dc7a47-2315-41d0-8441-ec2a0ff385a6",
       "key": "component",
       "value": "use",
       "type": "string"
