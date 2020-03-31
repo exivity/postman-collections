@@ -12069,59 +12069,6 @@
               "name": "/user/other",
               "item": [
                 {
-                  "name": "Retrieve a user",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "a5de2d85-33a6-4a79-92c8-7ebd2a490fa7",
-                        "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
-                          "",
-                          "const response = pm.response.json();",
-                          "console.log(response);",
-                          "",
-                          "pm.test(\"Response contains correct data\", function () {",
-                          "    pm.expect(response.data).to.be.an('object');",
-                          "    pm.expect(response.data.type).to.eql('user');",
-                          "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
-                          "    pm.expect(response.data.attributes).to.be.an('object');",
-                          "    pm.expect(response.data.attributes).to.have.keys([",
-                          "        \"username\",",
-                          "        \"email_address\",",
-                          "        \"account_access_type\",",
-                          "        \"source\"",
-                          "    ]);",
-                          "    pm.expect(response.data.attributes.username).to.include('User');",
-                          "    pm.expect(response.data.attributes.email_address).to.include('someone');",
-                          "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                          "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
-                          "});",
-                          "",
-                          "pm.test(\"Response contains data.links\", function () {",
-                          "    pm.expect(response.data.links).to.be.an('object');",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "479a55e3-3716-7311-d743-fe041ecff160",
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/vnd.api+json"
-                      }
-                    ],
-                    "url": "{{base_url}}/v1/users/{{new_user_id}}"
-                  },
-                  "response": []
-                },
-                {
                   "name": "Generate a new key",
                   "event": [
                     {
@@ -12436,6 +12383,59 @@
                   }
                 },
                 "url": "{{base_url}}/v1/users"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "a5de2d85-33a6-4a79-92c8-7ebd2a490fa7",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "    ]);",
+                      "    pm.expect(response.data.attributes.username).to.include('User');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('someone');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                      "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "479a55e3-3716-7311-d743-fe041ecff160",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
               "response": []
             }
@@ -17008,7 +17008,7 @@
   ],
   "variable": [
     {
-      "id": "3307779e-07a9-476f-ac5d-43d9f749ba4c",
+      "id": "24552e0a-cfc2-4dd1-a069-f78a59791bb0",
       "key": "component",
       "value": "use",
       "type": "string"
