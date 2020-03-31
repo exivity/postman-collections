@@ -12060,79 +12060,6 @@
                     }
                   },
                   "response": []
-                }
-              ],
-              "_postman_id": "e891290d-6258-419f-9b51-ad14ae870321",
-              "_postman_isSubFolder": true
-            },
-            {
-              "name": "/user/other",
-              "item": [
-                {
-                  "name": "Update a user",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
-                        "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
-                          "",
-                          "const response = pm.response.json();",
-                          "console.log(response);",
-                          "",
-                          "pm.test(\"Response contains correct data\", function () {",
-                          "    pm.expect(response.data).to.be.an('object');",
-                          "    pm.expect(response.data.type).to.eql('user');",
-                          "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
-                          "    pm.expect(response.data.attributes).to.be.an('object');",
-                          "    pm.expect(response.data.attributes).to.have.keys([",
-                          "        \"username\",",
-                          "        \"email_address\",",
-                          "        \"account_access_type\",",
-                          "        \"source\"",
-                          "    ]);",
-                          "    pm.expect(response.data.attributes.username).to.include('modified_user');",
-                          "    pm.expect(response.data.attributes.email_address).to.include('someone+modified');",
-                          "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                          "    pm.expect(response.data.attributes.account_access_type).to.eql('all');",
-                          "});",
-                          "",
-                          "pm.test(\"Response contains data.links\", function () {",
-                          "    pm.expect(response.data.links).to.be.an('object');",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "4e87d63e-9383-c548-b212-aeea5aa1270d",
-                  "request": {
-                    "method": "PATCH",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "value": "application/vnd.api+json",
-                        "type": "text"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/vnd.api+json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
-                      "options": {
-                        "raw": {}
-                      }
-                    },
-                    "url": "{{base_url}}/v1/users/{{new_user_id}}"
-                  },
-                  "response": []
                 },
                 {
                   "name": "Delete a user",
@@ -12174,6 +12101,12 @@
                   "response": []
                 }
               ],
+              "_postman_id": "e891290d-6258-419f-9b51-ad14ae870321",
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "/user/other",
+              "item": [],
               "_postman_id": "110691d4-0cc7-478f-ae85-9ef0b486bd76",
               "_postman_isSubFolder": true
             },
@@ -12436,6 +12369,72 @@
                 ],
                 "url": "{{base_url}}/v1/users/{{new_user_id}}/key",
                 "description": "Available since v3.0.0"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('user');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.have.keys([",
+                      "        \"username\",",
+                      "        \"email_address\",",
+                      "        \"account_access_type\",",
+                      "        \"source\"",
+                      "    ]);",
+                      "    pm.expect(response.data.attributes.username).to.include('modified_user');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('someone+modified');",
+                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                      "    pm.expect(response.data.attributes.account_access_type).to.eql('all');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "4e87d63e-9383-c548-b212-aeea5aa1270d",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
               "response": []
             }
@@ -17008,7 +17007,7 @@
   ],
   "variable": [
     {
-      "id": "2b61af90-7ebc-49cd-9222-408e301d95f4",
+      "id": "c15ecfa2-8e56-4177-8cb6-664b20f573d6",
       "key": "component",
       "value": "use",
       "type": "string"
