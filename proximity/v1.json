@@ -12060,54 +12060,9 @@
                     }
                   },
                   "response": []
-                },
-                {
-                  "name": "Delete a user",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "76192ac4-5dad-4027-8f46-36932f8cf5a3",
-                        "exec": [
-                          "pm.test(\"Status code is 204\", function () {",
-                          "    pm.response.to.have.status(204);",
-                          "});",
-                          "",
-                          "console.log('UNSET new_user_id');",
-                          "pm.environment.unset(\"new_user_id\");"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "918cd8ca-a9d9-51ee-b51f-9241939ed239",
-                  "request": {
-                    "method": "DELETE",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "formdata",
-                      "formdata": [],
-                      "options": {
-                        "formdata": {}
-                      }
-                    },
-                    "url": "{{base_url}}/v1/users/{{new_user_id}}"
-                  },
-                  "response": []
                 }
               ],
               "_postman_id": "e891290d-6258-419f-9b51-ad14ae870321",
-              "_postman_isSubFolder": true
-            },
-            {
-              "name": "/user/other",
-              "item": [],
-              "_postman_id": "110691d4-0cc7-478f-ae85-9ef0b486bd76",
               "_postman_isSubFolder": true
             },
             {
@@ -12432,6 +12387,45 @@
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/users/{{new_user_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a user",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "76192ac4-5dad-4027-8f46-36932f8cf5a3",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET new_user_id');",
+                      "pm.environment.unset(\"new_user_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "918cd8ca-a9d9-51ee-b51f-9241939ed239",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
                   }
                 },
                 "url": "{{base_url}}/v1/users/{{new_user_id}}"
@@ -14481,7 +14475,6 @@
                   "listen": "test",
                   "script": {
                     "id": "691603e3-ca06-4b11-bd78-11b28338be01",
-                    "type": "text/javascript",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -14496,7 +14489,25 @@
                       "        \"flags\"",
                       "    ]);",
                       "});"
-                    ]
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "49fab34e-80bd-4612-a62d-0a8a6d07ad40",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
                   }
                 }
               ],
@@ -14509,10 +14520,6 @@
                     "value": "application/json"
                   }
                 ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
                 "url": "{{base_url}}/v1/system"
               },
               "response": [
@@ -17007,7 +17014,7 @@
   ],
   "variable": [
     {
-      "id": "11eb1e90-e914-4541-876b-4413ad077587",
+      "id": "8d74269f-640c-4274-a37c-738fcea367c4",
       "key": "component",
       "value": "use",
       "type": "string"
