@@ -12140,265 +12140,265 @@
                     "description": "Test description"
                   },
                   "response": []
+                },
+                {
+                  "name": "Add a new user",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "4d4d1b04-d640-486e-b489-609853ae7217",
+                        "exec": [
+                          "pm.test(\"Status code is 201\", function () {",
+                          "    pm.response.to.have.status(201);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.data).to.be.an('object');",
+                          "    pm.expect(response.data.type).to.eql('user');",
+                          "    pm.expect(response.data.id).to.not.be.undefined;",
+                          "    pm.expect(response.data.attributes).to.be.an('object');",
+                          "    pm.expect(response.data.attributes).to.have.keys([",
+                          "        \"username\",",
+                          "        \"email_address\",",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
+                          "    ]);",
+                          "    pm.expect(response.data.attributes.username).to.include('User');",
+                          "    pm.expect(response.data.attributes.email_address).to.include('someone');",
+                          "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                          "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
+                          "});",
+                          "",
+                          "pm.test(\"Response contains data.links\", function () {",
+                          "    pm.expect(response.data.links).to.be.an('object');",
+                          "});",
+                          "",
+                          "pm.environment.set(\"new_user_id\", response.data.id);",
+                          "console.log('SET new_user_id: ' + pm.environment.get(\"new_user_id\"));",
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "964341b9-fd31-4ea7-a3b8-f78f3cdb5d20",
+                        "exec": [
+                          "const api = eval(pm.globals.get('exivity'))();\r",
+                          "\r",
+                          "api.start()\r",
+                          "    .then(api.requireToken)\r",
+                          "    .then(api.requireUsergroup)\r",
+                          "    .then(api.ready)\r",
+                          "    .catch(function(err) {\r",
+                          "        console.log(err);\r",
+                          "    });\r",
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "5dbf53a0-24cc-f213-6eb0-96137e5f3fef",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/vnd.api+json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{base_url}}/v1/users"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Retrieve a user",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "a5de2d85-33a6-4a79-92c8-7ebd2a490fa7",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.data).to.be.an('object');",
+                          "    pm.expect(response.data.type).to.eql('user');",
+                          "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
+                          "    pm.expect(response.data.attributes).to.be.an('object');",
+                          "    pm.expect(response.data.attributes).to.have.keys([",
+                          "        \"username\",",
+                          "        \"email_address\",",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
+                          "    ]);",
+                          "    pm.expect(response.data.attributes.username).to.include('User');",
+                          "    pm.expect(response.data.attributes.email_address).to.include('someone');",
+                          "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                          "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
+                          "});",
+                          "",
+                          "pm.test(\"Response contains data.links\", function () {",
+                          "    pm.expect(response.data.links).to.be.an('object');",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "479a55e3-3716-7311-d743-fe041ecff160",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "url": "{{base_url}}/v1/users/{{new_user_id}}"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Generate a new key",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.result).to.be.a('string');",
+                          "    pm.expect(response.result).to.eql('rotated');",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "96fd2e9b-b959-4e6c-a8a5-06c40483598c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": "{{base_url}}/v1/users/{{new_user_id}}/key",
+                    "description": "Available since v3.0.0"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Update a user",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.data).to.be.an('object');",
+                          "    pm.expect(response.data.type).to.eql('user');",
+                          "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
+                          "    pm.expect(response.data.attributes).to.be.an('object');",
+                          "    pm.expect(response.data.attributes).to.have.keys([",
+                          "        \"username\",",
+                          "        \"email_address\",",
+                          "        \"account_access_type\",",
+                          "        \"source\"",
+                          "    ]);",
+                          "    pm.expect(response.data.attributes.username).to.include('modified_user');",
+                          "    pm.expect(response.data.attributes.email_address).to.include('someone+modified');",
+                          "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
+                          "    pm.expect(response.data.attributes.account_access_type).to.eql('all');",
+                          "});",
+                          "",
+                          "pm.test(\"Response contains data.links\", function () {",
+                          "    pm.expect(response.data.links).to.be.an('object');",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "4e87d63e-9383-c548-b212-aeea5aa1270d",
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/vnd.api+json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{base_url}}/v1/users/{{new_user_id}}"
+                  },
+                  "response": []
                 }
               ],
               "_postman_id": "110691d4-0cc7-478f-ae85-9ef0b486bd76",
               "_postman_isSubFolder": true
-            },
-            {
-              "name": "Add a new user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "4d4d1b04-d640-486e-b489-609853ae7217",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "    ]);",
-                      "    pm.expect(response.data.attributes.username).to.include('User');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('someone');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                      "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"new_user_id\", response.data.id);",
-                      "console.log('SET new_user_id: ' + pm.environment.get(\"new_user_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "964341b9-fd31-4ea7-a3b8-f78f3cdb5d20",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.requireUsergroup)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });\r",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5dbf53a0-24cc-f213-6eb0-96137e5f3fef",
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/vnd.api+json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"user\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"username\": \"User - {{$randomInt}}\",\r\n\t\t\t\"email_address\": \"someone_{{$randomInt}}@exivity.com\",\r\n\t\t\t\"password\": \"super-complex-password\",\r\n\t\t\t\"account_access_type\": \"custom\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"usergroup\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"usergroup\",\r\n\t\t\t\t\t\"id\": \"{{usergroup_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/users"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "a5de2d85-33a6-4a79-92c8-7ebd2a490fa7",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "    ]);",
-                      "    pm.expect(response.data.attributes.username).to.include('User');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('someone');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                      "    pm.expect(response.data.attributes.account_access_type).to.eql('custom');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "479a55e3-3716-7311-d743-fe041ecff160",
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Generate a new key",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.result).to.be.a('string');",
-                      "    pm.expect(response.result).to.eql('rotated');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "96fd2e9b-b959-4e6c-a8a5-06c40483598c",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "url": "{{base_url}}/v1/users/{{new_user_id}}/key",
-                "description": "Available since v3.0.0"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a user",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('user');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"new_user_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.have.keys([",
-                      "        \"username\",",
-                      "        \"email_address\",",
-                      "        \"account_access_type\",",
-                      "        \"source\"",
-                      "    ]);",
-                      "    pm.expect(response.data.attributes.username).to.include('modified_user');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('someone+modified');",
-                      "    pm.expect(response.data.attributes.email_address).to.include('@exivity.com');",
-                      "    pm.expect(response.data.attributes.account_access_type).to.eql('all');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "4e87d63e-9383-c548-b212-aeea5aa1270d",
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "value": "application/vnd.api+json",
-                    "type": "text"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"username\": \"modified_user - {{$randomInt}}\",\r\n      \"email_address\": \"someone+modified_{{$randomInt}}@exivity.com\",\r\n      \"account_access_type\": \"all\"\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
-              },
-              "response": []
             },
             {
               "name": "Delete a user",
@@ -17008,7 +17008,7 @@
   ],
   "variable": [
     {
-      "id": "6313b713-ed51-40e2-b403-115bf00fa6a2",
+      "id": "1f4ecf1d-51a8-4409-8ea0-01b5f415a21b",
       "key": "component",
       "value": "use",
       "type": "string"
