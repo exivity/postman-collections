@@ -12060,14 +12060,7 @@
                     }
                   },
                   "response": []
-                }
-              ],
-              "_postman_id": "e891290d-6258-419f-9b51-ad14ae870321",
-              "_postman_isSubFolder": true
-            },
-            {
-              "name": "/user/other",
-              "item": [
+                },
                 {
                   "name": "Delete a user",
                   "event": [
@@ -12108,6 +12101,12 @@
                   "response": []
                 }
               ],
+              "_postman_id": "e891290d-6258-419f-9b51-ad14ae870321",
+              "_postman_isSubFolder": true
+            },
+            {
+              "name": "/user/other",
+              "item": [],
               "_postman_id": "110691d4-0cc7-478f-ae85-9ef0b486bd76",
               "_postman_isSubFolder": true
             },
@@ -17008,7 +17007,7 @@
   ],
   "variable": [
     {
-      "id": "0ccd350a-1814-451d-b2dc-af058774b150",
+      "id": "11eb1e90-e914-4541-876b-4413ad077587",
       "key": "component",
       "value": "use",
       "type": "string"
