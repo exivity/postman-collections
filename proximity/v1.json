@@ -12284,53 +12284,6 @@
                   "response": []
                 },
                 {
-                  "name": "Generate a new key",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
-                        "exec": [
-                          "pm.test(\"Status code is 200\", function () {",
-                          "    pm.response.to.have.status(200);",
-                          "});",
-                          "",
-                          "const response = pm.response.json();",
-                          "console.log(response);",
-                          "",
-                          "pm.test(\"Response contains correct data\", function () {",
-                          "    pm.expect(response.result).to.be.a('string');",
-                          "    pm.expect(response.result).to.eql('rotated');",
-                          "});"
-                        ],
-                        "type": "text/javascript"
-                      }
-                    }
-                  ],
-                  "_postman_id": "96fd2e9b-b959-4e6c-a8a5-06c40483598c",
-                  "protocolProfileBehavior": {
-                    "disableBodyPruning": true
-                  },
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Content-Type",
-                        "name": "Content-Type",
-                        "value": "application/json",
-                        "type": "text"
-                      },
-                      {
-                        "key": "Accept",
-                        "value": "application/json"
-                      }
-                    ],
-                    "url": "{{base_url}}/v1/users/{{new_user_id}}/key",
-                    "description": "Available since v3.0.0"
-                  },
-                  "response": []
-                },
-                {
                   "name": "Update a user",
                   "event": [
                     {
@@ -12393,6 +12346,53 @@
                       }
                     },
                     "url": "{{base_url}}/v1/users/{{new_user_id}}"
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Generate a new key",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "2012e4e8-aec3-467a-b60d-faeb3c8cb4cd",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains correct data\", function () {",
+                          "    pm.expect(response.result).to.be.a('string');",
+                          "    pm.expect(response.result).to.eql('rotated');",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "_postman_id": "96fd2e9b-b959-4e6c-a8a5-06c40483598c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": "{{base_url}}/v1/users/{{new_user_id}}/key",
+                    "description": "Available since v3.0.0"
                   },
                   "response": []
                 },
@@ -17008,7 +17008,7 @@
   ],
   "variable": [
     {
-      "id": "f789db3e-57fc-4e14-9e7e-4a894c4811d2",
+      "id": "b2c6e4bf-8da7-4152-b7a8-04b2c173c49c",
       "key": "component",
       "value": "use",
       "type": "string"
