@@ -3475,7 +3475,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `account`, `services`, `servicecategories`."
+                      "description": "Include additional related resources. Possible values: `account`, `service`."
                     }
                   ]
                 }
@@ -3738,13 +3738,13 @@
                   }
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/adjustments/:service_subscription_id/prepareAffectedReports",
+                  "raw": "{{base_url}}/v1/servicesubscriptions/:service_subscription_id/prepareAffectedReports",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "adjustments",
+                    "servicesubscriptions",
                     ":service_subscription_id",
                     "prepareAffectedReports"
                   ],
@@ -17067,7 +17067,7 @@
   ],
   "variable": [
     {
-      "id": "78e0e55c-0e69-4ec4-92ed-ef08c6843142",
+      "id": "465a2809-27f2-4116-a0f1-3e5b95d2cbff",
       "key": "component",
       "value": "use",
       "type": "string"
