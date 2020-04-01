@@ -3659,7 +3659,7 @@
                       "    pm.expect(response.data.attributes.cogs).to.eql(20.20);",
                       "    pm.expect(response.data.attributes.type).to.eql('one_off');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-10');",
-                      "    pm.expect(response.data.attributes.end_date).to.be.undefined;",
+                      "    pm.expect(response.data.attributes.end_date).to.be.null;",
                       "    pm.expect(response.data.attributes.alt_interval).to.eql('month');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity-updated');",
                       "});",
@@ -3738,21 +3738,20 @@
                   }
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id/prepareAffectedReports",
+                  "raw": "{{base_url}}/v1/adjustments/:service_subscription_id/prepareAffectedReports",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "adjustments",
-                    ":adjustment_id",
+                    ":service_subscription_id",
                     "prepareAffectedReports"
                   ],
                   "variable": [
                     {
-                      "id": "8d9bf4e3-dc37-4982-9211-19129687cb97",
-                      "key": "adjustment_id",
-                      "value": "{{adjustment_id}}",
+                      "key": "service_subscription_id",
+                      "value": "{{service_subscription_id}}",
                       "type": "string"
                     }
                   ]
@@ -17068,7 +17067,7 @@
   ],
   "variable": [
     {
-      "id": "59b683c7-aa9d-470d-a441-cd5570e677d1",
+      "id": "78e0e55c-0e69-4ec4-92ed-ef08c6843142",
       "key": "component",
       "value": "use",
       "type": "string"
