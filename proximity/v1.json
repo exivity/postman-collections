@@ -3659,7 +3659,7 @@
                       "    pm.expect(response.data.attributes.cogs).to.eql(20.20);",
                       "    pm.expect(response.data.attributes.type).to.eql('one_off');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-10');",
-                      "    pm.expect(response.data.attributes.end_date).to.be.undefined;",
+                      "    pm.expect(response.data.attributes.end_date).to.be.null;",
                       "    pm.expect(response.data.attributes.alt_interval).to.eql('month');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity-updated');",
                       "});",
@@ -17068,7 +17068,7 @@
   ],
   "variable": [
     {
-      "id": "fbf31098-5643-4bc8-a579-0d1e00100b5b",
+      "id": "a38f6bab-089f-4e22-9fdc-9f500d8152d8",
       "key": "component",
       "value": "use",
       "type": "string"
