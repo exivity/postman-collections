@@ -15796,12 +15796,16 @@
                   "script": {
                     "id": "170281b6-f19c-4dc0-be12-0494ca748b07",
                     "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
+                      "// Commented out tests, since we're deleting the last environment here,",
+                      "// which is forbidden since EXVT-3415",
                       "",
-                      "console.log('UNSET environment_id');",
-                      "pm.environment.unset(\"environment_id\");"
+                      "// pm.test(\"Status code is 204\", function () {",
+                      "//     pm.response.to.have.status(204);",
+                      "// });",
+                      "",
+                      "// console.log('UNSET environment_id');",
+                      "// pm.environment.unset(\"environment_id\");",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -17014,7 +17018,7 @@
   ],
   "variable": [
     {
-      "id": "2294d936-59ff-4584-97b2-57d27b44ba3c",
+      "id": "e615991c-8cd8-4aff-bda9-b62cf6cb36de",
       "key": "component",
       "value": "use",
       "type": "string"
