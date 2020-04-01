@@ -3622,7 +3622,7 @@
                     {
                       "key": "include",
                       "value": null,
-                      "description": "Include additional related resources"
+                      "description": "Include additional related resources. Possible values: `account`, `service`."
                     }
                   ]
                 },
@@ -17067,7 +17067,7 @@
   ],
   "variable": [
     {
-      "id": "465a2809-27f2-4116-a0f1-3e5b95d2cbff",
+      "id": "e09ba762-4d7e-4db8-9b73-9941112484c9",
       "key": "component",
       "value": "use",
       "type": "string"
