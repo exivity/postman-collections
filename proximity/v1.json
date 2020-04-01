@@ -3499,7 +3499,7 @@
                       "",
                       "pm.test(\"Response contains data\", function() {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('service_subscription');",
+                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
                       "    pm.expect(response.data.id).to.be.a('string');",
                       "});",
                       "",
@@ -3509,9 +3509,9 @@
                       "pm.test(\"Response contains correct attributes\", function() {",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes.name).to.eql('test');",
-                      "    pm.expect(response.data.attributes.quantity).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.rate).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.cogs).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(10.1);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(10.1);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(10.1);",
                       "    pm.expect(response.data.attributes.type).to.eql('recurring');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
                       "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
@@ -17068,7 +17068,7 @@
   ],
   "variable": [
     {
-      "id": "a8422a22-e7cf-49a7-9dce-5e494a79d0bd",
+      "id": "23cb69f9-2953-49c9-9c11-65ed16ad4a73",
       "key": "component",
       "value": "use",
       "type": "string"
