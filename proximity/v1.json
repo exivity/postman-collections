@@ -3377,6 +3377,66 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Prepare affected reports Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "12790140-a252-43f5-a22d-5549d57061c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8d9bf4e3-dc37-4982-9211-19129687cb97",
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
             }
           ],
           "_postman_id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
@@ -17018,7 +17078,7 @@
   ],
   "variable": [
     {
-      "id": "9e48d210-e694-42fa-8ee7-239c606d42f0",
+      "id": "e9dc90b6-1431-4d0f-beaa-6b3c63f92fb3",
       "key": "component",
       "value": "use",
       "type": "string"
