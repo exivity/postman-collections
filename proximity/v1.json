@@ -15848,12 +15848,12 @@
                       "// Commented out tests, since we're deleting the last environment here,",
                       "// which is forbidden since EXVT-3415",
                       "",
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
+                      "// pm.test(\"Status code is 204\", function () {",
+                      "//     pm.response.to.have.status(204);",
+                      "// });",
                       "",
-                      "console.log('UNSET environment_id');",
-                      "pm.environment.unset(\"environment_id\");",
+                      "// console.log('UNSET environment_id');",
+                      "// pm.environment.unset(\"environment_id\");",
                       ""
                     ],
                     "type": "text/javascript"
@@ -17067,7 +17067,7 @@
   ],
   "variable": [
     {
-      "id": "584af2f0-debc-4552-a87f-f98b626999bc",
+      "id": "6aaa407f-0f8f-4239-8171-0b6371c93761",
       "key": "component",
       "value": "use",
       "type": "string"
