@@ -3549,7 +3549,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17014,7 +17014,7 @@
   ],
   "variable": [
     {
-      "id": "8d74269f-640c-4274-a37c-738fcea367c4",
+      "id": "2294d936-59ff-4584-97b2-57d27b44ba3c",
       "key": "component",
       "value": "use",
       "type": "string"
