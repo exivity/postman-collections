@@ -3571,7 +3571,7 @@
                       "",
                       "pm.test(\"Response contains data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('service_subscription');",
+                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_subscription_id\").toString());",
                       "});",
                       "",
@@ -17068,7 +17068,7 @@
   ],
   "variable": [
     {
-      "id": "79dd9d3b-4190-4bd6-9e24-981a130b66c0",
+      "id": "22138e83-5092-4c73-a75d-fef358b99402",
       "key": "component",
       "value": "use",
       "type": "string"
