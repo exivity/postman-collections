@@ -2260,7 +2260,7 @@
                     {
                       "key": "include",
                       "value": null,
-                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates` or `adjustments`."
+                      "description": "Include additional related resources. Possible values: `servicecategory`, `rates`, `adjustments`, `dset`, `metadata`."
                     }
                   ],
                   "variable": [
@@ -17018,7 +17018,7 @@
   ],
   "variable": [
     {
-      "id": "e615991c-8cd8-4aff-bda9-b62cf6cb36de",
+      "id": "9e48d210-e694-42fa-8ee7-239c606d42f0",
       "key": "component",
       "value": "use",
       "type": "string"
