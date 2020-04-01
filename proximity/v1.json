@@ -3377,66 +3377,6 @@
                 }
               },
               "response": []
-            },
-            {
-              "name": "Prepare affected reports Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "12790140-a252-43f5-a22d-5549d57061c1",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id/prepareAffectedReports",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "adjustments",
-                    ":adjustment_id",
-                    "prepareAffectedReports"
-                  ],
-                  "variable": [
-                    {
-                      "id": "8d9bf4e3-dc37-4982-9211-19129687cb97",
-                      "key": "adjustment_id",
-                      "value": "{{adjustment_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
             }
           ],
           "_postman_id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
@@ -3545,80 +3485,6 @@
               "response": []
             },
             {
-              "name": "Add a new service subscription",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "ac5089c4-b302-43bb-ba74-764ab47386a3",
-                    "exec": [
-                      "return;",
-                      "",
-                      "pm.test(\"Status code is 201\", function() {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function() {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('service_subscription');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"service_subscription_id\", response.data.id);",
-                      "console.log('SET service_subscription_id: ' + pm.environment.get(\"service_subscription_id\"));",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function() {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.eql('test');",
-                      "    pm.expect(response.data.attributes.quantity).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.rate).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.cogs).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
-                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
-                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
-                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function() {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5e875264-924a-4ba9-91fc-6bf3acf626bc",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/servicesubscriptions"
-              },
-              "response": []
-            },
-            {
               "name": "Retrieve a service subscription",
               "event": [
                 {
@@ -3697,6 +3563,80 @@
               "response": []
             },
             {
+              "name": "Add a new service subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ac5089c4-b302-43bb-ba74-764ab47386a3",
+                    "exec": [
+                      "return;",
+                      "",
+                      "pm.test(\"Status code is 201\", function() {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function() {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('service_subscription');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"service_subscription_id\", response.data.id);",
+                      "console.log('SET service_subscription_id: ' + pm.environment.get(\"service_subscription_id\"));",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function() {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('test');",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
+                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function() {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5e875264-924a-4ba9-91fc-6bf3acf626bc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/servicesubscriptions"
+              },
+              "response": []
+            },
+            {
               "name": "Update a service subscriptions",
               "event": [
                 {
@@ -3765,6 +3705,66 @@
                 },
                 "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}",
                 "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Prepare affected reports Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "12790140-a252-43f5-a22d-5549d57061c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/adjustments/:adjustment_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "adjustments",
+                    ":adjustment_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "id": "8d9bf4e3-dc37-4982-9211-19129687cb97",
+                      "key": "adjustment_id",
+                      "value": "{{adjustment_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -17078,7 +17078,7 @@
   ],
   "variable": [
     {
-      "id": "e9dc90b6-1431-4d0f-beaa-6b3c63f92fb3",
+      "id": "ba2a45b7-69eb-4934-b8e4-2bf054ea99d9",
       "key": "component",
       "value": "use",
       "type": "string"
