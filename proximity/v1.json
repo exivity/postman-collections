@@ -12710,7 +12710,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_testers\",\r\n      \"permissions\": [\r\n        \"manage_users\",\r\n        \"manage_configuration\"\r\n      ]\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_testers\",\r\n      \"permissions\": [\r\n        \"manage_users\",\r\n        \"manage_settings\"\r\n      ]\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
               },
@@ -16944,7 +16947,7 @@
   ],
   "variable": [
     {
-      "id": "bc30d0cf-24e4-4a6f-83e4-331ccc524209",
+      "id": "a493aca2-9b00-4096-93e3-3b44f87c87a5",
       "key": "component",
       "value": "use",
       "type": "string"
