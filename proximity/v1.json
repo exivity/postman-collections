@@ -12684,7 +12684,7 @@
                       "        \"permissions\"",
                       "  ]);",
                       "  pm.expect(response.data.attributes.name).to.eql('modified_testers');",
-                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_configuration']);",
+                      "  pm.expect(response.data.attributes.permissions).to.eql(['manage_users','manage_settings']);",
                       "});",
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
@@ -16947,7 +16947,7 @@
   ],
   "variable": [
     {
-      "id": "a493aca2-9b00-4096-93e3-3b44f87c87a5",
+      "id": "4b8a61f6-d126-4237-9507-44873a943ff8",
       "key": "component",
       "value": "use",
       "type": "string"
