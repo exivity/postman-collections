@@ -3629,6 +3629,78 @@
                 "url": "{{base_url}}/v1/tiers/{{rate_tier_id}}"
               },
               "response": []
+            },
+            {
+              "name": "Update a rate tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "269605b7-7948-4d27-8009-7616d1430945",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"rate\": 10,",
+                      "        \"rate_col\": \"rate_col2\",",
+                      "        \"fixed\": 20,",
+                      "        \"fixed_col\": \"fixed_col2\",",
+                      "        \"cogs_rate\": 30,",
+                      "        \"cogs_rate_col\": \"cogs_rate_col2\",",
+                      "        \"cogs_fixed\": 40,",
+                      "        \"cogs_fixed_col\": \"cogs_fixed_col2\",",
+                      "        \"effective_date\": \"2017-08-27\",",
+                      "        \"threshold\": 10,",
+                      "        \"min_commit\": 50,",
+                      "    });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "c27ad7c8-07c9-4c4e-a763-edd43f76e230",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n      \r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
@@ -17177,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "3200cd4a-3555-4ff6-93b6-732959035c18",
+      "id": "cf82f686-7747-4c0f-b7d4-3c96884edca2",
       "key": "component",
       "value": "use",
       "type": "string"
