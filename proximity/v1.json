@@ -3461,13 +3461,13 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/rates?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "raw": "{{base_url}}/v1/tiers?page[limit]&page[offset]&sort&filter[attribute]&include",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "rates"
+                    "tiers"
                   ],
                   "query": [
                     {
@@ -3518,21 +3518,13 @@
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.type).to.eql('rate_tier');",
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.eql({",
-                      "\t\t\"rate\": 1,",
-                      "\t\t\"rate_col\": \"rate_col\",",
-                      "\t\t\"fixed\": 2,",
-                      "\t\t\"fixed_col\": \"fixed_col\",",
-                      "\t\t\"cogs_rate\": 3,",
-                      "\t\t\"cogs_rate_col\": \"cogs_rate_col\",",
-                      "\t\t\"cogs_fixed\": 4,",
-                      "\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
-                      "\t\t\"effective_date\": \"2017-08-27\",",
-                      "\t\t\"threshold\": 0,",
-                      "        \"min_commit\": 0",
+                      "\t\t\"threshold\": \"1\",",
+                      "\t\t\"rate\": \"4\",",
+                      "\t\t\"cogs\": \"\"",
                       "\t});",
                       "",
                       "});",
@@ -3541,7 +3533,7 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"rate_id\", response.data.id);"
+                      "pm.environment.set(\"rate_tier_id\", response.data.id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -3557,7 +3549,6 @@
                       "    .then(api.requireToken)",
                       "    .then(api.requireServiceCategory)",
                       "    .then(api.requireService)",
-                      "    .then(api.requireRate)",
                       "    .then(api.ready)",
                       "    .catch(function(err) {",
                       "        console.log(err);",
@@ -17186,7 +17177,7 @@
   ],
   "variable": [
     {
-      "id": "cabbabae-b600-4234-8ae9-cbaddbd4d85e",
+      "id": "1b27b54a-da26-49ff-b6cf-b6fc48fe671f",
       "key": "component",
       "value": "use",
       "type": "string"
