@@ -3693,7 +3693,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate_tier\",\r\n    \"id\": \"{{rate_tier_id}}\",\r\n    \"attributes\": {\r\n      \"cogs\": 10\r\n    }\r\n  }\r\n}",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"ratetier\",\r\n    \"id\": \"{{rate_tier_id}}\",\r\n    \"attributes\": {\r\n      \"cogs\": 10\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17249,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "0ddc3cf6-59d2-4887-afb1-3d700edeb52a",
+      "id": "bd70cbb8-45c7-4b46-b6c0-b08350885c0d",
       "key": "component",
       "value": "use",
       "type": "string"
