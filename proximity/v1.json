@@ -3518,7 +3518,7 @@
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('rate_tier');",
+                      "    pm.expect(response.data.type).to.eql('ratetier');",
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.eql({",
@@ -3579,7 +3579,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate_tier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"1.0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"1.0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17249,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "bd70cbb8-45c7-4b46-b6c0-b08350885c0d",
+      "id": "7e2f4093-b10f-4132-9c00-a7593b50c771",
       "key": "component",
       "value": "use",
       "type": "string"
