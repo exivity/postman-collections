@@ -3557,6 +3557,7 @@
                       "    .then(api.requireToken)",
                       "    .then(api.requireServiceCategory)",
                       "    .then(api.requireService)",
+                      "    .then(api.requireRate)",
                       "    .then(api.ready)",
                       "    .catch(function(err) {",
                       "        console.log(err);",
@@ -3587,7 +3588,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"tiers\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"1.0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate_tier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"1.0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -3597,7 +3598,7 @@
               "response": []
             },
             {
-              "name": "Delete a rate",
+              "name": "Delete a tier",
               "event": [
                 {
                   "listen": "test",
@@ -3634,7 +3635,7 @@
                     "formdata": {}
                   }
                 },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+                "url": "{{base_url}}/v1/tier/{{rate_tier_id}}"
               },
               "response": []
             }
@@ -17185,7 +17186,7 @@
   ],
   "variable": [
     {
-      "id": "b1ce9396-f7a5-4868-a6ff-da81a0204af9",
+      "id": "2f27f529-c9b7-45d4-8aa6-4725ae86c048",
       "key": "component",
       "value": "use",
       "type": "string"
