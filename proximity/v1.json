@@ -3406,7 +3406,102 @@
         },
         {
           "name": "/tiers",
-          "item": [],
+          "item": [
+            {
+              "name": "Retrieve a list of rates",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7e3ff32d-a6cb-46b4-995f-eacf3314dd45",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "ccb79eb5-00ad-44a0-aaae-78c60acde9b8",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "ae5677a8-6702-4543-a4b1-c5bcf1e5d584",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/rates?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "rates"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            }
+          ],
           "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
           "_postman_isSubFolder": true
         },
@@ -16953,7 +17048,7 @@
   ],
   "variable": [
     {
-      "id": "b01f20cf-d7bc-4f68-9b23-d4908130e446",
+      "id": "e1bea15c-fe2d-4dbd-a371-95629ed3ae12",
       "key": "component",
       "value": "use",
       "type": "string"
