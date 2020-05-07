@@ -3589,48 +3589,6 @@
               "response": []
             },
             {
-              "name": "Delete a tier",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7d1b5b6b-ee90-478f-8e64-46a29dea4706",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET ratetier_id');",
-                      "pm.environment.unset(\"ratetier_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5c3f5009-1fd3-4e74-815c-e1cf5e458862",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [],
-                  "options": {
-                    "formdata": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/tiers/{{ratetier_id}}"
-              },
-              "response": []
-            },
-            {
               "name": "Update a rate tier",
               "event": [
                 {
@@ -3699,6 +3657,48 @@
                   }
                 },
                 "url": "{{base_url}}/v1/tiers/{{rate_tier_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7d1b5b6b-ee90-478f-8e64-46a29dea4706",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET ratetier_id');",
+                      "pm.environment.unset(\"ratetier_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5c3f5009-1fd3-4e74-815c-e1cf5e458862",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/tiers/{{ratetier_id}}"
               },
               "response": []
             }
@@ -17249,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "6805d638-719c-41fb-a011-c2a3a3d6ff64",
+      "id": "b8d51631-ccdc-4bd4-9ff4-a3a7c9d4c476",
       "key": "component",
       "value": "use",
       "type": "string"
