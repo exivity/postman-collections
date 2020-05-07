@@ -3595,6 +3595,48 @@
                 "url": "{{base_url}}/v1/tiers"
               },
               "response": []
+            },
+            {
+              "name": "Delete a rate",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7d1b5b6b-ee90-478f-8e64-46a29dea4706",
+                    "exec": [
+                      "// pm.test(\"Status code is 204\", function () {",
+                      "//     pm.response.to.have.status(204);",
+                      "// });",
+                      "",
+                      "// console.log('UNSET rate_id');",
+                      "// pm.environment.unset(\"rate_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5c3f5009-1fd3-4e74-815c-e1cf5e458862",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+              },
+              "response": []
             }
           ],
           "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
@@ -17143,7 +17185,7 @@
   ],
   "variable": [
     {
-      "id": "562b2bd1-c544-4169-aeb3-8d855c8f06da",
+      "id": "76363907-5003-49b3-8daa-1d15d60ce141",
       "key": "component",
       "value": "use",
       "type": "string"
