@@ -3408,7 +3408,7 @@
           "name": "/tiers",
           "item": [
             {
-              "name": "Retrieve a list of rates",
+              "name": "Retrieve a list of tiers",
               "event": [
                 {
                   "listen": "test",
@@ -3498,6 +3498,102 @@
                   ]
                 },
                 "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "64057b85-e07d-4de5-8e39-00387d6790f1",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.eql({",
+                      "\t\t\"rate\": 1,",
+                      "\t\t\"rate_col\": \"rate_col\",",
+                      "\t\t\"fixed\": 2,",
+                      "\t\t\"fixed_col\": \"fixed_col\",",
+                      "\t\t\"cogs_rate\": 3,",
+                      "\t\t\"cogs_rate_col\": \"cogs_rate_col\",",
+                      "\t\t\"cogs_fixed\": 4,",
+                      "\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
+                      "\t\t\"effective_date\": \"2017-08-27\",",
+                      "\t\t\"threshold\": 0,",
+                      "        \"min_commit\": 0",
+                      "\t});",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"rate_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "810b5e94-0f29-450e-9e05-b12c60ffbbc1",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireServiceCategory)",
+                      "    .then(api.requireService)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2a13a1c3-15c4-4be2-bad0-e9e2072c6f45",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/rates",
+                "description": "Account specific rates can be created through this endpoint by specifying the `account` relationship in the request body, e.g.:\n\n```\n\"relationships\": {\n\t\"service\": { ... },\n\t\"account\": {\n\t\t\"data\": {\n\t\t\t\"type\": \"account\",\n\t\t\t\"id\": \"1\"\n\t\t}\n\t}\n}\n```"
               },
               "response": []
             }
@@ -17048,7 +17144,7 @@
   ],
   "variable": [
     {
-      "id": "e1bea15c-fe2d-4dbd-a371-95629ed3ae12",
+      "id": "f70dface-4121-40e0-ba7f-415a4c41ee7d",
       "key": "component",
       "value": "use",
       "type": "string"
