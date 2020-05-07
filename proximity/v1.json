@@ -3600,8 +3600,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "console.log('UNSET rate_tier_id');",
-                      "pm.environment.unset(\"rate_tier_id\");"
+                      "console.log('UNSET ratetier_id');",
+                      "pm.environment.unset(\"ratetier_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -3626,7 +3626,7 @@
                     "formdata": {}
                   }
                 },
-                "url": "{{base_url}}/v1/tiers/{{rate_tier_id}}"
+                "url": "{{base_url}}/v1/tiers/{{ratetier_id}}"
               },
               "response": []
             },
@@ -17249,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "e6cab3bc-d5c8-422c-ae1e-dc1696f8e7fb",
+      "id": "6805d638-719c-41fb-a011-c2a3a3d6ff64",
       "key": "component",
       "value": "use",
       "type": "string"
