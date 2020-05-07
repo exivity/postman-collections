@@ -3634,7 +3634,7 @@
                     "formdata": {}
                   }
                 },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+                "url": "{{base_url}}/v1/tier/{{rate_tier_id}}"
               },
               "response": []
             }
@@ -17185,7 +17185,7 @@
   ],
   "variable": [
     {
-      "id": "00ac280c-5aaa-45de-8d9b-7086bbd4ac09",
+      "id": "a97628cc-6177-45a1-a99d-c331fbc2c649",
       "key": "component",
       "value": "use",
       "type": "string"
