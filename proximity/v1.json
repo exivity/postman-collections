@@ -3683,8 +3683,8 @@
                   {
                     "key": "Content-Type",
                     "name": "Content-Type",
-                    "value": "application/vnd.api+json",
-                    "type": "text"
+                    "type": "text",
+                    "value": "application/vnd.api+json"
                   },
                   {
                     "key": "Accept",
@@ -3693,12 +3693,12 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n      \r\n    }\r\n  }\r\n}",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate_tier\",\r\n    \"id\": \"{{rate_tier_id}}\",\r\n    \"attributes\": {\r\n      \"cogs\": 10\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+                "url": "{{base_url}}/v1/tiers/{{rate_tier_id}}"
               },
               "response": []
             }
@@ -17249,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "df6c9428-768e-4d17-9fc7-7508791f638e",
+      "id": "0ddc3cf6-59d2-4887-afb1-3d700edeb52a",
       "key": "component",
       "value": "use",
       "type": "string"
