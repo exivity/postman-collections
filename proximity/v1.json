@@ -3405,7 +3405,7 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "tiers",
+          "name": "/tiers",
           "item": [],
           "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
           "_postman_isSubFolder": true
@@ -16953,7 +16953,7 @@
   ],
   "variable": [
     {
-      "id": "1fb0c9ff-65aa-4502-8292-421a50246837",
+      "id": "b01f20cf-d7bc-4f68-9b23-d4908130e446",
       "key": "component",
       "value": "use",
       "type": "string"
