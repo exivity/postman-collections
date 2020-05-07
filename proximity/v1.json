@@ -3533,7 +3533,7 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"rate_tier_id\", response.data.id);"
+                      "pm.environment.set(\"ratetier_id\", response.data.id);"
                     ],
                     "type": "text/javascript"
                   }
@@ -17249,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "7e2f4093-b10f-4132-9c00-a7593b50c771",
+      "id": "e6cab3bc-d5c8-422c-ae1e-dc1696f8e7fb",
       "key": "component",
       "value": "use",
       "type": "string"
