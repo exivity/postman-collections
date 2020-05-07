@@ -3502,7 +3502,7 @@
               "response": []
             },
             {
-              "name": "Add a new tier",
+              "name": "Add a new rate",
               "event": [
                 {
                   "listen": "test",
@@ -17144,7 +17144,7 @@
   ],
   "variable": [
     {
-      "id": "f70dface-4121-40e0-ba7f-415a4c41ee7d",
+      "id": "52b3a5cc-69bf-481e-9fbb-5b64cca6c135",
       "key": "component",
       "value": "use",
       "type": "string"
