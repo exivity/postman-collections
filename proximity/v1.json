@@ -3596,12 +3596,12 @@
                   "script": {
                     "id": "7d1b5b6b-ee90-478f-8e64-46a29dea4706",
                     "exec": [
-                      "// pm.test(\"Status code is 204\", function () {",
-                      "//     pm.response.to.have.status(204);",
-                      "// });",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
                       "",
-                      "// console.log('UNSET rate_id');",
-                      "// pm.environment.unset(\"rate_id\");"
+                      "console.log('UNSET rate_tier_id');",
+                      "pm.environment.unset(\"rate_tier_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17249,7 +17249,7 @@
   ],
   "variable": [
     {
-      "id": "cf82f686-7747-4c0f-b7d4-3c96884edca2",
+      "id": "98f7ec43-c5e9-4e7e-bc15-6ee8ce56a823",
       "key": "component",
       "value": "use",
       "type": "string"
