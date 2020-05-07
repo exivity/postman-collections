@@ -3605,21 +3605,11 @@
                       "",
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.type).to.eql('ratetier');",
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "        \"rate\": 10,",
-                      "        \"rate_col\": \"rate_col2\",",
-                      "        \"fixed\": 20,",
-                      "        \"fixed_col\": \"fixed_col2\",",
-                      "        \"cogs_rate\": 30,",
-                      "        \"cogs_rate_col\": \"cogs_rate_col2\",",
-                      "        \"cogs_fixed\": 40,",
-                      "        \"cogs_fixed_col\": \"cogs_fixed_col2\",",
-                      "        \"effective_date\": \"2017-08-27\",",
-                      "        \"threshold\": 10,",
-                      "        \"min_commit\": 50,",
+                      "        \"cogs\": 10,",
                       "    });",
                       "});",
                       "",
@@ -3651,12 +3641,12 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"ratetier\",\r\n    \"id\": \"{{rate_tier_id}}\",\r\n    \"attributes\": {\r\n      \"cogs\": 10\r\n    }\r\n  }\r\n}",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"ratetier\",\r\n    \"id\": \"{{ratetier_id}}\",\r\n    \"attributes\": {\r\n      \"cogs\": 10\r\n    }\r\n  }\r\n}",
                   "options": {
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/tiers/{{rate_tier_id}}"
+                "url": "{{base_url}}/v1/tiers/{{ratetier_id}}"
               },
               "response": []
             },
@@ -17249,7 +17239,7 @@
   ],
   "variable": [
     {
-      "id": "b8d51631-ccdc-4bd4-9ff4-a3a7c9d4c476",
+      "id": "9480e5f0-c0a4-4e00-a57c-a7524ba01c1c",
       "key": "component",
       "value": "use",
       "type": "string"
