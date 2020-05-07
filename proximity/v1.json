@@ -3502,7 +3502,7 @@
               "response": []
             },
             {
-              "name": "Add a new rate",
+              "name": "Add a new tier",
               "event": [
                 {
                   "listen": "test",
@@ -3592,8 +3592,7 @@
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/rates",
-                "description": "Account specific rates can be created through this endpoint by specifying the `account` relationship in the request body, e.g.:\n\n```\n\"relationships\": {\n\t\"service\": { ... },\n\t\"account\": {\n\t\t\"data\": {\n\t\t\t\"type\": \"account\",\n\t\t\t\"id\": \"1\"\n\t\t}\n\t}\n}\n```"
+                "url": "{{base_url}}/v1/rates"
               },
               "response": []
             }
@@ -17144,7 +17143,7 @@
   ],
   "variable": [
     {
-      "id": "b54e14aa-6cef-4499-9fcb-64aedc0c79d6",
+      "id": "a59b3671-3dc8-4cd9-85a8-217e12c3aa45",
       "key": "component",
       "value": "use",
       "type": "string"
