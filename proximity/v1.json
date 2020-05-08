@@ -3579,12 +3579,12 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"1.0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"1\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/tiers"
+                "url": "{{base_url}}/v1/ratetiers"
               },
               "response": []
             },
@@ -3688,7 +3688,7 @@
                     "formdata": {}
                   }
                 },
-                "url": "{{base_url}}/v1/tiers/{{ratetier_id}}"
+                "url": "{{base_url}}/v1/ratetiers/{{ratetier_id}}"
               },
               "response": []
             }
@@ -17239,7 +17239,7 @@
   ],
   "variable": [
     {
-      "id": "92a59e69-0199-41fd-8442-eff0937b6633",
+      "id": "2afd2195-d31f-4961-84f7-535b1c7121df",
       "key": "component",
       "value": "use",
       "type": "string"
