@@ -927,8 +927,7 @@
                       "description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -3646,7 +3645,7 @@
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/tiers/{{ratetier_id}}"
+                "url": "{{base_url}}/v1/ratetiers/{{ratetier_id}}"
               },
               "response": []
             },
@@ -17239,7 +17238,7 @@
   ],
   "variable": [
     {
-      "id": "2afd2195-d31f-4961-84f7-535b1c7121df",
+      "id": "4ebf1672-09c7-4e4d-9847-e828fee58ecb",
       "key": "component",
       "value": "use",
       "type": "string"
