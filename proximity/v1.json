@@ -2354,7 +2354,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}",
+                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual_tiered_standard\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}",
                   "options": {
                     "raw": {}
                   }
@@ -16536,15 +16536,15 @@
           "    let finished = false;",
           "    let elapsed = 0;",
           "",
-          "    function wait () {",
+          "    function wait() {",
           "        if (!finished && elapsed <= max) {",
           "            setTimeout(wait, interval);",
           "            elapsed += interval;",
           "        }",
           "    }",
           "",
-          "    function promisify (fn) {",
-          "        return function(arg) {",
+          "    function promisify(fn) {",
+          "        return function (arg) {",
           "            if (!started) {",
           "                started = true;",
           "                wait();",
@@ -16807,7 +16807,7 @@
           "                mode: 'raw',",
           "                raw: JSON.stringify({",
           "                    \"data\": {",
-          "                        \"type\":\"budgetrevision\",",
+          "                        \"type\": \"budgetrevision\",",
           "                        \"attributes\": {",
           "                            \"effective_from\": \"20190606\"",
           "                        },",
@@ -16871,7 +16871,7 @@
           "                            \"consumption_col\": \"quantity\",",
           "                            \"instance_col\": \"hostname\",",
           "                            \"interval\": \"individually\",",
-          "                            \"charge_type\": \"manual\",",
+          "                            \"charge_type\": \"manual_tiered_standard\",",
           "                            \"cogs_type\": \"none\",",
           "                            \"proration_type\": \"full\",",
           "                            \"charge_model\": \"peak\"",
@@ -17169,7 +17169,7 @@
           "                        \"type\": \"usergroup\",",
           "                        \"attributes\": {",
           "                            \"name\": \"Usergroup - \" + Math.floor(Math.random() * 1000),",
-          "                            \"permissions\":  [\"manage_users\"]",
+          "                            \"permissions\": [\"manage_users\"]",
           "                        }",
           "                    }",
           "                })",
@@ -17238,7 +17238,7 @@
   ],
   "variable": [
     {
-      "id": "8ea2f49f-4788-4f7a-aed6-6423145303eb",
+      "id": "df1b271d-aed4-4d27-b10d-fc40448ba789",
       "key": "component",
       "value": "use",
       "type": "string"
