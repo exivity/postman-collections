@@ -3521,10 +3521,10 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.eql({",
-                      "\t\t\"threshold\": \"1\",",
-                      "\t\t\"rate\": \"4\",",
-                      "\t\t\"cogs\": \"\"",
-                      "\t});",
+                      "        \"threshold\": \"0\",",
+                      "        \"rate\": \"4\",",
+                      "        \"cogs\": \"\"",
+                      "    });",
                       "",
                       "});",
                       "",
@@ -17300,7 +17300,7 @@
   ],
   "variable": [
     {
-      "id": "662d9227-3db7-433d-9762-004a8789b570",
+      "id": "8de6a4e3-46fa-46af-873e-55ce6a978753",
       "key": "component",
       "value": "use",
       "type": "string"
