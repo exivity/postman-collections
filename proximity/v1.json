@@ -2166,7 +2166,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual_per_unit\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"service\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"key\": \"test  - {{$randomInt}}\",\r\n\t\t\t\"description\": \"test service\",\r\n\t\t\t\"unit_label\": \"hours\",\r\n\t\t\t\"dset\": \"{{dset_id}}\",\r\n\t\t\t\"type\": \"service_name_in_header\",\r\n\t\t\t\"usage_col\": \"unique_key\",\r\n\t\t\t\"consumption_col\": \"quantity\",\r\n\t\t\t\"instance_col\": \"hostname\",\r\n\t\t\t\"interval\": \"individually\",\r\n\t\t\t\"charge_type\": \"manual_tiered_standard\",\r\n\t\t\t\"cogs_type\": \"none\",\r\n\t\t\t\"proration_type\": \"full\",\r\n\t\t\t\"charge_model\": \"peak\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"servicecategory\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"servicecategory\",\r\n\t\t\t\t\t\"id\": \"{{servicecategory_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17238,7 +17238,7 @@
   ],
   "variable": [
     {
-      "id": "df1b271d-aed4-4d27-b10d-fc40448ba789",
+      "id": "6305c01d-9e4e-49f8-8750-70bc397146b3",
       "key": "component",
       "value": "use",
       "type": "string"
