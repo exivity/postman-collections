@@ -3578,7 +3578,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"1\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17238,7 +17238,7 @@
   ],
   "variable": [
     {
-      "id": "6305c01d-9e4e-49f8-8750-70bc397146b3",
+      "id": "4d60f72e-6985-497c-b8a3-03294272e6b8",
       "key": "component",
       "value": "use",
       "type": "string"
