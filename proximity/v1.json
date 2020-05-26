@@ -3548,8 +3548,9 @@
                       "    .then(api.requireToken)",
                       "    .then(api.requireServiceCategory)",
                       "    .then(api.requireService)",
+                      "    .then(api.requireRate)",
                       "    .then(api.ready)",
-                      "    .catch(function(err) {",
+                      "    .catch(function (err) {",
                       "        console.log(err);",
                       "    });",
                       ""
@@ -17299,7 +17300,7 @@
   ],
   "variable": [
     {
-      "id": "e66e99e8-33f0-461e-893a-5a0e2836453a",
+      "id": "662d9227-3db7-433d-9762-004a8789b570",
       "key": "component",
       "value": "use",
       "type": "string"
