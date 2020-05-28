@@ -1308,7 +1308,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options",
+                  "raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1381,8 +1381,8 @@
                     },
                     {
                       "key": "summary_options",
-                      "value": null,
-                      "description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_instance`. Defaults to `services`."
+                      "value": "",
+                      "description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_service`. Defaults to `services`."
                     }
                   ],
                   "variable": [
@@ -17300,7 +17300,7 @@
   ],
   "variable": [
     {
-      "id": "4eaa49eb-1411-4282-8253-49dfabe231cb",
+      "id": "b5959692-43e0-422f-aba9-ea7a0bac6597",
       "key": "component",
       "value": "use",
       "type": "string"
