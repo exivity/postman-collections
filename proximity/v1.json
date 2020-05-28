@@ -3645,7 +3645,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/ratetiers/{{ratetier_id}}?include=ratetiers",
+                  "raw": "{{base_url}}/v1/ratetiers/{{ratetier_id}}?include=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -3657,7 +3657,7 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "ratetiers",
+                      "value": "",
                       "description": "Include additional related resources. Possible values: `ratetiers`."
                     }
                   ]
@@ -17378,7 +17378,7 @@
   ],
   "variable": [
     {
-      "id": "5496bdcf-551b-44c3-97b9-e09ad185de8d",
+      "id": "4e795f27-e613-4fc3-adec-050818a03e2e",
       "key": "component",
       "value": "use",
       "type": "string"
