@@ -3691,6 +3691,84 @@
                 "url": "{{base_url}}/v1/ratetiers/{{ratetier_id}}"
               },
               "response": []
+            },
+            {
+              "name": "Retrieve a rate",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0b31c755-85a8-4a98-bb50-b8291cd7272f",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('rate');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.eql({",
+                      "    \"rate\": 1,",
+                      "    \"rate_col\": \"rate_col\",",
+                      "    \"fixed\": 2,",
+                      "    \"fixed_col\": \"fixed_col\",",
+                      "    \"cogs_rate\": 3,",
+                      "    \"cogs_rate_col\": \"cogs_rate_col\",",
+                      "    \"cogs_fixed\": 4,",
+                      "    \"cogs_fixed_col\": \"cogs_fixed_col\",",
+                      "    \"effective_date\": \"2017-08-27\",",
+                      "    \"threshold\": 0,",
+                      "        \"min_commit\": 0",
+                      "  });",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d0da37f2-4738-45df-a678-4d72c1cb997a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/rates/{{rate_id}}?include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "rates",
+                    "{{rate_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
             }
           ],
           "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
@@ -17300,7 +17378,7 @@
   ],
   "variable": [
     {
-      "id": "b5959692-43e0-422f-aba9-ea7a0bac6597",
+      "id": "a3260d61-31a7-4655-9553-5e7723035d4b",
       "key": "component",
       "value": "use",
       "type": "string"
