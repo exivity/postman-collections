@@ -3658,7 +3658,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `ratetiers`."
+                      "description": "Include additional related resources. Possible values: `rate`."
                     }
                   ]
                 },
@@ -17378,7 +17378,7 @@
   ],
   "variable": [
     {
-      "id": "6a36f770-e481-4f1a-ab14-c16fb924782b",
+      "id": "bdfb89f7-40a8-4bc1-8001-c6fffec0e21b",
       "key": "component",
       "value": "use",
       "type": "string"
