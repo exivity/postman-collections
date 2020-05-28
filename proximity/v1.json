@@ -3645,20 +3645,20 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/rates/{{rate_id}}?include",
+                  "raw": "{{base_url}}/v1/ratetiers/{{ratetier_id}}?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "rates",
-                    "{{rate_id}}"
+                    "ratetiers",
+                    "{{ratetier_id}}"
                   ],
                   "query": [
                     {
                       "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `rate`."
                     }
                   ]
                 },
@@ -17378,7 +17378,7 @@
   ],
   "variable": [
     {
-      "id": "8a95a2f8-77c9-45a7-8bad-4dd820fc777f",
+      "id": "88937871-ceff-4df5-aba6-56b410555e64",
       "key": "component",
       "value": "use",
       "type": "string"
