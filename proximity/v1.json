@@ -3589,7 +3589,7 @@
               "response": []
             },
             {
-              "name": "Retrieve a rate",
+              "name": "Retrieve a tier",
               "event": [
                 {
                   "listen": "test",
@@ -17378,7 +17378,7 @@
   ],
   "variable": [
     {
-      "id": "4bcf3d0d-3824-49e5-a190-a6531dbfd369",
+      "id": "8a95a2f8-77c9-45a7-8bad-4dd820fc777f",
       "key": "component",
       "value": "use",
       "type": "string"
