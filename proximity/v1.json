@@ -3404,7 +3404,7 @@
           "_postman_isSubFolder": true
         },
         {
-          "name": "/tiers",
+          "name": "/ratetiers",
           "item": [
             {
               "name": "Retrieve a list of rate tiers",
@@ -17378,7 +17378,7 @@
   ],
   "variable": [
     {
-      "id": "bd906f55-e505-4029-ba71-221d376cebd9",
+      "id": "eeb361fe-5338-4d5e-85f5-bd4c333a1717",
       "key": "component",
       "value": "use",
       "type": "string"
