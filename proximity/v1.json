@@ -3536,12 +3536,34 @@
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "// Check response",
                       "const response = pm.response.json();",
                       "console.log(response);",
                       "",
                       "pm.test(\"Response contains data\", function () {",
+                      "    pm.response.to.be.json;",
                       "    pm.expect(response.data).to.be.an('array');",
-                      "});"
+                      "});",
+                      "",
+                      "// Check first rate tier",
+                      "var ratetier = response.data[0];",
+                      "pm.test(\"Ratetier type is correct\", function () {",
+                      "    pm.expect(ratetier.type).to.eql('ratetier');",
+                      "});",
+                      "pm.test(\"Ratetier ID is set\", function () {",
+                      "    pm.expect(ratetier.id).to.not.be.undefined;",
+                      "});",
+                      "pm.test(\"Ratetier attributes are correct\", function () {",
+                      "    pm.expect(ratetier.attributes).to.be.an('object');",
+                      "    pm.expect(ratetier.attributes).to.have.property(\"threshold\");",
+                      "    pm.expect(ratetier.attributes).to.have.property(\"rate\");",
+                      "    pm.expect(ratetier.attributes).to.have.property(\"cogs\");",
+                      "});",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -17408,7 +17430,7 @@
   ],
   "variable": [
     {
-      "id": "88c7c0c3-45c3-4644-9dc2-dbc197ea7828",
+      "id": "e811f643-c30f-46b9-af79-4c4b297ecbeb",
       "key": "component",
       "value": "use",
       "type": "string"
