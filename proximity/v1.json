@@ -3729,7 +3729,7 @@
               "response": []
             },
             {
-              "name": "Delete a tier",
+              "name": "Delete a rate tier",
               "event": [
                 {
                   "listen": "test",
@@ -17378,7 +17378,7 @@
   ],
   "variable": [
     {
-      "id": "d587b4b8-e5e7-4dfa-8f7c-28bbb0ff9ade",
+      "id": "e6035db2-98b9-4163-bc0e-1eb3f4cb0bfb",
       "key": "component",
       "value": "use",
       "type": "string"
