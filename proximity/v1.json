@@ -2790,7 +2790,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/rates/{{rate_id}}?include",
+                  "raw": "{{base_url}}/v1/rates/{{rate_id}}?include=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -2802,8 +2802,8 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `service`, `account`, `ratetiers`"
                     }
                   ]
                 },
@@ -17422,7 +17422,7 @@
   ],
   "variable": [
     {
-      "id": "e6c5b952-97ee-4df5-80fd-6be8412bbc83",
+      "id": "37cdd069-2129-4dff-8d12-5558471253f9",
       "key": "component",
       "value": "use",
       "type": "string"
