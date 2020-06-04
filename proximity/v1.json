@@ -2520,6 +2520,430 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "/servicesubscriptions",
+          "item": [
+            {
+              "name": "Retrieve a list of service subscriptions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "bde1f0fa-d64a-4f38-b65c-97a2e4c82399",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicesubscriptions?page[limit]&page[offset]&sort&filter[attribute]&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicesubscriptions"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `account`, `service`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new service subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "ac5089c4-b302-43bb-ba74-764ab47386a3",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function() {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function() {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
+                      "    pm.expect(response.data.id).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"service_subscription_id\", response.data.id);",
+                      "console.log('SET service_subscription_id: ' + pm.environment.get(\"service_subscription_id\"));",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function() {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('test');",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(10.1);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(10.1);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(10.1);",
+                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
+                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function() {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5e875264-924a-4ba9-91fc-6bf3acf626bc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"charge_day\": null,\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/servicesubscriptions"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a service subscription",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "58a3df93-863a-45b5-9950-de83949f289d",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_subscription_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('test');",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(10.10);",
+                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
+                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "72c6f121-50e9-4e05-863d-79b3cd4ac0b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}?include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicesubscriptions",
+                    "{{service_subscription_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `account`, `service`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a service subscriptions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "c37dc956-0d32-4483-a6ba-2251968f9d9b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_subscription_id\").toString());",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains correct attributes\", function () {",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes.name).to.eql('modified_test');",
+                      "    pm.expect(response.data.attributes.quantity).to.eql(20.20);",
+                      "    pm.expect(response.data.attributes.rate).to.eql(20.20);",
+                      "    pm.expect(response.data.attributes.cogs).to.eql(20.20);",
+                      "    pm.expect(response.data.attributes.type).to.eql('one_off');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-10');",
+                      "    pm.expect(response.data.attributes.end_date).to.be.null;",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('month');",
+                      "    pm.expect(response.data.attributes.instance).to.eql('exivity-updated');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "0a1251f3-78dc-44ec-ac8c-b54a2401db0c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-01-10\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}",
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Prepare affected reports",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "console.log(pm.response);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "12790140-a252-43f5-a22d-5549d57061c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/v1/servicesubscriptions/:service_subscription_id/prepareAffectedReports",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicesubscriptions",
+                    ":service_subscription_id",
+                    "prepareAffectedReports"
+                  ],
+                  "variable": [
+                    {
+                      "key": "service_subscription_id",
+                      "value": "{{service_subscription_id}}",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a service subscriptions",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET service_subscription_id');",
+                      "pm.environment.unset(\"service_subscription_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "eba3052a-f9e7-4951-95ac-6f9c41c84a26",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "7b228dfa-2391-4054-bc79-b6a924143991",
+          "description": "Available since v3.0.0",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "0a74fe97-24a0-4ff9-8706-af1801c253ff",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "0cae8730-cc3e-4b93-b332-3fa8fd6c8d9b",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "/rates",
           "item": [
             {
@@ -2978,6 +3402,391 @@
           "_postman_isSubFolder": true
         },
         {
+          "name": "/ratetiers",
+          "item": [
+            {
+              "name": "Add a new rate tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9ffc4db2-9e86-489d-96e3-ae78f96b5b8f",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('ratetier');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.eql({",
+                      "        \"threshold\": 0,",
+                      "        \"rate\": 4,",
+                      "        \"cogs\": null",
+                      "    });",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"ratetier_id\", response.data.id);"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1a32580c-c875-4cb4-aab8-7b8e5153f47f",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireServiceCategory)",
+                      "    .then(api.requireService)",
+                      "    .then(api.requireRate)",
+                      "    .then(api.ready)",
+                      "    .catch(function (err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2a13a1c3-15c4-4be2-bad0-e9e2072c6f45",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/ratetiers"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a list of rate tiers",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7e3ff32d-a6cb-46b4-995f-eacf3314dd45",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "// Check response",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.response.to.be.json;",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "// Check first rate tier",
+                      "var ratetier = response.data[0];",
+                      "pm.test(\"Ratetier type is correct\", function () {",
+                      "    pm.expect(ratetier.type).to.eql('ratetier');",
+                      "});",
+                      "pm.test(\"Ratetier ID is set\", function () {",
+                      "    pm.expect(ratetier.id).to.not.be.undefined;",
+                      "});",
+                      "pm.test(\"Ratetier attributes are correct\", function () {",
+                      "    pm.expect(ratetier.attributes).to.be.an('object');",
+                      "    pm.expect(ratetier.attributes).to.have.property(\"threshold\");",
+                      "    pm.expect(ratetier.attributes).to.have.property(\"rate\");",
+                      "    pm.expect(ratetier.attributes).to.have.property(\"cogs\");",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "ccb79eb5-00ad-44a0-aaae-78c60acde9b8",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "ae5677a8-6702-4543-a4b1-c5bcf1e5d584",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/ratetiers?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "ratetiers"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a rate tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "0b31c755-85a8-4a98-bb50-b8291cd7272f",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('ratetier');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.eql({",
+                      "        \"threshold\": 0,",
+                      "        \"rate\": 4,",
+                      "        \"cogs\": null",
+                      "    });",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "d0da37f2-4738-45df-a678-4d72c1cb997a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/ratetiers/{{ratetier_id}}?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "ratetiers",
+                    "{{ratetier_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `rate`."
+                    }
+                  ]
+                },
+                "description": "Test description"
+              },
+              "response": []
+            },
+            {
+              "name": "Update a rate tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "269605b7-7948-4d27-8009-7616d1430945",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('ratetier');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"cogs\": 10,",
+                      "    });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "c27ad7c8-07c9-4c4e-a763-edd43f76e230",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"ratetier\",\r\n    \"id\": \"{{ratetier_id}}\",\r\n    \"attributes\": {\r\n      \"cogs\": 10\r\n    }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/ratetiers/{{ratetier_id}}"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a rate tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7d1b5b6b-ee90-478f-8e64-46a29dea4706",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET ratetier_id');",
+                      "pm.environment.unset(\"ratetier_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "5c3f5009-1fd3-4e74-815c-e1cf5e458862",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/ratetiers/{{ratetier_id}}"
+              },
+              "response": []
+            }
+          ],
+          "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
+          "_postman_isSubFolder": true
+        },
+        {
           "name": "/adjustments",
           "item": [
             {
@@ -3424,815 +4233,6 @@
               "listen": "test",
               "script": {
                 "id": "621bced5-9556-4c1d-85e6-d3ee2eb53622",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            }
-          ],
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/ratetiers",
-          "item": [
-            {
-              "name": "Add a new rate tier",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9ffc4db2-9e86-489d-96e3-ae78f96b5b8f",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('ratetier');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.eql({",
-                      "        \"threshold\": 0,",
-                      "        \"rate\": 4,",
-                      "        \"cogs\": null",
-                      "    });",
-                      "",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"ratetier_id\", response.data.id);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "1a32580c-c875-4cb4-aab8-7b8e5153f47f",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.requireServiceCategory)",
-                      "    .then(api.requireService)",
-                      "    .then(api.requireRate)",
-                      "    .then(api.ready)",
-                      "    .catch(function (err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "2a13a1c3-15c4-4be2-bad0-e9e2072c6f45",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/ratetiers"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a list of rate tiers",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7e3ff32d-a6cb-46b4-995f-eacf3314dd45",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "pm.test(\"Content-Type is present\", function () {",
-                      "    pm.response.to.have.header(\"Content-Type\");",
-                      "});",
-                      "",
-                      "// Check response",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.response.to.be.json;",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "// Check first rate tier",
-                      "var ratetier = response.data[0];",
-                      "pm.test(\"Ratetier type is correct\", function () {",
-                      "    pm.expect(ratetier.type).to.eql('ratetier');",
-                      "});",
-                      "pm.test(\"Ratetier ID is set\", function () {",
-                      "    pm.expect(ratetier.id).to.not.be.undefined;",
-                      "});",
-                      "pm.test(\"Ratetier attributes are correct\", function () {",
-                      "    pm.expect(ratetier.attributes).to.be.an('object');",
-                      "    pm.expect(ratetier.attributes).to.have.property(\"threshold\");",
-                      "    pm.expect(ratetier.attributes).to.have.property(\"rate\");",
-                      "    pm.expect(ratetier.attributes).to.have.property(\"cogs\");",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "ccb79eb5-00ad-44a0-aaae-78c60acde9b8",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "ae5677a8-6702-4543-a4b1-c5bcf1e5d584",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/ratetiers?page[limit]&page[offset]&sort&filter[attribute]&include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "ratetiers"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `service`, `account`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a rate tier",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "0b31c755-85a8-4a98-bb50-b8291cd7272f",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('ratetier');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.eql({",
-                      "        \"threshold\": 0,",
-                      "        \"rate\": 4,",
-                      "        \"cogs\": null",
-                      "    });",
-                      "",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "d0da37f2-4738-45df-a678-4d72c1cb997a",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/ratetiers/{{ratetier_id}}?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "ratetiers",
-                    "{{ratetier_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `rate`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a rate tier",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "269605b7-7948-4d27-8009-7616d1430945",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('ratetier');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"cogs\": 10,",
-                      "    });",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "c27ad7c8-07c9-4c4e-a763-edd43f76e230",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"ratetier\",\r\n    \"id\": \"{{ratetier_id}}\",\r\n    \"attributes\": {\r\n      \"cogs\": 10\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/ratetiers/{{ratetier_id}}"
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a rate tier",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7d1b5b6b-ee90-478f-8e64-46a29dea4706",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET ratetier_id');",
-                      "pm.environment.unset(\"ratetier_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5c3f5009-1fd3-4e74-815c-e1cf5e458862",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [],
-                  "options": {
-                    "formdata": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/ratetiers/{{ratetier_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
-          "_postman_isSubFolder": true
-        },
-        {
-          "name": "/servicesubscriptions",
-          "item": [
-            {
-              "name": "Retrieve a list of service subscriptions",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "39c91cc0-a05b-44d6-a045-547af2160b1c",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "bde1f0fa-d64a-4f38-b65c-97a2e4c82399",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/servicesubscriptions?page[limit]&page[offset]&sort&filter[attribute]&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicesubscriptions"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `account`, `service`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Add a new service subscription",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "ac5089c4-b302-43bb-ba74-764ab47386a3",
-                    "exec": [
-                      "pm.test(\"Status code is 201\", function() {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function() {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
-                      "    pm.expect(response.data.id).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"service_subscription_id\", response.data.id);",
-                      "console.log('SET service_subscription_id: ' + pm.environment.get(\"service_subscription_id\"));",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function() {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.eql('test');",
-                      "    pm.expect(response.data.attributes.quantity).to.eql(10.1);",
-                      "    pm.expect(response.data.attributes.rate).to.eql(10.1);",
-                      "    pm.expect(response.data.attributes.cogs).to.eql(10.1);",
-                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
-                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
-                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
-                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function() {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "5e875264-924a-4ba9-91fc-6bf3acf626bc",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"charge_day\": null,\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/servicesubscriptions"
-              },
-              "response": []
-            },
-            {
-              "name": "Retrieve a service subscription",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "58a3df93-863a-45b5-9950-de83949f289d",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_subscription_id\").toString());",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.eql('test');",
-                      "    pm.expect(response.data.attributes.quantity).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.rate).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.cogs).to.eql(10.10);",
-                      "    pm.expect(response.data.attributes.type).to.eql('recurring');",
-                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
-                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
-                      "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "72c6f121-50e9-4e05-863d-79b3cd4ac0b9",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}?include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicesubscriptions",
-                    "{{service_subscription_id}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `account`, `service`."
-                    }
-                  ]
-                },
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Update a service subscriptions",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "c37dc956-0d32-4483-a6ba-2251968f9d9b",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('servicesubscription');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"service_subscription_id\").toString());",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains correct attributes\", function () {",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes.name).to.eql('modified_test');",
-                      "    pm.expect(response.data.attributes.quantity).to.eql(20.20);",
-                      "    pm.expect(response.data.attributes.rate).to.eql(20.20);",
-                      "    pm.expect(response.data.attributes.cogs).to.eql(20.20);",
-                      "    pm.expect(response.data.attributes.type).to.eql('one_off');",
-                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-10');",
-                      "    pm.expect(response.data.attributes.end_date).to.be.null;",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('month');",
-                      "    pm.expect(response.data.attributes.instance).to.eql('exivity-updated');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "0a1251f3-78dc-44ec-ac8c-b54a2401db0c",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-01-10\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}",
-                "description": "Test description"
-              },
-              "response": []
-            },
-            {
-              "name": "Prepare affected reports",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "console.log(pm.response);"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "12790140-a252-43f5-a22d-5549d57061c1",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "PATCH",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": {
-                  "raw": "{{base_url}}/v1/servicesubscriptions/:service_subscription_id/prepareAffectedReports",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "servicesubscriptions",
-                    ":service_subscription_id",
-                    "prepareAffectedReports"
-                  ],
-                  "variable": [
-                    {
-                      "key": "service_subscription_id",
-                      "value": "{{service_subscription_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
-              "name": "Delete a service subscriptions",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "d039b6ae-a001-46e8-98d9-91d53c11181d",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET service_subscription_id');",
-                      "pm.environment.unset(\"service_subscription_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "eba3052a-f9e7-4951-95ac-6f9c41c84a26",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [],
-                  "options": {
-                    "formdata": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}"
-              },
-              "response": []
-            }
-          ],
-          "_postman_id": "7b228dfa-2391-4054-bc79-b6a924143991",
-          "description": "Available since v3.0.0",
-          "event": [
-            {
-              "listen": "prerequest",
-              "script": {
-                "id": "0a74fe97-24a0-4ff9-8706-af1801c253ff",
-                "type": "text/javascript",
-                "exec": [
-                  ""
-                ]
-              }
-            },
-            {
-              "listen": "test",
-              "script": {
-                "id": "0cae8730-cc3e-4b93-b332-3fa8fd6c8d9b",
                 "type": "text/javascript",
                 "exec": [
                   ""
@@ -17422,7 +17422,7 @@
   ],
   "variable": [
     {
-      "id": "6846250b-9b56-4d54-9e5d-69f099b7a82f",
+      "id": "e295c73f-b8a1-4393-98eb-584d2d9730a8",
       "key": "component",
       "value": "use",
       "type": "string"
