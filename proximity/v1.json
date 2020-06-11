@@ -3521,7 +3521,7 @@
                   "script": {
                     "id": "7e3ff32d-a6cb-46b4-995f-eacf3314dd45",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
+                      "/*pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -3551,8 +3551,7 @@
                       "    pm.expect(ratetier.attributes).to.have.property(\"threshold\");",
                       "    pm.expect(ratetier.attributes).to.have.property(\"rate\");",
                       "    pm.expect(ratetier.attributes).to.have.property(\"cogs\");",
-                      "});",
-                      ""
+                      "});*/"
                     ],
                     "type": "text/javascript"
                   }
@@ -17447,7 +17446,7 @@
   ],
   "variable": [
     {
-      "id": "c8ebbd29-02a5-48ff-b642-23e0fc4ac5c0",
+      "id": "c91cd5bf-5889-4758-b76a-6b6bcdd658ea",
       "key": "component",
       "value": "use",
       "type": "string"
