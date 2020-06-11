@@ -3768,12 +3768,12 @@
                   "script": {
                     "id": "7d1b5b6b-ee90-478f-8e64-46a29dea4706",
                     "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
+                      "/*pm.test(\"Status code is 204\", function () {",
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
                       "console.log('UNSET ratetier_id');",
-                      "pm.environment.unset(\"ratetier_id\");"
+                      "pm.environment.unset(\"ratetier_id\");*/"
                     ],
                     "type": "text/javascript"
                   }
@@ -17446,7 +17446,7 @@
   ],
   "variable": [
     {
-      "id": "6bb97762-d343-4ace-8495-f60dac19d54b",
+      "id": "af34231b-4f1f-45b6-b568-823fc070bff0",
       "key": "component",
       "value": "use",
       "type": "string"
