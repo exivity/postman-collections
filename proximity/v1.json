@@ -12358,7 +12358,8 @@
                         "raw": {}
                       }
                     },
-                    "url": "{{base_url}}/v1/users/me"
+                    "url": "{{base_url}}/v1/users/me",
+                    "description": "`current_password` attribute is used for development purposes only. Your requests must not have this attribute."
                   },
                   "response": []
                 },
@@ -17443,7 +17444,7 @@
   ],
   "variable": [
     {
-      "id": "f6c322b0-248b-49c8-95a3-ac06d033cbb7",
+      "id": "0170b007-4e4d-4939-b87f-a6080b100e2b",
       "key": "component",
       "value": "use",
       "type": "string"
