@@ -12339,6 +12339,9 @@
                     }
                   ],
                   "_postman_id": "761c676d-26cc-9a13-e3cb-8d2571bf67f3",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
                   "request": {
                     "method": "PATCH",
                     "header": [
@@ -12353,7 +12356,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\"\r\n    }\r\n  }\r\n}",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\",\r\n      \"current_password\": \"exivity\"\r\n    }\r\n  }\r\n}",
                       "options": {
                         "raw": {}
                       }
@@ -17444,7 +17447,7 @@
   ],
   "variable": [
     {
-      "id": "0170b007-4e4d-4939-b87f-a6080b100e2b",
+      "id": "c18b8c2f-55b2-496f-a0e9-24ef98df674c",
       "key": "component",
       "value": "use",
       "type": "string"
