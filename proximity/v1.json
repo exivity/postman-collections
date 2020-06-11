@@ -17019,7 +17019,7 @@
           "                            \"consumption_col\": \"quantity\",",
           "                            \"instance_col\": \"hostname\",",
           "                            \"interval\": \"individually\",",
-          "                            \"charge_type\": \"manual_tiered_standard\",",
+          "                            \"charge_type\": \"manual_per_unit\",",
           "                            \"cogs_type\": \"none\",",
           "                            \"proration_type\": \"full\",",
           "                            \"charge_model\": \"peak\"",
@@ -17447,7 +17447,7 @@
   ],
   "variable": [
     {
-      "id": "8b228145-3bb9-4e11-9268-5d9a62e820e2",
+      "id": "fae9d3f8-b586-4401-8350-ab9b3c947a5c",
       "key": "component",
       "value": "use",
       "type": "string"
