@@ -3637,7 +3637,7 @@
                   "script": {
                     "id": "0b31c755-85a8-4a98-bb50-b8291cd7272f",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
+                      "/*pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
                       "});",
                       "",
@@ -3659,7 +3659,7 @@
                       "",
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
+                      "});*/"
                     ],
                     "type": "text/javascript"
                   }
@@ -17447,7 +17447,7 @@
   ],
   "variable": [
     {
-      "id": "3a56cdc9-3e1b-4f3a-a48d-8b347257fcf2",
+      "id": "cc834b83-c6a7-47b4-9c88-0a82616146d3",
       "key": "component",
       "value": "use",
       "type": "string"
