@@ -2354,7 +2354,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}",
+                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual_per_unit\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}",
                   "options": {
                     "raw": {}
                   }
@@ -12363,7 +12363,38 @@
                     "url": "{{base_url}}/v1/users/me",
                     "description": "`current_password` attribute is used for development purposes only. Your requests must not have this attribute."
                   },
-                  "response": []
+                  "response": [
+                    {
+                      "id": "9da1e752-027c-46ce-b688-53399bcb509d",
+                      "name": "Update the current user password",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/vnd.api+json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/vnd.api+json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"password\": \"new_password\"\r\n      \"current_password\": \"old_password\"\r\n    }\r\n  }\r\n}",
+                          "options": {
+                            "raw": {}
+                          }
+                        },
+                        "url": "{{base_url}}/v1/users/me"
+                      },
+                      "_postman_previewlanguage": null,
+                      "header": null,
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null
+                    }
+                  ]
                 },
                 {
                   "name": "Generate a new key",
@@ -17446,7 +17477,7 @@
   ],
   "variable": [
     {
-      "id": "af34231b-4f1f-45b6-b568-823fc070bff0",
+      "id": "4d38fce1-eed2-4958-a339-4260daaff91e",
       "key": "component",
       "value": "use",
       "type": "string"
