@@ -6858,8 +6858,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/transformers",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/transformers"
               },
               "response": []
             },
@@ -17457,7 +17456,7 @@
   ],
   "variable": [
     {
-      "id": "4457ed10-2764-4334-a9cc-9c4b5d91cb86",
+      "id": "41ae4410-eba8-4de1-927f-4fe6fca03df7",
       "key": "component",
       "value": "use",
       "type": "string"
