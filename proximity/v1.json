@@ -3245,7 +3245,8 @@
                       "description": "Include additional related resources. Possible values: `service`, `account`, `ratetiers`"
                     }
                   ]
-                }
+                },
+                "description": "Test description"
               },
               "response": []
             },
@@ -17470,7 +17471,7 @@
   ],
   "variable": [
     {
-      "id": "05ec23c3-a2b3-4ec1-92e7-991226b334c8",
+      "id": "f4be49d6-2645-41df-bc96-40ec1a2a9743",
       "key": "component",
       "value": "use",
       "type": "string"
