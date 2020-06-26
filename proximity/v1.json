@@ -6174,8 +6174,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -6355,8 +6354,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/extractors",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/extractors"
               },
               "response": []
             },
@@ -6860,8 +6858,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/transformers",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/transformers"
               },
               "response": []
             },
@@ -7371,8 +7368,7 @@
                       "description": "Include additional related resources. Possible values: `services`, `reports`, `metadatadefinition`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -7464,8 +7460,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17459,7 +17454,7 @@
   ],
   "variable": [
     {
-      "id": "7696bffa-c542-4fe1-9838-021a4a46c4f3",
+      "id": "2fb427c4-5b1e-4d61-acea-a974537c696e",
       "key": "component",
       "value": "use",
       "type": "string"
