@@ -10235,8 +10235,7 @@
                       "description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17450,7 +17449,7 @@
   ],
   "variable": [
     {
-      "id": "ea8fa110-9031-444a-8d64-218f2333558e",
+      "id": "527a5936-c47d-413b-acb1-7440bf7209db",
       "key": "component",
       "value": "use",
       "type": "string"
