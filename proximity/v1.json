@@ -10765,8 +10765,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             }
@@ -10905,8 +10904,7 @@
                       "description": "Include additional related resources. Possible values: `run`, `step`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17446,7 +17444,7 @@
   ],
   "variable": [
     {
-      "id": "2b1203ab-28bb-47c0-bcfa-1cd8c140034d",
+      "id": "3c7afe5f-e014-4515-8d9a-7883f86833ce",
       "key": "component",
       "value": "use",
       "type": "string"
