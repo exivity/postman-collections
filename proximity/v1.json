@@ -12617,8 +12617,7 @@
                       "description": "Include additional related resources. Possible values: `usergroup`, `accounts`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17443,7 +17442,7 @@
   ],
   "variable": [
     {
-      "id": "80e1644f-8114-4870-9df2-0a0812e81f83",
+      "id": "bb33b446-b724-4a0d-bcf3-f73224186edf",
       "key": "component",
       "value": "use",
       "type": "string"
