@@ -444,7 +444,7 @@
                   }
                 },
                 "url": "{{base_url}}/v1/auth/token",
-                "description": "Available since v3.0.0"
+                "description": "\u26a0\ufe0f Available since v3.0.0"
               },
               "response": []
             }
@@ -12427,7 +12427,7 @@
                       }
                     ],
                     "url": "{{base_url}}/v1/users/me/key",
-                    "description": "This will invalidate all previously issued tokens. Available since v3.0.0."
+                    "description": "\u26a0\ufe0f Available since v3.0.0.\r\n\r\nThis will invalidate all previously issued tokens."
                   },
                   "response": []
                 },
@@ -12829,7 +12829,7 @@
                   }
                 ],
                 "url": "{{base_url}}/v1/users/{{new_user_id}}/key",
-                "description": "This will invalidate all previously issued tokens. Available since v3.0.0."
+                "description": "\u26a0\ufe0f Available since v3.0.0.\r\n\r\nThis will invalidate all previously issued tokens."
               },
               "response": []
             },
@@ -17465,7 +17465,7 @@
   ],
   "variable": [
     {
-      "id": "9dcb5a2f-9f29-4d9d-9357-0cef0654ba5a",
+      "id": "76b9d27f-8820-4061-aeda-7ec47d619264",
       "key": "component",
       "value": "use",
       "type": "string"
