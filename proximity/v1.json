@@ -6093,8 +6093,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -6175,8 +6174,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -6356,8 +6354,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/extractors",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/extractors"
               },
               "response": []
             },
@@ -17460,7 +17457,7 @@
   ],
   "variable": [
     {
-      "id": "ab7df7b9-1d52-4c1b-abe5-86b9df4b384b",
+      "id": "4457ed10-2764-4334-a9cc-9c4b5d91cb86",
       "key": "component",
       "value": "use",
       "type": "string"
