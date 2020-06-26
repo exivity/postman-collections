@@ -2061,8 +2061,7 @@
                       "description": "Include additional related resources. Possible values: `servicecategory`, `rates`, `adjustments`, `dset`, `metadata`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -2759,8 +2758,7 @@
                       "description": "Include additional related resources. Possible values: `account`, `service`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -2829,8 +2827,7 @@
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}"
               },
               "response": []
             },
@@ -17475,7 +17472,7 @@
   ],
   "variable": [
     {
-      "id": "99f6510f-97a5-4889-a0d0-c2e9eb190993",
+      "id": "453b7b53-c18e-4a60-be54-9875a91e843a",
       "key": "component",
       "value": "use",
       "type": "string"
