@@ -6354,7 +6354,8 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/extractors"
+                "url": "{{base_url}}/v1/extractors",
+                "description": "Test description"
               },
               "response": []
             },
@@ -6858,7 +6859,8 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/transformers"
+                "url": "{{base_url}}/v1/transformers",
+                "description": "Test description"
               },
               "response": []
             },
@@ -7368,7 +7370,8 @@
                       "description": "Include additional related resources. Possible values: `services`, `reports`, `metadatadefinition`."
                     }
                   ]
-                }
+                },
+                "description": "Test description"
               },
               "response": []
             },
@@ -7460,7 +7463,8 @@
                       "type": "string"
                     }
                   ]
-                }
+                },
+                "description": "Test description"
               },
               "response": []
             },
@@ -9241,7 +9245,8 @@
                       "description": "The date to manually run the workflow for (in `YYYY-MM-DD` format). Defaults to the current date."
                     }
                   ]
-                }
+                },
+                "description": "Test description"
               },
               "response": []
             },
@@ -9382,7 +9387,8 @@
                       "description": "Include additional related resources. Possible values: `workflow`."
                     }
                   ]
-                }
+                },
+                "description": "Test description"
               },
               "response": []
             },
@@ -17452,7 +17458,7 @@
   ],
   "variable": [
     {
-      "id": "f0afe347-648d-4172-952b-b332903b7033",
+      "id": "0473ee00-b29d-4a49-87a5-859b7e602ff0",
       "key": "component",
       "value": "use",
       "type": "string"
