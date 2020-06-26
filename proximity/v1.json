@@ -3685,8 +3685,7 @@
                       "description": "Include additional related resources. Possible values: `rate`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -4033,8 +4032,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17469,7 +17467,7 @@
   ],
   "variable": [
     {
-      "id": "2841f083-9d6c-42d9-a786-04e167aa3579",
+      "id": "af87b900-d339-47af-8e2f-29c59cc8ecb6",
       "key": "component",
       "value": "use",
       "type": "string"
