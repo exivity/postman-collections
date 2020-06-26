@@ -5080,8 +5080,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -5166,8 +5165,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17466,7 +17464,7 @@
   ],
   "variable": [
     {
-      "id": "0024e84a-635f-488c-b6f7-205f1dbb60a3",
+      "id": "b5c4080a-9f48-4eab-adf9-cd6b607c0cf2",
       "key": "component",
       "value": "use",
       "type": "string"
