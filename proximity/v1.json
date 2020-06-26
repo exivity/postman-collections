@@ -9241,8 +9241,7 @@
                       "description": "The date to manually run the workflow for (in `YYYY-MM-DD` format). Defaults to the current date."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17454,7 +17453,7 @@
   ],
   "variable": [
     {
-      "id": "2fb427c4-5b1e-4d61-acea-a974537c696e",
+      "id": "f6b06881-77a6-4ffb-b371-e8fddaa208b3",
       "key": "component",
       "value": "use",
       "type": "string"
