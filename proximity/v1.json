@@ -9382,8 +9382,7 @@
                       "description": "Include additional related resources. Possible values: `workflow`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17453,7 +17452,7 @@
   ],
   "variable": [
     {
-      "id": "f6b06881-77a6-4ffb-b371-e8fddaa208b3",
+      "id": "f0afe347-648d-4172-952b-b332903b7033",
       "key": "component",
       "value": "use",
       "type": "string"
