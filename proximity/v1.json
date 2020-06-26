@@ -3245,8 +3245,7 @@
                       "description": "Include additional related resources. Possible values: `service`, `account`, `ratetiers`"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -3420,94 +3419,6 @@
           "name": "/ratetiers",
           "item": [
             {
-              "name": "Add a new rate tier",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "9ffc4db2-9e86-489d-96e3-ae78f96b5b8f",
-                    "exec": [
-                      "/*pm.test(\"Status code is 201\", function () {",
-                      "    pm.response.to.have.status(201);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('ratetier');",
-                      "    pm.expect(response.data.id).to.not.be.undefined;",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.eql({",
-                      "        \"threshold\": 0,",
-                      "        \"rate\": 4,",
-                      "        \"cogs\": null",
-                      "    });",
-                      "",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"ratetier_id\", response.data.id);*/"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "1a32580c-c875-4cb4-aab8-7b8e5153f47f",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.requireServiceCategory)",
-                      "    .then(api.requireService)",
-                      "    .then(api.requireRate)",
-                      "    .then(api.ready)",
-                      "    .catch(function (err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "2a13a1c3-15c4-4be2-bad0-e9e2072c6f45",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "POST",
-                "header": [
-                  {
-                    "key": "Content-Type",
-                    "name": "Content-Type",
-                    "type": "text",
-                    "value": "application/vnd.api+json"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
-                  "options": {
-                    "raw": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/ratetiers"
-              },
-              "response": []
-            },
-            {
               "name": "Retrieve a list of rate tiers",
               "event": [
                 {
@@ -3617,8 +3528,95 @@
                       "description": "Include additional related resources. Possible values: `service`, `account`."
                     }
                   ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Add a new rate tier",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "9ffc4db2-9e86-489d-96e3-ae78f96b5b8f",
+                    "exec": [
+                      "/*pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('ratetier');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.eql({",
+                      "        \"threshold\": 0,",
+                      "        \"rate\": 4,",
+                      "        \"cogs\": null",
+                      "    });",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"ratetier_id\", response.data.id);*/"
+                    ],
+                    "type": "text/javascript"
+                  }
                 },
-                "description": "Test description"
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "1a32580c-c875-4cb4-aab8-7b8e5153f47f",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireServiceCategory)",
+                      "    .then(api.requireService)",
+                      "    .then(api.requireRate)",
+                      "    .then(api.ready)",
+                      "    .catch(function (err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2a13a1c3-15c4-4be2-bad0-e9e2072c6f45",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "type": "text",
+                    "value": "application/vnd.api+json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"ratetier\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"threshold\": \"0\",\r\n\t\t\t\"rate\": \"4.0\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"rate\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"rate\",\r\n\t\t\t\t\t\"id\": \"{{rate_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/ratetiers"
               },
               "response": []
             },
@@ -17471,7 +17469,7 @@
   ],
   "variable": [
     {
-      "id": "f4be49d6-2645-41df-bc96-40ec1a2a9743",
+      "id": "2841f083-9d6c-42d9-a786-04e167aa3579",
       "key": "component",
       "value": "use",
       "type": "string"
