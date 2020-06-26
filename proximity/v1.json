@@ -6354,8 +6354,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/extractors",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/extractors"
               },
               "response": []
             },
@@ -6859,8 +6858,7 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/transformers",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/transformers"
               },
               "response": []
             },
@@ -7370,8 +7368,7 @@
                       "description": "Include additional related resources. Possible values: `services`, `reports`, `metadatadefinition`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -7463,8 +7460,7 @@
                       "type": "string"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -9245,8 +9241,7 @@
                       "description": "The date to manually run the workflow for (in `YYYY-MM-DD` format). Defaults to the current date."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -9387,8 +9382,7 @@
                       "description": "Include additional related resources. Possible values: `workflow`."
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -9554,8 +9548,7 @@
                       "description": "Include additional related resources"
                     }
                   ]
-                },
-                "description": "Test description"
+                }
               },
               "response": []
             },
@@ -17458,7 +17451,7 @@
   ],
   "variable": [
     {
-      "id": "0473ee00-b29d-4a49-87a5-859b7e602ff0",
+      "id": "f368a998-3553-4351-a20e-d212d4f2e45f",
       "key": "component",
       "value": "use",
       "type": "string"
