@@ -12427,7 +12427,7 @@
                       }
                     ],
                     "url": "{{base_url}}/v1/users/me/key",
-                    "description": "\u26a0\ufe0f Available since v3.0.0.\r\n\r\nThis will invalidate all previously issued tokens."
+                    "description": "This will invalidate all previously issued tokens. Available since v3.0.0."
                   },
                   "response": []
                 },
@@ -17465,7 +17465,7 @@
   ],
   "variable": [
     {
-      "id": "76b9d27f-8820-4061-aeda-7ec47d619264",
+      "id": "5b74fd0a-1746-4442-9f7f-29ebbecbca5e",
       "key": "component",
       "value": "use",
       "type": "string"
