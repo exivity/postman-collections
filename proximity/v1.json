@@ -9612,8 +9612,7 @@
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}",
-                "description": "Test description"
+                "url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}"
               },
               "response": []
             },
@@ -17451,7 +17450,7 @@
   ],
   "variable": [
     {
-      "id": "f368a998-3553-4351-a20e-d212d4f2e45f",
+      "id": "ea8fa110-9031-444a-8d64-218f2333558e",
       "key": "component",
       "value": "use",
       "type": "string"
