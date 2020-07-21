@@ -9170,7 +9170,8 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.setNextRequest(\"Retrieve a list of schedules\");"
+                      "pm.setNextRequest(\"Retrieve a list of schedules\");",
+                      "console.log(\"Skip Run a workflow until some steps are created.\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17467,7 +17468,7 @@
   ],
   "variable": [
     {
-      "id": "ae911a83-13f8-45fe-ae93-8b803738e938",
+      "id": "fb264bf8-35f9-4d88-9c2e-a9581eb39516",
       "key": "component",
       "value": "use",
       "type": "string"
