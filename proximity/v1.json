@@ -9170,7 +9170,7 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.setNextRequest(\"Retrieve a list of steps\");"
+                      "pm.setNextRequest(\"Retrieve a list of schedules\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17467,7 +17467,7 @@
   ],
   "variable": [
     {
-      "id": "ec2e5ed8-7d32-45ef-9b7e-824e59386233",
+      "id": "ae911a83-13f8-45fe-ae93-8b803738e938",
       "key": "component",
       "value": "use",
       "type": "string"
