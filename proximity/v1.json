@@ -10212,9 +10212,7 @@
                       "});",
                       "",
                       "pm.environment.set(\"proximity_workflowstep_id\", response.data.id);",
-                      "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));",
-                      "",
-                      "pm.setNextRequest(\"Run a workflow\");"
+                      "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -17469,7 +17467,7 @@
   ],
   "variable": [
     {
-      "id": "6baf4fb6-6559-4d25-bab7-c52651126cf1",
+      "id": "ec2e5ed8-7d32-45ef-9b7e-824e59386233",
       "key": "component",
       "value": "use",
       "type": "string"
