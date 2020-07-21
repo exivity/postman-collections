@@ -9169,7 +9169,8 @@
                       "pm.test(\"Response contains data.links\", function () {",
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
-                      ""
+                      "",
+                      "pm.setNextRequest(\"Retrieve a list of steps\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17468,7 +17469,7 @@
   ],
   "variable": [
     {
-      "id": "971b4b7c-b821-48df-829e-cbd4f8d9f9a5",
+      "id": "40a9014d-d12b-42ce-b5cb-6dfae6e13c2f",
       "key": "component",
       "value": "use",
       "type": "string"
