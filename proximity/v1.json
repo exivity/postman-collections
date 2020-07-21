@@ -9289,7 +9289,9 @@
                       "pm.environment.unset(\"workflow_id\");",
                       "console.log('UNSET workflowrun_id');",
                       "pm.environment.unset(\"workflowrun_id\");",
-                      ""
+                      "",
+                      "pm.setNextRequest(\"Retrieve a step\");",
+                      "console.log(\"Continue from Retrieving a step.\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -9309,7 +9311,10 @@
                 ],
                 "body": {
                   "mode": "formdata",
-                  "formdata": []
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/workflows/:workflowId",
@@ -17471,7 +17476,7 @@
   ],
   "variable": [
     {
-      "id": "cd3bac8c-4f54-4494-963e-42d01ea82a11",
+      "id": "94c7dcad-2d91-4cd1-9cef-49368c264db7",
       "key": "component",
       "value": "use",
       "type": "string"
