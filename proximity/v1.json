@@ -9170,8 +9170,8 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.setNextRequest(\"Retrieve a list of schedules\");",
-                      "console.log(\"Skip Run a workflow until some steps are created.\");"
+                      "console.log(\"Skip Run a workflow until some steps are created.\");",
+                      "postman.setNextRequest(\"Retrieve a list of schedules\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17476,7 +17476,7 @@
   ],
   "variable": [
     {
-      "id": "94c7dcad-2d91-4cd1-9cef-49368c264db7",
+      "id": "a2a42398-db8d-4aaa-9c7f-447ca9ef2b42",
       "key": "component",
       "value": "use",
       "type": "string"
