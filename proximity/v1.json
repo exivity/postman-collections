@@ -10523,10 +10523,7 @@
                       "});",
                       "",
                       "console.log('UNSET workflowstep_id');",
-                      "pm.environment.unset(\"workflowstep_id\");",
-                      "",
-                      "console.log(\"Go back to running a workflow.\");",
-                      "postman.setNextRequest(\"Run a workflow\");"
+                      "pm.environment.unset(\"workflowstep_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -10564,10 +10561,7 @@
                 ],
                 "body": {
                   "mode": "formdata",
-                  "formdata": [],
-                  "options": {
-                    "formdata": {}
-                  }
+                  "formdata": []
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
@@ -17479,7 +17473,7 @@
   ],
   "variable": [
     {
-      "id": "9d031303-4bdd-407e-bc0e-f1b8bbb3a988",
+      "id": "0502a826-97be-4c1b-b8e4-1ecfef040202",
       "key": "component",
       "value": "use",
       "type": "string"
