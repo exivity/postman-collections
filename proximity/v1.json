@@ -9290,8 +9290,8 @@
                       "console.log('UNSET workflowrun_id');",
                       "pm.environment.unset(\"workflowrun_id\");",
                       "",
-                      "pm.setNextRequest(\"Retrieve a step\");",
-                      "console.log(\"Continue from Retrieving a step.\");"
+                      "console.log(\"Continue from Retrieving a step.\");",
+                      "postman.setNextRequest(\"Retrieve a step\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17476,7 +17476,7 @@
   ],
   "variable": [
     {
-      "id": "d44a6863-3210-4c32-ae3a-e0ded48de782",
+      "id": "ca3dce62-83df-454d-9a7d-b546b1b02db9",
       "key": "component",
       "value": "use",
       "type": "string"
