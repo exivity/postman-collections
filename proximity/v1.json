@@ -9225,7 +9225,9 @@
                       "    pm.expect(response.output).to.be.an('array');",
                       "    pm.expect(response.status).to.eql(true);",
                       "});",
-                      ""
+                      "",
+                      "console.log(\"Continue from Retrieving a list of workflow runs.\");",
+                      "postman.setNextRequest(\"Retrieve a list of workflow runs\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -9249,7 +9251,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": ""
+                  "raw": "",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/workflows/{{workflow_id}}/run?date",
@@ -17476,7 +17481,7 @@
   ],
   "variable": [
     {
-      "id": "1594a747-c64d-4133-96db-af3eb76730bb",
+      "id": "7f231287-e1c5-42a4-9c3f-0784942cf3ed",
       "key": "component",
       "value": "use",
       "type": "string"
