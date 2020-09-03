@@ -9289,9 +9289,7 @@
                       "pm.environment.unset(\"workflow_id\");",
                       "console.log('UNSET workflowrun_id');",
                       "pm.environment.unset(\"workflowrun_id\");",
-                      "",
-                      "console.log(\"Continue from Retrieving a list of workflow runs.\");",
-                      "postman.setNextRequest(\"Retrieve a list of workflow runs\");"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -17479,7 +17477,7 @@
   ],
   "variable": [
     {
-      "id": "2061f4eb-d261-440f-9002-dbf90e40bd26",
+      "id": "79465477-96ed-4261-ba27-5bbe7a0dce8d",
       "key": "component",
       "value": "use",
       "type": "string"
