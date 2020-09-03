@@ -10983,7 +10983,8 @@
                       "    });",
                       "}",
                       "",
-                      ""
+                      "console.log(\"Workflow can be deleted now. Continue with Detele a workflow\");",
+                      "postman.setNextRequest(\"Delete a workflow\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17481,7 +17482,7 @@
   ],
   "variable": [
     {
-      "id": "0096f031-5001-4ccf-9899-1ca10e84da68",
+      "id": "6bdbae88-199c-4422-9f93-111c6bbf3601",
       "key": "component",
       "value": "use",
       "type": "string"
