@@ -1347,7 +1347,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date` (or a combination of those as a comma separated list)."
+                      "description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date` (or a combination of those as a comma separated list). The account and service fields are only available if their respective dimension is included in the request."
                     },
                     {
                       "key": "filter[field]",
@@ -17485,7 +17485,7 @@
   ],
   "variable": [
     {
-      "id": "7cab3fb0-5825-4ab9-b20d-37cc56d4a904",
+      "id": "e939350a-f620-4aa8-b71e-57693a19e2c9",
       "key": "component",
       "value": "use",
       "type": "string"
