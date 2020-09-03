@@ -9288,8 +9288,7 @@
                       "console.log('UNSET workflow_id');",
                       "pm.environment.unset(\"workflow_id\");",
                       "console.log('UNSET workflowrun_id');",
-                      "pm.environment.unset(\"workflowrun_id\");",
-                      ""
+                      "pm.environment.unset(\"workflowrun_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17477,7 +17476,7 @@
   ],
   "variable": [
     {
-      "id": "79465477-96ed-4261-ba27-5bbe7a0dce8d",
+      "id": "1594a747-c64d-4133-96db-af3eb76730bb",
       "key": "component",
       "value": "use",
       "type": "string"
