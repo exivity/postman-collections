@@ -9293,7 +9293,10 @@
                       "console.log('UNSET workflow_id');",
                       "pm.environment.unset(\"workflow_id\");",
                       "console.log('UNSET workflowrun_id');",
-                      "pm.environment.unset(\"workflowrun_id\");"
+                      "pm.environment.unset(\"workflowrun_id\");",
+                      "",
+                      "console.log(\"Finished testing workflows. Continue with Notification channels\");",
+                      "postman.setNextRequest(\"Get all notification channels\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17482,7 +17485,7 @@
   ],
   "variable": [
     {
-      "id": "ac18056f-462c-4de4-ad8e-7d1e231ec597",
+      "id": "c762e514-dab7-487d-9433-fe8168d7b873",
       "key": "component",
       "value": "use",
       "type": "string"
