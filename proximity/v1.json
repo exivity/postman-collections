@@ -15526,6 +15526,9 @@
                 }
               ],
               "_postman_id": "c7332fa8-229d-64c1-c33f-b5887d5b0c09",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "auth": {
                   "type": "bearer",
@@ -17485,7 +17488,7 @@
   ],
   "variable": [
     {
-      "id": "e939350a-f620-4aa8-b71e-57693a19e2c9",
+      "id": "791ac065-ef5c-486b-97bc-7a75b3623e68",
       "key": "component",
       "value": "use",
       "type": "string"
