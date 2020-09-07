@@ -13081,7 +13081,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"],\r\n            \"saml\": {\r\n                \"operator\": \"AND\",\r\n                \"attribute\": \"\"\r\n            }\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17491,7 +17491,7 @@
   ],
   "variable": [
     {
-      "id": "36c96555-40bb-4f7b-a626-58db6912d606",
+      "id": "e3afee42-3d2b-4ee5-9439-320b3ba561e7",
       "key": "component",
       "value": "use",
       "type": "string"
