@@ -13062,6 +13062,9 @@
                 }
               ],
               "_postman_id": "0be8c767-4ef8-fe9c-52de-d03c5bedca68",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "POST",
                 "header": [
@@ -13078,7 +13081,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"]\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"usergroup\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"testers\",\r\n\t\t\t\"permissions\": [\"manage_users\"],\r\n            \"saml\": {\r\n                \"operator\": \"AND\",\r\n                \"attribute\": \"\"\r\n            }\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17488,7 +17491,7 @@
   ],
   "variable": [
     {
-      "id": "c608220e-b02f-4616-832e-b7c6be5ace13",
+      "id": "36c96555-40bb-4f7b-a626-58db6912d606",
       "key": "component",
       "value": "use",
       "type": "string"
