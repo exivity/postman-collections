@@ -15511,16 +15511,18 @@
                       "    // Test",
                       "    pm.expect(response).to.be.an('object');",
                       "    pm.expect(response).to.have.keys([",
+                      "        \"aeon\",",
                       "        \"use\",",
                       "        \"transcript\",",
                       "        \"edify\",",
                       "        \"proximity\",",
                       "        \"glass\",",
                       "        \"db\",",
-                      "        \"aeon\",",
                       "        \"horizon\",",
                       "        \"pigeon\",",
-                      "        \"scaffold\"",
+                      "        \"scaffold\",",
+                      "        \"merlin\",",
+                      "        \"griffon\"",
                       "    ]);",
                       "});"
                     ],
@@ -17491,7 +17493,7 @@
   ],
   "variable": [
     {
-      "id": "e3afee42-3d2b-4ee5-9439-320b3ba561e7",
+      "id": "a3db50e1-59b2-4132-bc80-2d686d8495ba",
       "key": "component",
       "value": "use",
       "type": "string"
