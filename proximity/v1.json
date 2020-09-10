@@ -15524,8 +15524,8 @@
                       "    pm.expect(response.horizon).to.be.a.string;",
                       "    pm.expect(response.pigeon).to.be.a.string;",
                       "    pm.expect(response.scaffold).to.be.a.string;",
-                      "    //pm.expect(response.merlin).to.be.a.string;",
-                      "    //pm.expect(response.griffon).to.be.a.string;",
+                      "    pm.expect(response.merlin).to.be.a.string;",
+                      "    pm.expect(response.griffon).to.be.a.string;",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -17495,7 +17495,7 @@
   ],
   "variable": [
     {
-      "id": "eafe6277-38d0-453c-8462-85eac1ca9173",
+      "id": "6a4478f7-911a-45dd-b376-583d6b4f801b",
       "key": "component",
       "value": "use",
       "type": "string"
