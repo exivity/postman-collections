@@ -15496,7 +15496,7 @@
                 {
                   "listen": "test",
                   "script": {
-                    "id": "55029f4a-693b-4da8-b618-a952a72267e3",
+                    "id": "7aa984ac-8b97-4b34-bd4c-0a64da83dec5",
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
@@ -15510,20 +15510,22 @@
                       "    ",
                       "    // Test",
                       "    pm.expect(response).to.be.an('object');",
-                      "    pm.expect(response).to.have.keys([",
-                      "        \"aeon\",",
-                      "        \"use\",",
-                      "        \"transcript\",",
-                      "        \"edify\",",
-                      "        \"proximity\",",
-                      "        \"glass\",",
-                      "        \"db\",",
-                      "        \"horizon\",",
-                      "        \"pigeon\",",
-                      "        \"scaffold\",",
-                      "        \"merlin\",",
-                      "        \"griffon\"",
-                      "    ]);",
+                      "",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains keys\", function () {",
+                      "    pm.expect(response.aeon).to.be.a.string;",
+                      "    pm.expect(response.use).to.be.a.string;",
+                      "    pm.expect(response.transcript).to.be.a.string;",
+                      "    pm.expect(response.edify).to.be.a.string;",
+                      "    pm.expect(response.proximity).to.be.a.string;",
+                      "    pm.expect(response.glass).to.be.a.string;",
+                      "    pm.expect(response.db).to.be.a.string;",
+                      "    pm.expect(response.horizon).to.be.a.string;",
+                      "    pm.expect(response.pigeon).to.be.a.string;",
+                      "    pm.expect(response.scaffold).to.be.a.string;",
+                      "    //pm.expect(response.merlin).to.be.a.string;",
+                      "    //pm.expect(response.griffon).to.be.a.string;",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -17493,7 +17495,7 @@
   ],
   "variable": [
     {
-      "id": "a3db50e1-59b2-4132-bc80-2d686d8495ba",
+      "id": "eafe6277-38d0-453c-8462-85eac1ca9173",
       "key": "component",
       "value": "use",
       "type": "string"
