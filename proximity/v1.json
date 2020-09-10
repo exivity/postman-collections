@@ -3113,7 +3113,8 @@
                       "\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
                       "\t\t\"effective_date\": \"2017-08-27\",",
                       "\t\t\"threshold\": 0,",
-                      "        \"min_commit\": 0",
+                      "        \"min_commit\": 0,",
+                      "        \"tier_aggregation_level\": 1",
                       "\t});",
                       "",
                       "});",
@@ -3165,7 +3166,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\",\r\n            \"tier_aggregation_level\": \"1\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -3196,17 +3197,18 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.eql({",
-                      "    \"rate\": 1,",
-                      "    \"rate_col\": \"rate_col\",",
-                      "    \"fixed\": 2,",
-                      "    \"fixed_col\": \"fixed_col\",",
-                      "    \"cogs_rate\": 3,",
-                      "    \"cogs_rate_col\": \"cogs_rate_col\",",
-                      "    \"cogs_fixed\": 4,",
-                      "    \"cogs_fixed_col\": \"cogs_fixed_col\",",
-                      "    \"effective_date\": \"2017-08-27\",",
-                      "    \"threshold\": 0,",
-                      "        \"min_commit\": 0",
+                      "        \"rate\": 1,",
+                      "        \"rate_col\": \"rate_col\",",
+                      "        \"fixed\": 2,",
+                      "        \"fixed_col\": \"fixed_col\",",
+                      "        \"cogs_rate\": 3,",
+                      "        \"cogs_rate_col\": \"cogs_rate_col\",",
+                      "        \"cogs_fixed\": 4,",
+                      "        \"cogs_fixed_col\": \"cogs_fixed_col\",",
+                      "        \"effective_date\": \"2017-08-27\",",
+                      "        \"threshold\": 0,",
+                      "        \"min_commit\": 0,",
+                      "        \"tier_aggregation_level\": 1",
                       "  });",
                       "",
                       "});",
@@ -17495,7 +17497,7 @@
   ],
   "variable": [
     {
-      "id": "0b18cd70-a559-4265-9545-a2f1ef30c850",
+      "id": "f364ee61-6197-4af6-aeb0-9e889d99e09d",
       "key": "component",
       "value": "use",
       "type": "string"
