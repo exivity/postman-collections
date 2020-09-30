@@ -2450,10 +2450,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "pm.environment.set(\"service_id\", pm.environment.get(\"first_service_id\"));",
-                      "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));",
-                      "pm.environment.unset(\"first_service_id\");",
-                      "console.log('UNSET first_service_id');"
+                      "console.log('UNSET service_id');",
+                      "pm.environment.unset(\"service_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -17511,7 +17509,7 @@
   ],
   "variable": [
     {
-      "id": "aafdb4ca-44da-4f55-8c55-4be0566136c9",
+      "id": "cf984e93-f4ba-48d3-9ab2-2e6b5b083415",
       "key": "component",
       "value": "use",
       "type": "string"
