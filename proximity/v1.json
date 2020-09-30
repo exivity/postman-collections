@@ -3119,8 +3119,7 @@
                       "\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
                       "\t\t\"effective_date\": \"2017-08-27\",",
                       "\t\t\"threshold\": 0,",
-                      "        \"min_commit\": 0,",
-                      "        \"tier_aggregation_level\": 1",
+                      "        \"min_commit\": 0",
                       "\t});",
                       "",
                       "});",
@@ -3172,7 +3171,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\",\r\n            \"tier_aggregation_level\": \"1\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"rate\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"rate\": \"1.0\",\r\n\t\t\t\"rate_col\": \"rate_col\",\r\n\t\t\t\"fixed\": \"2.0\",\r\n\t\t\t\"fixed_col\": \"fixed_col\",\r\n\t\t\t\"cogs_rate\": \"3.0\",\r\n\t\t\t\"cogs_rate_col\": \"cogs_rate_col\",\r\n\t\t\t\"cogs_fixed\": \"4.0\",\r\n\t\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",\r\n\t\t\t\"effective_date\": \"2017-08-27\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"service\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"service\",\r\n\t\t\t\t\t\"id\": \"{{service_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17507,7 +17506,7 @@
   ],
   "variable": [
     {
-      "id": "98387b94-c74e-4f32-9fff-4c9db6352d10",
+      "id": "a2e0f404-4164-43ba-9a2a-1de2425d14eb",
       "key": "component",
       "value": "use",
       "type": "string"
