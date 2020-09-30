@@ -12277,7 +12277,7 @@
                           "        pm.expect(response.data.attributes).to.have.property(\"email_address\");",
                           "        pm.expect(response.data.attributes).to.have.property(\"account_access_type\");",
                           "        pm.expect(response.data.attributes).to.have.property(\"source\");",
-                          "        // pm.expect(response.data.attributes).to.have.property(\"display_name\");",
+                          "        pm.expect(response.data.attributes).to.have.property(\"display_name\");",
                           "    });",
                           "});",
                           "",
@@ -17512,7 +17512,7 @@
   ],
   "variable": [
     {
-      "id": "8e90782f-9925-4bf4-a8a4-e1979b750e13",
+      "id": "e8c64e00-a18c-446e-8deb-393a9e766dfa",
       "key": "component",
       "value": "use",
       "type": "string"
