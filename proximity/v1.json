@@ -2849,8 +2849,8 @@
                   "script": {
                     "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
                     "exec": [
-                      "pm.test(\"Status code is 422\", function () {",
-                      "    pm.response.to.have.status(422)",
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200)",
                       "});",
                       "",
                       "console.log(pm.response);"
@@ -17511,7 +17511,7 @@
   ],
   "variable": [
     {
-      "id": "ab69579c-9044-4248-b0ce-0a6ba103b3d9",
+      "id": "aafdb4ca-44da-4f55-8c55-4be0566136c9",
       "key": "component",
       "value": "use",
       "type": "string"
