@@ -12345,12 +12345,11 @@
                           "    pm.expect(response.data.type).to.eql('user');",
                           "    pm.expect(response.data.id).to.eql(pm.environment.get(\"user_id\").toString());",
                           "    pm.expect(response.data.attributes).to.be.an('object');",
-                          "    pm.expect(response.data.attributes).to.have.keys([",
-                          "        \"username\",",
-                          "        \"email_address\",",
-                          "        \"account_access_type\",",
-                          "        \"source\"",
-                          "  ]);",
+                          "    pm.expect(response.data.attributes).to.have.property(\"username\");",
+                          "    pm.expect(response.data.attributes).to.have.property(\"email_address\");",
+                          "    pm.expect(response.data.attributes).to.have.property(\"account_access_type\");",
+                          "    pm.expect(response.data.attributes).to.have.property(\"source\");",
+                          "    pm.expect(response.data.attributes).to.have.property(\"display_name\");",
                           "  pm.expect(response.data.attributes.username).to.eql('admin');",
                           "  pm.expect(response.data.attributes.email_address).to.eql('tester@exivity.com');",
                           "});",
@@ -17512,7 +17511,7 @@
   ],
   "variable": [
     {
-      "id": "e8c64e00-a18c-446e-8deb-393a9e766dfa",
+      "id": "6e730bf0-b432-45c1-98f3-1f68549e22b1",
       "key": "component",
       "value": "use",
       "type": "string"
