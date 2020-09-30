@@ -3219,8 +3219,7 @@
                       "        \"cogs_fixed_col\": \"cogs_fixed_col\",",
                       "        \"effective_date\": \"2017-08-27\",",
                       "        \"threshold\": 0,",
-                      "        \"min_commit\": 0,",
-                      "        \"tier_aggregation_level\": 1",
+                      "        \"min_commit\": 0",
                       "  });",
                       "",
                       "});",
@@ -17513,7 +17512,7 @@
   ],
   "variable": [
     {
-      "id": "4bb6b3cc-3f17-4bf3-a8fd-aa13d7705dec",
+      "id": "d759c66f-18ae-4f05-bf99-d9a6e1868360",
       "key": "component",
       "value": "use",
       "type": "string"
