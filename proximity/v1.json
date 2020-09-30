@@ -1992,9 +1992,7 @@
                       "    pm.expect(service.attributes).to.have.property(\"charge_model\");",
                       "",
                       "});",
-                      "",
-                      "pm.environment.set('first_service_id', response.data[0].id);",
-                      "console.log('SET first_service_id: ' + pm.environment.get(\"first_service_id\"));"
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -17509,7 +17507,7 @@
   ],
   "variable": [
     {
-      "id": "cf984e93-f4ba-48d3-9ab2-2e6b5b083415",
+      "id": "98387b94-c74e-4f32-9fff-4c9db6352d10",
       "key": "component",
       "value": "use",
       "type": "string"
