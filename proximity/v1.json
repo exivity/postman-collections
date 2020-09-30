@@ -2450,14 +2450,19 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "console.log('UNSET service_id');",
-                      "pm.environment.unset(\"service_id\");"
+                      "pm.environment.set(\"service_id\", pm.environment.get(\"first_service_id\"));",
+                      "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));",
+                      "pm.environment.unset(\"first_service_id\");",
+                      "console.log('UNSET first_service_id');"
                     ],
                     "type": "text/javascript"
                   }
                 }
               ],
               "_postman_id": "a4bcd022-a6df-4ae6-9bf3-06f0bedde601",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "DELETE",
                 "header": [
@@ -2468,7 +2473,10 @@
                 ],
                 "body": {
                   "mode": "formdata",
-                  "formdata": []
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/services/:service_id",
@@ -17503,7 +17511,7 @@
   ],
   "variable": [
     {
-      "id": "371e3521-4a6c-4a51-b13d-630bf30aecae",
+      "id": "ab69579c-9044-4248-b0ce-0a6ba103b3d9",
       "key": "component",
       "value": "use",
       "type": "string"
