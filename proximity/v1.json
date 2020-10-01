@@ -11889,7 +11889,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"],\n                \"files\": {\n                    \"filename\": [\"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\", \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17525,7 +17525,7 @@
   ],
   "variable": [
     {
-      "id": "98f515de-a05a-4566-8034-df7af5f9c382",
+      "id": "d505f4b4-e38e-4c2e-a63a-ad5d57df3439",
       "key": "component",
       "value": "use",
       "type": "string"
