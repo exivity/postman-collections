@@ -11257,7 +11257,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\",\n                \"cc\": null,\n                \"bcc\": null\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"mail\",\n            \"name\": \"E-mail for someone\",\n            \"info\": {\n            \t\"recipient\": \"someone@exivity.com\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n",
                   "options": {
                     "raw": {}
                   }
@@ -17525,7 +17525,7 @@
   ],
   "variable": [
     {
-      "id": "971ab6ab-cc3c-47c7-92a1-db2f46efa92f",
+      "id": "445f4608-850e-49d6-a256-55dabf63172b",
       "key": "component",
       "value": "use",
       "type": "string"
