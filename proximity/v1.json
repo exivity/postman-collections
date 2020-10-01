@@ -11497,7 +11497,7 @@
                   ],
                   "cookie": [],
                   "responseTime": null,
-                  "body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"E-mail for someone\",\n            \"type\": \"mail\",\n            \"info\": {\n                \"recipient\": \"someone@example.com\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/6\"\n        }\n    }\n}"
+                  "body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"E-mail for someone\",\n            \"type\": \"mail\",\n            \"info\": {\n                \"recipient\": \"someone@example.com\",\n                \"cc\": null,\n                \"bcc\": null\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/6\"\n        }\n    }\n}"
                 }
               ]
             },
@@ -11889,7 +11889,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"],\n                \"files\": {\n                    \"filename\": [\"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\", \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17525,7 +17525,7 @@
   ],
   "variable": [
     {
-      "id": "0596cd2c-be17-4f22-a53f-1960ddb13860",
+      "id": "ce19d9b0-45c9-477b-b882-18d4294ce9da",
       "key": "component",
       "value": "use",
       "type": "string"
