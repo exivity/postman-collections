@@ -11784,7 +11784,7 @@
               "response": []
             },
             {
-              "name": "Create workflow subscription with files attached",
+              "name": "Create new notificaiton subscription",
               "event": [
                 {
                   "listen": "test",
@@ -17525,7 +17525,7 @@
   ],
   "variable": [
     {
-      "id": "d505f4b4-e38e-4c2e-a63a-ad5d57df3439",
+      "id": "50407aed-eade-4768-bed3-6d5a529dacd9",
       "key": "component",
       "value": "use",
       "type": "string"
