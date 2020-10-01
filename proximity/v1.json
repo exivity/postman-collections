@@ -11889,7 +11889,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"],\n                \"files\": {\n                    \"filename\": [\"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\", \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17525,7 +17525,7 @@
   ],
   "variable": [
     {
-      "id": "ce19d9b0-45c9-477b-b882-18d4294ce9da",
+      "id": "6b4bb690-6f63-4f7d-b552-0629e5b0a0e2",
       "key": "component",
       "value": "use",
       "type": "string"
