@@ -11963,6 +11963,89 @@
                   "cookie": [],
                   "responseTime": null,
                   "body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"7\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationsubscriptions/7\"\n        }\n    }\n}"
+                },
+                {
+                  "id": "2eff1162-a0f7-4727-a5b6-e792a0f2e25c",
+                  "name": "Create workflow subscription with file attachement",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"],\n                \"files\": {\n                    \"filename\": [\"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\", \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+                    },
+                    "url": "{{base_url}}/v1/notificationsubscriptions"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 01 Oct 2020 13:56:50 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 01 Oct 2020 13:56:50 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "http://localhost:8012/1/notificationsubscription/4"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Feature-Policy",
+                      "value": "autoplay 'none'; camera 'none'"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-fbRtUtOlOS4kJT8Yo6ukBsG3NWXYLU6i';style-src 'self' 'nonce-fbRtUtOlOS4kJT8Yo6ukBsG3NWXYLU6i';font-src 'self' data:"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"enabled\": true,\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ],\n                \"files\": {\n                    \"filename\": [\n                        \"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\",\n                        \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"\n                    ],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/4\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/user\"\n                }\n            }\n        }\n    }\n}"
                 }
               ]
             },
@@ -17525,7 +17608,7 @@
   ],
   "variable": [
     {
-      "id": "560d28b5-5564-4672-9b8c-5097abac56d3",
+      "id": "a3d98c58-c8b6-4c84-b914-577cb4a61f2f",
       "key": "component",
       "value": "use",
       "type": "string"
