@@ -7871,7 +7871,7 @@
                   "file": {}
                 },
                 "url": "{{base_url}}/v1/file/a.txt",
-                "description": "Only the following file types are accepted:\r\n\r\n- csv\r\n- txt\r\n- json\r\n- xml\r\n\r\nUploaded files are stored as `%EXIVITY_HOME_PATH%/import/[group]/[yyyy]/[mm]/[dd]_uploaded_[sequence].[extension]`, where _sequence_ is a 3 characters long numberic string with padded zeros (e.g. `001` or `026`).\r\n\r\n_Note: starting with Exivity v3.0.0, this endpoint will no longer include the `/import/` prefix in the returned JSON response._"
+                "description": "Only the following file types are accepted:\r\n\r\n- csv\r\n- txt\r\n- json\r\n- xml\r\n\r\nUploaded files are stored as `%EXIVITY_HOME_PATH%/import/[path]`, where the `path` is derived from the request URL. Existing files will be overwritten."
               },
               "response": []
             },
@@ -17611,7 +17611,7 @@
   ],
   "variable": [
     {
-      "id": "42c427d2-9b0f-4d99-a478-30de1566ecf1",
+      "id": "4b6243b1-c71d-4599-a1a2-92c315264550",
       "key": "component",
       "value": "use",
       "type": "string"
