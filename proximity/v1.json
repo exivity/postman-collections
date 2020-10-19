@@ -3220,7 +3220,8 @@
                       "        \"cogs_fixed_col\": \"cogs_fixed_col\",",
                       "        \"effective_date\": \"2017-08-27\",",
                       "        \"threshold\": 0,",
-                      "        \"min_commit\": 0",
+                      "        \"min_commit\": 0,",
+                      "        \"tier_aggregation_level\": 1",
                       "  });",
                       "",
                       "});",
@@ -7869,7 +7870,8 @@
                   "mode": "file",
                   "file": {}
                 },
-                "url": "{{base_url}}/v1/file/a.txt"
+                "url": "{{base_url}}/v1/file/a.txt",
+                "description": "Only the following file types are accepted:\r\n\r\n- csv\r\n- txt\r\n- json\r\n- xml\r\n\r\nUploaded files are stored as `%EXIVITY_HOME_PATH%/import/[group]/[yyyy]/[mm]/[dd]_uploaded_[sequence].[extension]`, where _sequence_ is a 3 characters long numberic string with padded zeros (e.g. `001` or `026`).\r\n\r\n_Note: starting with Exivity v3.0.0, this endpoint will no longer include the `/import/` prefix in the returned JSON response._"
               },
               "response": []
             },
@@ -17609,7 +17611,7 @@
   ],
   "variable": [
     {
-      "id": "29de9144-a2f3-4433-a3b8-bb36fd8937b9",
+      "id": "42c427d2-9b0f-4d99-a478-30de1566ecf1",
       "key": "component",
       "value": "use",
       "type": "string"
