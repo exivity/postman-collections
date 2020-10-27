@@ -12468,7 +12468,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\", \r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\",\r\n      \"current_password\": \"exivity\"\r\n    }\r\n  }\r\n}",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\",\r\n      \"current_password\": \"exivity\"\r\n    }\r\n  }\r\n}",
                       "options": {
                         "raw": {}
                       }
@@ -17610,7 +17610,7 @@
   ],
   "variable": [
     {
-      "id": "35a50489-c662-4f65-ae24-b61a3085166f",
+      "id": "40fda776-009a-4f41-80cd-838ca616721c",
       "key": "component",
       "value": "use",
       "type": "string"
