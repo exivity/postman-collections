@@ -12468,13 +12468,12 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\",\r\n      \"current_password\": \"exivity\"\r\n    }\r\n  }\r\n}",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\", \r\n    \"id\": \"{{user_id}}\",\r\n    \"attributes\": {\r\n      \"email_address\": \"tester@exivity.com\",\r\n      \"current_password\": \"exivity\"\r\n    }\r\n  }\r\n}",
                       "options": {
                         "raw": {}
                       }
                     },
-                    "url": "{{base_url}}/v1/users/me",
-                    "description": "`current_password` attribute is used for development purposes only. Your requests must not have this attribute."
+                    "url": "{{base_url}}/v1/users/me"
                   },
                   "response": [
                     {
@@ -17611,7 +17610,7 @@
   ],
   "variable": [
     {
-      "id": "7287bff1-31d9-41e1-95cb-cddd1eb90d64",
+      "id": "35a50489-c662-4f65-ae24-b61a3085166f",
       "key": "component",
       "value": "use",
       "type": "string"
