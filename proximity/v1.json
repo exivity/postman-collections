@@ -10610,6 +10610,95 @@
                 }
               },
               "response": []
+            },
+            {
+              "name": "Add a new proximity step Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "7cade598-d1c0-4cef-87d1-472ad01f1a6f",
+                    "exec": [
+                      "pm.test(\"Status code is 201\", function () {",
+                      "    pm.response.to.have.status(201);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflowstep');",
+                      "    pm.expect(response.data.id).to.not.be.undefined;",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "    \"type\": \"proximity\",",
+                      "    \"sort\": 1,",
+                      "    \"timeout\": 600,",
+                      "  });",
+                      "  pm.expect(response.data.attributes.options).to.be.an('object');",
+                      "  pm.expect(response.data.attributes.options).to.include({",
+                      "    \"command\": \"exivity:gc\",",
+                      "        \"arguments\": \"\"",
+                      "  });",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});",
+                      "",
+                      "pm.environment.set(\"proximity_workflowstep_id\", response.data.id);",
+                      "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "c82c1cc2-f66b-4967-b67b-ed78927a42aa",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireWorkflow)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "2d69feef-f0fe-4a32-b76f-f3220a5b090f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "name": "Content-Type",
+                    "value": "application/vnd.api+json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"sort\": 1,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/workflowsteps"
+              },
+              "response": []
             }
           ],
           "_postman_id": "603b3894-1fec-4683-9089-9c4f47b84b04",
@@ -17610,7 +17699,7 @@
   ],
   "variable": [
     {
-      "id": "06610d7f-6d48-4156-a2fb-3bf7508eb5d8",
+      "id": "0842e597-7ddb-4b16-81e0-b8e03069d4ed",
       "key": "component",
       "value": "use",
       "type": "string"
