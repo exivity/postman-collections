@@ -19,7 +19,8 @@
                 "exec": [
                   "pm.test(\"Status code is 200\", function () {",
                   "    pm.response.to.have.status(200);",
-                  "});"
+                  "});",
+                  ""
                 ],
                 "type": "text/javascript"
               }
@@ -17566,7 +17567,7 @@
   ],
   "variable": [
     {
-      "id": "a8b5ce18-1110-47fe-9d27-afdc6e77194f",
+      "id": "635c89dc-a2d2-4a9e-939c-517dc1917e3c",
       "key": "component",
       "value": "use",
       "type": "string"
