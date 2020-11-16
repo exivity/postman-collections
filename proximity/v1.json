@@ -15133,7 +15133,8 @@
                     "value": "application/json"
                   }
                 ],
-                "url": "{{base_url}}/v1/system"
+                "url": "{{base_url}}/v1/system",
+                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity. Use `/system/version` and `/system/flags` instead."
               },
               "response": [
                 {
@@ -15257,7 +15258,8 @@
                   "mode": "formdata",
                   "formdata": []
                 },
-                "url": "{{base_url}}/v1/system"
+                "url": "{{base_url}}/v1/system",
+                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity. Use `/system/version` and `/system/flags` instead."
               },
               "response": [
                 {
@@ -17699,7 +17701,7 @@
   ],
   "variable": [
     {
-      "id": "a79a12bd-470d-454a-8cd6-342a15ea4e6a",
+      "id": "b560b2d7-0566-400c-91e2-311435d5dffe",
       "key": "component",
       "value": "use",
       "type": "string"
