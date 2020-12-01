@@ -9083,9 +9083,8 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "    \"name\": \"test\",",
-                      "        \"description\": \"This is test task\",",
-                      "        \"locked\": false,",
+                      "        \"name\": \"test\",",
+                      "        \"description\": \"This is test task\"",
                       "  });",
                       "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
                       "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
@@ -17569,7 +17568,7 @@
   ],
   "variable": [
     {
-      "id": "f12b3a99-7012-4bb0-b198-55d1f63edf91",
+      "id": "ead9729c-e7c2-4ab3-8a9c-86c3c289baa2",
       "key": "component",
       "value": "use",
       "type": "string"
