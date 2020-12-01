@@ -9178,9 +9178,8 @@
                       "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "    \"name\": \"modified test\",",
-                      "        \"description\": \"This is a modified test task\",",
-                      "        \"locked\": false,",
+                      "        \"name\": \"modified test\",",
+                      "        \"description\": \"This is a modified test task\"",
                       "  });",
                       "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
                       "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
@@ -17568,7 +17567,7 @@
   ],
   "variable": [
     {
-      "id": "ead9729c-e7c2-4ab3-8a9c-86c3c289baa2",
+      "id": "8820869c-b667-4678-b2d1-cbbc92f5b6e9",
       "key": "component",
       "value": "use",
       "type": "string"
