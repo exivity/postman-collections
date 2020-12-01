@@ -8998,9 +8998,8 @@
                       "    pm.expect(response.data.id).to.not.be.undefined;",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
-                      "    \"name\": \"test\",",
-                      "        \"description\": \"This is test task\",",
-                      "        \"locked\": false,",
+                      "        \"name\": \"test\",",
+                      "        \"description\": \"This is test task\"",
                       "  });",
                       "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
                       "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
@@ -9054,7 +9053,10 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflow\",\r\n    \t\"attributes\": {\r\n    \t\t\"name\": \"test\",\r\n            \"description\": \"This is test task\",\r\n            \"hidden\": false,\r\n            \"locked\": false\r\n    \t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflow\",\r\n    \t\"attributes\": {\r\n    \t\t\"name\": \"test\",\r\n            \"description\": \"This is test task\"\r\n    \t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {}
+                  }
                 },
                 "url": "{{base_url}}/v1/workflows"
               },
@@ -17567,7 +17569,7 @@
   ],
   "variable": [
     {
-      "id": "635c89dc-a2d2-4a9e-939c-517dc1917e3c",
+      "id": "f12b3a99-7012-4bb0-b198-55d1f63edf91",
       "key": "component",
       "value": "use",
       "type": "string"
