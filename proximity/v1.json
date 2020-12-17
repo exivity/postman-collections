@@ -11984,7 +11984,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow_ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
                   "options": {
                     "raw": {}
                   }
@@ -17567,7 +17567,7 @@
   ],
   "variable": [
     {
-      "id": "05503d63-3248-4257-af10-a7affd61e740",
+      "id": "ea94606f-d956-4b71-b545-c9d63e0dc40e",
       "key": "component",
       "value": "use",
       "type": "string"
