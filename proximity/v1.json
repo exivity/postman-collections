@@ -9334,10 +9334,10 @@
                   }
                 ],
                 "body": {
-                  "mode": "urlencoded",
-                  "urlencoded": [],
+                  "mode": "formdata",
+                  "formdata": [],
                   "options": {
-                    "urlencoded": {}
+                    "formdata": {}
                   }
                 },
                 "url": {
@@ -17567,7 +17567,7 @@
   ],
   "variable": [
     {
-      "id": "b37a444e-b1d4-40e8-96ce-e5576b184d2c",
+      "id": "fea91720-24c6-48a2-b62e-d06e32792276",
       "key": "component",
       "value": "use",
       "type": "string"
