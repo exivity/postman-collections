@@ -9334,15 +9334,30 @@
                   }
                 ],
                 "body": {
-                  "mode": "raw",
-                  "raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflow\",\r\n        \"relationships\": {\r\n\t\t\t\"workflowstep\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"1\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n    }\r\n}",
+                  "mode": "urlencoded",
+                  "urlencoded": [],
                   "options": {
-                    "raw": {
-                      "language": "json"
-                    }
+                    "urlencoded": {}
                   }
                 },
-                "url": "{{base_url}}/v1/workflows/10/relationships/workflowstep"
+                "url": {
+                  "raw": "{{base_url}}/v1/workflows/:workflowId",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowId",
+                      "value": "",
+                      "type": "string"
+                    }
+                  ]
+                }
               },
               "response": []
             }
@@ -17552,7 +17567,7 @@
   ],
   "variable": [
     {
-      "id": "b22ef7e5-12e2-410e-9cbe-dc3e0dd04007",
+      "id": "b37a444e-b1d4-40e8-96ce-e5576b184d2c",
       "key": "component",
       "value": "use",
       "type": "string"
