@@ -9063,101 +9063,6 @@
               "response": []
             },
             {
-              "name": "Retrieve a workflow",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains correct data\", function () {",
-                      "    pm.expect(response.data).to.be.an('object');",
-                      "    pm.expect(response.data.type).to.eql('workflow');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
-                      "    pm.expect(response.data.attributes).to.be.an('object');",
-                      "    pm.expect(response.data.attributes).to.include({",
-                      "        \"name\": \"test\",",
-                      "        \"description\": \"This is test task\"",
-                      "  });",
-                      "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
-                      "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains data.links\", function () {",
-                      "    pm.expect(response.data.links).to.be.an('object');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "476db509-4c61-41f6-806b-1a0cdbdece8f",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.requireWorkflow)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "69749f3f-c727-4fa7-b7b1-cd9774696f55",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/workflows/:workflowId?include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflows",
-                    ":workflowId"
-                  ],
-                  "query": [
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowId",
-                      "value": "{{workflow_id}}",
-                      "type": "string"
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Update a workflow",
               "event": [
                 {
@@ -9354,6 +9259,101 @@
                     {
                       "key": "workflowId",
                       "value": "",
+                      "type": "string"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Retrieve a workflow",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "72cbea9b-025b-4d31-81f4-3f5ab9324787",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains correct data\", function () {",
+                      "    pm.expect(response.data).to.be.an('object');",
+                      "    pm.expect(response.data.type).to.eql('workflow');",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflow_id\").toString());",
+                      "    pm.expect(response.data.attributes).to.be.an('object');",
+                      "    pm.expect(response.data.attributes).to.include({",
+                      "        \"name\": \"test\",",
+                      "        \"description\": \"This is test task\"",
+                      "  });",
+                      "    pm.expect(response.data.attributes.created_at).to.be.a('string');",
+                      "    pm.expect(response.data.attributes.updated_at).to.be.a('string');",
+                      "});",
+                      "",
+                      "pm.test(\"Response contains data.links\", function () {",
+                      "    pm.expect(response.data.links).to.be.an('object');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "476db509-4c61-41f6-806b-1a0cdbdece8f",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireWorkflow)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "69749f3f-c727-4fa7-b7b1-cd9774696f55",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/workflows/:workflowId?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "workflowId",
+                      "value": "{{workflow_id}}",
                       "type": "string"
                     }
                   ]
@@ -17567,7 +17567,7 @@
   ],
   "variable": [
     {
-      "id": "a71251b6-52e0-4d73-a902-6850b1e62a57",
+      "id": "b0e8f469-3747-493c-8e48-0200ef0316bb",
       "key": "component",
       "value": "use",
       "type": "string"
