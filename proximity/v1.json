@@ -9315,7 +9315,8 @@
                       "pm.environment.unset(\"workflowrun_id\");",
                       "",
                       "console.log(\"Finished testing workflows. Continue with Notification channels\");",
-                      "postman.setNextRequest(\"Get all notification channels\");"
+                      "postman.setNextRequest(\"Get all notification channels\");",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -9340,24 +9341,7 @@
                     "formdata": {}
                   }
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/workflows/:workflowId",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "workflows",
-                    ":workflowId"
-                  ],
-                  "variable": [
-                    {
-                      "key": "workflowId",
-                      "value": "",
-                      "type": "string"
-                    }
-                  ]
-                }
+                "url": "{{base_url}}/v1/workflows/{{workflow_id}}"
               },
               "response": []
             }
@@ -17567,7 +17551,7 @@
   ],
   "variable": [
     {
-      "id": "e02a76ad-e273-48f4-b1c8-641aa06054c3",
+      "id": "e85fc6d5-4e34-429b-b632-0552d09053a0",
       "key": "component",
       "value": "use",
       "type": "string"
