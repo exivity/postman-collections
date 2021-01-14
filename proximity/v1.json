@@ -15586,7 +15586,7 @@
                       "});",
                       "",
                       "pm.test(\"Response contains keys\", function () {",
-                      "    pm.expect(response).to.have.property(\"aeon\");",
+                      "    // pm.expect(response).to.have.property(\"aeon\"); // to be replaced by chronos",
                       "    pm.expect(response).to.have.property(\"use\");",
                       "    pm.expect(response).to.have.property(\"transcript\");",
                       "    pm.expect(response).to.have.property(\"edify\");",
@@ -17567,7 +17567,7 @@
   ],
   "variable": [
     {
-      "id": "fea91720-24c6-48a2-b62e-d06e32792276",
+      "id": "1bed26f4-8da3-4b34-b94b-5d068020ce60",
       "key": "component",
       "value": "use",
       "type": "string"
