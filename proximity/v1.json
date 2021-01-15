@@ -15952,6 +15952,29 @@
             }
           ],
           "_postman_id": "8c4e1311-97c8-48de-ae38-487ecb30d0a5",
+          "description": "\u26a0\ufe0f The translations feature is deprecated and not used anymore in new releases. The GUI is now available in several languages (beta feature). We may add similar functionality in the future, to allow editing some terminology used in the GUI.",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "a299c6f4-104c-4e40-b6b9-004db358458d",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "0a6d1cae-d3e1-429a-ac47-430fa477eaca",
+                "type": "text/javascript",
+                "exec": [
+                  ""
+                ]
+              }
+            }
+          ],
           "_postman_isSubFolder": true
         },
         {
@@ -17554,7 +17577,7 @@
   ],
   "variable": [
     {
-      "id": "9a67f065-b893-4c53-b49d-7dda8f5b15fb",
+      "id": "617ec012-f828-42d9-bb51-77021f103049",
       "key": "component",
       "value": "use",
       "type": "string"
