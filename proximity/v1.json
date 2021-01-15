@@ -15794,7 +15794,8 @@
                       "type": "string"
                     }
                   ]
-                }
+                },
+                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity."
               },
               "response": []
             },
@@ -15860,7 +15861,8 @@
                       "type": "string"
                     }
                   ]
-                }
+                },
+                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity."
               },
               "response": []
             },
@@ -17551,7 +17553,7 @@
   ],
   "variable": [
     {
-      "id": "1d3f0789-b5a3-46bb-b0e7-904b9ab5c476",
+      "id": "0dddaccc-b87e-4189-a630-be1a876f30a8",
       "key": "component",
       "value": "use",
       "type": "string"
