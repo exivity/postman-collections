@@ -13836,7 +13836,7 @@
                     {
                       "key": "component",
                       "value": "proximity",
-                      "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `aeon`, `proximity`, `pigeon` or `horizon`."
+                      "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `chronos`, `proximity`, `pigeon`, `horizon`, `merlin` or `griffon`."
                     },
                     {
                       "key": "limit",
@@ -17551,7 +17551,7 @@
   ],
   "variable": [
     {
-      "id": "e85fc6d5-4e34-429b-b632-0552d09053a0",
+      "id": "1d3f0789-b5a3-46bb-b0e7-904b9ab5c476",
       "key": "component",
       "value": "use",
       "type": "string"
