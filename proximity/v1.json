@@ -15580,8 +15580,8 @@
                       "    pm.expect(response).to.have.property(\"horizon\");",
                       "    pm.expect(response).to.have.property(\"pigeon\");",
                       "    pm.expect(response).to.have.property(\"scaffold\");",
-                      "   pm.expect(response).to.have.property(\"merlin\");",
-                      "   pm.expect(response).to.have.property(\"griffon\");",
+                      "    pm.expect(response).to.have.property(\"merlin\");",
+                      "    pm.expect(response).to.have.property(\"griffon\");",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -17577,7 +17577,7 @@
   ],
   "variable": [
     {
-      "id": "7de399a3-0306-4888-a0c6-2583229088db",
+      "id": "1e1a9fa0-7b4b-4447-b2a0-dcaa38ccbea5",
       "key": "component",
       "value": "use",
       "type": "string"
