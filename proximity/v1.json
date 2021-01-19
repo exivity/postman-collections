@@ -447,7 +447,7 @@
                   }
                 },
                 "url": "{{base_url}}/v1/auth/token",
-                "description": "\u26a0\ufe0f Available since v3.0.0"
+                "description": "⚠️ Available since v3.0.0"
               },
               "response": []
             }
@@ -1370,7 +1370,7 @@
                     {
                       "key": "progress",
                       "value": "",
-                      "description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/\u00ednvoice` is never streamed. Defaults to `1`."
+                      "description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/ínvoice` is never streamed. Defaults to `1`."
                     },
                     {
                       "key": "csv_delimiter",
@@ -2507,7 +2507,7 @@
             }
           ],
           "_postman_id": "f43592d6-0e71-4de1-824c-5eb7803f2de1",
-          "description": "A service has the following attributes:\n\nattribute        | type        | editable | description\n-----------------|-------------|----------|-------------\nkey              | *string*    | \u274c       | Unique identifier, [read more](https://docs.exivity.com/transform/language/service/#key)\ndescription      | *string*    | \u2714\ufe0f       | Friendly name, [read more](https://docs.exivity.com/transform/language/service/#description)\nunit_label       | *string*    | \u274c       | Unit of consumption, [read more](https://docs.exivity.com/transform/language/service/#unit_label)\ndset             | *string*    | \u274c       | Dset this service is linked to\ntype             | *enum*      | \u274c       | One of `service_name_in_header` or `service_name_in_data`, [read more](https://docs.exivity.com/transform/language/services/#service_type)\nusage_col        | *string*    | \u274c       | Dset column containing keys, [read more](https://docs.exivity.com/transform/language/services/#usages_col)\nconsumption_col  | *string*    | \u274c       | Dset column containing consumption amount, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)\ninstance_col     | *string*    | \u274c       | Dset column containing unique instance id's, [read more](https://docs.exivity.com/transform/language/services/#instance_col)\ninterval         | *enum*      | \u274c       | One of `never`, `individually`, `second`, `minute`, `hour`, `day`, `week`, `month` or `year`. Currently, only `individually`, `day` and `month` are implemented, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)  \ncharge_type      | *enum*      | \u274c       | One of `none`, `manual`, `manual_per_unit`, `manual_per_interval`, `automatic`, `automatic_per_unit`, `automatic_per_interval` or `other`, read more below\ncogs_type        | *enum*      | \u274c       | One of `none`, `manual_per_unit`, `manual_per_interval`, `automatic_per_unit` or `automatic_per_interval`, read more below\nproration_type   | *enum*      | \u274c       | One of `none` or `full`, [read more](https://docs.exivity.com/transform/language/services/#model)\ncreated_at       | *timestamp* | \u274c       | Unix timestamp the service was first created\nupdated_at       | *timestamp* | \u274c       | Unix timestamp the service was last updated\nseen_at          | *date*      | \u274c       | ISO-8601 date the service was last seen in a dset\n\n### Charge and cogs type\nThe attributes `charge_type` and `cogs_type` define how the rate is used when calculating charge and cogs metrics using consumption of the service.\n\n- The first part denotes whether the rate is dynamically derived from the usage data itself (`automatic`) or specified explicitly in rate entities (`manual`).\n- The second part denotes whether an amount per unit of consumption (`per_unit`) and/or per interval (`per_interval`) should be applied.\n\nWhen the second part is omitted, both `per_unit` and `per_interval` are used. If no rate should be applied at all, `none` can be used. A value of `other` means a configuration is used not currently supported by the API.",
+          "description": "A service has the following attributes:\n\nattribute        | type        | editable | description\n-----------------|-------------|----------|-------------\nkey              | *string*    | ❌       | Unique identifier, [read more](https://docs.exivity.com/transform/language/service/#key)\ndescription      | *string*    | ✔️       | Friendly name, [read more](https://docs.exivity.com/transform/language/service/#description)\nunit_label       | *string*    | ❌       | Unit of consumption, [read more](https://docs.exivity.com/transform/language/service/#unit_label)\ndset             | *string*    | ❌       | Dset this service is linked to\ntype             | *enum*      | ❌       | One of `service_name_in_header` or `service_name_in_data`, [read more](https://docs.exivity.com/transform/language/services/#service_type)\nusage_col        | *string*    | ❌       | Dset column containing keys, [read more](https://docs.exivity.com/transform/language/services/#usages_col)\nconsumption_col  | *string*    | ❌       | Dset column containing consumption amount, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)\ninstance_col     | *string*    | ❌       | Dset column containing unique instance id's, [read more](https://docs.exivity.com/transform/language/services/#instance_col)\ninterval         | *enum*      | ❌       | One of `never`, `individually`, `second`, `minute`, `hour`, `day`, `week`, `month` or `year`. Currently, only `individually`, `day` and `month` are implemented, [read more](https://docs.exivity.com/transform/language/services/#consumption_col)  \ncharge_type      | *enum*      | ❌       | One of `none`, `manual`, `manual_per_unit`, `manual_per_interval`, `automatic`, `automatic_per_unit`, `automatic_per_interval` or `other`, read more below\ncogs_type        | *enum*      | ❌       | One of `none`, `manual_per_unit`, `manual_per_interval`, `automatic_per_unit` or `automatic_per_interval`, read more below\nproration_type   | *enum*      | ❌       | One of `none` or `full`, [read more](https://docs.exivity.com/transform/language/services/#model)\ncreated_at       | *timestamp* | ❌       | Unix timestamp the service was first created\nupdated_at       | *timestamp* | ❌       | Unix timestamp the service was last updated\nseen_at          | *date*      | ❌       | ISO-8601 date the service was last seen in a dset\n\n### Charge and cogs type\nThe attributes `charge_type` and `cogs_type` define how the rate is used when calculating charge and cogs metrics using consumption of the service.\n\n- The first part denotes whether the rate is dynamically derived from the usage data itself (`automatic`) or specified explicitly in rate entities (`manual`).\n- The second part denotes whether an amount per unit of consumption (`per_unit`) and/or per interval (`per_interval`) should be applied.\n\nWhen the second part is omitted, both `per_unit` and `per_interval` are used. If no rate should be applied at all, `none` can be used. A value of `other` means a configuration is used not currently supported by the API.",
           "event": [
             {
               "listen": "prerequest",
@@ -2950,7 +2950,7 @@
             }
           ],
           "_postman_id": "7b228dfa-2391-4054-bc79-b6a924143991",
-          "description": "\u26a0\ufe0f Available since v3.0.0",
+          "description": "⚠️ Available since v3.0.0",
           "event": [
             {
               "listen": "prerequest",
@@ -3813,7 +3813,7 @@
             }
           ],
           "_postman_id": "88f61d49-36e5-458f-9a2c-523658ab4631",
-          "description": "\u26a0\ufe0f These endpoints are currently in alpha and may change at any time. Please don't use in production.",
+          "description": "⚠️ These endpoints are currently in alpha and may change at any time. Please don't use in production.",
           "event": [
             {
               "listen": "prerequest",
@@ -11968,7 +11968,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow_ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
                   "options": {
                     "raw": {}
                   }
@@ -12125,6 +12125,92 @@
                   "cookie": [],
                   "responseTime": null,
                   "body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"enabled\": true,\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ],\n                \"files\": {\n                    \"filename\": [\n                        \"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\",\n                        \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"\n                    ],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/4\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/user\"\n                }\n            }\n        }\n    }\n}"
+                },
+                {
+                  "id": "9411375b-13dd-4907-8bd8-0f49491e487b",
+                  "name": "Create new budget_evaluated notificaiton subscription",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"budget_evaluated\",\n            \"info\": {\n                \"budget_id\": 1,\n            \t\"threshold_percentage\": 80,\n                \"only_once\": true,\n                \"account_ids\": [1,2,3]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}",
+                      "options": {
+                        "raw": {}
+                      }
+                    },
+                    "url": "{{base_url}}/v1/notificationsubscriptions"
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 18 Jan 2021 10:33:17 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 18 Jan 2021 10:33:17 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "Location",
+                      "value": "http://localhost:8012/1/notificationsubscription/4"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Feature-Policy",
+                      "value": "autoplay 'none'; camera 'none'"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-cYInKv7lTnjmgmgCFHZ4bpNFN91Naz9a';style-src 'self' 'nonce-cYInKv7lTnjmgmgCFHZ4bpNFN91Naz9a';font-src 'self' data:"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"budget_evaluated\",\n            \"enabled\": true,\n            \"info\": {\n                \"budget_id\": 1,\n                \"threshold_percentage\": 80,\n                \"only_once\": true,\n                \"account_ids\": [\n                    1,\n                    2,\n                    3\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/4\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/user\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/channels\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/channels\"\n                }\n            }\n        }\n    }\n}"
                 }
               ]
             },
@@ -12626,7 +12712,7 @@
                       }
                     ],
                     "url": "{{base_url}}/v1/users/me/key",
-                    "description": "\u26a0\ufe0f Available since v3.0.0.\r\n\r\nThis will invalidate all previously issued tokens."
+                    "description": "⚠️ Available since v3.0.0.\r\n\r\nThis will invalidate all previously issued tokens."
                   },
                   "response": []
                 },
@@ -13036,7 +13122,7 @@
                   }
                 ],
                 "url": "{{base_url}}/v1/users/{{new_user_id}}/key",
-                "description": "\u26a0\ufe0f Available since v3.0.0.\r\n\r\nThis will invalidate all previously issued tokens."
+                "description": "⚠️ Available since v3.0.0.\r\n\r\nThis will invalidate all previously issued tokens."
               },
               "response": []
             },
@@ -14984,7 +15070,7 @@
                   }
                 ],
                 "url": "{{base_url}}/v1/system",
-                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity. Use `/system/version` and `/system/flags` instead."
+                "description": "⚠️ This endpoint is deprecated and may be removed in future versions of Exivity. Use `/system/version` and `/system/flags` instead."
               },
               "response": [
                 {
@@ -15109,7 +15195,7 @@
                   "formdata": []
                 },
                 "url": "{{base_url}}/v1/system",
-                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity. Use `/system/version` and `/system/flags` instead."
+                "description": "⚠️ This endpoint is deprecated and may be removed in future versions of Exivity. Use `/system/version` and `/system/flags` instead."
               },
               "response": [
                 {
@@ -15795,7 +15881,7 @@
                     }
                   ]
                 },
-                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity."
+                "description": "⚠️ This endpoint is deprecated and may be removed in future versions of Exivity."
               },
               "response": []
             },
@@ -15862,7 +15948,7 @@
                     }
                   ]
                 },
-                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity."
+                "description": "⚠️ This endpoint is deprecated and may be removed in future versions of Exivity."
               },
               "response": []
             },
@@ -15946,13 +16032,13 @@
                     }
                   ]
                 },
-                "description": "\u26a0\ufe0f This endpoint is deprecated and may be removed in future versions of Exivity."
+                "description": "⚠️ This endpoint is deprecated and may be removed in future versions of Exivity."
               },
               "response": []
             }
           ],
           "_postman_id": "8c4e1311-97c8-48de-ae38-487ecb30d0a5",
-          "description": "\u26a0\ufe0f The translations feature is deprecated and not used anymore in new releases. The GUI is now available in several languages (beta feature). We may add similar functionality in the future, to allow editing some terminology used in the GUI.",
+          "description": "⚠️ The translations feature is deprecated and not used anymore in new releases. The GUI is now available in several languages (beta feature). We may add similar functionality in the future, to allow editing some terminology used in the GUI.",
           "event": [
             {
               "listen": "prerequest",
@@ -16368,7 +16454,7 @@
             }
           ],
           "_postman_id": "f37ee782-e53d-4dc7-a94d-454f255e3d00",
-          "description": "\u26a0\ufe0f These endpoints are currently in beta.",
+          "description": "⚠️ These endpoints are currently in beta.",
           "event": [
             {
               "listen": "prerequest",
@@ -16736,7 +16822,7 @@
             }
           ],
           "_postman_id": "74fec5b3-e74a-4ce0-9412-26b2d04bec17",
-          "description": "\u26a0\ufe0f These endpoints are currently in beta.",
+          "description": "⚠️ These endpoints are currently in beta.",
           "event": [
             {
               "listen": "prerequest",
@@ -17577,7 +17663,7 @@
   ],
   "variable": [
     {
-      "id": "285b5617-bc2b-422f-828d-f80a899da727",
+      "id": "2b45fc5c-d405-4266-8ce0-23e087a1b52e",
       "key": "component",
       "value": "use",
       "type": "string"
