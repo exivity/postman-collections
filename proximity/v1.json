@@ -11973,8 +11973,7 @@
                     "raw": {}
                   }
                 },
-                "url": "{{base_url}}/v1/notificationsubscriptions",
-                "description": "h1 . workflow_ended\r\n* workflow_id - required\r\n* job_id - required"
+                "url": "{{base_url}}/v1/notificationsubscriptions"
               },
               "response": [
                 {
@@ -17750,7 +17749,7 @@
   ],
   "variable": [
     {
-      "id": "266ced01-8cf0-41c0-93f3-042ecebd66ce",
+      "id": "522684d1-15a5-408a-aba8-8390eb5f579a",
       "key": "component",
       "value": "use",
       "type": "string"
