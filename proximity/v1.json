@@ -1491,7 +1491,7 @@
                     }
                   ]
                 },
-                "description": "⚠️ This endpoints are currently in alpha and may change at any time. Please don't use in production.\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nservice_id                      | *integer*   | Key for the applicable service, only when `services` is included in the `dimension` parameter\nservicecategory_id              | *integer*   | Key for the applicable service category, only when `services` is included in the `dimension` parameter\naccount_id                      | *integer*   | Key for the applicable account, only when `accounts` is included in the `dimension` parameter\ninstance_value                  | *string*    | Unique identifier for the applicable instance, only when `instances` is included in the `dimension` parameter"
+                "description": "⚠️ This endpoints are currently in alpha and may change at any time. Please don't use in production.\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nservice_ids                     | *string[]*   | Key for the applicable service, only when `services` is included in the `dimension` parameter\nservicecategory_ids             | *string[]*   | Key for the applicable service category, only when `services` is included in the `dimension` parameter\naccount_ids                     | *string[]*   | Key for the applicable account, only when `accounts` is included in the `dimension` parameter\ninstance_values                 | *string[]*    | Unique identifier for the applicable instance, only when `instances` is included in the `dimension` parameter"
               },
               "response": []
             },
@@ -14042,7 +14042,7 @@
                       "",
                       "// Next request",
                       "",
-                      "const components = [\"use\", \"transcript\", \"edify\", \"aeon\", \"proximity\", \"pigeon\", \"horizon\"];",
+                      "const components = [\"proximity\", \"pigeon\", \"use\", \"transcript\", \"edify\", \"chronos\", \"horizon\", \"merlin\", \"griffon\"];",
                       "const previousComponent = pm.environment.get(\"component\");",
                       "const nextComponent = components[components.indexOf(previousComponent) + 1];",
                       "",
@@ -14065,7 +14065,7 @@
                       "const component = pm.environment.get(\"component\");",
                       "",
                       "if (!component) {",
-                      "    pm.environment.set(\"component\", \"use\");",
+                      "    pm.environment.set(\"component\", \"proximity\");",
                       "}"
                     ],
                     "type": "text/javascript"
@@ -14091,7 +14091,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/log?component=proximity&limit=&filter=&truncate=",
+                  "raw": "{{base_url}}/v1/log?component={{component}}&limit=&filter=&truncate=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -14102,7 +14102,7 @@
                   "query": [
                     {
                       "key": "component",
-                      "value": "proximity",
+                      "value": "{{component}}",
                       "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `chronos`, `proximity`, `pigeon`, `horizon`, `merlin` or `griffon`."
                     },
                     {
@@ -17844,7 +17844,7 @@
   ],
   "variable": [
     {
-      "id": "bd7a3065-c201-4a27-b99c-4689b444eb22",
+      "id": "e8e7bd18-8652-4325-bb44-df8e1844686c",
       "key": "component",
       "value": "use",
       "type": "string"
