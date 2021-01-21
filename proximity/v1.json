@@ -1401,45 +1401,6 @@
               "response": []
             },
             {
-              "name": "Delete a report definition",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "726795e6-603a-4c76-b26e-daa9b1104425",
-                    "exec": [
-                      "pm.test(\"Status code is 204\", function () {",
-                      "    pm.response.to.have.status(204);",
-                      "});",
-                      "",
-                      "console.log('UNSET report_id');",
-                      "pm.environment.unset(\"report_id\");"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "_postman_id": "361ac871-7a68-e539-eb1c-8b3bf1eeaa3e",
-              "request": {
-                "method": "DELETE",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": [],
-                  "options": {
-                    "formdata": {}
-                  }
-                },
-                "url": "{{base_url}}/v1/reports/{{report_id}}"
-              },
-              "response": []
-            },
-            {
               "name": "Run a report Copy",
               "event": [
                 {
@@ -1572,6 +1533,45 @@
                   ]
                 },
                 "description": "The output format when either `json` or `csv` is selected as the `format` parameter:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nrate_id                         | *integer*   | Key for the applicable rate\nservice_id                      | *integer*   | Key for the applicable service, only when `services` is included in the `dimension` parameter\nservicecategory_id              | *integer*   | Key for the applicable service category, only when `services` is included in the `dimension` parameter\naccount_id                      | *integer*   | Key for the applicable account, only when `accounts` is included in the `dimension` parameter\ninstance_value                  | *string*    | Unique identifier for the applicable instance, only when `instances` is included in the `dimension` parameter\nday                             | *string*    | The day in `YYYYMMDD` format, only when the `timeline` parameter is set to `day`\nmonth                           | *string*    | The month in `YYYYMM` format, only when the `timeline` parameter is set to `month`\nsubtotal_quantity               | *float*     | Quantity before adjustments and mininum commit are applied\nmin_commit_delta_quantity       | *float*     | Difference in quantity based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_quantity                  | *float*     | Quantity after adjustments and mininum commit are applied. If `instances` is included in the `dimension` parameter, equal to _subtotal_quantity_.\nunit_based_subtotal_charge      | *float*     | Fraction of charge based on a per unit rate, before adjustments and mininum commit are applied\ninterval_based_subtotal_charge  | *float*     | Fraction of charge based on a per interval rate, before adjustments and mininum commit are applied\navg_unit_based_rate             | *float*     | Average per unit rate\navg_interval_based_rate         | *float*     | _placeholder_\nsubtotal_charge                 | *float*     | Charge (same as `unit_based_subtotal_charge + interval_based_subtotal_charge`) before adjustments and mininum commit are applied\nmin_commit_delta_charge         | *float*     | Difference in charge based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_charge                    | *float*     | Charge after adjustments and mininum commit are applied. If `instances` is included in the `dimension` parameter, equal to _subtotal_charge_.\ntotal_cogs                      | *float*     | Cogs, only if user permissions includes `VIEW_COGS`\ntotal_net                       | *float*     | Net (same as `total_charge - total_cogs`), only if user permissions includes `VIEW_COGS`\nadjustments                     | *array*     | Adjustments data (see below), only populated when `instances` is not included in the `dimension` parameter\naccount_name                    | *string*    | Name for the applicable account, only when `accounts` is included in the `dimension` parameter and `account_name` is included in the `include` parameter\nservice_description             | *string*    | Description for the applicable service, only when `services` is included in the `dimension` parameter and `service_description` is included in the `include` parameter\nservicecategory_name            | *string*    | Name for the applicable service category, only when `services` is included in the `dimension` parameter and `servicecategory_name` is included in the `include` parameter\n\nThe output format of the embedded adjustments data:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nid            | *integer*   | Key for the applicable adjustment\ncharge        | *float*     | Difference in quantity based on applying this adjustment\nquantity      | *float*     | Difference in charge based on applying this adjustment"
+              },
+              "response": []
+            },
+            {
+              "name": "Delete a report definition",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "726795e6-603a-4c76-b26e-daa9b1104425",
+                    "exec": [
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
+                      "",
+                      "console.log('UNSET report_id');",
+                      "pm.environment.unset(\"report_id\");"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "361ac871-7a68-e539-eb1c-8b3bf1eeaa3e",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [],
+                  "options": {
+                    "formdata": {}
+                  }
+                },
+                "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
               "response": []
             }
@@ -17885,7 +17885,7 @@
   ],
   "variable": [
     {
-      "id": "7c037d04-462e-4ec4-a0b9-e3e247da5284",
+      "id": "e1327118-fade-4081-b1b5-b77b2bc627de",
       "key": "component",
       "value": "use",
       "type": "string"
