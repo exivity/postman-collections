@@ -1438,6 +1438,142 @@
                 "url": "{{base_url}}/v1/reports/{{report_id}}"
               },
               "response": []
+            },
+            {
+              "name": "Run a report Copy",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "3ec9c5d8-deb1-43ea-8ea2-d19782fd1390",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "let response = pm.response.text();",
+                      "",
+                      "for (let i of responseBody.split('\\n')) {",
+                      "    if (i[0] === '{') {",
+                      "        response = JSON.parse(i);",
+                      "    }",
+                      "}",
+                      "",
+                      "// pm.test(\"Response contains report\", function () {",
+                      "//     pm.expect(response.report).to.be.an('array');",
+                      "//     pm.expect(response.report[0]).to.be.an('object');",
+                      "//     pm.expect(response.report[0].meta).to.be.an('object');",
+                      "//     pm.expect(response.report[0].error).to.be.a('boolean');",
+                      "//     pm.expect(response.report[0].error).to.eql(false);",
+                      "//     pm.expect(response.report[0].data).to.be.an('array');",
+                      "// });"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "_postman_id": "7427e8bf-44ed-47f0-bf48-f1813ce5c905",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "reports",
+                    ":report_id",
+                    "run"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "{{start}}",
+                      "description": "The start of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+                    },
+                    {
+                      "key": "end",
+                      "value": "{{end}}",
+                      "description": "The end of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+                    },
+                    {
+                      "key": "dimension",
+                      "value": "",
+                      "description": "The dimension you want to include in the output. One of `accounts`, `services` or `instances` (or a combination of those as a comma separated list). Defaults to `accounts,services`. When `instances` is included, price and quantity adjustments and minimum commit are not reflected in the data."
+                    },
+                    {
+                      "key": "timeline",
+                      "value": "",
+                      "description": "One of `day`, `month` or `none`. Defaults to `day`."
+                    },
+                    {
+                      "key": "depth",
+                      "value": "",
+                      "description": "The depth in the report definition you want to report on. Defaults to 1."
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date`, `adjustment_name` (or a combination of those as a comma separated list). The account and service fields are only available if their respective dimension is included in the request."
+                    },
+                    {
+                      "key": "filter[field]",
+                      "value": null,
+                      "description": "Optionally filter the output by the supplied field. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
+                    },
+                    {
+                      "key": "format",
+                      "value": "",
+                      "description": "One of `json`, `csv` or `pdf/summary`. Default to `json`."
+                    },
+                    {
+                      "key": "precision",
+                      "value": "",
+                      "description": "Specify `highest` to get raw precision, use configuration otherwise. Defaults to `configuration`."
+                    },
+                    {
+                      "key": "progress",
+                      "value": "",
+                      "description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/ínvoice` is never streamed. Defaults to `1`."
+                    },
+                    {
+                      "key": "csv_delimiter",
+                      "value": "",
+                      "description": "The CSV delimiter to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `;`, `:`, `\\t`, `|`. Leave blank to use configuration."
+                    },
+                    {
+                      "key": "csv_decimal_separator",
+                      "value": null,
+                      "description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration."
+                    },
+                    {
+                      "key": "summary_options",
+                      "value": "",
+                      "description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_service`. Defaults to `services`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "f455659d-d95f-4fe8-9396-3eff7778107f",
+                      "key": "report_id",
+                      "value": "{{report_id}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "description": "The output format when either `json` or `csv` is selected as the `format` parameter:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nrate_id                         | *integer*   | Key for the applicable rate\nservice_id                      | *integer*   | Key for the applicable service, only when `services` is included in the `dimension` parameter\nservicecategory_id              | *integer*   | Key for the applicable service category, only when `services` is included in the `dimension` parameter\naccount_id                      | *integer*   | Key for the applicable account, only when `accounts` is included in the `dimension` parameter\ninstance_value                  | *string*    | Unique identifier for the applicable instance, only when `instances` is included in the `dimension` parameter\nday                             | *string*    | The day in `YYYYMMDD` format, only when the `timeline` parameter is set to `day`\nmonth                           | *string*    | The month in `YYYYMM` format, only when the `timeline` parameter is set to `month`\nsubtotal_quantity               | *float*     | Quantity before adjustments and mininum commit are applied\nmin_commit_delta_quantity       | *float*     | Difference in quantity based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_quantity                  | *float*     | Quantity after adjustments and mininum commit are applied. If `instances` is included in the `dimension` parameter, equal to _subtotal_quantity_.\nunit_based_subtotal_charge      | *float*     | Fraction of charge based on a per unit rate, before adjustments and mininum commit are applied\ninterval_based_subtotal_charge  | *float*     | Fraction of charge based on a per interval rate, before adjustments and mininum commit are applied\navg_unit_based_rate             | *float*     | Average per unit rate\navg_interval_based_rate         | *float*     | _placeholder_\nsubtotal_charge                 | *float*     | Charge (same as `unit_based_subtotal_charge + interval_based_subtotal_charge`) before adjustments and mininum commit are applied\nmin_commit_delta_charge         | *float*     | Difference in charge based on applying minimum commit, only populated when `instances` is not included in the `dimension` parameter\ntotal_charge                    | *float*     | Charge after adjustments and mininum commit are applied. If `instances` is included in the `dimension` parameter, equal to _subtotal_charge_.\ntotal_cogs                      | *float*     | Cogs, only if user permissions includes `VIEW_COGS`\ntotal_net                       | *float*     | Net (same as `total_charge - total_cogs`), only if user permissions includes `VIEW_COGS`\nadjustments                     | *array*     | Adjustments data (see below), only populated when `instances` is not included in the `dimension` parameter\naccount_name                    | *string*    | Name for the applicable account, only when `accounts` is included in the `dimension` parameter and `account_name` is included in the `include` parameter\nservice_description             | *string*    | Description for the applicable service, only when `services` is included in the `dimension` parameter and `service_description` is included in the `include` parameter\nservicecategory_name            | *string*    | Name for the applicable service category, only when `services` is included in the `dimension` parameter and `servicecategory_name` is included in the `include` parameter\n\nThe output format of the embedded adjustments data:\n\nattribute                       | type        | description\n--------------------------------|-------------|-----------------------\nid            | *integer*   | Key for the applicable adjustment\ncharge        | *float*     | Difference in quantity based on applying this adjustment\nquantity      | *float*     | Difference in charge based on applying this adjustment"
+              },
+              "response": []
             }
           ],
           "_postman_id": "f701b5e8-5cca-8e89-5291-cb25c71de9ff",
@@ -17749,7 +17885,7 @@
   ],
   "variable": [
     {
-      "id": "9b79bc64-9d22-40ff-ae69-10006f2fe789",
+      "id": "7c037d04-462e-4ec4-a0b9-e3e247da5284",
       "key": "component",
       "value": "use",
       "type": "string"
