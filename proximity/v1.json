@@ -1401,7 +1401,7 @@
               "response": []
             },
             {
-              "name": "Run a report Copy",
+              "name": "Fetch report resources",
               "event": [
                 {
                   "listen": "test",
@@ -1446,7 +1446,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options=",
+                  "raw": "{{base_url}}/v1/reports/:report_id/resources?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1454,7 +1454,7 @@
                     "v1",
                     "reports",
                     ":report_id",
-                    "run"
+                    "resources"
                   ],
                   "query": [
                     {
@@ -1525,7 +1525,6 @@
                   ],
                   "variable": [
                     {
-                      "id": "f455659d-d95f-4fe8-9396-3eff7778107f",
                       "key": "report_id",
                       "value": "{{report_id}}",
                       "type": "string"
@@ -17885,7 +17884,7 @@
   ],
   "variable": [
     {
-      "id": "e1327118-fade-4081-b1b5-b77b2bc627de",
+      "id": "c9720163-e489-4818-be5e-43fdb38b5756",
       "key": "component",
       "value": "use",
       "type": "string"
