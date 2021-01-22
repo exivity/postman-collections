@@ -1408,17 +1408,17 @@
                   "script": {
                     "id": "3ec9c5d8-deb1-43ea-8ea2-d19782fd1390",
                     "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
+                      "// pm.test(\"Status code is 200\", function () {",
+                      "//     pm.response.to.have.status(200);",
+                      "// });",
                       "",
-                      "let response = pm.response.text();",
+                      "// let response = pm.response.text();",
                       "",
-                      "for (let i of responseBody.split('\\n')) {",
-                      "    if (i[0] === '{') {",
-                      "        response = JSON.parse(i);",
-                      "    }",
-                      "}",
+                      "// for (let i of responseBody.split('\\n')) {",
+                      "//     if (i[0] === '{') {",
+                      "//         response = JSON.parse(i);",
+                      "//     }",
+                      "// }",
                       "",
                       "// pm.test(\"Response contains report\", function () {",
                       "//     pm.expect(response.report).to.be.an('array');",
@@ -17844,7 +17844,7 @@
   ],
   "variable": [
     {
-      "id": "e8e7bd18-8652-4325-bb44-df8e1844686c",
+      "id": "4fdb52ba-5625-4dc2-b7f2-5f3a9d5378df",
       "key": "component",
       "value": "use",
       "type": "string"
