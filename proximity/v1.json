@@ -9237,8 +9237,7 @@
                   "query": [
                     {
                       "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `steps`, `schedules`, `runs`."
+                      "value": ""
                     }
                   ],
                   "variable": [
@@ -17844,7 +17843,7 @@
   ],
   "variable": [
     {
-      "id": "4fdb52ba-5625-4dc2-b7f2-5f3a9d5378df",
+      "id": "98add8f4-e357-4ee0-b20c-6407a4aec87d",
       "key": "component",
       "value": "use",
       "type": "string"
