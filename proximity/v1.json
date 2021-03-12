@@ -1198,6 +1198,9 @@
                 }
               ],
               "id": "149af3f1-91d2-d51e-5ef0-6272664d21b3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "PATCH",
                 "header": [
@@ -1236,8 +1239,7 @@
                   "variable": [
                     {
                       "key": "report_id",
-                      "value": "{{report_id}}",
-                      "type": "string"
+                      "value": "{{report_id}}"
                     }
                   ]
                 }
@@ -2690,7 +2692,7 @@
                       "    pm.expect(response.data.attributes.type).to.eql('recurring');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
                       "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individual');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
                       "});",
                       "",
@@ -11575,6 +11577,33 @@
                   "cookie": [],
                   "responseTime": null,
                   "body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"E-mail for someone\",\n            \"type\": \"mail\",\n            \"info\": {\n                \"recipient\": \"someone@example.com\",\n                \"cc\": null,\n                \"bcc\": null\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/6\"\n        }\n    }\n}"
+                },
+                {
+                  "id": "550f2258-5d4e-4461-b0d9-3953617aa51d",
+                  "name": "Create a new channel - Webhook",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"webhook\",\n            \"name\": \"My webhook\",\n            \"info\": {\n                \"recipient\": \"http://host/path\", // (validated as URL, required)\n                \"headers\": {\n                    \"Authentication\": \"Bearer XYZ\",\n                    \"X-Custom\": \"...\",\n                    \"Content-Type\": \"foo/bar\"\n                } // (optional, default: {}),\n                \"tls_verification\": true // boolean (required, default: true),\n                \"include_attachments\": false // boolean (optional, default: false)\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+                    },
+                    "url": "{{base_url}}/v1/notificationchannels"
+                  },
+                  "_postman_previewlanguage": null,
+                  "header": null,
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null
                 }
               ]
             },
@@ -17680,7 +17709,7 @@
   ],
   "variable": [
     {
-      "id": "8f1e059e-1e26-4e47-be87-560082d6dc80",
+      "id": "69bd3500-18c9-4461-b8a5-bb629eb7b128",
       "key": "component",
       "value": "use"
     }
