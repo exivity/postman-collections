@@ -2692,7 +2692,7 @@
                       "    pm.expect(response.data.attributes.type).to.eql('recurring');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
                       "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individual');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individuall');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
                       "});",
                       "",
@@ -2779,7 +2779,7 @@
                       "    pm.expect(response.data.attributes.type).to.eql('recurring');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
                       "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individual');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
                       "});",
                       "",
@@ -17709,7 +17709,7 @@
   ],
   "variable": [
     {
-      "id": "69bd3500-18c9-4461-b8a5-bb629eb7b128",
+      "id": "01dcadf1-0d2b-4e87-a786-bf54cd22a33d",
       "key": "component",
       "value": "use"
     }
