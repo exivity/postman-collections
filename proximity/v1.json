@@ -2779,7 +2779,7 @@
                       "    pm.expect(response.data.attributes.type).to.eql('recurring');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
                       "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individual');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
                       "});",
                       "",
@@ -17709,7 +17709,7 @@
   ],
   "variable": [
     {
-      "id": "11058642-562f-4be9-b45d-a7f7548bff51",
+      "id": "c128a447-e5a3-403e-a061-24cd7edcd9fb",
       "key": "component",
       "value": "use"
     }
