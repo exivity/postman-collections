@@ -14126,7 +14126,7 @@
               "name": "/license",
               "item": [
                 {
-                  "name": "Check license",
+                  "name": "Check licence",
                   "event": [
                     {
                       "listen": "test",
@@ -14156,6 +14156,9 @@
                     }
                   ],
                   "id": "ff008753-124d-0d0f-f958-cb0864a7298f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
                   "request": {
                     "method": "GET",
                     "header": [
@@ -14164,7 +14167,7 @@
                         "value": "application/json"
                       }
                     ],
-                    "url": "{{base_url}}/v1/system/license"
+                    "url": "{{base_url}}/v1/system/licence"
                   },
                   "response": [
                     {
@@ -17709,7 +17712,7 @@
   ],
   "variable": [
     {
-      "id": "c128a447-e5a3-403e-a061-24cd7edcd9fb",
+      "id": "cba554e6-ad4b-4292-b3dc-8602a2c9d0fb",
       "key": "component",
       "value": "use"
     }
