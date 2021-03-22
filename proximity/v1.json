@@ -14172,7 +14172,7 @@
                   "response": [
                     {
                       "id": "2be0e368-59fb-f07a-79ba-d826670260e7",
-                      "name": "Check license",
+                      "name": "Check licence",
                       "originalRequest": {
                         "method": "GET",
                         "header": [
@@ -14182,11 +14182,7 @@
                             "disabled": false
                           }
                         ],
-                        "body": {
-                          "mode": "formdata",
-                          "formdata": []
-                        },
-                        "url": "{{base_url}}/v1/system/license"
+                        "url": "{{base_url}}/v1/system/licence"
                       },
                       "status": "OK",
                       "code": 200,
@@ -14278,6 +14274,9 @@
                     }
                   ],
                   "id": "1859599c-ccdc-4fd5-2a6b-f40048e225cf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
                   "request": {
                     "method": "PATCH",
                     "header": [
@@ -14294,7 +14293,7 @@
                       "mode": "raw",
                       "raw": "{\n  \"license\": \"CZzKMBAJzUgtDzweTuxxbYymd1wtp3nxdfUJI2mBc8Yn8Kxmaj11z1/8Q+ewP0s9AkwFiIIe4PlCtk5VvkLrhUyCMSLhdj6n7SA8dooaovElCeS8H1cUEDZx96dCLiSZ7g+qgLr9XkZYBLqlNCt7vzkz7onfBxYarG+4iU9SQ4m6VXPXFeCVIjxIs85r7vGK8MexyGika5+hvltWShCvZHpyXeA+bVnrgLcwFpOPEcx0RCrvVVszG6nC92isoORU0PdRAGhO9qJ5o04qI8FKWtpnDysS49zwesBsYT+rwPW7EiBVJeZOjiK8Qb21YZrEMWpW3cECimP3IxzVFzQqG3dO8yjyhzc1hPM9fZaNASYcRsjhij3HG5ubuTm7ES7FjdsCa+6BoMZrWureYivV6pS/cebXtowz3r+KijKjN01TTY4kwdrXrs6uDUqI2utw+1u4QpUanZ+7FW/M2UZ/EOLrMHD+pbbnh4gtsfdP5gPXUJsTbL1NZRFzzwWScwoz159zRI7cv9wSJKtgwFABaAiOXtLxIIvPJOQ+HgHPyP7g9V52MMTxFoMEE/3izkNUedAAUZAAfAgjUVbVrOF28bFK8Kd7KTpkuERLsIzoFD0a+dceqQAsnHmoHdcPbMk1gGLS85/a3RxLXh/Y/w/yUyWsiJiD92t7e4tzoIhNhLA=\"\n}"
                     },
-                    "url": "{{base_url}}/v1/system/license"
+                    "url": "{{base_url}}/v1/system/licence"
                   },
                   "response": [
                     {
@@ -17712,7 +17711,7 @@
   ],
   "variable": [
     {
-      "id": "cba554e6-ad4b-4292-b3dc-8602a2c9d0fb",
+      "id": "456727ed-53fc-42d6-ad79-2f6ff62b83cc",
       "key": "component",
       "value": "use"
     }
