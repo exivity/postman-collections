@@ -3409,18 +3409,21 @@
                   "script": {
                     "id": "8394c1a9-b96c-4716-af0d-37271ea40f4c",
                     "exec": [
-                      "// pm.test(\"Status code is 204\", function () {",
-                      "//     pm.response.to.have.status(204);",
-                      "// });",
+                      "pm.test(\"Status code is 204\", function () {",
+                      "    pm.response.to.have.status(204);",
+                      "});",
                       "",
-                      "// console.log('UNSET rate_id');",
-                      "// pm.environment.unset(\"rate_id\");"
+                      "console.log('UNSET rate_id');",
+                      "pm.environment.unset(\"rate_id\");"
                     ],
                     "type": "text/javascript"
                   }
                 }
               ],
               "id": "8e869ba6-9971-6bdd-60a2-e4c60046b5d4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "DELETE",
                 "header": [
@@ -17711,7 +17714,7 @@
   ],
   "variable": [
     {
-      "id": "2642cd95-2bbb-4523-8331-f76eef698404",
+      "id": "6091687a-c408-4027-8491-86c954648f60",
       "key": "component",
       "value": "use"
     }
