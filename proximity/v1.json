@@ -10913,6 +10913,7 @@
             }
           ],
           "id": "f85bcd76-a3a7-43bc-9e3b-7fe8d5594b8a",
+          "description": "⚠️ These endpoints are deprecated and may be removed in future versions of Exivity. A new `/jobs` endpoint will be added which will offer the same functionality.",
           "event": [
             {
               "listen": "prerequest",
@@ -17714,7 +17715,7 @@
   ],
   "variable": [
     {
-      "id": "6091687a-c408-4027-8491-86c954648f60",
+      "id": "0c765d22-30e3-4ce5-b49e-817f0ec855b3",
       "key": "component",
       "value": "use"
     }
