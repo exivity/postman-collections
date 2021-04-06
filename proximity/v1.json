@@ -14128,7 +14128,7 @@
           "name": "/system",
           "item": [
             {
-              "name": "/license",
+              "name": "/licence",
               "item": [
                 {
                   "name": "Check licence",
@@ -17716,7 +17716,7 @@
   ],
   "variable": [
     {
-      "id": "202567c0-1788-4fe7-b94e-82f19532e044",
+      "id": "a9481bc2-c971-4255-bf75-b946d86d7740",
       "key": "component",
       "value": "use"
     }
