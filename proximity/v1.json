@@ -13162,7 +13162,24 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "url": "{{base_url}}/v1/users/{{new_user_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/users/{{new_user_id}}?include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "users",
+                    "{{new_user_id}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `usergroup`, `accounts`, `channels`, `notificationsubscriptions`."
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -17716,7 +17733,7 @@
   ],
   "variable": [
     {
-      "id": "a9481bc2-c971-4255-bf75-b946d86d7740",
+      "id": "7d9c1b1c-fcae-4120-a51f-4669caa42c54",
       "key": "component",
       "value": "use"
     }
