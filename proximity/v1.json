@@ -1587,6 +1587,9 @@
                 }
               ],
               "id": "5b64bfe6-3f11-d1dc-8ce0-99e9381fba23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -1628,7 +1631,7 @@
                     {
                       "key": "include",
                       "value": "",
-                      "description": "Include additional related resources. Possible values: `services`, `adjustments`."
+                      "description": "Include additional related resources. Possible values: `services`, `adjustments`, `budgetitems`."
                     }
                   ]
                 }
@@ -17736,7 +17739,7 @@
   ],
   "variable": [
     {
-      "id": "10aaad9f-de10-4465-aefd-e53d8ebf3b2f",
+      "id": "01caa58f-17a1-4ef9-ad2d-28a855fa164c",
       "key": "component",
       "value": "use"
     }
