@@ -14414,6 +14414,139 @@
                       "body": "{\"status\":\"expired\",\"message\":\"The current license was valid until January 31, 2017.\",\"hash\":\"4062176ea1471472332ab3afbc2d5dc58af621b7\",\"expiresAfter\":\"2017-01-31\",\"payload\":{\"start\":\"2017-01-01\",\"end\":\"2017-01-31\",\"type\":\"all\",\"limits\":{\"account_limit\":\"1\",\"service_limit\":\"1\"}}}"
                     }
                   ]
+                },
+                {
+                  "name": "Update licence (expired licence) Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "98e65abf-b859-4add-8b0d-38afa736c14b",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains data\", function () {",
+                          "    pm.expect(response).to.be.an('object');",
+                          "    pm.expect(response).to.have.keys([",
+                          "        \"status\",",
+                          "        \"message\",",
+                          "        \"hash\",",
+                          "        \"expiresAfter\",",
+                          "        \"payload\",",
+                          "    ]);",
+                          "});"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "55ee00f9-0b90-4c17-bada-a496ce7f7828",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"licence\": \"CZzKMBAJzUgtDzweTuxxbYymd1wtp3nxdfUJI2mBc8Yn8Kxmaj11z1/8Q+ewP0s9AkwFiIIe4PlCtk5VvkLrhUyCMSLhdj6n7SA8dooaovElCeS8H1cUEDZx96dCLiSZ7g+qgLr9XkZYBLqlNCt7vzkz7onfBxYarG+4iU9SQ4m6VXPXFeCVIjxIs85r7vGK8MexyGika5+hvltWShCvZHpyXeA+bVnrgLcwFpOPEcx0RCrvVVszG6nC92isoORU0PdRAGhO9qJ5o04qI8FKWtpnDysS49zwesBsYT+rwPW7EiBVJeZOjiK8Qb21YZrEMWpW3cECimP3IxzVFzQqG3dO8yjyhzc1hPM9fZaNASYcRsjhij3HG5ubuTm7ES7FjdsCa+6BoMZrWureYivV6pS/cebXtowz3r+KijKjN01TTY4kwdrXrs6uDUqI2utw+1u4QpUanZ+7FW/M2UZ/EOLrMHD+pbbnh4gtsfdP5gPXUJsTbL1NZRFzzwWScwoz159zRI7cv9wSJKtgwFABaAiOXtLxIIvPJOQ+HgHPyP7g9V52MMTxFoMEE/3izkNUedAAUZAAfAgjUVbVrOF28bFK8Kd7KTpkuERLsIzoFD0a+dceqQAsnHmoHdcPbMk1gGLS85/a3RxLXh/Y/w/yUyWsiJiD92t7e4tzoIhNhLA=\"\n}"
+                    },
+                    "url": "{{base_url}}/v1/system/licence"
+                  },
+                  "response": [
+                    {
+                      "id": "fff5a82b-9d51-4b2c-9283-7088de669537",
+                      "name": "Update licence",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n\t\"license\": \"CZzKMBAJzUgtDzweTuxxbYymd1wtp3nxdfUJI2mBc8Yn8Kxmaj11z1/8Q+ewP0s9AkwFiIIe4PlCtk5VvkLrhUyCMSLhdj6n7SA8dooaovElCeS8H1cUEDZx96dCLiSZ7g+qgLr9XkZYBLqlNCt7vzkz7onfBxYarG+4iU9SQ4m6VXPXFeCVIjxIs85r7vGK8MexyGika5+hvltWShCvZHpyXeA+bVnrgLcwFpOPEcx0RCrvVVszG6nC92isoORU0PdRAGhO9qJ5o04qI8FKWtpnDysS49zwesBsYT+rwPW7EiBVJeZOjiK8Qb21YZrEMWpW3cECimP3IxzVFzQqG3dO8yjyhzc1hPM9fZaNASYcRsjhij3HG5ubuTm7ES7FjdsCa+6BoMZrWureYivV6pS/cebXtowz3r+KijKjN01TTY4kwdrXrs6uDUqI2utw+1u4QpUanZ+7FW/M2UZ/EOLrMHD+pbbnh4gtsfdP5gPXUJsTbL1NZRFzzwWScwoz159zRI7cv9wSJKtgwFABaAiOXtLxIIvPJOQ+HgHPyP7g9V52MMTxFoMEE/3izkNUedAAUZAAfAgjUVbVrOF28bFK8Kd7KTpkuERLsIzoFD0a+dceqQAsnHmoHdcPbMk1gGLS85/a3RxLXh/Y/w/yUyWsiJiD92t7e4tzoIhNhLA=\"\n}"
+                        },
+                        "url": "{{base_url}}/v1/system/licence"
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Transfer-Encoding",
+                          "value": "chunked",
+                          "name": "Transfer-Encoding",
+                          "description": ""
+                        },
+                        {
+                          "key": "cache-control",
+                          "value": "no-cache, private",
+                          "name": "cache-control",
+                          "description": ""
+                        },
+                        {
+                          "key": "connection",
+                          "value": "close",
+                          "name": "connection",
+                          "description": ""
+                        },
+                        {
+                          "key": "content-type",
+                          "value": "application/json",
+                          "name": "content-type",
+                          "description": ""
+                        },
+                        {
+                          "key": "date",
+                          "value": "Wed, 14 Feb 2018 10:23:47 +0000, Wed, 14 Feb 2018 10:23:47 GMT",
+                          "name": "date",
+                          "description": ""
+                        },
+                        {
+                          "key": "host",
+                          "value": "localhost:8002",
+                          "name": "host",
+                          "description": ""
+                        },
+                        {
+                          "key": "phpdebugbar-id",
+                          "value": "c6b7d899a9439eb8ec11ed209dd47c69",
+                          "name": "phpdebugbar-id",
+                          "description": ""
+                        },
+                        {
+                          "key": "x-powered-by",
+                          "value": "PHP/7.1.4",
+                          "name": "x-powered-by",
+                          "description": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\"status\":\"expired\",\"message\":\"The current license was valid until January 31, 2017.\",\"hash\":\"4062176ea1471472332ab3afbc2d5dc58af621b7\",\"expiresAfter\":\"2017-01-31\",\"payload\":{\"start\":\"2017-01-01\",\"end\":\"2017-01-31\",\"type\":\"all\",\"limits\":{\"account_limit\":\"1\",\"service_limit\":\"1\"}}}"
+                    }
+                  ]
                 }
               ],
               "id": "4c327b76-ee10-fe5a-3fb1-c7d7453864e2",
@@ -17750,7 +17883,7 @@
   ],
   "variable": [
     {
-      "id": "e45792d9-885c-4134-aca7-7b197dfa2f5c",
+      "id": "80988f09-afea-4d86-9a89-1355c232fc6a",
       "key": "component",
       "value": "use"
     }
