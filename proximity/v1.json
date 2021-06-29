@@ -14412,6 +14412,84 @@
                       "cookie": [],
                       "responseTime": "183",
                       "body": "{\"status\":\"expired\",\"message\":\"The current license was valid until January 31, 2017.\",\"hash\":\"4062176ea1471472332ab3afbc2d5dc58af621b7\",\"expiresAfter\":\"2017-01-31\",\"payload\":{\"start\":\"2017-01-01\",\"end\":\"2017-01-31\",\"type\":\"all\",\"limits\":{\"account_limit\":\"1\",\"service_limit\":\"1\"}}}"
+                    },
+                    {
+                      "id": "62a6748d-c0e7-4b22-88dd-226115ea50ea",
+                      "name": "Update licence (valid licence)",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n\t\"license\": \"{{licence}}\"\n}"
+                        },
+                        "url": "{{base_url}}/v1/system/licence"
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Transfer-Encoding",
+                          "value": "chunked",
+                          "name": "Transfer-Encoding",
+                          "description": ""
+                        },
+                        {
+                          "key": "cache-control",
+                          "value": "no-cache, private",
+                          "name": "cache-control",
+                          "description": ""
+                        },
+                        {
+                          "key": "connection",
+                          "value": "close",
+                          "name": "connection",
+                          "description": ""
+                        },
+                        {
+                          "key": "content-type",
+                          "value": "application/json",
+                          "name": "content-type",
+                          "description": ""
+                        },
+                        {
+                          "key": "date",
+                          "value": "Wed, 14 Feb 2018 10:23:47 +0000, Wed, 14 Feb 2018 10:23:47 GMT",
+                          "name": "date",
+                          "description": ""
+                        },
+                        {
+                          "key": "host",
+                          "value": "localhost:8002",
+                          "name": "host",
+                          "description": ""
+                        },
+                        {
+                          "key": "phpdebugbar-id",
+                          "value": "c6b7d899a9439eb8ec11ed209dd47c69",
+                          "name": "phpdebugbar-id",
+                          "description": ""
+                        },
+                        {
+                          "key": "x-powered-by",
+                          "value": "PHP/7.1.4",
+                          "name": "x-powered-by",
+                          "description": ""
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\"status\":\"expired\",\"message\":\"The current license was valid until January 31, 2017.\",\"hash\":\"4062176ea1471472332ab3afbc2d5dc58af621b7\",\"expiresAfter\":\"2017-01-31\",\"payload\":{\"start\":\"2017-01-01\",\"end\":\"2017-01-31\",\"type\":\"all\",\"limits\":{\"account_limit\":\"1\",\"service_limit\":\"1\"}}}"
                     }
                   ]
                 },
@@ -17883,7 +17961,7 @@
   ],
   "variable": [
     {
-      "id": "4e69a60e-b09a-42f8-b224-e438c7c76884",
+      "id": "1eba5e48-4819-4f2d-b498-d66908d749cb",
       "key": "component",
       "value": "use"
     }
