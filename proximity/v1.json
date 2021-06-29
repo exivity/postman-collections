@@ -14283,7 +14283,7 @@
                   ]
                 },
                 {
-                  "name": "Update licence",
+                  "name": "Update licence (expired licence)",
                   "event": [
                     {
                       "listen": "test",
@@ -14415,7 +14415,7 @@
                     },
                     {
                       "id": "62a6748d-c0e7-4b22-88dd-226115ea50ea",
-                      "name": "Update licence (expired licence) Copy",
+                      "name": "Update licence (valid licence)",
                       "originalRequest": {
                         "method": "PATCH",
                         "header": [
@@ -14430,7 +14430,7 @@
                         ],
                         "body": {
                           "mode": "raw",
-                          "raw": "{\n\t\"license\": \"CZzKMBAJzUgtDzweTuxxbYymd1wtp3nxdfUJI2mBc8Yn8Kxmaj11z1/8Q+ewP0s9AkwFiIIe4PlCtk5VvkLrhUyCMSLhdj6n7SA8dooaovElCeS8H1cUEDZx96dCLiSZ7g+qgLr9XkZYBLqlNCt7vzkz7onfBxYarG+4iU9SQ4m6VXPXFeCVIjxIs85r7vGK8MexyGika5+hvltWShCvZHpyXeA+bVnrgLcwFpOPEcx0RCrvVVszG6nC92isoORU0PdRAGhO9qJ5o04qI8FKWtpnDysS49zwesBsYT+rwPW7EiBVJeZOjiK8Qb21YZrEMWpW3cECimP3IxzVFzQqG3dO8yjyhzc1hPM9fZaNASYcRsjhij3HG5ubuTm7ES7FjdsCa+6BoMZrWureYivV6pS/cebXtowz3r+KijKjN01TTY4kwdrXrs6uDUqI2utw+1u4QpUanZ+7FW/M2UZ/EOLrMHD+pbbnh4gtsfdP5gPXUJsTbL1NZRFzzwWScwoz159zRI7cv9wSJKtgwFABaAiOXtLxIIvPJOQ+HgHPyP7g9V52MMTxFoMEE/3izkNUedAAUZAAfAgjUVbVrOF28bFK8Kd7KTpkuERLsIzoFD0a+dceqQAsnHmoHdcPbMk1gGLS85/a3RxLXh/Y/w/yUyWsiJiD92t7e4tzoIhNhLA=\"\n}"
+                          "raw": "{\n\t\"license\": \"{{licence}}\"\n}"
                         },
                         "url": "{{base_url}}/v1/system/licence"
                       },
@@ -17828,7 +17828,7 @@
   ],
   "variable": [
     {
-      "id": "045adda4-4b14-468e-b303-1405b0507443",
+      "id": "ab2365ee-2264-47e6-b767-ced12a26f298",
       "key": "component",
       "value": "use"
     }
