@@ -14283,7 +14283,7 @@
                   ]
                 },
                 {
-                  "name": "Update licence (expired licence)",
+                  "name": "Update licence",
                   "event": [
                     {
                       "listen": "test",
@@ -17961,7 +17961,7 @@
   ],
   "variable": [
     {
-      "id": "61ba5aa8-68e0-47f0-bdb3-74ce7c889f32",
+      "id": "d9dc68aa-d4fb-44af-a81d-9025c02d07a5",
       "key": "component",
       "value": "use"
     }
