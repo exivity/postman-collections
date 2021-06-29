@@ -2760,7 +2760,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-01-02\",\r\n      \"end_date\": \"2017-01-07\",\r\n      \"alt_interval\": \"individually\",\r\n      \"charge_day\": null,\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-08-28\",\r\n      \"end_date\": \"2017-08-28\",\r\n      \"alt_interval\": \"individually\",\r\n      \"charge_day\": null,\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/servicesubscriptions"
               },
@@ -14337,7 +14337,7 @@
                   "response": [
                     {
                       "id": "a5ca2013-fade-470f-96ff-9ff1d23673e8",
-                      "name": "Update licence (valid licence)",
+                      "name": "Update licence",
                       "originalRequest": {
                         "method": "PATCH",
                         "header": [
@@ -17750,7 +17750,7 @@
   ],
   "variable": [
     {
-      "id": "dfbdb6bd-63de-47de-8e3b-ae5e66b4b81b",
+      "id": "43054361-bbee-4260-890a-8f2ee8d60ccd",
       "key": "component",
       "value": "use"
     }
