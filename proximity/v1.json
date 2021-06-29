@@ -14330,7 +14330,7 @@
                     ],
                     "body": {
                       "mode": "raw",
-                      "raw": "{\n  \"licence\": \"CZzKMBAJzUgtDzweTuxxbYymd1wtp3nxdfUJI2mBc8Yn8Kxmaj11z1/8Q+ewP0s9AkwFiIIe4PlCtk5VvkLrhUyCMSLhdj6n7SA8dooaovElCeS8H1cUEDZx96dCLiSZ7g+qgLr9XkZYBLqlNCt7vzkz7onfBxYarG+4iU9SQ4m6VXPXFeCVIjxIs85r7vGK8MexyGika5+hvltWShCvZHpyXeA+bVnrgLcwFpOPEcx0RCrvVVszG6nC92isoORU0PdRAGhO9qJ5o04qI8FKWtpnDysS49zwesBsYT+rwPW7EiBVJeZOjiK8Qb21YZrEMWpW3cECimP3IxzVFzQqG3dO8yjyhzc1hPM9fZaNASYcRsjhij3HG5ubuTm7ES7FjdsCa+6BoMZrWureYivV6pS/cebXtowz3r+KijKjN01TTY4kwdrXrs6uDUqI2utw+1u4QpUanZ+7FW/M2UZ/EOLrMHD+pbbnh4gtsfdP5gPXUJsTbL1NZRFzzwWScwoz159zRI7cv9wSJKtgwFABaAiOXtLxIIvPJOQ+HgHPyP7g9V52MMTxFoMEE/3izkNUedAAUZAAfAgjUVbVrOF28bFK8Kd7KTpkuERLsIzoFD0a+dceqQAsnHmoHdcPbMk1gGLS85/a3RxLXh/Y/w/yUyWsiJiD92t7e4tzoIhNhLA=\"\n}"
+                      "raw": "{\n  \"licence\": \"{{licence}}\"\n}"
                     },
                     "url": "{{base_url}}/v1/system/licence"
                   },
@@ -17883,7 +17883,7 @@
   ],
   "variable": [
     {
-      "id": "f988dcf7-3ed1-4aef-953c-fdc30efe609c",
+      "id": "b21dbe73-db35-470b-bc4c-364122ae11e2",
       "key": "component",
       "value": "use"
     }
