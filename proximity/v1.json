@@ -2707,8 +2707,8 @@
                       "    pm.expect(response.data.attributes.rate).to.eql(10.1);",
                       "    pm.expect(response.data.attributes.cogs).to.eql(10.1);",
                       "    pm.expect(response.data.attributes.type).to.eql('recurring');",
-                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-02');",
-                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-01-07');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-08-28');",
+                      "    pm.expect(response.data.attributes.end_date).to.eql('2017-08-29');",
                       "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
                       "});",
@@ -17750,7 +17750,7 @@
   ],
   "variable": [
     {
-      "id": "b4e7ff5b-ebaf-4a5c-9bdd-974acb5313a9",
+      "id": "7bbaeb51-1f64-4015-a3bb-6af6a8ed9c3b",
       "key": "component",
       "value": "use"
     }
