@@ -2869,7 +2869,7 @@
                       "    pm.expect(response.data.attributes.rate).to.eql(20.20);",
                       "    pm.expect(response.data.attributes.cogs).to.eql(20.20);",
                       "    pm.expect(response.data.attributes.type).to.eql('one_off');",
-                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-01-10');",
+                      "    pm.expect(response.data.attributes.start_date).to.eql('2017-08-29');",
                       "    pm.expect(response.data.attributes.end_date).to.be.null;",
                       "    pm.expect(response.data.attributes.alt_interval).to.eql('month');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity-updated');",
@@ -2901,7 +2901,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-01-10\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-08-29\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}"
               },
@@ -17750,7 +17750,7 @@
   ],
   "variable": [
     {
-      "id": "df0fb2c6-a3d3-488e-abf9-d08fbd23c6ba",
+      "id": "6d77a633-4a34-4f32-b056-3f484e3d041f",
       "key": "component",
       "value": "use"
     }
