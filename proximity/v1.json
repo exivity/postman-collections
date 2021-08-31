@@ -16547,7 +16547,6 @@
             }
           ],
           "id": "f37ee782-e53d-4dc7-a94d-454f255e3d00",
-          "description": "⚠️ These endpoints are currently in beta.",
           "event": [
             {
               "listen": "prerequest",
@@ -17750,7 +17749,7 @@
   ],
   "variable": [
     {
-      "id": "6d77a633-4a34-4f32-b056-3f484e3d041f",
+      "id": "be1abc26-8569-4932-9c7f-d5d3ef938527",
       "key": "component",
       "value": "use"
     }
