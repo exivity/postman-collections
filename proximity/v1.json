@@ -3288,6 +3288,9 @@
                 }
               ],
               "id": "44a13da5-4b44-b03b-2458-39fb9768e189",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "GET",
                 "header": [
@@ -3297,20 +3300,26 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/rates/{{rate_id}}?include=",
+                  "raw": "{{base_url}}/v1/rates/:rate_id?include=",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "rates",
-                    "{{rate_id}}"
+                    ":rate_id"
                   ],
                   "query": [
                     {
                       "key": "include",
                       "value": "",
                       "description": "Include additional related resources. Possible values: `service`, `account`, `ratetiers`"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "rate_id",
+                      "value": "{{rate_id}}"
                     }
                   ]
                 }
@@ -17657,7 +17666,7 @@
   ],
   "variable": [
     {
-      "id": "d0891d24-1094-4d59-8f6b-f9e0dc00e767",
+      "id": "cb2e11ad-00a6-40e9-bde0-6635a72588ad",
       "key": "component",
       "value": "use"
     }
