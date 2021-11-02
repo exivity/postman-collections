@@ -16892,11 +16892,8 @@
                           "console.log(response);",
                           "",
                           "pm.test(\"Response contains data\", function () {",
-                          "    pm.expect(response.data).to.be.an('array');",
+                          "    pm.expect(response.data).to.be.an('object');",
                           "});",
-                          "",
-                          "pm.environment.set(\"account_id\", response.data[0].id);",
-                          "console.log('SET account_id: ' + pm.environment.get(\"account_id\"));",
                           ""
                         ],
                         "type": "text/javascript"
@@ -16929,43 +16926,23 @@
                     "header": [
                       {
                         "key": "Accept",
-                        "value": "application/vnd.api+json"
+                        "value": "application/json"
                       }
                     ],
                     "url": {
-                      "raw": "{{base_url}}/v1/accounts?page[limit]&page[offset]&sort&filter[name]=&include=",
+                      "raw": "{{base_url}}/v1/cuprs",
                       "host": [
                         "{{base_url}}"
                       ],
                       "path": [
                         "v1",
-                        "accounts"
+                        "cuprs"
                       ],
                       "query": [
                         {
-                          "key": "page[limit]",
-                          "value": null,
-                          "description": "Limit the amount of results returned"
-                        },
-                        {
-                          "key": "page[offset]",
-                          "value": null,
-                          "description": "Return this page of the results"
-                        },
-                        {
-                          "key": "sort",
-                          "value": null,
-                          "description": "Sort results by this attribute"
-                        },
-                        {
-                          "key": "filter[name]",
+                          "key": "filter",
                           "value": "",
-                          "description": "Filter results by this attribute"
-                        },
-                        {
-                          "key": "include",
-                          "value": "",
-                          "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`, `metadata`."
+                          "disabled": true
                         }
                       ]
                     }
@@ -16973,7 +16950,7 @@
                   "response": [
                     {
                       "id": "58b19c7c-c6b8-4c04-89d1-f6cdf06f2c61",
-                      "name": "Retrieve a list of CUPRs",
+                      "name": "Retrieve a list of CUPRs filtered by DSET",
                       "originalRequest": {
                         "method": "GET",
                         "header": [
@@ -17860,7 +17837,7 @@
   ],
   "variable": [
     {
-      "id": "5b0a5943-850f-45e6-8708-45f49e967965",
+      "id": "0a768ba5-e13b-4df2-8270-3679dd3323c2",
       "key": "component",
       "value": "use"
     }
