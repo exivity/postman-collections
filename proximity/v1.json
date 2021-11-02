@@ -16930,7 +16930,7 @@
                       }
                     ],
                     "url": {
-                      "raw": "{{base_url}}/v1/cuprs",
+                      "raw": "{{base_url}}/v1/cuprs?filter=",
                       "host": [
                         "{{base_url}}"
                       ],
@@ -16942,7 +16942,7 @@
                         {
                           "key": "filter",
                           "value": "",
-                          "disabled": true
+                          "description": "dset[],start_month(Y-m),end_month(Y-m)"
                         }
                       ]
                     }
@@ -17837,7 +17837,7 @@
   ],
   "variable": [
     {
-      "id": "0a768ba5-e13b-4df2-8270-3679dd3323c2",
+      "id": "6c6469a5-7b62-4334-aa26-64e361173092",
       "key": "component",
       "value": "use"
     }
