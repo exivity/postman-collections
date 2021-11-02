@@ -16874,7 +16874,7 @@
           "name": "Billing",
           "item": [
             {
-              "name": "Cuprs",
+              "name": "/cuprs",
               "item": [],
               "id": "282020f8-171f-401e-86d6-182f1e6ff58a"
             }
@@ -17677,7 +17677,7 @@
   ],
   "variable": [
     {
-      "id": "54e73a71-dfe4-44a0-a2ee-424086e7a107",
+      "id": "cc24762c-7422-445b-92a7-dc9167dbaf8b",
       "key": "component",
       "value": "use"
     }
