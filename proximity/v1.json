@@ -4549,102 +4549,6 @@
               ]
             },
             {
-              "name": "Retrieve a list of accounts Copy",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "7c02b33d-8731-4190-8efa-6ffe12b9d3a7",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.environment.set(\"account_id\", response.data[0].id);",
-                      "console.log('SET account_id: ' + pm.environment.get(\"account_id\"));",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "d2b6e9b7-5348-4376-b9d3-47aaddf9c936",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();\r",
-                      "\r",
-                      "api.start()\r",
-                      "    .then(api.requireToken)\r",
-                      "    .then(api.ready)\r",
-                      "    .catch(function(err) {\r",
-                      "        console.log(err);\r",
-                      "    });"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "c22f20a6-0885-46c1-9956-a8cf38418af0",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/accounts?page[limit]&page[offset]&sort&filter[name]=&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "accounts"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[name]",
-                      "value": "",
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`, `metadata`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Add a new account",
               "event": [
                 {
@@ -16971,7 +16875,104 @@
           "item": [
             {
               "name": "/cuprs",
-              "item": [],
+              "item": [
+                {
+                  "name": "Retrieve a list of accounts Copy",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "id": "7c02b33d-8731-4190-8efa-6ffe12b9d3a7",
+                        "exec": [
+                          "pm.test(\"Status code is 200\", function () {",
+                          "    pm.response.to.have.status(200);",
+                          "});",
+                          "",
+                          "const response = pm.response.json();",
+                          "console.log(response);",
+                          "",
+                          "pm.test(\"Response contains data\", function () {",
+                          "    pm.expect(response.data).to.be.an('array');",
+                          "});",
+                          "",
+                          "pm.environment.set(\"account_id\", response.data[0].id);",
+                          "console.log('SET account_id: ' + pm.environment.get(\"account_id\"));",
+                          ""
+                        ],
+                        "type": "text/javascript"
+                      }
+                    },
+                    {
+                      "listen": "prerequest",
+                      "script": {
+                        "id": "d2b6e9b7-5348-4376-b9d3-47aaddf9c936",
+                        "exec": [
+                          "const api = eval(pm.globals.get('exivity'))();\r",
+                          "\r",
+                          "api.start()\r",
+                          "    .then(api.requireToken)\r",
+                          "    .then(api.ready)\r",
+                          "    .catch(function(err) {\r",
+                          "        console.log(err);\r",
+                          "    });"
+                        ],
+                        "type": "text/javascript"
+                      }
+                    }
+                  ],
+                  "id": "c22f20a6-0885-46c1-9956-a8cf38418af0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/v1/accounts?page[limit]&page[offset]&sort&filter[name]=&include=",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "key": "page[limit]",
+                          "value": null,
+                          "description": "Limit the amount of results returned"
+                        },
+                        {
+                          "key": "page[offset]",
+                          "value": null,
+                          "description": "Return this page of the results"
+                        },
+                        {
+                          "key": "sort",
+                          "value": null,
+                          "description": "Sort results by this attribute"
+                        },
+                        {
+                          "key": "filter[name]",
+                          "value": "",
+                          "description": "Filter results by this attribute"
+                        },
+                        {
+                          "key": "include",
+                          "value": "",
+                          "description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`, `metadata`."
+                        }
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ],
               "id": "282020f8-171f-401e-86d6-182f1e6ff58a"
             }
           ],
@@ -17773,7 +17774,7 @@
   ],
   "variable": [
     {
-      "id": "9f983829-bc99-4f00-9553-77a67105a1e8",
+      "id": "972dbb2b-0b23-422b-9ebb-266bb586babe",
       "key": "component",
       "value": "use"
     }
