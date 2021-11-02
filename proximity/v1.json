@@ -16970,7 +16970,93 @@
                       ]
                     }
                   },
-                  "response": []
+                  "response": [
+                    {
+                      "id": "58b19c7c-c6b8-4c04-89d1-f6cdf06f2c61",
+                      "name": "Retrieve a list of CUPRs",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{base_url}}/v1/cuprs?filter[dset][]=demo.usage",
+                          "host": [
+                            "{{base_url}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "cuprs"
+                          ],
+                          "query": [
+                            {
+                              "key": "filter[dset][]",
+                              "value": "demo.usage"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Host",
+                          "value": "localhost:8012"
+                        },
+                        {
+                          "key": "Date",
+                          "value": "Tue, 02 Nov 2021 15:44:48 GMT"
+                        },
+                        {
+                          "key": "Date",
+                          "value": "Tue, 02 Nov 2021 15:44:48 GMT"
+                        },
+                        {
+                          "key": "Connection",
+                          "value": "close"
+                        },
+                        {
+                          "key": "Cache-Control",
+                          "value": "no-cache, private"
+                        },
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "key": "X-XSS-Protection",
+                          "value": "1; mode=block"
+                        },
+                        {
+                          "key": "X-Frame-Options",
+                          "value": "SAMEORIGIN"
+                        },
+                        {
+                          "key": "X-Content-Type-Options",
+                          "value": "nosniff"
+                        },
+                        {
+                          "key": "Feature-Policy",
+                          "value": "autoplay 'none'; camera 'none'"
+                        },
+                        {
+                          "key": "Referrer-Policy",
+                          "value": "strict-origin"
+                        },
+                        {
+                          "key": "Content-Security-Policy",
+                          "value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-xtdc7RojN7jUfi6kFZ7fOVwWVh2BFLH6';style-src 'self' 'nonce-xtdc7RojN7jUfi6kFZ7fOVwWVh2BFLH6';font-src 'self' data:"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n    \"data\": {\n        \"demo.usage\": {\n            \"2021-10\": 0\n        }\n    }\n}"
+                    }
+                  ]
                 }
               ],
               "id": "282020f8-171f-401e-86d6-182f1e6ff58a"
@@ -17774,7 +17860,7 @@
   ],
   "variable": [
     {
-      "id": "bd80448d-7c43-47ae-b1b8-60117b179336",
+      "id": "42de192c-9164-4490-b39e-4fd4e2d1f721",
       "key": "component",
       "value": "use"
     }
