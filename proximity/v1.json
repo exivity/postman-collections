@@ -16877,7 +16877,7 @@
               "name": "/cuprs",
               "item": [
                 {
-                  "name": "Retrieve a list of accounts Copy",
+                  "name": "Retrieve a list of CUPRs",
                   "event": [
                     {
                       "listen": "test",
@@ -17774,7 +17774,7 @@
   ],
   "variable": [
     {
-      "id": "cade9c2f-2e6f-4dad-bd86-562f27787175",
+      "id": "bd80448d-7c43-47ae-b1b8-60117b179336",
       "key": "component",
       "value": "use"
     }
