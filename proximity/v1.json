@@ -16942,7 +16942,7 @@
                         {
                           "key": "filter",
                           "value": "",
-                          "description": "dset[],start_month(Y-m),end_month(Y-m)"
+                          "description": "Optionally filter the output by dset or months. Possible fields are `[dset][]`, `[start_month]`(Y-m), `[end_month]`(Y-m). This parameter can occur multiple times in a request to filter by multiple dsets and combine them with the date range."
                         }
                       ]
                     }
@@ -17837,7 +17837,7 @@
   ],
   "variable": [
     {
-      "id": "c7ea7cc8-7343-4dd8-9744-8d33d21b644e",
+      "id": "25ba983a-9f5f-4151-92a4-7a1c51c2e01f",
       "key": "component",
       "value": "use"
     }
