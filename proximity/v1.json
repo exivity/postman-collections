@@ -13230,7 +13230,88 @@
                 },
                 "url": "{{base_url}}/v1/users/{{new_user_id}}"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "8a51fcb1-975b-4c5b-bd7a-a444a80bc6dc",
+                  "name": "Update a user",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "name": "Content-Type",
+                        "value": "application/vnd.api+json",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"user\",\r\n    \"id\": \"{{new_user_id}}\",\r\n    \"attributes\": {\r\n      \"source\": \"ldap\"\r\n    }\r\n  }\r\n}"
+                    },
+                    "url": "{{base_url}}/v1/users/{{new_user_id}}"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 09 Nov 2021 16:20:01 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Tue, 09 Nov 2021 16:20:01 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Feature-Policy",
+                      "value": "autoplay 'none'; camera 'none'"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-deA0a21he0JbtFJxaHyEB83rQFyLn7Qt';style-src 'self' 'nonce-deA0a21he0JbtFJxaHyEB83rQFyLn7Qt';font-src 'self' data:"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"user\",\n        \"id\": \"4deaa843-6c62-4534-97b6-27bbf29d7ad8\",\n        \"attributes\": {\n            \"username\": \"modified_user - 700\",\n            \"email_address\": \"someone+modified_504@exivity.com\",\n            \"account_access_type\": \"all\",\n            \"source\": \"ldap\",\n            \"display_name\": \"modified_user - 700\"\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8\"\n        },\n        \"relationships\": {\n            \"usergroup\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/relationships/usergroup\",\n                    \"related\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/usergroup\"\n                }\n            },\n            \"accounts\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/relationships/accounts\",\n                    \"related\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/accounts\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/relationships/channels\",\n                    \"related\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/channels\"\n                }\n            },\n            \"notificationchannels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/relationships/notificationchannels\",\n                    \"related\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/notificationchannels\"\n                }\n            },\n            \"notificationsubscriptions\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/relationships/notificationsubscriptions\",\n                    \"related\": \"http://localhost:8012/v1/users/4deaa843-6c62-4534-97b6-27bbf29d7ad8/notificationsubscriptions\"\n                }\n            }\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "name": "Delete a user",
@@ -17838,7 +17919,7 @@
   ],
   "variable": [
     {
-      "id": "302e6ea6-aae5-471f-b020-4b1a7d3ed2a1",
+      "id": "45801016-d84c-401e-875b-3ddd890ced46",
       "key": "component",
       "value": "use"
     }
