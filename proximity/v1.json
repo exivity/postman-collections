@@ -13233,7 +13233,7 @@
               "response": [
                 {
                   "id": "8a51fcb1-975b-4c5b-bd7a-a444a80bc6dc",
-                  "name": "Update a user",
+                  "name": "Update a user's source to LDAP",
                   "originalRequest": {
                     "method": "PATCH",
                     "header": [
@@ -13351,6 +13351,7 @@
             }
           ],
           "id": "8869248e-edd9-0b19-023d-cc27e4b5eba6",
+          "description": "Everyone connecting to our API needs a valid user account. Users can change some of their details themselves.\n\nUsers with the \"manage_users\" permission and view, create, edit and delete users on the system.\n\n<h2>Attributes</h2>\n\n- id <i>guid</i> Unique identifier\n- account_access_type <i>string</i> all/custom\n- current_password <i>string</i> Only used when update current user\n- display_name <i>string</i> \n- email_address <i>string</i> Unique email address, max 255 characters\n- password <i>string</i> Min 8 characters\n- source <i>string</i> local/ldap/saml\n- username <i>string</i> Unique username, between 2-255 characters",
           "event": [
             {
               "listen": "prerequest",
@@ -17919,7 +17920,7 @@
   ],
   "variable": [
     {
-      "id": "ce778207-4ada-44fb-a2cf-2ff000e1a9e8",
+      "id": "a30d3ca2-0d14-4a7a-884e-c0c68af9f5ce",
       "key": "component",
       "value": "use"
     }
