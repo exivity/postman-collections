@@ -4043,7 +4043,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"services\": {\r\n                \"data\": [\r\n                    {\r\n                        \"type\": \"service\",\r\n                        \"id\": {{first_service_id}}\r\n                    }\r\n                ]\r\n            }\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"services\": {\r\n                \"data\": {\r\n                    \"type\": \"service\",\r\n                    \"id\": {{first_service_id}}\r\n                }\r\n            }\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": "{{base_url}}/v1/adjustments"
               },
@@ -17923,7 +17923,7 @@
   ],
   "variable": [
     {
-      "id": "96861934-ec12-44cb-9a39-1b8dff9e2a21",
+      "id": "a6d96925-f678-4855-a170-259504fd0604",
       "key": "component",
       "value": "use"
     }
