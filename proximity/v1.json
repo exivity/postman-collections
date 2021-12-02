@@ -11111,7 +11111,7 @@
           "name": "/jobs",
           "item": [
             {
-              "name": "Retrieve a list of metadata",
+              "name": "Retrieve a list of jobs",
               "event": [
                 {
                   "listen": "test",
@@ -18004,7 +18004,7 @@
   ],
   "variable": [
     {
-      "id": "c67bd754-de11-41de-a3e1-78bcc431432d",
+      "id": "031e809d-ed3c-4258-8a4c-90c7f05896b3",
       "key": "component",
       "value": "use"
     }
