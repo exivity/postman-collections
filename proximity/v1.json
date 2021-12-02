@@ -11108,8 +11108,84 @@
           ]
         },
         {
-          "name": "New Folder",
-          "item": [],
+          "name": "/jobs",
+          "item": [
+            {
+              "name": "Retrieve a list of metadata",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "8bf66cc5-55f0-469d-b8d7-8317f63c222b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});"
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "94eeb158-f174-466e-b336-f73c5e2a0fdf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/metadata?page[limit]&page[offset]&sort&filter[name]=&include=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "metadata"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[name]",
+                      "value": "",
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": "",
+                      "description": "Include additional related resources. Possible values: `definition`, `accounts`, `services`."
+                    }
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
           "id": "b2ca22d8-8347-4b29-ab7b-f0f43da2c0bf"
         }
       ],
@@ -17928,7 +18004,7 @@
   ],
   "variable": [
     {
-      "id": "8f804baf-5612-43f6-908f-3fddfb2c2ff8",
+      "id": "0193ad28-129e-4927-aa29-e2d0a4b23a61",
       "key": "component",
       "value": "use"
     }
