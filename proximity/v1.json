@@ -11106,87 +11106,6 @@
               }
             }
           ]
-        },
-        {
-          "name": "/jobs",
-          "item": [
-            {
-              "name": "Retrieve a list of jobs",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "8bf66cc5-55f0-469d-b8d7-8317f63c222b",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});"
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "94eeb158-f174-466e-b336-f73c5e2a0fdf",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/metadata?page[limit]&page[offset]&sort&filter[name]=&include=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "metadata"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[name]",
-                      "value": "",
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": "",
-                      "description": "Include additional related resources. Possible values: `definition`, `accounts`, `services`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            }
-          ],
-          "id": "b2ca22d8-8347-4b29-ab7b-f0f43da2c0bf"
         }
       ],
       "id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
@@ -18004,7 +17923,7 @@
   ],
   "variable": [
     {
-      "id": "031e809d-ed3c-4258-8a4c-90c7f05896b3",
+      "id": "7c916f82-3e4f-4d9b-85a6-fd7278cd8e36",
       "key": "component",
       "value": "use"
     }
