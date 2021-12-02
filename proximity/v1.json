@@ -11106,6 +11106,11 @@
               }
             }
           ]
+        },
+        {
+          "name": "New Folder",
+          "item": [],
+          "id": "b2ca22d8-8347-4b29-ab7b-f0f43da2c0bf"
         }
       ],
       "id": "8ac2323d-98f4-483d-939d-5c1531d3e016",
@@ -17923,7 +17928,7 @@
   ],
   "variable": [
     {
-      "id": "41c232c5-56fb-42e4-a0ce-f323b2f2779a",
+      "id": "97ac3680-9926-4260-b5d4-4190956bfff1",
       "key": "component",
       "value": "use"
     }
