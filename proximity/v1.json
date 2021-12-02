@@ -11108,7 +11108,7 @@
           ]
         },
         {
-          "name": "New Folder",
+          "name": "/jobs",
           "item": [],
           "id": "b2ca22d8-8347-4b29-ab7b-f0f43da2c0bf"
         }
@@ -17928,7 +17928,7 @@
   ],
   "variable": [
     {
-      "id": "97ac3680-9926-4260-b5d4-4190956bfff1",
+      "id": "a6a6d0d1-ff2a-46f7-86dd-2c5d36044986",
       "key": "component",
       "value": "use"
     }
