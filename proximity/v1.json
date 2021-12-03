@@ -4612,6 +4612,9 @@
                 }
               ],
               "id": "b0742128-2c66-996a-f6e6-ca7817c9fc7a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "POST",
                 "header": [
@@ -4628,9 +4631,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"{{report_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"job\",\r\n\t\t\"attributes\": {\r\n            \"type\": \"extractor\",\r\n\t\t\t\"iddd\": \"Extractor_test_-_901\"\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/accounts"
+                "url": "{{base_url}}/v1/jobs"
               },
               "response": [
                 {
@@ -17923,7 +17926,7 @@
   ],
   "variable": [
     {
-      "id": "51b4f00e-69ab-42be-b059-4f32a0d8425f",
+      "id": "972670ca-be5c-497e-afaa-a1ab462c57e3",
       "key": "component",
       "value": "use"
     }
