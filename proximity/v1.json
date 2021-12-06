@@ -6722,17 +6722,6 @@
                     "exec": [
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains output\", function () {",
-                      "    pm.expect(response).to.be.an('array');",
-                      "});",
-                      "",
-                      "pm.test(\"Response contains hello world\", function () {",
-                      "    pm.expect(response[0]).to.contains('Hello world');",
                       "});"
                     ],
                     "type": "text/javascript"
@@ -6758,6 +6747,9 @@
                 }
               ],
               "id": "4e59415c-aabc-23c7-9e88-446a18061e36",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
                 "method": "POST",
                 "header": [
@@ -6767,26 +6759,19 @@
                   }
                 ],
                 "body": {
-                  "mode": "formdata",
-                  "formdata": []
+                  "mode": "raw",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"job\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"extract\",\r\n            \"id\": \"{{extractor_name}}\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/extractors/{{extractor_name}}/run?arguments",
+                  "raw": "{{base_url}}/v1/jobs",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
-                    "extractors",
-                    "{{extractor_name}}",
-                    "run"
+                    "jobs"
                   ],
                   "query": [
-                    {
-                      "key": "arguments",
-                      "value": null,
-                      "description": "Extractor arguments"
-                    },
                     {
                       "key": "environment_id",
                       "value": "",
@@ -17926,7 +17911,7 @@
   ],
   "variable": [
     {
-      "id": "972670ca-be5c-497e-afaa-a1ab462c57e3",
+      "id": "17969b25-6a02-4789-a716-385e3212d90d",
       "key": "component",
       "value": "use"
     }
