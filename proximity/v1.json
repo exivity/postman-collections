@@ -4631,9 +4631,9 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"job\",\r\n\t\t\"attributes\": {\r\n            \"type\": \"extractor\",\r\n\t\t\t\"iddd\": \"Extractor_test_-_901\"\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"account\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"My new account\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"report\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"report\",\r\n\t\t\t\t\t\"id\": \"{{report_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
                 },
-                "url": "{{base_url}}/v1/jobs"
+                "url": "{{base_url}}/v1/accounts"
               },
               "response": [
                 {
@@ -17911,7 +17911,7 @@
   ],
   "variable": [
     {
-      "id": "17969b25-6a02-4789-a716-385e3212d90d",
+      "id": "de93cf4a-6e8d-46c1-8783-51d718f7fed3",
       "key": "component",
       "value": "use"
     }
