@@ -4016,6 +4016,8 @@
                       "    .then(api.requireToken)",
                       "    .then(api.requireReport)",
                       "    .then(api.requireAccount)",
+                      "    .then(api.requireServiceCategory)",
+                      "    .then(api.requireService)",
                       "    .then(api.ready)",
                       "    .catch(function(err) {",
                       "        console.log(err);",
@@ -4046,7 +4048,12 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"services\": {\r\n                \"data\": {\r\n                    \"type\": \"service\",\r\n                    \"id\": {{first_service_id}}\r\n                }\r\n            }\r\n\t\t}\r\n\t}\r\n}"
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"services\": {\r\n                \"data\": {\r\n                    \"type\": \"service\",\r\n                    \"id\": \"{{service_id}}\"\r\n                }\r\n            }\r\n\t\t}\r\n\t}\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
                 },
                 "url": "{{base_url}}/v1/adjustments"
               },
@@ -17914,7 +17921,7 @@
   ],
   "variable": [
     {
-      "id": "0e65e190-b660-4ae4-843f-11bfcdd7f9e0",
+      "id": "09e89838-66b7-4ae4-9c5e-6ce3cfce1056",
       "key": "component",
       "value": "use"
     }
