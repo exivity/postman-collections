@@ -17139,7 +17139,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "ae7ad446-b393-4586-8f91-9ee05535d0c2",
+        "id": "c5b772ac-e306-4c56-ae75-7007a7837e06",
         "type": "text/javascript",
         "exec": [
           "console.log('');",
@@ -17492,7 +17492,7 @@
           "                            \"usage_col\": \"unique_key\",",
           "                            \"consumption_col\": \"quantity\",",
           "                            \"instance_col\": \"hostname\",",
-          "                            \"interval\": \"individually\",",
+          "                            \"interval\": \"month\",",
           "                            \"charge_type\": \"manual_per_unit\",",
           "                            \"cogs_type\": \"none\",",
           "                            \"proration_type\": \"full\",",
@@ -17911,7 +17911,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "c23a855c-6df5-4a90-82dc-fc50925293c0",
+        "id": "49e621cb-6e9f-4837-8f10-bf0f9809d1b5",
         "type": "text/javascript",
         "exec": [
           ""
@@ -17921,7 +17921,7 @@
   ],
   "variable": [
     {
-      "id": "09e89838-66b7-4ae4-9c5e-6ce3cfce1056",
+      "id": "b2f63ea1-ea64-4b45-b050-0a3ff1f9155c",
       "key": "component",
       "value": "use"
     }
