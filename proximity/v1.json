@@ -2435,7 +2435,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"individually\",\n\t\t\t\"charge_type\": \"manual_per_unit\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}"
+                  "raw": "{\n    \"data\": {\n        \"type\": \"service\",\n        \"id\": \"{{service_id}}\",\n        \"attributes\": {\n            \"key\": \"key - {{$randomInt}}\",\n            \"description\": \"modified test service\",\n            \"unit_label\": \"hours\",\n\t\t\t\"dset\": \"{{dset_id}}\",\n\t\t\t\"type\": \"service_name_in_header\",\n\t\t\t\"usage_col\": \"unique_key\",\n\t\t\t\"consumption_col\": \"quantity\",\n\t\t\t\"instance_col\": \"hostname\",\n\t\t\t\"interval\": \"month\",\n\t\t\t\"charge_type\": \"manual_per_unit\",\n\t\t\t\"cogs_type\": \"none\",\n\t\t\t\"proration_type\": \"full\",\n\t\t\t\"charge_model\": \"average\"\n        }\n    }\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/services/:service_id",
@@ -17921,7 +17921,7 @@
   ],
   "variable": [
     {
-      "id": "b2f63ea1-ea64-4b45-b050-0a3ff1f9155c",
+      "id": "a51e370b-6483-4fac-b74f-fcb1b62e5068",
       "key": "component",
       "value": "use"
     }
