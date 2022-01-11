@@ -2712,7 +2712,7 @@
                       "    pm.expect(response.data.attributes.type).to.eql('recurring');",
                       "    pm.expect(response.data.attributes.start_date).to.eql('2017-08-28');",
                       "    pm.expect(response.data.attributes.end_date).to.eql('2017-08-29');",
-                      "    pm.expect(response.data.attributes.alt_interval).to.eql('individually');",
+                      "    pm.expect(response.data.attributes.alt_interval).to.eql('day');",
                       "    pm.expect(response.data.attributes.instance).to.eql('exivity');",
                       "});",
                       "",
@@ -2763,7 +2763,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-08-28\",\r\n      \"end_date\": \"2017-08-29\",\r\n      \"alt_interval\": \"individually\",\r\n      \"charge_day\": null,\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"attributes\": {\r\n      \"name\": \"test\",\r\n      \"quantity\": 10.10,\r\n      \"rate\": 10.10,\r\n      \"cogs\": 10.10,\r\n      \"type\": \"recurring\",\r\n      \"start_date\": \"2017-08-28\",\r\n      \"end_date\": \"2017-08-29\",\r\n      \"alt_interval\": \"day\",\r\n      \"charge_day\": null,\r\n      \"instance\": \"exivity\"\r\n    },\r\n    \"relationships\": {\r\n      \"account\": {\r\n        \"data\": {\r\n          \"type\": \"account\",\r\n          \"id\": \"{{account_id}}\"\r\n        }\r\n      },\r\n      \"service\": {\r\n        \"data\": {\r\n          \"type\": \"service\",\r\n          \"id\": \"{{service_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/servicesubscriptions"
               },
@@ -17754,7 +17754,7 @@
   ],
   "variable": [
     {
-      "id": "ff103723-b3ca-43c6-a101-c48e54b9ddbe",
+      "id": "2fdb0f2a-aad0-49bc-85c0-254df6c377e1",
       "key": "component",
       "value": "use"
     }
