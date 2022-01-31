@@ -3278,8 +3278,8 @@
                       "        \"cogs_fixed\": 4,",
                       "        \"cogs_fixed_col\": \"cogs_fixed_col\",",
                       "        \"effective_date\": \"2017-08-27\",",
-                      "        \"threshold\": 0,",
-                      "        \"min_commit\": 0,",
+                      "        \"threshold\": null,",
+                      "        \"min_commit\": null,",
                       "        \"tier_aggregation_level\": 1",
                       "  });",
                       "",
@@ -17757,7 +17757,7 @@
   ],
   "variable": [
     {
-      "id": "fbef2382-1d00-4a24-b303-31c65ef1e477",
+      "id": "0ca4c115-eb74-48b1-92ab-1e39046cbd8a",
       "key": "component",
       "value": "use"
     }
