@@ -541,16 +541,12 @@
             {
               "name": "Initiate SAML logout request",
               "id": "1675fe0c-bc8e-49e4-9bba-29e3d701db78",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
               "request": {
-                "auth": {
-                  "type": "noauth"
-                },
                 "method": "GET",
                 "header": [],
-                "body": {
-                  "mode": "formdata",
-                  "formdata": []
-                },
                 "url": {
                   "raw": "{{base_url}}/v1/auth/saml/logout?return_url",
                   "host": [
@@ -17757,7 +17753,7 @@
   ],
   "variable": [
     {
-      "id": "0ca4c115-eb74-48b1-92ab-1e39046cbd8a",
+      "id": "889d1841-9f7c-4502-ba4f-eda54f0629ce",
       "key": "component",
       "value": "use"
     }
