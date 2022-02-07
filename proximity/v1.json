@@ -241,24 +241,7 @@
                     }
                   ]
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/auth/token?app=",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "auth",
-                    "token"
-                  ],
-                  "query": [
-                    {
-                      "key": "app",
-                      "value": "",
-                      "description": "The client to retrieve the state for. Leave empty to not retrieve state(default), or specify `glass`, `lens`."
-                    }
-                  ]
-                },
+                "url": "{{base_url}}/v1/auth/token",
                 "description": "Generate a new JWT authentication token."
               },
               "response": [
@@ -26431,7 +26414,7 @@
   ],
   "variable": [
     {
-      "id": "4ca43c9e-b8b2-4e6a-9b04-335815b59bdf",
+      "id": "a0b29469-a4bf-48ed-91c9-de9337a9d3cc",
       "key": "component",
       "value": "use"
     }
