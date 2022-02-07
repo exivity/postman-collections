@@ -3802,12 +3802,7 @@
                       "});",
                       "",
                       "console.log('UNSET service_id');",
-                      "pm.environment.unset(\"service_id\");",
-                      "",
-                      "pm.environment.set(\"service_id\", pm.environment.get(\"service_id\"));",
-                      "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));",
-                      "pm.environment.unset(\"service_id\");",
-                      "console.log('UNSET service_id');"
+                      "pm.environment.unset(\"service_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -3852,8 +3847,7 @@
                   "variable": [
                     {
                       "key": "service_id",
-                      "value": null,
-                      "description": "Service ID"
+                      "value": "{{service_id}}"
                     }
                   ]
                 },
@@ -26436,7 +26430,7 @@
   ],
   "variable": [
     {
-      "id": "bc5bb56d-e970-4095-89ee-299e82903dec",
+      "id": "0d7bdcad-8829-4dce-85b3-c61bb6530d8a",
       "key": "component",
       "value": "use"
     }
