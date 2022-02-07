@@ -6772,7 +6772,7 @@
                   "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"job\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"extract\",\r\n            \"id\": \"{{extractor_name}}\"\r\n\t\t}\r\n\t}\r\n}"
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/jobs",
+                  "raw": "{{base_url}}/v1/jobs?arguments",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -6786,6 +6786,11 @@
                       "value": "",
                       "description": "Environment ID (optional)",
                       "disabled": true
+                    },
+                    {
+                      "key": "arguments",
+                      "value": null,
+                      "type": "text"
                     }
                   ]
                 }
@@ -17753,7 +17758,7 @@
   ],
   "variable": [
     {
-      "id": "889d1841-9f7c-4502-ba4f-eda54f0629ce",
+      "id": "14faadb5-b8ce-4ab0-9458-17096aa08086",
       "key": "component",
       "value": "use"
     }
