@@ -3804,7 +3804,7 @@
                       "console.log('UNSET service_id');",
                       "pm.environment.unset(\"service_id\");",
                       "",
-                      "pm.environment.set(\"service_id\", pm.environment.get(\"first_service_id\"));",
+                      "pm.environment.set(\"service_id\", pm.environment.get(\"service_id\"));",
                       "console.log('SET service_id: ' + pm.environment.get(\"service_id\"));",
                       "pm.environment.unset(\"service_id\");",
                       "console.log('UNSET service_id');"
@@ -26436,7 +26436,7 @@
   ],
   "variable": [
     {
-      "id": "a2aa401a-6edd-4cd1-af2f-525e232d9c2a",
+      "id": "bc5bb56d-e970-4095-89ee-299e82903dec",
       "key": "component",
       "value": "use"
     }
