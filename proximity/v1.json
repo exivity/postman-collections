@@ -279,24 +279,7 @@
                         }
                       ]
                     },
-                    "url": {
-                      "raw": "{{base_url}}/v1/auth/token?app=",
-                      "host": [
-                        "{{base_url}}"
-                      ],
-                      "path": [
-                        "v1",
-                        "auth",
-                        "token"
-                      ],
-                      "query": [
-                        {
-                          "key": "app",
-                          "value": "",
-                          "description": "The client to retrieve the state for. Leave empty to not retrieve state (default), or specify`glass`, `lens`."
-                        }
-                      ]
-                    }
+                    "url": "{{base_url}}/v1/auth/token"
                   },
                   "status": "OK",
                   "code": 200,
@@ -407,25 +390,7 @@
                   "mode": "urlencoded",
                   "urlencoded": []
                 },
-                "url": {
-                  "raw": "{{base_url}}/v1/auth/token",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "auth",
-                    "token"
-                  ],
-                  "query": [
-                    {
-                      "key": "app",
-                      "value": null,
-                      "description": "The client to retrieve the state for. Leave empty to not retrieve state(default), or specify `glass`, `lens`.",
-                      "disabled": true
-                    }
-                  ]
-                }
+                "url": "{{base_url}}/v1/auth/token"
               },
               "response": [
                 {
@@ -26414,7 +26379,7 @@
   ],
   "variable": [
     {
-      "id": "a0b29469-a4bf-48ed-91c9-de9337a9d3cc",
+      "id": "13876572-efc9-4283-82cf-9d3435573fd2",
       "key": "component",
       "value": "use"
     }
