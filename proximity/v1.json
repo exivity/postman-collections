@@ -4517,135 +4517,6 @@
           "name": "/rates",
           "item": [
             {
-              "name": "Retrieve a list of rates",
-              "event": [
-                {
-                  "listen": "test",
-                  "script": {
-                    "id": "576d1050-8826-4de8-bf97-f3c28494480b",
-                    "exec": [
-                      "pm.test(\"Status code is 200\", function () {",
-                      "    pm.response.to.have.status(200);",
-                      "});",
-                      "",
-                      "pm.test(\"Content-Type is present\", function () {",
-                      "    pm.response.to.have.header(\"Content-Type\");",
-                      "});",
-                      "",
-                      "// Check response",
-                      "const response = pm.response.json();",
-                      "console.log(response);",
-                      "",
-                      "pm.test(\"Response contains data\", function () {",
-                      "    pm.response.to.be.json;",
-                      "    pm.expect(response.data).to.be.an('array');",
-                      "});",
-                      "",
-                      "// Check first rate",
-                      "var rate = response.data[0];",
-                      "pm.test(\"Rate type is correct\", function () {",
-                      "    pm.expect(rate.type).to.eql('rate');",
-                      "});",
-                      "pm.test(\"Rate ID is set\", function () {",
-                      "    pm.expect(rate.id).to.not.be.undefined;",
-                      "});",
-                      "pm.test(\"Rate attributes are correct\", function () {",
-                      "    pm.expect(rate.attributes).to.be.an('object');",
-                      "    pm.expect(rate.attributes).to.have.property(\"rate\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"rate_col\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"threshold\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"min_commit\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"effective_date\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"fixed\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"fixed_col\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"cogs_rate\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"cogs_rate_col\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"cogs_fixed\");",
-                      "    pm.expect(rate.attributes).to.have.property(\"cogs_fixed_col\");",
-                      "});",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                },
-                {
-                  "listen": "prerequest",
-                  "script": {
-                    "id": "7f92fb9a-20ac-4c75-aaba-2bcc379bf1a9",
-                    "exec": [
-                      "const api = eval(pm.globals.get('exivity'))();",
-                      "",
-                      "api.start()",
-                      "    .then(api.requireToken)",
-                      "    .then(api.ready)",
-                      "    .catch(function(err) {",
-                      "        console.log(err);",
-                      "    });",
-                      ""
-                    ],
-                    "type": "text/javascript"
-                  }
-                }
-              ],
-              "id": "0b00a043-02da-c3b0-0a43-ceb9344f6ea8",
-              "protocolProfileBehavior": {
-                "disableBodyPruning": true
-              },
-              "request": {
-                "auth": {
-                  "type": "bearer",
-                  "bearer": {
-                    "token": "{{token}}"
-                  }
-                },
-                "method": "GET",
-                "header": [
-                  {
-                    "key": "Accept",
-                    "value": "application/vnd.api+json"
-                  }
-                ],
-                "url": {
-                  "raw": "{{base_url}}/v1/rates?page[limit]&page[offset]&sort&filter[attribute]&include",
-                  "host": [
-                    "{{base_url}}"
-                  ],
-                  "path": [
-                    "v1",
-                    "rates"
-                  ],
-                  "query": [
-                    {
-                      "key": "page[limit]",
-                      "value": null,
-                      "description": "Limit the amount of results returned"
-                    },
-                    {
-                      "key": "page[offset]",
-                      "value": null,
-                      "description": "Return this page of the results"
-                    },
-                    {
-                      "key": "sort",
-                      "value": null,
-                      "description": "Sort results by this attribute"
-                    },
-                    {
-                      "key": "filter[attribute]",
-                      "value": null,
-                      "description": "Filter results by this attribute"
-                    },
-                    {
-                      "key": "include",
-                      "value": null,
-                      "description": "Include additional related resources. Possible values: `service`, `account`."
-                    }
-                  ]
-                }
-              },
-              "response": []
-            },
-            {
               "name": "Add a new rate",
               "event": [
                 {
@@ -4953,6 +4824,135 @@
                   "body": "{\n    \"data\": {\n        \"type\": \"rate\",\n        \"id\": \"9\",\n        \"attributes\": {\n            \"rate\": 1,\n            \"rate_col\": \"rate_col\",\n            \"threshold\": 0,\n            \"min_commit\": 0,\n            \"effective_date\": \"2017-08-27\",\n            \"tier_aggregation_level\": 1,\n            \"fixed\": 2,\n            \"fixed_col\": \"fixed_col\",\n            \"cogs_rate\": 3,\n            \"cogs_rate_col\": \"cogs_rate_col\",\n            \"cogs_fixed\": 4,\n            \"cogs_fixed_col\": \"cogs_fixed_col\"\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/rates/9\"\n        },\n        \"relationships\": {\n            \"service\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/9/relationships/service\",\n                    \"related\": \"http://localhost:8012/v1/rates/9/service\"\n                }\n            },\n            \"account\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/9/relationships/account\",\n                    \"related\": \"http://localhost:8012/v1/rates/9/account\"\n                }\n            },\n            \"ratetiers\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/9/relationships/ratetiers\",\n                    \"related\": \"http://localhost:8012/v1/rates/9/ratetiers\"\n                }\n            }\n        }\n    }\n}"
                 }
               ]
+            },
+            {
+              "name": "Retrieve a list of rates",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "id": "576d1050-8826-4de8-bf97-f3c28494480b",
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "",
+                      "pm.test(\"Content-Type is present\", function () {",
+                      "    pm.response.to.have.header(\"Content-Type\");",
+                      "});",
+                      "",
+                      "// Check response",
+                      "const response = pm.response.json();",
+                      "console.log(response);",
+                      "",
+                      "pm.test(\"Response contains data\", function () {",
+                      "    pm.response.to.be.json;",
+                      "    pm.expect(response.data).to.be.an('array');",
+                      "});",
+                      "",
+                      "// Check first rate",
+                      "var rate = response.data[0];",
+                      "pm.test(\"Rate type is correct\", function () {",
+                      "    pm.expect(rate.type).to.eql('rate');",
+                      "});",
+                      "pm.test(\"Rate ID is set\", function () {",
+                      "    pm.expect(rate.id).to.not.be.undefined;",
+                      "});",
+                      "pm.test(\"Rate attributes are correct\", function () {",
+                      "    pm.expect(rate.attributes).to.be.an('object');",
+                      "    pm.expect(rate.attributes).to.have.property(\"rate\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"rate_col\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"threshold\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"min_commit\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"effective_date\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"fixed\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"fixed_col\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"cogs_rate\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"cogs_rate_col\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"cogs_fixed\");",
+                      "    pm.expect(rate.attributes).to.have.property(\"cogs_fixed_col\");",
+                      "});",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "7f92fb9a-20ac-4c75-aaba-2bcc379bf1a9",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.ready)",
+                      "    .catch(function(err) {",
+                      "        console.log(err);",
+                      "    });",
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "id": "0b00a043-02da-c3b0-0a43-ceb9344f6ea8",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": {
+                    "token": "{{token}}"
+                  }
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/vnd.api+json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/v1/rates?page[limit]&page[offset]&sort&filter[attribute]&include",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "rates"
+                  ],
+                  "query": [
+                    {
+                      "key": "page[limit]",
+                      "value": null,
+                      "description": "Limit the amount of results returned"
+                    },
+                    {
+                      "key": "page[offset]",
+                      "value": null,
+                      "description": "Return this page of the results"
+                    },
+                    {
+                      "key": "sort",
+                      "value": null,
+                      "description": "Sort results by this attribute"
+                    },
+                    {
+                      "key": "filter[attribute]",
+                      "value": null,
+                      "description": "Filter results by this attribute"
+                    },
+                    {
+                      "key": "include",
+                      "value": null,
+                      "description": "Include additional related resources. Possible values: `service`, `account`."
+                    }
+                  ]
+                }
+              },
+              "response": []
             },
             {
               "name": "Retrieve a rate",
@@ -16440,6 +16440,23 @@
                     ],
                     "type": "text/javascript"
                   }
+                },
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "id": "2e441bd7-ef0d-45d4-9c5d-db2235d0882e",
+                    "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();\r",
+                      "\r",
+                      "api.start()\r",
+                      "    .then(api.requireToken)\r",
+                      "    .then(api.ready)\r",
+                      "    .catch(function(err) {\r",
+                      "        console.log(err);\r",
+                      "    });"
+                    ],
+                    "type": "text/javascript"
+                  }
                 }
               ],
               "id": "d556aca6-a7b5-4e92-843b-f524f9f24d07",
@@ -26362,7 +26379,7 @@
   ],
   "variable": [
     {
-      "id": "33fea72a-9c16-4b12-a139-77c49ef10ae3",
+      "id": "75926a3e-31c1-484d-8282-6f7f75fba158",
       "key": "component",
       "value": "use"
     }
