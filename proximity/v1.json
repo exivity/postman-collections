@@ -25658,7 +25658,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "d44d0f6c-4b36-4168-9361-1e17b50fa817",
+        "id": "5e84167b-332d-47c5-93cf-3e138343e17d",
         "type": "text/javascript",
         "exec": [
           "console.log('');",
@@ -25728,7 +25728,7 @@
           "            return pm.environment.get(\"token\");",
           "        }",
           "",
-          "        // Check if username & password areset",
+          "        // Check if username & password are set",
           "        if (!pm.environment.get(\"username\") || !pm.environment.get(\"password\")) {",
           "            throw new Error('Username or password not set');",
           "        }",
@@ -26021,7 +26021,7 @@
           "                            \"servicecategory\": {",
           "                                \"data\": {",
           "                                    \"type\": \"servicecategory\",",
-          "                                    \"id\": pm.variables.get(\"\\n\")",
+          "                                    \"id\": pm.variables.get(\"servicecategory_id\")",
           "                                }",
           "                            }",
           "                        }",
@@ -26092,7 +26092,7 @@
           "        if (!pm.environment.get(\"service_id\")) {",
           "            throw new Error('Service ID not set - need to create rate');",
           "        }",
-          "        ",
+          "",
           "        return api.asyncRequest({",
           "            // Create a new rate",
           "            url: pm.variables.get(\"base_url\") + '/v1/rates',",
@@ -26431,7 +26431,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "c6499d49-978c-4bfd-b5bb-650954bb5c7a",
+        "id": "1561a493-0a2d-49b5-8cca-65bad0289e9f",
         "type": "text/javascript",
         "exec": [
           ""
@@ -26441,7 +26441,7 @@
   ],
   "variable": [
     {
-      "id": "d1af63b3-13ee-4608-912c-129b792cf67d",
+      "id": "3847cadc-5097-42cb-991a-b61e41fd429c",
       "key": "component",
       "value": "use"
     }
