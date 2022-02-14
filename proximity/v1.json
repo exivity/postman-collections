@@ -5035,7 +5035,7 @@
                       "        \"cogs_rate_col\": \"cogs_rate_col\",",
                       "        \"cogs_fixed\": 4,",
                       "        \"cogs_fixed_col\": \"cogs_fixed_col\",",
-                      "        \"effective_date\": \"2017-08-27\",",
+                      "        \"effective_date\": \"2017-08-28\",",
                       "        \"threshold\": null,",
                       "        \"min_commit\": null,",
                       "        \"tier_aggregation_level\": 1",
@@ -26442,7 +26442,7 @@
   ],
   "variable": [
     {
-      "id": "b304375c-ca0c-49ee-9a54-f1d58a6e9470",
+      "id": "6af95f08-4475-41de-926e-ac861bc3e218",
       "key": "component",
       "value": "use"
     }
