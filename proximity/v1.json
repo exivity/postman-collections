@@ -4298,11 +4298,23 @@
                   "script": {
                     "id": "3c408348-5cd7-4c23-bba7-79fa89ee7d36",
                     "exec": [
+                      "const api = eval(pm.globals.get('exivity'))();",
+                      "",
+                      "api.start()",
+                      "    .then(api.requireToken)",
+                      "    .then(api.requireRate)",
+                      "    .then(api.ready)",
+                      "    .catch(function (err) {",
+                      "        console.log(err);",
+                      "    });",
+                      "",
+                      "",
                       "pm.test(\"Status code is 200\", function () {",
                       "    pm.response.to.have.status(200)",
                       "});",
                       "",
-                      "console.log(pm.response);"
+                      "console.log(pm.response);",
+                      ""
                     ],
                     "type": "text/javascript"
                   }
@@ -26389,7 +26401,7 @@
   ],
   "variable": [
     {
-      "id": "3be418b3-9540-497b-ba9a-83ee3fbd65e2",
+      "id": "3cf8f50a-9791-4607-ac9b-d8ae1b4d842b",
       "key": "component",
       "value": "use"
     }
