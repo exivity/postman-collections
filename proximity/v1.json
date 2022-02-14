@@ -25658,7 +25658,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "73083344-412e-4ad6-b383-4031e236afcc",
+        "id": "d44d0f6c-4b36-4168-9361-1e17b50fa817",
         "type": "text/javascript",
         "exec": [
           "console.log('');",
@@ -26021,7 +26021,7 @@
           "                            \"servicecategory\": {",
           "                                \"data\": {",
           "                                    \"type\": \"servicecategory\",",
-          "                                    \"id\": pm.variables.get(\"servicecategory_id\")",
+          "                                    \"id\": pm.variables.get(\"\\n\")",
           "                                }",
           "                            }",
           "                        }",
@@ -26092,7 +26092,7 @@
           "        if (!pm.environment.get(\"service_id\")) {",
           "            throw new Error('Service ID not set - need to create rate');",
           "        }",
-          "",
+          "        ",
           "        return api.asyncRequest({",
           "            // Create a new rate",
           "            url: pm.variables.get(\"base_url\") + '/v1/rates',",
@@ -26123,7 +26123,7 @@
           "                            \"service\": {",
           "                                \"data\": {",
           "                                    \"type\": \"service\",",
-          "                                    \"id\": pm.variables.get(\"service\")",
+          "                                    \"id\": pm.variables.get(\"service_id\")",
           "                                }",
           "                            }",
           "                        }",
@@ -26431,7 +26431,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "877a58cc-25cf-4a18-8c73-329fd05e33b6",
+        "id": "c6499d49-978c-4bfd-b5bb-650954bb5c7a",
         "type": "text/javascript",
         "exec": [
           ""
@@ -26441,7 +26441,7 @@
   ],
   "variable": [
     {
-      "id": "c7167520-b240-406d-99c2-fa06f5c0e0a3",
+      "id": "d1af63b3-13ee-4608-912c-129b792cf67d",
       "key": "component",
       "value": "use"
     }
