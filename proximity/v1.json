@@ -25639,7 +25639,7 @@
     {
       "listen": "prerequest",
       "script": {
-        "id": "c5b772ac-e306-4c56-ae75-7007a7837e06",
+        "id": "73083344-412e-4ad6-b383-4031e236afcc",
         "type": "text/javascript",
         "exec": [
           "console.log('');",
@@ -26097,7 +26097,8 @@
           "                            \"cogs_rate_col\": \"cogs_rate_col\",",
           "                            \"cogs_fixed\": \"4.0\",",
           "                            \"cogs_fixed_col\": \"cogs_fixed_col\",",
-          "                            \"effective_date\": \"2017-08-27\"",
+          "                            \"effective_date\": \"2017-08-27\",",
+          "                            \"tier_aggregation_level\": \"1\"",
           "                        },",
           "                        \"relationships\": {",
           "                            \"service\": {",
@@ -26411,7 +26412,7 @@
     {
       "listen": "test",
       "script": {
-        "id": "49e621cb-6e9f-4837-8f10-bf0f9809d1b5",
+        "id": "877a58cc-25cf-4a18-8c73-329fd05e33b6",
         "type": "text/javascript",
         "exec": [
           ""
@@ -26421,7 +26422,7 @@
   ],
   "variable": [
     {
-      "id": "1fb925f2-4394-49da-ae68-10d7e8f77bd2",
+      "id": "3c14bf33-c43a-409f-b046-61bd128f38bf",
       "key": "component",
       "value": "use"
     }
