@@ -16704,7 +16704,7 @@
                       "pm.test(\"Response contains correct data\", function () {",
                       "    pm.expect(response.data).to.be.an('object');",
                       "    pm.expect(response.data.type).to.eql('workflowstep');",
-                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"proximity_workflowstep_id\").toString());",
+                      "    pm.expect(response.data.id).to.eql(pm.environment.get(\"execute_workflowstep_id\").toString());",
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "    \"type\": \"proximity\",",
@@ -26422,7 +26422,7 @@
   ],
   "variable": [
     {
-      "id": "2c390ae1-fbcc-45d0-b136-a11b17a5b92f",
+      "id": "77b99527-684f-41c2-9137-b06a080ff109",
       "key": "component",
       "value": "use"
     }
