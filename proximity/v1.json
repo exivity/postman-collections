@@ -4347,6 +4347,7 @@
                       "\r",
                       "api.start()\r",
                       "    .then(api.requireToken)\r",
+                      "    .then(api.requireServiceCategory)\r",
                       "    .then(api.requireService)\r",
                       "    .then(api.requireRate)\r",
                       "    .then(api.ready)\r",
@@ -26441,7 +26442,7 @@
   ],
   "variable": [
     {
-      "id": "3847cadc-5097-42cb-991a-b61e41fd429c",
+      "id": "f1f9ec77-4ba6-453d-ac24-5082eefebdd1",
       "key": "component",
       "value": "use"
     }
