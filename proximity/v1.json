@@ -12245,7 +12245,7 @@
           ]
         },
         {
-          "name": "/metadatadefinition",
+          "name": "/metadatadefinitions",
           "item": [
             {
               "name": "Retrieve a list of metadata definitions",
@@ -26442,7 +26442,7 @@
   ],
   "variable": [
     {
-      "id": "7743b240-5a3a-409f-a2e3-956c4d014ecc",
+      "id": "215cffbc-5fcf-4ce9-a48d-37e6b65fe42a",
       "key": "component",
       "value": "use"
     }
