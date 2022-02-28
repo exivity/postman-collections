@@ -1839,7 +1839,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[field]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options=",
+                  "raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[attribute]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -1881,9 +1881,9 @@
                       "description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date`, `adjustment_name` (or a combination of those as a comma separated list). The account and service fields are only available if their respective dimension is included in the request."
                     },
                     {
-                      "key": "filter[field]",
+                      "key": "filter[attribute]",
                       "value": null,
-                      "description": "Optionally filter the output by the supplied field. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
+                      "description": "Optionally [filter](#working-with-the-api). Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
                     },
                     {
                       "key": "format",
@@ -26443,7 +26443,7 @@
   ],
   "variable": [
     {
-      "id": "773781d3-7adf-4717-8ebb-d81300996daa",
+      "id": "9ebe2ab4-b5b6-4697-b5f0-8f0b7b5a2edc",
       "key": "component",
       "value": "use"
     }
