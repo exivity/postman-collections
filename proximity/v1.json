@@ -1310,7 +1310,7 @@
                     {
                       "key": "filter[attribute]",
                       "value": null,
-                      "description": "[Filter](#working-with-the-api) results by this attribute."
+                      "description": "Optionally [filter](#working-with-the-api) results by this attribute."
                     },
                     {
                       "key": "include",
@@ -26443,7 +26443,7 @@
   ],
   "variable": [
     {
-      "id": "c93e0cf6-73c1-4129-90c2-c7a2fcae2dc2",
+      "id": "773781d3-7adf-4717-8ebb-d81300996daa",
       "key": "component",
       "value": "use"
     }
