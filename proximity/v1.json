@@ -1981,7 +1981,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/reports/:report_id/resources?start={{start}}&end={{end}}&dimension=&depth=&filter[field]",
+                  "raw": "{{base_url}}/v1/reports/:report_id/resources?start={{start}}&end={{end}}&dimension=&depth=&filter[attribute]",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -2013,9 +2013,9 @@
                       "description": "The depth in the report definition you want to report on. Defaults to 1."
                     },
                     {
-                      "key": "filter[field]",
+                      "key": "filter[attribute]",
                       "value": null,
-                      "description": "Optionally filter the output by the supplied field. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
+                      "description": "Optionally [filter](#working-with-the-api) results by this attribute. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
                     }
                   ],
                   "variable": [
@@ -26443,7 +26443,7 @@
   ],
   "variable": [
     {
-      "id": "53e92a36-392e-4cba-a3e0-37cd6c94a862",
+      "id": "e8fbe307-fb40-4c3b-9c3d-03e4fa229874",
       "key": "component",
       "value": "use"
     }
