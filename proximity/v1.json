@@ -20688,7 +20688,23 @@
                     "value": "application/vnd.api+json"
                   }
                 ],
-                "url": "{{base_url}}/v1/usergroups"
+                "url": {
+                  "raw": "{{base_url}}/v1/usergroups?filter[attribute]=",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "usergroups"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter[attribute]",
+                      "value": "",
+                      "description": "Optionally [filter](#working-with-the-api) results by this attribute"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -26444,7 +26460,7 @@
   ],
   "variable": [
     {
-      "id": "6c31674e-e136-4dd9-ae5d-bf2d5a5d74ad",
+      "id": "97da2d0c-8d28-4789-a69d-d2be2faadf8b",
       "key": "component",
       "value": "use"
     }
