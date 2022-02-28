@@ -22125,6 +22125,7 @@
             }
           ],
           "id": "6305942f-64a3-6d05-3b3a-e5334cdbf321",
+          "description": "Exivity offers the possibility to get insight into the log files of different components. This feature enables the users to identify any potential errors on their own, making the overall troubleshooting process smoother.\n\nExivity documentation: [https://docs.exivity.com/troubleshooting/logs](https://docs.exivity.com/troubleshooting/logs)",
           "auth": {
             "type": "noauth"
           },
@@ -26442,7 +26443,7 @@
   ],
   "variable": [
     {
-      "id": "d03aa184-34de-4f5b-82da-93e87518e924",
+      "id": "9e86550e-ea26-4a3c-ab76-4b179d7fd3e2",
       "key": "component",
       "value": "use"
     }
