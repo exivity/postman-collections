@@ -20616,7 +20616,7 @@
             }
           ],
           "id": "8869248e-edd9-0b19-023d-cc27e4b5eba6",
-          "description": "Everyone connecting to our API needs a valid user account. Users can change some of their details themselves.\n\nUsers with the \"manage_users\" permission and view, create, edit and delete users on the system.\n\n#### The User Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| id | *guid* | Unique identifier |\n| account_access_type | *in: all/custom* |  |\n| current_password | *string* | Only used when update current user |\n| display_name | *string* |  |\n| email_address | *string* | Unique email address, max 255 characters |\n| password | *string* | Min 8 characters |\n| source | *in: local/ldap/saml* |  |\n| username | *string, unique username, between 2-255 characters* |  |",
+          "description": "Everyone connecting to our API needs a valid user account. Users can change some of their details themselves.\n\nUsers with the \"manage_users\" permission can view, create, edit and delete users on the system.\n\n#### The User Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| id | *guid* | Unique identifier |\n| account_access_type | *in: all/custom* |  |\n| current_password | *string* | Only used when update current user |\n| display_name | *string* |  |\n| email_address | *string* | Unique email address, max 255 characters |\n| password | *string* | Min 8 characters |\n| source | *in: local/ldap/saml* |  |\n| username | *string, unique username, between 2-255 characters* |  |",
           "auth": {
             "type": "noauth"
           },
@@ -26442,7 +26442,7 @@
   ],
   "variable": [
     {
-      "id": "215cffbc-5fcf-4ce9-a48d-37e6b65fe42a",
+      "id": "38540ac3-2b92-4659-86d9-fab7092534b7",
       "key": "component",
       "value": "use"
     }
