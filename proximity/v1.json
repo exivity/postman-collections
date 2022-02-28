@@ -1883,7 +1883,7 @@
                     {
                       "key": "filter[attribute]",
                       "value": null,
-                      "description": "Optionally [filter](#working-with-the-api). Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
+                      "description": "Optionally [filter](#working-with-the-api) results by this attribute. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
                     },
                     {
                       "key": "format",
@@ -26443,7 +26443,7 @@
   ],
   "variable": [
     {
-      "id": "9ebe2ab4-b5b6-4697-b5f0-8f0b7b5a2edc",
+      "id": "53e92a36-392e-4cba-a3e0-37cd6c94a862",
       "key": "component",
       "value": "use"
     }
