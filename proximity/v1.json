@@ -21224,7 +21224,7 @@
             }
           ],
           "id": "3f15ca20-679c-db83-23d8-65565fa41078",
-          "description": "It is possible to create custom usergroups, with different permissions. Users can be assigned to different usergroups.\n\nExivity documentation: [https://docs.exivity.com/administration/user-management/groups](https://docs.exivity.com/administration/user-management/groups)\n\n#### The Usergroup Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | required, string, max:255, unique |\n| permissions | array |\n| saml_provisioning | nullable, only with SAML usergroups |\n\n#### Permissions\n\nThe following is a list of currently supported permission on our system:\n\n*   view_audit\n*   view_billing\n*   view_budgets\n*   view_cogs\n*   view_logs\n*   manage_accounts\n*   manage_catalogue\n*   manage_data_sources\n*   manage_datasets\n*   manage_files\n*   manage_metadata_definitions\n*   manage_reports\n*   manage_settings\n*   manage_users\n*   manage_workflows",
+          "description": "It is possible to create custom usergroups, with different permissions. Users can be assigned to different usergroups.\n\nExivity documentation: [https://docs.exivity.com/administration/user-management/groups](https://docs.exivity.com/administration/user-management/groups)\n\n#### The Usergroup Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | required, string, max:255, unique |\n| permissions | array |\n| saml_provisioning | nullable, only with SAML usergroups |\n\n#### Permissions\n\nPlease see the Exivity documentation for more information on specifiy permissions: [https://docs.exivity.com/administration/user-management/groups#user-permissions](https://docs.exivity.com/administration/user-management/groups#user-permissions)\n\nThe following is a list of currently supported permission on our system:\n\n*   view_audit\n*   view_billing\n*   view_budgets\n*   view_cogs\n*   view_logs\n*   manage_accounts\n*   manage_catalogue\n*   manage_data_sources\n*   manage_datasets\n*   manage_files\n*   manage_metadata_definitions\n*   manage_reports\n*   manage_settings\n*   manage_users\n*   manage_workflows",
           "auth": {
             "type": "bearer",
             "bearer": {}
@@ -26442,7 +26442,7 @@
   ],
   "variable": [
     {
-      "id": "2bcb7870-cbef-49dc-a3a4-02f680c42fdd",
+      "id": "124b97cc-b042-44f3-a058-7ab7a4ec5c20",
       "key": "component",
       "value": "use"
     }
