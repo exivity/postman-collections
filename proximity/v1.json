@@ -21224,7 +21224,7 @@
             }
           ],
           "id": "3f15ca20-679c-db83-23d8-65565fa41078",
-          "description": "#### The Usergroup Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | required, string, max:255, unique |\n| permissions | array |\n| saml_provisioning | nullable, only with SAML usergroups |\n\n#### Permissions\n\nThe following is a list of currently supported permission on our system:  \n\n* view_reports\n\n*   view_cogs\n    \n\n*   view_budgets\n*   view_logs\n*   view_audit\n*   view_billing\n*   manage_reports\n*   manage_accounts\n*   manage_catalogue\n*   manage_data_sources\n*   manage_datasets\n*   manage_files\n*   manage_metadata_definitions\n*   manage_settings\n*   manage_users\n*   manage_workflows",
+          "description": "#### The Usergroup Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | required, string, max:255, unique |\n| permissions | array |\n| saml_provisioning | nullable, only with SAML usergroups |\n\n#### Permissions\n\nThe following is a list of currently supported permission on our system:\n\n*   view_cogs\n*   view_budgets\n*   view_logs\n*   view_audit\n*   view_billing\n*   manage_reports\n*   manage_accounts\n*   manage_catalogue\n*   manage_data_sources\n*   manage_datasets\n*   manage_files\n*   manage_metadata_definitions\n*   manage_settings\n*   manage_users\n*   manage_workflows",
           "auth": {
             "type": "bearer",
             "bearer": {}
@@ -26442,7 +26442,7 @@
   ],
   "variable": [
     {
-      "id": "ff6ad5e9-fa0e-43e8-aa86-34c6cbdfc970",
+      "id": "f1546843-2d54-4ce5-b357-7ad1309a4957",
       "key": "component",
       "value": "use"
     }
