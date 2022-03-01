@@ -6755,7 +6755,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/accounts?page[limit]&page[offset]&sort&filter[name]=&include=",
+                  "raw": "{{base_url}}/v1/accounts?page[limit]&page[offset]&sort&filter[attribute]=&include=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -6780,7 +6780,7 @@
                       "description": "Sort results by this attribute"
                     },
                     {
-                      "key": "filter[name]",
+                      "key": "filter[attribute]",
                       "value": "",
                       "description": "Optionally [filter](#working-with-the-api) results by this attribute"
                     },
@@ -26460,7 +26460,7 @@
   ],
   "variable": [
     {
-      "id": "97da2d0c-8d28-4789-a69d-d2be2faadf8b",
+      "id": "403c08ca-5b67-429e-8d38-23f8c111e6c4",
       "key": "component",
       "value": "use"
     }
