@@ -5472,7 +5472,23 @@
                   "mode": "formdata",
                   "formdata": []
                 },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}",
+                "url": {
+                  "raw": "{{base_url}}/v1/rates/:rate_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "rates",
+                    ":rate_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "rate_id",
+                      "value": "{{rate_id}}"
+                    }
+                  ]
+                },
                 "description": "On success, a `HTTP 204 No Content success status response` will be returned."
               },
               "response": [
@@ -26546,7 +26562,7 @@
   ],
   "variable": [
     {
-      "id": "6d7f1d80-ffd6-4910-ba7f-392ea71ccba1",
+      "id": "4463185a-85b0-4ba0-92d1-0ce67da96fce",
       "key": "component",
       "value": "use"
     }
