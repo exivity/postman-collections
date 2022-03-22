@@ -4466,7 +4466,23 @@
                   "mode": "formdata",
                   "formdata": []
                 },
-                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}",
+                "url": {
+                  "raw": "{{base_url}}/v1/servicesubscriptions/:servicesubscription_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicesubscriptions",
+                    ":servicesubscription_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "servicesubscription_id",
+                      "value": "{{servicesubscription_id}}"
+                    }
+                  ]
+                },
                 "description": "On success, a `HTTP 204 No Content success status response` will be returned."
               },
               "response": [
@@ -26481,7 +26497,7 @@
   ],
   "variable": [
     {
-      "id": "234655f0-ff4d-4707-ae9e-d88aa34fb556",
+      "id": "f545d86a-2996-45e6-883e-d22bf076b2a0",
       "key": "component",
       "value": "use"
     }
