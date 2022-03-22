@@ -4405,21 +4405,20 @@
                   "raw": ""
                 },
                 "url": {
-                  "raw": "{{base_url}}/v1/servicesubscriptions/:service_subscription_id/prepareAffectedReports",
+                  "raw": "{{base_url}}/v1/servicesubscriptions/:servicesubscription_id/prepareAffectedReports",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "servicesubscriptions",
-                    ":service_subscription_id",
+                    ":servicesubscription_id",
                     "prepareAffectedReports"
                   ],
                   "variable": [
                     {
-                      "key": "service_subscription_id",
-                      "value": "{{service_subscription_id}}",
-                      "type": "string"
+                      "key": "servicesubscription_id",
+                      "value": "{{servicesubscription_id}}"
                     }
                   ]
                 }
@@ -26482,7 +26481,7 @@
   ],
   "variable": [
     {
-      "id": "161cdd72-b510-4fff-bf40-813ecb15124e",
+      "id": "234655f0-ff4d-4707-ae9e-d88aa34fb556",
       "key": "component",
       "value": "use"
     }
