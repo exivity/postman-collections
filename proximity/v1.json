@@ -5502,7 +5502,23 @@
                       "mode": "formdata",
                       "formdata": []
                     },
-                    "url": "{{base_url}}/v1/rates/{{rate_id}}"
+                    "url": {
+                      "raw": "{{base_url}}/v1/rates/:rate_id",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "rates",
+                        ":rate_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "rate_id",
+                          "value": "{{rate_id}}"
+                        }
+                      ]
+                    }
                   },
                   "status": "No Content",
                   "code": 204,
@@ -5581,7 +5597,7 @@
             }
           ],
           "id": "72f5acaa-6d7f-7e2d-f628-5e136aea014c",
-          "description": "Rates allows you to configure manual rates for services that do not have a rate provided with their data source.\n\nExivity documentation: [https://docs.exivity.com/services/rates](https://docs.exivity.com/services/rates)\n\n#### The Rate Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| rate | *numeric* |  |\n| rate_col | *string* |  |\n| threshold | *numeric* |  |\n| min_commit | *nullable/numeric* |  |\n| effective_date | *required, format: Y-m-d* |  |\n| tier_aggregation_level | *nullable/numeric* |  |\n| fixed | *numeric* |  |\n| fixed_col | *string* |  |\n| cogs_rate | *numeric* |  |\n| cogs_rate_col | *string* |  |\n| cogs_fixed | *numeric* |  |\n| cogs_fixed_col | *string* |  |",
+          "description": "Rates allows you to configure manual rates for services that do not have a rate provided with their data source.\n\nExivity documentation: [https://docs.exivity.com/services/rates](https://docs.exivity.com/services/rates)\n\n#### The Rate Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| rate | *numeric* |  |\n| rate_col | *string* |  |\n| threshold | *numeric* |  |\n| min_commit | *nullable/numeric* |  |\n| effective_date | *required, format: yyyy-mm-dd* |  |\n| tier_aggregation_level | *nullable/numeric* |  |\n| fixed | *numeric* |  |\n| fixed_col | *string* |  |\n| cogs_rate | *numeric* |  |\n| cogs_rate_col | *string* |  |\n| cogs_fixed | *numeric* |  |\n| cogs_fixed_col | *string* |  |",
           "auth": {
             "type": "noauth"
           },
@@ -26562,7 +26578,7 @@
   ],
   "variable": [
     {
-      "id": "4463185a-85b0-4ba0-92d1-0ce67da96fce",
+      "id": "669355cc-6736-43bf-898c-d966f06cb603",
       "key": "component",
       "value": "use"
     }
