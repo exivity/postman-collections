@@ -4217,20 +4217,26 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}?include",
+                  "raw": "{{base_url}}/v1/servicesubscriptions/:servicesubscription_id?include",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "servicesubscriptions",
-                    "{{service_subscription_id}}"
+                    ":servicesubscription_id"
                   ],
                   "query": [
                     {
                       "key": "include",
                       "value": null,
                       "description": "Include additional related resources. Possible values: `account`, `service`."
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "servicesubscription_id",
+                      "value": "{{servicesubscription_id}}"
                     }
                   ]
                 }
@@ -26460,7 +26466,7 @@
   ],
   "variable": [
     {
-      "id": "a9f006b2-fe09-4386-a261-8a8aa7295e97",
+      "id": "cb505f3b-15d4-4aff-8d99-cc631089c93b",
       "key": "component",
       "value": "use"
     }
