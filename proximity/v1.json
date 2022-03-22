@@ -1769,12 +1769,12 @@
                     {
                       "key": "start",
                       "value": "{{start}}",
-                      "description": "The start of the date range (inclusive) you want to prepare the report for in `YYYYMMDD` format."
+                      "description": "The start of the date range (inclusive) you want to prepare the report for in `YYYY-MM-DD` format."
                     },
                     {
                       "key": "end",
                       "value": "{{end}}",
-                      "description": "The end of the date range (inclusive) you want to prepare the report for in `YYYYMMDD` format."
+                      "description": "The end of the date range (inclusive) you want to prepare the report for in `YYYY-MM-DD` format."
                     }
                   ],
                   "variable": [
@@ -26460,7 +26460,7 @@
   ],
   "variable": [
     {
-      "id": "af0c06ab-233a-48c6-9ecd-24c0db8963c5",
+      "id": "d434b244-069f-4b4a-8a66-f9c30219fb9f",
       "key": "component",
       "value": "use"
     }
