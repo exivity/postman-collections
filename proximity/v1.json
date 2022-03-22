@@ -4311,7 +4311,23 @@
                   "mode": "raw",
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-08-29\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}"
                 },
-                "url": "{{base_url}}/v1/servicesubscriptions/{{service_subscription_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/servicesubscriptions/:servicesubscription_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "servicesubscriptions",
+                    ":servicesubscription_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "servicesubscription_id",
+                      "value": "{{servicesubscription_id}}"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -26466,7 +26482,7 @@
   ],
   "variable": [
     {
-      "id": "cb505f3b-15d4-4aff-8d99-cc631089c93b",
+      "id": "161cdd72-b510-4fff-bf40-813ecb15124e",
       "key": "component",
       "value": "use"
     }
