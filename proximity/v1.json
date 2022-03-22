@@ -5397,7 +5397,23 @@
                   "mode": "raw",
                   "raw": "{\r\n  \"data\": {\r\n    \"type\": \"rate\",\r\n    \"id\": \"{{rate_id}}\",\r\n    \"attributes\": {\r\n      \"threshold\": 10,\r\n      \"min_commit\": 50,\r\n      \"rate\": \"10.0\",\r\n      \"rate_col\": \"rate_col2\",\r\n      \"fixed\": \"20.0\",\r\n      \"fixed_col\": \"fixed_col2\",\r\n      \"cogs_rate\": \"30.0\",\r\n      \"cogs_rate_col\": \"cogs_rate_col2\",\r\n      \"cogs_fixed\": \"40.0\",\r\n      \"cogs_fixed_col\": \"cogs_fixed_col2\"\r\n      \r\n    }\r\n  }\r\n}"
                 },
-                "url": "{{base_url}}/v1/rates/{{rate_id}}"
+                "url": {
+                  "raw": "{{base_url}}/v1/rates/:rate_id",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "rates",
+                    ":rate_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "rate_id",
+                      "value": "{{rate_id}}"
+                    }
+                  ]
+                }
               },
               "response": []
             },
@@ -26530,7 +26546,7 @@
   ],
   "variable": [
     {
-      "id": "5a57e696-a3f4-4521-b716-3b66a193195d",
+      "id": "6d7f1d80-ffd6-4910-ba7f-392ea71ccba1",
       "key": "component",
       "value": "use"
     }
