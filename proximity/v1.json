@@ -8747,22 +8747,20 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/budgetrevisions/:revision_id/validate",
+                  "raw": "{{base_url}}/v1/budgetrevisions/:budgetrevision_id/validate",
                   "host": [
                     "{{base_url}}"
                   ],
                   "path": [
                     "v1",
                     "budgetrevisions",
-                    ":revision_id",
+                    ":budgetrevision_id",
                     "validate"
                   ],
                   "variable": [
                     {
-                      "id": "2a96d091-6384-424d-9879-31eb4f851221",
-                      "key": "revision_id",
-                      "value": "{{budgetrevision_id}}",
-                      "type": "string"
+                      "key": "budgetrevision_id",
+                      "value": "{{budgetrevision_id}}"
                     }
                   ]
                 }
@@ -26577,7 +26575,7 @@
   ],
   "variable": [
     {
-      "id": "7ac2c485-1025-4615-a9e3-e16586b648a7",
+      "id": "49195335-5a20-4222-9c36-2df0fde9bc12",
       "key": "component",
       "value": "use"
     }
