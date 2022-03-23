@@ -9755,7 +9755,7 @@
               ]
             },
             {
-              "name": "Patch budget items (add, create, delete)",
+              "name": "Patch budget items (create, update, delete)",
               "event": [
                 {
                   "listen": "test",
@@ -26571,7 +26571,7 @@
   ],
   "variable": [
     {
-      "id": "a3500766-f51a-4d29-a7a5-da7e23068ae6",
+      "id": "5f6473f2-d745-420b-b27b-1c8b969cb621",
       "key": "component",
       "value": "use"
     }
