@@ -8849,7 +8849,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetrevision\",\n        \"id\":\"{{budgetrevision_id}}\",\n        \"attributes\": {\n            \"effective_from\": \"20190808\"\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"budgetrevision\",\n        \"id\":\"{{budgetrevision_id}}\",\n        \"attributes\": {\n            \"effective_from\": \"2019-08-08\"\n        }\n    }\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/budgetrevisions/:budgetrevision_id",
@@ -8948,21 +8948,19 @@
                       "formdata": []
                     },
                     "url": {
-                      "raw": "{{base_url}}/v1/budgetrevisions/:budget_revision_id",
+                      "raw": "{{base_url}}/v1/budgetrevisions/:budgetrevision_id",
                       "host": [
                         "{{base_url}}"
                       ],
                       "path": [
                         "v1",
                         "budgetrevisions",
-                        ":budget_revision_id"
+                        ":budgetrevision_id"
                       ],
                       "variable": [
                         {
-                          "id": "3c6918f8-811d-4ced-9f93-697b19fd9531",
-                          "key": "budget_revision_id",
-                          "value": "{{budgetrevision_id}}",
-                          "type": "string"
+                          "key": "budgetrevision_id",
+                          "value": "{{budgetrevision_id}}"
                         }
                       ]
                     }
@@ -26573,7 +26571,7 @@
   ],
   "variable": [
     {
-      "id": "229448b6-e101-4f68-8529-fd0836f62ad7",
+      "id": "a3500766-f51a-4d29-a7a5-da7e23068ae6",
       "key": "component",
       "value": "use"
     }
