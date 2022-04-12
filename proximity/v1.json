@@ -17611,7 +17611,7 @@
             }
           ],
           "id": "603b3894-1fec-4683-9089-9c4f47b84b04",
-          "description": "One or more steps that should be executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** |\n| --- | --- |\n| sort | *numeric* |\n| type | *required, string* |\n| options | *required, array, values depend on* *`type`* |\n| timeout | *numeric, min:1, max:86400* |\n| wait | *boolean* |",
+          "description": "One or more steps that should be executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| type | *required, in: extract, transform, prepare_report,  <br>execute,  <br>proximity,  <br>publish_report,  <br>evaluate_budget* | Workflow step type |\n| options | *required, array, values depend on* *`type`* |  |\n| timeout | *numeric, min:1, max:86400* | In seconds, default: 3600 |\n| wait | *boolean* |  |\n| prev | numeric | null |\n| next | numeric | null |\n| ~~sort~~ | ~~*numeric*~~ | *deprecated, use prev/next instead* |",
           "auth": {
             "type": "noauth"
           },
@@ -26571,7 +26571,7 @@
   ],
   "variable": [
     {
-      "id": "c50c8196-21ec-4514-ad69-1504831ef664",
+      "id": "d736df73-e67f-4f25-b0a9-28ee504f9991",
       "key": "component",
       "value": "use"
     }
