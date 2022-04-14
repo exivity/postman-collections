@@ -16902,7 +16902,121 @@
                   ]
                 }
               },
-              "response": []
+              "response": [
+                {
+                  "id": "529f83a5-da49-4439-bfad-0cc229cb1130",
+                  "name": "Retrieve a step",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include=",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "workflowsteps",
+                        ":workflowstep_id"
+                      ],
+                      "query": [
+                        {
+                          "key": "include",
+                          "value": "",
+                          "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowstep_id",
+                          "value": "{{proximity_workflowstep_id}}"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 14 Apr 2022 14:35:34 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 14 Apr 2022 14:35:34 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "Xf01dd318783334a864c9b84b4eb2cdb5"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Feature-Policy",
+                      "value": "autoplay 'none'; camera 'none'"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-b2zRiIZ7nq2NNPihTgGBPRDyxvH3QADi';style-src 'self' 'nonce-b2zRiIZ7nq2NNPihTgGBPRDyxvH3QADi';font-src 'self' data:"
+                    },
+                    {
+                      "key": "Request-Id",
+                      "value": "0ce36394-0f1f-4605-b7cb-76a40587a444"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"19\",\n        \"attributes\": {\n            \"prev\": null,\n            \"next\": null,\n            \"type\": \"proximity\",\n            \"options\": {\n                \"command\": \"exivity:gc\",\n                \"arguments\": \"\"\n            },\n            \"timeout\": 600,\n            \"wait\": true,\n            \"sort\": 0\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                }\n            }\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "name": "Update a step",
@@ -26455,7 +26569,7 @@
   ],
   "variable": [
     {
-      "id": "ba9f8b29-af5d-4050-af09-c3b1332761da",
+      "id": "693a1e70-a2c3-4966-8222-0709ca4e4a09",
       "key": "component",
       "value": "use"
     }
