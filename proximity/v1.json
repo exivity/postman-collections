@@ -17015,119 +17015,6 @@
                   "cookie": [],
                   "responseTime": null,
                   "body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"sort\": 1,\n            \"type\": \"execute\",\n            \"options\": {\n                \"command\": \"echo \\\"testing\\\"\"\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/1\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/1/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/1/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/1/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/1/steplogs\"\n                }\n            }\n        }\n    }\n}"
-                },
-                {
-                  "id": "d2297682-bad0-497d-bf64-46904f0c9ca5",
-                  "name": "Retrieve a step",
-                  "originalRequest": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Accept",
-                        "value": "application/vnd.api+json"
-                      }
-                    ],
-                    "url": {
-                      "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id?include=",
-                      "host": [
-                        "{{base_url}}"
-                      ],
-                      "path": [
-                        "v1",
-                        "workflowsteps",
-                        ":workflowstep_id"
-                      ],
-                      "query": [
-                        {
-                          "key": "include",
-                          "value": "",
-                          "description": "Include additional related resources. Possible values: `steplogs`, `workflow`."
-                        }
-                      ],
-                      "variable": [
-                        {
-                          "key": "workflowstep_id",
-                          "value": "{{workflowstep_id}}"
-                        }
-                      ]
-                    }
-                  },
-                  "status": "OK",
-                  "code": 200,
-                  "_postman_previewlanguage": "json",
-                  "header": [
-                    {
-                      "key": "Host",
-                      "value": "localhost:8012"
-                    },
-                    {
-                      "key": "Date",
-                      "value": "Fri, 04 Feb 2022 11:38:18 GMT"
-                    },
-                    {
-                      "key": "Date",
-                      "value": "Fri, 04 Feb 2022 11:38:18 GMT"
-                    },
-                    {
-                      "key": "Connection",
-                      "value": "close"
-                    },
-                    {
-                      "key": "Cache-Control",
-                      "value": "no-cache, private"
-                    },
-                    {
-                      "key": "Content-Type",
-                      "value": "application/vnd.api+json"
-                    },
-                    {
-                      "key": "X-Clockwork-Id",
-                      "value": "Xd8b132f094173beab7ffef4b04eea914"
-                    },
-                    {
-                      "key": "X-Clockwork-Version",
-                      "value": "1"
-                    },
-                    {
-                      "key": "X-Clockwork-Path",
-                      "value": "_debugbar/clockwork/"
-                    },
-                    {
-                      "key": "X-XSS-Protection",
-                      "value": "1; mode=block"
-                    },
-                    {
-                      "key": "Strict-Transport-Security",
-                      "value": "max-age=31536000; includeSubDomains"
-                    },
-                    {
-                      "key": "X-Frame-Options",
-                      "value": "SAMEORIGIN"
-                    },
-                    {
-                      "key": "X-Content-Type-Options",
-                      "value": "nosniff"
-                    },
-                    {
-                      "key": "Feature-Policy",
-                      "value": "autoplay 'none'; camera 'none'"
-                    },
-                    {
-                      "key": "Referrer-Policy",
-                      "value": "strict-origin"
-                    },
-                    {
-                      "key": "Content-Security-Policy",
-                      "value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-0Bppf3pqfRbVGImPnX5l8g1P03fXIHcG';style-src 'self' 'nonce-0Bppf3pqfRbVGImPnX5l8g1P03fXIHcG';font-src 'self' data:"
-                    },
-                    {
-                      "key": "Request-Id",
-                      "value": "41a0f6b6-c8d8-451b-b4b2-d4e1570e0ba2"
-                    }
-                  ],
-                  "cookie": [],
-                  "responseTime": null,
-                  "body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"2\",\n        \"attributes\": {\n            \"sort\": 1,\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 2,\n                \"arguments\": \"test1 test2\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/2\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/2/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/2/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/2/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/2/steplogs\"\n                }\n            }\n        }\n    }\n}"
                 }
               ]
             },
@@ -26682,7 +26569,7 @@
   ],
   "variable": [
     {
-      "id": "723abc97-f87d-4d19-af4f-3d05e93d71f2",
+      "id": "3c34fdd2-f011-4441-bd18-23f4a5ec15ec",
       "key": "component",
       "value": "use"
     }
