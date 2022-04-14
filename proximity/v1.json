@@ -17606,6 +17606,117 @@
                   "cookie": [],
                   "responseTime": null,
                   "body": null
+                },
+                {
+                  "id": "89df3e71-c7e1-4833-ba85-1208f24bf4a0",
+                  "name": "Delete a step",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": []
+                    },
+                    "url": {
+                      "raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
+                      "host": [
+                        "{{base_url}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "workflowsteps",
+                        ":workflowstep_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowstep_id",
+                          "value": "{{execute_workflowstep_id}}",
+                          "type": "string"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "plain",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 14 Apr 2022 11:51:59 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Thu, 14 Apr 2022 11:51:59 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "X61202e5263d8720963ba24ce555d03bd"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "phpdebugbar-id",
+                      "value": "X61202e5263d8720963ba24ce555d03bd"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Feature-Policy",
+                      "value": "autoplay 'none'; camera 'none'"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-3KRh38E74bcrJj3nKyS54rqNlidHuUXS';style-src 'self' 'nonce-3KRh38E74bcrJj3nKyS54rqNlidHuUXS';font-src 'self' data:"
+                    },
+                    {
+                      "key": "Request-Id",
+                      "value": "f14a449d-fb2c-44fa-a693-48885b38d3d0"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null
                 }
               ]
             }
@@ -26571,7 +26682,7 @@
   ],
   "variable": [
     {
-      "id": "867189aa-54cf-423c-8491-d444a789339b",
+      "id": "c97a457c-ea3f-46c8-8524-0974569ed981",
       "key": "component",
       "value": "use"
     }
