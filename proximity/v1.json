@@ -16492,7 +16492,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"prev\": null,\r\n      \"next\": null,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"proximity\",\r\n      \"prev\": \"{{execute_workflowstep_id}}\",\r\n      \"next\": null,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"exivity:gc\",\r\n        \"arguments\": \"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n      }\r\n  }\r\n}"
                 },
                 "url": "{{base_url}}/v1/workflowsteps"
               },
@@ -26569,7 +26569,7 @@
   ],
   "variable": [
     {
-      "id": "7a3b80dc-524a-417f-b027-65cc44e438e4",
+      "id": "5364eaed-8191-4fbf-b347-09bac9d0b9f9",
       "key": "component",
       "value": "use"
     }
