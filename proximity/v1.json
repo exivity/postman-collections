@@ -4309,7 +4309,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{service_subscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-08-29\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}"
+                  "raw": "{\r\n  \"data\": {\r\n    \"type\": \"servicesubscription\",\r\n    \"id\": \"{{servicesubscription_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"modified_test\",\r\n      \"quantity\": 20.20,\r\n      \"rate\": 20.20,\r\n      \"cogs\": 20.20,\r\n      \"type\": \"one_off\",\r\n      \"start_date\": \"2017-08-29\",\r\n      \"alt_interval\": \"month\",\r\n      \"instance\": \"exivity-updated\"\r\n    }\r\n  }\r\n}"
                 },
                 "url": {
                   "raw": "{{base_url}}/v1/servicesubscriptions/:servicesubscription_id",
@@ -26569,7 +26569,7 @@
   ],
   "variable": [
     {
-      "id": "72ddc5c8-b2b5-4928-bc05-6a3049ae3fc6",
+      "id": "a4f3f962-d0f1-4f1f-bd64-fa52116d6a3c",
       "key": "component",
       "value": "use"
     }
