@@ -17368,7 +17368,7 @@
                   "variable": [
                     {
                       "key": "workflowstep_id",
-                      "value": "{{execute_workflowstep_id}}",
+                      "value": "{{proximity_workflowstep_id}}",
                       "type": "string"
                     }
                   ]
@@ -26563,7 +26563,7 @@
   ],
   "variable": [
     {
-      "id": "2d413c0b-2ff7-4f21-ba56-5728021fa078",
+      "id": "334327c6-f07e-4a19-a80c-290413a53783",
       "key": "component",
       "value": "use"
     }
