@@ -16146,7 +16146,7 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"type\": \"transcript\",",
-                      "\t\t\"sort\": 1,",
+                      "\t\t\"next\": null,",
                       "\t\t\"timeout\": 600,",
                       "\t});",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
@@ -26570,7 +26570,7 @@
   ],
   "variable": [
     {
-      "id": "63a94c7f-e2e4-4c9e-9fd7-92d67afbdaa5",
+      "id": "a067ef5d-9c30-4fd4-8f40-123757e0cd66",
       "key": "component",
       "value": "use"
     }
