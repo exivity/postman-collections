@@ -16425,7 +16425,6 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "    \"type\": \"proximity\",",
-                      "    \"next\": null,",
                       "    \"timeout\": 600,",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
@@ -26566,7 +26565,7 @@
   ],
   "variable": [
     {
-      "id": "60ea6a93-7a15-4255-b75e-c2a970c9f3c3",
+      "id": "6d9f2124-a09b-4773-99eb-327b82db2e7d",
       "key": "component",
       "value": "use"
     }
