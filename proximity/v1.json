@@ -16529,8 +16529,8 @@
                       "    pm.expect(response.data.links).to.be.an('object');",
                       "});",
                       "",
-                      "pm.environment.set(\"proximity_workflowstep_id\", response.data.id);",
-                      "console.log('SET proximity_workflowstep_id: ' + pm.environment.get(\"proximity_workflowstep_id\"));"
+                      "pm.environment.set(\"budget_workflowstep_id\", response.data.id);",
+                      "console.log('SET budget_workflowstep_id: ' + pm.environment.get(\"budget_workflowstep_id\"));"
                     ],
                     "type": "text/javascript"
                   }
@@ -26564,7 +26564,7 @@
   ],
   "variable": [
     {
-      "id": "2706e824-c73d-41a8-81be-788322348053",
+      "id": "8cc9c204-daaa-47a5-b9d6-ab06a5cc693a",
       "key": "component",
       "value": "use"
     }
