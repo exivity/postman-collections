@@ -4437,8 +4437,8 @@
                       "    pm.response.to.have.status(204);",
                       "});",
                       "",
-                      "console.log('UNSET service_subscription_id');",
-                      "pm.environment.unset(\"service_subscription_id\");"
+                      "console.log('UNSET servicesubscription_id');",
+                      "pm.environment.unset(\"servicesubscription_id\");"
                     ],
                     "type": "text/javascript"
                   }
@@ -26569,7 +26569,7 @@
   ],
   "variable": [
     {
-      "id": "8ba711eb-59f5-4ad3-b206-42eaadcad82d",
+      "id": "d5b14a36-6605-49b6-9e17-1430ae8b6802",
       "key": "component",
       "value": "use"
     }
