@@ -16031,7 +16031,8 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"type\": \"use\",",
-                      "\t\t\"sort\": 1,",
+                      "\t\t\"prev\": null,",
+                      "        \"next\": null,",
                       "\t\t\"timeout\": 600,",
                       "    });",
                       "",
@@ -26569,7 +26570,7 @@
   ],
   "variable": [
     {
-      "id": "87c9181e-7db6-40f3-a111-b01cb2ca0e28",
+      "id": "63a94c7f-e2e4-4c9e-9fd7-92d67afbdaa5",
       "key": "component",
       "value": "use"
     }
