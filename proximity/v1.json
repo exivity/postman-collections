@@ -16429,7 +16429,7 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "    \"type\": \"proximity\",",
-                      "    \"sort\": 1,",
+                      "    \"next\": null,",
                       "    \"timeout\": 600,",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
@@ -26570,7 +26570,7 @@
   ],
   "variable": [
     {
-      "id": "80ee4600-9d38-4e34-b8da-94be30514581",
+      "id": "4ec5fb86-d1fd-478b-b333-76aa31d2c641",
       "key": "component",
       "value": "use"
     }
