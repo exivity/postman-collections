@@ -16146,7 +16146,6 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "\t\t\"type\": \"transcript\",",
-                      "\t\t\"next\": null,",
                       "\t\t\"timeout\": 600,",
                       "\t});",
                       "\tpm.expect(response.data.attributes.options).to.be.an('object');",
@@ -26570,7 +26569,7 @@
   ],
   "variable": [
     {
-      "id": "8b1c0d03-3c92-4527-a771-816d21a40fe5",
+      "id": "9ba4d7cd-7783-4e22-ab8c-3e09b405371f",
       "key": "component",
       "value": "use"
     }
