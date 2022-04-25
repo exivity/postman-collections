@@ -16341,7 +16341,6 @@
                       "    pm.expect(response.data.attributes).to.be.an('object');",
                       "    pm.expect(response.data.attributes).to.include({",
                       "    \"type\": \"execute\",",
-                      "    \"next\": null,",
                       "    \"timeout\": 600,",
                       "  });",
                       "  pm.expect(response.data.attributes.options).to.be.an('object');",
@@ -26567,7 +26566,7 @@
   ],
   "variable": [
     {
-      "id": "0618a45b-b853-4e49-8056-2d111bf4ccbe",
+      "id": "60ea6a93-7a15-4255-b75e-c2a970c9f3c3",
       "key": "component",
       "value": "use"
     }
