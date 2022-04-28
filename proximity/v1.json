@@ -22083,7 +22083,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/log?component={{component}}&limit=&filter[filename]=&truncate=",
+                  "raw": "{{base_url}}/v1/log?component={{component}}&limit=&filter=&truncate=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -22103,7 +22103,7 @@
                       "description": "Limit the maximum number of  logfiles to return. Defaults to `100`."
                     },
                     {
-                      "key": "filter[filename]",
+                      "key": "filter",
                       "value": "",
                       "description": "Optionally [filter](#working-with-the-api) the logfiles by filename. Use the asterisk (`*`) for wildcard matching."
                     },
@@ -26563,7 +26563,7 @@
   ],
   "variable": [
     {
-      "id": "7c1e617c-3ba3-4caa-b9ca-94b3d0da1926",
+      "id": "ad21e32b-7cd8-4e74-8df1-37f0067d8a4a",
       "key": "component",
       "value": "use"
     }
