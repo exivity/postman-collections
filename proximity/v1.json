@@ -22083,7 +22083,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/log?component={{component}}&limit=&filter=&truncate=",
+                  "raw": "{{base_url}}/v1/log?component=",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -22094,23 +22094,8 @@
                   "query": [
                     {
                       "key": "component",
-                      "value": "{{component}}",
-                      "description": "The component to receive the logfiles for, can be `use`, `transcript`, `edify`, `chronos`, `proximity`, `pigeon`, `horizon`, `merlin` or `griffon`."
-                    },
-                    {
-                      "key": "limit",
                       "value": "",
-                      "description": "Limit the maximum number of  logfiles to return. Defaults to `100`."
-                    },
-                    {
-                      "key": "filter",
-                      "value": "",
-                      "description": "Optionally [filter](#working-with-the-api) the logfiles by filename. Use the asterisk (`*`) for wildcard matching."
-                    },
-                    {
-                      "key": "truncate",
-                      "value": "",
-                      "description": "Whether to truncate the logfile lines. Use `0` to not disable truncating, or specify a number to receive the last `x` lines. Defaults to `1000`."
+                      "description": "Required, in: use, transcript, edify, proximity, chronos, pigeon, horizon, merlin, griffon"
                     }
                   ]
                 }
@@ -26563,7 +26548,7 @@
   ],
   "variable": [
     {
-      "id": "ad21e32b-7cd8-4e74-8df1-37f0067d8a4a",
+      "id": "5fb13024-d746-46d6-8195-895f0d5add0f",
       "key": "component",
       "value": "use"
     }
