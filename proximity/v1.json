@@ -22083,7 +22083,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/log?component={{component}}",
+                  "raw": "{{base_url}}/v1/log",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -22095,7 +22095,8 @@
                     {
                       "key": "component",
                       "value": "{{component}}",
-                      "description": "Required, in: use, transcript, edify, proximity, chronos, pigeon, horizon, merlin, griffon"
+                      "description": "Required, in: use, transcript, edify, proximity, chronos, pigeon, horizon, merlin, griffon",
+                      "disabled": true
                     }
                   ]
                 }
@@ -26548,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "3ccbdb16-58eb-4845-80b3-faea33dc1116",
+      "id": "4baf660e-237c-42a3-b422-daf5173501f8",
       "key": "component",
       "value": "use"
     }
