@@ -22083,7 +22083,7 @@
                   }
                 ],
                 "url": {
-                  "raw": "{{base_url}}/v1/log?component=",
+                  "raw": "{{base_url}}/v1/log?component={{component}}",
                   "host": [
                     "{{base_url}}"
                   ],
@@ -22094,7 +22094,7 @@
                   "query": [
                     {
                       "key": "component",
-                      "value": "",
+                      "value": "{{component}}",
                       "description": "Required, in: use, transcript, edify, proximity, chronos, pigeon, horizon, merlin, griffon"
                     }
                   ]
@@ -26548,7 +26548,7 @@
   ],
   "variable": [
     {
-      "id": "5fb13024-d746-46d6-8195-895f0d5add0f",
+      "id": "3ccbdb16-58eb-4845-80b3-faea33dc1116",
       "key": "component",
       "value": "use"
     }
