@@ -18306,7 +18306,7 @@
               "response": [
                 {
                   "id": "03fa26a1-953c-46c9-a3a4-b872f0c54d0f",
-                  "name": "Create a new channel - Phone number",
+                  "name": "Phone number",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
@@ -26549,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "439219b7-bc43-43c3-b98d-1fa35352e3e8",
+      "id": "243b3011-6adf-4062-a547-ca021eb510e9",
       "key": "component",
       "value": "use"
     }
