@@ -18384,7 +18384,7 @@
                 },
                 {
                   "id": "88c87073-695d-4301-8152-51dec8ece76f",
-                  "name": "Create a new channel - Slack channel",
+                  "name": "Slack channel",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
@@ -26549,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "2d5dbc65-c1f6-4807-b159-30783ede5dc3",
+      "id": "a236cf41-1de9-4e15-8e59-714439e84b89",
       "key": "component",
       "value": "use"
     }
