@@ -18462,7 +18462,7 @@
                 },
                 {
                   "id": "a7ef877c-0b10-4236-bd13-bdbb0ad36603",
-                  "name": "Create a new channel - Email address",
+                  "name": "Email address",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
@@ -26549,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "a236cf41-1de9-4e15-8e59-714439e84b89",
+      "id": "3e990d39-53b2-4335-a9af-37005b098e07",
       "key": "component",
       "value": "use"
     }
