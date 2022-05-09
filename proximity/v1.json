@@ -18540,7 +18540,7 @@
                 },
                 {
                   "id": "550f2258-5d4e-4461-b0d9-3953617aa51d",
-                  "name": "Create a new channel - Webhook",
+                  "name": "Webhook",
                   "originalRequest": {
                     "method": "POST",
                     "header": [
@@ -26549,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "243b3011-6adf-4062-a547-ca021eb510e9",
+      "id": "2d5dbc65-c1f6-4807-b159-30783ede5dc3",
       "key": "component",
       "value": "use"
     }
