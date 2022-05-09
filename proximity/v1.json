@@ -3040,7 +3040,7 @@
             }
           ],
           "id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
-          "description": "#### The Service Category Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | *string* | Required, unique name for service category. Max 255 chars. |\n\n#### Relationships\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| services | has many | no |\n| adjustments | many to many | no |\n| budgetitems | many to many | no |",
+          "description": "#### The Service Category Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | *string* | Required, unique name for service category. Max 255 chars. |\n\n#### Relationships\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| services | has many | ❌ |\n| adjustments | many to many | ❌ |\n| budgetitems | many to many | ❌ |",
           "auth": {
             "type": "noauth"
           },
@@ -26549,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "c2e2c093-e4fc-4abf-9836-5b9b0866038d",
+      "id": "f2c720bb-baa9-4aaa-8636-e14d8eb62e13",
       "key": "component",
       "value": "use"
     }
