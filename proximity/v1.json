@@ -21203,7 +21203,7 @@
               "response": [
                 {
                   "id": "de083b3f-3dcb-448b-989a-fe23c0353363",
-                  "name": "Update a usergroup",
+                  "name": "Add user to usergroup",
                   "originalRequest": {
                     "method": "PATCH",
                     "header": [
@@ -26648,7 +26648,7 @@
   ],
   "variable": [
     {
-      "id": "1d9b6a3c-57f1-4e5d-a64e-101b9cf15796",
+      "id": "60e26788-b75f-4288-975c-5a44449753f8",
       "key": "component",
       "value": "use"
     }
