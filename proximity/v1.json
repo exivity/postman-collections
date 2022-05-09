@@ -7603,7 +7603,7 @@
             }
           ],
           "id": "8fba406a-8220-4d0a-81a9-1b9034c8091d",
-          "description": "Exivity documentation: [https://docs.exivity.com/reports/accounts](https://docs.exivity.com/reports/accounts)\n\n#### The Account Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | editable | required, max 255 |\n| level | *integer* | read-only | response-only, between 1-5 |\n| lvl1_key  <br>lvl2_key  <br>lvl3_key  <br>lvl4_key  <br>lvl5_key | *string* | read-only | response-only |",
+          "description": "Exivity documentation: [https://docs.exivity.com/reports/accounts](https://docs.exivity.com/reports/accounts)\n\n#### The Account Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | ✏ | required, max 255 |\n| level | *integer* | read-only | response-only, between 1-5 |\n| lvl1_key  <br>lvl2_key  <br>lvl3_key  <br>lvl4_key  <br>lvl5_key | *string* | read-only | response-only |",
           "auth": {
             "type": "noauth"
           }
@@ -26648,7 +26648,7 @@
   ],
   "variable": [
     {
-      "id": "6045d809-275f-4f90-b96c-017887ab5a72",
+      "id": "54cd7587-4491-4d22-a594-88e21600087b",
       "key": "component",
       "value": "use"
     }
