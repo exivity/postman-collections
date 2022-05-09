@@ -18975,7 +18975,7 @@
               "response": []
             },
             {
-              "name": "Create new notificaiton subscription",
+              "name": "Create new notification subscription",
               "event": [
                 {
                   "listen": "test",
@@ -26549,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "3e990d39-53b2-4335-a9af-37005b098e07",
+      "id": "b93fef1b-ce0b-41dd-ac22-0a9681f7f8ef",
       "key": "component",
       "value": "use"
     }
