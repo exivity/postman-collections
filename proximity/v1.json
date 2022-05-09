@@ -3040,7 +3040,7 @@
             }
           ],
           "id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
-          "description": "#### The Service Category Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | *string* | Required, unique name for service category. Max 255 chars. |\n\n#### Relationships\n\nThe following relationships can be included:\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| services | has many | ❌ |\n| adjustments | many to many | ❌ |\n| budgetitems | many to many | ❌ |",
+          "description": "#### The Service Category Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | *string* | Required, unique name for service category. Max 255 chars. |\n\n#### Relationships\n\nThe following relationships can be included:\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| services | 0 to many | ❌ |\n| adjustments | many to many | ❌ |\n| budgetitems | many to many | ❌ |",
           "auth": {
             "type": "noauth"
           },
@@ -7603,7 +7603,7 @@
             }
           ],
           "id": "8fba406a-8220-4d0a-81a9-1b9034c8091d",
-          "description": "Exivity documentation: [https://docs.exivity.com/reports/accounts](https://docs.exivity.com/reports/accounts)\n\n#### The Account Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | *required, string, max 255* |\n| level |  |\n| lvl1_key  <br>lvl2_key  <br>lvl3_key  <br>lvl4_key  <br>lvl5_key |  |",
+          "description": "Exivity documentation: [https://docs.exivity.com/reports/accounts](https://docs.exivity.com/reports/accounts)\n\n#### The Account Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | *required, string, max 255* |\n\nResponse object fields\n\n| **attribute** | **type** |\n| --- | --- |\n| level | integer (between 1-5) |\n| lvl1_key  <br>lvl2_key  <br>lvl3_key  <br>lvl4_key  <br>lvl5_key |  |",
           "auth": {
             "type": "noauth"
           }
@@ -26648,7 +26648,7 @@
   ],
   "variable": [
     {
-      "id": "1e7e582b-3a07-4071-8d08-2a756aa7e8e0",
+      "id": "42bd58f3-7194-4b2b-b3b0-3f2ad4abd6af",
       "key": "component",
       "value": "use"
     }
