@@ -1620,7 +1620,8 @@
                     {
                       "key": "report_id",
                       "value": "{{report_id}}",
-                      "type": "string"
+                      "type": "string",
+                      "description": "Report ID"
                     }
                   ]
                 }
@@ -26548,7 +26549,7 @@
   ],
   "variable": [
     {
-      "id": "fa56c2b5-add0-4635-9a2c-809e63ca8cae",
+      "id": "439219b7-bc43-43c3-b98d-1fa35352e3e8",
       "key": "component",
       "value": "use"
     }
