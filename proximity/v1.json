@@ -21200,7 +21200,106 @@
                 },
                 "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
               },
-              "response": []
+              "response": [
+                {
+                  "id": "de083b3f-3dcb-448b-989a-fe23c0353363",
+                  "name": "Update a usergroup",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/vnd.api+json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/vnd.api+json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"data\": {\r\n    \"type\": \"usergroup\",\r\n    \"id\": \"{{usergroup_id}}\",\r\n    \"relationships\": {\r\n      \"users\": {\"data\": [\r\n        {\"type\": \"user\", \"id\": \"54c61cde-8488-461a-96d1-e75db3f6df7d\"}    \r\n      ]}\r\n    }\r\n  }\r\n}"
+                    },
+                    "url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Host",
+                      "value": "localhost:8012"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 09 May 2022 10:28:21 GMT"
+                    },
+                    {
+                      "key": "Date",
+                      "value": "Mon, 09 May 2022 10:28:21 GMT"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "close"
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "no-cache, private"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.api+json"
+                    },
+                    {
+                      "key": "X-Clockwork-Id",
+                      "value": "Xeb8203777b90fdf0e1e9f834b8aeb98e"
+                    },
+                    {
+                      "key": "X-Clockwork-Version",
+                      "value": "1"
+                    },
+                    {
+                      "key": "X-Clockwork-Path",
+                      "value": "_debugbar/clockwork/"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "Strict-Transport-Security",
+                      "value": "max-age=31536000; includeSubDomains"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "Feature-Policy",
+                      "value": "autoplay 'none'; camera 'none'"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin"
+                    },
+                    {
+                      "key": "Content-Security-Policy",
+                      "value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-zu6uqk7kFL4mWW7Fyx99cPvEG6xL5x3B';style-src 'self' 'nonce-zu6uqk7kFL4mWW7Fyx99cPvEG6xL5x3B';font-src 'self' data:"
+                    },
+                    {
+                      "key": "Request-Id",
+                      "value": "cfc5135e-02f5-41d7-adc9-b24e179a9399"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n    \"data\": {\n        \"type\": \"usergroup\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"testers\",\n            \"permissions\": [\n                \"manage_users\"\n            ]\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/usergroups/5\"\n        },\n        \"relationships\": {\n            \"users\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/usergroups/5/relationships/users\",\n                    \"related\": \"http://localhost:8012/v1/usergroups/5/users\"\n                }\n            }\n        }\n    }\n}"
+                }
+              ]
             },
             {
               "name": "Delete a usergroup",
@@ -26549,7 +26648,7 @@
   ],
   "variable": [
     {
-      "id": "b502a0d9-41dd-4718-90ae-bcd1bfe34e14",
+      "id": "1d9b6a3c-57f1-4e5d-a64e-101b9cf15796",
       "key": "component",
       "value": "use"
     }
