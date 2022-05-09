@@ -2551,7 +2551,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test serice category - {{$randomInt}}\"\n        }\n    }\n}"
+                  "raw": "{\n\t\"data\": {\n        \"type\":\"servicecategory\",\n        \"attributes\": {\n            \"name\": \"Test service category - {{$randomInt}}\"\n        }\n    }\n}"
                 },
                 "url": "{{base_url}}/v1/servicecategories"
               },
@@ -26775,7 +26775,7 @@
   ],
   "variable": [
     {
-      "id": "76d5ee8a-03fa-4619-973a-cc7fa466e14d",
+      "id": "3b803bfc-f3fc-42ae-a004-fa25bcbf26a6",
       "key": "component",
       "value": "use"
     }
