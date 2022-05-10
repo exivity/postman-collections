@@ -3167,7 +3167,7 @@
             }
           ],
           "id": "7220b5bd-06ad-5ebb-2d4e-2d60833f283a",
-          "description": "Categories services can be grouped under. A category can contain multiple services, but each service can only be in one category.\n\nExamples of categories: `Software`, `Web services`\n\n#### The Service Category Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | 📝﻿ editable | Required, unique name for service category. Max 255 chars. |\n\nThe following resources can be included:\n\n| **relationship** | **cardinality** | **required** |\n| --- | --- | --- |\n| services | 0:n | ❌ |\n| adjustments | n:m | ❌ |\n| budgetitems | n:m | ❌ |",
+          "description": "Atomic support: ✔\n\nCategories services can be grouped under. A category can contain multiple services, but each service can only be in one category.\n\nExamples of categories: `Software`, `Web services`\n\n#### The Service Category Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | 📝﻿ editable | Required, unique name for service category. Max 255 chars. |\n\nThe following resources can be included:\n\n| **relationship** | **cardinality** | **required** |\n| --- | --- | --- |\n| services | 0:n | ❌ |\n| adjustments | n:m | ❌ |\n| budgetitems | n:m | ❌ |",
           "auth": {
             "type": "noauth"
           },
@@ -26775,7 +26775,7 @@
   ],
   "variable": [
     {
-      "id": "ddff7d07-5954-4d2c-a174-17299e42dc7e",
+      "id": "bcf1af8f-4e97-4e1d-b653-3af3c09b3b73",
       "key": "component",
       "value": "use"
     }
