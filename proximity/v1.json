@@ -6354,7 +6354,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"services\": {\r\n                \"data\": {\r\n                    \"type\": \"service\",\r\n                    \"id\": \"{{service_id}}\"\r\n                }\r\n            }\r\n\t\t}\r\n\t}\r\n}",
+                  "raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"adjustment\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"test\",\r\n\t\t\t\"amount\": \"-10\",\r\n\t\t\t\"type\": \"relative\",\r\n\t\t\t\"target\": \"charge\",\r\n\t\t\t\"first_interval\": \"2017-01\",\r\n\t\t\t\"last_interval\": \"2017-12\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"account\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t  \"type\": \"account\",\r\n\t\t\t\t  \"id\": \"{{account_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"services\": {\r\n                \"data\": {\r\n                    \"type\": \"service\",\r\n                    \"id\": {{service_id}}\r\n                }\r\n            }\r\n\t\t}\r\n\t}\r\n}",
                   "options": {
                     "raw": {
                       "language": "json"
@@ -26775,7 +26775,7 @@
   ],
   "variable": [
     {
-      "id": "b5b99a30-11fa-45bf-9f31-654d8c72ea3a",
+      "id": "1d05ffaf-035b-4c06-b80c-175d6fa556cc",
       "key": "component",
       "value": "use"
     }
