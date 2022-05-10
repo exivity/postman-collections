@@ -6876,7 +6876,7 @@
             }
           ],
           "id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
-          "description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documetation: [https://docs.exivity.com/services/adjustments](https://docs.exivity.com/services/adjustments)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | *required, string* |  |\n| amount | *required, numeric* |  |\n| sort | *int, min:0* |  |\n| type | *required, in: relative, absolute* |  |\n| target | *required, in: charge/quantity* |  |\n| first_interval | *required, format: Y-m* |  |\n| last_interval | *format: Y-m* |  |",
+          "description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documentation: [https://docs.exivity.com/services/adjustments](https://docs.exivity.com/services/adjustments)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | 📝 editable | Required |\n| amount | *double* | 📝 editable | Required |\n| sort | *integer* | 📝 editable | Required, min: 0 |\n| type | *enum(*`relative`*,* `absolute`*)* | 📝 editable | Required |\n| target | *enum(*`charge`*,*`quantity`*)* | 📝 editable | Required |\n| first_interval | *string* | 📝 editable | Required, format: Y-m |\n| last_interval | *string?* | 📝 editable | Format: Y-m |\n| created_at | *timestamp* | 👁 read-only |  |\n| updated_at | *timestamp* | 👁 read-only |  |",
           "auth": {
             "type": "noauth"
           },
@@ -26775,7 +26775,7 @@
   ],
   "variable": [
     {
-      "id": "b2b4e1ed-8aff-4d11-b8b3-277d415793b2",
+      "id": "570a3968-750e-404a-bcaa-e153f8b5b976",
       "key": "component",
       "value": "use"
     }
