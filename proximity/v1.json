@@ -6876,7 +6876,7 @@
             }
           ],
           "id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
-          "description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documentation: [https://docs.exivity.com/services/adjustments](https://docs.exivity.com/services/adjustments)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | 📝 editable | Required |\n| amount | *double* | 📝 editable | Required |\n| sort | *integer* | 📝 editable | Required, min: 0 |\n| type | *enum(*`relative`*,* `absolute`*)* | 📝 editable | Required |\n| target | *enum(*`charge`*,*`quantity`*)* | 📝 editable | Required |\n| first_interval | *string* | 📝 editable | Required, format: Y-m |\n| last_interval | *string?* | 📝 editable | Format: Y-m |\n| created_at | *timestamp* | 👁 read-only |  |\n| updated_at | *timestamp* | 👁 read-only |  |",
+          "description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documentation: [https://docs.exivity.com/services/adjustments](https://docs.exivity.com/services/adjustments)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | 📝 editable | Required |\n| amount | *double* | 📝 editable | Required |\n| sort | *integer* | 📝 editable | Required, min: 0 |\n| type | *enum(*`relative`*,* `absolute`*)* | 📝 editable | Required |\n| target | *enum(*`charge`*,*`quantity`*)* | 📝 editable | Required |\n| first_interval | *string* | 📝 editable | Required, format: Y-m |\n| last_interval | *string?* | 📝 editable | Format: Y-m |\n| created_at | *timestamp* | 👁 read-only |  |\n| updated_at | *timestamp* | 👁 read-only |  |\n\nThe following resources can be included:\n\n|  | **relationship** | **required** |\n| --- | --- | --- |\n| has one | account | ❌ |\n| has many | services | ❌ |\n| has many | servicecategories | ❌ |",
           "auth": {
             "type": "noauth"
           },
@@ -26775,7 +26775,7 @@
   ],
   "variable": [
     {
-      "id": "570a3968-750e-404a-bcaa-e153f8b5b976",
+      "id": "f94c00e2-2993-4c02-b323-c53548d0e44b",
       "key": "component",
       "value": "use"
     }
