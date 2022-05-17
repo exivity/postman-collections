@@ -21323,9 +21323,25 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"usergroup\",\r\n        \"id\": \"{{usergroup_id}}\",\r\n        \"relationships\": {\r\n            \"users\": {\r\n                \"data\": [\r\n                    {\r\n                        \"type\": \"user\",\r\n                        \"id\": \"54c61cde-8488-461a-96d1-e75db3f6df7d\"\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    }\r\n}"
+									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"usergroup\",\r\n        \"id\": \"{{usergroup_id}}\",\r\n        \"permissions\": [\r\n            \"manage_users\"\r\n        ]\r\n    }\r\n}"
 								},
-								"url": "{{base_url}}/v1/usergroups/{{usergroup_id}}"
+								"url": {
+									"raw": "{{base_url}}/v1/usergroups/:usergroup_id",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"usergroups",
+										":usergroup_id"
+									],
+									"variable": [
+										{
+											"key": "usergroup_id",
+											"value": "{{usergroup_id}}"
+										}
+									]
+								}
 							},
 							"response": [
 								{
@@ -26775,7 +26791,7 @@
 	],
 	"variable": [
 		{
-			"id": "a7fe3127-02a9-41aa-863c-1f00f197cce7",
+			"id": "bad7bc0b-56e5-4ef4-be0a-9edd94ea5272",
 			"key": "component",
 			"value": "use"
 		}
