@@ -21323,7 +21323,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"usergroup\",\r\n        \"id\": \"{{usergroup_id}}\",\r\n        \"permissions\": [\r\n            \"manage_users\"\r\n        ]\r\n    }\r\n}"
+									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"usergroup\",\r\n        \"id\": \"{{usergroup_id}}\",\r\n        \"attributes\": {\r\n\t\t\t\"name\": \"modified_testers\",\r\n\t\t\t\"permissions\": [\"manage_users\", \"manage_settings\"]\r\n\t\t}\r\n    }\r\n}"
 								},
 								"url": {
 									"raw": "{{base_url}}/v1/usergroups/:usergroup_id",
@@ -26791,7 +26791,7 @@
 	],
 	"variable": [
 		{
-			"id": "bad7bc0b-56e5-4ef4-be0a-9edd94ea5272",
+			"id": "3274a705-46e7-42dc-a657-9777c0fe00a6",
 			"key": "component",
 			"value": "use"
 		}
