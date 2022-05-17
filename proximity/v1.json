@@ -16526,7 +16526,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"prev\": null,\r\n      \"next\": \"{{edify_workflowstep_id}}\",\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowstep\",\r\n    \"attributes\": {\r\n      \"type\": \"execute\",\r\n      \"prev\": \"{{edify_workflowstep_id}}\",\r\n      \"next\": null,\r\n      \"timeout\": 600,\r\n      \"options\": {\r\n        \"command\": \"echo \\\"testing\\\"\"\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"workflow\": {\r\n        \"data\": {\r\n          \"type\": \"workflow\",\r\n          \"id\": \"{{workflow_id}}\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps"
 							},
@@ -26775,7 +26775,7 @@
 	],
 	"variable": [
 		{
-			"id": "a0e22b80-0cd6-44fd-85e9-3a0519709ba2",
+			"id": "f8197ab9-335e-4ee6-a06f-b04dea5516c4",
 			"key": "component",
 			"value": "use"
 		}
