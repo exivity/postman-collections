@@ -764,7 +764,7 @@
 									"formdata": []
 								},
 								"url": "{{base_url}}/v1/auth/saml/metadata",
-								"description": "Metadata URL"
+								"description": "Metadata about the SAML Service Provider instance will be published at this URL."
 							},
 							"response": []
 						},
@@ -26791,7 +26791,7 @@
 	],
 	"variable": [
 		{
-			"id": "477ee913-4ee3-44c9-9d2b-c530a6eba2ed",
+			"id": "6c9ce413-321f-45cd-a0f0-7691e15ec09a",
 			"key": "component",
 			"value": "use"
 		}
