@@ -806,7 +806,7 @@
 						}
 					],
 					"id": "043cebd0-bc7b-4b2d-a4a8-4c2b8a6ea284",
-					"description": "Endpoints for supporting Single Sign-On authentication flow using SAML.",
+					"description": "Endpoints for supporting Single Sign-On authentication flow using SAML.\n\nStartFragment\n\nExivity documentation: [https://docs.exivity.com/advanced/integrate/sso/](https://desktop.postman.com/?desktopVersion=9.16.0&userId=4939400&teamId=48706)\n\nEndFragment",
 					"auth": {
 						"type": "noauth"
 					},
@@ -26791,7 +26791,7 @@
 	],
 	"variable": [
 		{
-			"id": "3274a705-46e7-42dc-a657-9777c0fe00a6",
+			"id": "477ee913-4ee3-44c9-9d2b-c530a6eba2ed",
 			"key": "component",
 			"value": "use"
 		}
