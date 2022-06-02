@@ -12581,7 +12581,7 @@
 						}
 					],
 					"id": "7d48bdde-6981-8dd1-7e2f-510d938ad22f",
-					"description": "⚡ **Not JSON:API compliant** ⚡\n\nThis endpoint lets you work with files in the [Exivity home directory](https://docs.exivity.com/general/concepts/homedir/). Currently, only uploading files is supported.\n\n*Note: starting with Exivity v3.0.0, the response structure for all endpoints will be streamlined.*",
+					"description": "⚡ **Not JSON:API compliant** ⚡\n\nThis endpoint lets you work with files in the [Exivity home directory](https://docs.exivity.com/getting-started/installation/on-premises/single-node/directory-structure#home-directory). Currently, only uploading files is supported.\n\n*Note: starting with Exivity v3.0.0, the response structure for all endpoints will be streamlined.*",
 					"auth": {
 						"type": "noauth"
 					},
@@ -26915,7 +26915,7 @@
 	],
 	"variable": [
 		{
-			"id": "fbe21f78-3f4d-4c94-b902-9e754ce641ab",
+			"id": "00a9164e-1732-4205-a692-1de3cd7a9d3e",
 			"key": "component",
 			"value": "use"
 		}
