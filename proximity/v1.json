@@ -12183,7 +12183,131 @@
 								"url": "{{base_url}}/v1/file",
 								"description": "Only the following file types are accepted:\n\n- csv\n- txt\n- json\n- xml\n\nUploaded files are stored as `%EXIVITY_HOME_PATH%/import/[group]/[yyyy]/[mm]/[dd]_uploaded_[sequence].[extension]`, where _sequence_ is a 3 characters long numberic string with padded zeros (e.g. `001` or `026`).\n\n_Note: starting with Exivity v3.0.0, this endpoint will no longer include the `/import/` prefix in the returned JSON response._"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "bf7f56f8-5052-4f02-af00-f8c97ada4ebb",
+									"name": "Upload a file",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "file",
+													"description": "File to be uploaded",
+													"type": "file",
+													"src": "/C:/Users/aine/OneDrive/Documents/MyFile.txt"
+												},
+												{
+													"key": "group",
+													"value": "",
+													"description": "Optional parameter to specify group (default=generic)",
+													"type": "text"
+												},
+												{
+													"key": "date",
+													"value": "",
+													"description": "Optional parameter to specify date in YYYY-MM-DD format (default=current date)",
+													"type": "text"
+												},
+												{
+													"key": "sequence",
+													"value": "",
+													"description": "Optional parameter to specify sequence (default=1 or auto incrementing if current sequence is already in use)",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{base_url}}/v1/file"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:24:50 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jun 2022 14:24:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X365cdf2ad1db92de04da287ab112e77a"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "X365cdf2ad1db92de04da287ab112e77a"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-DFpgcrIqVXHLOadu2ZbbB8aTm8MLwvT2';style-src 'self' 'nonce-DFpgcrIqVXHLOadu2ZbbB8aTm8MLwvT2';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "cda7e03a-e1c7-470c-9a65-92155220f0ad"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"filename\": \"/generic/2022/06/02_uploaded_001.txt\"\n}"
+								}
+							]
 						},
 						{
 							"name": "Upload a file into a folder",
@@ -26791,7 +26915,7 @@
 	],
 	"variable": [
 		{
-			"id": "6c9ce413-321f-45cd-a0f0-7691e15ec09a",
+			"id": "fbe21f78-3f4d-4c94-b902-9e754ce641ab",
 			"key": "component",
 			"value": "use"
 		}
