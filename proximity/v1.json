@@ -16497,7 +16497,6 @@
 											"    pm.expect(response.data.attributes).to.be.an('object');\r",
 											"    pm.expect(response.data.attributes).to.include({\r",
 											"\t\t\"type\": \"edify\",\r",
-											"\t\t\"next\": null,\r",
 											"\t\t\"timeout\": 600,\r",
 											"\t});\r",
 											"\tpm.expect(response.data.attributes.options).to.be.an('object');\r",
@@ -26915,7 +26914,7 @@
 	],
 	"variable": [
 		{
-			"id": "4e8b8b7a-83fa-4a02-a5dd-9ec83b42e63c",
+			"id": "3d278f12-e094-4198-b3c2-0d288b221494",
 			"key": "component",
 			"value": "use"
 		}
