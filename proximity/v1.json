@@ -1283,7 +1283,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include=s",
+									"raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include=",
 									"host": [
 										"{{base_url}}"
 									],
@@ -1314,7 +1314,7 @@
 										},
 										{
 											"key": "include",
-											"value": "s",
+											"value": "",
 											"description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
 										}
 									]
@@ -26914,7 +26914,7 @@
 	],
 	"variable": [
 		{
-			"id": "5eee2124-7a6f-46bb-aa5b-06a86f6614bb",
+			"id": "facc6924-58a8-4b6d-a2b8-d8c065e7f9c2",
 			"key": "component",
 			"value": "use"
 		}
