@@ -16230,7 +16230,7 @@
 						}
 					],
 					"id": "7ac62937-0fe7-4780-8697-8a69fac8b820",
-					"description": "Schedule how often a workflow should run.\n\n#### The Workflow Schedule Object\n\n| **attribute** | **type** |\n| --- | --- |\n| start_time | required, format: Y-m-d\\\\TH:i:s\\\\Z |\n| timezone | required, timezone |\n| adjust_for_dst | required, boolean |\n| frequency | required, in: hourly, daily, monthly |\n| frequency_modifier | numeric |",
+					"description": "Exivity documentation:  \n[https://docs.exivity.com/data-pipelines/workflows](https://docs.exivity.com/data-pipelines/workflows)\n\nSchedule how often a workflow should run.\n\n#### The Workflow Schedule Object\n\n| **attribute** | **type** |\n| --- | --- |\n| start_time | required, format: Y-m-d\\\\TH:i:s\\\\Z |\n| timezone | required, timezone |\n| adjust_for_dst | required, boolean |\n| frequency | required, in: hourly, daily, monthly |\n| frequency_modifier | numeric |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -26914,7 +26914,7 @@
 	],
 	"variable": [
 		{
-			"id": "1ff3b8e1-a2a9-40eb-a5df-e2420d19db14",
+			"id": "a388f767-03e7-4f47-9511-67941df04715",
 			"key": "component",
 			"value": "use"
 		}
