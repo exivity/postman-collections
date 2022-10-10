@@ -17854,7 +17854,7 @@
 						}
 					],
 					"id": "603b3894-1fec-4683-9089-9c4f47b84b04",
-					"description": "One or more steps that should be executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| type | *required, in: extract, transform, prepare_report, execute, proximity, publish_report, evaluate_budget* | Workflow step type |\n| options | *required, array, values depend on* *`type`* |  |\n| timeout | *numeric, min:1, max:86400* | In seconds, default: 3600 |\n| wait | *boolean* |  |\n| prev | *numeric or null* | Number of previous step in workflow. Null if first step. |\n| next | *numeric or null* | Number of next step in workflow. Null if last step. |\n| ~~sort~~ | ~~*numeric*~~ | *deprecated, use prev/next instead* |",
+					"description": "One or more steps that should be executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| type | _required, in: extract, transform, prepare_report, execute, proximity, publish_report, evaluate_budget_ | Workflow step type |\n| options | _required, array, values depend on_ _`type`_ |  |\n| timeout | _numeric, min:1, max:86400_ | In seconds, default: 3600 |\n| wait | _boolean_ |  |\n| ~~sort~~ | ~~_numeric_~~ | _deprecated, use previous relationship instead_ |\n\n| **relationship** | **cardinality** | **type** |\n| --- | --- | --- |\n| previous | hasOne | workflowstep |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -26914,7 +26914,7 @@
 	],
 	"variable": [
 		{
-			"id": "a388f767-03e7-4f47-9511-67941df04715",
+			"id": "79d7b718-3fdf-452c-b267-d7f5efb9ca98",
 			"key": "component",
 			"value": "use"
 		}
