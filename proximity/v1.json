@@ -4786,7 +4786,6 @@
 											"    pm.expect(rate.attributes).to.be.an('object');",
 											"    pm.expect(rate.attributes).to.have.property(\"rate\");",
 											"    pm.expect(rate.attributes).to.have.property(\"rate_col\");",
-											"    pm.expect(rate.attributes).to.have.property(\"threshold\");",
 											"    pm.expect(rate.attributes).to.have.property(\"min_commit\");",
 											"    pm.expect(rate.attributes).to.have.property(\"effective_date\");",
 											"    pm.expect(rate.attributes).to.have.property(\"fixed\");",
@@ -26914,7 +26913,7 @@
 	],
 	"variable": [
 		{
-			"id": "79d7b718-3fdf-452c-b267-d7f5efb9ca98",
+			"id": "a0ac1612-8c77-4486-9666-61212a3dd0d6",
 			"key": "component",
 			"value": "use"
 		}
