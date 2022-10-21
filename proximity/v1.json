@@ -26913,9 +26913,14 @@
 	],
 	"variable": [
 		{
-			"id": "a0ac1612-8c77-4486-9666-61212a3dd0d6",
+			"id": "f2e47b39-ec2a-417e-9927-5ce5653b8131",
 			"key": "component",
 			"value": "use"
+		},
+		{
+			"id": "1dcea2a6-ec09-4f06-9bbf-35c99b52fdbc",
+			"key": "base_url",
+			"value": "test.hosted.exivity.io/v1"
 		}
 	]
 }
