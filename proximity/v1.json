@@ -3516,8 +3516,11 @@
 											"    pm.expect(response.data.links).to.be.an('object');",
 											"});",
 											"",
+											"",
 											"pm.environment.set(\"service_id\", response.data.id);",
-											"console.log('SET service_id: ' + pm.environment.get(\"service_id\"));"
+											"console.log('SET service_id: ' + pm.environment.get(\"service_id\"));",
+											"pm.environment.set(\"service_key\", response.data.attributes.key);",
+											"console.log('SET service_key: ' + pm.environment.get(\"service_key\"));"
 										],
 										"type": "text/javascript"
 									}
@@ -4326,7 +4329,10 @@
 											"});",
 											"",
 											"console.log('UNSET service_id');",
-											"pm.environment.unset(\"service_id\");"
+											"pm.environment.unset(\"service_id\");",
+											"",
+											"pm.environment.unset(\"service_key\");",
+											"console.log('UNSET service_key');"
 										],
 										"type": "text/javascript"
 									}
@@ -27488,7 +27494,7 @@
 	],
 	"variable": [
 		{
-			"id": "040cd967-ec9b-419c-a155-ed27d260bb0f",
+			"id": "3ae269fe-3c2e-4412-ba74-c0c52ea1ca94",
 			"key": "component",
 			"value": "use"
 		}
