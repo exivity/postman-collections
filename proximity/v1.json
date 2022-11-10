@@ -4421,116 +4421,6 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": null
-								},
-								{
-									"id": "16047b79-b14c-47db-9c46-5d1f52c2d8b4",
-									"name": "Delete a service",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "formdata",
-											"formdata": []
-										},
-										"url": {
-											"raw": "{{base_url}}/v1/services/:service_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"v1",
-												"services",
-												":service_id"
-											],
-											"variable": [
-												{
-													"key": "service_id",
-													"value": "{{service_id}}"
-												}
-											]
-										}
-									},
-									"status": "No Content",
-									"code": 204,
-									"_postman_previewlanguage": "plain",
-									"header": [
-										{
-											"key": "Host",
-											"value": "localhost:8012"
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 01 Nov 2022 12:58:17 GMT"
-										},
-										{
-											"key": "Date",
-											"value": "Tue, 01 Nov 2022 12:58:17 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "close"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "X-Clockwork-Id",
-											"value": "X49e9a3628c00a08bd49b228151e7ec65"
-										},
-										{
-											"key": "X-Clockwork-Version",
-											"value": "1"
-										},
-										{
-											"key": "X-Clockwork-Path",
-											"value": "_debugbar/clockwork/"
-										},
-										{
-											"key": "phpdebugbar-id",
-											"value": "X49e9a3628c00a08bd49b228151e7ec65"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=31536000; includeSubDomains"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "Feature-Policy",
-											"value": "autoplay 'none'; camera 'none'"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "strict-origin"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-jAEaXhXgDUVAYxAX3JZtzc7gp5vkUMW5';style-src 'self' 'nonce-jAEaXhXgDUVAYxAX3JZtzc7gp5vkUMW5';font-src 'self' data:"
-										},
-										{
-											"key": "Request-Id",
-											"value": "6c635e95-644a-4cf9-af96-8866e4f683e2"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": null
 								}
 							]
 						}
@@ -27494,7 +27384,7 @@
 	],
 	"variable": [
 		{
-			"id": "3ae269fe-3c2e-4412-ba74-c0c52ea1ca94",
+			"id": "4dd37348-2b89-4ae6-91e5-eec77cc1872f",
 			"key": "component",
 			"value": "use"
 		}
