@@ -3516,11 +3516,8 @@
 											"    pm.expect(response.data.links).to.be.an('object');",
 											"});",
 											"",
-											"",
 											"pm.environment.set(\"service_id\", response.data.id);",
-											"console.log('SET service_id: ' + pm.environment.get(\"service_id\"));",
-											"pm.environment.set(\"service_key\", response.data.attributes.key);",
-											"console.log('SET service_key: ' + pm.environment.get(\"service_key\"));"
+											"console.log('SET service_id: ' + pm.environment.get(\"service_id\"));"
 										],
 										"type": "text/javascript"
 									}
@@ -27491,7 +27488,7 @@
 	],
 	"variable": [
 		{
-			"id": "b45f9938-201d-4c2a-85fa-d5676b103619",
+			"id": "040cd967-ec9b-419c-a155-ed27d260bb0f",
 			"key": "component",
 			"value": "use"
 		}
