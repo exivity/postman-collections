@@ -5548,7 +5548,7 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"rate\",\n        \"id\": \"10\",\n        \"attributes\": {\n            \"rate\": 1,\n            \"rate_col\": \"rate_col\",\n            \"threshold\": 0,\n            \"min_commit\": 0,\n            \"effective_date\": \"2017-08-28\",\n            \"tier_aggregation_level\": 1,\n            \"fixed\": 2,\n            \"fixed_col\": \"fixed_col\",\n            \"cogs_rate\": 3,\n            \"cogs_rate_col\": \"cogs_rate_col\",\n            \"cogs_fixed\": 4,\n            \"cogs_fixed_col\": \"cogs_fixed_col\"\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/rates/10\"\n        },\n        \"relationships\": {\n            \"service\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/10/relationships/service\",\n                    \"related\": \"http://localhost:8012/v1/rates/10/service\"\n                }\n            },\n            \"account\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/10/relationships/account\",\n                    \"related\": \"http://localhost:8012/v1/rates/10/account\"\n                }\n            },\n            \"ratetiers\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/10/relationships/ratetiers\",\n                    \"related\": \"http://localhost:8012/v1/rates/10/ratetiers\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"rate\",\n        \"id\": \"10\",\n        \"attributes\": {\n            \"rate\": 1,\n            \"rate_col\": \"rate_col\",\n            \"min_commit\": 0,\n            \"effective_date\": \"2017-08-28\",\n            \"tier_aggregation_level\": 1,\n            \"fixed\": 2,\n            \"fixed_col\": \"fixed_col\",\n            \"cogs_rate\": 3,\n            \"cogs_rate_col\": \"cogs_rate_col\",\n            \"cogs_fixed\": 4,\n            \"cogs_fixed_col\": \"cogs_fixed_col\"\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/rates/10\"\n        },\n        \"relationships\": {\n            \"service\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/10/relationships/service\",\n                    \"related\": \"http://localhost:8012/v1/rates/10/service\"\n                }\n            },\n            \"account\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/10/relationships/account\",\n                    \"related\": \"http://localhost:8012/v1/rates/10/account\"\n                }\n            },\n            \"ratetiers\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/rates/10/relationships/ratetiers\",\n                    \"related\": \"http://localhost:8012/v1/rates/10/ratetiers\"\n                }\n            }\n        }\n    }\n}"
 								},
 								{
 									"id": "5cb1ca75-56b0-4450-bcc6-bb05b0edd628",
@@ -27381,7 +27381,7 @@
 	],
 	"variable": [
 		{
-			"id": "d8349636-1347-4668-9e4a-c99840451142",
+			"id": "2f2abd18-7614-46a6-ad04-848b7f371395",
 			"key": "component",
 			"value": "use"
 		}
