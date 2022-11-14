@@ -5378,7 +5378,6 @@
 											"\t\t\"cogs_fixed\": 4,",
 											"\t\t\"cogs_fixed_col\": \"cogs_fixed_col\",",
 											"\t\t\"effective_date\": \"2017-08-28\",",
-											"\t\t\"threshold\": null,",
 											"        \"min_commit\": null,",
 											"        \"tier_aggregation_level\": 1",
 											"\t});",
@@ -5953,7 +5952,6 @@
 											"        \"cogs_fixed\": 40,",
 											"        \"cogs_fixed_col\": \"cogs_fixed_col2\",",
 											"        \"effective_date\": \"2017-08-28\",",
-											"        \"threshold\": 10,",
 											"        \"min_commit\": 50,",
 											"    });",
 											"});",
@@ -27383,7 +27381,7 @@
 	],
 	"variable": [
 		{
-			"id": "923b8d49-500c-4a32-bcbf-41c0bfe8a1df",
+			"id": "0da8ab24-6e67-494c-944e-daf68051838e",
 			"key": "component",
 			"value": "use"
 		}
