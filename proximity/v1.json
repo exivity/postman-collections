@@ -9813,7 +9813,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": false,\n            \"distribution\": \"even\",\n            \"filter\": \"none\"\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+									"raw": "{\n\t\"data\": {\n        \"type\":\"budgetitem\",\n        \"attributes\": {\n            \"kind\": \"account\",\n            \"status\": \"regular\",\n            \"percent\": false,\n            \"distribution\": \"even\",\n            \"filter\": \"none\",\n            \"amount\": 5,\n        },\n        \"relationships\": {\n        \t\"revision\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"budgetrevision\",\n        \t\t\t\"id\": \"{{budgetrevision_id}}\"\n        \t\t}\n        \t},\n        \t\"account\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"account\",\n        \t\t\t\"id\": \"{{account_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
 								},
 								"url": "{{base_url}}/v1/budgetitems"
 							},
@@ -27381,7 +27381,7 @@
 	],
 	"variable": [
 		{
-			"id": "d3e6a1ae-307a-4860-aa4e-716eb140623c",
+			"id": "e47abae9-5022-41d3-a9b5-0bb48d903138",
 			"key": "component",
 			"value": "use"
 		}
