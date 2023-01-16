@@ -48,7 +48,7 @@
 						"method": "GET",
 						"header": [],
 						"url": "{{base_url}}",
-						"description": "If all is well, this request should return a simple HTML page with a link to the API documentation."
+						"description": "A simple test to check the system is set up correctly. If all is well, this request should return a simple HTML page with a link to the API documentation.\n\nIt is also possible to ask for a JSON response, using the `Accept: application/json` header.\n\nThis will return a 204 response if all is good, or a 500 error with a JSON error message if something is not correct.\n\nIn debug mode, this will also contain a `meta` field, listing the area where the problem is."
 					},
 					"response": [
 						{
@@ -125,6 +125,216 @@
 							"cookie": [],
 							"responseTime": "227",
 							"body": "<!doctype html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"icon\" type=\"image/png\" href=\"favicon.png\">\n    <title>Exivity</title>\n    <style>\n        body {\n            margin: 0;\n            padding: 2rem;\n            font-family: sans-serif;\n            font-size: 100%;\n            background-color: #ffffff;\n            color: #333;\n            text-align: center;\n        }\n\n        h1 {\n            font-size: 5rem;\n        }\n\n        pre {\n            display: inline-block;\n            text-align: center;\n        }\n\n        a {\n            color: black;\n        }\n\n        .setup {\n            position: absolute;\n            top: 0;\n            right: 0;\n            width: 100%;\n            height: 100%;\n        }\n    </style>\n</head>\n<body>\n\n<h1><img src=\"favicon.png\" style=\"height: 1em;\"/></h1>\n\n<pre>\nExivity API\n<a href=\"https://api.exivity.com\">api reference</a>\n</pre>\n\n<script>\n    var url = atob('aHR0cHM6Ly9mdGhtYi50cW4uY29tLzBNVTh1b3lNSTZac1MyWkhlYkt2YWNkQmszcz0vMTkyMHgxMDgwL2ZpbHRlcnM6ZmlsbChhdXRvLDEpL2Fib3V0L2Jpb3Mtc2V0dXAtdXRpbGl0eS01N2ZlNjNkYjNkZjc4Y2JjMjg2MDA5YzEuanBn');\n    var img = document.createElement(\"img\");\n    img.className = 'setup';\n    img.src = url;\n    document.onkeyup = function (e) {\n        e = e || window.event;\n        if (e.keyCode === 46)\n            document.body.appendChild(img);\n    };\n</script>\n\n</body>\n</html>"
+						},
+						{
+							"id": "988057cc-9979-4c80-ae39-055fe05bae1c",
+							"name": "Power-on self-test - JSON response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{base_url}}"
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8012"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Jan 2023 13:27:44 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Jan 2023 13:27:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-Clockwork-Id",
+									"value": "X7574be9668bd804d63540673a3778baa"
+								},
+								{
+									"key": "X-Clockwork-Version",
+									"value": "1"
+								},
+								{
+									"key": "X-Clockwork-Path",
+									"value": "_debugbar/clockwork/"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X7574be9668bd804d63540673a3778baa"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": "autoplay 'none'; camera 'none'"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-GcXPDxDVPvlZVzRg6hxq4YsvDMi65YWb';style-src 'self' 'nonce-GcXPDxDVPvlZVzRg6hxq4YsvDMi65YWb';font-src 'self' data:"
+								},
+								{
+									"key": "Request-Id",
+									"value": "bec46c98-d7be-43ea-8b60-372572c423d1"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6Imo3TFFmWHFVYUN0Q0JHenY3UVJrL2c9PSIsInZhbHVlIjoiUS9NaXovelViSThNSjVTOXFWK2FUa2k0T2xjSmlKcnRvU1BmTlBxSlN1cVZRU3krNnpzLzFBTGlBNVYxVVA4NGlDYmwrUUNyQVVFMnNrWTliOGMxZmhjSUZyTi9JVTZ2a055QjJYZ0tDcG5OZGJzYlRhTWVBMU83SnBYT09Id0ciLCJtYWMiOiIyMjVlNWZiMDhjYTFmZjliYmUyM2YxMjgzMjhjMDk2MmVkN2RlNjgzMTg1NDVlY2U1MTU2NjU3YzE4NmRjMDFlIiwidGFnIjoiIn0%3D; expires=Mon, 09 Jan 2023 15:27:44 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "laravel_session=eyJpdiI6IlplRXNvZ2VsK2h2R0JHd1lRalZiN2c9PSIsInZhbHVlIjoiNENCSUZQNHY1MkthMmRyWE5IVURkVEZGMjZmYk8wbUl4a1hiODBOODdLRVRnQmdTbThJQmQ2UFRPL1hrblg2YWMzQW1vRG5yOTFsaDg5d1pPUGFra0dncG9nV0tlMnBRUW02WVNlNGFwcXJCZXhwSEhmdFBEVVJiMVQ3WEUwYVEiLCJtYWMiOiI1YjMwMDc4NWQyZDE0ZjUxYzZlZTYxNzNmZDcwMzAyN2RjYjBhNmEyZjg1ZTQyODBjYzc0YTRmMDQzMDYyYTZmIiwidGFnIjoiIn0%3D; expires=Mon, 09 Jan 2023 15:27:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "bIEYZP21mqjNDnAgsTe1sk4ETsxk3zeqbQhkGJpz=eyJpdiI6IldvbTViajNJNEFXVTdlUFR2NFI1L2c9PSIsInZhbHVlIjoiUVlIcEdUY0FTc0J5R2wxZ3djc3JjN2hDSmd6TTQ2NGFUYkE3QXp6ZU5PdnZvdHMwT1dJRUtEZ1J4Z1MxMWxEVlN5eWd0WW9IcVJQQTBmRWNtMXRzT3Z4RUpGOUtlZG9qNHArR0RBZzk1dWNxSkk5c2V3RXhFakZibkVWQVZZcWxuaFJvRlhnR3lJc0l5ZFdiNHZaZTRLMU1CejBjcVJiSDRqT3NxcHd0OHVhK29hWjBmeko4UmpMamR5bTFVYytQOTVvVVcrK1JCTDU4YVFYNzZlNXJjMHFqOURndjVId21uVURqallodEZOZlBzSndLZmEydjJNRUM0WnlyVzlXc3hhbUFJRE1QYmhCaUhUTnNmY3pDZXFzNFVVRDFzNk1wMzlVYjFjdUQ3d3dhaTJaUCtTeVZ4YUFSOG45bVhjWEZvMUlRRG5SZDh0NUxOcjhBeVYrbk5iOXFnMHVvV0xrTlJnWm84UlZDRndJPSIsIm1hYyI6IjdmMDVjZTVhMmJjOTU3YmNmODczNzcwMzUyMDU0MmMyNmUxY2RkNDc5YWQ1MmExNmJhZDcxMTcwNTQzODNlYmYiLCJ0YWciOiIifQ%3D%3D; expires=Mon, 09 Jan 2023 15:27:44 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": null
+						},
+						{
+							"id": "f026854e-3ab3-4f1a-81b1-4193eceb97d8",
+							"name": "Power-on self-test - JSON response with error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "{{base_url}}"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8012"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Jan 2023 13:21:50 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 09 Jan 2023 13:21:50 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-Clockwork-Id",
+									"value": "X091fff584dd0837c66e0d8e945feabc9"
+								},
+								{
+									"key": "X-Clockwork-Version",
+									"value": "1"
+								},
+								{
+									"key": "X-Clockwork-Path",
+									"value": "_debugbar/clockwork/"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X091fff584dd0837c66e0d8e945feabc9"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": "autoplay 'none'; camera 'none'"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-p8Dp4cU467ZKsv1akFNtUEwVyHEgfkjx';style-src 'self' 'nonce-p8Dp4cU467ZKsv1akFNtUEwVyHEgfkjx';font-src 'self' data:"
+								},
+								{
+									"key": "Request-Id",
+									"value": "8f28487f-effe-4485-8ceb-f0c3948b0932"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "XSRF-TOKEN=eyJpdiI6IlZ0M25INUt3eFlLU0FFc05nWENVRkE9PSIsInZhbHVlIjoiSkhNUHdlL2ZPSzNlNVE1RGE4QWsrYkNWY2F2MFJhQ2NoQ242LzZYdDNWYjlGNHg4ODIyaHU3SFppbDFidkJEWXRZV1FhYUt4SllnWldIV2ovN1h4S1dTNC9WUFlsMFgwaEJmSXl6MFpqK09CbnBuaUVLSjBSWFFIVVJVamJaUjAiLCJtYWMiOiI1MDBkOGJmM2MzODM0MTIzMTAyYmVhOGE4NWJmYTgwMTg0ZGY1ZTcyNDMzNWRhZGQ4MzU4OWQzNDRmNmNkYWYyIiwidGFnIjoiIn0%3D; expires=Mon, 09 Jan 2023 15:21:50 GMT; Max-Age=7200; path=/; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "laravel_session=eyJpdiI6Ikp4eENVR24vZlU0alZmOWRydkVRbUE9PSIsInZhbHVlIjoiWEFXYU1WTjFDQXQ1OEY3UEhWZjJyWDMrbVVYUy9FS0FyVjlHbEJhODBUaDF1QzJvODQ3Q3A0cTVLQUZPdUIwbWpQQS94MFRvOVNPaURZczQ3dHUxL1BQZVp5aFdvQUxSMCswRGJaYzU3Q1QrYmMybXovMklGUklneXdia1l6RHMiLCJtYWMiOiI0MDRkYmFjZGUwZDI3ODAxY2Y2MjVmM2UwOGU1OWJhYTQwOWIyZThmZTRlZmMwOWUxZGNkZDc4NTZhOTEzNTI1IiwidGFnIjoiIn0%3D; expires=Mon, 09 Jan 2023 15:21:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "bIEYZP21mqjNDnAgsTe1sk4ETsxk3zeqbQhkGJpz=eyJpdiI6IkkrU1B6NkpSdHZvN2JnTE9TTytJTnc9PSIsInZhbHVlIjoicHEwb0xOU3Fua2paYncxMXlUQjlBTnE5cENHd3R2MS90aDdqakhjNnl5dDlQYTM5REIwNVBleUNxNzU4Qjd0dms2TDJKTS9iN0g2L0I1MGUycFVlcVlkOWhhaU10a0toWW1Ja055ckZrbWwzTjNMUWZBN0hHVy85WDBqSitqaS9seDFaNWFTNVpIT2Z5OHdjckRndC9CN0dGbXdBRWNKNmI3ZXE5OXdIeFY4YXkvT2h2R1o0b2RJdzVLYmdwMHdWZWJuWGdtY1JLZE9pOURRcFZYMmtBODJoQ2FMMG0wSzhjZmJLbEdIbUFQRmdCODdtd0kwZzcvbTdGZDFZQ0oyU0FlUzhSeXJPTnY5c0swZEVueHoxL1dCVkpsWmd5UlBlQTNHNXRUSXVncDZPZU1kWUNzM2xFZTNyS2NWUURhM1FyclRFU0c1elZvK3BPM21XdE5Rb2JvbUlKOExzTncwbDNtS3lERkorSmFZPSIsIm1hYyI6ImFhZjlhMDA1MmRjM2EwODdjMTEzMmIyYzA4YjJmNGIxMmQxZjVhNjA1ZGQ1ZWE2NzFkYzg2YTE1ZTc3OWUzODMiLCJ0YWciOiIifQ%3D%3D; expires=Mon, 09 Jan 2023 15:21:50 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"errors\": {\n        \"0\": {\n            \"status\": 500,\n            \"title\": \"InternalException\",\n            \"detail\": \"There appears to be a problem with the system set-up. Please check the log files for more information.\"\n        },\n        \"meta\": {\n            \"postgres\": true,\n            \"environment\": false,\n            \"home_dir\": true,\n            \"program_dir\": true\n        }\n    }\n}"
 						}
 					]
 				}
@@ -623,7 +833,7 @@
 						}
 					],
 					"id": "9579f7a2-499c-4082-8370-f2dafb272b86",
-					"description": "#### **Token object**\n\n| **name** | **type** | **description** |\n| --- | --- | --- |\n| token | *string* | JWT token |\n| permissions | *array* | What permissions the user has |\n| user | *object* | See user object for more information. |",
+					"description": "Exivity documentation: [https://docs.exivity.com/Security/Authentication/Token](https://docs.exivity.com/Security/Authentication/Token)\n\n#### **Token object**\n\n| **name** | **type** | **description** |\n| --- | --- | --- |\n| token | _string_ | JWT token |\n| permissions | _array_ | What permissions the user has |\n| user | _object_ | See user object for more information. |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -1212,7 +1422,7 @@
 				}
 			],
 			"id": "e68dba12-e43f-67cf-02f7-252b44cb3b44",
-			"description": "The default method of authentication against the API is done through a stateless JWT token.\n\nExivity documentation: [https://docs.exivity.com/advanced/digging-deeper/authentication-flows](https://docs.exivity.com/advanced/digging-deeper/authentication-flows)",
+			"description": "The default method of authentication against the API is done through a stateless JWT token.\n\nExivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#authentication](https://docs.exivity.com/architecture%20concepts/glossary/#authentication)",
 			"auth": {
 				"type": "noauth"
 			}
@@ -1320,7 +1530,134 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "417c1b73-28fa-430f-b263-69535fe44c16",
+									"name": "Retrieve a list of report definitions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/reports?page[limit]&page[offset]&sort&filter[attribute]&include=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"reports"
+											],
+											"query": [
+												{
+													"key": "page[limit]",
+													"value": null,
+													"description": "Limit the amount of results returned"
+												},
+												{
+													"key": "page[offset]",
+													"value": null,
+													"description": "Return this page of the results"
+												},
+												{
+													"key": "sort",
+													"value": null,
+													"description": "Sort results by this attribute"
+												},
+												{
+													"key": "filter[attribute]",
+													"value": null,
+													"description": "Optionally [filter](#working-with-the-api) results by this attribute."
+												},
+												{
+													"key": "include",
+													"value": "",
+													"description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 02 Jan 2023 10:01:10 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 02 Jan 2023 10:01:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xfae34b907e37d3f28c0a737e04000e0e"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-CdGzsTmhEidwgF3fLxwZUc7aDSu29pOI';style-src 'self' 'nonce-CdGzsTmhEidwgF3fLxwZUc7aDSu29pOI';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "eadeb6c1-a4a8-4c89-a30b-079d35abc24b"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": [\n        {\n            \"type\": \"report\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"name\": \"test\",\n                \"dset\": \"test.usage\",\n                \"created\": \"2023-01-02T09:43:13Z\",\n                \"last_updated\": \"2023-01-02T09:43:13Z\",\n                \"lvl1_key_col\": \"Reseller\",\n                \"lvl1_name_col\": \"Reseller\",\n                \"lvl1_label\": \"Reseller\",\n                \"lvl1_metadata_definition_id\": null,\n                \"lvl2_key_col\": \"Customer\",\n                \"lvl2_name_col\": \"Customer\",\n                \"lvl2_label\": \"Customer\",\n                \"lvl2_metadata_definition_id\": null,\n                \"lvl3_key_col\": \"Region\",\n                \"lvl3_name_col\": \"Region\",\n                \"lvl3_label\": \"Region\",\n                \"lvl3_metadata_definition_id\": null,\n                \"lvl4_key_col\": \"Department\",\n                \"lvl4_name_col\": \"Department\",\n                \"lvl4_label\": \"Department\",\n                \"lvl4_metadata_definition_id\": null,\n                \"lvl5_key_col\": \"UniqueID\",\n                \"lvl5_name_col\": \"UniqueID\",\n                \"lvl5_label\": \"UniqueID\",\n                \"lvl5_metadata_definition_id\": null,\n                \"depth\": 5,\n                \"data_status\": {\n                    \"first_date\": \"2017-08-25\",\n                    \"last_date\": \"2017-08-27\",\n                    \"missing\": 0,\n                    \"errors\": 0,\n                    \"status\": [\n                        {\n                            \"date\": \"2017-08-25\",\n                            \"missing\": false,\n                            \"column_status\": \"ok\",\n                            \"account_sync\": true,\n                            \"prepared\": false\n                        },\n                        {\n                            \"date\": \"2017-08-26\",\n                            \"missing\": false,\n                            \"column_status\": \"ok\",\n                            \"account_sync\": true,\n                            \"prepared\": false\n                        },\n                        {\n                            \"date\": \"2017-08-27\",\n                            \"missing\": false,\n                            \"column_status\": \"ok\",\n                            \"account_sync\": true,\n                            \"prepared\": false\n                        }\n                    ]\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/reports/1\"\n            },\n            \"relationships\": {\n                \"accounts\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/1/relationships/accounts\",\n                        \"related\": \"http://localhost:8012/v1/reports/1/accounts\"\n                    }\n                },\n                \"metadatadefinitions\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/1/relationships/metadatadefinitions\",\n                        \"related\": \"http://localhost:8012/v1/reports/1/metadatadefinitions\"\n                    }\n                },\n                \"dset\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/1/relationships/dset\",\n                        \"related\": \"http://localhost:8012/v1/reports/1/dset\"\n                    }\n                },\n                \"budgets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/1/relationships/budgets\",\n                        \"related\": \"http://localhost:8012/v1/reports/1/budgets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"report\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"name\": \"Test report - 200\",\n                \"dset\": \"test.usage\",\n                \"created\": \"2023-01-02T09:44:47Z\",\n                \"last_updated\": \"2023-01-02T09:44:47Z\",\n                \"lvl1_key_col\": \"Country\",\n                \"lvl1_name_col\": \"Country\",\n                \"lvl1_label\": \"Country\",\n                \"lvl1_metadata_definition_id\": null,\n                \"lvl2_key_col\": \"Reseller\",\n                \"lvl2_name_col\": \"Reseller\",\n                \"lvl2_label\": \"Reseller\",\n                \"lvl2_metadata_definition_id\": null,\n                \"lvl3_key_col\": \"\",\n                \"lvl3_name_col\": \"\",\n                \"lvl3_label\": \"\",\n                \"lvl3_metadata_definition_id\": null,\n                \"lvl4_key_col\": \"\",\n                \"lvl4_name_col\": \"\",\n                \"lvl4_label\": \"\",\n                \"lvl4_metadata_definition_id\": null,\n                \"lvl5_key_col\": \"\",\n                \"lvl5_name_col\": \"\",\n                \"lvl5_label\": \"\",\n                \"lvl5_metadata_definition_id\": null,\n                \"depth\": 2,\n                \"data_status\": {\n                    \"first_date\": \"2017-08-25\",\n                    \"last_date\": \"2017-08-27\",\n                    \"missing\": 0,\n                    \"errors\": 0,\n                    \"status\": [\n                        {\n                            \"date\": \"2017-08-25\",\n                            \"missing\": false,\n                            \"column_status\": \"unknown\",\n                            \"account_sync\": false,\n                            \"prepared\": false\n                        },\n                        {\n                            \"date\": \"2017-08-26\",\n                            \"missing\": false,\n                            \"column_status\": \"unknown\",\n                            \"account_sync\": false,\n                            \"prepared\": false\n                        },\n                        {\n                            \"date\": \"2017-08-27\",\n                            \"missing\": false,\n                            \"column_status\": \"unknown\",\n                            \"account_sync\": false,\n                            \"prepared\": false\n                        }\n                    ]\n                }\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/reports/3\"\n            },\n            \"relationships\": {\n                \"accounts\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/3/relationships/accounts\",\n                        \"related\": \"http://localhost:8012/v1/reports/3/accounts\"\n                    }\n                },\n                \"metadatadefinitions\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/3/relationships/metadatadefinitions\",\n                        \"related\": \"http://localhost:8012/v1/reports/3/metadatadefinitions\"\n                    }\n                },\n                \"dset\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/3/relationships/dset\",\n                        \"related\": \"http://localhost:8012/v1/reports/3/dset\"\n                    }\n                },\n                \"budgets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/reports/3/relationships/budgets\",\n                        \"related\": \"http://localhost:8012/v1/reports/3/budgets\"\n                    }\n                }\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 2,\n            \"count\": 2,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/reports?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/reports?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/reports?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\"\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Add a new report definition",
@@ -2202,7 +2539,7 @@
 						}
 					],
 					"id": "f701b5e8-5cca-8e89-5291-cb25c71de9ff",
-					"description": "The report object contains the definition of how to generate a report, and once the report has run, the report data itself.\n\nExivity documentation: [https://docs.exivity.com/data-pipelines/reports](https://docs.exivity.com/data-pipelines/reports)\n\n#### **The report object**\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | *string* | Unique name, max 255 chars |\n| dset | *string* | Dataset name, max 255 chars |\n| created | *string* | Date created (UTC) |\n| last_updated | *string* | Date last updated (UTC) |\n| lvl1_key_col  <br>lvl2_key_col  <br>lvl3_key_col  <br>lvl4_key_col  <br>lvl5_key_col | *string* | Key column, max 255 chars |\n| lvl1_name_col  <br>lvl2_name_col  <br>lvl3_name_col  <br>lvl4_name_col  <br>lvl5_name_col | *string* | Name column, max 255 chars |\n| lvl1_label  <br>lvl2_label  <br>lvl3_label  <br>lvl4_label  <br>lvl5_label | *string* | Label, max 255 chars |\n| lvl1_metadata_definition_id  <br>lvl2_metadata_definition_id  <br>lvl3_metadata_definition_id  <br>lvl4_metadata_definition_id  <br>lvl5_metadata_definition_id | *int* | Metadata ID |\n| depth | *int* |  |\n| data_status | *array of objects* | See data_status object below |\n\n#### **The data_status object**\n\nIf a report has data, it will be contained inside data_status objects.\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| first_date | *date* (ISO string) | The first date of the report data |\n| last_date | *date* (ISO string) | The last date of the report data |\n| missing | *int* | The total number of days with missing data |\n| errors | *int* | The total number of days with errors |\n| status | *array of objects* | See the status object below |\n\n#### **The status object**\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| date | *date* (ISO string) | Data date |\n| missing | *bool* | True if this day has data |\n| column_status | *string* | Possible values:  <br>\\- unknown  <br>\\- invalid  <br>\\- ok  <br>\\- missing |\n| account_sync | *bool* | True if this day has the accounts synchronized (part of preparation) |\n| prepared | *bool* | True if this day is fully prepared |",
+					"description": "The report object contains the definition of how to generate a report, and once the report has run, the report data itself.\n\nExivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#report](https://docs.exivity.com/architecture%20concepts/glossary/#report)\n\n#### **The report object**\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | _string_ | Unique name, max 255 chars |\n| dset | _string_ | Dataset name, max 255 chars |\n| created | _string_ | Date created (UTC) |\n| last_updated | _string_ | Date last updated (UTC) |\n| lvl1_key_col  <br>lvl2_key_col  <br>lvl3_key_col  <br>lvl4_key_col  <br>lvl5_key_col | _string_ | Key column, max 255 chars |\n| lvl1_name_col  <br>lvl2_name_col  <br>lvl3_name_col  <br>lvl4_name_col  <br>lvl5_name_col | _string_ | Name column, max 255 chars |\n| lvl1_label  <br>lvl2_label  <br>lvl3_label  <br>lvl4_label  <br>lvl5_label | _string_ | Label, max 255 chars |\n| lvl1_metadata_definition_id  <br>lvl2_metadata_definition_id  <br>lvl3_metadata_definition_id  <br>lvl4_metadata_definition_id  <br>lvl5_metadata_definition_id | _int_ | Metadata ID |\n| depth | _int_ |  |\n| data_status | _array of objects_ | See data_status object below |\n\n#### **The data_status object**\n\nIf a report has data, it will be contained inside data_status objects.\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| first_date | _date_ (ISO string) | The first date of the report data |\n| last_date | _date_ (ISO string) | The last date of the report data |\n| missing | _int_ | The total number of days with missing data |\n| errors | _int_ | The total number of days with errors |\n| status | _array of objects_ | See the status object below |\n\n#### **The status object**\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| date | _date_ (ISO string) | Data date |\n| missing | _bool_ | True if this day has data |\n| column_status | _string_ | Possible values:  <br>\\- unknown  <br>\\- invalid  <br>\\- ok  <br>\\- missing |\n| account_sync | _bool_ | True if this day has the accounts synchronized (part of preparation) |\n| prepared | _bool_ | True if this day is fully prepared |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -4426,7 +4763,7 @@
 						}
 					],
 					"id": "f43592d6-0e71-4de1-824c-5eb7803f2de1",
-					"description": "Exivtiy documentation: [https://docs.exivity.com/getting-started/introduction/services-introduction](https://docs.exivity.com/getting-started/introduction/services-introduction)\n\n#### **The Service Object**\n\n| **attribute** | **type** | **editable** | **description** |\n| --- | --- | --- | --- |\n| key | *string* | ❌ | Unique identifier, [read more](https://docs.exivity.com/transform/language/service/#key) |\n| description | *string* | ✔️ | Friendly name, [read more](https://docs.exivity.com/transform/language/service/#description) |\n| unit_label | *string* | ❌ | Unit of consumption, [read more](https://docs.exivity.com/transform/language/service/#unit_label) |\n| dset | *string* | ❌ | Dset this service is linked to |\n| type | *enum* | ❌ | One of `service_name_in_header` or `service_name_in_data`, [read more](https://docs.exivity.com/transform/language/services/#service_type) |\n| usage_col | *string* | ❌ | Dset column containing keys, [read more](https://docs.exivity.com/transform/language/services/#usages_col) |\n| consumption_col | *string* | ❌ | Dset column containing consumption amount, [read more](https://docs.exivity.com/transform/language/services/#consumption_col) |\n| instance_col | *string* | ❌ | Dset column containing unique instance id's, [read more](https://docs.exivity.com/transform/language/services/#instance_col) |\n| interval | *enum* | ❌ | One of `never`, `individually`, `second`, `minute`, `hour`, `day`, `week`, `month` or `year`. Currently, only `individually`, `day` and `month` are implemented, [read more](https://docs.exivity.com/transform/language/services/#consumption_col) |\n| charge_type | *enum* | ❌ | One of `none`, `manual`, `manual_per_unit`, `manual_per_interval`, `automatic`, `automatic_per_unit`, `automatic_per_interval` or `other`, read more below |\n| cogs_type | *enum* | ❌ | One of `none`, `manual_per_unit`, `manual_per_interval`, `automatic_per_unit` or `automatic_per_interval`, read more below |\n| proration_type | *enum* | ❌ | One of `none` or `full`, [read more](https://docs.exivity.com/transform/language/services/#model) |\n| created_at | *datetime* | ❌ | Datetime (UTC) the service was first created |\n| updated_at | *datetime* | ❌ | Datetime (UTC) the service was last updated |\n| seen_at | *date* | ❌ | ISO-8601 date (YYYY-MM-DD) the service was last seen in a dset |\n\n#### Charge and cogs type\n\nThe attributes `charge_type` and `cogs_type` define how the rate is used when calculating charge and cogs metrics using consumption of the service.\n\n*   The first part denotes whether the rate is dynamically derived from the usage data itself (`automatic`) or specified explicitly in rate entities (`manual`).\n*   The second part denotes whether an amount per unit of consumption (`per_unit`) and/or per interval (`per_interval`) should be applied.\n    \n\nWhen the second part is omitted, both `per_unit` and `per_interval` are used. If no rate should be applied at all, `none` can be used. A value of `other` means a configuration is used not currently supported by the API.",
+					"description": "Services can be anything that is a sellable item, that can be consumed. And should relate to (extracted) consumption data.\n\nExivtiy documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#service](https://docs.exivity.com/architecture%20concepts/glossary/#service)\n\n#### **The Service Object**\n\n| **attribute** | **type** | **editable** | **description** |\n| --- | --- | --- | --- |\n| key | _string_ | ❌ | Unique identifier, [read more](https://docs.exivity.com/transform/language/service/#key) |\n| description | _string_ | ✔️ | Friendly name, [read more](https://docs.exivity.com/transform/language/service/#description) |\n| unit_label | _string_ | ❌ | Unit of consumption, [read more](https://docs.exivity.com/transform/language/service/#unit_label) |\n| dset | _string_ | ❌ | Dset this service is linked to |\n| type | _enum_ | ❌ | One of `service_name_in_header` or `service_name_in_data`, [read more](https://docs.exivity.com/transform/language/services/#service_type) |\n| usage_col | _string_ | ❌ | Dset column containing keys, [read more](https://docs.exivity.com/transform/language/services/#usages_col) |\n| consumption_col | _string_ | ❌ | Dset column containing consumption amount, [read more](https://docs.exivity.com/transform/language/services/#consumption_col) |\n| instance_col | _string_ | ❌ | Dset column containing unique instance id's, [read more](https://docs.exivity.com/transform/language/services/#instance_col) |\n| interval | _enum_ | ❌ | One of `never`, `individually`, `second`, `minute`, `hour`, `day`, `week`, `month` or `year`. Currently, only `individually`, `day` and `month` are implemented, [read more](https://docs.exivity.com/transform/language/services/#consumption_col) |\n| charge_type | _enum_ | ❌ | One of `none`, `manual`, `manual_per_unit`, `manual_per_interval`, `automatic`, `automatic_per_unit`, `automatic_per_interval` or `other`, read more below |\n| cogs_type | _enum_ | ❌ | One of `none`, `manual_per_unit`, `manual_per_interval`, `automatic_per_unit` or `automatic_per_interval`, read more below |\n| proration_type | _enum_ | ❌ | One of `none` or `full`, [read more](https://docs.exivity.com/transform/language/services/#model) |\n| created_at | _datetime_ | ❌ | Datetime (UTC) the service was first created |\n| updated_at | _datetime_ | ❌ | Datetime (UTC) the service was last updated |\n| seen_at | _date_ | ❌ | ISO-8601 date (YYYY-MM-DD) the service was last seen in a dset |\n\n#### Charge and cogs type\n\nThe attributes `charge_type` and `cogs_type` define how the rate is used when calculating charge and cogs metrics using consumption of the service.\n\n- The first part denotes whether the rate is dynamically derived from the usage data itself (`automatic`) or specified explicitly in rate entities (`manual`).\n- The second part denotes whether an amount per unit of consumption (`per_unit`) and/or per interval (`per_interval`) should be applied.\n    \n\nWhen the second part is omitted, both `per_unit` and `per_interval` are used. If no rate should be applied at all, `none` can be used. A value of `other` means a configuration is used not currently supported by the API.",
 					"auth": {
 						"type": "noauth"
 					},
@@ -7343,7 +7680,7 @@
 						}
 					],
 					"id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
-					"description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documentation: [https://docs.exivity.com/services/adjustments](https://docs.exivity.com/services/adjustments)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | *string* | 📝 editable | Required |\n| amount | *double* | 📝 editable | Required |\n| sort | *integer* | 📝 editable | Required, min: 0 |\n| type | *enum(***`relative`*,* `absolute`*)* | 📝 editable | Required |\n| target | *enum(***`charge`*,*`quantity`*)* | 📝 editable | Required |\n| first_interval | *string* | 📝 editable | Required, format: Y-m |\n| last_interval | *string?* | 📝 editable | Format: Y-m |\n| created_at | *timestamp* | 👁 read-only |  |\n| updated_at | *timestamp* | 👁 read-only |  |\n\nThe following resources can be included:\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| has one | account | ✔️ |\n| has many | services | ❌ |\n| has many | servicecategories | ❌ |",
+					"description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#adjustment](https://docs.exivity.com/architecture%20concepts/glossary/#adjustment)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| amount | _double_ | 📝 editable | Required |\n| sort | _integer_ | 📝 editable | Required, min: 0 |\n| type | _enum(**\\*__`relative`_,\\* `absolute`_)_ | 📝 editable | Required |\n| target | _enum(**\\*__`charge`_,_`quantity`_)\\* | 📝 editable | Required |\n| first_interval | _string_ | 📝 editable | Required, format: Y-m |\n| last_interval | _string?_ | 📝 editable | Format: Y-m |\n| created_at | _timestamp_ | 👁 read-only |  |\n| updated_at | _timestamp_ | 👁 read-only |  |\n\nThe following resources can be included:\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| has one | account | ✔️ |\n| has many | services | ❌ |\n| has many | servicecategories | ❌ |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -22605,7 +22942,7 @@
 						}
 					],
 					"id": "dcc7d52d-c5f5-35bd-a28b-182dbba9eec3",
-					"description": "#### Configuration Keys\n\n| **key** | **type** | **description** |\n| --- | --- | --- |\n| APP_DEBUG | *bool, default* `false` | Turn debug mode on/off. In debug more, a lot more log files are generated. Not recommended for production systems. |\n| APP_NAME | *string, default* `Exivity` | The name of the application |\n| APP_LOGO | string, max length: 512 kilobytes | Inline image, encoded in base64 |\n| APP_ICON | string, max length: 1024 kilobytes | Inline image, encoded in base64 |\n| APP_FAVICON | string, max length: 5 kilobytes | Website favicon. Inline image, encoded in base64 |\n| APP_COLOUR | *string, default* `#00a8d8` | Brand colour |\n| APP_CSS | *string* | Custom CSS to use on the website |\n| APP_DOCUMENTATION | *bool, default* `true` | Enable to show documentation link in the website header. |\n| APP_LANGUAGE | *string, default* `en` |  |\n| PUBLIC_ROOT |  | The default front-end URL clients should connect to. Fill out as https://example.com. |\n| SSO_LOGIN_METHOD | *in: local_user_or_ldap, local_user_only, local_user_or_saml, saml_only, local_user_or_ldap_or_saml**Default* `local_user_or_ldap` |  |\n| USE_LOCAL_STORAGE |  |  |\n| ANALYTICS |  |  |\n| ANALYTICS_EXTRA_PROPERTY |  |  |\n| ERROR_TRACKING |  | Enabling this option will report anonymous error metrics so we can make our product better. |\n| BETA_FEATURES |  |  |\n| USE_CACHE |  |  |\n| CURRENCY | *string, default:* `EUR` |  |\n| CURRENCY_FORMAT | *string, default:* `€` |  |\n| DECIMAL_SEPARATOR | *string, default:* `.` |  |\n| CSV_DELIMITER | *in:* `,`, `;`, `:`, `\\t`, pipe  <br>*Default*: `,` | Field delimiter for CSV exports |\n| CSV_DECIMAL_SEPARATOR | *in:* `,`, `.`  <br>*Default:* `.` | Decimal separator for CSV exports |\n| THOUSAND_SEPARATOR | *nullable, in:* `,`, `.`, `'` or space  <br>*Default:* `,` |  |\n| RATE_PRECISION | *int, default:* `8` | Precision for rates as displayed on the summary report. |\n| REPORT_PRECISION | *int, default:* `2` | Precision for currency amounts displayed on reports other than summaries. |\n| SUMMARY_PRECISION | *int, default:* `2` | Precision for currency amounts displayed on the summary report. |\n| QUANTITY_PRECISION | *int, default:* `6` |  |\n| PERCENTAGE_PRECISION | *int, default:* `2` |  |\n| DATE_FORMAT | *string, default:* `dd-MM-yyyy` | [https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) |\n| SUMMARY_TITLE | *string, default* `Summary` |  |\n| SUMMARY_ADDRESS |  |  |\n| SUMMARY_IMAGE |  |  |\n| SUMMARY_EXTRA |  |  |\n| SUMMARY_MIN_COMMIT | *string, default* `Uplift for minimum commitment of {quantity} {label}` | Used as line item description for minimum commit uplifts. The identifier `{quantity}` will be replaced with the minimum commitment quantity, and `{label}` will be replaced with the unit label. |\n| GRAPH_MAX_SERIES | *int, default* `15` |  |\n| REPORT_START_MONTH | *int, default* `1` |  |\n| DISCLAIMER_ENABLED | *bool, default* `false` | Show disclaimer as a page overlay once to new users. Users will only be allowed to continue to the app if they agree with the disclaimer text. |\n| DISCLAIMER_TITLE | *string, default* `Disclaimer` | Title shown in the disclaimer overlay. |\n| DISCLAIMER_TEXT | *string* | Main disclaimer text shown in the disclaimer overlay. Markdown is supported. |\n| DISCLAIMER_AGREE_BUTTON_TEXT | *string, default* `I agree` | Button text shown in the disclaimer overlay which users have to click in order to continue to the app. |\n| TOKEN_TTL | *string, default* `4 hours` | Token lifetime - Set the token expiration time interval. Users will have to login again after their token expires. |\n| ALLOW_PERSISTENT_TOKENS | *bool, default* `false` | Allow users to remain logged in for duration of the token lifetime. |\n| PASSWORD_POLICY | *in: length, length_dictionary, length_dictionary_entropy.**Default* `length_dictionary` | `length` - min 8 characters long  <br>`dictionary` - does not allow comon dictionary words.  <br>`entropy` - the [Shannon Entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)) of the characters must be greater than 3.5 |\n| MAX_LOGIN_ATTEMPTS | *int, default* `5` |  |\n| LOGIN_ATTEMPTS_INTERVAL | *string* | If null, there's no limit, otherwise, `15 minutes`, `1 hour`, `2 hours`, `30 minutes`, etc. |\n| BLOCK_LOGIN_DURATION | *string, default* `15 minutes` | `15 minutes`, `1 hour`, `2 hours`, `30 minutes`, etc. |",
+					"description": "#### Configuration Keys\n\nThe system can be configured using these endpoints.\n\n| **key** | **type** | **description** |\n| --- | --- | --- |\n| APP_DEBUG | _bool, default_ `false` | Turn debug mode on/off. In debug more, a lot more log files are generated. Not recommended for production systems. |\n| APP_NAME | _string, default_ `Exivity` | The name of the application |\n| APP_ICON | string, max length: 1024 kilobytes | Inline image, encoded in base64 |\n| APP_LOGO | string, max length: 512 kilobytes | Inline image, encoded in base64 |\n| APP_FAVICON | string, max length: 5 kilobytes | Website favicon. Inline image, encoded in base64 |\n| APP_COLOUR | _string, default_ `#00a8d8` | Brand colour |\n| APP_CSS | _string_ | Custom CSS to use on the website |\n| APP_DOCUMENTATION | _bool, default_ `true` | Enable to show documentation link in the website header. |\n| APP_LANGUAGE | _string, default_ `en` |  |\n| FINGERPRINTER | _string, default_ `secure_ip_useragent` | Fingerprint algorithm used to verify user location matches location where token was generated.  <br>**secure** - checks protocals match (e.g. http/https)  <br>**ip** - Checks the IP addresses match.  <br>**useragent** - Checks the request is coming from the same user agent.  <br>Possible values: `secure_ip_useragent` / `secure_useragent` |\n| PUBLIC_ROOT |  | The default front-end URL clients should connect to. Fill out as [https://example.com](https://example.com). |\n| SSO_LOGIN_METHOD | _in: local_user_or_ldap, local_user_only, local_user_or_saml, saml_only, local_user_or_ldap_or_saml**Default_ `local_user_or_ldap` |  |\n| USE_LOCAL_STORAGE |  |  |\n| ANALYTICS |  |  |\n| ANALYTICS_EXTRA_PROPERTY |  |  |\n| ERROR_TRACKING |  | Enabling this option will report anonymous error metrics so we can make our product better. |\n| BETA_FEATURES |  |  |\n| USE_CACHE |  |  |\n| CURRENCY | _string, default:_ `EUR` |  |\n| CURRENCY_FORMAT | _string, default:_ `€` |  |\n| DECIMAL_SEPARATOR | _string, default:_ `.` |  |\n| CSV_DELIMITER | _in:_ `,`, `;`, `:`, `\\t`, pipe  <br>_Default_: `,` | Field delimiter for CSV exports |\n| CSV_DECIMAL_SEPARATOR | _in:_ `,`, `.`  <br>_Default:_ `.` | Decimal separator for CSV exports |\n| THOUSAND_SEPARATOR | _nullable, in:_ `,`, `.`, `'` or space  <br>_Default:_ `,` |  |\n| RATE_PRECISION | _int, default:_ `8` | Precision for rates as displayed on the summary report. |\n| REPORT_PRECISION | _int, default:_ `2` | Precision for currency amounts displayed on reports other than summaries. |\n| SUMMARY_PRECISION | _int, default:_ `2` | Precision for currency amounts displayed on the summary report. |\n| QUANTITY_PRECISION | _int, default:_ `6` |  |\n| PERCENTAGE_PRECISION | _int, default:_ `2` |  |\n| DATE_FORMAT | _string, default:_ `dd-MM-yyyy` | [https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) |\n| SUMMARY_TITLE | _string, default_ `Summary` |  |\n| SUMMARY_ADDRESS |  |  |\n| SUMMARY_IMAGE |  |  |\n| SUMMARY_EXTRA |  |  |\n| SUMMARY_MIN_COMMIT | _string, default_ `Uplift for minimum commitment of {quantity} {label}` | Used as line item description for minimum commit uplifts. The identifier `{quantity}` will be replaced with the minimum commitment quantity, and `{label}` will be replaced with the unit label. |\n| GRAPH_MAX_SERIES | _int, default_ `15` |  |\n| REPORT_START_MONTH | _int, default_ `1` |  |\n| DISCLAIMER_ENABLED | _bool, default_ `false` | Show disclaimer as a page overlay once to new users. Users will only be allowed to continue to the app if they agree with the disclaimer text. |\n| DISCLAIMER_TITLE | _string, default_ `Disclaimer` | Title shown in the disclaimer overlay. |\n| DISCLAIMER_TEXT | _string_ | Main disclaimer text shown in the disclaimer overlay. Markdown is supported. |\n| DISCLAIMER_AGREE_BUTTON_TEXT | _string, default_ `I agree` | Button text shown in the disclaimer overlay which users have to click in order to continue to the app. |\n| TOKEN_TTL | _string, default_ `4 hours` | Token lifetime - Set the token expiration time interval. Users will have to login again after their token expires. |\n| ALLOW_PERSISTENT_TOKENS | _bool, default_ `false` | Allow users to remain logged in for duration of the token lifetime. |\n| PASSWORD_POLICY | _in: length, length_dictionary, length_dictionary_entropy.**Default_ `length_dictionary` | `length` - min 8 characters long  <br>`dictionary` - does not allow comon dictionary words.  <br>`entropy` - the [Shannon Entropy](https://en.wikipedia.org/wiki/Entropy_(information_theory)) of the characters must be greater than 3.5 |\n| MAX_LOGIN_ATTEMPTS | _int, default_ `5` |  |\n| LOGIN_ATTEMPTS_INTERVAL | _string_ | If null, there's no limit, otherwise, `15 minutes`, `1 hour`, `2 hours`, `30 minutes`, etc. |\n| BLOCK_LOGIN_DURATION | _string, default_ `15 minutes` | `15 minutes`, `1 hour`, `2 hours`, `30 minutes`, etc. |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -24990,7 +25327,7 @@
 					"name": "/translations",
 					"item": [
 						{
-							"name": "Overwrite translation",
+							"name": "Create translation",
 							"event": [
 								{
 									"listen": "test",
@@ -25061,16 +25398,14 @@
 									],
 									"variable": [
 										{
-											"id": "070ad597-178c-4d30-b9f2-0f61ac4e8e63",
 											"key": "locale",
 											"value": "en",
 											"type": "string",
 											"description": "ISO 639-1 two letter code representation of names of language"
 										},
 										{
-											"id": "57e2430c-a73e-40bb-8335-ae21982b74f1",
 											"key": "filename",
-											"value": "",
+											"value": "words",
 											"type": "string"
 										}
 									]
@@ -25134,16 +25469,14 @@
 									],
 									"variable": [
 										{
-											"id": "8078032f-7383-4efe-a56e-f2ac18aa3b2e",
 											"key": "locale",
 											"value": "en",
 											"type": "string",
 											"description": "ISO 639-1 two letter code representation of names of language"
 										},
 										{
-											"id": "60ddf905-a29a-47ce-9ec4-acbbda005f0a",
 											"key": "filename",
-											"value": "",
+											"value": "words",
 											"type": "string"
 										}
 									]
@@ -25176,7 +25509,7 @@
 											"    pm.expect(response.data.hello).to.be.eql('Hello World');",
 											"    pm.expect(response.data.bye).to.be.a('string');",
 											"    pm.expect(response.data.bye).to.be.eql('Goodbye');",
-											"    pm.expect(response.data.happy).to.be.eql(1);",
+											"    pm.expect(response.data.happy).to.be.eql(2);",
 											"});"
 										],
 										"type": "text/javascript"
@@ -25209,7 +25542,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"hello\": \"Hello World\"\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"hello\": \"Hello World\",\r\n        \"bye\": \"Goodbye\",\r\n        \"happy\": 2\r\n\t}\r\n}"
 								},
 								"url": {
 									"raw": "{{base_url}}/v1/translations/:locale/:filename",
@@ -25224,16 +25557,14 @@
 									],
 									"variable": [
 										{
-											"id": "870a9749-ddea-4d5f-84ea-9a4c10672fca",
 											"key": "locale",
 											"value": "en",
 											"type": "string",
 											"description": "ISO 639-1 two letter code representation of names of language"
 										},
 										{
-											"id": "de806b74-1525-4c0f-978a-690255df4835",
 											"key": "filename",
-											"value": "",
+											"value": "works",
 											"type": "string"
 										}
 									]
@@ -27381,7 +27712,7 @@
 	],
 	"variable": [
 		{
-			"id": "9e81971a-3312-43f6-bf7c-88da9c31d7ad",
+			"id": "258ea2e5-f6e0-485c-8cad-041f7c61d14a",
 			"key": "component",
 			"value": "use"
 		}
