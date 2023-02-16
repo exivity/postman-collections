@@ -6621,7 +6621,7 @@
 										{
 											"key": "include",
 											"value": null,
-											"description": "Include additional related resources. Possible values: `service`, `account`."
+											"description": "Include additional related resources. Possible values: `rate`."
 										}
 									]
 								}
@@ -27661,7 +27661,7 @@
 	],
 	"variable": [
 		{
-			"id": "fbaad261-e313-425b-943e-edd65f9c489f",
+			"id": "ac2407f0-f1c7-409c-850a-875a9bb234ca",
 			"key": "component",
 			"value": "use"
 		}
