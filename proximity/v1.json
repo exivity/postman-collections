@@ -7786,7 +7786,7 @@
 										{
 											"key": "include",
 											"value": "",
-											"description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`, `metadata`."
+											"description": "Include additional related resources. Possible values: `report`, `parent`, `children`, `rates`, `adjustments`, `users`, `metadata`, `budgetitems`, `servicesubscriptions`."
 										}
 									]
 								}
@@ -27661,7 +27661,7 @@
 	],
 	"variable": [
 		{
-			"id": "ac2407f0-f1c7-409c-850a-875a9bb234ca",
+			"id": "fd2b06e1-970e-4329-9d94-411e265550ad",
 			"key": "component",
 			"value": "use"
 		}
