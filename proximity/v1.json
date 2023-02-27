@@ -8583,7 +8583,7 @@
 										{
 											"key": "include",
 											"value": "",
-											"description": "Include additional related resources. Possible values: `revisions`, `items`, `report`."
+											"description": "Include additional related resources. Possible values: `revisions`, `report`."
 										}
 									]
 								}
@@ -27661,7 +27661,7 @@
 	],
 	"variable": [
 		{
-			"id": "e0fbee82-6fd5-4f03-950e-d909d80dcba2",
+			"id": "efd874ea-62e8-4df4-85f0-13d0cef4002f",
 			"key": "component",
 			"value": "use"
 		}
