@@ -1525,7 +1525,7 @@
 										{
 											"key": "include",
 											"value": "",
-											"description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`."
+											"description": "Include additional related resources. Possible values: `accounts`, `metadatadefinitions`, `dset`, `budgets`."
 										}
 									]
 								}
@@ -27661,7 +27661,7 @@
 	],
 	"variable": [
 		{
-			"id": "efd874ea-62e8-4df4-85f0-13d0cef4002f",
+			"id": "6b1a45ca-e547-4818-8993-dcbcb680663e",
 			"key": "component",
 			"value": "use"
 		}
