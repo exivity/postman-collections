@@ -2129,7 +2129,10 @@
 							"name": "Run a report",
 							"id": "91ce1789-2708-8c84-84f6-4691b9bbd408",
 							"protocolProfileBehavior": {
-								"disableBodyPruning": true
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"accept": true
+								}
 							},
 							"request": {
 								"auth": {
@@ -2139,7 +2142,13 @@
 									}
 								},
 								"method": "GET",
-								"header": [],
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"url": {
 									"raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&dimension=&timeline=&depth=&include=&filter[attribute]&format=&precision=&progress=&csv_delimiter=&csv_decimal_separator&summary_options=",
 									"host": [
@@ -27693,7 +27702,7 @@
 	],
 	"variable": [
 		{
-			"id": "b6d20adf-570e-4505-9de0-a8fa6bbebc23",
+			"id": "70e3810b-a8d8-4688-9810-1ce0d6b632a7",
 			"key": "component",
 			"value": "use"
 		}
