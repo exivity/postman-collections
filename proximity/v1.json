@@ -2154,55 +2154,68 @@
 									"query": [
 										{
 											"key": "start",
-											"value": "{{start}}"
+											"value": "{{start}}",
+											"description": "The start of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
 										},
 										{
 											"key": "end",
-											"value": "{{end}}"
+											"value": "{{end}}",
+											"description": "The end of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
 										},
 										{
 											"key": "dimension",
-											"value": ""
+											"value": "",
+											"description": "The dimension you want to include in the output. One of `accounts`, `services` or `instances` (or a combination of those as a comma separated list). Defaults to `accounts,services`. When `instances` is included, price and quantity adjustments and minimum commit are not reflected in the data."
 										},
 										{
 											"key": "timeline",
-											"value": ""
+											"value": "",
+											"description": "One of `day`, `month` or `none`. Defaults to `day`."
 										},
 										{
 											"key": "depth",
-											"value": ""
+											"value": "",
+											"description": "The depth in the report definition you want to report on. Defaults to 1."
 										},
 										{
 											"key": "include",
-											"value": ""
+											"value": "",
+											"description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date`, `adjustment_name` (or a combination of those as a comma separated list). The account and service fields are only available if their respective dimension is included in the request."
 										},
 										{
 											"key": "filter[attribute]",
-											"value": null
+											"value": null,
+											"description": "Optionally filter the output by the supplied field. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
 										},
 										{
 											"key": "format",
-											"value": ""
+											"value": "",
+											"description": "One of `json`, `csv` or `pdf/summary`. Default to `json`."
 										},
 										{
 											"key": "precision",
-											"value": ""
+											"value": "",
+											"description": "Specify `highest` to get raw precision, use configuration otherwise. Defaults to `configuration`."
 										},
 										{
 											"key": "progress",
-											"value": ""
+											"value": "",
+											"description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/ínvoice` is never streamed. Defaults to `1`."
 										},
 										{
 											"key": "csv_delimiter",
-											"value": ""
+											"value": "",
+											"description": "The CSV delimiter to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `;`, `:`, `\\t`, `|`. Leave blank to use configuration."
 										},
 										{
 											"key": "csv_decimal_separator",
-											"value": null
+											"value": null,
+											"description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration."
 										},
 										{
 											"key": "summary_options",
-											"value": ""
+											"value": "",
+											"description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_service`. Defaults to `services`."
 										}
 									],
 									"variable": [
@@ -27679,7 +27692,7 @@
 	],
 	"variable": [
 		{
-			"id": "dbe7cf51-ec3a-4483-a8ef-7354b03f6209",
+			"id": "66299b8f-b709-4be4-92e9-9e0538a6b408",
 			"key": "component",
 			"value": "use"
 		}
