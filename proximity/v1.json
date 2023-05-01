@@ -2221,7 +2221,8 @@
 									"variable": [
 										{
 											"key": "report_id",
-											"value": null
+											"value": "{{report_id}}",
+											"description": "ID of report to run"
 										}
 									]
 								},
@@ -27692,7 +27693,7 @@
 	],
 	"variable": [
 		{
-			"id": "66299b8f-b709-4be4-92e9-9e0538a6b408",
+			"id": "b6d20adf-570e-4505-9de0-a8fa6bbebc23",
 			"key": "component",
 			"value": "use"
 		}
