@@ -19406,7 +19406,7 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"My phone number\",\n            \"type\": \"nexmo\",\n            \"info\": {\n                \"recipient\": \"+31639385508\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/5\"\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"My phone number\",\n            \"type\": \"nexmo\",\n            \"info\": {\n                \"recipient\": \"+31612345678\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/5\"\n        }\n    }\n}"
 								},
 								{
 									"id": "88c87073-695d-4301-8152-51dec8ece76f",
@@ -27702,7 +27702,7 @@
 	],
 	"variable": [
 		{
-			"id": "70e3810b-a8d8-4688-9810-1ce0d6b632a7",
+			"id": "73c5ea37-b22c-4f6d-a537-d9a6f271e251",
 			"key": "component",
 			"value": "use"
 		}
