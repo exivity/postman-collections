@@ -20265,7 +20265,7 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"enabled\": true,\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ],\n                \"files\": {\n                    \"filename\": [\n                        \"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\",\n                        \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"\n                    ],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/4\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/user\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow_ended\",\n            \"enabled\": true,\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ],\n                \"files\": {\n                    \"filename\": [\n                        \"extractor_[0-9]{,2}\\\\.[a-z0-9]{2,4}\",\n                        \"transformer_[0-9]{,2}\\\\.[a-z0-9]{2,4}\"\n                    ],\n                    \"edited_since_workflow_started\": true,\n                    \"compress_attachments\": false\n                }\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/4\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/user\"\n                }\n            }\n        }\n    }\n}"
 								},
 								{
 									"id": "9411375b-13dd-4907-8bd8-0f49491e487b",
@@ -27702,7 +27702,7 @@
 	],
 	"variable": [
 		{
-			"id": "73c5ea37-b22c-4f6d-a537-d9a6f271e251",
+			"id": "f413e3fb-a1cc-46b6-bfd1-921df1bb8cd3",
 			"key": "component",
 			"value": "use"
 		}
