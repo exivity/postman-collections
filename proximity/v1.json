@@ -12933,8 +12933,8 @@
 										{
 											"key": "file",
 											"description": "File to be uploaded",
-											"type": "text",
-											"value": ""
+											"type": "file",
+											"value": null
 										},
 										{
 											"key": "group",
@@ -27702,7 +27702,7 @@
 	],
 	"variable": [
 		{
-			"id": "f413e3fb-a1cc-46b6-bfd1-921df1bb8cd3",
+			"id": "3b2b7894-03bd-4728-978c-4624828a21fd",
 			"key": "component",
 			"value": "use"
 		}
