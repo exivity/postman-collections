@@ -13212,7 +13212,7 @@
 							"response": [
 								{
 									"id": "04a13e9c-47ee-4d2c-8378-2c900725286e",
-									"name": "List files in specific folder",
+									"name": "List files specific in folder",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -13307,104 +13307,6 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": [\n        {\n            \"type\": \"file\",\n            \"name\": \"01_uploaded_001.txt\",\n            \"path\": \"/generic/2023/06\"\n        }\n    ]\n}"
-								},
-								{
-									"id": "c322899a-0fde-4472-b33c-eededf712dc2",
-									"name": "List files in root folder",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"url": "{{base_url}}/v1/file/"
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Host",
-											"value": "localhost:8012"
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 01 Jun 2023 10:29:42 GMT"
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 01 Jun 2023 10:29:42 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "close"
-										},
-										{
-											"key": "X-Powered-By",
-											"value": "PHP/8.2.6"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/vnd.api+json"
-										},
-										{
-											"key": "X-Clockwork-Id",
-											"value": "X62560889c14934e994108c9e4fa60da5"
-										},
-										{
-											"key": "X-Clockwork-Version",
-											"value": "1"
-										},
-										{
-											"key": "X-Clockwork-Path",
-											"value": "_debugbar/clockwork/"
-										},
-										{
-											"key": "phpdebugbar-id",
-											"value": "X62560889c14934e994108c9e4fa60da5"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=31536000; includeSubDomains"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "Feature-Policy",
-											"value": "autoplay 'none'; camera 'none'"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "strict-origin"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-Nv5CKCaXRiJedbcxhxXU7pMEJf4irnwT';style-src 'self' 'nonce-Nv5CKCaXRiJedbcxhxXU7pMEJf4irnwT';font-src 'self' data:"
-										},
-										{
-											"key": "Request-Id",
-											"value": "a99f8069-f6bb-4d51-8da8-20358e12c9c6"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": [\n        {\n            \"type\": \"folder\",\n            \"name\": \"generic\",\n            \"path\": \"/\",\n            \"children\": [\n                {\n                    \"type\": \"folder\",\n                    \"name\": \"2023\",\n                    \"path\": \"/generic\",\n                    \"children\": [\n                        {\n                            \"type\": \"folder\",\n                            \"name\": \"06\",\n                            \"path\": \"/generic/2023\",\n                            \"children\": [\n                                {\n                                    \"type\": \"file\",\n                                    \"name\": \"01_uploaded_001.txt\",\n                                    \"path\": \"/generic/2023/06\"\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ]\n        },\n        {\n            \"type\": \"folder\",\n            \"name\": \"temp\",\n            \"path\": \"/\",\n            \"children\": [\n                {\n                    \"type\": \"folder\",\n                    \"name\": \"2023\",\n                    \"path\": \"/temp\",\n                    \"children\": [\n                        {\n                            \"type\": \"folder\",\n                            \"name\": \"06\",\n                            \"path\": \"/temp/2023\",\n                            \"children\": [\n                                {\n                                    \"type\": \"file\",\n                                    \"name\": \"01_uploaded_001.txt\",\n                                    \"path\": \"/temp/2023/06\"\n                                },\n                                {\n                                    \"type\": \"file\",\n                                    \"name\": \"01_uploaded_002.txt\",\n                                    \"path\": \"/temp/2023/06\"\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}"
 								}
 							]
 						},
@@ -27899,7 +27801,7 @@
 	],
 	"variable": [
 		{
-			"id": "b7b119ed-5ae9-4218-84f3-7853c4100b27",
+			"id": "f4602d34-ab8d-4638-871b-2374eac9ebdf",
 			"key": "component",
 			"value": "use"
 		}
