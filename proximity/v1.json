@@ -13212,7 +13212,7 @@
 							"response": [
 								{
 									"id": "04a13e9c-47ee-4d2c-8378-2c900725286e",
-									"name": "List files specific in folder",
+									"name": "List files in specific folder",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -27899,7 +27899,7 @@
 	],
 	"variable": [
 		{
-			"id": "ebd253b2-ebfa-4164-9381-42e4f9770e03",
+			"id": "b7b119ed-5ae9-4218-84f3-7853c4100b27",
 			"key": "component",
 			"value": "use"
 		}
