@@ -13209,7 +13209,7 @@
 										}
 									]
 								},
-								"description": "List the files in a given folder.  \nExample:\n\n- /v1/file/generic\n- /v1/file/generic/2023\n    \n\nAll files are stored in the `%EXIVITY_HOME_PATH%/import` folder. So **/v1/file/generic** would return the files from `%EXIVITY_HOME_PATH%/import/generic`.\n\nEndFragment"
+								"description": "List the files in a given folder.  \nExample:\n\n- /v1/file/generic\n- /v1/file/generic/2023\n    \n\nAll files are stored in the `%EXIVITY_HOME_PATH%/import` folder. So **/v1/file/generic** would return the files from `%EXIVITY_HOME_PATH%/import/generic`."
 							},
 							"response": [
 								{
@@ -27901,7 +27901,7 @@
 	],
 	"variable": [
 		{
-			"id": "6c391fbc-0bc6-45f3-8960-c45dd4706858",
+			"id": "649ca1fb-deac-4981-bbed-249753a8ca33",
 			"key": "component",
 			"value": "use"
 		}
