@@ -13405,6 +13405,104 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": [\n        {\n            \"type\": \"folder\",\n            \"name\": \"generic\",\n            \"path\": \"/\",\n            \"children\": [\n                {\n                    \"type\": \"folder\",\n                    \"name\": \"2023\",\n                    \"path\": \"/generic\",\n                    \"children\": [\n                        {\n                            \"type\": \"folder\",\n                            \"name\": \"06\",\n                            \"path\": \"/generic/2023\",\n                            \"children\": [\n                                {\n                                    \"type\": \"file\",\n                                    \"name\": \"01_uploaded_001.txt\",\n                                    \"path\": \"/generic/2023/06\"\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ]\n        },\n        {\n            \"type\": \"folder\",\n            \"name\": \"temp\",\n            \"path\": \"/\",\n            \"children\": [\n                {\n                    \"type\": \"folder\",\n                    \"name\": \"2023\",\n                    \"path\": \"/temp\",\n                    \"children\": [\n                        {\n                            \"type\": \"folder\",\n                            \"name\": \"06\",\n                            \"path\": \"/temp/2023\",\n                            \"children\": [\n                                {\n                                    \"type\": \"file\",\n                                    \"name\": \"01_uploaded_001.txt\",\n                                    \"path\": \"/temp/2023/06\"\n                                },\n                                {\n                                    \"type\": \"file\",\n                                    \"name\": \"01_uploaded_002.txt\",\n                                    \"path\": \"/temp/2023/06\"\n                                }\n                            ]\n                        }\n                    ]\n                }\n            ]\n        }\n    ]\n}"
+								},
+								{
+									"id": "04a13e9c-47ee-4d2c-8378-2c900725286e",
+									"name": "List files in folder",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": "{{base_url}}/v1/file/generic/2023/06"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Jun 2023 10:28:22 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 01 Jun 2023 10:28:21 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.2.6"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xa27a8d61715227559d70d17795dd716e"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "Xa27a8d61715227559d70d17795dd716e"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-dLpwQNl8MwCnAHrwG3Y9sNoVgVn3FWxK';style-src 'self' 'nonce-dLpwQNl8MwCnAHrwG3Y9sNoVgVn3FWxK';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "c26fc692-8bb4-490d-a8ea-06d3f3f7a44d"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": [\n        {\n            \"type\": \"file\",\n            \"name\": \"01_uploaded_001.txt\",\n            \"path\": \"/generic/2023/06\"\n        }\n    ]\n}"
 								}
 							]
 						},
@@ -27899,7 +27997,7 @@
 	],
 	"variable": [
 		{
-			"id": "73a78944-007a-4919-b146-548fc0c525b7",
+			"id": "50db4515-1fc3-489c-80b7-0523956db4b8",
 			"key": "component",
 			"value": "use"
 		}
