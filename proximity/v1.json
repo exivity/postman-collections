@@ -13208,7 +13208,8 @@
 											"description": "Folder path"
 										}
 									]
-								}
+								},
+								"description": "StartFragment\n\nList the files in a given folder  \nExample:\n\n- /v1/file/generic\n- /v1/file/generic/2023\n    \n\nEndFragment"
 							},
 							"response": [
 								{
@@ -27900,7 +27901,7 @@
 	],
 	"variable": [
 		{
-			"id": "d05656f5-3875-4963-bf96-cf408fa2a154",
+			"id": "9ae521ea-ab8b-4270-8756-a1150a3a2c12",
 			"key": "component",
 			"value": "use"
 		}
