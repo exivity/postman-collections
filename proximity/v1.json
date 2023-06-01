@@ -13205,7 +13205,7 @@
 											"key": "folder",
 											"value": "",
 											"type": "string",
-											"description": "Folder to check"
+											"description": "Folder to check. Example: /v1/file/generic, /v1/file/generic/2023 "
 										}
 									]
 								}
@@ -27900,7 +27900,7 @@
 	],
 	"variable": [
 		{
-			"id": "574c4f88-aa1f-454a-b133-16d9cd7a0fe8",
+			"id": "4c9fba7b-925d-4b04-84b9-08b51fe67e42",
 			"key": "component",
 			"value": "use"
 		}
