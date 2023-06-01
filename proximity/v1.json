@@ -13221,7 +13221,7 @@
 												"value": "application/json"
 											}
 										],
-										"url": "{{base_url}}/v1/file/"
+										"url": "{{base_url}}/v1/file/generic/2023/06"
 									},
 									"status": "OK",
 									"code": 200,
@@ -27899,7 +27899,7 @@
 	],
 	"variable": [
 		{
-			"id": "4239ffd9-5f0f-48ad-8858-634d611b7137",
+			"id": "e48b919c-fa34-413d-927e-3be08d9f2479",
 			"key": "component",
 			"value": "use"
 		}
