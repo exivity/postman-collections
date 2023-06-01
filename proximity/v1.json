@@ -13310,7 +13310,7 @@
 								},
 								{
 									"id": "c322899a-0fde-4472-b33c-eededf712dc2",
-									"name": "List files in folder",
+									"name": "List files in root folder",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -27899,7 +27899,7 @@
 	],
 	"variable": [
 		{
-			"id": "dfaa27f9-a58e-4645-b4c9-0e6ba7953561",
+			"id": "ebd253b2-ebfa-4164-9381-42e4f9770e03",
 			"key": "component",
 			"value": "use"
 		}
