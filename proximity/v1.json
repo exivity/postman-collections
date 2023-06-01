@@ -13209,7 +13209,7 @@
 										}
 									]
 								},
-								"description": "StartFragment\n\nList the files in a given folder  \nExample:\n\n- /v1/file/generic\n- /v1/file/generic/2023\n    \n\nEndFragment"
+								"description": "List the files in a given folder  \nExample:\n\n- /v1/file/generic\n- /v1/file/generic/2023"
 							},
 							"response": [
 								{
@@ -27901,7 +27901,7 @@
 	],
 	"variable": [
 		{
-			"id": "9ae521ea-ab8b-4270-8756-a1150a3a2c12",
+			"id": "ca302285-eaf4-490a-b0a8-9b3e2d87c6eb",
 			"key": "component",
 			"value": "use"
 		}
