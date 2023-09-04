@@ -7652,7 +7652,7 @@
 						}
 					],
 					"id": "4dfd68e7-c992-32af-d8c6-e03a41c940ca",
-					"description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#adjustment](https://docs.exivity.com/architecture%20concepts/glossary/#adjustment)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| amount | _double_ | 📝 editable | Required |\n| sort | _integer_ | 📝 editable | Required, min: 0 |\n| type | _enum(**\\*__`relative`_,\\* `absolute`_)_ | 📝 editable | Required |\n| target | _enum(**\\*__`charge`_,_`quantity`_)\\* | 📝 editable | Required |\n| first_interval | _string_ | 📝 editable | Required, format: Y-m |\n| last_interval | _string?_ | 📝 editable | Format: Y-m |\n| created_at | _timestamp_ | 👁 read-only |  |\n| updated_at | _timestamp_ | 👁 read-only |  |\n\nThe following resources can be included:\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| has one | account | ✔️ |\n| has many | services | ❌ |\n| has many | servicecategories | ❌ |",
+					"description": "Adjustments allow a user to create account-specific rate adjustment policies.\n\nExivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#adjustment](https://docs.exivity.com/architecture%20concepts/glossary/#adjustment)\n\n#### The Adjustment Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| amount | _double_ | 📝 editable | Required |\n| sort | _integer_ | 📝 editable | Required, min: 0 |\n| type | _enum(_`_relative_`, `absolute`_)_ | 📝 editable | Required |\n| target | _enum(_`_charge_`, `_quantity_`) | 📝 editable | Required |\n| first_interval | _string_ | 📝 editable | Required, format: Y-m |\n| last_interval | _string?_ | 📝 editable | Format: Y-m |\n| created_at | _timestamp_ | 👁 read-only |  |\n| updated_at | _timestamp_ | 👁 read-only |  |\n\nThe following resources can be included:\n\n| **relationship** | **type** | **required** |\n| --- | --- | --- |\n| has one | account | ✔️ |\n| has many | services | ❌ |\n| has many | servicecategories | ❌ |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -27901,7 +27901,7 @@
 	],
 	"variable": [
 		{
-			"id": "649ca1fb-deac-4981-bbed-249753a8ca33",
+			"id": "a5d9538e-8fce-438f-bd07-04fda0af575d",
 			"key": "component",
 			"value": "use"
 		}
