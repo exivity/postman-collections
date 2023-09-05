@@ -16732,7 +16732,7 @@
 						}
 					],
 					"id": "6adb9863-cc52-4412-9977-5f2be41f3dcf",
-					"description": "A workflow allows you to schedule various tasks and execute them at a specific date and time.\n\nExivity documentation:  \n[https://docs.exivity.com/Architecture%20concepts/Glossary#workflow](https://docs.exivity.com/Architecture%20concepts/Glossary#workflow)\n\n**To create a workflow**\n\n1. Create a workflow object\n    \n2. Create a workflow schedule\n    \n3. Add steps to the workflow\n    \n\n#### The Workflow Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | required, string |\n| description | string |",
+					"description": "A workflow allows you to schedule various tasks and execute them at a specific date and time.\n\nExivity documentation:  \n[https://docs.exivity.com/Architecture%20concepts/Glossary#workflow](https://docs.exivity.com/Architecture%20concepts/Glossary#workflow)\n\n**To create a workflow**\n\n1. Create a workflow object\n    \n2. Create a workflow schedule\n    \n3. Add steps to the workflow\n    \n\n#### The Workflow Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| description | _string_ | 📝 editable |  |\n| created_at | _datetime_ | 👁 read-only |  |\n| updated_at | _datetime_ | 👁 read-only |  |\n\nThe following relationships can be included:\n\n| **relationship** | **cardinality** | **type** | **required** |\n| --- | --- | --- | --- |\n| steps | hasMany | workflowstep | ❌ |\n| schedules | hasMany | workflowschedule | ❌ |\n| runs | hasMany | workflowrun | ❌ |",
 					"auth": {
 						"type": "bearer",
 						"bearer": {}
@@ -28742,7 +28742,7 @@
 	],
 	"variable": [
 		{
-			"id": "b88a40fd-c30e-4dcd-b423-5751e5b04c69",
+			"id": "7fb3fc87-8795-43f8-af41-9c97d379136c",
 			"key": "component",
 			"value": "use"
 		}
