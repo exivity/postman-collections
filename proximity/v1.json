@@ -17572,6 +17572,8 @@
 											"pm.environment.set(\"execute_workflowstep_id\", response.data.id);",
 											"pm.environment.set(\"workflowstep_id\", response.data.id);",
 											"console.log('SET execute_workflowstep_id: ' + pm.environment.get(\"execute_workflowstep_id\"));",
+											"pm.environment.set(\"workflowstep_id\", response.data.id);",
+											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));",
 											""
 										],
 										"type": "text/javascript"
@@ -17614,7 +17616,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"execute\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"echo \\\"testing\\\"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{edify_workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
+									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"execute\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"echo \\\"testing\\\"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps"
 							},
@@ -27890,7 +27892,7 @@
 	],
 	"variable": [
 		{
-			"id": "4e1e653c-75aa-4a61-8b85-9a7679763475",
+			"id": "80fcc807-30ca-4cb7-98ed-a33fa2c0a067",
 			"key": "component",
 			"value": "use"
 		}
