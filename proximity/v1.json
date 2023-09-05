@@ -18151,7 +18151,112 @@
 								},
 								"url": "{{base_url}}/v1/workflowsteps"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "e5a55c3b-46d8-4e92-b2d9-be4d72e34f02",
+									"name": "Add a new execute step",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"execute\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"echo \\\"testing\\\"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
+										},
+										"url": "{{base_url}}/v1/workflowsteps"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 12:11:58 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 12:11:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Location",
+											"value": "http://localhost:8012/v1/WorkflowStep/WorkflowSteps"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xb2caf2245b20ad9f197752b10a2e2b58"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-gdPnX7NAseOzn8lGeRvdZEvhCb7tFoUr';style-src 'self' 'nonce-gdPnX7NAseOzn8lGeRvdZEvhCb7tFoUr';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "c845367f-4cd8-4030-969f-c303386b3192"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"22\",\n        \"attributes\": {\n            \"type\": \"execute\",\n            \"options\": {\n                \"command\": \"echo \\\"testing\\\"\"\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/22\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/22/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/22/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/22/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/22/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/22/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/22/previous\"\n                }\n            }\n        }\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Add a new API(proximity) step",
@@ -28427,7 +28532,7 @@
 	],
 	"variable": [
 		{
-			"id": "7b82f07e-dc79-440f-976c-07a0143e6fb9",
+			"id": "b5df55f6-9411-4b59-af1a-de63721d630c",
 			"key": "component",
 			"value": "use"
 		}
