@@ -17421,7 +17421,7 @@
 						}
 					],
 					"id": "7ac62937-0fe7-4780-8697-8a69fac8b820",
-					"description": "Exivity documentation:  \n[https://docs.exivity.com/data-pipelines/workflows](https://docs.exivity.com/data-pipelines/workflows)\n\nSchedule how often a workflow should run.\n\n#### The Workflow Schedule Object\n\n| **attribute** | **type** |\n| --- | --- |\n| start_time | required, format: Y-m-d\\\\TH:i:s\\\\Z |\n| timezone | required, timezone |\n| adjust_for_dst | required, boolean |\n| frequency | required, in: hourly, daily, monthly |\n| frequency_modifier | numeric |",
+					"description": "Exivity documentation:  \n[https://docs.exivity.com/data-pipelines/workflows](https://docs.exivity.com/data-pipelines/workflows)\n\nSchedule how often a workflow should run.\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| start_time | _datetime_ | 📝 editable | Required. Earliest time workflow can start. |\n| timezone | _timezone_ | 📝 editable | Required. The timezone is used only when adjust_for_dst is set to true. If the timezone doesn't use daylight saving time _(i.e. (UTC) Coordinated Universal Time, (UTC+01:00) West Central Africa etc.)_, no changes are applied when calculating the next run. |\n| adjust_for_dst | _boolean_ | 📝 editable | Required.  <br>If true, and the timezone uses daylight saving time, the workflow run time is adjusted to take this into account.  <br>**Example:**  <br>\\* in winter, 00:01 UTC means 01:01 in Berlin  <br>\\* in summer, 00:01 UTC means 02:01 in Berlin |\n| frequency | _enum_ (`hourly`_,_ `daily`_,_ `monthly`) | 📝 editable | Required |\n| frequency_modifier | _integer_ | 📝 editable | Examples  <br>_**frequency**_**: daily,** _**frequency_modifier**_**: 2** - the workflow will run every two days  <br>  <br>_**frequency**_**: hourly,** _**frequency_modifier**_**: 3** - the workflow will run every three hours |\n| next_run | _datetime_ | 👁 read-only |  |\n\nThe following relationships can be included:\n\n| **relationship** | **cardinality** | **type** | **required** |\n| --- | --- | --- | --- |\n| workflow | hasOne | workflow | ✔️ |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -28742,7 +28742,7 @@
 	],
 	"variable": [
 		{
-			"id": "b99c850e-9400-4257-a287-1ffadf707ae5",
+			"id": "1334bafd-93b7-4857-8190-5b4dd5ac0131",
 			"key": "component",
 			"value": "use"
 		}
