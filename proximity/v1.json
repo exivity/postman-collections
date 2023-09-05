@@ -17751,7 +17751,9 @@
 											"});",
 											"",
 											"pm.environment.set(\"budget_workflowstep_id\", response.data.id);",
-											"console.log('SET budget_workflowstep_id: ' + pm.environment.get(\"budget_workflowstep_id\"));"
+											"console.log('SET budget_workflowstep_id: ' + pm.environment.get(\"budget_workflowstep_id\"));",
+											"pm.environment.set(\"workflowstep_id\", response.data.id);",
+											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
 										],
 										"type": "text/javascript"
 									}
@@ -17800,7 +17802,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"proximity\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"exivity:gc\",\r\n                \"arguments\": \"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{proximity_workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
+									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"proximity\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"exivity:gc\",\r\n                \"arguments\": \"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps"
 							},
@@ -27894,7 +27896,7 @@
 	],
 	"variable": [
 		{
-			"id": "a641baca-8b45-4a5f-826b-6e30ff40c264",
+			"id": "b6318713-de46-472f-9c5b-3879c77e24d1",
 			"key": "component",
 			"value": "use"
 		}
