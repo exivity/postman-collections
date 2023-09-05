@@ -14628,7 +14628,125 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "cfaf2b52-2d0e-400c-90e2-a7db952da293",
+									"name": "Update a metadata definition",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition - {{$guid}}\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t        \"name\": \"country\",\r\n\t\t\t\t    \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n                    \"name\": \"city\",\r\n\t\t\t\t    \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/metadatadefinitions/:metadata_definition_id",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"metadatadefinitions",
+												":metadata_definition_id"
+											],
+											"variable": [
+												{
+													"key": "metadata_definition_id",
+													"value": "{{metadatadefinition_id}}",
+													"type": "string"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 11:39:51 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 11:39:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xbec6399d6191b7c2c2b98ba3aa9e4628"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-BsqM6lmC8Svr7UZJdWBVj9hTIesxBf30';style-src 'self' 'nonce-BsqM6lmC8Svr7UZJdWBVj9hTIesxBf30';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "d0956825-9c46-4a0f-9bd3-b41321382212"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"metadatadefinition\",\n        \"id\": \"2\",\n        \"attributes\": {\n            \"name\": \"Modified test definition - c9bb0f79-c9fb-41f5-8f5b-2d22b614063f\",\n            \"fields\": [\n                {\n                    \"name\": \"country\",\n                    \"type\": \"string\"\n                },\n                {\n                    \"name\": \"city\",\n                    \"type\": \"string\"\n                }\n            ]\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/metadatadefinitions/2\"\n        },\n        \"relationships\": {\n            \"metadata\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadatadefinitions/2/relationships/metadata\",\n                    \"related\": \"http://localhost:8012/v1/metadatadefinitions/2/metadata\"\n                }\n            },\n            \"datasets\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadatadefinitions/2/relationships/datasets\",\n                    \"related\": \"http://localhost:8012/v1/metadatadefinitions/2/datasets\"\n                }\n            }\n        }\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Delete a metadata definition",
@@ -27896,7 +28014,7 @@
 	],
 	"variable": [
 		{
-			"id": "b77110ce-aa9c-4e5a-9c98-b5cdff4d52b8",
+			"id": "e57fa9dd-6088-4fbf-867c-67cc216bac83",
 			"key": "component",
 			"value": "use"
 		}
