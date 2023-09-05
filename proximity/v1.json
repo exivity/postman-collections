@@ -27118,7 +27118,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "0748f082-e79b-4560-87e3-97bc662dd2ff",
+				"id": "c583d59d-13e4-4844-a222-3f47244c704c",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
@@ -27627,8 +27627,7 @@
 					"                        \"attributes\": {",
 					"                            \"name\": \"Test workflow\" + Math.floor(Math.random() * 1000),",
 					"                            \"description\": \"This is test task\",",
-					"                            \"hidden\": false,",
-					"                            \"locked\": false",
+					"                            \"hidden\": false",
 					"                        }",
 					"                    }",
 					"                })",
@@ -27891,7 +27890,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3491613b-1097-40e4-a062-860e1577713f",
+				"id": "bc16fc3e-b795-4042-8454-00b8a2ddd6b6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -27901,7 +27900,7 @@
 	],
 	"variable": [
 		{
-			"id": "90498e2b-d02c-413c-9313-cfea62ada382",
+			"id": "a53cf9af-f268-4321-8347-58d0d7d18c3a",
 			"key": "component",
 			"value": "use"
 		}
