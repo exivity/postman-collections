@@ -17373,6 +17373,8 @@
 											"",
 											"pm.environment.set(\"transcript_workflowstep_id\", response.data.id);",
 											"console.log('SET transcript_workflowstep_id: ' + pm.environment.get(\"transcript_workflowstep_id\"));",
+											"pm.environment.set(\"workflowstep_id\", response.data.id);",
+											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));",
 											""
 										],
 										"type": "text/javascript"
@@ -27886,7 +27888,7 @@
 	],
 	"variable": [
 		{
-			"id": "0abbdcb8-f0ab-4fea-8007-26637932133c",
+			"id": "e961cad5-60b4-4c9c-bda1-50b6b1f8ec04",
 			"key": "component",
 			"value": "use"
 		}
