@@ -16732,7 +16732,7 @@
 						}
 					],
 					"id": "6adb9863-cc52-4412-9977-5f2be41f3dcf",
-					"description": "A workflow allows you to schedule various tasks and execute them at a specific date and time.\n\nExivity documentation:  \n[https://docs.exivity.com/data-pipelines/workflows](https://docs.exivity.com/data-pipelines/workflows)\n\n**To create a workflow**\n\n1.  Create a workflow object\n2.  Create a workflow schedule\n3.  Add steps to the workflow\n    \n\nExivity documentation: [https://docs.exivity.com/data-pipelines/workflows](https://docs.exivity.com/data-pipelines/workflows)\n\n#### The Workflow Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | required, string |\n| description | string |",
+					"description": "A workflow allows you to schedule various tasks and execute them at a specific date and time.\n\nExivity documentation:  \n[https://docs.exivity.com/Architecture%20concepts/Glossary#workflow](https://docs.exivity.com/Architecture%20concepts/Glossary#workflow)\n\n**To create a workflow**\n\n1. Create a workflow object\n2. Create a workflow schedule\n3. Add steps to the workflow\n    \n\nExivity documentation: [https://docs.exivity.com/data-pipelines/workflows](https://docs.exivity.com/data-pipelines/workflows)\n\n#### The Workflow Object\n\n| **attribute** | **type** |\n| --- | --- |\n| name | required, string |\n| description | string |",
 					"auth": {
 						"type": "bearer",
 						"bearer": {}
@@ -28742,7 +28742,7 @@
 	],
 	"variable": [
 		{
-			"id": "aafa0842-a8f9-4932-8583-694cd74dbae7",
+			"id": "cfbb0d10-40a5-4006-b501-9871162a3b27",
 			"key": "component",
 			"value": "use"
 		}
