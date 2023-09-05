@@ -14607,7 +14607,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition - {{$guid}}\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"id\": \"{{metadatadefinition_id}}\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Modified test definition - {{$guid}}\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t        \"name\": \"country\",\r\n\t\t\t\t    \"type\": \"string\"\r\n\t\t\t\t},\r\n\t\t\t\t{\r\n                    \"name\": \"city\",\r\n\t\t\t\t    \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
 								},
 								"url": {
 									"raw": "{{base_url}}/v1/metadatadefinitions/:metadata_definition_id",
@@ -27896,7 +27896,7 @@
 	],
 	"variable": [
 		{
-			"id": "b6318713-de46-472f-9c5b-3879c77e24d1",
+			"id": "b77110ce-aa9c-4e5a-9c98-b5cdff4d52b8",
 			"key": "component",
 			"value": "use"
 		}
