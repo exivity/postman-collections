@@ -18070,9 +18070,28 @@
 							"name": "Add a new execute step",
 							"event": [
 								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e1d10040-7b10-45e2-8f79-abf3f632ef98",
+										"exec": [
+											"const api = eval(pm.globals.get('exivity'))();\r",
+											"\r",
+											"api.start()\r",
+											"    .then(api.requireToken)\r",
+											"    .then(api.requireWorkflow)\r",
+											"    .then(api.ready)\r",
+											"    .catch(function(err) {\r",
+											"        console.log(err);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
 									"listen": "test",
 									"script": {
-										"id": "8e3a714e-103b-42dd-b8da-8f4e1d00e7e9",
+										"id": "6457589e-f6fc-4523-8ff1-38e31308fb29",
 										"exec": [
 											"pm.test(\"Status code is 201\", function () {",
 											"    pm.response.to.have.status(201);",
@@ -18101,20 +18120,9 @@
 											"});",
 											"",
 											"pm.environment.set(\"execute_workflowstep_id\", response.data.id);",
-											"pm.environment.set(\"workflowstep_id\", response.data.id);",
 											"console.log('SET execute_workflowstep_id: ' + pm.environment.get(\"execute_workflowstep_id\"));",
 											"pm.environment.set(\"workflowstep_id\", response.data.id);",
 											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));",
-											""
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "018f77c5-8a58-43c2-a829-c43ed843f558",
-										"exec": [
 											""
 										],
 										"type": "text/javascript"
@@ -18147,7 +18155,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"execute\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"echo \\\"testing\\\"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
+									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"execute\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"echo \\\"testing\\\"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps"
 							},
@@ -28742,7 +28750,7 @@
 	],
 	"variable": [
 		{
-			"id": "2c13bd4d-0378-462e-a193-7d1f49d87a0c",
+			"id": "83300bac-a911-4102-b4e7-f85350549fea",
 			"key": "component",
 			"value": "use"
 		}
