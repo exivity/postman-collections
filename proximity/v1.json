@@ -19041,7 +19041,7 @@
 						}
 					],
 					"id": "603b3894-1fec-4683-9089-9c4f47b84b04",
-					"description": "One or more steps that should be executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| type | enum( `extract`, `transform`, `prepare_report`, `execute`, `proximity`, `publish_report`, `evaluate_budget` ) |  | Workflow step type |\n| options | _required, array, values depend on_ `_type_` |  |  |\n| timeout | _numeric, min:1, max:86400_ |  | In seconds, default: 3600 |\n| wait | _boolean_ |  | If false, the step will run simultaneously with the previous step.  <br>If true, all previous steps will finish executing before this steps is started. |\n| ~~sort~~ | ~~_numeric_~~ |  | _deprecated, use previous relationship instead_ |\n\n| **relationship** | **cardinality** | **type** |\n| --- | --- | --- |\n| previous | hasOne | workflowstep |",
+					"description": "One or more steps that should be executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| type | enum( `extract`, `transform`, `prepare_report`, `execute`, `proximity`, `publish_report`, `evaluate_budget` ) | 📝 editable | Workflow step type |\n| options | _required, array, values depend on_ `type` | 📝 editable |  |\n| timeout | _numeric, min:1, max:86400_ |  | In seconds, default: 3600 |\n| wait | _boolean_ |  | If false, the step will run simultaneously with the previous step.  <br>If true, all previous steps will finish executing before this steps is started. |\n| ~~sort~~ | ~~_numeric_~~ |  | _deprecated, use previous relationship instead_ |\n\n| **relationship** | **cardinality** | **type** |\n| --- | --- | --- |\n| previous | hasOne | workflowstep |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -28112,7 +28112,7 @@
 	],
 	"variable": [
 		{
-			"id": "377de8c8-1464-4704-90b8-3f9c56162858",
+			"id": "12cc7808-9ab7-4b1d-9108-7f0ead6b8ebe",
 			"key": "component",
 			"value": "use"
 		}
