@@ -17549,7 +17549,112 @@
 								"url": "{{base_url}}/v1/workflowsteps",
 								"description": "One or more steps that should be executed when a workflow is run."
 							},
-							"response": []
+							"response": [
+								{
+									"id": "c118283e-c400-4e2c-93b4-68a0a0a661c3",
+									"name": "Add a new extract(use) step",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/vnd.api+json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+										},
+										"url": "{{base_url}}/v1/workflowsteps"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 12:11:17 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 12:11:17 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Location",
+											"value": "http://localhost:8012/v1/WorkflowStep/WorkflowSteps"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X61f9a89f3f4dac0f60792d05c35ae958"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-QEA2UzjDc2mInuLDROaEpkTimmXO8DPv';style-src 'self' 'nonce-QEA2UzjDc2mInuLDROaEpkTimmXO8DPv';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "46e2158f-460a-476f-9b53-79e724404db1"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"19\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 2,\n                \"arguments\": \"test1 test2\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/previous\"\n                }\n            }\n        }\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Add a new transform(transcript) step",
@@ -28112,7 +28217,7 @@
 	],
 	"variable": [
 		{
-			"id": "0f331769-2129-4b85-a6c5-6e897c4f792b",
+			"id": "c701b920-d65f-4995-9c08-5d870b20acf6",
 			"key": "component",
 			"value": "use"
 		}
