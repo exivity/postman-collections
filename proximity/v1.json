@@ -17275,7 +17275,9 @@
 											"});",
 											"",
 											"pm.environment.set(\"use_workflowstep_id\", response.data.id);",
-											"console.log('SET use_workflowstep_id: ' + pm.environment.get(\"use_workflowstep_id\"));"
+											"console.log('SET use_workflowstep_id: ' + pm.environment.get(\"use_workflowstep_id\"));",
+											"pm.environment.set(\"workflowstep_id\", response.data.id);",
+											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
 										],
 										"type": "text/javascript"
 									}
@@ -17294,23 +17296,7 @@
 											"    .catch(function(err) {\r",
 											"        console.log(err);\r",
 											"});\r",
-											"\r",
-											"pm.sendRequest({\r",
-											"    url: pm.variables.get(\"base_url\") + '/v1/extractors',\r",
-											"    method: 'POST',\r",
-											"    header: {\r",
-											"        'Accept': 'application/json',\r",
-											"        'Content-Type': 'application/json',\r",
-											"        'Authorization': 'Bearer ' + pm.variables.get(\"token\")\r",
-											"    },\r",
-											"    body: {\r",
-											"        mode: 'raw',\r",
-											"        raw: JSON.stringify({\r",
-											"            \"name\": \"Workflow extractor\",\r",
-											"            \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r",
-											"        })\r",
-											"    }\r",
-											"})"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -27900,7 +27886,7 @@
 	],
 	"variable": [
 		{
-			"id": "a53cf9af-f268-4321-8347-58d0d7d18c3a",
+			"id": "f5f7e3c9-d52d-4dc7-9624-b0f7b874c707",
 			"key": "component",
 			"value": "use"
 		}
