@@ -16286,7 +16286,108 @@
 								},
 								"url": "{{base_url}}/v1/workflows/{{workflow_id}}"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "7fda0163-fba5-49e2-b1c6-a73250bc1f1d",
+									"name": "Update a workflow",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflow\",\r\n    \"id\": \"{{workflow_id}}\",\r\n    \"attributes\": {\r\n\t\t\"name\": \"modified test\",\r\n\t\t\"description\": \"This is a modified test task\"\r\n    }\r\n  }\r\n}"
+										},
+										"url": "{{base_url}}/v1/workflows/{{workflow_id}}"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 11:50:06 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 05 Sep 2023 11:50:06 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xf5104d68289bf7d35541c03ae96a0500"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-HVrIhXAL0PYWAim7CZXnUUtMSSqaVOpS';style-src 'self' 'nonce-HVrIhXAL0PYWAim7CZXnUUtMSSqaVOpS';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "5c4f3acb-fae7-4715-80e4-7c8dedb48bbc"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"workflow\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"modified test\",\n            \"description\": \"This is a modified test task\",\n            \"created_at\": \"2023-09-05T11:49:59Z\",\n            \"updated_at\": \"2023-09-05T11:50:06Z\"\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflows/5\"\n        },\n        \"relationships\": {\n            \"runs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflows/5/relationships/runs\",\n                    \"related\": \"http://localhost:8012/v1/workflows/5/runs\"\n                }\n            },\n            \"steps\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflows/5/relationships/steps\",\n                    \"related\": \"http://localhost:8012/v1/workflows/5/steps\"\n                }\n            },\n            \"schedules\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflows/5/relationships/schedules\",\n                    \"related\": \"http://localhost:8012/v1/workflows/5/schedules\"\n                }\n            }\n        }\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Run a workflow",
@@ -28014,7 +28115,7 @@
 	],
 	"variable": [
 		{
-			"id": "e57fa9dd-6088-4fbf-867c-67cc216bac83",
+			"id": "339162fb-add4-4813-a15b-654626266b4b",
 			"key": "component",
 			"value": "use"
 		}
