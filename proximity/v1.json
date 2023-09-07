@@ -28140,7 +28140,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e860527b-8133-425d-ad02-bfd65ee50800",
+				"id": "b23cdba4-737c-4395-bdc1-894ed2529907",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
@@ -28690,7 +28690,6 @@
 					"                        \"type\": \"workflowstep\",",
 					"                        \"attributes\": {",
 					"                            \"type\": \"execute\",",
-					"                            \"sort\": 1,",
 					"                            \"timeout\": 600,",
 					"                            \"options\": {",
 					"                                \"command\": \"echo \\\"testing\\\"\"",
@@ -28912,7 +28911,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d3e74552-38fc-4372-9aed-d5562739496f",
+				"id": "3cdd3f7a-7022-442e-9013-32def979d98d",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -28922,7 +28921,7 @@
 	],
 	"variable": [
 		{
-			"id": "630ce8a7-10b8-4fdd-a2b6-fff22d3f7242",
+			"id": "6ad9fcdc-098b-4526-9a2d-cc1e545d1ac4",
 			"key": "component",
 			"value": "use"
 		}
