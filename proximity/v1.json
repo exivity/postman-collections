@@ -16248,9 +16248,7 @@
 											"pm.test(\"Response contains data.links\", function () {",
 											"    pm.expect(response.data.links).to.be.an('object');",
 											"});",
-											"",
-											"console.log(\"Skip Run a workflow until some steps are created.\");",
-											"postman.setNextRequest(\"Retrieve a list of schedules\");"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -28869,7 +28867,7 @@
 	],
 	"variable": [
 		{
-			"id": "77eeaad4-650e-4eec-8d37-5b5f2e6654d1",
+			"id": "0b2bc8ef-131f-4ee6-a2ce-ec6195b51225",
 			"key": "component",
 			"value": "use"
 		}
