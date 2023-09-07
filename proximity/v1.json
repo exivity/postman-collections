@@ -9679,11 +9679,13 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "153821c1-ac2c-45c8-bb3f-37597c422041",
+										"id": "386bb0c5-d3e2-4c0e-8fb3-0a8e5e05e46d",
 										"exec": [
 											"const api = eval(pm.globals.get('exivity'))();\r",
 											"\r",
 											"api.start()\r",
+											"    .then(api.requireToken)\r",
+											"    .then(api.requireReport)\r",
 											"    .then(api.requireBudget)\r",
 											"    .then(api.requireBudgetRevision)\r",
 											"    .then(api.ready)\r",
@@ -9698,7 +9700,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7adfed7f-2a75-4667-898f-3b2a421b7ed9",
+										"id": "78f48280-c913-46ae-9017-4c5bda16374a",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -28932,7 +28934,7 @@
 	],
 	"variable": [
 		{
-			"id": "d4ecddc9-e75f-4cea-bda3-e9f59841f90e",
+			"id": "5f98e4ed-19d0-43f3-ae32-abe4e75845ad",
 			"key": "component",
 			"value": "use"
 		}
