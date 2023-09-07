@@ -16440,6 +16440,7 @@
 											"api.start()\r",
 											"    .then(api.requireToken)\r",
 											"    .then(api.requireWorkflow)\r",
+											"    .then(api.requireWorkflowExecuteStep)\r",
 											"    .then(api.ready)\r",
 											"    .catch(function(err) {\r",
 											"        console.log(err);\r",
@@ -28921,7 +28922,7 @@
 	],
 	"variable": [
 		{
-			"id": "6ad9fcdc-098b-4526-9a2d-cc1e545d1ac4",
+			"id": "cfaf8736-d27a-4888-bff7-ff9a75e735f9",
 			"key": "component",
 			"value": "use"
 		}
