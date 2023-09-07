@@ -19568,9 +19568,7 @@
 											"",
 											"console.log('UNSET workflowstep_id');",
 											"pm.environment.unset(\"workflowstep_id\");",
-											"",
-											"console.log(\"Go back to running a workflow.\");",
-											"postman.setNextRequest(\"Run a workflow\");"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -28934,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "196a97ac-6b31-42a6-8e9a-3ed34918e233",
+			"id": "23ca14f8-851c-40d4-a2c7-62fecd5c713a",
 			"key": "component",
 			"value": "use"
 		}
