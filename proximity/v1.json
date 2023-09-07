@@ -17503,6 +17503,8 @@
 									"script": {
 										"id": "4cc34338-9cbe-4a29-9daa-7b945c19f3f3",
 										"exec": [
+											"console.log('---- Local Pre-request Script start ----');\r",
+											"\r",
 											"const api = eval(pm.globals.get('exivity'))();\r",
 											"\r",
 											"api.start()\r",
@@ -17512,6 +17514,8 @@
 											"    .catch(function(err) {\r",
 											"        console.log(err);\r",
 											"});\r",
+											"\r",
+											"console.log('---- Local Pre-request Script end ----');\r",
 											""
 										],
 										"type": "text/javascript"
@@ -28868,7 +28872,7 @@
 	],
 	"variable": [
 		{
-			"id": "92da476a-009e-42f5-8e5c-0672933d569f",
+			"id": "898c5d2e-6bd0-4122-8545-7d2d8f58d0f8",
 			"key": "component",
 			"value": "use"
 		}
