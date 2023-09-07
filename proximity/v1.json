@@ -9348,9 +9348,29 @@
 							"name": "Add a new budget revision",
 							"event": [
 								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7da8e250-9c22-4c8b-8a0f-5d38096ef92c",
+										"exec": [
+											"const api = eval(pm.globals.get('exivity'))();\r",
+											"\r",
+											"api.start()\r",
+											"    .then(api.requireToken)\r",
+											"    .then(api.requireReport)\r",
+											"    .then(api.requireBudget)\r",
+											"    .then(api.ready)\r",
+											"    .catch(function(err) {\r",
+											"        console.log(err);\r",
+											"    });\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
 									"listen": "test",
 									"script": {
-										"id": "9e25ea4e-6d12-470d-a3ee-130368c562f2",
+										"id": "d92eb680-700f-4194-9191-23866b384af9",
 										"exec": [
 											"pm.test(\"Status code is 201\", function () {",
 											"    pm.response.to.have.status(201);",
@@ -9376,26 +9396,6 @@
 											"",
 											"pm.environment.set(\"budgetrevision_id\", response.data.id);",
 											"console.log('SET budgetrevision_id: ' + pm.environment.get(\"budgetrevision_id\"));"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "9e1ea6a7-72eb-4e09-9296-02bd1c02093e",
-										"exec": [
-											"const api = eval(pm.globals.get('exivity'))();\r",
-											"\r",
-											"api.start()\r",
-											"    .then(api.requireToken)\r",
-											"    .then(api.requireReport)\r",
-											"    .then(api.requireBudget)\r",
-											"    .then(api.ready)\r",
-											"    .catch(function(err) {\r",
-											"        console.log(err);\r",
-											"    });\r",
-											""
 										],
 										"type": "text/javascript"
 									}
@@ -28934,7 +28934,7 @@
 	],
 	"variable": [
 		{
-			"id": "5f98e4ed-19d0-43f3-ae32-abe4e75845ad",
+			"id": "196a97ac-6b31-42a6-8e9a-3ed34918e233",
 			"key": "component",
 			"value": "use"
 		}
