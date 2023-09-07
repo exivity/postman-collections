@@ -28087,7 +28087,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "126203cb-c877-472d-b8e5-9b65b20bae55",
+				"id": "e860527b-8133-425d-ad02-bfd65ee50800",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
@@ -28135,7 +28135,7 @@
 					"    api.asyncRequest = promisify(pm.sendRequest);",
 					"",
 					"    api.start = function () {",
-					"        console.log('---- Global pre-request Script start ----');",
+					"        console.log('---- Pre-request Script start ----');",
 					"        wait();",
 					"        return new Promise(function (accept, reject) {",
 					"            accept();",
@@ -28144,7 +28144,7 @@
 					"",
 					"    api.ready = function () {",
 					"        finished = true;",
-					"        console.log('---- Global pre-request Script end ----');",
+					"        console.log('---- Pre-request Script end ----');",
 					"    };",
 					"",
 					"    // Domain helpers",
@@ -28859,7 +28859,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "4c786595-b0d2-4b5a-8cf1-0b814e9815a3",
+				"id": "d3e74552-38fc-4372-9aed-d5562739496f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -28869,7 +28869,7 @@
 	],
 	"variable": [
 		{
-			"id": "1055671f-0b58-4536-9dfd-5f0f5357181f",
+			"id": "77eeaad4-650e-4eec-8d37-5b5f2e6654d1",
 			"key": "component",
 			"value": "use"
 		}
