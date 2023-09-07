@@ -17530,7 +17530,6 @@
 											"});",
 											"",
 											"const response = pm.response.json();",
-											"console.log('USE workflow_id: ' + pm.environment.get(\"workflow_id\"));",
 											"console.log(pm.response);",
 											"",
 											"pm.test(\"Response contains correct data\", function () {",
@@ -28930,7 +28929,7 @@
 	],
 	"variable": [
 		{
-			"id": "2c2f8391-79d2-49ac-b225-8bc12f59cf9b",
+			"id": "f320a787-9524-4e48-8374-9f3a75a6afd2",
 			"key": "component",
 			"value": "use"
 		}
