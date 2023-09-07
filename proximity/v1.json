@@ -15643,6 +15643,12 @@
 									"script": {
 										"id": "525f1b0f-7dce-416f-86b1-3138a5f246ce",
 										"exec": [
+											"// Unset these variables as they will be attached to the old workflow",
+											"console.log('UNSET workflowrun_id');",
+											"pm.environment.unset(\"workflowrun_id\");",
+											"console.log('UNSET execute_workflowstep_id');",
+											"pm.environment.unset(\"execute_workflowstep_id\");",
+											"",
 											"pm.test(\"Status code is 201\", function () {",
 											"    pm.response.to.have.status(201);",
 											"});",
@@ -28924,7 +28930,7 @@
 	],
 	"variable": [
 		{
-			"id": "001afd87-6d94-4c6e-adac-cf6ce346e538",
+			"id": "db5d716c-eff2-4286-b6ce-478fc6679ca0",
 			"key": "component",
 			"value": "use"
 		}
