@@ -8992,7 +8992,9 @@
 											"});",
 											"",
 											"console.log('UNSET budget_id');",
-											"pm.environment.unset(\"budget_id\");"
+											"pm.environment.unset(\"budget_id\");",
+											"console.log('UNSET budgetrevision_id');",
+											"pm.environment.unset(\"budgetrevision_id\");"
 										],
 										"type": "text/javascript"
 									}
@@ -28930,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "db5d716c-eff2-4286-b6ce-478fc6679ca0",
+			"id": "d4ecddc9-e75f-4cea-bda3-e9f59841f90e",
 			"key": "component",
 			"value": "use"
 		}
