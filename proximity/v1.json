@@ -16406,9 +16406,7 @@
 											"    pm.expect(response.output).to.be.an('array');",
 											"    pm.expect(response.status).to.eql(true);",
 											"});",
-											"",
-											"console.log(\"Continue from Retrieving a list of workflow runs.\");",
-											"postman.setNextRequest(\"Retrieve a list of workflow runs\");"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -28867,7 +28865,7 @@
 	],
 	"variable": [
 		{
-			"id": "0b2bc8ef-131f-4ee6-a2ce-ec6195b51225",
+			"id": "360f67db-021c-4e7b-bce7-18f54cdbbc6e",
 			"key": "component",
 			"value": "use"
 		}
