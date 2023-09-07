@@ -16637,6 +16637,8 @@
 											"pm.environment.unset(\"workflow_id\");",
 											"console.log('UNSET workflowrun_id');",
 											"pm.environment.unset(\"workflowrun_id\");",
+											"console.log('UNSET execute_workflowstep_id');",
+											"pm.environment.unset(\"execute_workflowstep_id\");",
 											""
 										],
 										"type": "text/javascript"
@@ -16795,87 +16797,6 @@
 				{
 					"name": "/workflowschedules",
 					"item": [
-						{
-							"name": "Retrieve a list of schedules",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
-											"",
-											"const response = pm.response.json();",
-											"console.log(response);",
-											"",
-											"pm.test(\"Response contains data\", function () {",
-											"    pm.expect(response.data).to.be.an('array');",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "76f2c35b-05c9-41d3-9541-d0119c71c623",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{token}}"
-									}
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/vnd.api+json"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"v1",
-										"workflowschedules"
-									],
-									"query": [
-										{
-											"key": "page[limit]",
-											"value": null,
-											"description": "Limit the amount of results returned"
-										},
-										{
-											"key": "page[offset]",
-											"value": null,
-											"description": "Return this page of the results"
-										},
-										{
-											"key": "sort",
-											"value": "",
-											"description": "Sort results by this attribute"
-										},
-										{
-											"key": "filter[attribute]",
-											"value": null,
-											"description": "Optionally [filter](#working-with-the-api) results by this attribute"
-										},
-										{
-											"key": "include",
-											"value": "",
-											"description": "Include additional related resources. Possible values: `workflow`."
-										}
-									]
-								}
-							},
-							"response": []
-						},
 						{
 							"name": "Add a new schedule",
 							"event": [
@@ -17069,6 +16990,87 @@
 									"body": "{\n    \"data\": {\n        \"type\": \"workflowschedule\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"start_time\": \"2020-01-01T18:00:00Z\",\n            \"timezone\": \"Europe/Amsterdam\",\n            \"adjust_for_dst\": true,\n            \"frequency\": \"daily\",\n            \"frequency_modifier\": 2,\n            \"next_run\": \"1970-01-01T00:00:00Z\"\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowschedules/1\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowschedules/1/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowschedules/1/workflow\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
+						},
+						{
+							"name": "Retrieve a list of schedules",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const response = pm.response.json();",
+											"console.log(response);",
+											"",
+											"pm.test(\"Response contains data\", function () {",
+											"    pm.expect(response.data).to.be.an('array');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "76f2c35b-05c9-41d3-9541-d0119c71c623",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"workflowschedules"
+									],
+									"query": [
+										{
+											"key": "page[limit]",
+											"value": null,
+											"description": "Limit the amount of results returned"
+										},
+										{
+											"key": "page[offset]",
+											"value": null,
+											"description": "Return this page of the results"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "Sort results by this attribute"
+										},
+										{
+											"key": "filter[attribute]",
+											"value": null,
+											"description": "Optionally [filter](#working-with-the-api) results by this attribute"
+										},
+										{
+											"key": "include",
+											"value": "",
+											"description": "Include additional related resources. Possible values: `workflow`."
+										}
+									]
+								}
+							},
+							"response": []
 						},
 						{
 							"name": "Retrieve a schedule",
@@ -28922,7 +28924,7 @@
 	],
 	"variable": [
 		{
-			"id": "cfaf8736-d27a-4888-bff7-ff9a75e735f9",
+			"id": "001afd87-6d94-4c6e-adac-cf6ce346e538",
 			"key": "component",
 			"value": "use"
 		}
