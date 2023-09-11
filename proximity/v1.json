@@ -27323,7 +27323,7 @@
 											"        \"name\",",
 											"        \"default_flag\"",
 											"  ]);",
-											"  pm.expect(response.data.attributes.name).to.eql('staging');",
+											"  pm.expect(response.data.attributes.name).to.contain('Updated environment name');",
 											"  pm.expect(response.data.attributes.default_flag).to.eql(false);",
 											"});",
 											"",
@@ -28929,7 +28929,7 @@
 	],
 	"variable": [
 		{
-			"id": "dc5bf988-cf99-482d-b0c1-6ce993c72a9f",
+			"id": "7065e12f-6821-40a5-a689-578cd0e5b794",
 			"key": "component",
 			"value": "use"
 		}
