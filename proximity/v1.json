@@ -27361,7 +27361,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"environment\",\r\n    \"id\": \"{{environment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"staging\",\r\n      \"default_flag\": false\r\n    }\r\n  }\r\n}"
+									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"environment\",\r\n    \"id\": \"{{environment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"Updated name - {{$randomInt}}\",\r\n      \"default_flag\": false\r\n    }\r\n  }\r\n}"
 								},
 								"url": "{{base_url}}/v1/environments/{{environment_id}}"
 							},
@@ -28929,7 +28929,7 @@
 	],
 	"variable": [
 		{
-			"id": "f320a787-9524-4e48-8374-9f3a75a6afd2",
+			"id": "bff0458f-60fb-408b-a2a2-c1cd86619ea7",
 			"key": "component",
 			"value": "use"
 		}
