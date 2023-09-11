@@ -27361,7 +27361,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"environment\",\r\n    \"id\": \"{{environment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"Updated name - {{$randomInt}}\",\r\n      \"default_flag\": false\r\n    }\r\n  }\r\n}"
+									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"environment\",\r\n    \"id\": \"{{environment_id}}\",\r\n    \"attributes\": {\r\n      \"name\": \"Updated environment name - {{$randomInt}}\",\r\n      \"default_flag\": false\r\n    }\r\n  }\r\n}"
 								},
 								"url": "{{base_url}}/v1/environments/{{environment_id}}"
 							},
@@ -28929,7 +28929,7 @@
 	],
 	"variable": [
 		{
-			"id": "bff0458f-60fb-408b-a2a2-c1cd86619ea7",
+			"id": "dc5bf988-cf99-482d-b0c1-6ce993c72a9f",
 			"key": "component",
 			"value": "use"
 		}
