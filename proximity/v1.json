@@ -18158,7 +18158,7 @@
 							]
 						},
 						{
-							"name": "Add a new report(edify) step",
+							"name": "Add a new prepare report(edify) step",
 							"event": [
 								{
 									"listen": "test",
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "1f30aa7b-428e-47ce-9185-483b361ff6f8",
+			"id": "14711013-43df-4504-ab09-61be63103c8c",
 			"key": "component",
 			"value": "use"
 		}
