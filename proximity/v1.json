@@ -17841,7 +17841,7 @@
 									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "One or more steps that should be executed when a workflow is run."
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable |  |\n| from_date | `integer` | 📝 editable |  |"
 							},
 							"response": [
 								{
@@ -28929,7 +28929,7 @@
 	],
 	"variable": [
 		{
-			"id": "3f56ad0c-7807-4336-937c-08e552588bd8",
+			"id": "8ca193b4-5700-46b1-884f-984cdbdb1a3b",
 			"key": "component",
 			"value": "use"
 		}
