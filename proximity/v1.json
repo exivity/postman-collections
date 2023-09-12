@@ -17518,6 +17518,234 @@
 					"name": "/workflowsteps",
 					"item": [
 						{
+							"name": "Retrieve a list of steps",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"const response = pm.response.json();",
+											"console.log(response);",
+											"",
+											"pm.test(\"Response contains data\", function () {",
+											"    pm.expect(response.data).to.be.an('array');",
+											"});",
+											"",
+											"pm.environment.set(\"workflowstep_id\", response.data[0].id);",
+											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "2e441bd7-ef0d-45d4-9c5d-db2235d0882e",
+										"exec": [
+											"const api = eval(pm.globals.get('exivity'))();\r",
+											"\r",
+											"api.start()\r",
+											"    .then(api.requireToken)\r",
+											"    .then(api.ready)\r",
+											"    .catch(function(err) {\r",
+											"        console.log(err);\r",
+											"    });"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "d556aca6-a7b5-4e92-843b-f524f9f24d07",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "{{token}}"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"v1",
+										"workflowsteps"
+									],
+									"query": [
+										{
+											"key": "page[limit]",
+											"value": null,
+											"description": "Limit the amount of results returned"
+										},
+										{
+											"key": "page[offset]",
+											"value": null,
+											"description": "Return this page of the results"
+										},
+										{
+											"key": "sort",
+											"value": "",
+											"description": "Sort results by this attribute"
+										},
+										{
+											"key": "filter[attribute]",
+											"value": null,
+											"description": "Optionally [filter](#working-with-the-api) results by this attribute"
+										},
+										{
+											"key": "include",
+											"value": "",
+											"description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"id": "61a5db10-1e00-478b-b404-d89ead0d1f73",
+									"name": "Retrieve a list of steps",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"workflowsteps"
+											],
+											"query": [
+												{
+													"key": "page[limit]",
+													"value": null,
+													"description": "Limit the amount of results returned"
+												},
+												{
+													"key": "page[offset]",
+													"value": null,
+													"description": "Return this page of the results"
+												},
+												{
+													"key": "sort",
+													"value": "",
+													"description": "Sort results by this attribute"
+												},
+												{
+													"key": "filter[attribute]",
+													"value": null,
+													"description": "Optionally [filter](#working-with-the-api) results by this attribute"
+												},
+												{
+													"key": "include",
+													"value": "",
+													"description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Apr 2022 14:36:43 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Apr 2022 14:36:43 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X90990ab50795a57558b2c0441a1e8dcb"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-FVMzub1Eed1xzTheMGxmZ7owkgWEDoHO';style-src 'self' 'nonce-FVMzub1Eed1xzTheMGxmZ7owkgWEDoHO';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "9ed02746-64e3-4937-9154-48727cc248f0"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": [\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"20\",\n            \"attributes\": {\n                \"prev\": null,\n                \"next\": \"19\",\n                \"type\": \"proximity\",\n                \"options\": {\n                    \"command\": \"exivity:gc\",\n                    \"arguments\": \"\"\n                },\n                \"timeout\": 600,\n                \"wait\": true,\n                \"sort\": 0\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/20\"\n            },\n            \"relationships\": {\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/20/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/20/steplogs\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"19\",\n            \"attributes\": {\n                \"prev\": \"20\",\n                \"next\": null,\n                \"type\": \"proximity\",\n                \"options\": {\n                    \"command\": \"exivity:gc\",\n                    \"arguments\": \"\"\n                },\n                \"timeout\": 600,\n                \"wait\": true,\n                \"sort\": 0\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n            },\n            \"relationships\": {\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                    }\n                }\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 2,\n            \"count\": 2,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\"\n    }\n}"
+								}
+							]
+						},
+						{
 							"name": "Add a new extract(use) step",
 							"event": [
 								{
@@ -18725,234 +18953,6 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"24\",\n        \"attributes\": {\n            \"type\": \"proximity\",\n            \"options\": {\n                \"command\": \"exivity:gc\",\n                \"arguments\": \"\"\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/24\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/24/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/24/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/24/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/24/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/24/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/24/previous\"\n                }\n            }\n        }\n    }\n}"
-								}
-							]
-						},
-						{
-							"name": "Retrieve a list of steps",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "5a5b54a8-535f-4c7a-b279-b1e5167d3013",
-										"exec": [
-											"pm.test(\"Status code is 200\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
-											"",
-											"const response = pm.response.json();",
-											"console.log(response);",
-											"",
-											"pm.test(\"Response contains data\", function () {",
-											"    pm.expect(response.data).to.be.an('array');",
-											"});",
-											"",
-											"pm.environment.set(\"workflowstep_id\", response.data[0].id);",
-											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
-										],
-										"type": "text/javascript"
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"id": "2e441bd7-ef0d-45d4-9c5d-db2235d0882e",
-										"exec": [
-											"const api = eval(pm.globals.get('exivity'))();\r",
-											"\r",
-											"api.start()\r",
-											"    .then(api.requireToken)\r",
-											"    .then(api.ready)\r",
-											"    .catch(function(err) {\r",
-											"        console.log(err);\r",
-											"    });"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "d556aca6-a7b5-4e92-843b-f524f9f24d07",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{token}}"
-									}
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/vnd.api+json"
-									}
-								],
-								"url": {
-									"raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-									"host": [
-										"{{base_url}}"
-									],
-									"path": [
-										"v1",
-										"workflowsteps"
-									],
-									"query": [
-										{
-											"key": "page[limit]",
-											"value": null,
-											"description": "Limit the amount of results returned"
-										},
-										{
-											"key": "page[offset]",
-											"value": null,
-											"description": "Return this page of the results"
-										},
-										{
-											"key": "sort",
-											"value": "",
-											"description": "Sort results by this attribute"
-										},
-										{
-											"key": "filter[attribute]",
-											"value": null,
-											"description": "Optionally [filter](#working-with-the-api) results by this attribute"
-										},
-										{
-											"key": "include",
-											"value": "",
-											"description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
-										}
-									]
-								}
-							},
-							"response": [
-								{
-									"id": "61a5db10-1e00-478b-b404-d89ead0d1f73",
-									"name": "Retrieve a list of steps",
-									"originalRequest": {
-										"method": "GET",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/vnd.api+json"
-											}
-										],
-										"url": {
-											"raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"v1",
-												"workflowsteps"
-											],
-											"query": [
-												{
-													"key": "page[limit]",
-													"value": null,
-													"description": "Limit the amount of results returned"
-												},
-												{
-													"key": "page[offset]",
-													"value": null,
-													"description": "Return this page of the results"
-												},
-												{
-													"key": "sort",
-													"value": "",
-													"description": "Sort results by this attribute"
-												},
-												{
-													"key": "filter[attribute]",
-													"value": null,
-													"description": "Optionally [filter](#working-with-the-api) results by this attribute"
-												},
-												{
-													"key": "include",
-													"value": "",
-													"description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
-												}
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Host",
-											"value": "localhost:8012"
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 14 Apr 2022 14:36:43 GMT"
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 14 Apr 2022 14:36:43 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "close"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/vnd.api+json"
-										},
-										{
-											"key": "X-Clockwork-Id",
-											"value": "X90990ab50795a57558b2c0441a1e8dcb"
-										},
-										{
-											"key": "X-Clockwork-Version",
-											"value": "1"
-										},
-										{
-											"key": "X-Clockwork-Path",
-											"value": "_debugbar/clockwork/"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=31536000; includeSubDomains"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "Feature-Policy",
-											"value": "autoplay 'none'; camera 'none'"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "strict-origin"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-FVMzub1Eed1xzTheMGxmZ7owkgWEDoHO';style-src 'self' 'nonce-FVMzub1Eed1xzTheMGxmZ7owkgWEDoHO';font-src 'self' data:"
-										},
-										{
-											"key": "Request-Id",
-											"value": "9ed02746-64e3-4937-9154-48727cc248f0"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": "{\n    \"data\": [\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"20\",\n            \"attributes\": {\n                \"prev\": null,\n                \"next\": \"19\",\n                \"type\": \"proximity\",\n                \"options\": {\n                    \"command\": \"exivity:gc\",\n                    \"arguments\": \"\"\n                },\n                \"timeout\": 600,\n                \"wait\": true,\n                \"sort\": 0\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/20\"\n            },\n            \"relationships\": {\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/20/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/20/steplogs\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"19\",\n            \"attributes\": {\n                \"prev\": \"20\",\n                \"next\": null,\n                \"type\": \"proximity\",\n                \"options\": {\n                    \"command\": \"exivity:gc\",\n                    \"arguments\": \"\"\n                },\n                \"timeout\": 600,\n                \"wait\": true,\n                \"sort\": 0\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n            },\n            \"relationships\": {\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                    }\n                }\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 2,\n            \"count\": 2,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\"\n    }\n}"
 								}
 							]
 						},
@@ -28929,7 +28929,7 @@
 	],
 	"variable": [
 		{
-			"id": "7065e12f-6821-40a5-a689-578cd0e5b794",
+			"id": "6623c47a-aa9c-42a1-922c-28962bce5443",
 			"key": "component",
 			"value": "use"
 		}
