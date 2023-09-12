@@ -18045,7 +18045,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": -1\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
 								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 (today). |\n| environment_id | _numeric_ | 📝 editable | Nullable |"
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "b6e3ddf9-e427-4d26-9782-2535cff3efe0",
+			"id": "e6e97c05-a706-4e85-93c1-c5e9903d0028",
 			"key": "component",
 			"value": "use"
 		}
