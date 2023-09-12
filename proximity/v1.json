@@ -17944,7 +17944,7 @@
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"19\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 2,\n                \"arguments\": \"test1 test2\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/previous\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"19\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 0,\n                \"arguments\": \"test1 test2\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/previous\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "e967c1d6-6c52-4d54-82ba-ed6cac7b80cf",
+			"id": "65d901bb-4c55-461f-aa19-bb8ebebb24bc",
 			"key": "component",
 			"value": "use"
 		}
