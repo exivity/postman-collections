@@ -17535,9 +17535,7 @@
 											"pm.test(\"Response contains data\", function () {",
 											"    pm.expect(response.data).to.be.an('array');",
 											"});",
-											"",
-											"pm.environment.set(\"workflowstep_id\", response.data[0].id);",
-											"console.log('SET workflowstep_id: ' + pm.environment.get(\"workflowstep_id\"));"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -28934,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "f18fde96-6440-4409-b877-f60d516334ff",
+			"id": "26a94838-810d-4e92-8d64-20696fc1e999",
 			"key": "component",
 			"value": "use"
 		}
