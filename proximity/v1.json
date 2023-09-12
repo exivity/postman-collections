@@ -18251,7 +18251,7 @@
 									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| report_id | _string_ | 📝 editable | Required |\n| split | _enum_ (`daily`, `monthly`) | 📝 editable |  |\n| from_date | _numeric_ | 📝 editable |  |\n| to_date | _numeric_ | 📝 editable |  |"
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| report_id | _string_ | 📝 editable | Required |\n| split | _enum_ (`daily`, `monthly`) | 📝 editable | Default: monthly  <br>Split the proccessing into daily/monthly chunks, to speed to the processing time. |\n| from_date | _numeric_ | 📝 editable |  |\n| to_date | _numeric_ | 📝 editable |  |"
 							},
 							"response": [
 								{
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "60495821-344b-4706-8770-dd8980af704d",
+			"id": "f47fe071-a30b-4cfa-8064-400e8ee9f389",
 			"key": "component",
 			"value": "use"
 		}
