@@ -18050,7 +18050,7 @@
 									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable |  |\n| to_date | _integer_ | 📝 editable |  |\n| arguments | _string_ | 📝 editable |  |\n| environment_id | _numeric_ | 📝 editable | Nullable |"
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable |  |\n| to_date | _integer_ | 📝 editable |  |\n| environment_id | _numeric_ | 📝 editable | Nullable |"
 							},
 							"response": [
 								{
@@ -28930,7 +28930,7 @@
 	],
 	"variable": [
 		{
-			"id": "a699e746-2d4a-4a50-bdad-c6bd111258f5",
+			"id": "da443f1f-0a91-4860-857d-ab317bbce3e4",
 			"key": "component",
 			"value": "use"
 		}
