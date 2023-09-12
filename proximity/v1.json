@@ -19866,7 +19866,7 @@
 						}
 					],
 					"id": "603b3894-1fec-4683-9089-9c4f47b84b04",
-					"description": "A workflow requires one or more steps. These steps are executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| type | enum( `extract`, `transform`, `prepare_report`, `execute`, `proximity`, `publish_report`, `evaluate_budget` ) | 📝 editable | Workflow step type |\n| options | _required, array, values depend on_ `type` | 📝 editable | Each different step type has different options, which are documentated in the \"Add a new ... step\" sections. |\n| timeout | _integer_ | 📝 editable | In seconds, default: 3600,min:1, max:86400 |\n| wait | _boolean_ | 📝 editable | If false, the step will run simultaneously with the previous step.  <br>If true, all previous steps will finish executing before this steps is started. |\n| ~~sort~~ | ~~_numeric_~~ |  | _deprecated, use previous relationship instead_ |\n\n| **relationship** | **cardinality** | **type** |\n| --- | --- | --- |\n| previous | hasOne | workflowstep |",
+					"description": "A workflow requires one or more steps. These steps are executed when a workflow is run.\n\n#### The Workflow Step Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| type | enum( `extract`, `transform`, `prepare_report`, `execute`, `proximity`, `publish_report`, `evaluate_budget` ) | 📝 editable | Workflow step type |\n| options | _required, array, values depend on_ `type` | 📝 editable | Each different step `type` has different options, which are documentated in the \"Add a new ... step\" sections. |\n| timeout | _integer_ | 📝 editable | In seconds, default: 3600,min:1, max:86400 |\n| wait | _boolean_ | 📝 editable | If false, the step will run simultaneously with the previous step.  <br>If true, all previous steps will finish executing before this steps is started. |\n| ~~sort~~ | ~~_numeric_~~ |  | _deprecated, use previous relationship instead_ |\n\n| **relationship** | **cardinality** | **type** |\n| --- | --- | --- |\n| previous | hasOne | workflowstep |",
 					"auth": {
 						"type": "noauth"
 					},
@@ -28934,7 +28934,7 @@
 	],
 	"variable": [
 		{
-			"id": "a8b71827-a355-4fd9-819f-9f39f17357a2",
+			"id": "f18fde96-6440-4409-b877-f60d516334ff",
 			"key": "component",
 			"value": "use"
 		}
