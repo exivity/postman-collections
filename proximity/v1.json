@@ -17836,14 +17836,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": 2,\r\n\t\t\t\t\"arguments\": \"arg3 arg4\",\r\n                \"environment_id\": null\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": 0,\r\n\t\t\t\t\"arguments\": \"arg3 arg4\",\r\n                \"environment_id\": null\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 - see from_date |\n| arguments | _string_ | 📝 editable | Custom extractor arguments |\n| environment_id | _numeric_ | 📝 editable | Optional. Loads the variables that have been set in a given environment. |"
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 (today) |\n| arguments | _string_ | 📝 editable | Custom extractor arguments |\n| environment_id | _numeric_ | 📝 editable | Optional. Loads the variables that have been set in a given environment. |"
 							},
 							"response": [
 								{
-									"id": "c118283e-c400-4e2c-93b4-68a0a0a661c3",
+									"id": "e8fa1007-1a0d-4401-80c5-cd52546256f6",
 									"name": "Add a new extract(use) step",
 									"originalRequest": {
 										"method": "POST",
@@ -17861,7 +17861,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\",\r\n\t\t\t\t\"arguments\": \"test1 test2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": 0,\r\n\t\t\t\t\"arguments\": \"arg3 arg4\",\r\n                \"environment_id\": null\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 										},
 										"url": "{{base_url}}/v1/workflowsteps"
 									},
@@ -17875,11 +17875,11 @@
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 05 Sep 2023 12:11:17 GMT"
+											"value": "Tue, 12 Sep 2023 13:55:01 GMT"
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 05 Sep 2023 12:11:17 GMT"
+											"value": "Tue, 12 Sep 2023 13:55:01 GMT"
 										},
 										{
 											"key": "Connection",
@@ -17899,7 +17899,7 @@
 										},
 										{
 											"key": "X-Clockwork-Id",
-											"value": "X61f9a89f3f4dac0f60792d05c35ae958"
+											"value": "X906356e2f3d275946690fd685bdcd8a5"
 										},
 										{
 											"key": "X-Clockwork-Version",
@@ -17935,16 +17935,16 @@
 										},
 										{
 											"key": "Content-Security-Policy",
-											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-QEA2UzjDc2mInuLDROaEpkTimmXO8DPv';style-src 'self' 'nonce-QEA2UzjDc2mInuLDROaEpkTimmXO8DPv';font-src 'self' data:"
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-sELK8gMQHd1Vnf3mSfpiWbXC3oZWTp6X';style-src 'self' 'nonce-sELK8gMQHd1Vnf3mSfpiWbXC3oZWTp6X';font-src 'self' data:"
 										},
 										{
 											"key": "Request-Id",
-											"value": "46e2158f-460a-476f-9b53-79e724404db1"
+											"value": "706b9570-0fa3-42c6-b194-6e9a2f865936"
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"19\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 0,\n                \"arguments\": \"test1 test2\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/19/previous\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"33\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 0,\n                \"arguments\": \"arg3 arg4\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/33\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/33/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/33/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/33/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/33/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/33/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/33/previous\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
@@ -18045,14 +18045,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": -1\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 |\n| environment_id | _numeric_ | 📝 editable | Nullable |"
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 (today). |\n| environment_id | _numeric_ | 📝 editable | Nullable |"
 							},
 							"response": [
 								{
-									"id": "9df8e7d1-44ac-40bf-8b9b-6adbbf22db60",
+									"id": "54239ba2-7406-4ca9-9372-13a80375fb67",
 									"name": "Add a new transform(transcript) step",
 									"originalRequest": {
 										"method": "POST",
@@ -18070,7 +18070,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"-1\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 										},
 										"url": "{{base_url}}/v1/workflowsteps"
 									},
@@ -18084,11 +18084,11 @@
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 05 Sep 2023 12:11:30 GMT"
+											"value": "Tue, 12 Sep 2023 13:52:25 GMT"
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 05 Sep 2023 12:11:30 GMT"
+											"value": "Tue, 12 Sep 2023 13:52:25 GMT"
 										},
 										{
 											"key": "Connection",
@@ -18108,7 +18108,7 @@
 										},
 										{
 											"key": "X-Clockwork-Id",
-											"value": "Xf81cfc73d5e780748493c3378cd068e4"
+											"value": "X8a0922e29539eab81f2187884d666900"
 										},
 										{
 											"key": "X-Clockwork-Version",
@@ -18144,16 +18144,16 @@
 										},
 										{
 											"key": "Content-Security-Policy",
-											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-SsGDCNAOERXpiqO81EYYaoVkFsBY8e2X';style-src 'self' 'nonce-SsGDCNAOERXpiqO81EYYaoVkFsBY8e2X';font-src 'self' data:"
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-7vtDTR8aCEiJ2aSbehm33mzITUc3X4Tm';style-src 'self' 'nonce-7vtDTR8aCEiJ2aSbehm33mzITUc3X4Tm';font-src 'self' data:"
 										},
 										{
 											"key": "Request-Id",
-											"value": "5bb065ce-0171-4c1d-8e51-f26b34b4c795"
+											"value": "5603071c-3d65-461f-af98-684be98d8a11"
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"20\",\n        \"attributes\": {\n            \"type\": \"transcript\",\n            \"options\": {\n                \"name\": \"Workflow_transformer\",\n                \"from_date\": -2,\n                \"to_date\": 2,\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/20\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/20/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/20/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/20/previous\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"31\",\n        \"attributes\": {\n            \"type\": \"transcript\",\n            \"options\": {\n                \"name\": \"Workflow_transformer\",\n                \"from_date\": -2,\n                \"to_date\": -1,\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/31\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/31/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/31/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/31/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/31/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/31/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/31/previous\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
@@ -18248,14 +18248,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": -1\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
 								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| report_id | _string_ | 📝 editable | Required |\n| split | _enum_ (`daily`, `monthly`) | 📝 editable | Default: monthly  <br>Split the proccessing into daily/monthly chunks, to speed to the processing time. |\n| from_date | _numeric_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _numeric_ | 📝 editable | Date offset, default 0 (today). |"
 							},
 							"response": [
 								{
-									"id": "c6073cb1-b526-41a7-b793-5d846fa31fe5",
+									"id": "9decfd18-9b02-4f14-8d77-16c5013089d9",
 									"name": "Add a new report(edify) step",
 									"originalRequest": {
 										"method": "POST",
@@ -18273,7 +18273,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": \"-1\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 										},
 										"url": "{{base_url}}/v1/workflowsteps"
 									},
@@ -18287,11 +18287,11 @@
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 05 Sep 2023 12:11:47 GMT"
+											"value": "Tue, 12 Sep 2023 13:52:55 GMT"
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 05 Sep 2023 12:11:47 GMT"
+											"value": "Tue, 12 Sep 2023 13:52:55 GMT"
 										},
 										{
 											"key": "Connection",
@@ -18311,7 +18311,7 @@
 										},
 										{
 											"key": "X-Clockwork-Id",
-											"value": "X47f0be0b8426f16a560870d2ce3e6a96"
+											"value": "X803a698e4373c5a4ae1cfd67128729fb"
 										},
 										{
 											"key": "X-Clockwork-Version",
@@ -18347,16 +18347,16 @@
 										},
 										{
 											"key": "Content-Security-Policy",
-											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-8De2dRStdl3FTenD6gWYTdM5EXuDFN5Q';style-src 'self' 'nonce-8De2dRStdl3FTenD6gWYTdM5EXuDFN5Q';font-src 'self' data:"
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-6qOP07NzgLb4Uo91icybsIHAvcrYcTo2';style-src 'self' 'nonce-6qOP07NzgLb4Uo91icybsIHAvcrYcTo2';font-src 'self' data:"
 										},
 										{
 											"key": "Request-Id",
-											"value": "20b40bff-883c-429a-9a0f-8a1b67b0f03f"
+											"value": "6d7214ae-42e9-40c3-a4ec-4c1caa534511"
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"21\",\n        \"attributes\": {\n            \"type\": \"edify\",\n            \"options\": {\n                \"report_id\": \"6\",\n                \"from_date\": 1,\n                \"to_date\": 2\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/21\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/21/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/21/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/21/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/21/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/21/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/21/previous\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"32\",\n        \"attributes\": {\n            \"type\": \"edify\",\n            \"options\": {\n                \"report_id\": \"5\",\n                \"from_date\": -2,\n                \"to_date\": -1\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/32\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/32/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/32/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/32/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/32/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/32/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/32/previous\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "cbb09e3e-e95c-4bdd-a3fc-d50edb7719da",
+			"id": "1f30aa7b-428e-47ce-9185-483b361ff6f8",
 			"key": "component",
 			"value": "use"
 		}
