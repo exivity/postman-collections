@@ -18849,7 +18849,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"proximity\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"exivity:gc\",\r\n                \"arguments\": \"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
+									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"evaluate_budget\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"budget_id\": \"1\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps"
 							},
@@ -28933,7 +28933,7 @@
 	],
 	"variable": [
 		{
-			"id": "afcc4687-10cb-4321-9d4f-2427b7b2b0b8",
+			"id": "73a2176b-40e8-4331-ae29-ba389cec6388",
 			"key": "component",
 			"value": "use"
 		}
