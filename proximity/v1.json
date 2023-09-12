@@ -18652,7 +18652,8 @@
 									"mode": "raw",
 									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"proximity\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"exivity:gc\",\r\n                \"arguments\": \"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            },\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n        }\r\n    }\r\n}"
 								},
-								"url": "{{base_url}}/v1/workflowsteps"
+								"url": "{{base_url}}/v1/workflowsteps",
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| command | _enum_(`exivity:gc`, `exivity:purge-cache` ) | 📝 editable | Required |\n| arguments | _string_ |  |  |"
 							},
 							"response": [
 								{
@@ -28932,7 +28933,7 @@
 	],
 	"variable": [
 		{
-			"id": "8eed8a68-56c0-491f-b09b-269a8f60c37d",
+			"id": "afcc4687-10cb-4321-9d4f-2427b7b2b0b8",
 			"key": "component",
 			"value": "use"
 		}
