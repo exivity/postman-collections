@@ -17841,7 +17841,112 @@
 								"url": "{{base_url}}/v1/workflowsteps",
 								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 (today) |\n| arguments | _string_ | 📝 editable | Custom extractor arguments |\n| environment_id | _numeric_ | 📝 editable | Optional. Loads the variables that have been set in a given environment. |"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "77342cac-1060-4ba2-b382-23c068100597",
+									"name": "Add a new extract(use) step",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/vnd.api+json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": 2,\r\n\t\t\t\t\"arguments\": \"arg3 arg4\",\r\n                \"environment_id\": null\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+										},
+										"url": "{{base_url}}/v1/workflowsteps"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Sep 2023 13:50:35 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 12 Sep 2023 13:50:35 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Location",
+											"value": "http://localhost:8012/v1/WorkflowStep/WorkflowSteps"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xd1a5684ec43ddf8f5b25e796b8c966cf"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-5MD4tQPr1wyGPEPu0AW95TMKA0Nudo1J';style-src 'self' 'nonce-5MD4tQPr1wyGPEPu0AW95TMKA0Nudo1J';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "6ffb5b38-20cf-4866-adac-b02a58c256ae"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"29\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 2,\n                \"arguments\": \"arg3 arg4\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/29\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/29/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/29/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/29/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/29/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/29/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/29/previous\"\n                }\n            }\n        }\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Add a new transform(transcript) step",
@@ -28827,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "538061c3-842a-4734-8281-69037d9c16b4",
+			"id": "22173809-98b0-43ce-9fe2-efd0deb219a2",
 			"key": "component",
 			"value": "use"
 		}
