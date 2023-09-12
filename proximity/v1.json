@@ -17836,7 +17836,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": 2,\r\n\t\t\t\t\"arguments\": \"test1 test2\",\r\n                \"environment_id\": null\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_extractor\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": 2,\r\n\t\t\t\t\"arguments\": \"arg3 arg4\",\r\n                \"environment_id\": null\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
 								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, Exampele -1 = 2 days ago  <br>0 - today  <br>Dafault today |\n| to_date | _integer_ | 📝 editable |  |\n| arguments | _string_ | 📝 editable | Custom extractor arguments |\n| environment_id | _numeric_ | 📝 editable | Optional. Loads the variables that have been set in a given environment. |"
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "9008bd46-7366-4e99-b8c3-553f86a03dac",
+			"id": "60495821-344b-4706-8770-dd8980af704d",
 			"key": "component",
 			"value": "use"
 		}
