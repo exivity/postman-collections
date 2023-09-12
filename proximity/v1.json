@@ -18048,7 +18048,7 @@
 									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"transcript\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"Workflow_transformer\",\r\n\t\t\t\t\"from_date\": \"-2\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 |\n| environment_id | _numeric_ | 📝 editable | Nullable |"
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| from_date | _integer_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _integer_ | 📝 editable | Date offset, default 0 (today). |\n| environment_id | _numeric_ | 📝 editable | Nullable |"
 							},
 							"response": [
 								{
@@ -18251,7 +18251,7 @@
 									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"edify\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"report_id\": \"{{report_id}}\",\r\n\t\t\t\t\"from_date\": \"1\",\r\n\t\t\t\t\"to_date\": \"2\"\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t},\r\n            \"previous\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflowstep\",\r\n\t\t\t\t\t\"id\": \"{{workflowstep_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| report_id | _string_ | 📝 editable | Required |\n| split | _enum_ (`daily`, `monthly`) | 📝 editable | Default: monthly  <br>Split the proccessing into daily/monthly chunks, to speed to the processing time. |\n| from_date | _numeric_ | 📝 editable |  |\n| to_date | _numeric_ | 📝 editable |  |"
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| report_id | _string_ | 📝 editable | Required |\n| split | _enum_ (`daily`, `monthly`) | 📝 editable | Default: monthly  <br>Split the proccessing into daily/monthly chunks, to speed to the processing time. |\n| from_date | _numeric_ | 📝 editable | Date offset, default 0 (today)  <br>Exampele:  <br>0 - today  <br>\\-1 = yesterday  <br>\\-2 = 2 days ago |\n| to_date | _numeric_ | 📝 editable | Date offset, default 0 (today). |"
 							},
 							"response": [
 								{
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "39fa760e-7e0b-4033-9109-eb79ff0e0b16",
+			"id": "a0e4fdbc-0dae-494d-be69-62a5af882b7a",
 			"key": "component",
 			"value": "use"
 		}
