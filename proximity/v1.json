@@ -18454,7 +18454,7 @@
 									"raw": "{\r\n    \"data\": {\r\n        \"type\": \"workflowstep\",\r\n        \"attributes\": {\r\n            \"type\": \"execute\",\r\n            \"timeout\": 600,\r\n            \"options\": {\r\n                \"command\": \"echo \\\"testing\\\"\"\r\n            }\r\n        },\r\n        \"relationships\": {\r\n            \"workflow\": {\r\n                \"data\": {\r\n                    \"type\": \"workflow\",\r\n                    \"id\": \"{{workflow_id}}\"\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowsteps",
-								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| report_id | _string_ | 📝 editable | Required |\n|  |  |  |  |\n|  |  |  |  |"
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| command | _string_ | 📝 editable | Required |"
 							},
 							"response": [
 								{
@@ -28932,7 +28932,7 @@
 	],
 	"variable": [
 		{
-			"id": "61e4b445-e41f-4951-804d-db6c0dc7aa3a",
+			"id": "8eed8a68-56c0-491f-b09b-269a8f60c37d",
 			"key": "component",
 			"value": "use"
 		}
