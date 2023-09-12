@@ -19037,7 +19037,8 @@
 											"value": "{{proximity_workflowstep_id}}"
 										}
 									]
-								}
+								},
+								"description": "#### Options\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| type | enum( `extract`, `transform`, `prepare_report`, `execute`, `proximity`, `publish_report`, `evaluate_budget` ) | 📝 editable | Workflow step type |\n| options | _required, array, values depend on_ `type` | 📝 editable |  |"
 							},
 							"response": [
 								{
@@ -28929,7 +28930,7 @@
 	],
 	"variable": [
 		{
-			"id": "6623c47a-aa9c-42a1-922c-28962bce5443",
+			"id": "1830a097-f5b8-447f-8f87-97517bb4d5a9",
 			"key": "component",
 			"value": "use"
 		}
