@@ -28169,7 +28169,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "99247673-e90e-4701-8d75-401176a08537",
+				"id": "fa17b829-9d03-49d7-9d57-36bf317c0692",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
@@ -28958,7 +28958,7 @@
 					"            }",
 					"",
 					"        }).then(function (response) {",
-					"            if (!pm.expect(response).to.have.property('code', 201)) {",
+					"            if (!pm.expect(response).to.have.property('code', 200)) {",
 					"                throw new Error(response);",
 					"            }",
 					"            json = response.json();",
@@ -28979,7 +28979,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "833f5f48-6b6f-420a-93e9-b04751feaaf8",
+				"id": "f392ae6a-83f5-4b4a-9271-1392b3227503",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -28989,7 +28989,7 @@
 	],
 	"variable": [
 		{
-			"id": "9438d026-efaa-4b91-a760-5473713d24ec",
+			"id": "b77b5dd6-404f-4a29-90f6-1e07ac6e9dca",
 			"key": "component",
 			"value": "use"
 		}
