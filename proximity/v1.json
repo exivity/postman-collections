@@ -28151,7 +28151,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2e4bea06-128d-4218-8050-aef4717e5999",
+				"id": "99247673-e90e-4701-8d75-401176a08537",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
@@ -28934,7 +28934,7 @@
 					"            body: {",
 					"                mode: 'raw',",
 					"                raw: JSON.stringify({",
-					"                    \"name\": \"Extractor test - {{$randomInt}}\",",
+					"                    \"name\": \"Test extractor - \" + Math.floor(Math.random() * 1000),",
 					"                    \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypt var key3 = 0\"",
 					"                })",
 					"            }",
@@ -28944,7 +28944,7 @@
 					"                throw new Error(response);",
 					"            }",
 					"            json = response.json();",
-					"            pm.environment.set(\"extractor_name\", json.data.id);",
+					"            pm.environment.set(\"extractor_name\", json.data.name);",
 					"            console.log('SET extractor_name: ' + pm.environment.get(\"extractor_name\"));",
 					"            return pm.environment.get(\"extractor_name\");",
 					"        });",
@@ -28961,7 +28961,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f5a1ee58-f7b4-46b1-bd82-572ae23e485e",
+				"id": "833f5f48-6b6f-420a-93e9-b04751feaaf8",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -28971,7 +28971,7 @@
 	],
 	"variable": [
 		{
-			"id": "13e5bd39-340b-4636-8fb4-1e24a7c644eb",
+			"id": "1cf1551a-7829-4b33-977f-61fb0bb3cdfd",
 			"key": "component",
 			"value": "use"
 		}
