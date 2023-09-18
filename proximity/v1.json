@@ -17990,8 +17990,8 @@
 											"\tpm.expect(response.data.attributes.options).to.be.an('object');\r",
 											"\tpm.expect(response.data.attributes.options).to.include({\r",
 											"\t\t\"report_id\": pm.environment.get('report_id'),\r",
-											"        \"from_date\": 1,\r",
-											"        \"to_date\": 2\r",
+											"        \"from_date\": -2,\r",
+											"        \"to_date\": -1\r",
 											"\t});\r",
 											"});\r",
 											"\r",
@@ -29003,7 +29003,7 @@
 	],
 	"variable": [
 		{
-			"id": "66132a90-58a2-42d1-a9e4-4759b442a714",
+			"id": "88df96b5-2f2d-435d-b36d-046006307c2d",
 			"key": "component",
 			"value": "use"
 		}
