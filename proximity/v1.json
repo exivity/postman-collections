@@ -17789,6 +17789,7 @@
 											"\tpm.expect(response.data.attributes.options).to.be.an('object');",
 											"    pm.expect(response.data.attributes.options).to.have.keys([\"name\", \"from_date\", \"to_date\", \"arguments\", \"environment_id\"]);",
 											"\tpm.expect(response.data.attributes.options).to.include({",
+											"        \"name\": pm.environment.get(\"extractor_name\"),",
 											"\t\t\"from_date\": -2,",
 											"\t\t\"to_date\": 0,",
 											"\t\t\"arguments\": \"arg3 arg4\"",
@@ -28990,7 +28991,7 @@
 	],
 	"variable": [
 		{
-			"id": "6cbb8764-c04e-45f2-9782-e8a2f0064867",
+			"id": "88ec02a1-c1cd-4539-b46c-54cd2b3f855a",
 			"key": "component",
 			"value": "use"
 		}
