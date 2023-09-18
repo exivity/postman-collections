@@ -28169,7 +28169,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "4fa55b86-79b9-4443-b7d5-4174458f8322",
+				"id": "e50e6e7c-f961-4140-80d9-b24ba068295d",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
@@ -28962,8 +28962,7 @@
 					"                throw new Error(response);",
 					"            }",
 					"            json = response.json();",
-					"            console.log(json);",
-					"            pm.environment.set(\"extractor_name\", json.data.name);",
+					"            pm.environment.set(\"extractor_name\", json.name);",
 					"            console.log('SET extractor_name: ' + pm.environment.get(\"extractor_name\"));",
 					"            return pm.environment.get(\"extractor_name\");",
 					"        });",
@@ -28980,7 +28979,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "ec950d93-c13f-43e2-afed-815c4ccb4d91",
+				"id": "733bc0aa-7db1-415b-aa8f-c4d818ae3d2f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -28990,7 +28989,7 @@
 	],
 	"variable": [
 		{
-			"id": "6ddb5dd5-f82c-471d-9d6c-c49fa3f4eae0",
+			"id": "67850a4c-5710-4520-860f-a33e615fde49",
 			"key": "component",
 			"value": "use"
 		}
