@@ -28151,7 +28151,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "b23cdba4-737c-4395-bdc1-894ed2529907",
+				"id": "2e4bea06-128d-4218-8050-aef4717e5999",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
@@ -28911,6 +28911,45 @@
 					"        });",
 					"    };",
 					"",
+					"    api.requireExtractor = function () {",
+					"        console.log('requireExtractor()');",
+					"",
+					"        // Check if Report ID is set",
+					"        if (pm.environment.get(\"extractor_name\") && pm.environment.get(\"extractor_name\") !== 'undefined') {",
+					"            console.log('GET extractor_name: ' + pm.environment.get(\"extractor_name\"));",
+					"            return pm.environment.get(\"extractor_name\");",
+					"        }",
+					"",
+					"",
+					"        // Create extractor",
+					"        return api.asyncRequest({",
+					"            // Create a new extractor",
+					"            url: pm.variables.get(\"base_url\") + '/v1/extractors',",
+					"            method: 'POST',",
+					"            header: {",
+					"                'Accept': 'application/json',",
+					"                'Content-Type': 'application/json',",
+					"                'Authorization': 'Bearer ' + pm.variables.get(\"token\")",
+					"            },",
+					"            body: {",
+					"                mode: 'raw',",
+					"                raw: JSON.stringify({",
+					"                    \"name\": \"Extractor test - {{$randomInt}}\",",
+					"                    \"contents\": \"print Hello\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypt var key3 = 0\"",
+					"                })",
+					"            }",
+					"",
+					"        }).then(function (response) {",
+					"            if (!pm.expect(response).to.have.property('code', 201)) {",
+					"                throw new Error(response);",
+					"            }",
+					"            json = response.json();",
+					"            pm.environment.set(\"extractor_name\", json.data.id);",
+					"            console.log('SET extractor_name: ' + pm.environment.get(\"extractor_name\"));",
+					"            return pm.environment.get(\"extractor_name\");",
+					"        });",
+					"    };",
+					"",
 					"    // Export everything",
 					"    return api;",
 					"};",
@@ -28922,7 +28961,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3cdd3f7a-7022-442e-9013-32def979d98d",
+				"id": "f5a1ee58-f7b4-46b1-bd82-572ae23e485e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -28932,7 +28971,7 @@
 	],
 	"variable": [
 		{
-			"id": "1451a98f-e747-42d2-b3bb-d3ab927b96b4",
+			"id": "13e5bd39-340b-4636-8fb4-1e24a7c644eb",
 			"key": "component",
 			"value": "use"
 		}
