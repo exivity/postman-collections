@@ -2355,6 +2355,208 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"report\": [\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"13.000000\",\n            \"total_quantity\": \"13.000000\",\n            \"unit_based_subtotal_charge\": \"32.50\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"32.50\",\n            \"total_charge\": \"32.50\",\n            \"total_cogs\": \"28.60\",\n            \"total_net\": \"3.90\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.50000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170825\",\n            \"account_id\": \"1\",\n            \"service_id\": \"71\",\n            \"servicecategory_id\": \"53\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"6.000000\",\n            \"total_quantity\": \"6.000000\",\n            \"unit_based_subtotal_charge\": \"7.20\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"7.20\",\n            \"total_charge\": \"7.20\",\n            \"total_cogs\": \"4.80\",\n            \"total_net\": \"2.40\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"1.20000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170825\",\n            \"account_id\": \"1\",\n            \"service_id\": \"72\",\n            \"servicecategory_id\": \"53\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"116.000000\",\n            \"total_quantity\": \"116.000000\",\n            \"unit_based_subtotal_charge\": \"1985.04\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"1985.04\",\n            \"total_charge\": \"1985.04\",\n            \"total_cogs\": \"1600.80\",\n            \"total_net\": \"384.24\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"17.11240000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170825\",\n            \"account_id\": \"1\",\n            \"service_id\": \"73\",\n            \"servicecategory_id\": \"54\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"120.000000\",\n            \"total_quantity\": \"120.000000\",\n            \"unit_based_subtotal_charge\": \"240.04\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"240.04\",\n            \"total_charge\": \"240.04\",\n            \"total_cogs\": \"120.02\",\n            \"total_net\": \"120.01\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.00030000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170825\",\n            \"account_id\": \"1\",\n            \"service_id\": \"74\",\n            \"servicecategory_id\": \"54\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"3.111100\",\n            \"total_quantity\": \"3.111100\",\n            \"unit_based_subtotal_charge\": \"7.78\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"7.78\",\n            \"total_charge\": \"7.78\",\n            \"total_cogs\": \"6.84\",\n            \"total_net\": \"0.93\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.50000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170825\",\n            \"account_id\": \"2\",\n            \"service_id\": \"71\",\n            \"servicecategory_id\": \"53\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"1.999900\",\n            \"total_quantity\": \"1.999900\",\n            \"unit_based_subtotal_charge\": \"2.40\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"2.40\",\n            \"total_charge\": \"2.40\",\n            \"total_cogs\": \"1.60\",\n            \"total_net\": \"0.80\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"1.20000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170825\",\n            \"account_id\": \"2\",\n            \"service_id\": \"72\",\n            \"servicecategory_id\": \"53\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"10.100000\",\n            \"total_quantity\": \"10.100000\",\n            \"unit_based_subtotal_charge\": \"14.81\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"14.81\",\n            \"total_charge\": \"14.81\",\n            \"total_cogs\": \"112.21\",\n            \"total_net\": \"-97.40\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"1.46612903\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170825\",\n            \"account_id\": \"2\",\n            \"service_id\": \"75\",\n            \"servicecategory_id\": \"55\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"13.000000\",\n            \"total_quantity\": \"13.000000\",\n            \"unit_based_subtotal_charge\": \"32.50\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"32.50\",\n            \"total_charge\": \"32.50\",\n            \"total_cogs\": \"28.60\",\n            \"total_net\": \"3.90\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.50000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170826\",\n            \"account_id\": \"1\",\n            \"service_id\": \"71\",\n            \"servicecategory_id\": \"53\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"116.000000\",\n            \"total_quantity\": \"116.000000\",\n            \"unit_based_subtotal_charge\": \"1996.77\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"1996.77\",\n            \"total_charge\": \"1996.77\",\n            \"total_cogs\": \"1612.43\",\n            \"total_net\": \"384.33\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"17.21350000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170826\",\n            \"account_id\": \"1\",\n            \"service_id\": \"73\",\n            \"servicecategory_id\": \"54\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"119.798000\",\n            \"total_quantity\": \"119.798000\",\n            \"unit_based_subtotal_charge\": \"239.63\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"239.63\",\n            \"total_charge\": \"239.63\",\n            \"total_cogs\": \"119.82\",\n            \"total_net\": \"119.81\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.00030000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170826\",\n            \"account_id\": \"1\",\n            \"service_id\": \"74\",\n            \"servicecategory_id\": \"54\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"3.111100\",\n            \"total_quantity\": \"3.111100\",\n            \"unit_based_subtotal_charge\": \"7.78\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"7.78\",\n            \"total_charge\": \"7.78\",\n            \"total_cogs\": \"6.84\",\n            \"total_net\": \"0.93\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.50000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170826\",\n            \"account_id\": \"2\",\n            \"service_id\": \"71\",\n            \"servicecategory_id\": \"53\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"24.000000\",\n            \"total_quantity\": \"24.000000\",\n            \"unit_based_subtotal_charge\": \"60.00\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"60.00\",\n            \"total_charge\": \"60.00\",\n            \"total_cogs\": \"52.80\",\n            \"total_net\": \"7.20\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.50000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170827\",\n            \"account_id\": \"1\",\n            \"service_id\": \"71\",\n            \"servicecategory_id\": \"53\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"116.000000\",\n            \"total_quantity\": \"116.000000\",\n            \"unit_based_subtotal_charge\": \"1985.04\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"1985.04\",\n            \"total_charge\": \"1985.04\",\n            \"total_cogs\": \"1600.80\",\n            \"total_net\": \"384.24\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"17.11240000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170827\",\n            \"account_id\": \"1\",\n            \"service_id\": \"73\",\n            \"servicecategory_id\": \"54\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"120.000000\",\n            \"total_quantity\": \"120.000000\",\n            \"unit_based_subtotal_charge\": \"240.04\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"240.04\",\n            \"total_charge\": \"240.04\",\n            \"total_cogs\": \"120.02\",\n            \"total_net\": \"120.01\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.00030000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170827\",\n            \"account_id\": \"1\",\n            \"service_id\": \"74\",\n            \"servicecategory_id\": \"54\"\n        },\n        {\n            \"rate_id\": null,\n            \"subtotal_quantity\": \"5.111100\",\n            \"total_quantity\": \"5.111100\",\n            \"unit_based_subtotal_charge\": \"12.78\",\n            \"interval_based_subtotal_charge\": \"0.00\",\n            \"subtotal_charge\": \"12.78\",\n            \"total_charge\": \"12.78\",\n            \"total_cogs\": \"11.24\",\n            \"total_net\": \"1.53\",\n            \"min_commit_delta_quantity\": \"0.000000\",\n            \"min_commit_delta_charge\": \"0.00\",\n            \"adjustments\": [],\n            \"tier_breakdown\": [],\n            \"avg_unit_based_rate\": \"2.50000000\",\n            \"avg_interval_based_rate\": \"0.00000000\",\n            \"breakdown\": null,\n            \"day\": \"20170827\",\n            \"account_id\": \"2\",\n            \"service_id\": \"71\",\n            \"servicecategory_id\": \"53\"\n        }\n    ]\n}"
+								},
+								{
+									"id": "08103d30-423b-45d3-9b6b-ef14484dc608",
+									"name": "Run a report - format CSV",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/reports/:report_id/run?start={{start}}&end={{end}}&format=csv",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"reports",
+												":report_id",
+												"run"
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "{{start}}",
+													"description": "The start of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+												},
+												{
+													"key": "end",
+													"value": "{{end}}",
+													"description": "The end of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+												},
+												{
+													"key": "dimension",
+													"value": "",
+													"description": "The dimension you want to include in the output. One of `accounts`, `services` or `instances` (or a combination of those as a comma separated list). Defaults to `accounts,services`. When `instances` is included, price and quantity adjustments and minimum commit are not reflected in the data.",
+													"disabled": true
+												},
+												{
+													"key": "timeline",
+													"value": "",
+													"description": "One of `day`, `month` or `none`. Defaults to `day`.",
+													"disabled": true
+												},
+												{
+													"key": "depth",
+													"value": "",
+													"description": "The depth in the report definition you want to report on. Defaults to 1.",
+													"disabled": true
+												},
+												{
+													"key": "include",
+													"value": "",
+													"description": "Optionally specify a list of extra fields you want to output with the results. Possible fields are `account_key`, `account_name`, `service_key`, `service_description`, `servicecategory_name`, `start_date`, `end_date`, `adjustment_name` (or a combination of those as a comma separated list). The account and service fields are only available if their respective dimension is included in the request.",
+													"disabled": true
+												},
+												{
+													"key": "filter[attribute]",
+													"value": null,
+													"description": "Optionally filter the output by the supplied field. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields.",
+													"disabled": true
+												},
+												{
+													"key": "format",
+													"value": "csv",
+													"description": "One of `json`, `csv` or `pdf/summary`. Default to `json`."
+												},
+												{
+													"key": "precision",
+													"value": "",
+													"description": "Specify `highest` to get raw precision, use configuration otherwise. Defaults to `configuration`.",
+													"disabled": true
+												},
+												{
+													"key": "progress",
+													"value": "",
+													"description": "When set to `1` and format is `json`, results will be streamed with progress indicator in response body. When format is `csv`, results are always streamed without progress indicator, `pdf/ínvoice` is never streamed. Defaults to `1`.",
+													"disabled": true
+												},
+												{
+													"key": "csv_delimiter",
+													"value": "",
+													"description": "The CSV delimiter to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `;`, `:`, `\\t`, `|`. Leave blank to use configuration.",
+													"disabled": true
+												},
+												{
+													"key": "csv_decimal_separator",
+													"value": null,
+													"description": "The decimal separator to use. Only applicable when `format` is set to `csv`. Possible values: `,`, `.`. Leave blank to use configuration.",
+													"disabled": true
+												},
+												{
+													"key": "summary_options",
+													"value": "",
+													"description": "List of options for the pdf/summary format, in a comma seperated list. Possible options: `consolidated`, `accounts`, `services`, `instances_by_instance` and `instances_by_service`. Defaults to `services`.",
+													"disabled": true
+												}
+											],
+											"variable": [
+												{
+													"key": "report_id",
+													"value": "{{report_id}}",
+													"description": "ID of report to run"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Oct 2023 08:33:03 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Oct 2023 08:33:03 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/csv; charset=UTF-8"
+										},
+										{
+											"key": "X-Proximity-Cache",
+											"value": "miss"
+										},
+										{
+											"key": "Content-Disposition",
+											"value": "attachment; filename=\"report-test_depth-reseller_range-20170101-20231231.csv\""
+										},
+										{
+											"key": "Access-Control-Expose-Headers",
+											"value": "Content-Disposition"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X9ed54c08e6df6fb34aa3fe25e4a2f8c6"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "X9ed54c08e6df6fb34aa3fe25e4a2f8c6"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-xBv56oZ62TI3FLqSdg4xOXyVs7gpRNOy';style-src 'self' 'nonce-xBv56oZ62TI3FLqSdg4xOXyVs7gpRNOy';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "d28616c7-3d13-4588-bf06-921b77107d7a"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "rate_id,subtotal_quantity,total_quantity,unit_based_subtotal_charge,interval_based_subtotal_charge,subtotal_charge,total_charge,total_cogs,total_net,min_commit_delta_quantity,min_commit_delta_charge,adjustments,tier_breakdown,avg_unit_based_rate,avg_interval_based_rate,breakdown,day,account_id,service_id,servicecategory_id\n,13.000000,13.000000,32.50,0.00,32.50,32.50,28.60,3.90,0.000000,0.00,,,2.50000000,0.00000000,,20170825,1,71,53\n,6.000000,6.000000,7.20,0.00,7.20,7.20,4.80,2.40,0.000000,0.00,,,1.20000000,0.00000000,,20170825,1,72,53\n,116.000000,116.000000,1985.04,0.00,1985.04,1985.04,1600.80,384.24,0.000000,0.00,,,17.11240000,0.00000000,,20170825,1,73,54\n,120.000000,120.000000,240.04,0.00,240.04,240.04,120.02,120.01,0.000000,0.00,,,2.00030000,0.00000000,,20170825,1,74,54\n,3.111100,3.111100,7.78,0.00,7.78,7.78,6.84,0.93,0.000000,0.00,,,2.50000000,0.00000000,,20170825,2,71,53\n,1.999900,1.999900,2.40,0.00,2.40,2.40,1.60,0.80,0.000000,0.00,,,1.20000000,0.00000000,,20170825,2,72,53\n,10.100000,10.100000,14.81,0.00,14.81,14.81,112.21,-97.40,0.000000,0.00,,,1.46612903,0.00000000,,20170825,2,75,55\n,13.000000,13.000000,32.50,0.00,32.50,32.50,28.60,3.90,0.000000,0.00,,,2.50000000,0.00000000,,20170826,1,71,53\n,116.000000,116.000000,1996.77,0.00,1996.77,1996.77,1612.43,384.33,0.000000,0.00,,,17.21350000,0.00000000,,20170826,1,73,54\n,119.798000,119.798000,239.63,0.00,239.63,239.63,119.82,119.81,0.000000,0.00,,,2.00030000,0.00000000,,20170826,1,74,54\n,3.111100,3.111100,7.78,0.00,7.78,7.78,6.84,0.93,0.000000,0.00,,,2.50000000,0.00000000,,20170826,2,71,53\n,24.000000,24.000000,60.00,0.00,60.00,60.00,52.80,7.20,0.000000,0.00,,,2.50000000,0.00000000,,20170827,1,71,53\n,116.000000,116.000000,1985.04,0.00,1985.04,1985.04,1600.80,384.24,0.000000,0.00,,,17.11240000,0.00000000,,20170827,1,73,54\n,120.000000,120.000000,240.04,0.00,240.04,240.04,120.02,120.01,0.000000,0.00,,,2.00030000,0.00000000,,20170827,1,74,54\n,5.111100,5.111100,12.78,0.00,12.78,12.78,11.24,1.53,0.000000,0.00,,,2.50000000,0.00000000,,20170827,2,71,53\n"
 								}
 							]
 						},
@@ -2458,7 +2660,148 @@
 								},
 								"description": "⚠️ This endpoint is currently in alpha and may change at any time. Please don't use in production.\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| service_ids | *string\\[\\]* | Key for the applicable service, only when `services` is included in the `dimension` parameter |\n| servicecategory_ids | *string\\[\\]* | Key for the applicable service category, only when `services` is included in the `dimension` parameter |\n| account_ids | *string\\[\\]* | Key for the applicable account, only when `accounts` is included in the `dimension` parameter |\n| instance_values | *string\\[\\]* | Unique identifier for the applicable instance, only when `instances` is included in the `dimension` parameter |"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "957c4efc-47be-4be1-b7ae-2bb63ea97ef4",
+									"name": "Fetch report resources",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/reports/:report_id/resources?start={{start}}&end={{end}}&dimension=&depth=&filter[attribute]",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"reports",
+												":report_id",
+												"resources"
+											],
+											"query": [
+												{
+													"key": "start",
+													"value": "{{start}}",
+													"description": "The start of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+												},
+												{
+													"key": "end",
+													"value": "{{end}}",
+													"description": "The end of the date range (inclusive) you want to run the report for in `yyyy-mm-dd` format. Defaults to the current date."
+												},
+												{
+													"key": "dimension",
+													"value": "",
+													"description": "The dimension you want to include in the output. One of `accounts`, `services` or `instances` (or a combination of those as a comma separated list). Defaults to `accounts,services`."
+												},
+												{
+													"key": "depth",
+													"value": "",
+													"description": "The depth in the report definition you want to report on. Defaults to 1."
+												},
+												{
+													"key": "filter[attribute]",
+													"value": null,
+													"description": "Optionally [filter](#working-with-the-api) results by this attribute. Possible fields are `account_id`, `parent_account_id`, `service_id`, `servicecategory_id`, `instance`. This parameter can occur multiple times in a request to filter by multiple fields."
+												}
+											],
+											"variable": [
+												{
+													"key": "report_id",
+													"value": "{{report_id}}",
+													"type": "string",
+													"description": "Report to fetch resources on"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Oct 2023 08:31:51 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 09 Oct 2023 08:31:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xabb4d507d53c1e97b3dc3916a7d269de"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "1"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "Xabb4d507d53c1e97b3dc3916a7d269de"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-IORts05ldYH603cbiJCTikss9hK7rq5C';style-src 'self' 'nonce-IORts05ldYH603cbiJCTikss9hK7rq5C';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "2da0e8e7-9a52-4f6b-87a1-253f22ea0223"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"resources\": {\n        \"account_ids\": [\n            \"1\",\n            \"2\"\n        ],\n        \"service_ids\": [\n            \"71\",\n            \"72\",\n            \"73\",\n            \"74\",\n            \"75\"\n        ],\n        \"servicecategory_ids\": [\n            \"53\",\n            \"54\",\n            \"55\"\n        ]\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Delete a report definition",
