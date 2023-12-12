@@ -20586,7 +20586,7 @@
 						}
 					],
 					"id": "f85bcd76-a3a7-43bc-9e3b-7fe8d5594b8a",
-					"description": "⚠️ We plan to deprecate these endpoints in the next version of Exivity. A new `/jobs` endpoint will be added which will offer the same functionality.\n\nRuns contain workflow status information of workflow runs.\n\n#### The Workflow Run Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| start_date | _datetime_ | 👁 read-only |  |\n| end_date | _datetime_ | 👁 read-only |  |\n| status | _enum_ (`started`, `success`, `failed`, `timed_out`, `invalid`, `internal_error`, `killed`) | 👁 read-only |  |\n\nThe following relationships can be included:\n\n| **relationship** | **cardinality** | **type** | **required** |\n| --- | --- | --- | --- |\n| workflow | hasOne | workflow | ✔️ |\n| steplogs | hasMany | workflowsteplog | ❌ |",
+					"description": "⚠️ **We plan to deprecate these endpoints in the next version of Exivity. A new** **`/jobs`** **endpoint will be added which will offer the same functionality.**\n\nRuns contain workflow status information of workflow runs.\n\n#### The Workflow Run Object\n\n| **attribute** | **type** | **mutability** |\n| --- | --- | --- |\n| start_date | _datetime_ | 👁 read-only |\n| end_date | _datetime_ | 👁 read-only |\n| status | _enum_ (`started`, `success`, `failed`, `timed_out`, `invalid`, `internal_error`, `killed`) | 👁 read-only |\n\nThe following relationships can be included:\n\n| **relationship** | **cardinality** | **type** | **required** |\n| --- | --- | --- | --- |\n| workflow | hasOne | workflow | ✔️ |\n| steplogs | hasMany | workflowsteplog | ❌ |",
 					"auth": {
 						"type": "noauth"
 					},
