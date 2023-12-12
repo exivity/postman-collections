@@ -17338,7 +17338,11 @@
 											"    .then(api.ready)\r",
 											"    .catch(function(err) {\r",
 											"        console.log(err);\r",
-											"    });"
+											"    });\r",
+											"\r",
+											"var day = new Date(); // today\r",
+											"day.setDate(day.getDate() + 1); // tomorrow\r",
+											"pm.environment.set(\"tomorrow\", day.toISOString().slice(0, -5) + 'Z'); // Remove the milliseconds "
 										],
 										"type": "text/javascript"
 									}
@@ -17370,7 +17374,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": \"2020-01-01T18:00:00Z\",\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowschedule\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"start_time\": \"{{tomorrow}}\",\r\n\t\t\t\"timezone\": \"Europe/Amsterdam\",\r\n\t\t\t\"adjust_for_dst\": true,\r\n\t\t\t\"frequency\": \"daily\",\r\n\t\t\t\"frequency_modifier\": 2\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}"
 								},
 								"url": "{{base_url}}/v1/workflowschedules"
 							},
@@ -20582,7 +20586,7 @@
 						}
 					],
 					"id": "f85bcd76-a3a7-43bc-9e3b-7fe8d5594b8a",
-					"description": "⚠️ We plan to deprecate these endpoints in the next version of Exivity. A new `/jobs` endpoint will be added which will offer the same functionality.",
+					"description": "⚠️ We plan to deprecate these endpoints in the next version of Exivity. A new `/jobs` endpoint will be added which will offer the same functionality.\n\nRuns contain workflow status information of workflow runs.\n\n#### The Workflow Run Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| start_date | _datetime_ | 👁 read-only |  |\n| end_date | _datetime_ | 👁 read-only |  |\n| status | _enum_ (`started`, `success`, `failed`, `timed_out`, `invalid`, `internal_error`, `killed`) | 👁 read-only |  |\n\nThe following relationships can be included:\n\n| **relationship** | **cardinality** | **type** | **required** |\n| --- | --- | --- | --- |\n| workflow | hasOne | workflow | ✔️ |\n| steplogs | hasMany | workflowsteplog | ❌ |",
 					"auth": {
 						"type": "noauth"
 					},
