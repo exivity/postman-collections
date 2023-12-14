@@ -17587,7 +17587,7 @@
 											"    pm.expect(response.data.id).to.eql(pm.environment.get(\"workflowschedule_id\").toString());",
 											"    pm.expect(response.data.attributes).to.be.an('object');",
 											"    pm.expect(response.data.attributes).to.include({",
-											"        \"start_time\": \"2020-01-01T18:00:00Z\",",
+											"        \"start_time\": pm.environment.get(\"tomorrow\"),",
 											"        \"timezone\": \"Europe/Amsterdam\",",
 											"        \"adjust_for_dst\": true,",
 											"        \"frequency\": \"daily\",",
