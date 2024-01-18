@@ -11864,7 +11864,12 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"job\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"extract\",\r\n            \"id\": \"{{extractor_name}}\"\r\n\t\t}\r\n\t}\r\n}"
+									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"job\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"extract\",\r\n            \"id\": \"{{extractor_name}}\"\r\n\t\t}\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
 								},
 								"url": {
 									"raw": "{{base_url}}/v1/jobs?arguments",
@@ -11884,8 +11889,7 @@
 										},
 										{
 											"key": "arguments",
-											"value": null,
-											"type": "text"
+											"value": null
 										}
 									]
 								}
