@@ -6458,6 +6458,7 @@
 											"        \"cogs_fixed\": 4,",
 											"        \"cogs_fixed_col\": \"cogs_fixed_col\",",
 											"        \"effective_date\": \"2017-08-28\",",
+											"        \"end_date\": null,",
 											"        \"min_commit\": null,",
 											"        \"tier_aggregation_level\": 1",
 											"  });",
