@@ -26015,8 +26015,8 @@
 									},
 									"response": [
 										{
-											"id": "d0520e98-6211-4f09-8ff5-2c048579bd26",
-											"name": "Get version information",
+											"id": "7fb02909-41c0-459a-a8e2-fe6468855522",
+											"name": "Get system services config",
 											"originalRequest": {
 												"method": "GET",
 												"header": [
@@ -26025,64 +26025,88 @@
 														"value": "application/json"
 													}
 												],
-												"url": "{{base_url}}/v1/system/version"
+												"url": "{{base_url}}/v1/system/services/"
 											},
 											"status": "OK",
 											"code": 200,
 											"_postman_previewlanguage": "json",
 											"header": [
 												{
-													"key": "Transfer-Encoding",
-													"value": "chunked",
-													"name": "Transfer-Encoding",
-													"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+													"key": "Host",
+													"value": "localhost:8012"
 												},
 												{
-													"key": "cache-control",
-													"value": "no-cache, private",
-													"name": "cache-control",
-													"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+													"key": "Connection",
+													"value": "close"
 												},
 												{
-													"key": "connection",
-													"value": "close",
-													"name": "connection",
-													"description": "Options that are desired for the connection"
+													"key": "X-Powered-By",
+													"value": "PHP/8.3.0"
 												},
 												{
-													"key": "content-type",
-													"value": "application/json",
-													"name": "content-type",
-													"description": "The mime type of this content"
+													"key": "Cache-Control",
+													"value": "no-cache, private"
 												},
 												{
-													"key": "date",
-													"value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
-													"name": "date",
-													"description": "The date and time that the message was sent"
+													"key": "Date",
+													"value": "Tue, 27 Feb 2024 14:03:29 GMT"
 												},
 												{
-													"key": "host",
-													"value": "localhost:8002",
-													"name": "host",
-													"description": "Custom header"
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "X-Clockwork-Id",
+													"value": "Xbd97f9ac66638f1ca441eb8c74367afa"
+												},
+												{
+													"key": "X-Clockwork-Version",
+													"value": "9"
+												},
+												{
+													"key": "X-Clockwork-Path",
+													"value": "_debugbar/clockwork/"
 												},
 												{
 													"key": "phpdebugbar-id",
-													"value": "761895ecc35993dc557ff3149dc64d58",
-													"name": "phpdebugbar-id",
-													"description": "Custom header"
+													"value": "Xbd97f9ac66638f1ca441eb8c74367afa"
 												},
 												{
-													"key": "x-powered-by",
-													"value": "PHP/7.1.4",
-													"name": "x-powered-by",
-													"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "Feature-Policy",
+													"value": "autoplay 'none'; camera 'none'"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "strict-origin"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-frX4DCb7vtLxJSqXtlPeOAB7Aw6DaKzN';style-src 'self' 'nonce-frX4DCb7vtLxJSqXtlPeOAB7Aw6DaKzN';font-src 'self' data:"
+												},
+												{
+													"key": "Request-Id",
+													"value": "ecd046c8-3dbc-40cc-88ee-c8bd11511098"
 												}
 											],
 											"cookie": [],
 											"responseTime": null,
-											"body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
+											"body": "{\n    \"configuration\": {\n        \"MAIL_HOST\": \"test.mail.com\",\n        \"MAIL_PORT\": 465,\n        \"MAIL_USERNAME\": null,\n        \"MAIL_PASSWORD\": null,\n        \"MAIL_FROM_ADDRESS\": null,\n        \"MAIL_FROM_NAME\": \"Exivity\",\n        \"MAIL_DRIVER\": \"SMTP\",\n        \"MAIL_ENCRYPTION\": \"tls\",\n        \"MAIL_MAX_FILESIZE\": \"2e+7\",\n        \"NEXMO_KEY\": null,\n        \"NEXMO_SECRET\": null,\n        \"NEXMO_FROM_NUMBER\": \"EXIVITY\",\n        \"LDAP_ACCOUNT_PREFIX\": null,\n        \"LDAP_ACCOUNT_SUFFIX\": null,\n        \"LDAP_HOSTS\": null,\n        \"LDAP_PORT\": 389,\n        \"LDAP_TIMEOUT\": 100,\n        \"LDAP_ENCRYPTION\": null,\n        \"LDAP_BASE_DN\": null,\n        \"LDAP_DEFAULT_USERGROUP_ID\": null,\n        \"LDAP_USERNAME_FIELD\": \"samAccountName\",\n        \"LDAP_EMAIL_FIELD\": \"mail\"\n    }\n}"
 										}
 									]
 								},
@@ -26144,78 +26168,7 @@
 										},
 										"url": "{{base_url}}/v1/system/services/"
 									},
-									"response": [
-										{
-											"id": "84bac958-d266-4b2c-aa17-645e666f3259",
-											"name": "Get version information",
-											"originalRequest": {
-												"method": "GET",
-												"header": [
-													{
-														"key": "Accept",
-														"value": "application/json"
-													}
-												],
-												"url": "{{base_url}}/v1/system/version"
-											},
-											"status": "OK",
-											"code": 200,
-											"_postman_previewlanguage": "json",
-											"header": [
-												{
-													"key": "Transfer-Encoding",
-													"value": "chunked",
-													"name": "Transfer-Encoding",
-													"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
-												},
-												{
-													"key": "cache-control",
-													"value": "no-cache, private",
-													"name": "cache-control",
-													"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
-												},
-												{
-													"key": "connection",
-													"value": "close",
-													"name": "connection",
-													"description": "Options that are desired for the connection"
-												},
-												{
-													"key": "content-type",
-													"value": "application/json",
-													"name": "content-type",
-													"description": "The mime type of this content"
-												},
-												{
-													"key": "date",
-													"value": "Wed, 14 Feb 2018 10:41:34 +0000, Wed, 14 Feb 2018 10:41:34 GMT",
-													"name": "date",
-													"description": "The date and time that the message was sent"
-												},
-												{
-													"key": "host",
-													"value": "localhost:8002",
-													"name": "host",
-													"description": "Custom header"
-												},
-												{
-													"key": "phpdebugbar-id",
-													"value": "761895ecc35993dc557ff3149dc64d58",
-													"name": "phpdebugbar-id",
-													"description": "Custom header"
-												},
-												{
-													"key": "x-powered-by",
-													"value": "PHP/7.1.4",
-													"name": "x-powered-by",
-													"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application (version details are often in X-Runtime, X-Version, or X-AspNet-Version)"
-												}
-											],
-											"cookie": [],
-											"responseTime": null,
-											"body": "{\r\n    \"data\": {\r\n        \"version\": \"1.2.0\",\r\n        \"components\": {\r\n            \"exivityd\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"89747002f3daa264fd58782f820854414c2b71f9\"\r\n            },\r\n            \"db\": {\r\n                \"ref\": \"v1.0.0\",\r\n                \"hash\": \"2c25fbe3b49608b745c5337787c8845ed8f9504a\"\r\n            },\r\n            \"use\": {\r\n                \"ref\": \"v1.2.0\",\r\n                \"hash\": \"7e937cbc5b8ccb1557c0108af4c48aad8735fe53\"\r\n            },\r\n            \"transcript\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"f9a9db7c57896cefd2a6a4d96aacbe294d67e29f\"\r\n            },\r\n            \"edify\": {\r\n                \"ref\": \"v1.0.2\",\r\n                \"hash\": \"34017a9bebe5b42290534d0c5ab6988759eb25f6\"\r\n            },\r\n            \"glass\": {\r\n                \"ref\": \"v1.1.0\",\r\n                \"hash\": \"ea3b0d344ddd80227f40a00baf8b8af5691a2e8d\"\r\n            },\r\n            \"proximity\": {\r\n                \"ref\": \"v1.0.3\",\r\n                \"hash\": \"72ae7b190714f69918575d5c1baa212db962fea8\",\r\n                \"api\": \"v1\"\r\n            },\r\n            \"eternity\": {\r\n                \"ref\": \"v1.0.1\",\r\n                \"hash\": \"6d0ff2b38d15d9832297bc16c807320e035ddb96\"\r\n            }\r\n        }\r\n    }\r\n}"
-										}
-									]
+									"response": []
 								}
 							],
 							"id": "bbec12de-2991-44c4-9fff-e2693460e821",
