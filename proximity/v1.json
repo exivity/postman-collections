@@ -26168,7 +26168,111 @@
 										},
 										"url": "{{base_url}}/v1/system/services/"
 									},
-									"response": []
+									"response": [
+										{
+											"id": "46d26846-bc2a-4c7c-9e18-fe3431ecfae4",
+											"name": "Update system services config",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_NAME\": \"MyApp\"\r\n   }\r\n}"
+												},
+												"url": "{{base_url}}/v1/system/services/"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Host",
+													"value": "localhost:8012"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.3.0"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 27 Feb 2024 14:07:00 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "X-Clockwork-Id",
+													"value": "Xbdae33ee25405cbd4f9758e23d0025be"
+												},
+												{
+													"key": "X-Clockwork-Version",
+													"value": "9"
+												},
+												{
+													"key": "X-Clockwork-Path",
+													"value": "_debugbar/clockwork/"
+												},
+												{
+													"key": "phpdebugbar-id",
+													"value": "Xbdae33ee25405cbd4f9758e23d0025be"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "Feature-Policy",
+													"value": "autoplay 'none'; camera 'none'"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "strict-origin"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-8KBZKXaWD7vikv7izESGsToPi4SPQQT5';style-src 'self' 'nonce-8KBZKXaWD7vikv7izESGsToPi4SPQQT5';font-src 'self' data:"
+												},
+												{
+													"key": "Request-Id",
+													"value": "91b6c964-6eae-42cf-9ad2-69f20972dce3"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"code\": 200,\n    \"message\": \"Configuration saved.\",\n    \"configuration\": {\n        \"MAIL_HOST\": \"test.mail.com\",\n        \"MAIL_PORT\": 465,\n        \"MAIL_USERNAME\": null,\n        \"MAIL_PASSWORD\": null,\n        \"MAIL_FROM_ADDRESS\": null,\n        \"MAIL_FROM_NAME\": \"MyApp\",\n        \"MAIL_DRIVER\": \"SMTP\",\n        \"MAIL_ENCRYPTION\": \"tls\",\n        \"MAIL_MAX_FILESIZE\": \"2e+7\",\n        \"NEXMO_KEY\": null,\n        \"NEXMO_SECRET\": null,\n        \"NEXMO_FROM_NUMBER\": \"EXIVITY\",\n        \"LDAP_ACCOUNT_PREFIX\": null,\n        \"LDAP_ACCOUNT_SUFFIX\": null,\n        \"LDAP_HOSTS\": null,\n        \"LDAP_PORT\": 389,\n        \"LDAP_TIMEOUT\": 100,\n        \"LDAP_ENCRYPTION\": null,\n        \"LDAP_BASE_DN\": null,\n        \"LDAP_DEFAULT_USERGROUP_ID\": null,\n        \"LDAP_USERNAME_FIELD\": \"samAccountName\",\n        \"LDAP_EMAIL_FIELD\": \"mail\"\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "bbec12de-2991-44c4-9fff-e2693460e821",
