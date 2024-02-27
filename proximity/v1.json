@@ -24550,7 +24550,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{  \r\n   \"configuration\":{  \r\n      \"SUMMARY_EXTRA\": \"Updated from Postman Test\"\r\n   }\r\n}"
+									"raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_ADDRESS\": null\r\n   }\r\n}"
 								},
 								"url": "{{base_url}}/v1/configuration"
 							},
