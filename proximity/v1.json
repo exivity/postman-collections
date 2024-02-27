@@ -26015,7 +26015,7 @@
 									},
 									"response": [
 										{
-											"id": "7fb02909-41c0-459a-a8e2-fe6468855522",
+											"id": "2392f550-f455-4f2c-ae4f-ee6c91b73a80",
 											"name": "Get system services config",
 											"originalRequest": {
 												"method": "GET",
@@ -26049,7 +26049,7 @@
 												},
 												{
 													"key": "Date",
-													"value": "Tue, 27 Feb 2024 14:03:29 GMT"
+													"value": "Tue, 27 Feb 2024 14:23:29 GMT"
 												},
 												{
 													"key": "Content-Type",
@@ -26057,7 +26057,7 @@
 												},
 												{
 													"key": "X-Clockwork-Id",
-													"value": "Xbd97f9ac66638f1ca441eb8c74367afa"
+													"value": "Xca216bec4b574aaa9674875037096db0"
 												},
 												{
 													"key": "X-Clockwork-Version",
@@ -26069,7 +26069,7 @@
 												},
 												{
 													"key": "phpdebugbar-id",
-													"value": "Xbd97f9ac66638f1ca441eb8c74367afa"
+													"value": "Xca216bec4b574aaa9674875037096db0"
 												},
 												{
 													"key": "X-XSS-Protection",
@@ -26097,16 +26097,16 @@
 												},
 												{
 													"key": "Content-Security-Policy",
-													"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-frX4DCb7vtLxJSqXtlPeOAB7Aw6DaKzN';style-src 'self' 'nonce-frX4DCb7vtLxJSqXtlPeOAB7Aw6DaKzN';font-src 'self' data:"
+													"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-4NJshgzhPzByydyFbIVEPvXoFFjPKI7U';style-src 'self' 'nonce-4NJshgzhPzByydyFbIVEPvXoFFjPKI7U';font-src 'self' data:"
 												},
 												{
 													"key": "Request-Id",
-													"value": "ecd046c8-3dbc-40cc-88ee-c8bd11511098"
+													"value": "50d44c84-a28d-4ea4-b792-ab0f9e26d13e"
 												}
 											],
 											"cookie": [],
 											"responseTime": null,
-											"body": "{\n    \"configuration\": {\n        \"MAIL_HOST\": \"test.mail.com\",\n        \"MAIL_PORT\": 465,\n        \"MAIL_USERNAME\": null,\n        \"MAIL_PASSWORD\": null,\n        \"MAIL_FROM_ADDRESS\": null,\n        \"MAIL_FROM_NAME\": \"Exivity\",\n        \"MAIL_DRIVER\": \"SMTP\",\n        \"MAIL_ENCRYPTION\": \"tls\",\n        \"MAIL_MAX_FILESIZE\": \"2e+7\",\n        \"NEXMO_KEY\": null,\n        \"NEXMO_SECRET\": null,\n        \"NEXMO_FROM_NUMBER\": \"EXIVITY\",\n        \"LDAP_ACCOUNT_PREFIX\": null,\n        \"LDAP_ACCOUNT_SUFFIX\": null,\n        \"LDAP_HOSTS\": null,\n        \"LDAP_PORT\": 389,\n        \"LDAP_TIMEOUT\": 100,\n        \"LDAP_ENCRYPTION\": null,\n        \"LDAP_BASE_DN\": null,\n        \"LDAP_DEFAULT_USERGROUP_ID\": null,\n        \"LDAP_USERNAME_FIELD\": \"samAccountName\",\n        \"LDAP_EMAIL_FIELD\": \"mail\"\n    }\n}"
+											"body": "{\n    \"configuration\": {\n        \"LDAP_ACCOUNT_PREFIX\": null,\n        \"LDAP_ACCOUNT_SUFFIX\": null,\n        \"LDAP_BASE_DN\": null,\n        \"LDAP_DEFAULT_USERGROUP_ID\": null,\n        \"LDAP_EMAIL_FIELD\": \"mail\",\n        \"LDAP_ENCRYPTION\": null,\n        \"LDAP_HOSTS\": null,\n        \"LDAP_PORT\": \"389\",\n        \"LDAP_TIMEOUT\": \"5\",\n        \"LDAP_USERNAME_FIELD\": \"samAccountName\",\n        \"MAIL_DRIVER\": \"SMTP\",\n        \"MAIL_ENCRYPTION\": \"tls\",\n        \"MAIL_FROM_ADDRESS\": null,\n        \"MAIL_FROM_NAME\": \"MyApp\",\n        \"MAIL_HOST\": null,\n        \"MAIL_MAX_FILESIZE\": \"2e+7\",\n        \"MAIL_PASSWORD\": \"********\",\n        \"MAIL_PORT\": \"465\",\n        \"MAIL_USERNAME\": null,\n        \"NEXMO_FROM_NUMBER\": \"EXIVITY\",\n        \"NEXMO_KEY\": null,\n        \"NEXMO_SECRET\": \"********\"\n    }\n}"
 										}
 									]
 								},
@@ -26168,7 +26168,111 @@
 										},
 										"url": "{{base_url}}/v1/system/services/"
 									},
-									"response": []
+									"response": [
+										{
+											"id": "908d989a-4fa4-499c-ab10-788e144b7952",
+											"name": "Update system services config",
+											"originalRequest": {
+												"method": "PATCH",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"key": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_NAME\": \"MyApp\"\r\n   }\r\n}"
+												},
+												"url": "{{base_url}}/v1/system/services/"
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Host",
+													"value": "localhost:8012"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/8.3.0"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Date",
+													"value": "Tue, 27 Feb 2024 14:23:06 GMT"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "X-Clockwork-Id",
+													"value": "X4088466fa1eab1bfe624eb653f2d98a4"
+												},
+												{
+													"key": "X-Clockwork-Version",
+													"value": "9"
+												},
+												{
+													"key": "X-Clockwork-Path",
+													"value": "_debugbar/clockwork/"
+												},
+												{
+													"key": "phpdebugbar-id",
+													"value": "X4088466fa1eab1bfe624eb653f2d98a4"
+												},
+												{
+													"key": "X-XSS-Protection",
+													"value": "1; mode=block"
+												},
+												{
+													"key": "Strict-Transport-Security",
+													"value": "max-age=31536000; includeSubDomains"
+												},
+												{
+													"key": "X-Frame-Options",
+													"value": "SAMEORIGIN"
+												},
+												{
+													"key": "X-Content-Type-Options",
+													"value": "nosniff"
+												},
+												{
+													"key": "Feature-Policy",
+													"value": "autoplay 'none'; camera 'none'"
+												},
+												{
+													"key": "Referrer-Policy",
+													"value": "strict-origin"
+												},
+												{
+													"key": "Content-Security-Policy",
+													"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-zv35WcSJs8Lo7LLbzDKyOZMRdN7BhrCU';style-src 'self' 'nonce-zv35WcSJs8Lo7LLbzDKyOZMRdN7BhrCU';font-src 'self' data:"
+												},
+												{
+													"key": "Request-Id",
+													"value": "5b84e15e-ce08-4b99-8e08-fb48ebcbd14a"
+												}
+											],
+											"cookie": [],
+											"responseTime": null,
+											"body": "{\n    \"code\": 200,\n    \"message\": \"Configuration saved.\",\n    \"configuration\": {\n        \"LDAP_ACCOUNT_PREFIX\": null,\n        \"LDAP_ACCOUNT_SUFFIX\": null,\n        \"LDAP_BASE_DN\": null,\n        \"LDAP_DEFAULT_USERGROUP_ID\": null,\n        \"LDAP_EMAIL_FIELD\": \"mail\",\n        \"LDAP_ENCRYPTION\": null,\n        \"LDAP_HOSTS\": null,\n        \"LDAP_PORT\": \"389\",\n        \"LDAP_TIMEOUT\": \"5\",\n        \"LDAP_USERNAME_FIELD\": \"samAccountName\",\n        \"MAIL_DRIVER\": \"SMTP\",\n        \"MAIL_ENCRYPTION\": \"tls\",\n        \"MAIL_FROM_ADDRESS\": null,\n        \"MAIL_FROM_NAME\": \"MyApp\",\n        \"MAIL_HOST\": null,\n        \"MAIL_MAX_FILESIZE\": \"2e+7\",\n        \"MAIL_PASSWORD\": \"********\",\n        \"MAIL_PORT\": \"465\",\n        \"MAIL_USERNAME\": null,\n        \"NEXMO_FROM_NUMBER\": \"EXIVITY\",\n        \"NEXMO_KEY\": null,\n        \"NEXMO_SECRET\": \"********\"\n    }\n}"
+										}
+									]
 								}
 							],
 							"id": "bbec12de-2991-44c4-9fff-e2693460e821",
