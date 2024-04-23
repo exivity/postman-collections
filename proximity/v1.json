@@ -20245,117 +20245,6 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": null
-								},
-								{
-									"id": "89df3e71-c7e1-4833-ba85-1208f24bf4a0",
-									"name": "Delete a step",
-									"originalRequest": {
-										"method": "DELETE",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/json"
-											}
-										],
-										"body": {
-											"mode": "formdata",
-											"formdata": []
-										},
-										"url": {
-											"raw": "{{base_url}}/v1/workflowsteps/:workflowstep_id",
-											"host": [
-												"{{base_url}}"
-											],
-											"path": [
-												"v1",
-												"workflowsteps",
-												":workflowstep_id"
-											],
-											"variable": [
-												{
-													"key": "workflowstep_id",
-													"value": "{{execute_workflowstep_id}}",
-													"type": "string"
-												}
-											]
-										}
-									},
-									"status": "No Content",
-									"code": 204,
-									"_postman_previewlanguage": "plain",
-									"header": [
-										{
-											"key": "Host",
-											"value": "localhost:8012"
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 14 Apr 2022 11:51:59 GMT"
-										},
-										{
-											"key": "Date",
-											"value": "Thu, 14 Apr 2022 11:51:59 GMT"
-										},
-										{
-											"key": "Connection",
-											"value": "close"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "X-Clockwork-Id",
-											"value": "X61202e5263d8720963ba24ce555d03bd"
-										},
-										{
-											"key": "X-Clockwork-Version",
-											"value": "1"
-										},
-										{
-											"key": "X-Clockwork-Path",
-											"value": "_debugbar/clockwork/"
-										},
-										{
-											"key": "phpdebugbar-id",
-											"value": "X61202e5263d8720963ba24ce555d03bd"
-										},
-										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "Strict-Transport-Security",
-											"value": "max-age=31536000; includeSubDomains"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "Feature-Policy",
-											"value": "autoplay 'none'; camera 'none'"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "strict-origin"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-3KRh38E74bcrJj3nKyS54rqNlidHuUXS';style-src 'self' 'nonce-3KRh38E74bcrJj3nKyS54rqNlidHuUXS';font-src 'self' data:"
-										},
-										{
-											"key": "Request-Id",
-											"value": "f14a449d-fb2c-44fa-a693-48885b38d3d0"
-										}
-									],
-									"cookie": [],
-									"responseTime": null,
-									"body": null
 								}
 							]
 						}
@@ -20501,7 +20390,134 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "67451ab2-582a-40c8-bab6-2f5a040a714b",
+									"name": "Retrieve a list of workflow runs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/workflowruns?page[limit]=&page[offset]=&sort&filter[attribute]&include=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"workflowruns"
+											],
+											"query": [
+												{
+													"key": "page[limit]",
+													"value": "",
+													"description": "Limit the amount of results returned"
+												},
+												{
+													"key": "page[offset]",
+													"value": "",
+													"description": "Return this page of the results"
+												},
+												{
+													"key": "sort",
+													"value": null,
+													"description": "Sort results by this attribute"
+												},
+												{
+													"key": "filter[attribute]",
+													"value": null,
+													"description": "Optionally [filter](#working-with-the-api) results by this attribute"
+												},
+												{
+													"key": "include",
+													"value": "",
+													"description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 23 Apr 2024 09:57:43 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X361912fffeaa0aa3ea79862de40908f0"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-DZCsXW8MaOvlYNw0adl9lCK8zEWWan4w';style-src 'self' 'nonce-DZCsXW8MaOvlYNw0adl9lCK8zEWWan4w';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "b5df2af0-d951-4fbf-bd15-bb49e03b3da1"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": [\n        {\n            \"type\": \"workflowrun\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"start_date\": \"2024-04-23T09:57:42Z\",\n                \"end_date\": \"2024-04-23T09:57:42Z\",\n                \"status\": \"failed\"\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowruns/7\"\n            },\n            \"relationships\": {\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowruns/7/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowruns/7/steplogs\"\n                    }\n                },\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowruns/7/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowruns/7/workflow\"\n                    }\n                }\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 1,\n            \"count\": 1,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/workflowruns?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/workflowruns?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/workflowruns?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\"\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Retrieve a workflow run",
