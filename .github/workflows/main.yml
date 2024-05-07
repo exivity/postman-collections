@@ -1,0 +1,28 @@
+name: Postman Collection Validation
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+
+    - name: Install Newman
+      run: npm install -g newman
+
+    - name: Run Newman
+      run: newman run path/to/your/collection.json

@@ -14,3 +14,12 @@ install-dependencies:
 convert2openapi:
 	@p2o ./proximity/v2.json -f ./OpenAPI/v2.yml
 	@p2o ./proximity/v1.json -f ./OpenAPI/v1.yml
+
+# Check for uncommitted git changes
+check-git-status:
+	@if git diff --quiet && git diff --staged --quiet; then \
+		echo "No uncommitted changes detected."; \
+	else \
+		echo "Error: Uncommitted changes detected." >&2; \
+		exit 1; \
+	fi
