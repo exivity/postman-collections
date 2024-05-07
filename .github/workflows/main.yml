@@ -21,8 +21,15 @@ jobs:
       with:
         node-version: '14'
 
-    - name: Install Newman
-      run: npm install -g newman
+    - name: Install dependencies
+      run: make install-dependencies
 
-    - name: Run Newman
-      run: newman run path/to/your/collection.json
+    - name: Convert Postman Collection to OpenAPI
+      run: make convert2openapi
+
+    - name: Lint OpenAPI Specification
+      continue-on-error: true
+      run: make lint-oas
+
+    - name: Check for uncommitted changes
+      run: make check-git-status

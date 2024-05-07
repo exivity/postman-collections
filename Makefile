@@ -21,5 +21,6 @@ check-git-status:
 		echo "No uncommitted changes detected."; \
 	else \
 		echo "Error: Uncommitted changes detected." >&2; \
+		echo "Run `make convert2openapi` again and push changes!" >&2; \
 		exit 1; \
 	fi
