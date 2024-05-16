@@ -1,0 +1,35 @@
+name: Postman Collection Validation
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 'latest'
+
+    - name: Install dependencies
+      run: make install-dependencies
+
+    - name: Convert Postman Collection to OpenAPI
+      run: make convert2openapi
+
+    - name: Lint OpenAPI Specification
+      continue-on-error: true
+      run: make lint-oas
+
+    - name: Check for uncommitted changes
+      run: make check-git-status
