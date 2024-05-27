@@ -1262,7 +1262,110 @@
 								"url": "{{base_url}}/v1/auth/resetpassword",
 								"description": "This request validates the reset token and username, and then resets a users password.\n\nOn success, a `HTTP 204 No Content` success status response will be returned."
 							},
-							"response": []
+							"response": [
+								{
+									"id": "ce5f562d-7daa-4b2a-b268-09af41949e26",
+									"name": "Fail - Perform a password reset",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"token\": \"f2eceecc80de33f128618de78a964a90ab4b55450cb090ec1dbaacde4f2a6bb0\",\n\t\"username\": \"Alice\",\n\t\"password\": \"eS*40D0QGVUGDn.e\",\n\t\"password_confirmation\": \"eS*40D0QGVUGDn.e\"\n}"
+										},
+										"url": "{{base_url}}/v1/auth/resetpassword"
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 May 2024 13:34:19 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xb70f83391f1d4e5ced8717b2ae76cb3e"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "Xb70f83391f1d4e5ced8717b2ae76cb3e"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-6UGd8HRMZk1EWwwaXMMwModIVsl4tmu1';style-src 'self' 'nonce-6UGd8HRMZk1EWwwaXMMwModIVsl4tmu1';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "13817bcc-45a6-4024-ba67-1b74a8d6083d"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"errors\": [\n        {\n            \"status\": 401,\n            \"title\": \"HttpException\",\n            \"detail\": \"The request could not be processed. Please ensure you are using the correct username and reset token.\"\n        }\n    ]\n}"
+								}
+							]
 						}
 					],
 					"id": "f1812211-4818-41c9-bab6-baed0823e1d4",
