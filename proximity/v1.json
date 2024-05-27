@@ -1219,7 +1219,8 @@
 											"// });",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -1229,7 +1230,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -1239,10 +1241,7 @@
 							},
 							"request": {
 								"auth": {
-									"type": "bearer",
-									"bearer": {
-										"token": "{{token}}"
-									}
+									"type": "noauth"
 								},
 								"method": "PUT",
 								"header": [
@@ -1263,6 +1262,104 @@
 								"description": "This request validates the reset token and username, and then resets a users password.\n\nOn success, a `HTTP 204 No Content` success status response will be returned."
 							},
 							"response": [
+								{
+									"id": "479c975e-f054-46ca-9dd3-d1bb37b151f4",
+									"name": "Success - Perform a password reset",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"token\": \"{{reset_token}}\",\n\t\"username\": \"{{username}}\",\n\t\"password\": \"{{password}}\",\n\t\"password_confirmation\": \"{{password_confirmation}}\"\n}"
+										},
+										"url": "{{base_url}}/v1/auth/resetpassword"
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 27 May 2024 13:38:28 GMT"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X550e1ab127e02c93506309d8ff90ee9b"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "X550e1ab127e02c93506309d8ff90ee9b"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-LKE8n7hFQqAHXUE95aRDVpeW5aK2njdZ';style-src 'self' 'nonce-LKE8n7hFQqAHXUE95aRDVpeW5aK2njdZ';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "5ff8e173-4528-4cba-a7c8-4edd7039b129"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
 								{
 									"id": "ce5f562d-7daa-4b2a-b268-09af41949e26",
 									"name": "Fail - Perform a password reset",
