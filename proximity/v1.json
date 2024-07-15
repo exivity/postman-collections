@@ -14356,7 +14356,134 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "4435b868-b456-415c-a4cb-19c673fe1de0",
+									"name": "Retrieve a list of metadata definitions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/metadatadefinitions?page[limit]&page[offset]&sort&filter[name]=&include=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"metadatadefinitions"
+											],
+											"query": [
+												{
+													"key": "page[limit]",
+													"value": null,
+													"description": "Limit the amount of results returned"
+												},
+												{
+													"key": "page[offset]",
+													"value": null,
+													"description": "Return this page of the results"
+												},
+												{
+													"key": "sort",
+													"value": null,
+													"description": "Sort results by this attribute"
+												},
+												{
+													"key": "filter[name]",
+													"value": "",
+													"description": "Optionally [filter](#working-with-the-api) results by this attribute"
+												},
+												{
+													"key": "include",
+													"value": "",
+													"description": "Include additional related resources. Possible values: `metadata`, `datasets`."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 15 Jul 2024 09:56:47 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X4576a48e0a14ee70f3cc079824ddcdbc"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-IRnTCamOTjPy9TS3VsGswqn6tWvcad9d';style-src 'self' 'nonce-IRnTCamOTjPy9TS3VsGswqn6tWvcad9d';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "0afc9b7e-4520-43e9-bff5-b3bd6c491b57"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": [\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"9\",\n            \"attributes\": {\n                \"name\": \"Test definition 0.9679217288315949\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/9\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/9/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/9/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/9/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/9/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"10\",\n            \"attributes\": {\n                \"name\": \"Test definition 0.9263474222944448\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/10\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/10/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/10/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/10/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/10/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"name\": \"Test definition 0.011449516709517882\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/2\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/2/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/2/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/2/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/2/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"name\": \"Test definition\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/3\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/3/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/3/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/3/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/3/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"4\",\n            \"attributes\": {\n                \"name\": \"name\",\n                \"fields\": [\n                    {\n                        \"name\": \"name\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/4\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/4/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/4/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/4/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/4/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"name\": \"Test definition 0.8996327930486359\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/5\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/5/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/5/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/5/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/5/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"6\",\n            \"attributes\": {\n                \"name\": \"Test definition 0.9558469843650974\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/6\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/6/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/6/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/6/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/6/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"name\": \"Test definition 0.7484430424438153\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/7\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/7/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/7/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/7/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/7/datasets\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"metadatadefinition\",\n            \"id\": \"8\",\n            \"attributes\": {\n                \"name\": \"Test definition 0.532293942049471\",\n                \"fields\": [\n                    {\n                        \"name\": \"country\",\n                        \"type\": \"string\"\n                    }\n                ]\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/metadatadefinitions/8\"\n            },\n            \"relationships\": {\n                \"metadata\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/8/relationships/metadata\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/8/metadata\"\n                    }\n                },\n                \"datasets\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/metadatadefinitions/8/relationships/datasets\",\n                        \"related\": \"http://localhost:8012/v1/metadatadefinitions/8/datasets\"\n                    }\n                }\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 9,\n            \"count\": 9,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/metadatadefinitions?page%5Blimit%5D=&sort=&filter%5Bname%5D=&include=&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/metadatadefinitions?page%5Blimit%5D=&sort=&filter%5Bname%5D=&include=&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/metadatadefinitions?page%5Blimit%5D=&sort=&filter%5Bname%5D=&include=&page%5Boffset%5D=1\"\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Add a new metadata definition",
