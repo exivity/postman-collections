@@ -25040,6 +25040,7 @@
 								{
 									"listen": "test",
 									"script": {
+										"id": "c7f4eb4c-29a7-466a-9f97-74f1927d007b",
 										"exec": [
 											"pm.test(\"Status code is 200\", function () {",
 											"    pm.response.to.have.status(200);",
@@ -25051,8 +25052,8 @@
 											"    pm.expect(response.audit).to.be.an('array');",
 											"});"
 										],
-										"id": "c7f4eb4c-29a7-466a-9f97-74f1927d007b",
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -25075,7 +25076,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{base_url}}/v1/audit?start=&end",
+									"raw": "{{base_url}}/v1/audit?start=&end&page[limit]&page[offset]&sort&filter[attribute]",
 									"host": [
 										"{{base_url}}"
 									],
@@ -25093,6 +25094,30 @@
 											"key": "end",
 											"value": null,
 											"description": "The end of the date range (inclusive) you want to view the audit trail for in `YYYY-MM-DD` format. Defaults to the current date."
+										},
+										{
+											"key": "page[limit]",
+											"value": null,
+											"description": "Limit the amount of results returned",
+											"type": "text"
+										},
+										{
+											"key": "page[offset]",
+											"value": null,
+											"description": "Return this page of the results",
+											"type": "text"
+										},
+										{
+											"key": "sort",
+											"value": null,
+											"description": "Sort results by this attribute",
+											"type": "text"
+										},
+										{
+											"key": "filter[attribute]",
+											"value": null,
+											"description": "Optionally [filter](#working-with-the-api) results by this attribute.",
+											"type": "text"
 										}
 									]
 								}
