@@ -380,34 +380,34 @@
 									"script": {
 										"id": "bcf44e31-6f3e-4e8d-9237-74cca4029f54",
 										"exec": [
-											"// pm.test(\"Status code is 200\", function () {",
-											"//     pm.response.to.have.status(200);",
-											"// });",
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
 											"",
-											"// const response = pm.response.json();",
-											"// console.log(response);",
+											"const response = pm.response.json();",
+											"console.log(response);",
 											"",
-											"// pm.test(\"Response contains token\", function () {",
-											"//     pm.expect(response.token).to.be.a('string');",
-											"// });",
+											"pm.test(\"Response contains token\", function () {",
+											"    pm.expect(response.token).to.be.a('string');",
+											"});",
 											"",
-											"// pm.test(\"Response contains user\", function () {",
-											"//     pm.expect(response.user).to.be.an('object');",
-											"//     pm.expect(response.user.id).to.not.be.undefined;",
-											"//     pm.expect(response.user.username).to.eql(\"admin\");",
-											"//     pm.expect(response.user).to.have.property('email_address');",
-											"//     pm.expect(response.user).to.have.property('account_access_type');",
-											"// });",
+											"pm.test(\"Response contains user\", function () {",
+											"    pm.expect(response.user).to.be.an('object');",
+											"    pm.expect(response.user.id).to.not.be.undefined;",
+											"    pm.expect(response.user.username).to.eql(\"admin\");",
+											"    pm.expect(response.user).to.have.property('email_address');",
+											"    pm.expect(response.user).to.have.property('account_access_type');",
+											"});",
 											"",
-											"// pm.test(\"Response contains permissions\", function () {",
-											"//     pm.expect(response.permissions).to.be.an('array')",
-											"//     pm.expect(response.permissions).to.eql([\"*\"]);",
-											"// });",
+											"pm.test(\"Response contains permissions\", function () {",
+											"    pm.expect(response.permissions).to.be.an('array')",
+											"    pm.expect(response.permissions).to.eql([\"*\"]);",
+											"});",
 											"",
-											"// pm.environment.set(\"token\", response.token);",
-											"// console.log('SET token: ' + pm.environment.get(\"token\"));",
-											"// pm.environment.set(\"user_id\", response.user.id);",
-											"// console.log('SET user_id: ' + pm.environment.get(\"user_id\"));"
+											"pm.environment.set(\"token\", response.token);",
+											"console.log('SET token: ' + pm.environment.get(\"token\"));",
+											"pm.environment.set(\"user_id\", response.user.id);",
+											"console.log('SET user_id: ' + pm.environment.get(\"user_id\"));"
 										],
 										"type": "text/javascript",
 										"packages": {}
@@ -1480,20 +1480,21 @@
 							"script": {
 								"id": "a70358e1-1354-46b3-a2c1-d38115b89779",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
+									"// pm.test(\"Status code is 200\", function () {",
+									"//     pm.response.to.have.status(200);",
+									"// });",
 									"",
-									"const response = pm.response.text();",
-									"console.log(response);",
+									"// const response = pm.response.text();",
+									"// console.log(response);",
 									"",
 									"",
-									"pm.test(\"Response contains pong\", function () {",
-									"    pm.expect(pm.response.text()).to.contain(\"pong\");",
-									"});",
+									"// pm.test(\"Response contains pong\", function () {",
+									"//     pm.expect(pm.response.text()).to.contain(\"pong\");",
+									"// });",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						},
 						{
@@ -1513,7 +1514,8 @@
 									"        console.log(err);\r",
 									"    });"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"packages": {}
 							}
 						}
 					],
