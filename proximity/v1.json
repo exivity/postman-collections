@@ -29076,11 +29076,11 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e50e6e7c-f961-4140-80d9-b24ba068295d",
+				"id": "3e5c01f8-b272-486a-ad6c-8c4840a95109",
 				"type": "text/javascript",
 				"exec": [
 					"console.log('');",
-					"console.log('********************* ' + request.name + '(v1) *********************');",
+					"console.log('********************* ' + pm.info.requestName + '(v1) *********************');",
 					"",
 					"const helpers = () => {",
 					"",
@@ -29886,7 +29886,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "733bc0aa-7db1-415b-aa8f-c4d818ae3d2f",
+				"id": "6d5a6a6f-e18b-4209-ba57-7c0fe6e7bd39",
 				"type": "text/javascript",
 				"exec": [
 					""
