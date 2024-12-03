@@ -12340,7 +12340,8 @@
 											"    pm.response.to.have.status(200);",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								},
 								{
@@ -12358,7 +12359,8 @@
 											"        console.log(err);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -12390,13 +12392,15 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}/v1/jobs?arguments",
+									"raw": "{{base_url}}/v1/extractors/{{extractor_name}}/run",
 									"host": [
 										"{{base_url}}"
 									],
 									"path": [
 										"v1",
-										"jobs"
+										"extractors",
+										"{{extractor_name}}",
+										"run"
 									],
 									"query": [
 										{
@@ -12404,10 +12408,6 @@
 											"value": "",
 											"description": "Environment ID (optional)",
 											"disabled": true
-										},
-										{
-											"key": "arguments",
-											"value": null
 										}
 									]
 								}
