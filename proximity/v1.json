@@ -12032,7 +12032,114 @@
 								},
 								"url": "{{base_url}}/v1/extractors/{{extractor_name}}"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "2ae49a33-f06d-4512-b9e6-6d32e85dd1c1",
+									"name": "Update an extractor (contents)",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"contents\": \"print Hello world\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\"\r\n}"
+										},
+										"url": "{{base_url}}/v1/extractors/{{extractor_name}}"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 03 Dec 2024 10:14:08 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xa8cb55482436acda06d56e1f620a417a"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "Xa8cb55482436acda06d56e1f620a417a"
+										},
+										{
+											"key": "ETag",
+											"value": "\"13c84d91ec4c75db16bf35c7c0367430\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-U4VNL7LeHpqZktp5RcpfP3D42cl1pJVz';style-src 'self' 'nonce-U4VNL7LeHpqZktp5RcpfP3D42cl1pJVz';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "9e8399cf-4a66-4c93-9948-210d2b6053f0"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"name\": \"MyExtractor\",\n    \"contents\": \"print Hello world\\nvar key1 = value1\\npublic var key2 = value2\\npublic encrypted var key3 = 0\",\n    \"variables\": [\n        {\n            \"name\": \"key2\",\n            \"value\": \"value2\",\n            \"type\": \"normal\",\n            \"line\": 3,\n            \"comment\": \"\"\n        },\n        {\n            \"name\": \"key3\",\n            \"value\": \"<encrypted>\",\n            \"type\": \"encrypted\",\n            \"line\": 4,\n            \"comment\": \"\"\n        }\n    ],\n    \"hash\": \"1c67d9d34e88715e14d9bcfcff24669543fdceb9\",\n    \"last_modified\": \"2024-12-03T10:14:08Z\"\n}"
+								}
+							]
 						},
 						{
 							"name": "Update an extractor (variables)",
@@ -12112,7 +12219,114 @@
 								},
 								"url": "{{base_url}}/v1/extractors/{{extractor_name}}"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "8788eaaa-9ba6-45bd-b832-fdb6a708fbba",
+									"name": "Update an extractor (variables)",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"variables\": [\r\n        {\r\n            \"name\": \"key2\",\r\n            \"value\": \"value2\",\r\n            \"type\": \"normal\"\r\n        },\r\n        {\r\n            \"name\": \"key3\",\r\n            \"value\": \"value3\",\r\n            \"type\": \"normal\"\r\n        }\r\n    ]\r\n}"
+										},
+										"url": "{{base_url}}/v1/extractors/{{extractor_name}}"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 03 Dec 2024 10:14:17 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xa162932b6bf1c9b78450e3ea19e574e7"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "Xa162932b6bf1c9b78450e3ea19e574e7"
+										},
+										{
+											"key": "ETag",
+											"value": "\"f601c7befeee476027bddd5a688724bc\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-RLcMoSRSFm6UFMusIvUscaxeTGhVzKH3';style-src 'self' 'nonce-RLcMoSRSFm6UFMusIvUscaxeTGhVzKH3';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "afd9527e-db70-4035-ac48-47c769bb8f07"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"name\": \"MyExtractor\",\n    \"contents\": \"print Hello world\\nvar key1 = value1\\npublic var key2 = \\\"value2\\\"\\npublic var key3 = \\\"value3\\\"\",\n    \"variables\": [\n        {\n            \"name\": \"key2\",\n            \"value\": \"value2\",\n            \"type\": \"normal\",\n            \"line\": 3,\n            \"comment\": \"\"\n        },\n        {\n            \"name\": \"key3\",\n            \"value\": \"value3\",\n            \"type\": \"normal\",\n            \"line\": 4,\n            \"comment\": \"\"\n        }\n    ],\n    \"hash\": \"dce9ab79f8911cbcca2beedd3a2ecbffd76d382e\",\n    \"last_modified\": \"2024-12-03T10:14:17Z\"\n}"
+								}
+							]
 						},
 						{
 							"name": "Run an extractor",
@@ -12346,7 +12560,7 @@
 						}
 					],
 					"id": "3dfdd455-d447-08a6-b3fc-4df23be9bf84",
-					"description": "Extraction is the process by which USE (Unified Scriptable Extractor) retrieves data from external locations. [Read more.](https://docs.exivity.com/architecture%20concepts/glossary/#extractor)\n\n#### The Extractor Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 🔏 immutible | Required, unique, max 255 chars. |\n| contents | _string_ | 📝 editable | Extractor script |\n| variables | _array_ | 📝 editable | Array of Variable Objects |\n\n#### The Variable Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| value | _string_ | 📝 editable |  |\n| type | _string_ | 📝 editable |  |",
+					"description": "Extraction is the process by which USE (Unified Scriptable Extractor) retrieves data from external locations. [Read more.](https://docs.exivity.com/architecture%20concepts/glossary/#extractor)\n\n#### The Extractor Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 🔏 immutible | Required, unique, max 255 chars. |\n| contents | _string_ | 📝 editable | Extractor script |\n| variables | _array_ | 📝 editable | Array of Variable Objects |\n| hash | _string_ | 👁 read-only |  |\n| last_modified | _datetime_ | 👁 read-only |  |\n\n#### The Variable Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| value | _string_ | 📝 editable |  |\n| type | _string_ | 📝 editable |  |\n| line | string | 👁 read-only |  |\n| comment | string |  |  |",
 					"auth": {
 						"type": "noauth"
 					},
