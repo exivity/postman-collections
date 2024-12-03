@@ -12412,7 +12412,134 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "5a45f400-4cdc-43c0-ae4e-ff855fa892c5",
+									"name": "Run an extractor",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"job\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"extract\",\r\n            \"id\": \"{{extractor_name}}\"\r\n\t\t}\r\n\t}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}/v1/extractors/{{extractor_name}}/run",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"extractors",
+												"{{extractor_name}}",
+												"run"
+											],
+											"query": [
+												{
+													"key": "environment_id",
+													"value": "",
+													"description": "Environment ID (optional)",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.3.0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 03 Dec 2024 10:15:58 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "X9ac67c880a7d87c4d4c9bc1f50ce8015"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "X9ac67c880a7d87c4d4c9bc1f50ce8015"
+										},
+										{
+											"key": "ETag",
+											"value": "\"d7bf710e3ae4342ebead0b0b862b9bb3\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-CcSBQq7IAJUXKlzRqpBJhSLTl1aw0waU';style-src 'self' 'nonce-CcSBQq7IAJUXKlzRqpBJhSLTl1aw0waU';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "ffddcce6-6c84-451b-8a19-ec00f5bfa091"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "[\n    \"=================================\\r\\nUSE: Unified Scriptable Extractor\\r\\n=================================\\r\\nHello world \\r\\n\\r\\nUSE script finished successfully\\r\\n\"\n]"
+								}
+							]
 						},
 						{
 							"name": "Delete an extractor",
