@@ -1017,7 +1017,7 @@
 						}
 					],
 					"id": "043cebd0-bc7b-4b2d-a4a8-4c2b8a6ea284",
-					"description": "Endpoints for supporting Single Sign-On authentication flow using SAML.\n\nExivity documentation: [https://docs.exivity.com/advanced/integrate/sso/](https://docs.exivity.com/advanced/integrate/sso/)",
+					"description": "Endpoints for supporting Single Sign-On authentication flow using SAML.\n\nExivity documentation: [https://docs.exivity.com/Security/Authentication/SAML2](https://docs.exivity.com/Security/Authentication/SAML2)",
 					"auth": {
 						"type": "noauth"
 					},
