@@ -12346,7 +12346,7 @@
 						}
 					],
 					"id": "3dfdd455-d447-08a6-b3fc-4df23be9bf84",
-					"description": "Exivity documentation: [https://docs.exivity.com/data-pipelines/extract](https://docs.exivity.com/data-pipelines/extract)\n\n#### Extractor Attributes\n\n| **attribute** | **type** | **description** |\n| --- | --- | --- |\n| name | *string* |  |\n| contents | *string* | Extractor scrip |\n| variables | *array* | Extractor variables |",
+					"description": "Extraction is the process by which USE (Unified Scriptable Extractor) retrieves data from external locations. [Read more.](https://docs.exivity.com/architecture%20concepts/glossary/#extractor)\n\n#### The Extractor Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 🔏 immutible | Required, unique, max 255 chars. |\n| contents | _string_ | 📝 editable | Extractor script |\n| variables | _array_ | 📝 editable | Array of Variable Objects |\n\n#### The Variable Object\n\n| **attribute** | **type** | **mutability** | **description** |\n| --- | --- | --- | --- |\n| name | _string_ | 📝 editable | Required |\n| value | _string_ | 📝 editable |  |\n| type | _string_ | 📝 editable |  |",
 					"auth": {
 						"type": "noauth"
 					},
