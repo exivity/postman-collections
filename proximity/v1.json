@@ -18340,7 +18340,142 @@
 									]
 								}
 							},
-							"response": []
+							"response": [
+								{
+									"id": "c0a4afd7-a34e-4a5a-8877-e161d0ef581c",
+									"name": "Retrieve a list of schedules",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/workflowschedules?page[limit]&page[offset]&sort=&filter[attribute]&include=",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"workflowschedules"
+											],
+											"query": [
+												{
+													"key": "page[limit]",
+													"value": null,
+													"description": "Limit the amount of results returned"
+												},
+												{
+													"key": "page[offset]",
+													"value": null,
+													"description": "Return this page of the results"
+												},
+												{
+													"key": "sort",
+													"value": "",
+													"description": "Sort results by this attribute"
+												},
+												{
+													"key": "filter[attribute]",
+													"value": null,
+													"description": "Optionally [filter](#working-with-the-api) results by this attribute"
+												},
+												{
+													"key": "include",
+													"value": "",
+													"description": "Include additional related resources. Possible values: `workflow`."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 10:55:07 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xfdca2c2a5ac5a0fb80399ac6bb3d3910"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "Xfdca2c2a5ac5a0fb80399ac6bb3d3910"
+										},
+										{
+											"key": "ETag",
+											"value": "\"dc3b313a2e4c14abcfe30bacc8a6f450\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-UMFnCTmhI76fLXOv1Z4xvlAYelXc6J2u';style-src 'self' 'nonce-UMFnCTmhI76fLXOv1Z4xvlAYelXc6J2u';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "26a49209-ebb7-478e-aab3-f96f294035be"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": [\n        {\n            \"type\": \"workflowschedule\",\n            \"id\": \"1\",\n            \"attributes\": {\n                \"start_time\": \"2025-01-15T10:54:59Z\",\n                \"timezone\": \"Europe/Amsterdam\",\n                \"adjust_for_dst\": true,\n                \"frequency\": \"daily\",\n                \"frequency_modifier\": 2,\n                \"next_run\": \"2025-01-15T10:54:59Z\"\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowschedules/1\"\n            },\n            \"relationships\": {\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowschedules/1/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowschedules/1/workflow\"\n                    }\n                }\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 1,\n            \"count\": 1,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/workflowschedules?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/workflowschedules?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/workflowschedules?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\"\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Retrieve a schedule",
@@ -18601,7 +18736,114 @@
 								},
 								"url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}"
 							},
-							"response": []
+							"response": [
+								{
+									"id": "1ca4dc98-4a54-4a54-9cc4-172c11a2b18e",
+									"name": "Update a schedule",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/vnd.api+json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"data\": {\r\n    \"type\": \"workflowschedule\",\r\n    \"id\": \"{{workflowschedule_id}}\",\r\n    \"attributes\": {\r\n      \"timezone\": \"Europe/London\"\r\n    }\r\n  }\r\n}"
+										},
+										"url": "{{base_url}}/v1/workflowschedules/{{workflowschedule_id}}"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.1"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 14 Jan 2025 10:55:35 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "Xb67a88098627032495b3f7baebc95d2f"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "Xb67a88098627032495b3f7baebc95d2f"
+										},
+										{
+											"key": "ETag",
+											"value": "\"061ca906afd5b1c9d3e7d92ac764ad08\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-7HvtnymT5mJfQjaeKRwpQ581mApZJpEk';style-src 'self' 'nonce-7HvtnymT5mJfQjaeKRwpQ581mApZJpEk';font-src 'self' data:"
+										},
+										{
+											"key": "Request-Id",
+											"value": "ef145156-9aed-45c9-b6fc-16578085fe3c"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowschedule\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"start_time\": \"2025-01-15T10:54:59Z\",\n            \"timezone\": \"Europe/London\",\n            \"adjust_for_dst\": true,\n            \"frequency\": \"daily\",\n            \"frequency_modifier\": 2,\n            \"next_run\": \"2025-01-15T10:54:59Z\"\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowschedules/1\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowschedules/1/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowschedules/1/workflow\"\n                }\n            }\n        }\n    }\n}"
+								}
+							]
 						},
 						{
 							"name": "Delete a schedule",
