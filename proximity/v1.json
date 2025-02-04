@@ -22670,7 +22670,7 @@
 						}
 					],
 					"id": "e5c97e74-7d78-489d-a527-4296a7794791",
-					"description": "Exivity documentation: [https://docs.exivity.com/administration/notifications](https://docs.exivity.com/administration/notifications)",
+					"description": "Exivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#notificationchannel](https://docs.exivity.com/architecture%20concepts/glossary/#notificationchannel)",
 					"auth": {
 						"type": "noauth"
 					},
