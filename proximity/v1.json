@@ -29674,7 +29674,7 @@
 						}
 					],
 					"id": "74fec5b3-e74a-4ce0-9412-26b2d04bec17",
-					"description": "Exivity documentation: [https://docs.exivity.com/administration/settings/global-variables](https://docs.exivity.com/administration/settings/global-variables)",
+					"description": "Exivity documentation: [https://docs.exivity.com/advanced/data%20pipelines/extractors/script%20basics/#variables](https://docs.exivity.com/advanced/data%20pipelines/extractors/script%20basics/#variables)",
 					"auth": {
 						"type": "noauth"
 					},
