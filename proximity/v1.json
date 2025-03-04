@@ -29674,7 +29674,7 @@
 						}
 					],
 					"id": "74fec5b3-e74a-4ce0-9412-26b2d04bec17",
-					"description": "Exivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#environment](https://docs.exivity.com/architecture%20concepts/glossary/#environment)",
+					"description": "_Global Variables_ enable users to configure Exivity system-wide variables which can be used in any Extractor or Transformer script.\n\nExivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#environment](https://docs.exivity.com/architecture%20concepts/glossary/#environment)",
 					"auth": {
 						"type": "noauth"
 					},
