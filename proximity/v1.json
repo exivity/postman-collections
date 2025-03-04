@@ -29674,7 +29674,7 @@
 						}
 					],
 					"id": "74fec5b3-e74a-4ce0-9412-26b2d04bec17",
-					"description": "Exivity documentation: [https://docs.exivity.com/advanced/data%20pipelines/environments/](https://docs.exivity.com/advanced/data%20pipelines/environments/)",
+					"description": "Exivity documentation: [https://docs.exivity.com/architecture%20concepts/glossary/#environment](https://docs.exivity.com/architecture%20concepts/glossary/#environment)",
 					"auth": {
 						"type": "noauth"
 					},
