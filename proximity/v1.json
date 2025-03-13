@@ -27222,7 +27222,12 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_NAME\": \"MyApp\"\r\n   }\r\n}"
+													"raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_NAME\": \"MyApp\"\r\n   }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
 												},
 												"url": "{{base_url}}/v1/system/services/"
 											},
