@@ -19206,7 +19206,7 @@
 								},
 								{
 									"id": "e262740f-052d-4487-bf85-7d8a40e32c2b",
-									"name": "Add a new extract(use) step use previous",
+									"name": "Add a new step use previous",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -30811,7 +30811,7 @@
 	],
 	"variable": [
 		{
-			"id": "dd7a1da1-21cb-40e4-bd0f-f08792f32a1d",
+			"id": "8384bf4a-ae1b-4034-b021-3cd81763fd51",
 			"key": "component",
 			"value": "use"
 		}
