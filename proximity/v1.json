@@ -20448,7 +20448,7 @@
 								},
 								{
 									"id": "01ba2001-16e8-4584-81a4-51c1eef68c7e",
-									"name": "Retrieve a list of steps",
+									"name": "Retrieve a list of steps including previous steps",
 									"originalRequest": {
 										"method": "GET",
 										"header": [
@@ -30700,7 +30700,7 @@
 	],
 	"variable": [
 		{
-			"id": "08e3160e-c6a6-4688-8b55-344667483a4a",
+			"id": "97b56f3f-cf11-4387-8407-2286c8fece6e",
 			"key": "component",
 			"value": "use"
 		}
