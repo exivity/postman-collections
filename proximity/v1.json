@@ -20445,6 +20445,140 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": [\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"20\",\n            \"attributes\": {\n                \"prev\": null,\n                \"next\": \"19\",\n                \"type\": \"proximity\",\n                \"options\": {\n                    \"command\": \"exivity:gc\",\n                    \"arguments\": \"\"\n                },\n                \"timeout\": 600,\n                \"wait\": true,\n                \"sort\": 0\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/20\"\n            },\n            \"relationships\": {\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/20/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/20/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/20/steplogs\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"19\",\n            \"attributes\": {\n                \"prev\": \"20\",\n                \"next\": null,\n                \"type\": \"proximity\",\n                \"options\": {\n                    \"command\": \"exivity:gc\",\n                    \"arguments\": \"\"\n                },\n                \"timeout\": 600,\n                \"wait\": true,\n                \"sort\": 0\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/19\"\n            },\n            \"relationships\": {\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/19/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/19/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/19/steplogs\"\n                    }\n                }\n            }\n        }\n    ],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 2,\n            \"count\": 2,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=&page%5Boffset%5D=1\"\n    }\n}"
+								},
+								{
+									"id": "01ba2001-16e8-4584-81a4-51c1eef68c7e",
+									"name": "Retrieve a list of steps",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}/v1/workflowsteps?page[limit]&page[offset]&sort=&filter[attribute]&include=previous",
+											"host": [
+												"{{base_url}}"
+											],
+											"path": [
+												"v1",
+												"workflowsteps"
+											],
+											"query": [
+												{
+													"key": "page[limit]",
+													"value": null,
+													"description": "Limit the amount of results returned"
+												},
+												{
+													"key": "page[offset]",
+													"value": null,
+													"description": "Return this page of the results"
+												},
+												{
+													"key": "sort",
+													"value": "",
+													"description": "Sort results by this attribute"
+												},
+												{
+													"key": "filter[attribute]",
+													"value": null,
+													"description": "Optionally [filter](#working-with-the-api) results by this attribute"
+												},
+												{
+													"key": "include",
+													"value": "previous",
+													"description": "Include additional related resources. Possible values: `workflow`, `steplogs`."
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.7"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 21 Oct 2025 09:01:18 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "01K8300QQS9Z1PBGHDSJQE9ZBS"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "01K8300QQS9Z1PBGHDSJQE9ZBS"
+										},
+										{
+											"key": "ETag",
+											"value": "\"90e49e7b4146d0290f543ca230341ca2\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';font-src 'self' data:;form-action 'self';frame-src 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-tCtar6atK79YXCVQgwUcM3GbsoVr9dVf';style-src 'self' 'nonce-tCtar6atK79YXCVQgwUcM3GbsoVr9dVf'"
+										},
+										{
+											"key": "Request-Id",
+											"value": "443d9707-20fd-4834-aae1-a84d64f9341d"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": [\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"3\",\n            \"attributes\": {\n                \"type\": \"transcript\",\n                \"options\": {\n                    \"name\": \"Workflow_transformer\",\n                    \"from_date\": -2,\n                    \"to_date\": -1,\n                    \"environment_id\": null\n                },\n                \"timeout\": 600,\n                \"wait\": true\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/3\"\n            },\n            \"relationships\": {\n                \"previous\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/3/relationships/previous\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/3/previous\"\n                    },\n                    \"data\": {\n                        \"type\": \"workflowstep\",\n                        \"id\": \"2\"\n                    }\n                },\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/3/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/3/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/3/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/3/steplogs\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"4\",\n            \"attributes\": {\n                \"type\": \"edify\",\n                \"options\": {\n                    \"report_id\": \"5\",\n                    \"from_date\": -2,\n                    \"to_date\": -1\n                },\n                \"timeout\": 600,\n                \"wait\": true\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/4\"\n            },\n            \"relationships\": {\n                \"previous\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/4/relationships/previous\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/4/previous\"\n                    },\n                    \"data\": {\n                        \"type\": \"workflowstep\",\n                        \"id\": \"3\"\n                    }\n                },\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/4/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/4/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/4/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/4/steplogs\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"5\",\n            \"attributes\": {\n                \"type\": \"execute\",\n                \"options\": {\n                    \"command\": \"echo \\\"testing\\\"\"\n                },\n                \"timeout\": 600,\n                \"wait\": true\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/5\"\n            },\n            \"relationships\": {\n                \"previous\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/5/relationships/previous\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/5/previous\"\n                    },\n                    \"data\": null\n                },\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/5/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/5/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/5/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/5/steplogs\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"2\",\n            \"attributes\": {\n                \"type\": \"use\",\n                \"options\": {\n                    \"name\": \"Test_extractor_-_461\",\n                    \"from_date\": -2,\n                    \"to_date\": 0,\n                    \"arguments\": \"arg3 arg4\",\n                    \"environment_id\": null\n                },\n                \"timeout\": 600,\n                \"wait\": true\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/2\"\n            },\n            \"relationships\": {\n                \"previous\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/2/relationships/previous\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/2/previous\"\n                    },\n                    \"data\": {\n                        \"type\": \"workflowstep\",\n                        \"id\": \"7\"\n                    }\n                },\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/2/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/2/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/2/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/2/steplogs\"\n                    }\n                }\n            }\n        },\n        {\n            \"type\": \"workflowstep\",\n            \"id\": \"7\",\n            \"attributes\": {\n                \"type\": \"evaluate_budget\",\n                \"options\": {\n                    \"budget_id\": \"234\"\n                },\n                \"timeout\": 600,\n                \"wait\": true\n            },\n            \"links\": {\n                \"self\": \"http://localhost:8012/v1/workflowsteps/7\"\n            },\n            \"relationships\": {\n                \"previous\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/7/relationships/previous\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/7/previous\"\n                    },\n                    \"data\": null\n                },\n                \"workflow\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/7/relationships/workflow\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/7/workflow\"\n                    }\n                },\n                \"steplogs\": {\n                    \"links\": {\n                        \"self\": \"http://localhost:8012/v1/workflowsteps/7/relationships/steplogs\",\n                        \"related\": \"http://localhost:8012/v1/workflowsteps/7/steplogs\"\n                    }\n                }\n            }\n        }\n    ],\n    \"included\": [],\n    \"meta\": {\n        \"pagination\": {\n            \"total\": 5,\n            \"count\": 5,\n            \"per_page\": 15,\n            \"current_page\": 1,\n            \"total_pages\": 1\n        }\n    },\n    \"links\": {\n        \"self\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=previous&page%5Boffset%5D=1\",\n        \"first\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=previous&page%5Boffset%5D=1\",\n        \"last\": \"http://localhost:8012/v1/workflowsteps?page%5Blimit%5D=&sort=&filter%5Battribute%5D=&include=previous&page%5Boffset%5D=1\"\n    }\n}"
 								}
 							]
 						},
@@ -22146,33 +22280,6 @@
 									"body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"My phone number\",\n            \"type\": \"nexmo\",\n            \"info\": {\n                \"recipient\": \"+31612345678\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/5\"\n        }\n    }\n}"
 								},
 								{
-									"id": "550f2258-5d4e-4461-b0d9-3953617aa51d",
-									"name": "Webhook",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/vnd.api+json"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/vnd.api+json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"webhook\",\n            \"name\": \"My webhook\",\n            \"info\": {\n                \"recipient\": \"http://host/path\", // (validated as URL, required)\n                \"headers\": {\n                    \"Authentication\": \"Bearer XYZ\",\n                    \"X-Custom\": \"...\",\n                    \"Content-Type\": \"foo/bar\"\n                } // (optional, default: {}),\n                \"tls_verification\": true // boolean (required, default: true),\n                \"include_attachments\": false // boolean (optional, default: false)\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
-										},
-										"url": "{{base_url}}/v1/notificationchannels"
-									},
-									"_postman_previewlanguage": null,
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": null
-								},
-								{
 									"id": "88c87073-695d-4301-8152-51dec8ece76f",
 									"name": "Slack channel",
 									"originalRequest": {
@@ -22327,6 +22434,33 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"E-mail for someone\",\n            \"type\": \"mail\",\n            \"info\": {\n                \"recipient\": \"someone@example.com\",\n                \"cc\": null,\n                \"bcc\": null\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/6\"\n        }\n    }\n}"
+								},
+								{
+									"id": "550f2258-5d4e-4461-b0d9-3953617aa51d",
+									"name": "Webhook",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"webhook\",\n            \"name\": \"My webhook\",\n            \"info\": {\n                \"recipient\": \"http://host/path\", // (validated as URL, required)\n                \"headers\": {\n                    \"Authentication\": \"Bearer XYZ\",\n                    \"X-Custom\": \"...\",\n                    \"Content-Type\": \"foo/bar\"\n                } // (optional, default: {}),\n                \"tls_verification\": true // boolean (required, default: true),\n                \"include_attachments\": false // boolean (optional, default: false)\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+										},
+										"url": "{{base_url}}/v1/notificationchannels"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
 								}
 							]
 						},
@@ -22855,14 +22989,14 @@
 							},
 							"response": [
 								{
-									"id": "21e1ab38-79ef-4ae4-b92b-110dedd735fe",
-									"name": "Create new report_published notificaiton subscription",
+									"id": "a8b3f8c4-51b2-46f6-81cc-f4491fdcfb2b",
+									"name": "Create a new notification subscription with channel",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/vnd.api+json"
+												"value": "application/json"
 											},
 											{
 												"key": "Accept",
@@ -22872,7 +23006,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
 										},
 										"url": "{{base_url}}/v1/notificationsubscriptions"
 									},
@@ -22886,19 +23020,23 @@
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
+											"value": "Mon, 18 Mar 2019 14:58:01 +0000"
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
+											"value": "Mon, 18 Mar 2019 14:58:01 GMT"
 										},
 										{
 											"key": "Connection",
 											"value": "close"
 										},
 										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.1.21"
+										},
+										{
 											"key": "Location",
-											"value": "http://localhost:8012/1/notificationsubscription/5"
+											"value": "https://localhost:8012/v1/notificationsubscription/7"
 										},
 										{
 											"key": "Cache-Control",
@@ -22909,33 +23047,13 @@
 											"value": "application/vnd.api+json"
 										},
 										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "Feature-Policy",
-											"value": "autoplay 'none'; camera 'none'"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "strict-origin"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';style-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';font-src 'self' data:"
+											"key": "Access-Control-Allow-Origin",
+											"value": ""
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"enabled\": true,\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/5\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/user\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/channels\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/channels\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"7\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationsubscriptions/7\"\n        }\n    }\n}"
 								},
 								{
 									"id": "2eff1162-a0f7-4727-a5b6-e792a0f2e25c",
@@ -23104,14 +23222,14 @@
 									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"budget_evaluated\",\n            \"enabled\": true,\n            \"info\": {\n                \"budget_id\": 1,\n                \"threshold_percentage\": 80,\n                \"only_once\": true,\n                \"account_ids\": [\n                    1,\n                    2,\n                    3\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/4\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/user\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/channels\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/channels\"\n                }\n            }\n        }\n    }\n}"
 								},
 								{
-									"id": "a8b3f8c4-51b2-46f6-81cc-f4491fdcfb2b",
-									"name": "Create a new notification subscription with channel",
+									"id": "21e1ab38-79ef-4ae4-b92b-110dedd735fe",
+									"name": "Create new report_published notificaiton subscription",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/json"
+												"value": "application/vnd.api+json"
 											},
 											{
 												"key": "Accept",
@@ -23121,7 +23239,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
 										},
 										"url": "{{base_url}}/v1/notificationsubscriptions"
 									},
@@ -23135,23 +23253,19 @@
 										},
 										{
 											"key": "Date",
-											"value": "Mon, 18 Mar 2019 14:58:01 +0000"
+											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
 										},
 										{
 											"key": "Date",
-											"value": "Mon, 18 Mar 2019 14:58:01 GMT"
+											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
 										},
 										{
 											"key": "Connection",
 											"value": "close"
 										},
 										{
-											"key": "X-Powered-By",
-											"value": "PHP/7.1.21"
-										},
-										{
 											"key": "Location",
-											"value": "https://localhost:8012/v1/notificationsubscription/7"
+											"value": "http://localhost:8012/1/notificationsubscription/5"
 										},
 										{
 											"key": "Cache-Control",
@@ -23162,13 +23276,33 @@
 											"value": "application/vnd.api+json"
 										},
 										{
-											"key": "Access-Control-Allow-Origin",
-											"value": ""
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';style-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';font-src 'self' data:"
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"7\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationsubscriptions/7\"\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"enabled\": true,\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/5\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/user\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/channels\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/channels\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
@@ -30566,6 +30700,7 @@
 	],
 	"variable": [
 		{
+			"id": "08e3160e-c6a6-4688-8b55-344667483a4a",
 			"key": "component",
 			"value": "use"
 		}
