@@ -19206,7 +19206,7 @@
 								},
 								{
 									"id": "e262740f-052d-4487-bf85-7d8a40e32c2b",
-									"name": "Add a new step use previous",
+									"name": "Add a new step after existing (using previous_id)",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
@@ -30811,7 +30811,7 @@
 	],
 	"variable": [
 		{
-			"id": "8384bf4a-ae1b-4034-b021-3cd81763fd51",
+			"id": "8866d9d3-8233-4366-828e-3b1b5eb2a51f",
 			"key": "component",
 			"value": "use"
 		}
