@@ -22391,6 +22391,33 @@
 									"body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"My phone number\",\n            \"type\": \"nexmo\",\n            \"info\": {\n                \"recipient\": \"+31612345678\"\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/5\"\n        }\n    }\n}"
 								},
 								{
+									"id": "550f2258-5d4e-4461-b0d9-3953617aa51d",
+									"name": "Webhook",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"webhook\",\n            \"name\": \"My webhook\",\n            \"info\": {\n                \"recipient\": \"http://host/path\", // (validated as URL, required)\n                \"headers\": {\n                    \"Authentication\": \"Bearer XYZ\",\n                    \"X-Custom\": \"...\",\n                    \"Content-Type\": \"foo/bar\"\n                } // (optional, default: {}),\n                \"tls_verification\": true // boolean (required, default: true),\n                \"include_attachments\": false // boolean (optional, default: false)\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
+										},
+										"url": "{{base_url}}/v1/notificationchannels"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
 									"id": "88c87073-695d-4301-8152-51dec8ece76f",
 									"name": "Slack channel",
 									"originalRequest": {
@@ -22545,33 +22572,6 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": {\n        \"type\": \"notificationchannel\",\n        \"id\": \"6\",\n        \"attributes\": {\n            \"name\": \"E-mail for someone\",\n            \"type\": \"mail\",\n            \"info\": {\n                \"recipient\": \"someone@example.com\",\n                \"cc\": null,\n                \"bcc\": null\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationchannels/6\"\n        }\n    }\n}"
-								},
-								{
-									"id": "550f2258-5d4e-4461-b0d9-3953617aa51d",
-									"name": "Webhook",
-									"originalRequest": {
-										"method": "POST",
-										"header": [
-											{
-												"key": "Accept",
-												"value": "application/vnd.api+json"
-											},
-											{
-												"key": "Content-Type",
-												"value": "application/vnd.api+json"
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationchannel\",\n        \"attributes\": {\n            \"type\": \"webhook\",\n            \"name\": \"My webhook\",\n            \"info\": {\n                \"recipient\": \"http://host/path\", // (validated as URL, required)\n                \"headers\": {\n                    \"Authentication\": \"Bearer XYZ\",\n                    \"X-Custom\": \"...\",\n                    \"Content-Type\": \"foo/bar\"\n                } // (optional, default: {}),\n                \"tls_verification\": true // boolean (required, default: true),\n                \"include_attachments\": false // boolean (optional, default: false)\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}\n"
-										},
-										"url": "{{base_url}}/v1/notificationchannels"
-									},
-									"_postman_previewlanguage": null,
-									"header": null,
-									"cookie": [],
-									"responseTime": null,
-									"body": null
 								}
 							]
 						},
@@ -23100,14 +23100,14 @@
 							},
 							"response": [
 								{
-									"id": "a8b3f8c4-51b2-46f6-81cc-f4491fdcfb2b",
-									"name": "Create a new notification subscription with channel",
+									"id": "21e1ab38-79ef-4ae4-b92b-110dedd735fe",
+									"name": "Create new report_published notificaiton subscription",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/json"
+												"value": "application/vnd.api+json"
 											},
 											{
 												"key": "Accept",
@@ -23117,7 +23117,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
 										},
 										"url": "{{base_url}}/v1/notificationsubscriptions"
 									},
@@ -23131,23 +23131,19 @@
 										},
 										{
 											"key": "Date",
-											"value": "Mon, 18 Mar 2019 14:58:01 +0000"
+											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
 										},
 										{
 											"key": "Date",
-											"value": "Mon, 18 Mar 2019 14:58:01 GMT"
+											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
 										},
 										{
 											"key": "Connection",
 											"value": "close"
 										},
 										{
-											"key": "X-Powered-By",
-											"value": "PHP/7.1.21"
-										},
-										{
 											"key": "Location",
-											"value": "https://localhost:8012/v1/notificationsubscription/7"
+											"value": "http://localhost:8012/1/notificationsubscription/5"
 										},
 										{
 											"key": "Cache-Control",
@@ -23158,13 +23154,33 @@
 											"value": "application/vnd.api+json"
 										},
 										{
-											"key": "Access-Control-Allow-Origin",
-											"value": ""
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';style-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';font-src 'self' data:"
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"7\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationsubscriptions/7\"\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"enabled\": true,\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/5\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/user\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/channels\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/channels\"\n                }\n            }\n        }\n    }\n}"
 								},
 								{
 									"id": "2eff1162-a0f7-4727-a5b6-e792a0f2e25c",
@@ -23333,14 +23349,14 @@
 									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"budget_evaluated\",\n            \"enabled\": true,\n            \"info\": {\n                \"budget_id\": 1,\n                \"threshold_percentage\": 80,\n                \"only_once\": true,\n                \"account_ids\": [\n                    1,\n                    2,\n                    3\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/4\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/user\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/4/relationships/channels\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/4/channels\"\n                }\n            }\n        }\n    }\n}"
 								},
 								{
-									"id": "21e1ab38-79ef-4ae4-b92b-110dedd735fe",
-									"name": "Create new report_published notificaiton subscription",
+									"id": "a8b3f8c4-51b2-46f6-81cc-f4491fdcfb2b",
+									"name": "Create a new notification subscription with channel",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/vnd.api+json"
+												"value": "application/json"
 											},
 											{
 												"key": "Accept",
@@ -23350,7 +23366,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
+											"raw": "{\n\t\"data\": {\n        \"type\":\"notificationsubscription\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n            \t\"follow\": [\"*\"],\n            \t\"only_status\": [\"successful\", \"failed\"]\n            }\n        },\n        \"relationships\": {\n        \t\"user\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"user\",\n        \t\t\t\"id\": \"{{user_id}}\"\n        \t\t}\n        \t},\n        \t\"channels\": {\n        \t\t\"data\": {\n        \t\t\t\"type\": \"channel\",\n        \t\t\t\"id\": \"{{notification_channel_id}}\"\n        \t\t}\n        \t}\n        }\n    }\n}"
 										},
 										"url": "{{base_url}}/v1/notificationsubscriptions"
 									},
@@ -23364,19 +23380,23 @@
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
+											"value": "Mon, 18 Mar 2019 14:58:01 +0000"
 										},
 										{
 											"key": "Date",
-											"value": "Tue, 19 Jan 2021 09:49:37 GMT"
+											"value": "Mon, 18 Mar 2019 14:58:01 GMT"
 										},
 										{
 											"key": "Connection",
 											"value": "close"
 										},
 										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.1.21"
+										},
+										{
 											"key": "Location",
-											"value": "http://localhost:8012/1/notificationsubscription/5"
+											"value": "https://localhost:8012/v1/notificationsubscription/7"
 										},
 										{
 											"key": "Cache-Control",
@@ -23387,33 +23407,13 @@
 											"value": "application/vnd.api+json"
 										},
 										{
-											"key": "X-XSS-Protection",
-											"value": "1; mode=block"
-										},
-										{
-											"key": "X-Frame-Options",
-											"value": "SAMEORIGIN"
-										},
-										{
-											"key": "X-Content-Type-Options",
-											"value": "nosniff"
-										},
-										{
-											"key": "Feature-Policy",
-											"value": "autoplay 'none'; camera 'none'"
-										},
-										{
-											"key": "Referrer-Policy",
-											"value": "strict-origin"
-										},
-										{
-											"key": "Content-Security-Policy",
-											"value": "report-uri https://sentry.io/api/120999/security/?sentry_key=7935c59cd7ad4e169ed97fac6d9c5f9d;base-uri 'self';connect-src 'self';default-src 'self';form-action 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';style-src 'self' 'nonce-HBpMKpiNcU9ZErVkLyeeqX77rCcUYmhj';font-src 'self' data:"
+											"key": "Access-Control-Allow-Origin",
+											"value": ""
 										}
 									],
 									"cookie": [],
 									"responseTime": null,
-									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"5\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"report_published\",\n            \"enabled\": true,\n            \"info\": {\n                \"report_id\": 2,\n                \"report_type\": \"separate\",\n                \"account_depth\": 1,\n                \"date_settings\": \"previous_month\",\n                \"format\": \"csv\"\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/1/notificationsubscriptions/5\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/user\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/user\"\n                }\n            },\n            \"channels\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/1/notificationsubscription/5/relationships/channels\",\n                    \"related\": \"http://localhost:8012/1/notificationsubscription/5/channels\"\n                }\n            }\n        }\n    }\n}"
+									"body": "{\n    \"data\": {\n        \"type\": \"notificationsubscription\",\n        \"id\": \"7\",\n        \"attributes\": {\n            \"name\": \"Important workflow has ended\",\n            \"type\": \"workflow.ended\",\n            \"info\": {\n                \"follow\": [\n                    \"*\"\n                ],\n                \"only_status\": [\n                    \"successful\",\n                    \"failed\"\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"https://localhost:8012/v1/notificationsubscriptions/7\"\n        }\n    }\n}"
 								}
 							]
 						},
@@ -30811,7 +30811,6 @@
 	],
 	"variable": [
 		{
-			"id": "8866d9d3-8233-4366-828e-3b1b5eb2a51f",
 			"key": "component",
 			"value": "use"
 		}
