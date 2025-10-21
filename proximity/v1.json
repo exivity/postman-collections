@@ -19203,6 +19203,117 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"33\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Workflow_extractor\",\n                \"from_date\": -2,\n                \"to_date\": 0,\n                \"arguments\": \"arg3 arg4\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/33\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/33/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/33/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/33/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/33/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/33/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/33/previous\"\n                }\n            }\n        }\n    }\n}"
+								},
+								{
+									"id": "e262740f-052d-4487-bf85-7d8a40e32c2b",
+									"name": "Add a new extract(use) step",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"workflowstep\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"type\": \"use\",\r\n\t\t\t\"timeout\": 600,\r\n\t\t\t\"options\": {\r\n\t\t\t\t\"name\": \"{{extractor_name}}\",\r\n\t\t\t\t\"from_date\": -2,\r\n\t\t\t\t\"to_date\": 0,\r\n\t\t\t\t\"arguments\": \"arg3 arg4\",\r\n                \"environment_id\": null\r\n\t\t\t},\r\n            \"previous_id\": \"2\"\r\n\t\t},\r\n\t\t\"relationships\": {\r\n\t\t\t\"workflow\": {\r\n\t\t\t\t\"data\": {\r\n\t\t\t\t\t\"type\": \"workflow\",\r\n\t\t\t\t\t\"id\": \"{{workflow_id}}\"\r\n\t\t\t\t}\r\n\t\t\t}\r\n    \t}\r\n\t}\r\n}"
+										},
+										"url": "{{base_url}}/v1/workflowsteps"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.7"
+										},
+										{
+											"key": "Location",
+											"value": "http://localhost:8012/v1/WorkflowStep/WorkflowSteps"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 21 Oct 2025 09:05:12 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "01K8307VNH6R9FQBP0EXAYM7JQ"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "01K8307VNH6R9FQBP0EXAYM7JQ"
+										},
+										{
+											"key": "ETag",
+											"value": "\"8927ff41f665f78d9767f28f6c573b25\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';font-src 'self' data:;form-action 'self';frame-src 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-Zzh5YvBWUpzsk1JgHsmlpFEsGNUP8UzA';style-src 'self' 'nonce-Zzh5YvBWUpzsk1JgHsmlpFEsGNUP8UzA'"
+										},
+										{
+											"key": "Request-Id",
+											"value": "cdac5d7e-1c98-44bb-b4e0-cc37321e2e1c"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"workflowstep\",\n        \"id\": \"8\",\n        \"attributes\": {\n            \"type\": \"use\",\n            \"options\": {\n                \"name\": \"Test_extractor_-_461\",\n                \"from_date\": -2,\n                \"to_date\": 0,\n                \"arguments\": \"arg3 arg4\",\n                \"environment_id\": null\n            },\n            \"timeout\": 600,\n            \"wait\": true\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/workflowsteps/8\"\n        },\n        \"relationships\": {\n            \"workflow\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/8/relationships/workflow\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/8/workflow\"\n                }\n            },\n            \"steplogs\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/8/relationships/steplogs\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/8/steplogs\"\n                }\n            },\n            \"previous\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/workflowsteps/8/relationships/previous\",\n                    \"related\": \"http://localhost:8012/v1/workflowsteps/8/previous\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
@@ -30700,7 +30811,7 @@
 	],
 	"variable": [
 		{
-			"id": "97b56f3f-cf11-4387-8407-2286c8fece6e",
+			"id": "272b8d66-3a93-43f9-9003-289d30ca573f",
 			"key": "component",
 			"value": "use"
 		}
