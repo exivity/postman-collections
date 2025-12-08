@@ -15620,6 +15620,117 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": {\n        \"type\": \"metadatadefinition\",\n        \"id\": \"9\",\n        \"attributes\": {\n            \"name\": \"Employee\",\n            \"fields\": [\n                {\n                    \"list\": [\n                        \"France\",\n                        \"The Netherlands\",\n                        \"Germany\",\n                        \"Spain\",\n                        \"Japan\"\n                    ],\n                    \"name\": \"country\",\n                    \"type\": \"list\"\n                },\n                {\n                    \"name\": \"colour\",\n                    \"type\": \"string\",\n                    \"validate\": \"/([a-z])\\\\w+/\"\n                },\n                {\n                    \"name\": \"dob\",\n                    \"type\": \"date\"\n                },\n                {\n                    \"name\": \"cars\",\n                    \"type\": \"date\"\n                }\n            ]\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/metadatadefinitions/9\"\n        },\n        \"relationships\": {\n            \"metadata\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadatadefinitions/9/relationships/metadata\",\n                    \"related\": \"http://localhost:8012/v1/metadatadefinitions/9/metadata\"\n                }\n            },\n            \"datasets\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadatadefinitions/9/relationships/datasets\",\n                    \"related\": \"http://localhost:8012/v1/metadatadefinitions/9/datasets\"\n                }\n            }\n        }\n    }\n}"
+								},
+								{
+									"id": "84596fda-599e-449f-9356-117e58e2468c",
+									"name": "Add a new metadata definition (string_array)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"SAML User Attributes\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t    \"name\": \"user_groups\",\r\n                    \"type\": \"string_array\",\r\n                    \"validate\": \"/^[a-zA-Z0-9_-]+$/\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+										},
+										"url": "{{base_url}}/v1/metadatadefinitions"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.7"
+										},
+										{
+											"key": "Location",
+											"value": "http://localhost:8012/v1/MetadataDefinition/MetadataDefinitions"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Dec 2025 12:10:57 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "01KBYXYFFSDT7XMHT97ZJT2VZT"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "01KBYXYFFSDT7XMHT97ZJT2VZT"
+										},
+										{
+											"key": "ETag",
+											"value": "\"ab2e73905c90ab15cad2dae870ba612e\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';font-src 'self' data:;form-action 'self';frame-src 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-sPuPT51KyqL55wN341P1JtMUkkUMb01I';style-src 'self' 'nonce-sPuPT51KyqL55wN341P1JtMUkkUMb01I'"
+										},
+										{
+											"key": "Request-Id",
+											"value": "f43acc1c-563f-4054-ab4d-fd75ee294115"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"metadatadefinition\",\n        \"id\": \"4\",\n        \"attributes\": {\n            \"name\": \"SAML User Attributes\",\n            \"fields\": [\n                {\n                    \"name\": \"user_groups\",\n                    \"type\": \"string_array\",\n                    \"validate\": \"/^[a-zA-Z0-9_-]+$/\"\n                }\n            ]\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/metadatadefinitions/4\"\n        },\n        \"relationships\": {\n            \"metadata\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadatadefinitions/4/relationships/metadata\",\n                    \"related\": \"http://localhost:8012/v1/metadatadefinitions/4/metadata\"\n                }\n            },\n            \"datasets\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadatadefinitions/4/relationships/datasets\",\n                    \"related\": \"http://localhost:8012/v1/metadatadefinitions/4/datasets\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
