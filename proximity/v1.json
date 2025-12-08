@@ -16483,6 +16483,117 @@
 									"cookie": [],
 									"responseTime": null,
 									"body": "{\n    \"data\": {\n        \"type\": \"metadata\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"values\": {\n                \"country\": \"The Netherlands\"\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/metadata/1\"\n        },\n        \"relationships\": {\n            \"accounts\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadata/1/relationships/accounts\",\n                    \"related\": \"http://localhost:8012/v1/metadata/1/accounts\"\n                }\n            },\n            \"definition\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadata/1/relationships/definition\",\n                    \"related\": \"http://localhost:8012/v1/metadata/1/definition\"\n                }\n            },\n            \"services\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadata/1/relationships/services\",\n                    \"related\": \"http://localhost:8012/v1/metadata/1/services\"\n                }\n            }\n        }\n    }\n}"
+								},
+								{
+									"id": "55fa3109-7120-47e4-8e00-a141df554c05",
+									"name": "Add new metadata (string_array)",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/vnd.api+json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/vnd.api+json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"data\": {\r\n    \"type\": \"metadata\",\r\n    \"attributes\": {\r\n      \"values\": {\r\n        \"user_groups\": [\"admin\", \"developers\", \"qa-team\"]\r\n      }\r\n    },\r\n    \"relationships\": {\r\n      \"definition\": {\r\n        \"data\": {\r\n          \"type\": \"metadatadefinition\",\r\n          \"id\": \"4\"\r\n        }\r\n      }\r\n    }\r\n  }\r\n}"
+										},
+										"url": "{{base_url}}/v1/metadata"
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8012"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.4.7"
+										},
+										{
+											"key": "Location",
+											"value": "http://localhost:8012/v1/Metadata/Metadatas"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Date",
+											"value": "Mon, 08 Dec 2025 12:15:26 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/vnd.api+json"
+										},
+										{
+											"key": "X-Clockwork-Id",
+											"value": "01KBYY6NZ0BKHG2CWF2E71MVC5"
+										},
+										{
+											"key": "X-Clockwork-Version",
+											"value": "9"
+										},
+										{
+											"key": "X-Clockwork-Path",
+											"value": "_debugbar/clockwork/"
+										},
+										{
+											"key": "phpdebugbar-id",
+											"value": "01KBYY6NZ0BKHG2CWF2E71MVC5"
+										},
+										{
+											"key": "ETag",
+											"value": "\"917d30fa9f84fb53d9f467a69986cc7d\""
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "1; mode=block"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Feature-Policy",
+											"value": "autoplay 'none'; camera 'none'"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "strict-origin"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "base-uri 'self';connect-src 'self';default-src 'self';font-src 'self' data:;form-action 'self';frame-src 'self';img-src 'self' data:;media-src 'self';object-src 'none';script-src 'self' 'nonce-Noh3EK3RD7nhvEAdifhoX6rNcEkTiAQ6';style-src 'self' 'nonce-Noh3EK3RD7nhvEAdifhoX6rNcEkTiAQ6'"
+										},
+										{
+											"key": "Request-Id",
+											"value": "af2a5562-3647-4605-b4b1-e91c28b11335"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"data\": {\n        \"type\": \"metadata\",\n        \"id\": \"2\",\n        \"attributes\": {\n            \"values\": {\n                \"user_groups\": [\n                    \"admin\",\n                    \"developers\",\n                    \"qa-team\"\n                ]\n            }\n        },\n        \"links\": {\n            \"self\": \"http://localhost:8012/v1/metadata/2\"\n        },\n        \"relationships\": {\n            \"accounts\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadata/2/relationships/accounts\",\n                    \"related\": \"http://localhost:8012/v1/metadata/2/accounts\"\n                }\n            },\n            \"definition\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadata/2/relationships/definition\",\n                    \"related\": \"http://localhost:8012/v1/metadata/2/definition\"\n                }\n            },\n            \"services\": {\n                \"links\": {\n                    \"self\": \"http://localhost:8012/v1/metadata/2/relationships/services\",\n                    \"related\": \"http://localhost:8012/v1/metadata/2/services\"\n                }\n            }\n        }\n    }\n}"
 								}
 							]
 						},
