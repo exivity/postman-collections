@@ -14962,7 +14962,9 @@
 											"pm.environment.set(\"metadatadefinition_id\", response.data.id);",
 											"console.log('SET metadatadefinition_id: ' + pm.environment.get(\"metadatadefinition_id\"));"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
 									}
 								}
 							],
@@ -14981,7 +14983,6 @@
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/vnd.api+json",
 										"type": "text"
 									},
@@ -14992,14 +14993,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\t\"data\": {\r\n\t\t\"type\": \"metadatadefinition\",\r\n\t\t\"attributes\": {\r\n\t\t\t\"name\": \"Test definition\",\r\n\t\t\t\"fields\": [\r\n\t\t\t\t{\r\n\t\t\t\t  \"name\": \"country\",\r\n\t\t\t\t  \"type\": \"string\"\r\n\t\t\t\t}\r\n\t\t\t]\r\n\t\t}\r\n\t}\r\n}"
+									"raw": "{\r\n  \"data\": {\r\n    \"type\": \"metadatadefinition\",\r\n    \"attributes\": {\r\n      \"name\": \"Comprehensive User Profile\",\r\n      \"fields\": [\r\n        {\r\n          \"name\": \"email\",\r\n          \"type\": \"string\",\r\n          \"validate\": \"/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$/\"\r\n        },\r\n        {\r\n          \"name\": \"department\",\r\n          \"type\": \"list\",\r\n          \"list\": [\"engineering\", \"sales\", \"marketing\", \"finance\", \"operations\"]\r\n        },\r\n        {\r\n          \"name\": \"cost_center\",\r\n          \"type\": \"numeric\"\r\n        },\r\n        {\r\n          \"name\": \"start_date\",\r\n          \"type\": \"date\"\r\n        },\r\n        {\r\n          \"name\": \"user_groups\",\r\n          \"type\": \"string_array\"\r\n        },\r\n        {\r\n          \"name\": \"tags\",\r\n          \"type\": \"string_array\",\r\n          \"validate\": \"/^[a-z0-9-]+$/\"\r\n        }\r\n      ]\r\n    }\r\n  }\r\n}"
 								},
 								"url": "{{base_url}}/v1/metadatadefinitions"
 							},
 							"response": [
 								{
 									"id": "dfad9762-cd1d-4de0-bc1b-e2a6024eb169",
-									"name": "Add a new metadata definition",
+									"name": "SAML User Attributes",
 									"originalRequest": {
 										"method": "POST",
 										"header": [
