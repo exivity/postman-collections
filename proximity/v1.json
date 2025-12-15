@@ -27016,10 +27016,12 @@
 													"        \"configuration\"",
 													"    ]);",
 													"    pm.expect(response.configuration).to.be.an('object');",
-													"    pm.expect(response.configuration.MAIL_FROM_NAME).to.equal(\"Updated from Postman Test\")",
+													"    pm.expect(response.configuration.MAIL_FROM_NAME).to.equal(\"MyNewAppName\")",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"packages": {},
+												"requests": {}
 											}
 										}
 									],
@@ -27048,7 +27050,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_NAME\": \"MyApp\"\r\n   }\r\n}"
+											"raw": "{  \r\n   \"configuration\":{  \r\n      \"MAIL_FROM_NAME\": \"MyNewAppName\"\r\n   }\r\n}"
 										},
 										"url": "{{base_url}}/v1/system/services/"
 									},
